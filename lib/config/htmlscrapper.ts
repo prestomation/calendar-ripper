@@ -20,9 +20,9 @@ export abstract class HTMLRipper implements IRipper {
         const daysToRip = Array.from({ length: days }, (_, i) => LocalDateTime.now().plusDays(i));
 
         // map of string to a list of RipperEvents
-        const calendars: { [key: string]: RipperEvent[] } = {};
+        const calendars: { [key: string]: {events: RipperEvent[], friendlyName: string} } = {};
         for (const c of ripper.config.calendars) {
-            calendars[c.name] = [];
+            calendars[c.name] = {events: [], friendlyName: c.friendlyname};
         }
 
         for (const day of daysToRip) {
@@ -38,7 +38,7 @@ export abstract class HTMLRipper implements IRipper {
             for (const cal of ripper.config.calendars) {
 
                 const events = await this.parseEvents(html, ZonedDateTime.of(day, cal.timezone), cal.config);
-                calendars[cal.name] = calendars[cal.name].concat(events);
+                calendars[cal.name].events = calendars[cal.name].events.concat(events);
             };
         };
 
@@ -46,7 +46,8 @@ export abstract class HTMLRipper implements IRipper {
         return Object.keys(calendars).map(key => {
             return {
                 name: key,
-                events: calendars[key].filter(e => "date" in e).map(e => e as RipperCalendarEvent)
+                friendlyname: calendars[key].friendlyName,
+                events: calendars[key].events.filter(e => "date" in e).map(e => e as RipperCalendarEvent)
             }
         });
 

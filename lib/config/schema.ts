@@ -9,9 +9,10 @@ const createICSEvents = promisify(icsOriginal.createEvents);
 
 
 export const calendarConfigSchema = z.object({
-    name: z.string(),
+    name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     config: z.object({}).passthrough(),
-    timezone: z.string().transform(ZoneRegion.of)
+    timezone: z.string().transform(ZoneRegion.of),
+    friendlyname: z.string()
 });
 
 export const configSchema = z.object({
@@ -72,6 +73,7 @@ export type RipperEvent = RipperCalendarEvent | RipperError;
 
 export interface RipperCalendar {
     name: string;
+    friendlyname: string;
     events: RipperCalendarEvent[]
 };
 
@@ -99,6 +101,7 @@ export const toICS = async(calendar: RipperCalendar): Promise<string> => {
             location: e.location,
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
+            calName: calendar.friendlyname
         };
         return m;
     });

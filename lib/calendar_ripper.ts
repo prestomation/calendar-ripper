@@ -1,9 +1,6 @@
 import { RipperLoader } from "./config/loader.js";
-import * as icsOriginal from 'ics'
 import { writeFile, mkdir } from 'fs/promises'
-import { promisify } from 'util';
 import { toICS } from "./config/schema.js";
-const createEvents = promisify(icsOriginal.createEvents);
 
 export const main = async () => {
 

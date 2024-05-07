@@ -20,7 +20,8 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
+    - name: Run unit tests
+      run: npm run test
     - name: Generate calendars
       run: npm run generate-calendars
 

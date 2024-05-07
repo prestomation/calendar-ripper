@@ -8,6 +8,9 @@ import { Locale } from "@js-joda/locale_en-us";
 const timeRegex = /(\d?\d):(\d\d) ([ap]m) \/ (\d+) minutes/g
 const timeParser = DateTimeFormatter.ofPattern('hh:mm').withLocale(Locale.US);
 
+// TODO: The base URL is modeled in our ripper.yaml
+// How do we get it from there?
+const baseUrl = "https://www.siff.net";
 export default class SIFFRipper extends HTMLRipper {
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
@@ -17,6 +20,16 @@ export default class SIFFRipper extends HTMLRipper {
         const events: RipperEvent[] = locationNodes.map(e => {
             const title = e.querySelector(".title")?.innerText;
             const timeStr = e.querySelector(".time")?.outerHTML.matchAll(timeRegex)
+            // There is a link to the modal that we want to follow in the DOM
+            const idHref = e.querySelector("a")?.getAttribute("href");
+            let link = `https://lmgtfy.com/?q=film%20${title}` 
+            if(idHref != null) {
+                // Find the link inside of it and we got our link
+                const modalLink = html.querySelector(`${idHref} a`)?.getAttribute("href");
+                if (modalLink != null) {
+                    link = `${baseUrl}${modalLink}`;
+                }
+            }
             if (timeStr === null) {
                 const error: ParseError = {
                     type: "ParseError",
@@ -53,7 +66,8 @@ export default class SIFFRipper extends HTMLRipper {
                 location: config.name,
                 date: movieTime,
                 duration,
-                ripped: convert(LocalDateTime.now()).toDate()
+                ripped: convert(LocalDateTime.now()).toDate(),
+                url: link
             };
             return a;
         });

@@ -62,7 +62,7 @@ export default class SIFFRipper extends HTMLRipper {
 
             const a: RipperCalendarEvent = {
                 description: "",
-                summary: `[${config.name}] ${title}`,
+                summary: `[SIFF] ${title}`,
                 location: config.name,
                 date: movieTime,
                 duration,

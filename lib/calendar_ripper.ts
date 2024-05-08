@@ -1,6 +1,12 @@
 import { RipperLoader } from "./config/loader.js";
 import { writeFile, mkdir } from 'fs/promises'
-import { toICS } from "./config/schema.js";
+import {RipperCalendar, RipperConfig, toICS } from "./config/schema.js";
+
+const generateCalendarList = (ripper: RipperConfig, calendars: RipperCalendar[]) => {
+
+    const toc = calendars.map(calendar => `<p><a href="${ripper.name}-${calendar.name}.ics">${calendar.friendlyname}</a></p>`).join("\n");
+    return `<h2>${ripper.description}:</h2>\n ${toc}`;
+}
 
 export const main = async () => {
 
@@ -14,14 +20,20 @@ export const main = async () => {
     }
     catch (e) { }
 
+    let tableOfContents: string = "";
+
     for (const config of configs) {
         const calendars = await config.ripperImpl.rip(config);
 
         for (const calendar of calendars) {
             const icsString = await toICS(calendar);
-            const path = `output/${calendar.name}.ics`;
+            const path = `output/${config.config.name}-${calendar.name}.ics`;
             console.log(`Writing ${path}`);
             await writeFile(path, icsString);
         }
+        tableOfContents += generateCalendarList(config.config, calendars);
+        
     };
+    console.log("writing table of contents");
+    await writeFile("output/index.html", tableOfContents);
 }

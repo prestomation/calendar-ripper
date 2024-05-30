@@ -13,7 +13,7 @@ export abstract class HTMLRipper implements IRipper {
         const urlParser = new URLParser(ripper.config.url);
 
         const now = LocalDateTime.now();
-        const endOfPeriod = now.plus(ripper.config.lookahead)
+        const endOfPeriod = ripper.config.lookahead ?  now.plus(ripper.config.lookahead) : LocalDateTime.now().plusDays(1);
         const days = now.until(endOfPeriod, ChronoUnit.DAYS);
 
         // Create an list of days starting from today and ending + lookahead days from now

@@ -1,6 +1,6 @@
 import { RipperLoader } from "./config/loader.js";
 import { writeFile, mkdir } from 'fs/promises'
-import {RipperCalendar, RipperConfig, toICS } from "./config/schema.js";
+import { RipperCalendar, RipperConfig, toICS } from "./config/schema.js";
 
 const generateCalendarList = (ripper: RipperConfig, calendars: RipperCalendar[]) => {
 
@@ -32,7 +32,7 @@ export const main = async () => {
             await writeFile(path, icsString);
         }
         tableOfContents += generateCalendarList(config.config, calendars);
-        
+
     };
     console.log("writing table of contents");
     await writeFile("output/index.html", tableOfContents);

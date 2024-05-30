@@ -10,7 +10,7 @@ const createICSEvents = promisify(icsOriginal.createEvents);
 
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
-    config: z.object({}).passthrough(),
+    config: z.object({}).passthrough().optional(),
     timezone: z.string().transform(ZoneRegion.of),
     friendlyname: z.string()
 });
@@ -28,7 +28,7 @@ export const configSchema = z.object({
             return true;
         }
         catch (e) { return false; }
-    }, { message: "Must parse as valid ISO-8601 period. e.g. P1M" }).transform(p => Period.parse(p)),
+    }, { message: "Must parse as valid ISO-8601 period. e.g. P1M" }).transform(p => Period.parse(p)).optional(),
 }).strict();
 
 
@@ -63,8 +63,8 @@ export interface RipperCalendarEvent {
     date: ZonedDateTime;
     duration: Duration,
     summary: string;
-    description: string;
-    location: string;
+    description?: string;
+    location?: string;
     url?: string;
 };
 
@@ -101,7 +101,9 @@ export const toICS = async(calendar: RipperCalendar): Promise<string> => {
             location: e.location,
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
-            calName: calendar.friendlyname
+            calName: calendar.friendlyname,
+            url: e.url
+            
         };
         return m;
     });

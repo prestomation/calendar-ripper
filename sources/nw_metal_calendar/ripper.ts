@@ -14,7 +14,7 @@ export default class NWMetalRipper extends HTMLRipper {
         const locationNodes = html.querySelectorAll(".entry p");
 
         const events: RipperEvent[] = locationNodes.map(e => {
-            const eventMatches = e.outerHTML.matchAll(eventRegex);
+            const eventMatches = e.innerText.matchAll(eventRegex);
 
             // Why does typescript not know this cannot be null?
             const matches = Array.from(eventMatches!);

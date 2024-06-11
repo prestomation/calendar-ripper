@@ -1,6 +1,9 @@
 name: Generate Calendars and Publish to GitHub Pages
 
 on:
+  schedule:
+    - cron: "0 0 * * *" # Daily
+
   push:
     branches:
       - main  

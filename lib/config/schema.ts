@@ -44,6 +44,7 @@ export type FileParseError = ErrorBase & {
 
 export type ParseError = ErrorBase & {
     type: "ParseError",
+    context: string | undefined;
 };
 
 export type ImportError = ErrorBase & {
@@ -58,6 +59,7 @@ export type InvalidDateError = ErrorBase & {
 
 
 export interface RipperCalendarEvent {
+    // Do not add Type, type is how we guard against RipperError
     id?: string;
     ripped: Date;
     date: ZonedDateTime;
@@ -74,7 +76,8 @@ export type RipperEvent = RipperCalendarEvent | RipperError;
 export interface RipperCalendar {
     name: string;
     friendlyname: string;
-    events: RipperCalendarEvent[]
+    events: RipperCalendarEvent[];
+    errors: RipperError[];
 };
 
 

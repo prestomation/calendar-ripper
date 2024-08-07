@@ -1,5 +1,5 @@
 import { ChronoUnit, LocalDateTime, ZonedDateTime, convert, } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { URLParser } from "./urlparse.js"
 import '@js-joda/timezone'
@@ -47,7 +47,8 @@ export abstract class HTMLRipper implements IRipper {
             return {
                 name: key,
                 friendlyname: calendars[key].friendlyName,
-                events: calendars[key].events.filter(e => "date" in e).map(e => e as RipperCalendarEvent)
+                events: calendars[key].events.filter(e => "date" in e).map(e => e as RipperCalendarEvent),
+                errors: calendars[key].events.filter(e => "type" in e).map(e => e as RipperError)
             }
         });
 

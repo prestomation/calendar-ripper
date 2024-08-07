@@ -26,12 +26,21 @@ jobs:
     - name: Run unit tests
       run: npm run test
     - name: Generate calendars
-      run: npm run generate-calendars
-
+      id: generate-calendars
+      run: | 
+        npm run generate-calendars
+        echo "ERROR_COUNT=$(cat errorCount.txt)"" >> "$GITHUB_OUTPUT"
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: 'output/'
+    - name: Check Error Count
+      env:
+        ERROR_COUNT: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
+      # Fail this if we have a positive error count.
+      # This way we keep publishing our calendars even if there are errors, but we get a notification from this failed step
+      run: (( $ERROR_COUNT == 0 ))
+
 
   deploy:
     permissions:

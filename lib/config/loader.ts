@@ -34,6 +34,7 @@ export class RipperLoader {
 
         for (const sourceDirectory of validSourceDirectories) {
             try {
+                console.log(`Loading config from ${sourceDirectory.name}`);
                 const { config, ripperImpl } = await loadRipper(sourceDirectory);
                 rippers.push({ config, ripperImpl });
             }

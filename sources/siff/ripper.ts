@@ -44,9 +44,9 @@ export default class SIFFRipper extends HTMLRipper {
                 let o = e.querySelector(".time")!.outerHTML;
                 const error: ParseError = {
                     type: "ParseError",
-                    reason: `Could not parse context using regex ${timeParser.toString()}: ${o}`
+                    reason: `Could not parse context using regex ${timeParser.toString()}`,
+                    context: o
                 };
-                console.error(error);
                 return error;
             }
             const all = matches[0][0];

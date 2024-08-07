@@ -29,7 +29,7 @@ jobs:
       id: generate-calendars
       run: | 
         npm run generate-calendars
-        echo "ERROR_COUNT=$(cat errorCount.txt)"" >> "$GITHUB_OUTPUT"
+        echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:

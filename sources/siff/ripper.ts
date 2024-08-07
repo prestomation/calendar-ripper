@@ -33,7 +33,8 @@ export default class SIFFRipper extends HTMLRipper {
             if (timeStr === null) {
                 const error: ParseError = {
                     type: "ParseError",
-                    reason: `.time Selector found nothing: ${e.toString()}`,
+                    reason: `.time Selector found nothing`,
+                    context: e.toString(),
                 };
                 console.error(error);
                 return error;

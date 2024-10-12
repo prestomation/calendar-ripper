@@ -48,6 +48,7 @@ export const main = async () => {
         }
         tableOfContents += generateCalendarList(config.config, outputs);
     };
+    tableOfContents += `\n\nLast generated ${new Date()}`
     console.log("writing table of contents");
     await writeFile("output/index.html", tableOfContents);
 

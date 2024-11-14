@@ -32,6 +32,7 @@ export const main = async () => {
     let totalErrorCount = 0;
 
     for (const config of configs) {
+        console.log(`Processing ${config.config.name}`)
         const calendars = await config.ripperImpl.rip(config);
 
         let outputs: CalendarOutput[] = [];
@@ -42,6 +43,12 @@ export const main = async () => {
             const errorCount = calendar.errors.length;
             totalErrorCount += errorCount;
             console.log(`Writing ${icsPath}`);
+            if(errorCount == 0) {
+                console.log(`No Errors for ${config.config.name}`)
+            }
+            else {
+                console.error(calendar.errors);
+            }
             await writeFile(`output/${icsPath}`, icsString);
             await writeFile(`output/${errorsPath}`, JSON.stringify(calendar.errors, null, 2));
             outputs.push({errorCount, errorsPath, icsPath, friendlyName: calendar.friendlyname});

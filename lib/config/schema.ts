@@ -1,6 +1,6 @@
 import { Duration, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { z } from "zod";
-import {promisify} from 'util';
+import { promisify } from 'util';
 import * as icsOriginal from 'ics';
 
 import '@js-joda/timezone'
@@ -91,7 +91,7 @@ export interface IRipper {
 }
 
 
-export const toICS = async(calendar: RipperCalendar): Promise<string> => {
+export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
         const utcDate = convert(e.date).toDate();
@@ -99,14 +99,14 @@ export const toICS = async(calendar: RipperCalendar): Promise<string> => {
             title: e.summary,
             startInputType: "utc",
             start: utcDate.getTime(),
-            duration: { hours: e.duration.toHours(), minutes: e.duration.toMinutes() % 60},
+            duration: { hours: e.duration.toHours(), minutes: e.duration.toMinutes() % 60 },
             description: e.description,
             location: e.location,
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
             url: e.url
-            
+
         };
         return m;
     });
@@ -114,4 +114,24 @@ export const toICS = async(calendar: RipperCalendar): Promise<string> => {
     const ics = await createICSEvents(mapped) as string;
 
     return ics;
+}
+
+export function isRipperEvent(item: unknown): item is RipperEvent {
+    if (typeof item !== "object" || item === null) {
+        return false;
+    }
+
+    const maybeError = item as Partial<ErrorBase>;
+    if (typeof maybeError.type === "string" && typeof maybeError.reason === "string") {
+        return true; // probably an error
+    }
+    const maybeEvent = item as Partial<RipperCalendarEvent>;
+    return maybeEvent.ripped instanceof Date &&
+        maybeEvent.date instanceof ZonedDateTime &&
+        maybeEvent.duration instanceof Duration &&
+        typeof maybeEvent.summary === "string" &&
+        (maybeEvent.id === undefined || typeof maybeEvent.id === "string") &&
+        (maybeEvent.description === undefined || typeof maybeEvent.description === "string") &&
+        (maybeEvent.location === undefined || typeof maybeEvent.location === "string") &&
+        (maybeEvent.url === undefined || typeof maybeEvent.url === "string");
 }

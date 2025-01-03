@@ -1,6 +1,6 @@
 import { DateTimeFormatter, Duration, LocalDateTime, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { ParseError, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { isRipperEvent, ParseError, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
 import { Locale } from "@js-joda/locale_en-us";
 
@@ -15,7 +15,7 @@ export default class SAFRipper extends HTMLRipper {
 
         const locationNodes = html.querySelectorAll(".calendar-info");
 
-        const events: RipperEvent[] = locationNodes.map(e => {
+        const events: (RipperEvent | null)[] = locationNodes.map(e => {
             try {
                 const titleElement = e.querySelector(".calendar-info-title")
                 const title = titleElement?.innerText.trim();
@@ -34,7 +34,7 @@ export default class SAFRipper extends HTMLRipper {
                 }
                 // Why does typescript not know this cannot be null?
                 const matches = Array.from(timeStr!);
-                if(matches.length == 0) {
+                if (matches.length == 0) {
                     // Sometimes there are entries like 'Feb-Dec stupid stuff'
                     // which isn't a real event. It's possible we skip real stuff
                     // but do this for now.
@@ -76,7 +76,8 @@ export default class SAFRipper extends HTMLRipper {
                 }
                 return parseE;
             }
-        }).filter(e => e != null);
-        return events;
+        });
+        const filtered = events.filter(isRipperEvent);
+        return filtered;
     }
 }

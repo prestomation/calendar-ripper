@@ -152,89 +152,6 @@ const expectedEvents = [
     }
 ]
 
-const expectedEvents2 = 
-    [
-        {
-            "id": "161155809",
-            "summary": "[SAF] Seattle Skyline: History, Context & Culture",
-            "date": "2025-01-18T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161155809/seattle-skyline-history-context-culture"
-        },
-        {
-            "id": "161931449",
-            "summary": "[SAF] Design in Depth: New Housing Models for a Changing PNW",
-            "date": "2025-01-22T17:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161931449/design-in-depth-new-housing-models-for-a-changing-pnw"
-        },
-        {
-            "id": "161155867",
-            "summary": "[SAF] Madrona Neighborhood: Streetcar Suburb; Model for Neighborhood Involvement",
-            "date": "2025-01-25T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161155867/madrona-neighborhood-streetcar-suburb-model-for-neighborhood-involvement"
-        },
-        {
-            "id": "160370316",
-            "summary": "[SAF] Design Your School ⎮ Family Workshop",
-            "date": "2025-02-01T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/160370316/design-your-school-family-workshop"
-        },
-        {
-            "id": "161155912",
-            "summary": "[SAF] Diamonds & Gold: The Art Deco Skyscraper Northwest Style",
-            "date": "2025-02-01T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161155912/diamonds-gold-the-art-deco-skyscraper-northwest-style"
-        },
-        {
-            "id": "161156023",
-            "summary": "[SAF] From Stone to Steel: Seattle Style from Then ‘til Now",
-            "date": "2025-02-08T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161156023/from-stone-to-steel-seattle-style-from-then-til-now"
-        },
-        {
-            "id": "161155959",
-            "summary": "[SAF] Queen Anne: Evolution of an Urban Neighborhood",
-            "date": "2025-02-08T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161155959/queen-anne-evolution-of-an-urban-neighborhood"
-        },
-        {
-            "id": "161156079",
-            "summary": "[SAF] Mt. Baker: More Than a View",
-            "date": "2025-02-15T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161156079/mt-baker-more-than-a-view"
-        },
-        {
-            "id": "161156128",
-            "summary": "[SAF] Harvard Belmont District Tour: The Rich Life on Capitol Hill",
-            "date": "2025-02-22T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161156128/harvard-belmont-district-tour-the-rich-life-on-capitol-hill"
-        },
-        {
-            "id": "161156198",
-            "summary": "[SAF] South Lake Union: Then & Now",
-            "date": "2025-02-22T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/161156198/south-lake-union-then-now"
-        },
-        {
-            "id": "160370699",
-            "summary": "[SAF] Skyscrapers ⎮ Family Workshop",
-            "date": "2025-03-01T10:00-08:00[America/Los_Angeles]",
-            "duration": "PT2H",
-            "url": "https://seattlearchitecture.strangertickets.com/events/160370699/skyscrapers-family-workshop"
-        }
-    ]
-
-
-
 describe('SAF', () => {
     test('Read a static test HTML file and ensure the events we get back are as expected', async () => {
         const exampleData = await readFile("sources/seattlearchitecture/saf-2024-05-29.html");
@@ -246,18 +163,5 @@ describe('SAF', () => {
             return e as RipperCalendarEvent;
         });
         expect(JSON.parse(JSON.stringify(rippedRemoved))).toEqual(expectedEvents);
-    })
-
-    test('Read a second static test HTML file and ensure the events we get back are as expected', async () => {
-        const exampleData = await readFile("sources/seattlearchitecture/saf-2025-01-02.html");
-        const exampleHTML = parse(exampleData.toString());
-        const safRipper = new SAFRipper();
-        const events: RipperEvent[] = await safRipper.parseEvents(exampleHTML, ZonedDateTime.ofInstant(Instant.ofEpochMilli(1715324400000), ZoneRegion.of("US/Pacific")), {});
-        const rippedRemoved: RipperCalendarEvent[] = events.filter(e => "ripped" in e).map(e => {
-            delete (e as any).ripped;
-            return e as RipperCalendarEvent;
-        });
-        console.log(JSON.stringify(rippedRemoved))
-        // expect(JSON.parse(JSON.stringify(rippedRemoved))).toEqual(expectedEvents);
     })
 });

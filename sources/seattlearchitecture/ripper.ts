@@ -4,8 +4,10 @@ import { ParseError, RipperCalendarEvent, RipperError, RipperEvent } from "../..
 import { HTMLElement } from 'node-html-parser';
 import { Locale } from "@js-joda/locale_en-us";
 
-
-const timeRegex = /[a-zA-Z]{3}, ([a-zA-Z]{3}) ([0-9]{1,2}) (at|from) ([0-9]+)(:([0-9]{2}))?(am|pm)/g
+// examples
+// Sat, Jun 8 from 10am - 12pm
+// Sat, Apr 5, 2025 from 10am - 12pm
+const timeRegex = /[a-zA-Z]{3}, ([a-zA-Z]{3}) ([0-9]{1,2})(?:, [0-9]{4})? (at|from) ([0-9]+)(:([0-9]{2}))?(am|pm)/g
 
 export default class SAFRipper extends HTMLRipper {
 
@@ -32,6 +34,12 @@ export default class SAFRipper extends HTMLRipper {
                 }
                 // Why does typescript not know this cannot be null?
                 const matches = Array.from(timeStr!);
+                if(matches.length == 0) {
+                    // Sometimes there are entries like 'Feb-Dec stupid stuff'
+                    // which isn't a real event. It's possible we skip real stuff
+                    // but do this for now.
+                    return null;
+                }
                 const all = matches[0][0];
                 const monthStr = matches[0][1];
                 const day = Number(matches[0][2]);
@@ -62,13 +70,13 @@ export default class SAFRipper extends HTMLRipper {
             }
             catch (error) {
                 const parseE: ParseError = {
-                    reason: error instanceof Error ? error.toString() : error as string,
+                    reason: error instanceof Error ? error.stack! : error as string,
                     type: "ParseError",
                     context: e.toString()
                 }
                 return parseE;
             }
-        });
+        }).filter(e => e != null);
         return events;
     }
 }

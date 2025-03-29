@@ -1,7 +1,6 @@
 import { Duration, LocalDateTime, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
-import { decode } from 'html-entities';
 import { HTMLElement } from 'node-html-parser';
 
 

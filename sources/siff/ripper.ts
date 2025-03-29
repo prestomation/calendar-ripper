@@ -18,7 +18,7 @@ export default class SIFFRipper extends HTMLRipper {
         const locationNodes = html.querySelectorAll(config.cssSelector);
 
         const events: RipperEvent[] = locationNodes.map(e => {
-            const title = e.querySelector(".title")?.innerText;
+            const title = e.querySelector(".title")?.textContent;
             const timeStr = e.querySelector(".time")?.outerHTML.matchAll(timeRegex)
             // There is a link to the modal that we want to follow in the DOM
             const idHref = e.querySelector("a")?.getAttribute("href");

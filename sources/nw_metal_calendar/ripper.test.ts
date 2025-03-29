@@ -63,7 +63,7 @@ const expectedEvents = [
         "summary": "[NWMetal] Exhumed, Skeletal Remains, Morbikon",
         "date": `${currentYear}-06-16T19:00-07:00[America/Los_Angeles]`,
         "duration": "PT4H",
-        "location": "Madame Lou&#8217;s"
+        "location": "Madame Lou’s"
     },
     {
         "summary": "[NWMetal] Abrams, Goya, Sorcia",
@@ -84,7 +84,7 @@ const expectedEvents = [
         "location": "Clock-Out Lounge"
     },
     {
-        "summary": "[NWMetal] A Skylit Drive, Silent Theory, What&#8217;s Wrong",
+        "summary": "[NWMetal] A Skylit Drive, Silent Theory, What’s Wrong",
         "date": `${currentYear}-06-22T19:00-07:00[America/Los_Angeles]`,
         "duration": "PT4H",
         "location": "Funhouse"
@@ -195,7 +195,7 @@ const expectedEvents = [
         "summary": "[NWMetal] Ragana, Agriculture",
         "date": `${currentYear}-07-25T19:00-07:00[America/Los_Angeles]`,
         "duration": "PT4H",
-        "location": "Madame Lou&#8217;s"
+        "location": "Madame Lou’s"
     },
     {
         "summary": "[NWMetal] Tithe, Vulnere, Vile Rites, Villainous Temple",
@@ -273,7 +273,7 @@ const expectedEvents = [
         "summary": "[NWMetal] Goatwhore, Vitriol, Thantifaxath",
         "date": `${currentYear}-08-25T19:00-07:00[America/Los_Angeles]`,
         "duration": "PT4H",
-        "location": "Dante&#8217;s (Portland)"
+        "location": "Dante’s (Portland)"
     },
     {
         "summary": "[NWMetal] Goatwhore, Vitriol, Thantifaxath",

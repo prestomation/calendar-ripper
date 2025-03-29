@@ -1,8 +1,8 @@
-import { DateTimeFormatter, Duration, LocalDateTime, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
+import { Duration, LocalDateTime, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { ParseError, RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
+import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
+import { decode } from 'html-entities';
 import { HTMLElement } from 'node-html-parser';
-import { Locale } from "@js-joda/locale_en-us";
 
 
 const eventRegex = /(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) (\d\d?) at (.*): (.*)/g
@@ -14,7 +14,8 @@ export default class NWMetalRipper extends HTMLRipper {
         const locationNodes = html.querySelectorAll(".entry p");
 
         const events: RipperEvent[] = locationNodes.map(e => {
-            const eventMatches = e.innerText.matchAll(eventRegex);
+            const eventMatches = e.textContent.matchAll(eventRegex);
+
 
             // Why does typescript not know this cannot be null?
             const matches = Array.from(eventMatches!);

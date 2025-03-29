@@ -12,7 +12,7 @@ const calendars = [{
         name: "SIFF Cinema Downtown",
         cssSelector: ".Downtown"
     },
-    events: [{ "description": "", "summary": "[SIFF] M&#250;sica!", "url": "https://www.siff.net/festival/musica", "location": "SIFF Cinema Downtown", "date": "2024-05-10T13:15-07:00[US/Pacific]", "duration": "PT1H12M" },
+    events: [{ "description": "", "summary": "[SIFF] Música!", "url": "https://www.siff.net/festival/musica", "location": "SIFF Cinema Downtown", "date": "2024-05-10T13:15-07:00[US/Pacific]", "duration": "PT1H12M" },
     { "description": "", "summary": "[SIFF] Songs of Earth", "url": "https://www.siff.net/festival/songs-of-earth",  "location": "SIFF Cinema Downtown", "date": "2024-05-10T15:30-07:00[US/Pacific]", "duration": "PT1H31M" },
     { "description": "", "summary": "[SIFF] Janet Planet", "url": "https://www.siff.net/festival/janet-planet", "location": "SIFF Cinema Downtown", "date": "2024-05-10T18:00-07:00[US/Pacific]", "duration": "PT1H53M" },
     { "description": "", "summary": "[SIFF] Scorched Earth", "url": "https://www.siff.net/festival/scorched-earth", "location": "SIFF Cinema Downtown", "date": "2024-05-10T20:45-07:00[US/Pacific]", "duration": "PT1H41M" }
@@ -32,7 +32,7 @@ const calendars = [{
         { "description": "", "summary": "[SIFF] Terrestrial Verses", "url": "https://www.siff.net/festival/terrestrial-verses", "location": "SIFF Cinema Uptown", "date": "2024-05-10T18:30-07:00[US/Pacific]", "duration": "PT1H17M" },
         { "description": "", "summary": "[SIFF] Black Box Diaries", "url": "https://www.siff.net/festival/black-box-diaries", "location": "SIFF Cinema Uptown", "date": "2024-05-10T21:00-07:00[US/Pacific]", "duration": "PT1H44M" },
         { "description": "", "summary": "[SIFF] A Journey in Spring", "url": "https://www.siff.net/festival/a-journey-in-spring", "location": "SIFF Cinema Uptown", "date": "2024-05-10T13:30-07:00[US/Pacific]", "duration": "PT1H30M" },
-        { "description": "", "summary": "[SIFF] &#192;ma Gloria", "url": "https://www.siff.net/festival/ama-gloria", "location": "SIFF Cinema Uptown", "date": "2024-05-10T16:30-07:00[US/Pacific]", "duration": "PT1H24M" },
+        { "description": "", "summary": "[SIFF] Àma Gloria", "url": "https://www.siff.net/festival/ama-gloria", "location": "SIFF Cinema Uptown", "date": "2024-05-10T16:30-07:00[US/Pacific]", "duration": "PT1H24M" },
         { "description": "", "summary": "[SIFF] ShortsFest Opening Night", "url": "https://www.siff.net/festival/shortsfest-opening-night-x37524", "location": "SIFF Cinema Uptown", "date": "2024-05-10T19:00-07:00[US/Pacific]", "duration": "PT1H24M" },
         { "description": "", "summary": "[SIFF] Tim Travers and the Time Traveler’s Paradox", "url": "https://www.siff.net/festival/tim-travers-and-the-time-travelers-paradox", "location": "SIFF Cinema Uptown", "date": "2024-05-10T21:30-07:00[US/Pacific]", "duration": "PT1H43M" }
     ]

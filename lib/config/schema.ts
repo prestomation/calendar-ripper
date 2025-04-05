@@ -68,6 +68,7 @@ export interface RipperCalendarEvent {
     description?: string;
     location?: string;
     url?: string;
+    image?: string;  // URL to the event image
 };
 
 export type RipperEvent = RipperCalendarEvent | RipperError;
@@ -105,8 +106,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
-            url: e.url
-
+            url: e.url,
         };
         return m;
     });

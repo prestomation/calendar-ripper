@@ -1,0 +1,19 @@
+name: downtown-seattle-association
+description: "Downtown Seattle Association Events Calendar"
+url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
+calendars:
+  - name: pioneer-park
+    friendlyname: "Pioneer Park Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 53757
+  - name: westlake-park
+    friendlyname: "Westlake Park Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 53732
+  - name: occidental-square
+    friendlyname: "Occidental Square Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 53729

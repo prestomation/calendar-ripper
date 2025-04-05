@@ -62,7 +62,9 @@ To create a new ripper, you need to:
 
 ### Basic Ripper Implementation
 
-The simplest way to implement a ripper is to extend the `HTMLRipper` class:
+You can implement a ripper by extending either the `HTMLRipper` class for HTML scraping or the `JSONRipper` class for JSON API endpoints:
+
+#### HTML Ripper
 
 ```typescript
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
@@ -70,7 +72,7 @@ import { HTMLElement } from 'node-html-parser';
 import { ZonedDateTime } from "@js-joda/core";
 import { RipperEvent } from "../../lib/config/schema.js";
 
-export default class MyRipper extends HTMLRipper {
+export default class MyHtmlRipper extends HTMLRipper {
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         // Extract events from the HTML and return them
         // 'config' contains the calendar-specific configuration from ripper.yaml
@@ -78,6 +80,50 @@ export default class MyRipper extends HTMLRipper {
         
         // Return an array of RipperEvent objects
         return [];
+    }
+}
+```
+
+#### JSON Ripper
+
+```typescript
+import { JSONRipper } from "../../lib/config/jsonscrapper.js";
+import { ZonedDateTime, Duration } from "@js-joda/core";
+import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
+
+export default class MyJsonRipper extends JSONRipper {
+    public async parseEvents(jsonData: any, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
+        const events: RipperEvent[] = [];
+        
+        // Extract events from the JSON data
+        // 'jsonData' contains the parsed JSON response from the API
+        // 'config' contains the calendar-specific configuration from ripper.yaml
+        // 'date' is the current date being processed with the timezone from the calendar config
+        
+        // Process each event in the JSON data
+        for (const item of jsonData.events) {
+            try {
+                const event: RipperCalendarEvent = {
+                    id: item.id.toString(),
+                    ripped: new Date(),
+                    date: ZonedDateTime.parse(item.start_date),
+                    duration: Duration.ofHours(2), // Example duration
+                    summary: item.title,
+                    description: item.description,
+                    location: item.location,
+                    url: item.url
+                };
+                events.push(event);
+            } catch (error) {
+                events.push({
+                    type: "ParseError",
+                    reason: `Failed to parse event: ${error}`,
+                    context: JSON.stringify(item).substring(0, 100)
+                });
+            }
+        }
+        
+        return events;
     }
 }
 ```
@@ -113,7 +159,6 @@ This will:
 
 ## Current Limitations
 
-- Only HTML scraping is fully supported via the `HTMLRipper` base class
 - No support for recurring events
 - No support for event updates/deletions (each run creates new .ics files)
 - Limited error handling and reporting

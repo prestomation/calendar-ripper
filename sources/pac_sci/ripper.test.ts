@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import PacificScienceCenterRipper from './ripper.js';
-import { ZonedDateTime } from '@js-joda/core';
+import { ZonedDateTime, LocalDateTime } from '@js-joda/core';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -38,7 +38,8 @@ describe('Pacific Science Center Ripper', () => {
       expect(event.description).not.toContain('<p>');
       
       // Check date parsing
-      const expectedDate = ZonedDateTime.parse(expectedEvent.date + "[America/Los_Angeles]");
+      const expectedLocalDateTime = LocalDateTime.parse(expectedEvent.date);
+      const expectedDate = expectedLocalDateTime.atZone(date.zone());
       expect(event.date.toString()).toBe(expectedDate.toString());
     }
   });

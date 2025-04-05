@@ -1,0 +1,23 @@
+name: pacific-science-center
+description: "Pacific Science Center Events Calendar"
+url: "https://pacificsciencecenter.org/wp-json/wp/v2/event"
+lookahead: P3M
+calendars:
+  - name: all-events
+    friendlyname: "All Pacific Science Center Events"
+    timezone: America/Los_Angeles
+  - name: laser-dome
+    friendlyname: "Laser Dome Events"
+    timezone: America/Los_Angeles
+    config:
+      location_id: 40
+  - name: paccar-theater
+    friendlyname: "PACCAR Theater Events"
+    timezone: America/Los_Angeles
+    config:
+      location_id: 39
+  - name: special-events
+    friendlyname: "Special Events"
+    timezone: America/Los_Angeles
+    config:
+      event_series_id: 34

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar Subscriptions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .copy-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 2px 5px;
+            vertical-align: middle;
+            color: #555;
+        }
+        .copy-btn:hover {
+            color: #000;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+        .copy-btn svg {
+            vertical-align: middle;
+        }
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .success-message.show {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // Replace all instances of REPLACE_WITH_HOST with the actual host
+            const content = document.body.innerHTML;
+            const currentUrl = new URL(window.location.href)
+            currentUrl.pathname = currentUrl.pathname.replace(/[^/]+$/, ''); // remove the filename
+
+            document.body.innerHTML = content.replace(/REPLACE_WITH_BASE/g, `${currentUrl.host}${currentUrl.pathname}`);
+            
+            // Add click handlers for copy buttons
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const text = this.getAttribute('data-clipboard-text');
+                    navigator.clipboard.writeText(text).then(() => {
+                        showSuccessMessage('URL copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Could not copy text: ', err);
+                    });
+                });
+            });
+        }
+        
+        function showSuccessMessage(message) {
+            // Create or reuse success message element
+            let successEl = document.getElementById('success-message');
+            if (!successEl) {
+                successEl = document.createElement('div');
+                successEl.id = 'success-message';
+                successEl.className = 'success-message';
+                document.body.appendChild(successEl);
+            }
+            
+            // Set message and show
+            successEl.textContent = message;
+            successEl.classList.add('show');
+            
+            // Hide after 2 seconds
+            setTimeout(() => {
+                successEl.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    {{TABLE_OF_CONTENTS}}
+</body>
+</html>

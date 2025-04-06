@@ -1,5 +1,15 @@
 - name: seattle-greenways
   friendlyname: "Seattle Neighborhood Greenways Events"
-  description: "Events from Seattle Neighborhood Greenways organization"
+  description: "Events with Seattle Neighborhood Greenways"
   icsUrl: "https://calendar.google.com/calendar/ical/lt0lmiorecihqc99od0hnrtl54%40group.calendar.google.com/public/basic.ics"
   infoUrl: "https://www.seattlegreenways.org/get-involved/calendar/"
+- name: transit-riders-union
+  friendlyname: "Transit Riders Union"
+  description: "Events with the Transit Riders Union"
+  icsUrl: "https://transitriders.org/?rhc_action=get_icalendar_events&post_type[]=events&calendar=featured"
+  infoUrl: "https://transitriders.org/events/"
+- name: the-urbanist
+  friendlyname: "The Urbanist's Local Events"
+  description: "Events with The Urbanist"
+  icsUrl: "https://calendar.google.com/calendar/ical/d80bfc1d68b67201a0040905022054725954d631248c49a12df12924f5f7293d%40group.calendar.google.com/public/basic.ics"
+  infoUrl: "https://www.theurbanist.org/upcoming-events/"

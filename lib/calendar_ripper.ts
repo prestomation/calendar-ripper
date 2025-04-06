@@ -32,6 +32,12 @@ export const main = async () => {
     let totalErrorCount = 0;
 
     for (const config of configs) {
+        // Skip disabled rippers
+        if (config.config.disabled) {
+            console.log(`Skipping disabled ripper: ${config.config.name}`);
+            continue;
+        }
+        
         console.log(`Processing ${config.config.name}`)
         const calendars = await config.ripperImpl.rip(config);
 

@@ -19,6 +19,7 @@ export const configSchema = z.object({
     name: z.string(),
     description: z.string(),
     url: z.string().transform(u => new URL(u)),
+    disabled: z.boolean().default(false),
     calendars: z.array(calendarConfigSchema),
     // We use refine to provide our own error message
     // and Transform to parse it into a Period

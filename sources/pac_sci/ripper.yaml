@@ -1,6 +1,7 @@
 name: pacific-science-center
 description: "Pacific Science Center Events Calendar"
 url: "https://pacificsciencecenter.org/wp-json/wp/v2/event"
+disabled: true
 lookahead: P3M
 calendars:
   - name: all-events

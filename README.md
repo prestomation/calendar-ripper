@@ -169,3 +169,20 @@ This will:
 ## Future calendars to add:
 - https://www.hotstovesociety.com/classes/
 - https://www.events12.com/seattle/
+## External Calendars
+
+In addition to scraping websites, you can also include external iCalendar (.ics) URLs directly. To add external calendars:
+
+1. Create or edit the `sources/external.yaml` file
+2. Add entries following this format:
+
+```yaml
+- name: calendar-name            # Unique identifier (alphanumeric, dots, hyphens only)
+  friendlyname: "Calendar Name"  # Human-readable name
+  icsUrl: "https://example.com/calendar.ics"  # Direct URL to the .ics file
+  infoUrl: "https://example.com"  # Optional: URL to the calendar's website
+  description: "Description"     # Optional: Description of the calendar
+  disabled: false                # Optional: Set to true to disable this calendar
+```
+
+These external calendars will be included in the generated `index.html` file alongside your scraped calendars.

@@ -15,6 +15,17 @@ export const calendarConfigSchema = z.object({
     friendlyname: z.string()
 });
 
+export const externalCalendarSchema = z.object({
+    name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
+    friendlyname: z.string(),
+    icsUrl: z.string().url(),
+    infoUrl: z.string().url().optional(),
+    description: z.string().optional(),
+    disabled: z.boolean().default(false)
+});
+
+export const externalConfigSchema = z.array(externalCalendarSchema);
+
 export const configSchema = z.object({
     name: z.string(),
     description: z.string(),
@@ -136,3 +147,6 @@ export function isRipperEvent(item: unknown): item is RipperEvent {
         (maybeEvent.location === undefined || typeof maybeEvent.location === "string") &&
         (maybeEvent.url === undefined || typeof maybeEvent.url === "string");
 }
+
+export type ExternalCalendar = z.infer<typeof externalCalendarSchema>;
+export type ExternalConfig = z.infer<typeof externalConfigSchema>;

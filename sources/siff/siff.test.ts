@@ -1,5 +1,5 @@
 
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from 'vitest';
 import { readFile } from 'fs/promises';
 
 import SIFFRipper from './ripper.js';

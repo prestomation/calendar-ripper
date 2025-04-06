@@ -12,16 +12,18 @@ export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     config: z.object({}).passthrough().optional(),
     timezone: z.string().transform(ZoneRegion.of),
-    friendlyname: z.string()
+    friendlyname: z.string(),
+    tags: z.array(z.string()).optional()
 });
 
 export const externalCalendarSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     friendlyname: z.string(),
-    icsUrl: z.string().url(),
-    infoUrl: z.string().url().optional(),
+    icsUrl: z.string(),
+    infoUrl: z.string().optional(),
     description: z.string().optional(),
-    disabled: z.boolean().default(false)
+    disabled: z.boolean().default(false),
+    tags: z.array(z.string()).optional()
 });
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
@@ -31,6 +33,7 @@ export const configSchema = z.object({
     description: z.string(),
     url: z.string().transform(u => new URL(u)),
     disabled: z.boolean().default(false),
+    tags: z.array(z.string()).optional(),
     calendars: z.array(calendarConfigSchema),
     // We use refine to provide our own error message
     // and Transform to parse it into a Period
@@ -118,7 +121,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
-            url: e.url,
+            url: e.url?.startsWith('http') ? e.url : undefined,
         };
         return m;
     });

@@ -1,11 +1,7 @@
-
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from 'vitest';
 import { URLParser } from './urlparse.js';
 // Used so America/Los_Angeles works
 import '@js-joda/timezone'
-
-
-
 
 describe('URL Parser isValid', () => {
     test('isValid', () => {
@@ -19,19 +15,6 @@ describe('URL Parser isValid', () => {
     });
 
     test('SIFF', async () => {
-
-        // const url = "https://www.siff.net/calendar?view=grid&date=2024-04-21";
-
-        // const res = await fetch(url);
-        // if (!res.ok) {
-        //     throw Error(`${res.status} ${res.statusText}`)
-        // }
-
-        // const date = ZonedDateTime.now(ZoneRegion.of("America/Los_Angeles")).withDayOfMonth(21).withMinute(0).withSecond(0).withNano(0);
-        // const ripper = new SIFFRipper();
-        // const htmlString = await res.text();
-        // const html = parse(htmlString);
-        // const r = ripper.parseEvents(html, date)
+        // This test is empty in the original file
     });
-
 })

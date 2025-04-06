@@ -1,7 +1,6 @@
 
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from 'vitest';
 import { readFile } from 'fs/promises';
-import SAFRipper from './ripper.js';
 import { parse } from 'node-html-parser';
 import { Instant, ZoneRegion, ZonedDateTime } from '@js-joda/core';
 import { RipperCalendarEvent, RipperEvent } from '../../lib/config/schema.js';

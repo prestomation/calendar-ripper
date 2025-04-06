@@ -1,4 +1,4 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from 'vitest';
 import PacificScienceCenterRipper from './ripper.js';
 import { ZonedDateTime, LocalDateTime } from '@js-joda/core';
 import fs from 'fs';

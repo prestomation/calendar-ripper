@@ -1,4 +1,4 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from 'vitest';
 import DowntownSeattleRipper from './ripper.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
 import fs from 'fs';
@@ -191,7 +191,7 @@ describe('Downtown Seattle Association Ripper', () => {
       expect(standardEvent.duration.toMinutes() % 60).toBe(0);
     }
   });
-});
+
   test('includes image URLs in events', async () => {
     // Load the sample JSON file
     const jsonPath = path.join(__dirname, 'dsa-2025-04-04.json');
@@ -220,3 +220,4 @@ describe('Downtown Seattle Association Ripper', () => {
       expect(eventWithImage.description).toContain(eventWithImage.image);
     }
   });
+});

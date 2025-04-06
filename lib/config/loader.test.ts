@@ -1,5 +1,4 @@
-
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from 'vitest';
 import { RipperLoader } from './loader.js';
 import { FileParseError } from './schema.js';
 

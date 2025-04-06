@@ -37,10 +37,12 @@ name: source-name            # Unique identifier (alphanumeric, dots, hyphens on
 description: "Description"   # Human-readable description
 url: "https://example.com"   # Base URL for scraping (can include date templates)
 lookahead: P1M               # Optional: ISO-8601 period for how far ahead to look (e.g., P1M = 1 month)
+tags: ["Music", "Arts"]      # Optional: Tags for all calendars in this ripper
 calendars:                   # Array of calendars to generate from this source
   - name: calendar1          # Unique identifier for this calendar
     friendlyname: "Calendar 1" # Human-readable name
     timezone: America/Los_Angeles # IANA timezone identifier
+    tags: ["Jazz", "Live"]   # Optional: Tags specific to this calendar
     config:                  # Optional: Custom configuration passed to the ripper implementation
       key1: value1
       key2: value2
@@ -183,6 +185,45 @@ In addition to scraping websites, you can also include external iCalendar (.ics)
   infoUrl: "https://example.com"  # Optional: URL to the calendar's website
   description: "Description"     # Optional: Description of the calendar
   disabled: false                # Optional: Set to true to disable this calendar
+  tags: ["Music", "Arts"]        # Optional: Tags for this calendar
 ```
 
 These external calendars will be included in the generated `index.html` file alongside your scraped calendars.
+## Tag-Based Aggregation
+
+The system supports tag-based calendar aggregation. Tags can be applied at three levels:
+
+1. **Ripper-level tags**: Applied to all calendars from a specific ripper
+2. **Calendar-specific tags**: Applied to a specific calendar within a ripper
+3. **External calendar tags**: Applied to external calendars
+
+When the system generates calendars, it will:
+
+1. Generate individual calendar files as usual
+2. Create "aggregate calendars" that combine events from all calendars sharing the same tag
+3. Include external calendar events in the appropriate aggregate calendars
+
+For example, if you have:
+- A "NW Metal Calendar" with the tag "Music"
+- A "Seattle Symphony" calendar with the tag "Music"
+- An external "Local Bands" calendar with the tag "Music"
+
+The system will generate a "Music" aggregate calendar that includes events from all three sources.
+
+### Tag Inheritance
+
+Calendar-specific tags are combined with ripper-level tags. For example:
+
+```yaml
+name: music-events
+description: "Music Events"
+url: "https://example.com"
+tags: ["Music", "Entertainment"]  # Ripper-level tags
+calendars:
+  - name: jazz
+    friendlyname: "Jazz Events"
+    timezone: America/Los_Angeles
+    tags: ["Jazz"]  # Calendar-specific tags
+```
+
+The "jazz" calendar will have the tags: "Music", "Entertainment", and "Jazz".

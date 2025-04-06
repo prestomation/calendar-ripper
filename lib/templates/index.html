@@ -7,6 +7,54 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .calendar-section {
+            margin-bottom: 30px;
+        }
+        .calendar-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .calendar-item:hover {
+            background-color: #f0f0f0;
+        }
+        .calendar-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .calendar-tags {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e0e0e0;
+            border-radius: 12px;
+            padding: 2px 8px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 0.8em;
+            color: #555;
+        }
+        .ripper-tags {
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
         .copy-btn {
             background: none;
@@ -38,6 +86,32 @@
         }
         .success-message.show {
             opacity: 1;
+        }
+        .calendar-actions {
+            margin-top: 5px;
+        }
+        .calendar-actions a, .calendar-actions button {
+            margin-right: 5px;
+        }
+        .aggregate-sources {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+            background-color: #f5f5f5;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .aggregate-source {
+            margin-left: 15px;
+            font-style: italic;
+            padding: 2px 0;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9em;
         }
     </style>
     <script>
@@ -84,6 +158,10 @@
     </script>
 </head>
 <body>
+    <h1>Calendar Subscriptions</h1>
     {{TABLE_OF_CONTENTS}}
+    <div class="footer">
+        Last updated: {{LAST_UPDATED}}
+    </div>
 </body>
 </html>

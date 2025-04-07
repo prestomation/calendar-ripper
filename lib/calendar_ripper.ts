@@ -351,11 +351,6 @@ const generateAggregateCalendarList = (
       // Combine all source calendars
       const allSources = [...sourceCalendars, ...sourceExternalCalendars];
 
-      // Debug logging
-      console.log(`Tag: ${tagName}, Sources: ${allSources.length}`);
-      console.log(`Source calendars: ${sourceCalendars.join(", ")}`);
-      console.log(`External calendars: ${sourceExternalCalendars.join(", ")}`);
-
       // Create the source list HTML
       const sourcesHtml =
         allSources.length > 0

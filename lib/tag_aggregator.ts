@@ -33,7 +33,6 @@ export function collectAllTags(
   
   // Collect tags from external calendars
   taggedExternalCalendars.forEach(tec => {
-    console.log(tec.tags);
     tec.tags.forEach(tag => allTags.add(tag));
   });
   
@@ -187,7 +186,6 @@ export async function createAggregateCalendars(
 ): Promise<RipperCalendar[]> {
   const allTags = collectAllTags(taggedCalendars, taggedExternalCalendars);
   const aggregateCalendars: RipperCalendar[] = [];
-  console.log(allTags)
   
   for (const tag of allTags) {
     console.log(`Creating aggregate calendar for tag: ${tag}`);
@@ -268,13 +266,9 @@ export function prepareTaggedCalendars(
   ripperTags: Map<string, string[]>,
   calendarTags: Map<string, string[]>
 ): TaggedCalendar[] {
-  console.log("prepareTageged")
   return ripperCalendars.map(calendar => {
     // Combine ripper-level tags with calendar-specific tags
-    const ripperName = calendar.name.split('-')[0]; // Assuming format is "ripper-calendar"
     const ripperTagsList = ripperTags.get(calendar.name) || [];
-    console.log(calendar.name)
-    console.log(calendarTags)
     const calendarTagsList = calendarTags.get(calendar.name) || [];
     
     // Combine and deduplicate tags

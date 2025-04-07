@@ -1,0 +1,8 @@
+name: pinebox
+description: "Pinebox Events Calendar"
+url: "https://www.pineboxbar.com/api/open/GetItemsByMonth?month={MM-yyyy}&collectionId=59ce7efb197aeaa2e92f139e"
+tags: ["Beer", "CapitolHill"]
+calendars:
+  - name: pinebox-events
+    friendlyname: "Pinebox Events"
+    timezone: America/Los_Angeles

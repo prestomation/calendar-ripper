@@ -27,7 +27,7 @@ export class URLParser {
     }
 
     private getDateReplacements(): DateReplacements[] {
-        const validPatterns = ["yyyy-MM-dd"];
+        const validPatterns = ["yyyy-MM-dd", "MM-yyyy"];
         const matches = this.url.toString().matchAll(regex);
         let replacements: DateReplacements[] = [];
         for (let match of matches) {

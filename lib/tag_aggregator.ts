@@ -41,6 +41,7 @@ export function collectAllTags(
 
 /**
  * Fetches and parses an external calendar from its URL
+ * Filters events to only include those within the specified time range
  */
 export async function fetchExternalCalendar(url: string): Promise<RipperCalendarEvent[]> {
   try {
@@ -54,6 +55,14 @@ export async function fetchExternalCalendar(url: string): Promise<RipperCalendar
     // Simple regex-based parsing for ICS files
     // This is a basic implementation that extracts the essential event data
     const events: RipperCalendarEvent[] = [];
+    
+    // Define time range: 1 week before now to 3 months in the future
+    const now = new Date();
+    const oneWeekAgo = new Date(now);
+    oneWeekAgo.setDate(now.getDate() - 7);
+    
+    const threeMonthsLater = new Date(now);
+    threeMonthsLater.setMonth(now.getMonth() + 3);
     
     // Split the ICS file into events
     const eventBlocks = icsData.split('BEGIN:VEVENT');
@@ -105,6 +114,11 @@ export async function fetchExternalCalendar(url: string): Promise<RipperCalendar
           const month = parseInt(dtStartStr.substring(4, 6)) - 1;
           const day = parseInt(dtStartStr.substring(6, 8));
           startDate = new Date(Date.UTC(year, month, day));
+        }
+        
+        // Skip events outside our time range (1 week ago to 3 months in the future)
+        if (startDate < oneWeekAgo || startDate > threeMonthsLater) {
+          continue;
         }
         
         // Extract end date
@@ -185,7 +199,19 @@ export async function createAggregateCalendars(
     // Add events from regular calendars with this tag
     for (const tc of taggedCalendars) {
       if (tc.tags.includes(tag)) {
-        aggregateCalendar.events.push(...tc.calendar.events);
+        // Add source calendar name to each event's description
+        const eventsWithSource = tc.calendar.events.map(event => {
+          if ('summary' in event) { // Check if it's a RipperCalendarEvent
+            const sourceInfo = `\n\nFrom ${tc.calendar.friendlyname}`;
+            return {
+              ...event,
+              description: event.description ? `${event.description}${sourceInfo}` : sourceInfo
+            };
+          }
+          return event;
+        });
+        
+        aggregateCalendar.events.push(...eventsWithSource);
         aggregateCalendar.errors.push(...tc.calendar.errors);
       }
     }
@@ -194,8 +220,20 @@ export async function createAggregateCalendars(
     for (const tec of taggedExternalCalendars) {
       if (tec.tags.includes(tag)) {
         try {
+          console.log(`Fetching external calendar: ${tec.calendar.friendlyname}`);
           const externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl);
-          aggregateCalendar.events.push(...externalEvents);
+          console.log(`  - Found ${externalEvents.length} events within time range`);
+          
+          // Add source calendar name to each event's description
+          const eventsWithSource = externalEvents.map(event => {
+            const sourceInfo = `\n\nFrom ${tec.calendar.friendlyname}`;
+            return {
+              ...event,
+              description: event.description ? `${event.description}${sourceInfo}` : sourceInfo
+            };
+          });
+          
+          aggregateCalendar.events.push(...eventsWithSource);
         } catch (error) {
           const ripperError: RipperError = {
             type: 'ImportError',

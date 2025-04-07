@@ -28,6 +28,7 @@ interface CalendarOutput {
   icsPath: string;
   errorsPath: string;
   errorCount: number;
+  tags: string[]
 }
 
 const generateCalendarList = (
@@ -55,10 +56,9 @@ const generateCalendarList = (
       const calendarKey = `${ripper.name}-${
         calendar.icsPath.split("-")[1].split(".")[0]
       }`;
-      const calendarTagsArray = calendarTags.get(calendarKey) || [];
       const calendarTagsHtml =
-        calendarTagsArray.length > 0
-          ? `<div class="calendar-tags">${calendarTagsArray
+        calendar.tags.length > 0
+          ? `<div class="calendar-tags">${calendar.tags
               .map((tag) => `<span class="tag">${tag}</span>`)
               .join(" ")}</div>`
           : "";
@@ -225,6 +225,7 @@ export const main = async () => {
         errorsPath,
         icsPath,
         friendlyName: calendar.friendlyname,
+        tags: calendar.tags || [],
       });
     }
     tableOfContents += generateCalendarList(
@@ -282,6 +283,7 @@ export const main = async () => {
         errorsPath,
         icsPath,
         friendlyName: calendar.friendlyname,
+        tags: calendar.tags || [],
       });
     }
 

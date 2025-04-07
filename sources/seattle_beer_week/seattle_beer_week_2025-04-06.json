@@ -1,0 +1,202 @@
+{
+  "status": 1,
+  "data": {
+    "widgets": {
+      "e1dc4a9d-c151-4186-b122-c66305fcb381": {
+        "status": 1,
+        "data": {
+          "app": "event-calendar",
+          "settings": {
+            "events": [
+              {
+                "id": "m8xcy9mj",
+                "name": "SEATTLE CASK-O-RAMA!",
+                "start": {
+                  "type": "datetime",
+                  "date": "2025-05-09",
+                  "time": "17:00"
+                },
+                "end": {
+                  "type": "datetime",
+                  "date": "2025-05-09",
+                  "time": "23:45"
+                },
+                "timeZone": "America/Los_Angeles",
+                "repeatPeriod": "noRepeat",
+                "repeatFrequency": "daily",
+                "repeatInterval": 1,
+                "repeatEnds": "never",
+                "repeatEndsDate": null,
+                "repeatEndsOccurrences": 1,
+                "repeatMonthlyOnDay": "sameDay",
+                "description": "<div>TEN Seattle breweries, TEN casks on the bartop!</div>",
+                "image": {
+                  "url": "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/2ae22440-2f4b-459d-a1ea-973a951f4fe6/BPP_Cask.jpg",
+                  "name": "BPP_Cask.jpg",
+                  "size": 5006705,
+                  "type": "image/jpeg",
+                  "extension": "jpg",
+                  "width": 5312,
+                  "height": 2988
+                },
+                "eventType": "m7275ouu",
+                "location": "m729nv14",
+                "host": null,
+                "tags": [],
+                "color": "rgb(255, 235, 0)",
+                "buttonVisible": false,
+                "buttonLink": {
+                  "rawValue": "",
+                  "value": "",
+                  "type": "url",
+                  "target": "_blank"
+                },
+                "buttonText": "Get Tickets",
+                "buttonCaption": "",
+                "video": null,
+                "file": null
+              },
+              {},
+              {},
+              {},
+              {},
+              {}
+            ],
+            "eventTypes": [],
+            "locations": [],
+            "hosts": [],
+            "widgetTitle": "Seattle Beer Week Events",
+            "layout": "masonry",
+            "sliderArrowsEnabled": true,
+            "sliderSwipeEnabled": true,
+            "sliderTransitionDuration": 0.6,
+            "sliderPaginationType": "bullets",
+            "sliderAutoSlideEnabled": false,
+            "sliderAutoSlideDelay": 5,
+            "sliderAutoSlidePauseOnHover": false,
+            "sliderElementsColor": "rgb(255, 255, 255)",
+            "gridGutter": 10,
+            "masonryGutter": 10,
+            "groupBy": "none",
+            "timeRange": ["06:00", "23:00"],
+            "numberOfEvents": 10,
+            "numberOfYears": 3,
+            "numberOfMonths": 12,
+            "numberOfDays": 7,
+            "width": {
+              "auto": true,
+              "customValue": 1300
+            },
+            "filters": ["dates", "eventTypes", "locations"],
+            "filtersSorting": "manual",
+            "eventElements": ["date", "location", "media", "time"],
+            "showPastEvents": false,
+            "numberOfPastEvents": 5,
+            "eventClickAction": "popup",
+            "popupElements": [
+              "eventType",
+              "button",
+              "media",
+              "tags",
+              "description",
+              "date",
+              "location",
+              "map",
+              "host",
+              "share",
+              "dateTime"
+            ],
+            "enableEventLinking": true,
+            "displayDateFormat": "MMMM D",
+            "displayTimeFormat": "h:mm A",
+            "widgetBackground": {
+              "type": "color",
+              "color": "#383737",
+              "imageFile": null,
+              "borderRadius": 0
+            },
+            "widgetHorizontalPadding": 40,
+            "widgetVerticalPadding": 40,
+            "widgetImageAnimationType": "none",
+            "headingTextColor": "rgb(255, 255, 255)",
+            "headingFontSize": {
+              "fontSize": 32
+            },
+            "filtersColor": "rgb(255, 255, 255)",
+            "activeFiltersColor": "rgb(255, 244, 127)",
+            "gridEventStyle": "style1",
+            "masonryEventStyle": "style1",
+            "sliderEventStyle": "style1",
+            "eventBackgroundColor": "#fafafa",
+            "eventDateBackgroundColor": "rgb(255, 183, 0)",
+            "eventDateTextColor": "rgb(25, 25, 25)",
+            "eventButtonColor": "rgb(233, 32, 46)",
+            "eventGroupTextColor": "rgb(231, 241, 255)",
+            "eventGroupFontSize": {
+              "fontSize": 18
+            },
+            "eventNameFontSize": {
+              "fontSize": 18
+            },
+            "eventTimeFontSize": {
+              "fontSize": 10
+            },
+            "eventShape": 8,
+            "calendarDateTextSize": {
+              "fontSize": 16
+            },
+            "calendarDateTextColor": "#111111",
+            "calendarTodayBgColor": "rgba(15, 76, 130, 0.08)",
+            "calendarTodayBorderColor": "rgba(15, 76, 130)",
+            "popupBackgroundColor": "rgb(255,255,255)",
+            "popupOverlayColor": "rgba(17, 17, 17, 0.7)",
+            "popupLinksColor": "rgb(28, 145, 255)",
+            "popupButtonColor": "rgb(233, 32, 46)",
+            "inLocalTimeZone": false,
+            "customCSS": "",
+            "customJS": "",
+            "selectedEventsProvider": "manual",
+            "_repeatsAfterNow": 30,
+            "_customEventsLimit": 400,
+            "_customCollectionEventsLimit": 1000,
+            "widgetId": "e1dc4a9d-c151-4186-b122-c66305fcb381",
+            "language": {
+              "language": "en",
+              "label": "English (United States)",
+              "messages": {
+                "en": {}
+              }
+            },
+            "template": "01ad6672-6cc8-47a5-ab4f-52e09b21c12e",
+            "font": {}
+          },
+          "user": {
+            "owner": false
+          },
+          "percentage": 0.00248,
+          "preferences": {
+            "hide_elfsight_logo": 1,
+            "disable_widget": 0,
+            "deactivated_widget_url": "https://dash.elfsight.com/apps/event-calendar/pricing?claim=removeBranding&claim=increaseViews",
+            "display_deactivation": false,
+            "deactivation_url": "https://dash.elfsight.com/apps/event-calendar/pricing?claim=removeBranding&claim=increaseViews",
+            "display_free_link": false,
+            "display_free_link_remove": false,
+            "free_link_anchor": "Free Event Calendar widget",
+            "free_link_url": "https://elfsight.com/event-calendar-widget/?utm_source=websites&utm_medium=clients&utm_content=event-calendar&utm_term=%website_domain%&utm_campaign=free-widget",
+            "free_link_remove_url": "https://dash.elfsight.com/apps/event-calendar/pricing?claim=removeBranding&claim=removeBranding"
+          },
+          "meta": {
+            "widget_name": "Seattle Beer Week Events",
+            "app_name": "Event Calendar",
+            "thumbnail_url": "https://services-universe-prod.sfo3.digitaloceanspaces.com/widget-thumbnails/ef84525e-1af8-4765-9c56-691bea1638d5@2x.png"
+          },
+          "public_widget_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiUFVCTElDIiwid2lkZ2V0UGlkIjoiZTFkYzRhOWQtYzE1MS00MTg2LWIxMjItYzY2MzA1ZmNiMzgxIiwid2lkZ2V0UmV2aXNpb25QaWQiOiJkODcwZGY3NS03ZDNjLTQ2YWItOGE1Mi1lYjA5OWUyZjAyNTQiLCJhcHAiOiJldmVudC1jYWxlbmRhciIsImFjY291bnRQaWQiOiI5ZGM5YTNhYi1kMGIzLTQ1MTQtOTc3MC01ZDNjYjBmNjIzZDYiLCJzdWIiOiJlMWRjNGE5ZC1jMTUxLTQxODYtYjEyMi1jNjYzMDVmY2IzODEiLCJ2ZXIiOiJkODcwZGY3NS03ZDNjLTQ2YWItOGE1Mi1lYjA5OWUyZjAyNTQiLCJpYXQiOjE3NDM5ODk3NDksImV4cCI6MTc0NDE2MjU0OX0.TdC7SIp29FhUfuSCQAG-125hZpLX4vxxlMIi1SGClO0PxTUHuAqytwNDE8NK0HJbcnsczgK_IUoP6J_G6pnfrhvVe5EKiXLUGbO5s-y5MnUTpBXzN3Yt_zJWOLemWnO2dNhPmltVCjK3gKWMoY0UsqSaZukBRJo5_yv0e37I1rCx2dlbFHy_UyHHULG7fjLz99PVf4F9gJkBegqcTR6prhnOmMGksasaH8URnIlzpNSXglRGVEG3-vmbBbomWBp1jC8bm4u-8z4nppZeLF_jYVhb6A8eqHpeBqMzJeudBpFPOLdyCqFAMFXRp9IJMFqKN2DUnfEZZeT4vjAdR6xV2x4skcN19Rx7i-2odZxKXNVR8n5KySsD5nljar6cdZbrQ7opBMVKzRk96ikM66vQvc1EO4WKIa2mrVcoucdxB__EVVz8ni1w3ZSYdgkvY5STaLxWOKsid77RbrqfRujLCbcQ3Cc0KZ9GmUlS2injgzIF2F_4zPkKArZ2dxrfbWZKuOLuEoRNk3wBJhygRoR87vTNpQbS8AyBRGZAj2p3X74eq7eSw8JW68mXCbZXvNwHAVQcgg-bwrVq7RM_SZfrRl3403KNSd1lGvigTCklgjjtiFVPMNP0ylIBj1IyrYZxr6MSJooBKXo2htf3UfZivdRJ2k1e06whtG-7oQZaPx0"
+        }
+      }
+    },
+    "assets": [
+      "https://static.elfsight.com/apps/events-calendar/stable/25d785d5c7b43cda9f9f7e4e309b0a1fce07e050/app/eventsCalendar.js"
+    ]
+  }
+}

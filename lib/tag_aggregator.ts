@@ -21,7 +21,7 @@ export interface TaggedExternalCalendar {
  * Collects all unique tags from the provided calendars
  */
 export function collectAllTags(
-  taggedCalendars: TaggedCalendar[],
+  taggedCalendars: RipperCalendar[],
   taggedExternalCalendars: TaggedExternalCalendar[]
 ): string[] {
   const allTags = new Set<string>();
@@ -33,6 +33,7 @@ export function collectAllTags(
   
   // Collect tags from external calendars
   taggedExternalCalendars.forEach(tec => {
+    console.log(tec.tags);
     tec.tags.forEach(tag => allTags.add(tag));
   });
   
@@ -181,28 +182,32 @@ export async function fetchExternalCalendar(url: string): Promise<RipperCalendar
  * Creates aggregate calendars based on tags
  */
 export async function createAggregateCalendars(
-  taggedCalendars: TaggedCalendar[],
+  taggedCalendars: RipperCalendar[],
   taggedExternalCalendars: TaggedExternalCalendar[]
 ): Promise<RipperCalendar[]> {
   const allTags = collectAllTags(taggedCalendars, taggedExternalCalendars);
   const aggregateCalendars: RipperCalendar[] = [];
+  console.log(allTags)
   
   for (const tag of allTags) {
+    console.log(`Creating aggregate calendar for tag: ${tag}`);
     // Create a new calendar for this tag
     const aggregateCalendar: RipperCalendar = {
       name: `tag-${tag.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
       friendlyname: `${tag} Events`,
       events: [],
-      errors: []
+      errors: [],
+      tags: [tag]
     };
     
     // Add events from regular calendars with this tag
     for (const tc of taggedCalendars) {
       if (tc.tags.includes(tag)) {
+        console.log(`  - Adding events from calendar: ${tc.friendlyname}`);
         // Add source calendar name to each event's description
-        const eventsWithSource = tc.calendar.events.map(event => {
+        const eventsWithSource = tc.events.map(event => {
           if ('summary' in event) { // Check if it's a RipperCalendarEvent
-            const sourceInfo = `\n\nFrom ${tc.calendar.friendlyname}`;
+            const sourceInfo = `\n\nFrom ${tc.friendlyname}`;
             return {
               ...event,
               description: event.description ? `${event.description}${sourceInfo}` : sourceInfo
@@ -212,7 +217,7 @@ export async function createAggregateCalendars(
         });
         
         aggregateCalendar.events.push(...eventsWithSource);
-        aggregateCalendar.errors.push(...tc.calendar.errors);
+        aggregateCalendar.errors.push(...tc.errors);
       }
     }
     
@@ -263,11 +268,14 @@ export function prepareTaggedCalendars(
   ripperTags: Map<string, string[]>,
   calendarTags: Map<string, string[]>
 ): TaggedCalendar[] {
+  console.log("prepareTageged")
   return ripperCalendars.map(calendar => {
     // Combine ripper-level tags with calendar-specific tags
     const ripperName = calendar.name.split('-')[0]; // Assuming format is "ripper-calendar"
-    const ripperTagsList = ripperTags.get(ripperName) || [];
-    const calendarTagsList = calendarTags.get(`${ripperName}-${calendar.name}`) || [];
+    const ripperTagsList = ripperTags.get(calendar.name) || [];
+    console.log(calendar.name)
+    console.log(calendarTags)
+    const calendarTagsList = calendarTags.get(calendar.name) || [];
     
     // Combine and deduplicate tags
     const combinedTags = [...new Set([...ripperTagsList, ...calendarTagsList])];

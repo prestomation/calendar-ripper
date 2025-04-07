@@ -94,6 +94,8 @@ export interface RipperCalendar {
     friendlyname: string;
     events: RipperCalendarEvent[];
     errors: RipperError[];
+    tags: string[];
+    parent?: RipperConfig
 };
 
 

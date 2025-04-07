@@ -47,14 +47,16 @@ describe('Tag Aggregator', () => {
       name: 'ripper1-calendar1',
       friendlyname: 'Calendar 1',
       events: [sampleEvent1],
-      errors: []
+      errors: [],
+      tags: ['Music', 'Entertainment'] 
     };
     
     sampleCalendar2 = {
       name: 'ripper2-calendar2',
       friendlyname: 'Calendar 2',
       events: [sampleEvent2],
-      errors: []
+      errors: [],
+      tags: ['Activism', 'Music'] 
     };
     
     // Create sample external calendars
@@ -78,10 +80,6 @@ describe('Tag Aggregator', () => {
   describe('collectAllTags', () => {
     it('should collect unique tags from all calendars', () => {
       // Arrange
-      const taggedCalendars: TaggedCalendar[] = [
-        { calendar: sampleCalendar1, tags: ['Music', 'Entertainment'] },
-        { calendar: sampleCalendar2, tags: ['Activism', 'Music'] }
-      ];
       
       const taggedExternalCalendars: TaggedExternalCalendar[] = [
         { calendar: sampleExternalCalendar1, tags: ['Music', 'Entertainment'] },
@@ -89,7 +87,7 @@ describe('Tag Aggregator', () => {
       ];
       
       // Act
-      const allTags = collectAllTags(taggedCalendars, taggedExternalCalendars);
+      const allTags = collectAllTags([sampleCalendar1, sampleCalendar2], taggedExternalCalendars);
       
       // Assert
       expect(allTags).toHaveLength(4);
@@ -101,10 +99,8 @@ describe('Tag Aggregator', () => {
     
     it('should return empty array when no tags exist', () => {
       // Arrange
-      const taggedCalendars: TaggedCalendar[] = [
-        { calendar: sampleCalendar1, tags: [] },
-        { calendar: sampleCalendar2, tags: [] }
-      ];
+      sampleCalendar1.tags = []
+      sampleCalendar2.tags = []
       
       const taggedExternalCalendars: TaggedExternalCalendar[] = [
         { calendar: sampleExternalCalendar1, tags: [] },
@@ -112,7 +108,7 @@ describe('Tag Aggregator', () => {
       ];
       
       // Act
-      const allTags = collectAllTags(taggedCalendars, taggedExternalCalendars);
+      const allTags = collectAllTags([sampleCalendar1, sampleCalendar2], taggedExternalCalendars);
       
       // Assert
       expect(allTags).toHaveLength(0);
@@ -155,15 +151,14 @@ describe('Tag Aggregator', () => {
   describe('createAggregateCalendars', () => {
     it('should create aggregate calendars for each tag', async () => {
       // Arrange
-      const taggedCalendars: TaggedCalendar[] = [
-        { calendar: sampleCalendar1, tags: ['Music'] },
-        { calendar: sampleCalendar2, tags: ['Activism'] }
-      ];
       
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
+
+      sampleCalendar1.tags = ["Music"]
+      sampleCalendar2.tags = ["Activism"]
       
       // Act
-      const aggregateCalendars = await createAggregateCalendars(taggedCalendars, taggedExternalCalendars);
+      const aggregateCalendars = await createAggregateCalendars([sampleCalendar1, sampleCalendar2], taggedExternalCalendars);
       
       // Assert
       expect(aggregateCalendars).toHaveLength(2);
@@ -201,15 +196,13 @@ describe('Tag Aggregator', () => {
         events: [earlierEvent]
       };
       
-      const taggedCalendars: TaggedCalendar[] = [
-        { calendar: calendar1, tags: ['Music'] },
-        { calendar: calendar2, tags: ['Music'] }
-      ];
+      calendar1.tags = ["Music"]
+      calendar2.tags = ["Music"]
       
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
       
       // Act
-      const aggregateCalendars = await createAggregateCalendars(taggedCalendars, taggedExternalCalendars);
+      const aggregateCalendars = await createAggregateCalendars([calendar1, calendar2], taggedExternalCalendars);
       
       // Assert
       expect(aggregateCalendars).toHaveLength(1);

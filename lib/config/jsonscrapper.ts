@@ -15,9 +15,9 @@ export abstract class JSONRipper implements IRipper {
         const daysToRip = Array.from({ length: days }, (_, i) => LocalDateTime.now().plusDays(i));
 
         // map of string to a list of RipperEvents
-        const calendars: { [key: string]: {events: RipperEvent[], friendlyName: string} } = {};
+        const calendars: { [key: string]: {events: RipperEvent[], friendlyName: string, tags: string[]} } = {};
         for (const c of ripper.config.calendars) {
-            calendars[c.name] = {events: [], friendlyName: c.friendlyname};
+            calendars[c.name] = {events: [], friendlyName: c.friendlyname, tags: c.tags || []};
         }
 
         for (const day of daysToRip) {
@@ -42,7 +42,9 @@ export abstract class JSONRipper implements IRipper {
                 name: key,
                 friendlyname: calendars[key].friendlyName,
                 events: calendars[key].events.filter(e => "date" in e).map(e => e as RipperCalendarEvent),
-                errors: calendars[key].events.filter(e => "type" in e).map(e => e as RipperError)
+                errors: calendars[key].events.filter(e => "type" in e).map(e => e as RipperError),
+                parent: ripper.config,
+                tags: calendars[key].tags
             }
         });
     }

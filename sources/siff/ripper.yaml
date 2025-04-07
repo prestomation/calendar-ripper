@@ -2,6 +2,7 @@ name: siff
 description: Seattle International Film Fest
 url: https://www.siff.net/calendar?view=grid&date={yyyy-MM-dd}
 lookahead: P1M
+tags: ["Movies"]
 calendars:
   - name: downtown
     friendlyname: "SIFF Cinema Downtown"
@@ -9,17 +10,20 @@ calendars:
     config:
       name: "SIFF Cinema Downtown"
       cssSelector: ".Downtown"
+    tags: ["Downtown"]
   - name: uptown
     timezone: America/Los_Angeles
     friendlyname: "SIFF Cinema Uptown"
     config:
       name: "SIFF Cinema Uptown"
       cssSelector: ".Uptown"
+    tags: ["QueenAnne"]
   - name: egyptian
     timezone: America/Los_Angeles
     friendlyname: "SIFF Cinema Egyptian"
     config:
       name: "SIFF Cinema Egyptian"
       cssSelector: ".Egyptian"
+    tags: ["CapitolHill"]
 
 

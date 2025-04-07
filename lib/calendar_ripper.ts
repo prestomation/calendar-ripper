@@ -191,19 +191,12 @@ export const main = async () => {
       continue;
     }
 
-    // Store ripper-level tags
-    if (config.config.tags && config.config.tags.length > 0) {
-      ripperTags.set(config.config.name, config.config.tags);
-    }
 
-    // Store calendar-specific tags
+
+    // Propogate ripper tags to their calendars
     for (const calConfig of config.config.calendars) {
-      if (calConfig.tags && calConfig.tags.length > 0) {
-        calendarTags.set(
-          `${config.config.name}-${calConfig.name}`,
-          calConfig.tags
-        );
-      }
+        calConfig.tags = calConfig.tags || []
+        calConfig.tags = calConfig.tags.concat(config.config.tags || [])
     }
 
     // Rip the calendars
@@ -250,23 +243,10 @@ export const main = async () => {
     tableOfContents += generateExternalCalendarList(activeExternalCalendars);
   }
 
-  // Create aggregate calendars based on tags
-  const taggedCalendars = prepareTaggedCalendars(
-    allCalendars,
-    ripperTags,
-    calendarTags
-  );
   const taggedExternalCalendars = prepareTaggedExternalCalendars(
     activeExternalCalendars
   );
 
-  // Debug logging
-  console.log(
-    "Tagged Calendars:",
-    taggedCalendars.map(
-      (tc) => `${tc.calendar.friendlyname} (${tc.tags.join(", ")})`
-    )
-  );
   console.log(
     "Tagged External Calendars:",
     taggedExternalCalendars.map(
@@ -276,7 +256,7 @@ export const main = async () => {
 
   console.log("Generating aggregate calendars based on tags...");
   const aggregateCalendars = await createAggregateCalendars(
-    taggedCalendars,
+    allCalendars,
     taggedExternalCalendars
   );
 
@@ -307,7 +287,7 @@ export const main = async () => {
 
     tableOfContents += generateAggregateCalendarList(
       aggregateOutputs,
-      taggedCalendars,
+      allCalendars,
       taggedExternalCalendars
     );
   }
@@ -335,7 +315,7 @@ export const main = async () => {
 };
 const generateAggregateCalendarList = (
   outputs: CalendarOutput[],
-  taggedCalendars: TaggedCalendar[],
+  taggedCalendars: RipperCalendar[],
   taggedExternalCalendars: TaggedExternalCalendar[]
 ) => {
   if (outputs.length === 0) {
@@ -357,7 +337,7 @@ const generateAggregateCalendarList = (
         .filter((tc) =>
           tc.tags.some((tag) => tag.toLowerCase() === tagName.toLowerCase())
         )
-        .map((tc) => tc.calendar.friendlyname);
+        .map((tc) => tc.friendlyname);
 
       // Find all external calendars with this tag (case-insensitive comparison)
       const sourceExternalCalendars = taggedExternalCalendars

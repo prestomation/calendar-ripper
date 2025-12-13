@@ -1,0 +1,10 @@
+name: dogwoodplaypark
+description: Dogwood Play Park and Bar - Indoor dog park events
+url: https://www.dogwoodplaypark.com/calendar
+lookahead: P1M
+tags: ["Pets", "Dogs", "Seattle"]
+calendars:
+  - name: events
+    friendlyname: "Dogwood Play Park Events"
+    timezone: America/Los_Angeles
+    tags: ["DogEvents", "PetFriendly"]

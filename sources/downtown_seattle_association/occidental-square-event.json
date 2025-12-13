@@ -1,0 +1,193 @@
+{
+  "id": 55797,
+  "global_id": "downtownseattle.org?id=55797",
+  "global_id_lineage": ["downtownseattle.org?id=55797"],
+  "author": "55",
+  "status": "publish",
+  "date": "2025-04-01 13:39:45",
+  "date_utc": "2025-04-01 20:39:45",
+  "modified": "2025-04-04 17:41:31",
+  "modified_utc": "2025-04-05 00:41:31",
+  "url": "https://downtownseattle.org/event/spring-market-at-occidental-square/",
+  "rest_url": "https://downtownseattle.org/wp-json/tribe/events/v1/events/55797",
+  "title": "Spring Market at Occidental Square",
+  "description": "<p><span style=\"font-weight: 400;\">Welcome spring with a special market at Occidental Square! Browse handcrafted goods from local artisans, enjoy live music, and participate in seasonal activities. Perfect for the whole family!</span></p>",
+  "excerpt": "",
+  "slug": "spring-market-at-occidental-square",
+  "image": {
+    "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1.png",
+    "id": 55822,
+    "extension": "png",
+    "width": 1200,
+    "height": 900,
+    "filesize": 361203,
+    "sizes": {
+      "medium": {
+        "width": 640,
+        "height": 480,
+        "mime-type": "image/png",
+        "filesize": 210147,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-640x480.png"
+      },
+      "large": {
+        "width": 1024,
+        "height": 768,
+        "mime-type": "image/png",
+        "filesize": 412468,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-1024x768.png"
+      },
+      "thumbnail": {
+        "width": 300,
+        "height": 300,
+        "mime-type": "image/png",
+        "filesize": 73486,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-300x300.png"
+      },
+      "medium_large": {
+        "width": 768,
+        "height": 576,
+        "mime-type": "image/png",
+        "filesize": 274111,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-768x576.png"
+      },
+      "grid-thumbnail": {
+        "width": 150,
+        "height": 113,
+        "mime-type": "image/png",
+        "filesize": 22140,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-150x113.png"
+      },
+      "grid-medium": {
+        "width": 300,
+        "height": 225,
+        "mime-type": "image/png",
+        "filesize": 66074,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-300x225.png"
+      },
+      "event_thumbnail": {
+        "width": 640,
+        "height": 480,
+        "mime-type": "image/png",
+        "filesize": 210147,
+        "url": "/app/uploads/2025/04/events-parks-occidental-spring-market-202504-4x3-v1-640x480.png"
+      }
+    }
+  },
+  "all_day": false,
+  "start_date": "2025-04-26 10:00:00",
+  "start_date_details": {
+    "year": "2025",
+    "month": "04",
+    "day": "26",
+    "hour": "10",
+    "minutes": "00",
+    "seconds": "00"
+  },
+  "end_date": "2025-04-26 16:00:00",
+  "end_date_details": {
+    "year": "2025",
+    "month": "04",
+    "day": "26",
+    "hour": "16",
+    "minutes": "00",
+    "seconds": "00"
+  },
+  "utc_start_date": "2025-04-26 17:00:00",
+  "utc_start_date_details": {
+    "year": "2025",
+    "month": "04",
+    "day": "26",
+    "hour": "17",
+    "minutes": "00",
+    "seconds": "00"
+  },
+  "utc_end_date": "2025-04-26 23:00:00",
+  "utc_end_date_details": {
+    "year": "2025",
+    "month": "04",
+    "day": "26",
+    "hour": "23",
+    "minutes": "00",
+    "seconds": "00"
+  },
+  "timezone": "America/Los_Angeles",
+  "timezone_abbr": "PDT",
+  "cost": "",
+  "cost_details": {
+    "currency_symbol": "$",
+    "currency_code": "USD",
+    "currency_position": "prefix",
+    "values": []
+  },
+  "website": "",
+  "show_map": true,
+  "show_map_link": true,
+  "hide_from_listings": false,
+  "sticky": false,
+  "featured": false,
+  "categories": [
+    {
+      "name": "Public",
+      "slug": "public",
+      "term_group": 0,
+      "term_taxonomy_id": 5486,
+      "taxonomy": "tribe_events_cat",
+      "description": "",
+      "parent": 0,
+      "count": 8,
+      "filter": "raw",
+      "id": 5486,
+      "urls": {
+        "self": "https://downtownseattle.org/wp-json/tribe/events/v1/categories/5486",
+        "collection": "https://downtownseattle.org/wp-json/tribe/events/v1/categories"
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Parks & Public Spaces",
+      "slug": "parks-public-spaces",
+      "term_group": 0,
+      "term_taxonomy_id": 5489,
+      "taxonomy": "post_tag",
+      "description": "",
+      "parent": 0,
+      "count": 8,
+      "filter": "raw",
+      "id": 5489,
+      "urls": {
+        "self": "https://downtownseattle.org/wp-json/tribe/events/v1/tags/5489",
+        "collection": "https://downtownseattle.org/wp-json/tribe/events/v1/tags"
+      }
+    }
+  ],
+  "venue": {
+    "id": 53729,
+    "author": "29",
+    "status": "publish",
+    "date": "2024-09-25 23:32:12",
+    "date_utc": "2024-09-26 06:32:12",
+    "modified": "2024-11-21 11:41:27",
+    "modified_utc": "2024-11-21 19:41:27",
+    "url": "https://downtownseattle.org/venue/occidental-square/",
+    "venue": "Occidental Square",
+    "slug": "occidental-square",
+    "address": "117 S Washington St",
+    "city": "Seattle",
+    "province": "WA",
+    "state": "WA",
+    "zip": "98104",
+    "stateprovince": "WA",
+    "geo_lat": 47.6001949,
+    "geo_lng": -122.3337826,
+    "show_map": true,
+    "show_map_link": true,
+    "global_id": "downtownseattle.org?id=53729",
+    "global_id_lineage": ["downtownseattle.org?id=53729"]
+  },
+  "organizer": [],
+  "custom_fields": [],
+  "is_virtual": false,
+  "virtual_url": null,
+  "virtual_video_source": ""
+}

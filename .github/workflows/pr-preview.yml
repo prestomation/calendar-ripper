@@ -14,44 +14,26 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     permissions:
-      contents: write
+      contents: read
+      pages: write
+      id-token: write
       pull-requests: write
+    environment:
+      name: pr-preview
+      url: ${{ steps.deployment.outputs.page_url }}pr-${{ github.event.number }}/
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup gh-pages branch
-        run: |
-          # Check if gh-pages branch exists
-          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
-            echo "gh-pages branch exists, checking it out"
-            git checkout gh-pages
-          else
-            echo "gh-pages branch doesn't exist, creating it"
-            git checkout --orphan gh-pages
-            git rm -rf .
-            echo "# GitHub Pages" > README.md
-            git add README.md
-            git commit -m "Initial gh-pages commit"
-            git push origin gh-pages
-          fi
-
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: pr-preview-${{ github.event.number }}
 
-      - name: Extract artifact to PR directory
+      - name: Extract and prepare preview
         run: |
-          rm -rf pr-${{ github.event.number }}
-          mkdir -p pr-${{ github.event.number }}
-          tar -xf artifact.tar -C pr-${{ github.event.number }}
-
-      - name: Add PR info to preview
-        run: |
-          cat > pr-${{ github.event.number }}/pr-info.html << EOF
+          mkdir -p preview/pr-${{ github.event.number }}
+          tar -xf artifact.tar -C preview/pr-${{ github.event.number }}
+          
+          # Create PR info page
+          cat > preview/pr-${{ github.event.number }}/pr-info.html << EOF
           <!DOCTYPE html>
           <html>
           <head>
@@ -70,23 +52,36 @@ jobs:
               <p><strong>Commit:</strong> ${{ github.event.pull_request.head.sha }}</p>
               <p><strong>Errors:</strong> <span class="${{ needs.build.outputs.error-count == '0' && 'success-count' || 'error-count' }}">${{ needs.build.outputs.error-count }}</span></p>
               <p><a href="index.html">📅 View Calendar Index</a></p>
-              <p><a href="../">← Back to Production Site</a></p>
             </div>
           </body>
           </html>
           EOF
+          
+          # Create index redirect to PR directory
+          cat > preview/index.html << EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta http-equiv="refresh" content="0; url=pr-${{ github.event.number }}/">
+            <title>Redirecting to PR #${{ github.event.number }}</title>
+          </head>
+          <body>
+            <p>Redirecting to <a href="pr-${{ github.event.number }}/">PR #${{ github.event.number }} preview</a>...</p>
+          </body>
+          </html>
+          EOF
 
-      - name: Commit and push preview
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add pr-${{ github.event.number }}/
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Update PR #${{ github.event.number }} preview"
-            git push origin gh-pages
-          fi
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload preview artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'preview/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7
@@ -104,7 +99,7 @@ jobs:
             
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
-            const previewUrl = `https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-${{ github.event.number }}/`;
+            const previewUrl = `${{ steps.deployment.outputs.page_url }}pr-${{ github.event.number }}/`;
             
             const body = `## 📅 Calendar Preview
             
@@ -116,7 +111,7 @@ jobs:
             
             The preview will be updated automatically when you push new commits.
             
-            > ⚠️ This preview is deployed to a subdirectory and won't affect the production site.`;
+            > ⚠️ This is a temporary preview that will be replaced when other PRs are merged.`;
             
             if (botComment) {
               await github.rest.issues.updateComment({

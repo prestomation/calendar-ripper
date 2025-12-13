@@ -116,8 +116,8 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
     
     private parseDate(dateText: string): ZonedDateTime | null {
         try {
-            // Clean up the date text
-            let cleanDate = dateText
+            // Clean up the date text - remove ordinal suffixes ONCE
+            const cleanDate = dateText
                 .replace(/^[A-Z]+DAY,?\s+/i, '')
                 .replace(/(\d+)(ST|ND|RD|TH)/gi, '$1');
             
@@ -125,18 +125,20 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
             const now = new Date();
             
             // Add current year if not present
+            let dateWithYear = cleanDate;
             if (!/\d{4}/.test(cleanDate)) {
-                cleanDate = cleanDate + ', ' + currentYear;
+                dateWithYear = cleanDate + ', ' + currentYear;
             }
             
-            let date = new Date(cleanDate);
+            let date = new Date(dateWithYear);
             
             // If the date is more than 7 days in the past, assume it's next year
             if (!isNaN(date.getTime())) {
                 const daysDiff = (date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24);
                 if (daysDiff < -7) {
-                    cleanDate = dateText.replace(/(\d+)(ST|ND|RD|TH)/gi, '$1') + ', ' + (currentYear + 1);
-                    date = new Date(cleanDate);
+                    // Use the already cleaned date text, don't re-process ordinals
+                    dateWithYear = cleanDate + ', ' + (currentYear + 1);
+                    date = new Date(dateWithYear);
                 }
             }
             

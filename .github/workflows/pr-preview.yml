@@ -19,7 +19,7 @@ jobs:
       id-token: write
       pull-requests: write
     environment:
-      name: pr-preview-${{ github.event.number }}
+      name: pr-preview
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download artifact
@@ -93,6 +93,7 @@ jobs:
             
             **Status:** ${errorBadge}
             **Commit:** ${{ github.event.pull_request.head.sha }}
+            **PR:** #${{ github.event.number }}
             
             The preview will be updated automatically when you push new commits.`;
             

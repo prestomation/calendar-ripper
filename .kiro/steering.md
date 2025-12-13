@@ -105,6 +105,26 @@ return {
 - Check generated .ics file content
 - Validate dates are in correct year/timezone
 
+### 8. Unit Testing Requirements
+Every ripper must include a unit test file (`ripper.test.ts`) with:
+- Mock data representing the expected API/HTML response format
+- Tests for successful event parsing with valid data
+- Tests for error handling with invalid/missing data
+- Tests for filtering logic (if applicable)
+- Validation of parsed event fields (date, title, location, etc.)
+
+Example test structure:
+```typescript
+describe('MyRipper', () => {
+    it('should parse events from mock data', async () => {
+        const mockData = /* realistic mock response */;
+        const events = await ripper.parseEvents(mockData, testDate, {});
+        expect(events).toHaveLength(expectedCount);
+        expect(events[0]).toHaveProperty('summary', 'Expected Title');
+    });
+});
+```
+
 ## Current Limitations
 - No recurring event support
 - No event updates/deletions (full regeneration each run)

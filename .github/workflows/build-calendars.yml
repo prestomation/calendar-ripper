@@ -1,0 +1,54 @@
+name: Build Calendars (Reusable)
+
+on:
+  workflow_call:
+    outputs:
+      error-count:
+        description: "Number of errors encountered during calendar generation"
+        value: ${{ jobs.build.outputs.error-count }}
+      build-successful:
+        description: "Whether the build completed successfully"
+        value: ${{ jobs.build.outputs.build-successful }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
+      build-successful: ${{ steps.check-errors.outcome == 'success' }}
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run unit tests
+      run: npm run test
+
+    - name: Generate calendars
+      id: generate-calendars
+      run: | 
+        npm run generate-calendars
+        cat errorCount.txt
+        echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
+
+    - name: Check Error Count
+      id: check-errors
+      env:
+        ERROR_COUNT: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
+      # Fail this if we have a positive error count.
+      # This way we keep uploading/deploying even if there are errors, but we get a notification from this failed step
+      run: (( $ERROR_COUNT == 0 ))
+
+    - name: Upload pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'output/'

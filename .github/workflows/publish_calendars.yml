@@ -10,41 +10,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
-
-    - name: Install dependencies
-      run: npm install
-    - name: Run unit tests
-      run: npm run test
-    - name: Generate calendars
-      id: generate-calendars
-      run: | 
-        npm run generate-calendars
-        cat errorCount.txt
-        echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: 'output/'
-    - name: Check Error Count
-      env:
-        ERROR_COUNT: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
-      # Fail this if we have a positive error count.
-      # This way we keep publishing our calendars even if there are errors, but we get a notification from this failed step
-      run: (( $ERROR_COUNT == 0 ))
+    uses: ./.github/workflows/build-calendars.yml
 
 
   deploy:
-
     # Always run this deploy, even if the build failed. This is so we get newest results even if a calendar had errors
     if: always()
     permissions:

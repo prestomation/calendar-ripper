@@ -1,0 +1,41 @@
+name: Build Calendars
+
+on:
+  workflow_call:
+    outputs:
+      error-count:
+        description: "Number of errors during calendar generation"
+        value: ${{ jobs.build.outputs.error-count }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run unit tests
+      run: npm run test
+
+    - name: Generate calendars
+      id: generate-calendars
+      run: | 
+        npm run generate-calendars
+        cat errorCount.txt
+        echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'output/'

@@ -1,0 +1,111 @@
+name: PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-calendars.yml
+
+  deploy-preview:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+      pull-requests: write
+    environment:
+      name: pr-preview-${{ github.event.number }}
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+
+      - name: Extract artifact
+        run: |
+          mkdir -p preview
+          tar -xf artifact.tar -C preview
+
+      - name: Add PR info to index
+        run: |
+          cat > preview/pr-info.html << EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>PR #${{ github.event.number }} Preview</title>
+            <style>
+              body { font-family: Arial, sans-serif; margin: 20px; }
+              .pr-info { background: #f0f8ff; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+              .error-count { color: #d73a49; font-weight: bold; }
+              .success-count { color: #28a745; font-weight: bold; }
+            </style>
+          </head>
+          <body>
+            <div class="pr-info">
+              <h2>🔍 PR Preview #${{ github.event.number }}</h2>
+              <p><strong>Branch:</strong> ${{ github.head_ref }}</p>
+              <p><strong>Commit:</strong> ${{ github.event.pull_request.head.sha }}</p>
+              <p><strong>Errors:</strong> <span class="${{ needs.build.outputs.error-count == '0' && 'success-count' || 'error-count' }}">${{ needs.build.outputs.error-count }}</span></p>
+              <p><a href="index.html">📅 View Calendar Index</a></p>
+            </div>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload preview artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'preview/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Comment PR with preview link
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && comment.body.includes('📅 Calendar Preview')
+            );
+            
+            const errorCount = '${{ needs.build.outputs.error-count }}';
+            const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
+            
+            const body = `## 📅 Calendar Preview
+            
+            Preview for this PR is available at: ${{ steps.deployment.outputs.page_url }}
+            
+            **Status:** ${errorBadge}
+            **Commit:** ${{ github.event.pull_request.head.sha }}
+            
+            The preview will be updated automatically when you push new commits.`;
+            
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }

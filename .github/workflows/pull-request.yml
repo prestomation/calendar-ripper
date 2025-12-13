@@ -13,88 +13,176 @@ permissions:
   actions: read
 
 jobs:
-  build:
-    uses: ./.github/workflows/build-calendars.yml
-
-  comment-results:
-    # Always run this step, even if the build failed
-    if: always()
+  test-and-build:
     runs-on: ubuntu-latest
-    needs: build
     permissions:
+      contents: read
       issues: write
       pull-requests: write
       actions: read
+    
     steps:
-      - name: Comment PR with results
-        uses: actions/github-script@v7
-        with:
-          script: |
-            try {
-              // Get artifacts from the build job
-              const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                run_id: context.runId,
-              });
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-              const errorCount = '${{ needs.build.outputs.error-count }}' || '0';
-              const buildSuccessful = '${{ needs.build.outputs.build-successful }}' === 'true';
-              
-              let message = `## 📅 Calendar Generation Results\n\n`;
-              
-              // Check if we have artifacts
-              const pageArtifact = artifacts.artifacts.find(a => a.name.includes('github-pages'));
-              
-              if (pageArtifact) {
-                message += `✅ **Calendars generated successfully!**\n\n`;
-                message += `📦 **Download generated calendars:** [${pageArtifact.name}](${pageArtifact.archive_download_url})\n\n`;
-                message += `> **Note:** You need to be logged into GitHub to download the artifact. Extract the zip file to view the generated calendar files.\n\n`;
-              } else {
-                message += `❌ **Calendar generation failed or artifacts not found.**\n\n`;
-              }
-              
-              if (errorCount && errorCount !== '0') {
-                message += `⚠️ **Warning:** ${errorCount} error(s) occurred during calendar generation.\n\n`;
-              }
-              
-              if (!buildSuccessful) {
-                message += `⚠️ **Build Status:** Some issues were detected during the build process.\n\n`;
-              }
-              
-              message += `**Workflow run:** [View details](${context.payload.repository.html_url}/actions/runs/${context.runId})`;
-              
-              // Find existing comment to update or create new one
-              const { data: comments } = await github.rest.issues.listComments({
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run unit tests
+      run: npm run test
+
+    - name: Generate calendars
+      id: generate-calendars
+      run: | 
+        npm run generate-calendars
+        cat errorCount.txt
+        echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-calendars-pr-${{ github.event.number }}
+        path: 'output/'
+        retention-days: 30
+
+    - name: Check Error Count
+      id: check-errors
+      env:
+        ERROR_COUNT: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
+      # Fail this if we have a positive error count.
+      # This way we keep uploading/deploying even if there are errors, but we get a notification from this failed step
+      run: (( $ERROR_COUNT == 0 ))
+
+    - name: Comment PR with results
+      if: always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          try {
+            // First, check if we have permission to comment by testing with a safe API call
+            let canComment = false;
+            try {
+              await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
+                per_page: 1
               });
-              
-              const botComment = comments.find(comment => 
-                comment.user.type === 'Bot' && 
-                comment.body.includes('📅 Calendar Generation Results')
-              );
-              
-              if (botComment) {
-                await github.rest.issues.updateComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  comment_id: botComment.id,
-                  body: message
-                });
-                console.log('Updated existing comment');
-              } else {
-                await github.rest.issues.createComment({
+              canComment = true;
+              console.log('✅ Permission check passed - can access PR comments');
+            } catch (permError) {
+              console.log('⚠️ Permission check failed - cannot access PR comments:', permError.message);
+              canComment = false;
+            }
+
+            // Get artifacts from the build job
+            const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.runId,
+            });
+
+            const errorCount = '${{ steps.generate-calendars.outputs.ERROR_COUNT }}' || '0';
+            const buildSuccessful = '${{ steps.check-errors.outcome }}' === 'success';
+            const artifactName = `generated-calendars-pr-${{ github.event.number }}`;
+            
+            let message = `## 📅 Calendar Generation Results\n\n`;
+            
+            // Check if we have artifacts
+            const artifact = artifacts.artifacts.find(a => a.name === artifactName);
+            
+            if (artifact) {
+              message += `✅ **Calendars generated successfully!**\n\n`;
+              message += `📦 **Download generated calendars:** [${artifact.name}](${artifact.archive_download_url})\n\n`;
+              message += `> **Note:** You need to be logged into GitHub to download the artifact.\n\n`;
+            } else {
+              message += `❌ **Calendar generation failed or artifacts not found.**\n\n`;
+            }
+            
+            if (errorCount && errorCount !== '0') {
+              message += `⚠️ **Warning:** ${errorCount} error(s) occurred during calendar generation.\n\n`;
+            }
+            
+            if (!buildSuccessful) {
+              message += `⚠️ **Build Status:** Some issues were detected during the build process.\n\n`;
+            }
+            
+            message += `**Workflow run:** [View details](${context.payload.repository.html_url}/actions/runs/${context.runId})`;
+            
+            // Only attempt to comment if we have permissions
+            if (canComment) {
+              try {
+                // Find existing comment to update or create new one
+                const { data: comments } = await github.rest.issues.listComments({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: context.issue.number,
-                  body: message
                 });
-                console.log('Created new comment');
+                
+                const botComment = comments.find(comment => 
+                  comment.user.type === 'Bot' && 
+                  comment.body.includes('📅 Calendar Generation Results')
+                );
+                
+                if (botComment) {
+                  await github.rest.issues.updateComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    comment_id: botComment.id,
+                    body: message
+                  });
+                  console.log('✅ Updated existing PR comment');
+                } else {
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: context.issue.number,
+                    body: message
+                  });
+                  console.log('✅ Created new PR comment');
+                }
+              } catch (commentError) {
+                console.error('❌ Failed to create/update PR comment:', commentError.message);
+                throw commentError; // Re-throw to trigger fallback
               }
-            } catch (error) {
-              console.error('Error creating/updating PR comment:', error);
-              console.log('This is likely a permissions issue, but the workflow will continue.');
-              // Don't fail the workflow if commenting fails
+            } else {
+              throw new Error('No permission to comment on PR');
             }
+            
+          } catch (error) {
+            console.error('⚠️ Cannot comment on PR (likely due to fork permissions):', error.message);
+            console.log('📝 Providing feedback through job summary instead...');
+            
+            // Fallback: Use job summary for feedback when commenting fails
+            const errorCount = '${{ steps.generate-calendars.outputs.ERROR_COUNT }}' || '0';
+            const buildSuccessful = '${{ steps.check-errors.outcome }}' === 'success';
+            const artifactName = `generated-calendars-pr-${{ github.event.number }}`;
+            
+            let summary = '# 📅 Calendar Generation Results\n\n';
+            
+            if (buildSuccessful && errorCount === '0') {
+              summary += '✅ **Status:** Calendars generated successfully!\n\n';
+            } else if (buildSuccessful && errorCount !== '0') {
+              summary += `⚠️ **Status:** Calendars generated with ${errorCount} warning(s)\n\n`;
+            } else {
+              summary += '❌ **Status:** Calendar generation encountered issues\n\n';
+            }
+            
+            summary += `📦 **Artifact:** ${artifactName}\n`;
+            summary += `🔢 **Error Count:** ${errorCount}\n`;
+            summary += `✅ **Build Successful:** ${buildSuccessful}\n\n`;
+            summary += '> **Note:** Download the artifact from the workflow run to access generated calendars.\n';
+            
+            await core.summary
+              .addRaw(summary)
+              .write();
+            
+            console.log('✅ Job summary created as fallback feedback mechanism');
+            // Don't fail the workflow - this is expected behavior for fork PRs
+          }

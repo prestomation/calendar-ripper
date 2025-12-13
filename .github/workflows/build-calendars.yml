@@ -2,6 +2,17 @@ name: Build Calendars (Reusable)
 
 on:
   workflow_call:
+    inputs:
+      upload-type:
+        description: "Type of upload: 'pages' for GitHub Pages, 'artifact' for regular artifact"
+        required: false
+        default: 'pages'
+        type: string
+      artifact-name:
+        description: "Name for the artifact when upload-type is 'artifact'"
+        required: false
+        default: 'generated-calendars'
+        type: string
     outputs:
       error-count:
         description: "Number of errors encountered during calendar generation"
@@ -9,6 +20,9 @@ on:
       build-successful:
         description: "Whether the build completed successfully"
         value: ${{ jobs.build.outputs.build-successful }}
+      artifact-name:
+        description: "Name of the uploaded artifact"
+        value: ${{ jobs.build.outputs.artifact-name }}
 
 jobs:
   build:
@@ -16,6 +30,7 @@ jobs:
     outputs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
       build-successful: ${{ steps.check-errors.outcome == 'success' }}
+      artifact-name: ${{ steps.set-artifact-name.outputs.artifact-name }}
     
     steps:
     - name: Checkout repository
@@ -48,7 +63,25 @@ jobs:
       # This way we keep uploading/deploying even if there are errors, but we get a notification from this failed step
       run: (( $ERROR_COUNT == 0 ))
 
+    - name: Set artifact name
+      id: set-artifact-name
+      run: |
+        if [ "${{ inputs.upload-type }}" = "artifact" ]; then
+          echo "artifact-name=${{ inputs.artifact-name }}" >> "$GITHUB_OUTPUT"
+        else
+          echo "artifact-name=github-pages" >> "$GITHUB_OUTPUT"
+        fi
+
     - name: Upload pages artifact
+      if: inputs.upload-type == 'pages'
       uses: actions/upload-pages-artifact@v3
       with:
         path: 'output/'
+
+    - name: Upload regular artifact
+      if: inputs.upload-type == 'artifact'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ inputs.artifact-name }}
+        path: 'output/'
+        retention-days: 30

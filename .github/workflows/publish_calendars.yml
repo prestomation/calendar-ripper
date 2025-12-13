@@ -14,6 +14,7 @@ jobs:
 
 
   deploy:
+
     # Always run this deploy, even if the build failed. This is so we get newest results even if a calendar had errors
     if: always()
     permissions:

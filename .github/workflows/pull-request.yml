@@ -11,85 +11,90 @@ permissions:
   issues: write
   pull-requests: write
   actions: read
-  pages: write
-  id-token: write
 
 jobs:
   build:
     uses: ./.github/workflows/build-calendars.yml
 
-  deploy-preview:
-    # Always run this deploy, even if the build failed. This is so we get newest results even if a calendar had errors
+  comment-results:
+    # Always run this step, even if the build failed
     if: always()
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-      issues: write
-      pull-requests: write
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: github-pages-preview
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      issues: write
+      pull-requests: write
+      actions: read
     steps:
-      - name: Deploy to preview
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Comment PR with preview link
-        if: always()
+      - name: Comment PR with results
         uses: actions/github-script@v7
         with:
           script: |
-            const deploymentUrl = '${{ steps.deployment.outputs.page_url }}';
-            const errorCount = '${{ needs.build.outputs.error-count }}';
-            const buildSuccessful = '${{ needs.build.outputs.build-successful }}' === 'true';
-            
-            let message = `## 📅 Calendar Generation Results\n\n`;
-            
-            if (deploymentUrl) {
-              message += `✅ **Calendars generated and deployed!**\n\n`;
-              message += `🔗 **Preview your changes:** [View Calendar Preview](${deploymentUrl})\n\n`;
-              message += `> **Note:** The preview is live and accessible immediately.\n\n`;
-            } else {
-              message += `❌ **Calendar generation failed or deployment not found.**\n\n`;
-            }
-            
-            if (errorCount && errorCount !== '0') {
-              message += `⚠️ **Warning:** ${errorCount} error(s) occurred during calendar generation.\n\n`;
-            }
-            
-            if (!buildSuccessful) {
-              message += `⚠️ **Build Status:** Some issues were detected during the build process.\n\n`;
-            }
-            
-            message += `**Workflow run:** [View details](${context.payload.repository.html_url}/actions/runs/${context.runId})`;
-            
-            // Find existing comment to update or create new one
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-            
-            const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes('📅 Calendar Generation Results')
-            );
-            
-            if (botComment) {
-              await github.rest.issues.updateComment({
+            try {
+              // Get artifacts from the build job
+              const { data: artifacts } = await github.rest.actions.listWorkflowRunArtifacts({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                comment_id: botComment.id,
-                body: message
+                run_id: context.runId,
               });
-            } else {
-              await github.rest.issues.createComment({
+
+              const errorCount = '${{ needs.build.outputs.error-count }}' || '0';
+              const buildSuccessful = '${{ needs.build.outputs.build-successful }}' === 'true';
+              
+              let message = `## 📅 Calendar Generation Results\n\n`;
+              
+              // Check if we have artifacts
+              const pageArtifact = artifacts.artifacts.find(a => a.name.includes('github-pages'));
+              
+              if (pageArtifact) {
+                message += `✅ **Calendars generated successfully!**\n\n`;
+                message += `📦 **Download generated calendars:** [${pageArtifact.name}](${pageArtifact.archive_download_url})\n\n`;
+                message += `> **Note:** You need to be logged into GitHub to download the artifact. Extract the zip file to view the generated calendar files.\n\n`;
+              } else {
+                message += `❌ **Calendar generation failed or artifacts not found.**\n\n`;
+              }
+              
+              if (errorCount && errorCount !== '0') {
+                message += `⚠️ **Warning:** ${errorCount} error(s) occurred during calendar generation.\n\n`;
+              }
+              
+              if (!buildSuccessful) {
+                message += `⚠️ **Build Status:** Some issues were detected during the build process.\n\n`;
+              }
+              
+              message += `**Workflow run:** [View details](${context.payload.repository.html_url}/actions/runs/${context.runId})`;
+              
+              // Find existing comment to update or create new one
+              const { data: comments } = await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body: message
               });
+              
+              const botComment = comments.find(comment => 
+                comment.user.type === 'Bot' && 
+                comment.body.includes('📅 Calendar Generation Results')
+              );
+              
+              if (botComment) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: botComment.id,
+                  body: message
+                });
+                console.log('Updated existing comment');
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  body: message
+                });
+                console.log('Created new comment');
+              }
+            } catch (error) {
+              console.error('Error creating/updating PR comment:', error);
+              console.log('This is likely a permissions issue, but the workflow will continue.');
+              // Don't fail the workflow if commenting fails
             }

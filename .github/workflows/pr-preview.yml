@@ -17,19 +17,35 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - name: Checkout gh-pages branch
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup gh-pages branch
+        run: |
+          # Check if gh-pages branch exists
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            echo "gh-pages branch exists, checking it out"
+            git checkout gh-pages
+          else
+            echo "gh-pages branch doesn't exist, creating it"
+            git checkout --orphan gh-pages
+            git rm -rf .
+            echo "# GitHub Pages" > README.md
+            git add README.md
+            git commit -m "Initial gh-pages commit"
+            git push origin gh-pages
+          fi
 
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: pr-preview-${{ github.event.number }}
 
-      - name: Extract artifact
+      - name: Extract artifact to PR directory
         run: |
+          rm -rf pr-${{ github.event.number }}
           mkdir -p pr-${{ github.event.number }}
           tar -xf artifact.tar -C pr-${{ github.event.number }}
 
@@ -65,8 +81,12 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add pr-${{ github.event.number }}/
-          git commit -m "Add PR #${{ github.event.number }} preview" || exit 0
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update PR #${{ github.event.number }} preview"
+            git push origin gh-pages
+          fi
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7

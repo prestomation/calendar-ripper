@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/build-calendars.yml
+    with:
+      artifact-name: pr-preview-${{ github.event.number }}
 
   deploy-preview:
     runs-on: ubuntu-latest
@@ -23,7 +25,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: github-pages
+          name: pr-preview-${{ github.event.number }}
 
       - name: Extract artifact
         run: |

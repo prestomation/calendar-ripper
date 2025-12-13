@@ -2,6 +2,12 @@ name: Build Calendars
 
 on:
   workflow_call:
+    inputs:
+      artifact-name:
+        description: "Name for the uploaded artifact"
+        required: false
+        default: "github-pages"
+        type: string
     outputs:
       error-count:
         description: "Number of errors during calendar generation"
@@ -39,3 +45,4 @@ jobs:
       uses: actions/upload-pages-artifact@v3
       with:
         path: 'output/'
+        name: ${{ inputs.artifact-name }}

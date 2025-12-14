@@ -8,7 +8,7 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
         const events: RipperEvent[] = [];
         
         // Validate tags from config
-        const ripperTags = ["Markets", "MakersMarkets"];
+        const ripperTags = ["MakersMarket", "Art"];
         const tagValidation = validateTags(ripperTags);
         if (tagValidation.invalid.length > 0) {
             console.warn(`Invalid tags found: ${tagValidation.invalid.join(', ')}`);

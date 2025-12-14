@@ -11,17 +11,14 @@ export const VALID_TAGS = [
     "Movies", 
     "Beer",
     "Arts",
-    "Crafts",
-    "Markets",
-    "MakersMarkets",
-    "Shopping",
-    "Handmade",
+    "Art",
     
-    // Pet/Animal related
-    "Pets",
-    "Dogs", 
-    "DogEvents",
-    "PetFriendly",
+    // Market types
+    "FarmersMarket",
+    "MakersMarket",
+    
+    // Pet/Animal related (consolidated)
+    "Dogs",
     
     // Community/Social
     "Activism",

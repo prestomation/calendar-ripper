@@ -556,6 +556,11 @@ function App() {
                   <div className="event-date">{formatDate(event.startDate)}</div>
                   <div className="event-title">
                     {event.title}
+                    {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
+                      <span className="event-source" title={`From ${event.calendarName}`}>
+                        {event.calendarName}
+                      </span>
+                    )}
                     {event.url && (
                       <a 
                         href={event.url} 

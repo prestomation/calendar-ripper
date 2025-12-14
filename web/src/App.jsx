@@ -61,6 +61,19 @@ function App() {
     updateURL(searchTerm, tag, selectedCalendar)
   }
 
+  const handleTagSelect = (tag) => {
+    const tagCalendar = {
+      name: `tag-${tag.toLowerCase()}`,
+      fullName: `Tag: ${tag}`,
+      icsUrl: `tag-${tag.toLowerCase()}.ics`,
+      tags: [tag],
+      ripperName: 'tag-aggregate'
+    }
+    setSelectedCalendar(tagCalendar)
+    setShowHomepage(false)
+    updateURL(searchTerm, selectedTag, tagCalendar)
+  }
+
   const handleCalendarSelect = (calendar, ripperName) => {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
@@ -72,8 +85,10 @@ function App() {
     return `https://maps.google.com/maps?q=${encodeURIComponent(location)}`
   }
 
-  const createGoogleCalendarUrl = (icsUrl) => {
-    const fullUrl = new URL(icsUrl, window.location.origin + window.location.pathname).href
+  const createGoogleCalendarUrl = (icsUrl, originalIcsUrl) => {
+    // Use original URL for external calendars, local URL for others
+    const urlToUse = originalIcsUrl || icsUrl
+    const fullUrl = originalIcsUrl ? urlToUse : new URL(icsUrl, window.location.origin + window.location.pathname).href
     return `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(fullUrl)}`
   }
 
@@ -97,7 +112,22 @@ function App() {
           }))
         }))
         
-        setCalendars(ripperGroups)
+        // Add external calendars as individual groups
+        const externalGroups = (manifestData.externalCalendars || []).map(calendar => ({
+          name: calendar.name,
+          description: calendar.description,
+          friendlyLink: calendar.infoUrl,
+          calendars: [{
+            name: calendar.name,
+            fullName: calendar.friendlyName,
+            icsUrl: calendar.icsUrl, // Local file for viewing
+            originalIcsUrl: calendar.originalIcsUrl, // Original URL for subscription
+            tags: calendar.tags,
+            isExternal: true
+          }]
+        }))
+        
+        setCalendars([...ripperGroups, ...externalGroups])
       } catch (error) {
         console.error('Failed to load calendars:', error)
       } finally {
@@ -196,6 +226,14 @@ function App() {
           .map(vevent => {
             const event = new ICAL.Event(vevent)
             const startDate = event.startDate.toJSDate()
+            const description = event.description || ''
+            
+            // Extract calendar name from description for tag aggregates
+            let calendarName = null
+            const fromMatch = description.match(/From (.+?)$/m)
+            if (fromMatch) {
+              calendarName = fromMatch[1]
+            }
             
             return {
               id: event.uid,
@@ -204,7 +242,8 @@ function App() {
               location: event.location,
               url: vevent.getFirstPropertyValue('url'),
               startDate: startDate,
-              endDate: event.endDate?.toJSDate()
+              endDate: event.endDate?.toJSDate(),
+              calendarName: calendarName
             }
           })
           .filter(event => event.startDate >= today) // Filter from today onwards
@@ -290,7 +329,11 @@ function App() {
         <div className="calendar-list">
           {selectedTag && (
             <div className="tag-header">
-              <div className="tag-header-content">
+              <div 
+                className="tag-header-content clickable"
+                onClick={() => handleTagSelect(selectedTag)}
+                title="Click to view tag calendar events"
+              >
                 <div className="tag-title">Tag: {selectedTag}</div>
                 <div className="tag-actions">
                   <a 
@@ -298,6 +341,7 @@ function App() {
                     download
                     title="Download tag calendar as ICS"
                     className="action-link"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     📥 ICS
                   </a>
@@ -307,6 +351,7 @@ function App() {
                     rel="noopener noreferrer"
                     title="Add tag calendar to Google Calendar"
                     className="action-link"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     📅 Google
                   </a>
@@ -319,7 +364,17 @@ function App() {
             <div key={ripperIndex} className="ripper-group">
               <div className="ripper-header">
                 <div className="ripper-title-container">
-                  <div className="ripper-title">{ripper.description}</div>
+                  <div className="ripper-title">
+                    {ripper.description}
+                    {ripper.calendars[0]?.isExternal && (
+                      <span 
+                        className="external-indicator"
+                        title="External calendar from original organization"
+                      >
+                        🔗
+                      </span>
+                    )}
+                  </div>
                   {ripper.friendlyLink && (
                     <a 
                       href={ripper.friendlyLink}
@@ -328,28 +383,54 @@ function App() {
                       className="ripper-link-icon"
                       title="Visit organization website"
                     >
-                      🔗
+                      🌐
                     </a>
                   )}
                 </div>
                 <div className="ripper-actions">
-                  <a 
-                    href={`tag-${ripper.name.toLowerCase()}.ics`}
-                    download
-                    title="Download all calendars as ICS"
-                    className="action-link"
-                  >
-                    📥 ICS
-                  </a>
-                  <a 
-                    href={createGoogleCalendarUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Add all calendars to Google Calendar"
-                    className="action-link"
-                  >
-                    📅 Google
-                  </a>
+                  {ripper.calendars[0]?.isExternal ? (
+                    // External calendar - use original URL
+                    <>
+                      <a 
+                        href={ripper.calendars[0].originalIcsUrl || ripper.calendars[0].icsUrl}
+                        target="_blank"
+                        title="Download original ICS file"
+                        className="action-link"
+                      >
+                        📥 ICS
+                      </a>
+                      <a 
+                        href={createGoogleCalendarUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Add to Google Calendar"
+                        className="action-link"
+                      >
+                        📅 Google
+                      </a>
+                    </>
+                  ) : (
+                    // Regular ripper - use tag aggregation
+                    <>
+                      <a 
+                        href={`tag-${ripper.name.toLowerCase()}.ics`}
+                        download
+                        title="Download all calendars as ICS"
+                        className="action-link"
+                      >
+                        📥 ICS
+                      </a>
+                      <a 
+                        href={createGoogleCalendarUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Add all calendars to Google Calendar"
+                        className="action-link"
+                      >
+                        📅 Google
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
               
@@ -380,15 +461,16 @@ function App() {
                   </div>
                   <div className="calendar-actions">
                     <a 
-                      href={calendar.icsUrl}
-                      download
+                      href={calendar.originalIcsUrl || calendar.icsUrl}
+                      download={!calendar.originalIcsUrl}
+                      target={calendar.originalIcsUrl ? "_blank" : undefined}
                       title="Download ICS file"
                       className="action-link"
                     >
                       📥 ICS
                     </a>
                     <a 
-                      href={createGoogleCalendarUrl(calendar.icsUrl)}
+                      href={createGoogleCalendarUrl(calendar.icsUrl, calendar.originalIcsUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Add to Google Calendar"
@@ -483,6 +565,11 @@ function App() {
                   <div className="event-date">{formatDate(event.startDate)}</div>
                   <div className="event-title">
                     {event.title}
+                    {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
+                      <span className="event-source" title={`From ${event.calendarName}`}>
+                        {event.calendarName}
+                      </span>
+                    )}
                     {event.url && (
                       <a 
                         href={event.url} 

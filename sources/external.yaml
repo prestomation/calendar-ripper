@@ -10,6 +10,7 @@
   description: "Events with the Transit Riders Union"
   icsUrl: "https://transitriders.org/?rhc_action=get_icalendar_events&post_type[]=events&calendar=featured"
   infoUrl: "https://transitriders.org/events/"
+  disabled: true  # ICS endpoint returns HTML instead of calendar data
   tags: 
   - Activism
 - name: the-urbanist

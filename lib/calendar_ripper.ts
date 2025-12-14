@@ -288,6 +288,34 @@ export const main = async () => {
     }
   }
 
+  // Generate external calendar files
+  console.log("Generating external calendar files...");
+  for (const calendar of activeExternalCalendars) {
+    try {
+      console.log(`Fetching external calendar: ${calendar.friendlyname}`);
+      const response = await fetch(calendar.icsUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      const icsContent = await response.text();
+      const localFileName = `external-${calendar.name}.ics`;
+      await writeFile(`output/${localFileName}`, icsContent);
+      console.log(`  - Saved as ${localFileName}`);
+    } catch (error) {
+      console.error(`  - Failed to fetch ${calendar.friendlyname}: ${error}`);
+      // Create empty calendar file as fallback
+      const emptyCalendar = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//iCalendar Ripper//External Calendar Error//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:${calendar.friendlyname} (Error)
+X-WR-CALDESC:Failed to fetch external calendar: ${error}
+END:VCALENDAR`;
+      await writeFile(`output/external-${calendar.name}.ics`, emptyCalendar);
+    }
+  }
+
   console.log("generating JSON manifest");
 
   // Collect all unique tags
@@ -297,6 +325,11 @@ export const main = async () => {
     ripper.config.calendars.forEach(calendar => {
       if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
     });
+  });
+
+  // Add external calendar tags
+  activeExternalCalendars.forEach(calendar => {
+    if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
   });
 
   // Generate JSON manifest for React app
@@ -312,6 +345,15 @@ export const main = async () => {
         icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
         tags: [...(ripper.config.tags || []), ...(calendar.tags || [])]
       }))
+    })),
+    externalCalendars: activeExternalCalendars.map(calendar => ({
+      name: calendar.name,
+      friendlyName: calendar.friendlyname,
+      description: calendar.description,
+      icsUrl: `external-${calendar.name}.ics`, // Local file for web app
+      originalIcsUrl: calendar.icsUrl, // Original URL for subscription links
+      infoUrl: calendar.infoUrl,
+      tags: calendar.tags || []
     })),
     tags: Array.from(allTags).sort()
   };

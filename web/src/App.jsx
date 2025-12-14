@@ -174,6 +174,51 @@ function App() {
     setTimeout(() => document.body.removeChild(popover), 2000)
   }
 
+  const parseRRuleDescription = (rrule) => {
+    if (!rrule) return null
+    
+    try {
+      const parts = rrule.split(';')
+      let freq = null
+      let byday = null
+      let bymonth = null
+      
+      parts.forEach(part => {
+        const [key, value] = part.split('=')
+        if (key === 'FREQ') freq = value
+        if (key === 'BYDAY') byday = value
+        if (key === 'BYMONTH') bymonth = value
+      })
+      
+      if (freq === 'MONTHLY' && byday) {
+        const match = byday.match(/^(\d+)([A-Z]{2})$/)
+        if (match) {
+          const ordinal = match[1]
+          const day = match[2]
+          
+          const ordinalMap = { '1': '1st', '2': '2nd', '3': '3rd', '4': '4th', '5': '5th' }
+          const dayMap = { 'MO': 'Monday', 'TU': 'Tuesday', 'WE': 'Wednesday', 'TH': 'Thursday', 'FR': 'Friday', 'SA': 'Saturday', 'SU': 'Sunday' }
+          
+          let description = `${ordinalMap[ordinal]} ${dayMap[day]} of each month`
+          
+          if (bymonth) {
+            const months = bymonth.split(',').map(m => {
+              const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+              return monthNames[parseInt(m)]
+            })
+            description += ` (${months.join(', ')} only)`
+          }
+          
+          return description
+        }
+      }
+      
+      return `Recurring: ${rrule}`
+    } catch (e) {
+      return 'Recurring event'
+    }
+  }
+
   // Load calendar metadata from JSON manifest
   useEffect(() => {
     const loadCalendars = async () => {
@@ -318,32 +363,94 @@ function App() {
         
         const now = new Date()
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()) // Start of today
-        const eventList = vevents
-          .map(vevent => {
-            const event = new ICAL.Event(vevent)
+        const sixMonthsFromNow = new Date(now.getFullYear(), now.getMonth() + 6, now.getDate()) // 6 months ahead
+        
+        const eventList = []
+        
+        vevents.forEach(vevent => {
+          const event = new ICAL.Event(vevent)
+          const description = event.description || ''
+          
+          // Extract calendar name from description for tag aggregates
+          let calendarName = null
+          const fromMatch = description.match(/From (.+?)$/m)
+          if (fromMatch) {
+            calendarName = fromMatch[1]
+          }
+          
+          // Check if this is a recurring event by looking for RRULE
+          const rrule = vevent.getFirstProperty('rrule')
+          const hasRRule = !!rrule
+          
+          if (hasRRule) {
+            // Handle recurring event
+            const expand = new ICAL.RecurExpansion({
+              component: vevent,
+              dtstart: vevent.getFirstPropertyValue('dtstart')
+            })
+            
+            // Get the RRULE string for description
+            const rruleString = rrule.toICALString()
+            
+            let next
+            let instanceCount = 0
+            const maxInstances = 100 // Prevent infinite loops
+            
+            while (instanceCount < maxInstances && (next = expand.next())) {
+              const startDate = next.toJSDate()
+              
+              // Only include events from today onwards and within 6 months
+              if (startDate >= today && startDate <= sixMonthsFromNow) {
+                // Calculate end date for this instance
+                const duration = event.endDate ? 
+                  event.endDate.toUnixTime() - event.startDate.toUnixTime() : 
+                  3600 // Default 1 hour if no end time
+                
+                const endDate = new Date(startDate.getTime() + (duration * 1000))
+                
+                eventList.push({
+                  id: `${event.uid}-${startDate.getTime()}`, // Unique ID for each instance
+                  title: event.summary,
+                  description: event.description,
+                  location: event.location,
+                  url: vevent.getFirstPropertyValue('url'),
+                  startDate: startDate,
+                  endDate: endDate,
+                  calendarName: calendarName,
+                  isRecurring: true,
+                  rrule: rruleString
+                })
+              }
+              
+              instanceCount++
+              
+              // Stop if we're past our date range
+              if (startDate > sixMonthsFromNow) {
+                break
+              }
+            }
+          } else {
+            // Handle single event
             const startDate = event.startDate.toJSDate()
-            const description = event.description || ''
             
-            // Extract calendar name from description for tag aggregates
-            let calendarName = null
-            const fromMatch = description.match(/From (.+?)$/m)
-            if (fromMatch) {
-              calendarName = fromMatch[1]
+            if (startDate >= today) {
+              eventList.push({
+                id: event.uid,
+                title: event.summary,
+                description: event.description,
+                location: event.location,
+                url: vevent.getFirstPropertyValue('url'),
+                startDate: startDate,
+                endDate: event.endDate?.toJSDate(),
+                calendarName: calendarName,
+                isRecurring: false
+              })
             }
-            
-            return {
-              id: event.uid,
-              title: event.summary,
-              description: event.description,
-              location: event.location,
-              url: vevent.getFirstPropertyValue('url'),
-              startDate: startDate,
-              endDate: event.endDate?.toJSDate(),
-              calendarName: calendarName
-            }
-          })
-          .filter(event => event.startDate >= today) // Filter from today onwards
-          .sort((a, b) => a.startDate - b.startDate)
+          }
+        })
+        
+        // Sort all events by start date
+        eventList.sort((a, b) => a.startDate - b.startDate)
         
         setEvents(eventList)
       } catch (error) {
@@ -709,6 +816,14 @@ function App() {
                   <div className="event-date">{formatDate(event.startDate)}</div>
                   <div className="event-title">
                     {event.title}
+                    {event.isRecurring && (
+                      <span 
+                        className="recurring-indicator" 
+                        title={parseRRuleDescription(event.rrule) || "Recurring event"}
+                      >
+                        🔄
+                      </span>
+                    )}
                     {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
                       <span className="event-source" title={`From ${event.calendarName}`}>
                         {event.calendarName}

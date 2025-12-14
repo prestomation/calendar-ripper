@@ -85,6 +85,7 @@ export interface RipperCalendarEvent {
     location?: string;
     url?: string;
     image?: string;  // URL to the event image
+    rrule?: string;  // RFC 5545 RRULE for recurring events
 };
 
 export type RipperEvent = RipperCalendarEvent | RipperError;
@@ -126,6 +127,12 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             calName: calendar.friendlyname,
             url: e.url?.startsWith('http') ? e.url : undefined,
         };
+        
+        // Add RRULE if present
+        if (e.rrule) {
+            m.recurrenceRule = e.rrule;
+        }
+        
         return m;
     });
 

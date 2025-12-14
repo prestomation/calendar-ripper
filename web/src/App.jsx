@@ -7,6 +7,7 @@ function App() {
   const [manifest, setManifest] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
+  const [previousTag, setPreviousTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [events, setEvents] = useState([])
@@ -53,12 +54,58 @@ function App() {
 
   const handleSearchChange = (value) => {
     setSearchTerm(value)
-    updateURL(value, selectedTag, selectedCalendar)
+    
+    // If starting to type and we have a tag selected, save it and clear tag selection
+    if (value && selectedTag) {
+      setPreviousTag(selectedTag)
+      setSelectedTag('')
+      updateURL(value, '', selectedCalendar)
+    }
+    // If search is cleared and we had a previous tag, restore it
+    else if (!value && previousTag) {
+      setSelectedTag(previousTag)
+      updateURL(value, previousTag, selectedCalendar)
+    } else {
+      updateURL(value, selectedTag, selectedCalendar)
+    }
   }
 
   const handleTagChange = (tag) => {
+    // Save current tag as previous if switching to a different tag
+    if (selectedTag && selectedTag !== tag) {
+      setPreviousTag(selectedTag)
+    }
+    
+    // Clear search when selecting a tag
+    if (searchTerm) {
+      setSearchTerm('')
+    }
+    
     setSelectedTag(tag)
-    updateURL(searchTerm, tag, selectedCalendar)
+    
+    // If selecting a tag (not clearing), auto-select first calendar in that tag
+    if (tag) {
+      const filteredCalendars = calendars.filter(ripper => 
+        ripper.calendars.some(calendar => calendar.tags.includes(tag))
+      )
+      
+      if (filteredCalendars.length > 0) {
+        const firstRipper = filteredCalendars[0]
+        const firstCalendar = firstRipper.calendars.find(calendar => 
+          calendar.tags.includes(tag)
+        )
+        
+        if (firstCalendar) {
+          const calendarWithRipper = { ...firstCalendar, ripperName: firstRipper.name }
+          setSelectedCalendar(calendarWithRipper)
+          setShowHomepage(false)
+          updateURL('', tag, calendarWithRipper)
+          return
+        }
+      }
+    }
+    
+    updateURL('', tag, selectedCalendar)
   }
 
   const handleTagSelect = (tag) => {
@@ -126,8 +173,22 @@ function App() {
             isExternal: true
           }]
         }))
+
+        // Add recurring calendars as individual groups
+        const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
+          name: calendar.name,
+          description: `Recurring: ${calendar.friendlyName}`,
+          friendlyLink: null,
+          calendars: [{
+            name: calendar.name,
+            fullName: calendar.friendlyName,
+            icsUrl: calendar.icsUrl,
+            tags: calendar.tags,
+            isRecurring: true
+          }]
+        }))
         
-        setCalendars([...ripperGroups, ...externalGroups])
+        setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
       } catch (error) {
         console.error('Failed to load calendars:', error)
       } finally {
@@ -607,7 +668,10 @@ function App() {
           <div className="empty-state">Select a calendar to view events</div>
         )}
         <footer className="footer">
-          <p>
+          <p style={{ color: 'red', fontWeight: 'bold', marginBottom: '4px', fontSize: '12px' }}>
+            ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically. Open an issue or pull request to add a new calendar to this page.
+          </p>
+          <p style={{ fontSize: '12px' }}>
             Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
             {manifest && (
               <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>

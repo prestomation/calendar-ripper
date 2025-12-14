@@ -5,7 +5,8 @@ on:
     - cron: "0 0 * * *" # Daily
   push:
     branches:
-      - main  
+      - main
+  workflow_dispatch: # Allow manual triggering  
 
 jobs:
   build:

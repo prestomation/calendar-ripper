@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
+    "test:web": "cd web && vitest run",
     "generate-calendars": "node --loader ts-node/esm index.ts",
     "web:dev": "cd web && vite",
     "web:build": "cd web && vite build",
@@ -33,6 +34,10 @@
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "^14.4.3",
+    "jsdom": "^22.1.0"
   }
 }

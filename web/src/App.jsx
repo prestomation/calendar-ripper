@@ -89,8 +89,7 @@ function App() {
             fullName: calendar.friendlyName,
             icsUrl: calendar.icsUrl,
             tags: calendar.tags
-          })),
-          tags: [...new Set(ripper.calendars.flatMap(cal => cal.tags))]
+          }))
         }))
         
         setCalendars(ripperGroups)

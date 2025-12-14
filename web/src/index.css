@@ -185,6 +185,15 @@ body {
   font-weight: 700;
   font-size: 16px;
   color: #212529;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.external-indicator {
+  font-size: 12px;
+  opacity: 0.7;
+  cursor: help;
 }
 
 .ripper-link-icon {

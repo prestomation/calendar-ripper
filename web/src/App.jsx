@@ -336,7 +336,17 @@ function App() {
             <div key={ripperIndex} className="ripper-group">
               <div className="ripper-header">
                 <div className="ripper-title-container">
-                  <div className="ripper-title">{ripper.description}</div>
+                  <div className="ripper-title">
+                    {ripper.description}
+                    {ripper.calendars[0]?.isExternal && (
+                      <span 
+                        className="external-indicator"
+                        title="External calendar from original organization"
+                      >
+                        🔗
+                      </span>
+                    )}
+                  </div>
                   {ripper.friendlyLink && (
                     <a 
                       href={ripper.friendlyLink}
@@ -345,28 +355,54 @@ function App() {
                       className="ripper-link-icon"
                       title="Visit organization website"
                     >
-                      🔗
+                      🌐
                     </a>
                   )}
                 </div>
                 <div className="ripper-actions">
-                  <a 
-                    href={`tag-${ripper.name.toLowerCase()}.ics`}
-                    download
-                    title="Download all calendars as ICS"
-                    className="action-link"
-                  >
-                    📥 ICS
-                  </a>
-                  <a 
-                    href={createGoogleCalendarUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="Add all calendars to Google Calendar"
-                    className="action-link"
-                  >
-                    📅 Google
-                  </a>
+                  {ripper.calendars[0]?.isExternal ? (
+                    // External calendar - use original URL
+                    <>
+                      <a 
+                        href={ripper.calendars[0].originalIcsUrl || ripper.calendars[0].icsUrl}
+                        target="_blank"
+                        title="Download original ICS file"
+                        className="action-link"
+                      >
+                        📥 ICS
+                      </a>
+                      <a 
+                        href={createGoogleCalendarUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Add to Google Calendar"
+                        className="action-link"
+                      >
+                        📅 Google
+                      </a>
+                    </>
+                  ) : (
+                    // Regular ripper - use tag aggregation
+                    <>
+                      <a 
+                        href={`tag-${ripper.name.toLowerCase()}.ics`}
+                        download
+                        title="Download all calendars as ICS"
+                        className="action-link"
+                      >
+                        📥 ICS
+                      </a>
+                      <a 
+                        href={createGoogleCalendarUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Add all calendars to Google Calendar"
+                        className="action-link"
+                      >
+                        📅 Google
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
               

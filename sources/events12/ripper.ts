@@ -135,8 +135,7 @@ export default class Events12Ripper extends HTMLRipper {
             }
             
             // Get the actual ZoneId from the ZonedDateTime
-            const zoneId = typeof timezone === 'function' ? timezone() : timezone;
-            return ZonedDateTime.of(year, month, day, hour, minute, 0, 0, zoneId);
+            return ZonedDateTime.of(year, month, day, hour, minute, 0, 0, timezone);
             
         } catch (error) {
             return null;

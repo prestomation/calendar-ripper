@@ -1,0 +1,83 @@
+import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'fs';
+import { parse } from 'node-html-parser';
+import { ZonedDateTime } from '@js-joda/core';
+import { ZoneId } from '@js-joda/core';
+import Events12Ripper from './ripper.js';
+
+describe('Events12Ripper', () => {
+    const timezone = ZoneId.of('America/Los_Angeles');
+    const testDate = ZonedDateTime.of(2025, 12, 13, 12, 0, 0, 0, timezone);
+
+    it('should parse events from sample HTML data', async () => {
+        const ripper = new Events12Ripper();
+        // Load the sample HTML file
+        const htmlContent = readFileSync('sources/events12/sample-data.html', 'utf-8');
+        const html = parse(htmlContent);
+        
+        // Parse events
+        const events = await ripper.parseEvents(html, testDate, {});
+        
+        // Debug: log the first few events to understand the structure
+        console.log('Total events found:', events.length);
+        console.log('First 3 events:', events.slice(0, 3));
+        
+        // Should find some events
+        expect(events.length).toBeGreaterThan(0);
+    });
+
+    it('should parse event with valid date and title', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="test123">
+                <h3>Family Christmas event &nbsp;<span class="free">FREE</span></h3>
+                <p class="date icon">December 1, 2025 <span class="nobreak">(4 to 7 p.m.)</span>
+                <p class="miles">Downtown (0.1 miles N)
+                <p class="event">
+                Vote for your favorite of 12 designer-decorated Christmas trees at <a href="https://example.com">Family Preview</a>, with Santa, festive entertainment, and free arts & crafts for kids in the ballroom of The Westin Seattle, 1900 5th Ave. in Seattle.
+                <a class="b1" href="https://www.google.com/maps/search/?api=1&query=Test%20Location" rel="nofollow">map</a>
+            </article>
+        `;
+        
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        
+        expect(events.length).toBe(1);
+        expect(events[0]).toHaveProperty('summary', 'Family Christmas event');
+        expect(events[0]).toHaveProperty('date');
+        expect(events[0]).toHaveProperty('location');
+        expect(events[0].description).toContain('Downtown (0.1 miles N)');
+    });
+
+    it('should handle parse errors gracefully', async () => {
+        const ripper = new Events12Ripper();
+        const malformedHtml = `
+            <h3>Malformed Event</h3>
+            <p>Invalid date format</p>
+        `;
+        
+        const html = parse(malformedHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        
+        // Should not crash and may return empty or error events
+        expect(Array.isArray(events)).toBe(true);
+    });
+
+    it('should extract event URLs correctly', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="test456">
+                <h3>Test Event</h3>
+                <p class="date">December 15, 2025 (7 p.m.)</p>
+                <p class="miles">Downtown (0.1 miles N)</p>
+                <p class="event">Description with <a href="https://example.com/event">event link</a> and <a href="https://www.google.com/maps">map link</a></p>
+            </article>
+        `;
+        
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        
+        expect(events.length).toBe(1);
+        expect(events[0]).toHaveProperty('url', 'https://example.com/event');
+    });
+});

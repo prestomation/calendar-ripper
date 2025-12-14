@@ -191,7 +191,7 @@ function App() {
         const vevents = comp.getAllSubcomponents('vevent')
         
         const now = new Date()
-        const oneWeekAgo = new Date(now.getTime() - (7 * 24 * 60 * 60 * 1000)) // Allow events from past week
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()) // Start of today
         const eventList = vevents
           .map(vevent => {
             const event = new ICAL.Event(vevent)
@@ -207,9 +207,8 @@ function App() {
               endDate: event.endDate?.toJSDate()
             }
           })
-          .filter(event => event.startDate >= oneWeekAgo) // More lenient filter
+          .filter(event => event.startDate >= today) // Filter from today onwards
           .sort((a, b) => a.startDate - b.startDate)
-          .slice(0, 25)
         
         setEvents(eventList)
       } catch (error) {

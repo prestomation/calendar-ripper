@@ -97,7 +97,21 @@ function App() {
           }))
         }))
         
-        setCalendars(ripperGroups)
+        // Add external calendars as individual groups
+        const externalGroups = (manifestData.externalCalendars || []).map(calendar => ({
+          name: calendar.name,
+          description: calendar.description,
+          friendlyLink: calendar.infoUrl,
+          calendars: [{
+            name: calendar.name,
+            fullName: calendar.friendlyName,
+            icsUrl: calendar.icsUrl,
+            tags: calendar.tags,
+            isExternal: true
+          }]
+        }))
+        
+        setCalendars([...ripperGroups, ...externalGroups])
       } catch (error) {
         console.error('Failed to load calendars:', error)
       } finally {

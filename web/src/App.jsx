@@ -668,6 +668,9 @@ function App() {
           <div className="empty-state">Select a calendar to view events</div>
         )}
         <footer className="footer">
+          <p style={{ color: 'red', fontWeight: 'bold', marginBottom: '8px' }}>
+            ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically
+          </p>
           <p>
             Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
             {manifest && (

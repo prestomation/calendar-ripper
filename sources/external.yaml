@@ -28,3 +28,62 @@
   infoUrl: "https://www.seattleparksfoundation.org/events/"
   tags: 
   - Volunteer
+
+# Chuck's Hop Shop locations
+- name: chucks-hop-shop-central-district
+  friendlyname: "Chuck's Hop Shop - Central District"
+  description: "Chuck's Hop Shop Central District location events - craft beer, food trucks, and community events"
+  icsUrl: "https://calendar.google.com/calendar/ical/gpa2fn017a4ttjbdk3acgo4ks0%40group.calendar.google.com/public/basic.ics"
+  infoUrl: "https://www.chuckshopshop.com/central-district"
+  tags:
+  - Beer
+  - Central District
+
+- name: chucks-hop-shop-greenwood
+  friendlyname: "Chuck's Hop Shop - Greenwood"
+  description: "Chuck's Hop Shop Greenwood location events - craft beer, food trucks, and community events"
+  icsUrl: "https://calendar.google.com/calendar/ical/qfkej3ne0281epth4r5bqdb8gg%40group.calendar.google.com/public/basic.ics"
+  infoUrl: "https://www.chuckshopshop.com/greenwood"
+  tags:
+  - Beer
+  - Greenwood
+
+- name: chucks-hop-shop-seward-park
+  friendlyname: "Chuck's Hop Shop - Seward Park"
+  description: "Chuck's Hop Shop Seward Park location events - craft beer, food trucks, and community events"
+  icsUrl: "https://calendar.google.com/calendar/ical/c_4abs9f65281tp530jsbhkb3vjg%40group.calendar.google.com/public/basic.ics"
+  infoUrl: "https://www.chuckshopshop.com/sewardpark"
+  tags:
+  - Beer
+  - Seward Park
+
+# Chuck's Hop Shop locations - No direct ICS feeds available, need to implement as rippers
+- name: chucks-hop-shop-greenwood
+  friendlyname: "Chuck's Hop Shop - Greenwood"
+  description: "Chuck's Hop Shop Greenwood location events - craft beer, food trucks, and community events"
+  icsUrl: ""  # No direct ICS feed available
+  infoUrl: "https://www.chuckshopshop.com/greenwood"
+  disabled: true  # No ICS feed available - needs ripper implementation
+  tags:
+  - Beer
+  - Greenwood
+
+- name: chucks-hop-shop-central-district
+  friendlyname: "Chuck's Hop Shop - Central District"
+  description: "Chuck's Hop Shop Central District location events - craft beer, food trucks, and community events"
+  icsUrl: ""  # No direct ICS feed available
+  infoUrl: "https://www.chuckshopshop.com/centraldist"
+  disabled: true  # No ICS feed available - needs ripper implementation
+  tags:
+  - Beer
+  - Central District
+
+- name: chucks-hop-shop-seward-park
+  friendlyname: "Chuck's Hop Shop - Seward Park"
+  description: "Chuck's Hop Shop Seward Park location events - craft beer, food trucks, and community events"
+  icsUrl: ""  # No direct ICS feed available
+  infoUrl: "https://www.chuckshopshop.com/sewardpark"
+  disabled: true  # No ICS feed available - needs ripper implementation
+  tags:
+  - Beer
+  - Seward Park

@@ -6,5 +6,11 @@ export default defineConfig({
   base: './',
   build: {
     outDir: '../output'
-  }
+  },
+  server: {
+    fs: {
+      allow: ['..']
+    }
+  },
+  publicDir: '../output'
 })

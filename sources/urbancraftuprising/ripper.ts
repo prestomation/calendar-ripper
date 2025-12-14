@@ -18,7 +18,8 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
         const eventPages = jsonData.filter((page: any) => {
             const title = page.title.rendered.toLowerCase();
             return (title.includes('market') || title.includes('show') || title.includes('uprising')) &&
-                   !title.includes('vendor') && !title.includes('resource');
+                   !title.includes('vendor') && !title.includes('resource') &&
+                   !title.includes('selling at shows'); // Filter out problematic page
         });
         
         for (const page of eventPages) {

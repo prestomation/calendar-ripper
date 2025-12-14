@@ -96,7 +96,7 @@ export default class Events12Ripper extends HTMLRipper {
         return events;
     }
     
-    private parseEventDate(dateText: string, timezone: any): ZonedDateTime | null {
+    private parseEventDate(dateText: string, timezone: ZoneId): ZonedDateTime | null {
         try {
             // Extract date components from text like "December 3, 2025 (7 to 8:30 p.m.)"
             const dateMatch = dateText.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})/);

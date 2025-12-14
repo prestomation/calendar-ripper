@@ -19,8 +19,8 @@ describe('Events12Ripper', () => {
         const events = await ripper.parseEvents(html, testDate, {});
         
         // Debug: log the first few events to understand the structure
-        // Parse events
-        const events = await ripper.parseEvents(html, testDate, {});
+        console.log('Total events found:', events.length);
+        console.log('First 3 events:', events.slice(0, 3));
         
         // Should find some events
         expect(events.length).toBeGreaterThan(0);

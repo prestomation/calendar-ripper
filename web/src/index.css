@@ -132,6 +132,17 @@ body {
   color: #212529;
 }
 
+.ripper-title-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.ripper-title-link:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
 .ripper-actions {
   display: flex;
   gap: 8px;

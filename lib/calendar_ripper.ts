@@ -305,6 +305,7 @@ export const main = async () => {
     rippers: configs.map(ripper => ({
       name: ripper.config.name,
       description: ripper.config.description,
+      friendlyLink: ripper.config.friendlyLink,
       calendars: ripper.config.calendars.map(calendar => ({
         name: calendar.name,
         friendlyName: calendar.friendlyname,

@@ -58,19 +58,6 @@ function App() {
     updateURL(searchTerm, tag, selectedCalendar)
   }
 
-  const handleRipperSelect = (ripper) => {
-    // Create aggregate calendar for the ripper
-    const aggregateCalendar = {
-      name: `tag-${ripper.name.toLowerCase()}`,
-      fullName: `${ripper.description} (All Events)`,
-      icsUrl: `tag-${ripper.name.toLowerCase()}.ics`,
-      ripperName: ripper.name,
-      tags: []
-    }
-    setSelectedCalendar(aggregateCalendar)
-    updateURL(searchTerm, selectedTag, aggregateCalendar)
-  }
-
   const handleCalendarSelect = (calendar, ripperName) => {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
@@ -295,19 +282,25 @@ function App() {
           
           {filteredCalendars.map((ripper, ripperIndex) => (
             <div key={ripperIndex} className="ripper-group">
-              <div 
-                className="ripper-header"
-                onClick={() => handleRipperSelect(ripper)}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="ripper-title">{ripper.description}</div>
+              <div className="ripper-header">
+                {ripper.friendlyLink ? (
+                  <a 
+                    href={ripper.friendlyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ripper-title-link"
+                  >
+                    <div className="ripper-title">{ripper.description}</div>
+                  </a>
+                ) : (
+                  <div className="ripper-title">{ripper.description}</div>
+                )}
                 <div className="ripper-actions">
                   <a 
                     href={`tag-${ripper.name.toLowerCase()}.ics`}
                     download
                     title="Download all calendars as ICS"
                     className="action-link"
-                    onClick={(e) => e.stopPropagation()}
                   >
                     📥 ICS
                   </a>
@@ -317,7 +310,6 @@ function App() {
                     rel="noopener noreferrer"
                     title="Add all calendars to Google Calendar"
                     className="action-link"
-                    onClick={(e) => e.stopPropagation()}
                   >
                     📅 Google
                   </a>

@@ -4,6 +4,7 @@ import ICAL from 'ical.js'
 
 function App() {
   const [calendars, setCalendars] = useState([])
+  const [manifest, setManifest] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
@@ -77,9 +78,10 @@ function App() {
     const loadCalendars = async () => {
       try {
         const response = await fetch('./manifest.json')
-        const manifest = await response.json()
+        const manifestData = await response.json()
+        setManifest(manifestData)
         
-        const ripperGroups = manifest.rippers.map(ripper => ({
+        const ripperGroups = manifestData.rippers.map(ripper => ({
           name: ripper.name,
           description: ripper.description,
           calendars: ripper.calendars.map(calendar => ({
@@ -384,6 +386,9 @@ function App() {
         <footer className="footer">
           <p>
             Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+            {manifest && (
+              <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
+            )}
           </p>
         </footer>
       </div>

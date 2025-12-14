@@ -302,7 +302,7 @@ export const main = async () => {
   // Generate JSON manifest for React app
   const manifest = {
     lastUpdated: new Date().toISOString(),
-    rippers: configs.map(ripper => ({
+    rippers: configs.filter(ripper => !ripper.config.disabled).map(ripper => ({
       name: ripper.config.name,
       description: ripper.config.description,
       friendlyLink: ripper.config.friendlyLink,

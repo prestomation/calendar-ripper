@@ -1,6 +1,6 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement } from 'node-html-parser';
-import { ZonedDateTime, Duration } from "@js-joda/core";
+import { ZonedDateTime, Duration, ZoneId } from "@js-joda/core";
 import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
 
 export default class Events12Ripper extends HTMLRipper {

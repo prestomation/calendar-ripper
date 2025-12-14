@@ -1,7 +1,6 @@
 // Valid tags for calendar events
 export const VALID_TAGS = [
     // Location-based
-    "Seattle",
     "Downtown", 
     "QueenAnne",
     "CapitolHill",

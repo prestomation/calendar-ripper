@@ -196,8 +196,8 @@ function App() {
 
   // Load events for selected calendar
   useEffect(() => {
+    setEvents([]) // Clear events immediately when calendar changes
     if (!selectedCalendar) {
-      setEvents([])
       setEventsLoading(false)
       return
     }
@@ -360,8 +360,8 @@ function App() {
             </div>
           )}
           
-          {filteredCalendars.map((ripper, ripperIndex) => (
-            <div key={ripperIndex} className="ripper-group">
+          {filteredCalendars.map((ripper) => (
+            <div key={ripper.name} className="ripper-group">
               <div className="ripper-header">
                 <div className="ripper-title-container">
                   <div className="ripper-title">
@@ -434,9 +434,9 @@ function App() {
                 </div>
               </div>
               
-              {ripper.calendars.map((calendar, calIndex) => (
+              {ripper.calendars.map((calendar) => (
                 <div
-                  key={calIndex}
+                  key={`${ripper.name}-${calendar.name}`}
                   className={`calendar-item ${selectedCalendar?.name === calendar.name && selectedCalendar?.ripperName === ripper.name ? 'selected' : ''}`}
                 >
                   <div

@@ -196,7 +196,7 @@ export const main = async () => {
     // Propogate ripper tags to their calendars
     for (const calConfig of config.config.calendars) {
         calConfig.tags = calConfig.tags || []
-        calConfig.tags = calConfig.tags.concat(config.config.tags || [])
+        calConfig.tags = [...new Set([...(calConfig.tags || []), ...(config.config.tags || [])])]
     }
 
     // Rip the calendars
@@ -343,7 +343,7 @@ END:VCALENDAR`;
         name: calendar.name,
         friendlyName: calendar.friendlyname,
         icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
-        tags: [...(ripper.config.tags || []), ...(calendar.tags || [])]
+        tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
       }))
     })),
     externalCalendars: activeExternalCalendars.map(calendar => ({

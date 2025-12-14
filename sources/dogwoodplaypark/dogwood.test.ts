@@ -161,4 +161,59 @@ describe('DogwoodPlayParkRipper', () => {
         // Check the duration (should be 90 minutes)
         expect(event.duration.toMinutes()).toBe(90);
     });
+
+    test('should deduplicate events across multiple parseEvents calls', async () => {
+        // Create mock HTML with duplicate events
+        const mockWarmupData = {
+            appsWarmupData: {
+                '140603ad-af8d-84a5-2c80-a0f60cb47351': {
+                    'widgetcomp-kp1kqz5a': {
+                        events: {
+                            events: [{
+                                id: 'duplicate-event',
+                                title: 'Duplicate Event',
+                                description: 'This event appears multiple times',
+                                slug: 'duplicate-event',
+                                scheduling: {
+                                    config: {
+                                        startDate: '2025-04-15T17:30:00.000Z',
+                                        endDate: '2025-04-15T19:00:00.000Z',
+                                        timeZoneId: 'America/Los_Angeles'
+                                    }
+                                }
+                            }]
+                        }
+                    }
+                }
+            }
+        };
+        
+        const mockHtml = parse(`
+            <html>
+                <body>
+                    <script id="wix-warmup-data" type="application/json">
+                        ${JSON.stringify(mockWarmupData)}
+                    </script>
+                </body>
+            </html>
+        `);
+        
+        const testDate = ZonedDateTime.of(2025, 4, 7, 12, 0, 0, 0, ZoneId.of('America/Los_Angeles'));
+        const ripper = new DogwoodPlayParkRipper();
+        
+        // First call should return the event
+        const firstEvents = await ripper.parseEvents(mockHtml, testDate, {});
+        expect(firstEvents.length).toBe(1);
+        expect('summary' in firstEvents[0]).toBe(true);
+        const firstEvent = firstEvents[0] as RipperCalendarEvent;
+        expect(firstEvent.summary).toBe('Duplicate Event');
+        
+        // Second call should return no events (duplicate filtered out)
+        const secondEvents = await ripper.parseEvents(mockHtml, testDate, {});
+        expect(secondEvents.length).toBe(0);
+        
+        // Third call should also return no events
+        const thirdEvents = await ripper.parseEvents(mockHtml, testDate, {});
+        expect(thirdEvents.length).toBe(0);
+    });
 });

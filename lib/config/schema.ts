@@ -32,6 +32,7 @@ export const configSchema = z.object({
     name: z.string(),
     description: z.string(),
     url: z.string().transform(u => new URL(u)),
+    friendlyLink: z.string(),
     disabled: z.boolean().default(false),
     tags: z.array(z.string()).optional(),
     calendars: z.array(calendarConfigSchema),

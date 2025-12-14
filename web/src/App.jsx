@@ -126,8 +126,22 @@ function App() {
             isExternal: true
           }]
         }))
+
+        // Add recurring calendars as individual groups
+        const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
+          name: calendar.name,
+          description: `Recurring: ${calendar.friendlyName}`,
+          friendlyLink: null,
+          calendars: [{
+            name: calendar.name,
+            fullName: calendar.friendlyName,
+            icsUrl: calendar.icsUrl,
+            tags: calendar.tags,
+            isRecurring: true
+          }]
+        }))
         
-        setCalendars([...ripperGroups, ...externalGroups])
+        setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
       } catch (error) {
         console.error('Failed to load calendars:', error)
       } finally {

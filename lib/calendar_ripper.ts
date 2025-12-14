@@ -287,33 +287,26 @@ export const main = async () => {
       });
     }
 
-    tableOfContents += generateAggregateCalendarList(
-      aggregateOutputs,
-      allCalendars,
-      taggedExternalCalendars
-    );
-  }
+  console.log("generating JSON manifest");
 
-  tableOfContents += `\n\n`;
-  console.log("writing table of contents");
+  // Generate JSON manifest for React app
+  const manifest = {
+    lastUpdated: new Date().toISOString(),
+    rippers: allCalendars.map(ripper => ({
+      name: ripper.name,
+      description: ripper.description,
+      calendars: ripper.calendars.map(calendar => ({
+        name: calendar.name,
+        friendlyName: calendar.friendlyname,
+        icsUrl: `${ripper.name}-${calendar.name}.ics`,
+        tags: [...(ripper.tags || []), ...(calendar.tags || [])]
+      }))
+    })),
+    tags: Array.from(allTags).sort()
+  };
 
-  // Load the HTML template from file
-  try {
-    const templatePath = join(__dirname, "templates", "index.html");
-    let templateHtml = await readFile(templatePath, "utf8");
-
-    // Replace the placeholder with the table of contents
-    const lastUpdated = new Date().toLocaleString();
-    const finalHtml = templateHtml
-      .replace("{{TABLE_OF_CONTENTS}}", tableOfContents)
-      .replace("{{LAST_UPDATED}}", lastUpdated);
-
-    await writeFile("output/index.html", finalHtml);
-    await writeFile("errorCount.txt", totalErrorCount.toString());
-  } catch (error) {
-    console.error("Error loading template:", error);
-    throw error;
-  }
+  await writeFile("output/manifest.json", JSON.stringify(manifest, null, 2));
+  await writeFile("errorCount.txt", totalErrorCount.toString());
 };
 const generateAggregateCalendarList = (
   outputs: CalendarOutput[],

@@ -68,98 +68,30 @@ function App() {
   }
 
   const createGoogleCalendarUrl = (icsUrl) => {
-    const basePath = window.location.pathname.includes('/pr-') ? './' : '../output/'
-    const fullUrl = new URL(`${basePath}${icsUrl}`, window.location.origin + window.location.pathname).href
+    const fullUrl = new URL(icsUrl, window.location.origin + window.location.pathname).href
     return `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(fullUrl)}`
   }
 
-  // Load calendar metadata from the output directory
+  // Load calendar metadata from JSON manifest
   useEffect(() => {
     const loadCalendars = async () => {
       try {
-        // Determine the correct path based on environment
-        const basePath = window.location.pathname.includes('/pr-') ? './' : '../output/'
+        const response = await fetch('./manifest.json')
+        const manifest = await response.json()
         
-        // Parse the existing index.html to extract calendar data
-        const response = await fetch(`${basePath}index.html`)
-        const html = await response.text()
-        
-        // Extract calendar information from HTML
-        const parser = new DOMParser()
-        const doc = parser.parseFromString(html, 'text/html')
-        
-        const ripperGroups = {}
-        const calendarItems = doc.querySelectorAll('.calendar-item')
-        
-        // Extract ripper descriptions from section headers
-        const ripperDescriptions = {}
-        doc.querySelectorAll('h2').forEach(header => {
-          const text = header.textContent.trim()
-          if (text.includes(' - ')) {
-            const [name, description] = text.split(' - ', 2)
-            ripperDescriptions[name.toLowerCase().replace(/\s+/g, '-')] = description
-          }
-        })
-        
-        calendarItems.forEach(item => {
-          const titleEl = item.querySelector('.calendar-title')
-          const tagsEl = item.querySelector('.calendar-tags')
-          const linkEl = item.querySelector('a[href$=".ics"]')
-          
-          if (titleEl && linkEl) {
-            const fullName = titleEl.textContent.trim()
-            const icsUrl = linkEl.getAttribute('href')
-            
-            // Extract ripper name and calendar name from the ICS filename
-            const icsFilename = icsUrl.split('/').pop().replace('.ics', '')
-            const parts = icsFilename.split('-')
-            
-            let ripperName, calendarName
-            if (icsFilename.startsWith('tag-')) {
-              // Skip tag aggregates for now
-              return
-            } else if (parts.length >= 2) {
-              ripperName = parts[0]
-              calendarName = parts.slice(1).join('-')
-            } else {
-              ripperName = 'Other'
-              calendarName = icsFilename
-            }
-            
-            const tags = []
-            if (tagsEl) {
-              tagsEl.querySelectorAll('.tag').forEach(tag => {
-                tags.push(tag.textContent.trim())
-              })
-            }
-            
-            if (!ripperGroups[ripperName]) {
-              ripperGroups[ripperName] = {
-                name: ripperName,
-                description: ripperDescriptions[ripperName] || ripperName,
-                calendars: [],
-                tags: new Set()
-              }
-            }
-            
-            ripperGroups[ripperName].calendars.push({
-              name: calendarName,
-              fullName: fullName,
-              icsUrl: icsUrl,
-              tags: tags
-            })
-            
-            tags.forEach(tag => ripperGroups[ripperName].tags.add(tag))
-          }
-        })
-        
-        // Convert to array and finalize tags
-        const ripperArray = Object.values(ripperGroups).map(ripper => ({
-          ...ripper,
-          tags: Array.from(ripper.tags)
+        const ripperGroups = manifest.rippers.map(ripper => ({
+          name: ripper.name,
+          description: ripper.description,
+          calendars: ripper.calendars.map(calendar => ({
+            name: calendar.name,
+            fullName: calendar.friendlyName,
+            icsUrl: calendar.icsUrl,
+            tags: calendar.tags
+          })),
+          tags: [...new Set(ripper.calendars.flatMap(cal => cal.tags))]
         }))
         
-        setCalendars(ripperArray)
+        setCalendars(ripperGroups)
       } catch (error) {
         console.error('Failed to load calendars:', error)
       } finally {
@@ -235,8 +167,7 @@ function App() {
 
     const loadEvents = async () => {
       try {
-        const basePath = window.location.pathname.includes('/pr-') ? './' : '../output/'
-        const response = await fetch(`${basePath}${selectedCalendar.icsUrl}`)
+        const response = await fetch(selectedCalendar.icsUrl)
         const icsData = await response.text()
         
         const jcalData = ICAL.parse(icsData)
@@ -327,7 +258,7 @@ function App() {
                 <div className="ripper-title">{ripper.description}</div>
                 <div className="ripper-actions">
                   <a 
-                    href={`${window.location.pathname.includes('/pr-') ? './' : '../output/'}tag-${ripper.name.toLowerCase()}.ics`}
+                    href={`tag-${ripper.name.toLowerCase()}.ics`}
                     download
                     title="Download all calendars as ICS"
                     className="action-link"
@@ -373,7 +304,7 @@ function App() {
                   </div>
                   <div className="calendar-actions">
                     <a 
-                      href={`${window.location.pathname.includes('/pr-') ? './' : '../output/'}${calendar.icsUrl}`}
+                      href={calendar.icsUrl}
                       download
                       title="Download ICS file"
                       className="action-link"

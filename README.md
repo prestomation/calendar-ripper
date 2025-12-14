@@ -164,7 +164,7 @@ This will:
 ### Web Interface (Modern)
 
 ```bash
-./build-web.sh
+npm run build-web
 ```
 
 This will:
@@ -179,6 +179,19 @@ To serve the web interface:
 ```bash
 cd output-web && python3 -m http.server 8000
 # Open http://localhost:8000
+```
+
+### Development
+
+```bash
+# Start web development server
+npm run web:dev
+
+# Build web interface only
+npm run web:build
+
+# Preview built web interface
+npm run web:preview
 ```
 
 ## Current Limitations

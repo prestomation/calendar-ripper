@@ -126,21 +126,27 @@ body {
   align-items: center;
 }
 
+.ripper-title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .ripper-title {
   font-weight: 700;
   font-size: 16px;
   color: #212529;
 }
 
-.ripper-title-link {
+.ripper-link-icon {
+  font-size: 14px;
   text-decoration: none;
-  color: inherit;
-  transition: color 0.2s;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
 
-.ripper-title-link:hover {
-  color: #007bff;
-  text-decoration: underline;
+.ripper-link-icon:hover {
+  opacity: 1;
 }
 
 .ripper-actions {
@@ -215,22 +221,28 @@ body {
   border-bottom: 3px solid #e9ecef;
 }
 
+.agenda-title-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .agenda-header h1 {
-  margin: 0 0 8px 0;
+  margin: 0;
   color: #212529;
   font-size: 28px;
   font-weight: 700;
 }
 
-.agenda-title-link {
-  color: inherit;
+.agenda-link-icon {
+  font-size: 18px;
   text-decoration: none;
-  transition: color 0.2s;
+  opacity: 0.7;
+  transition: opacity 0.2s;
 }
 
-.agenda-title-link:hover {
-  color: #007bff;
-  text-decoration: underline;
+.agenda-link-icon:hover {
+  opacity: 1;
 }
 
 .agenda-header p {

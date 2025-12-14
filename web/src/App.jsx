@@ -284,18 +284,20 @@ function App() {
           {filteredCalendars.map((ripper, ripperIndex) => (
             <div key={ripperIndex} className="ripper-group">
               <div className="ripper-header">
-                {ripper.friendlyLink ? (
-                  <a 
-                    href={ripper.friendlyLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ripper-title-link"
-                  >
-                    <div className="ripper-title">{ripper.description}</div>
-                  </a>
-                ) : (
+                <div className="ripper-title-container">
                   <div className="ripper-title">{ripper.description}</div>
-                )}
+                  {ripper.friendlyLink && (
+                    <a 
+                      href={ripper.friendlyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ripper-link-icon"
+                      title="Visit organization website"
+                    >
+                      🔗
+                    </a>
+                  )}
+                </div>
                 <div className="ripper-actions">
                   <a 
                     href={`tag-${ripper.name.toLowerCase()}.ics`}
@@ -375,23 +377,23 @@ function App() {
         {selectedCalendar ? (
           <div className="agenda-panel">
             <div className="agenda-header">
-              {(() => {
-                const ripper = calendars.find(r => r.name === selectedCalendar.ripperName)
-                return ripper?.friendlyLink ? (
-                  <h1>
+              <div className="agenda-title-container">
+                <h1>{selectedCalendar.fullName}</h1>
+                {(() => {
+                  const ripper = calendars.find(r => r.name === selectedCalendar.ripperName)
+                  return ripper?.friendlyLink ? (
                     <a 
                       href={ripper.friendlyLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="agenda-title-link"
+                      className="agenda-link-icon"
+                      title="Visit organization website"
                     >
-                      {selectedCalendar.fullName}
+                      🔗
                     </a>
-                  </h1>
-                ) : (
-                  <h1>{selectedCalendar.fullName}</h1>
-                )
-              })()}
+                  ) : null
+                })()}
+              </div>
               <p>Upcoming events</p>
             </div>
             

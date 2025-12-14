@@ -226,6 +226,14 @@ function App() {
           .map(vevent => {
             const event = new ICAL.Event(vevent)
             const startDate = event.startDate.toJSDate()
+            const description = event.description || ''
+            
+            // Extract calendar name from description for tag aggregates
+            let calendarName = null
+            const fromMatch = description.match(/From (.+?)$/m)
+            if (fromMatch) {
+              calendarName = fromMatch[1]
+            }
             
             return {
               id: event.uid,
@@ -234,7 +242,8 @@ function App() {
               location: event.location,
               url: vevent.getFirstPropertyValue('url'),
               startDate: startDate,
-              endDate: event.endDate?.toJSDate()
+              endDate: event.endDate?.toJSDate(),
+              calendarName: calendarName
             }
           })
           .filter(event => event.startDate >= today) // Filter from today onwards

@@ -10,6 +10,8 @@ function App() {
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
+  const [eventsLoading, setEventsLoading] = useState(false)
+  const [eventsError, setEventsError] = useState(null)
 
   // URL state management
   useEffect(() => {
@@ -164,12 +166,22 @@ function App() {
   useEffect(() => {
     if (!selectedCalendar) {
       setEvents([])
+      setEventsLoading(false)
       return
     }
 
     const loadEvents = async () => {
+      setEventsLoading(true)
+      setEventsError(null)
       try {
-        const response = await fetch(selectedCalendar.icsUrl)
+        const controller = new AbortController()
+        const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+        
+        const response = await fetch(selectedCalendar.icsUrl, { 
+          signal: controller.signal 
+        })
+        clearTimeout(timeoutId)
+        
         const icsData = await response.text()
         
         const jcalData = ICAL.parse(icsData)
@@ -177,6 +189,7 @@ function App() {
         const vevents = comp.getAllSubcomponents('vevent')
         
         const now = new Date()
+        const oneWeekAgo = new Date(now.getTime() - (7 * 24 * 60 * 60 * 1000)) // Allow events from past week
         const eventList = vevents
           .map(vevent => {
             const event = new ICAL.Event(vevent)
@@ -192,14 +205,21 @@ function App() {
               endDate: event.endDate?.toJSDate()
             }
           })
-          .filter(event => event.startDate >= now)
+          .filter(event => event.startDate >= oneWeekAgo) // More lenient filter
           .sort((a, b) => a.startDate - b.startDate)
-          .slice(0, 50) // Limit to next 50 events
+          .slice(0, 25)
         
         setEvents(eventList)
       } catch (error) {
+        if (error.name === 'AbortError') {
+          setEventsError('Calendar loading timed out. This calendar may be too large.')
+        } else {
+          setEventsError('Failed to load events. Please try again.')
+        }
         console.error('Failed to load events:', error)
         setEvents([])
+      } finally {
+        setEventsLoading(false)
       }
     }
 
@@ -397,7 +417,29 @@ function App() {
               <p>Upcoming events</p>
             </div>
             
-            {events.length > 0 ? (
+            {eventsLoading ? (
+              <div className="loading-spinner">
+                <div className="spinner"></div>
+                <p>Loading events...</p>
+              </div>
+            ) : eventsError ? (
+              <div className="error-state">
+                <p>⚠️ {eventsError}</p>
+                <button 
+                  onClick={() => {
+                    const loadEvents = async () => {
+                      setEventsLoading(true)
+                      setEventsError(null)
+                      // ... (same loading logic)
+                    }
+                    loadEvents()
+                  }}
+                  className="retry-button"
+                >
+                  Try Again
+                </button>
+              </div>
+            ) : events.length > 0 ? (
               events.map(event => (
                 <div key={event.id} className="event-item">
                   <div className="event-date">{formatDate(event.startDate)}</div>

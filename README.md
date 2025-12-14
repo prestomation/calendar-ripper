@@ -149,6 +149,8 @@ interface RipperCalendarEvent {
 
 ## Running the Tool
 
+### Command Line (Traditional)
+
 ```bash
 npm run generate-calendars
 ```
@@ -158,6 +160,26 @@ This will:
 2. Process each ripper to extract events
 3. Generate .ics files in the `output/` directory
 4. Create an `index.html` file with links to all calendars
+
+### Web Interface (Modern)
+
+```bash
+./build-web.sh
+```
+
+This will:
+1. Generate calendars as above
+2. Build a modern React SPA with:
+   - Fuzzy search for calendars
+   - Tag-based filtering
+   - Interactive agenda view with upcoming events
+   - Dynamic ICS file loading
+
+To serve the web interface:
+```bash
+cd output-web && python3 -m http.server 8000
+# Open http://localhost:8000
+```
 
 ## Current Limitations
 

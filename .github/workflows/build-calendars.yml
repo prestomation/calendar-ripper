@@ -41,8 +41,14 @@ jobs:
         cat errorCount.txt
         echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
 
+    - name: Build web interface
+      run: |
+        cd web
+        npm install
+        npm run build
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: 'output/'
+        path: 'output-web/'
         name: ${{ inputs.artifact-name }}

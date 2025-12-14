@@ -2,6 +2,10 @@ name: pacific-science-center
 description: "Pacific Science Center Events Calendar"
 url: "https://pacificsciencecenter.org/wp-json/wp/v2/event"
 friendlyLink: https://pacificsciencecenter.org
+# DISABLED: WordPress API only provides publication dates, not actual event dates
+# The API returns events with publication dates (e.g., Dec 8) instead of actual event dates (e.g., Dec 17)
+# This causes all events to appear in the past or have incorrect dates
+# Would need proper event calendar plugin with structured date fields to work correctly
 disabled: true
 lookahead: P3M
 calendars:

@@ -19,12 +19,5 @@ calendars:
       name: "SIFF Cinema Uptown"
       cssSelector: ".Uptown"
     tags: ["QueenAnne"]
-  - name: egyptian
-    timezone: America/Los_Angeles
-    friendlyname: "SIFF Cinema Egyptian"
-    config:
-      name: "SIFF Cinema Egyptian"
-      cssSelector: ".Egyptian"
-    tags: ["CapitolHill"]
-
+  # Egyptian theater removed - theater is closed
 

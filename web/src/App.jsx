@@ -84,6 +84,7 @@ function App() {
         const ripperGroups = manifestData.rippers.map(ripper => ({
           name: ripper.name,
           description: ripper.description,
+          friendlyLink: ripper.friendlyLink,
           calendars: ripper.calendars.map(calendar => ({
             name: calendar.name,
             fullName: calendar.friendlyName,
@@ -374,7 +375,23 @@ function App() {
         {selectedCalendar ? (
           <div className="agenda-panel">
             <div className="agenda-header">
-              <h1>{selectedCalendar.fullName}</h1>
+              {(() => {
+                const ripper = calendars.find(r => r.name === selectedCalendar.ripperName)
+                return ripper?.friendlyLink ? (
+                  <h1>
+                    <a 
+                      href={ripper.friendlyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agenda-title-link"
+                    >
+                      {selectedCalendar.fullName}
+                    </a>
+                  </h1>
+                ) : (
+                  <h1>{selectedCalendar.fullName}</h1>
+                )
+              })()}
               <p>Upcoming events</p>
             </div>
             

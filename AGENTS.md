@@ -17,6 +17,16 @@ When working with this codebase, please review the steering file first to unders
 
 The steering file provides essential context for making informed decisions about code changes, new feature implementations, and maintaining consistency with the existing architecture.
 
+### Development Workflow
+
+**NEVER push directly to main branch.** Always:
+1. Create a feature branch for changes
+2. Make commits to the feature branch
+3. Open a Pull Request to merge into main
+4. Wait for review and approval before merging
+
+This ensures proper code review and prevents breaking the production deployment.
+
 ## Unit Tests
 
 Unit tests for rippers are located in the individual ripper directories alongside the implementation files:

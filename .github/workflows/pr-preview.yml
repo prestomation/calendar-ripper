@@ -10,14 +10,48 @@ jobs:
     with:
       artifact-name: pr-preview-${{ github.event.number }}
 
-  comment-pr:
+  deploy-preview:
     runs-on: ubuntu-latest
     needs: build
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     steps:
-      - name: Comment PR with build status
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-preview-${{ github.event.number }}
+
+      - name: Extract and prepare preview
+        run: |
+          mkdir -p pr-preview-${{ github.event.number }}
+          tar -xf artifact.tar -C pr-preview-${{ github.event.number }}
+
+      - name: Deploy to preview branch
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Create or switch to preview branch
+          git checkout -B pr-previews
+          
+          # Remove old preview if exists
+          rm -rf pr-preview-${{ github.event.number }}
+          
+          # Add new preview
+          mkdir -p pr-preview-${{ github.event.number }}
+          tar -xf artifact.tar -C pr-preview-${{ github.event.number }}
+          
+          git add pr-preview-${{ github.event.number }}
+          git commit -m "Add PR #${{ github.event.number }} preview" || exit 0
+          git push origin pr-previews --force
+
+      - name: Comment PR with preview link
         uses: actions/github-script@v7
         with:
           script: |
@@ -28,21 +62,20 @@ jobs:
             });
             
             const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && comment.body.includes('📅 Calendar Build Status')
+              comment.user.type === 'Bot' && comment.body.includes('📅 Calendar Preview')
             );
             
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
+            const previewUrl = `http://htmlpreview.github.io/?https://github.com/${{ github.repository }}/blob/pr-previews/pr-preview-${{ github.event.number }}/index.html`;
             
-            const body = `## 📅 Calendar Build Status
+            const body = `## 📅 Calendar Preview
             
             **Status:** ${errorBadge}
+            **Preview:** [View Calendar Index](${previewUrl})
             **Commit:** ${{ github.event.pull_request.head.sha }}
-            **PR:** #${{ github.event.number }}
             
-            The calendars have been built and validated. Download the artifact from the Actions tab to preview the generated files.
-            
-            > 📝 Preview will be available at https://prestomation.github.io/calendar-ripper/ after this PR is merged.`;
+            > 🔗 Preview powered by htmlpreview.github.io`;
             
             if (botComment) {
               await github.rest.issues.updateComment({

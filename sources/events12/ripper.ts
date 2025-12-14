@@ -96,7 +96,11 @@ export default class Events12Ripper extends HTMLRipper {
         return events;
     }
     
+<<<<<<< HEAD
     private parseEventDate(dateText: string, timezone: ZoneId): ZonedDateTime | null {
+=======
+    private parseEventDate(dateText: string, timezone: any): ZonedDateTime | null {
+>>>>>>> 4090ac9 (Fix Events12 duplication and improve location handling)
         try {
             // Extract date components from text like "December 3, 2025 (7 to 8:30 p.m.)"
             const dateMatch = dateText.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2}),?\s+(\d{4})/);
@@ -135,7 +139,12 @@ export default class Events12Ripper extends HTMLRipper {
             }
             
             // Get the actual ZoneId from the ZonedDateTime
+<<<<<<< HEAD
             return ZonedDateTime.of(year, month, day, hour, minute, 0, 0, timezone);
+=======
+            const zoneId = typeof timezone === 'function' ? timezone() : timezone;
+            return ZonedDateTime.of(year, month, day, hour, minute, 0, 0, zoneId);
+>>>>>>> 4090ac9 (Fix Events12 duplication and improve location handling)
             
         } catch (error) {
             return null;

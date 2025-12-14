@@ -72,8 +72,10 @@ function App() {
     return `https://maps.google.com/maps?q=${encodeURIComponent(location)}`
   }
 
-  const createGoogleCalendarUrl = (icsUrl) => {
-    const fullUrl = new URL(icsUrl, window.location.origin + window.location.pathname).href
+  const createGoogleCalendarUrl = (icsUrl, originalIcsUrl) => {
+    // Use original URL for external calendars, local URL for others
+    const urlToUse = originalIcsUrl || icsUrl
+    const fullUrl = originalIcsUrl ? urlToUse : new URL(icsUrl, window.location.origin + window.location.pathname).href
     return `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(fullUrl)}`
   }
 
@@ -105,7 +107,8 @@ function App() {
           calendars: [{
             name: calendar.name,
             fullName: calendar.friendlyName,
-            icsUrl: calendar.icsUrl,
+            icsUrl: calendar.icsUrl, // Local file for viewing
+            originalIcsUrl: calendar.originalIcsUrl, // Original URL for subscription
             tags: calendar.tags,
             isExternal: true
           }]
@@ -394,15 +397,16 @@ function App() {
                   </div>
                   <div className="calendar-actions">
                     <a 
-                      href={calendar.icsUrl}
-                      download
+                      href={calendar.originalIcsUrl || calendar.icsUrl}
+                      download={!calendar.originalIcsUrl}
+                      target={calendar.originalIcsUrl ? "_blank" : undefined}
                       title="Download ICS file"
                       className="action-link"
                     >
                       📥 ICS
                     </a>
                     <a 
-                      href={createGoogleCalendarUrl(calendar.icsUrl)}
+                      href={createGoogleCalendarUrl(calendar.icsUrl, calendar.originalIcsUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Add to Google Calendar"

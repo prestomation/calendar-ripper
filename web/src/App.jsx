@@ -55,8 +55,14 @@ function App() {
   const handleSearchChange = (value) => {
     setSearchTerm(value)
     
+    // If starting to type and we have a tag selected, save it and clear tag selection
+    if (value && selectedTag) {
+      setPreviousTag(selectedTag)
+      setSelectedTag('')
+      updateURL(value, '', selectedCalendar)
+    }
     // If search is cleared and we had a previous tag, restore it
-    if (!value && previousTag && !selectedTag) {
+    else if (!value && previousTag) {
       setSelectedTag(previousTag)
       updateURL(value, previousTag, selectedCalendar)
     } else {
@@ -68,6 +74,11 @@ function App() {
     // Save current tag as previous if switching to a different tag
     if (selectedTag && selectedTag !== tag) {
       setPreviousTag(selectedTag)
+    }
+    
+    // Clear search when selecting a tag
+    if (searchTerm) {
+      setSearchTerm('')
     }
     
     setSelectedTag(tag)
@@ -88,13 +99,13 @@ function App() {
           const calendarWithRipper = { ...firstCalendar, ripperName: firstRipper.name }
           setSelectedCalendar(calendarWithRipper)
           setShowHomepage(false)
-          updateURL(searchTerm, tag, calendarWithRipper)
+          updateURL('', tag, calendarWithRipper)
           return
         }
       }
     }
     
-    updateURL(searchTerm, tag, selectedCalendar)
+    updateURL('', tag, selectedCalendar)
   }
 
   const handleTagSelect = (tag) => {

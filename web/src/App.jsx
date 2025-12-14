@@ -68,7 +68,8 @@ function App() {
   }
 
   const createGoogleCalendarUrl = (icsUrl) => {
-    const fullUrl = new URL(icsUrl, window.location.origin).href
+    const basePath = window.location.pathname.includes('/pr-') ? './' : '../output/'
+    const fullUrl = new URL(`${basePath}${icsUrl}`, window.location.origin + window.location.pathname).href
     return `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(fullUrl)}`
   }
 
@@ -76,8 +77,11 @@ function App() {
   useEffect(() => {
     const loadCalendars = async () => {
       try {
+        // Determine the correct path based on environment
+        const basePath = window.location.pathname.includes('/pr-') ? './' : '../output/'
+        
         // Parse the existing index.html to extract calendar data
-        const response = await fetch('../output/index.html')
+        const response = await fetch(`${basePath}index.html`)
         const html = await response.text()
         
         // Extract calendar information from HTML
@@ -231,7 +235,8 @@ function App() {
 
     const loadEvents = async () => {
       try {
-        const response = await fetch(`../output/${selectedCalendar.icsUrl}`)
+        const basePath = window.location.pathname.includes('/pr-') ? './' : '../output/'
+        const response = await fetch(`${basePath}${selectedCalendar.icsUrl}`)
         const icsData = await response.text()
         
         const jcalData = ICAL.parse(icsData)
@@ -322,7 +327,7 @@ function App() {
                 <div className="ripper-title">{ripper.description}</div>
                 <div className="ripper-actions">
                   <a 
-                    href={`../output/tag-${ripper.name.toLowerCase()}.ics`}
+                    href={`${window.location.pathname.includes('/pr-') ? './' : '../output/'}tag-${ripper.name.toLowerCase()}.ics`}
                     download
                     title="Download all calendars as ICS"
                     className="action-link"
@@ -368,7 +373,7 @@ function App() {
                   </div>
                   <div className="calendar-actions">
                     <a 
-                      href={`../output/${calendar.icsUrl}`}
+                      href={`${window.location.pathname.includes('/pr-') ? './' : '../output/'}${calendar.icsUrl}`}
                       download
                       title="Download ICS file"
                       className="action-link"

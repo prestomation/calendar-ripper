@@ -299,6 +299,11 @@ export const main = async () => {
     });
   });
 
+  // Add external calendar tags
+  activeExternalCalendars.forEach(calendar => {
+    if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
+  });
+
   // Generate JSON manifest for React app
   const manifest = {
     lastUpdated: new Date().toISOString(),
@@ -312,6 +317,14 @@ export const main = async () => {
         icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
         tags: [...(ripper.config.tags || []), ...(calendar.tags || [])]
       }))
+    })),
+    externalCalendars: activeExternalCalendars.map(calendar => ({
+      name: calendar.name,
+      friendlyName: calendar.friendlyname,
+      description: calendar.description,
+      icsUrl: calendar.icsUrl,
+      infoUrl: calendar.infoUrl,
+      tags: calendar.tags || []
     })),
     tags: Array.from(allTags).sort()
   };

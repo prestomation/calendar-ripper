@@ -8,6 +8,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
+  const [showHomepage, setShowHomepage] = useState(true)
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
   const [eventsLoading, setEventsLoading] = useState(false)
@@ -63,6 +64,7 @@ function App() {
   const handleCalendarSelect = (calendar, ripperName) => {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
+    setShowHomepage(false)
     updateURL(searchTerm, selectedTag, calendarWithRipper)
   }
 
@@ -244,14 +246,27 @@ function App() {
   return (
     <div className="app">
       <div className="sidebar">
-        <div className="search-bar">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search calendars..."
-            value={searchTerm}
-            onChange={(e) => handleSearchChange(e.target.value)}
-          />
+        <div className="header-bar">
+          <button 
+            className="home-button"
+            onClick={() => {
+              setSelectedCalendar(null)
+              setShowHomepage(true)
+              window.location.hash = ''
+            }}
+            title="Home"
+          >
+            🏠
+          </button>
+          <div className="search-bar">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search calendars..."
+              value={searchTerm}
+              onChange={(e) => handleSearchChange(e.target.value)}
+            />
+          </div>
         </div>
         
         <div className="tags">
@@ -394,7 +409,31 @@ function App() {
       </div>
       
       <div className="main-content">
-        {selectedCalendar ? (
+        {showHomepage ? (
+          <div className="homepage">
+            <h1>Calendar Browser</h1>
+            <p>Welcome to the iCalendar Ripper web interface! This tool aggregates events from various websites and presents them as searchable, filterable calendars.</p>
+            
+            <h2>How to Use</h2>
+            <ul>
+              <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>
+              <li><strong>Search:</strong> Use the search bar to find specific calendars by name or content</li>
+              <li><strong>Filter by Tags:</strong> Click on tags to filter calendars by category</li>
+              <li><strong>Download:</strong> Use the 📥 ICS links to add to your calendar app.</li>
+              <li><strong>Subscribe:</strong> Use the 📅 Google links to add calendars to Google Calendar</li>
+            </ul>
+            
+            <h2>Tags</h2>
+            <p>Tags help organize calendars by category or theme. You can:</p>
+            <ul>
+              <li>Click any tag to filter calendars</li>
+              <li>Download aggregate calendars that combine all events with the same tag</li>
+              <li>Each calendar can have multiple tags for flexible organization</li>
+            </ul>
+            
+            <p>Select a calendar from the sidebar to get started!</p>
+          </div>
+        ) : selectedCalendar ? (
           <div className="agenda-panel">
             <div className="agenda-header">
               <div className="agenda-title-container">

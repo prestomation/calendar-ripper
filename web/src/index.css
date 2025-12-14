@@ -472,3 +472,53 @@ body {
     padding: 16px 20px;
   }
 }
+
+.header-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.home-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.home-button:hover {
+  background-color: #f8f9fa;
+}
+
+.search-bar {
+  flex: 1;
+}
+
+.homepage {
+  padding: 40px;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+.homepage h1 {
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.homepage h2 {
+  color: #555;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.homepage ul {
+  margin-bottom: 24px;
+}
+
+.homepage li {
+  margin-bottom: 8px;
+}

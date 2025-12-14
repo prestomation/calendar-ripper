@@ -8,11 +8,11 @@ calendars:
     timezone: America/Los_Angeles
     config:
       venue_id: 53757
-  - name: westlake-park
-    friendlyname: "Westlake Park Events"
-    timezone: America/Los_Angeles
-    config:
-      venue_id: 53732
+  # - name: westlake-park # Westlake park is currently closed for construction
+  #   friendlyname: "Westlake Park Events"
+  #   timezone: America/Los_Angeles
+  #   config:
+  #     venue_id: 53732
   - name: occidental-square
     friendlyname: "Occidental Square Events"
     timezone: America/Los_Angeles

@@ -7,6 +7,7 @@ function App() {
   const [manifest, setManifest] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
+  const [previousTag, setPreviousTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [events, setEvents] = useState([])
@@ -53,11 +54,46 @@ function App() {
 
   const handleSearchChange = (value) => {
     setSearchTerm(value)
-    updateURL(value, selectedTag, selectedCalendar)
+    
+    // If search is cleared and we had a previous tag, restore it
+    if (!value && previousTag && !selectedTag) {
+      setSelectedTag(previousTag)
+      updateURL(value, previousTag, selectedCalendar)
+    } else {
+      updateURL(value, selectedTag, selectedCalendar)
+    }
   }
 
   const handleTagChange = (tag) => {
+    // Save current tag as previous if switching to a different tag
+    if (selectedTag && selectedTag !== tag) {
+      setPreviousTag(selectedTag)
+    }
+    
     setSelectedTag(tag)
+    
+    // If selecting a tag (not clearing), auto-select first calendar in that tag
+    if (tag) {
+      const filteredCalendars = calendars.filter(ripper => 
+        ripper.calendars.some(calendar => calendar.tags.includes(tag))
+      )
+      
+      if (filteredCalendars.length > 0) {
+        const firstRipper = filteredCalendars[0]
+        const firstCalendar = firstRipper.calendars.find(calendar => 
+          calendar.tags.includes(tag)
+        )
+        
+        if (firstCalendar) {
+          const calendarWithRipper = { ...firstCalendar, ripperName: firstRipper.name }
+          setSelectedCalendar(calendarWithRipper)
+          setShowHomepage(false)
+          updateURL(searchTerm, tag, calendarWithRipper)
+          return
+        }
+      }
+    }
+    
     updateURL(searchTerm, tag, selectedCalendar)
   }
 

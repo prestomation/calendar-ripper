@@ -58,6 +58,19 @@ function App() {
     updateURL(searchTerm, tag, selectedCalendar)
   }
 
+  const handleRipperSelect = (ripper) => {
+    // Create aggregate calendar for the ripper
+    const aggregateCalendar = {
+      name: `tag-${ripper.name.toLowerCase()}`,
+      fullName: `${ripper.description} (All Events)`,
+      icsUrl: `tag-${ripper.name.toLowerCase()}.ics`,
+      ripperName: ripper.name,
+      tags: []
+    }
+    setSelectedCalendar(aggregateCalendar)
+    updateURL(searchTerm, selectedTag, aggregateCalendar)
+  }
+
   const handleCalendarSelect = (calendar, ripperName) => {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
@@ -255,7 +268,11 @@ function App() {
         <div className="calendar-list">
           {filteredCalendars.map((ripper, ripperIndex) => (
             <div key={ripperIndex} className="ripper-group">
-              <div className="ripper-header">
+              <div 
+                className="ripper-header"
+                onClick={() => handleRipperSelect(ripper)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="ripper-title">{ripper.description}</div>
                 <div className="ripper-actions">
                   <a 
@@ -263,6 +280,7 @@ function App() {
                     download
                     title="Download all calendars as ICS"
                     className="action-link"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     📥 ICS
                   </a>
@@ -272,6 +290,7 @@ function App() {
                     rel="noopener noreferrer"
                     title="Add all calendars to Google Calendar"
                     className="action-link"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     📅 Google
                   </a>

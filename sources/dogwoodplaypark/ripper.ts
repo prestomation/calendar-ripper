@@ -59,12 +59,21 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                 return [];
             }
             
-            // Process each event
+            // Process each event and deduplicate by ID
             const events: RipperEvent[] = [];
+            const seenIds = new Set<string>();
+            
             for (const eventData of eventsData) {
                 try {
                     // Extract event details
                     const id = eventData.id;
+                    
+                    // Skip if we've already processed this event ID
+                    if (seenIds.has(id)) {
+                        continue;
+                    }
+                    seenIds.add(id);
+                    
                     const title = eventData.title?.trim();
                     const description = eventData.description || '';
                     const url = `https://www.dogwoodplaypark.com/event-details/${eventData.slug}`;

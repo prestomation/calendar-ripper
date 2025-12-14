@@ -83,6 +83,32 @@ body {
   padding: 20px;
 }
 
+.tag-header {
+  margin-bottom: 24px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  background: #e3f2fd;
+  overflow: hidden;
+}
+
+.tag-header-content {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #0056b3;
+}
+
+.tag-actions {
+  display: flex;
+  gap: 8px;
+}
+
 .ripper-group {
   margin-bottom: 24px;
   border: 1px solid #e9ecef;

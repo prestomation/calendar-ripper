@@ -266,6 +266,33 @@ function App() {
         </div>
         
         <div className="calendar-list">
+          {selectedTag && (
+            <div className="tag-header">
+              <div className="tag-header-content">
+                <div className="tag-title">Tag: {selectedTag}</div>
+                <div className="tag-actions">
+                  <a 
+                    href={`tag-${selectedTag.toLowerCase()}.ics`}
+                    download
+                    title="Download tag calendar as ICS"
+                    className="action-link"
+                  >
+                    📥 ICS
+                  </a>
+                  <a 
+                    href={createGoogleCalendarUrl(`tag-${selectedTag.toLowerCase()}.ics`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Add tag calendar to Google Calendar"
+                    className="action-link"
+                  >
+                    📅 Google
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+          
           {filteredCalendars.map((ripper, ripperIndex) => (
             <div key={ripperIndex} className="ripper-group">
               <div 

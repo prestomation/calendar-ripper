@@ -59,22 +59,29 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                 return [];
             }
             
-            // Process each event and deduplicate by ID
+            // Process each event and deduplicate by title+date combination
             const events: RipperEvent[] = [];
-            const seenIds = new Set<string>();
+            const seenEvents = new Set<string>();
             
             for (const eventData of eventsData) {
                 try {
                     // Extract event details
                     const id = eventData.id;
+                    const title = eventData.title?.trim();
+                    const startDateStr = eventData.scheduling?.config?.startDate;
                     
-                    // Skip if we've already processed this event ID
-                    if (seenIds.has(id)) {
+                    if (!title || !startDateStr) {
                         continue;
                     }
-                    seenIds.add(id);
                     
-                    const title = eventData.title?.trim();
+                    // Create unique key from title and date
+                    const uniqueKey = `${title}-${startDateStr}`;
+                    
+                    // Skip if we've already processed this event
+                    if (seenEvents.has(uniqueKey)) {
+                        continue;
+                    }
+                    seenEvents.add(uniqueKey);
                     const description = eventData.description || '';
                     const url = `https://www.dogwoodplaypark.com/event-details/${eventData.slug}`;
                     const imageUrl = eventData.mainImage?.url;
@@ -90,17 +97,17 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                         continue;
                     }
                     
-                    const startDateStr = eventData.scheduling.config.startDate;
-                    const endDateStr = eventData.scheduling.config.endDate;
+                    const eventStartDate = eventData.scheduling.config.startDate;
+                    const eventEndDate = eventData.scheduling.config.endDate;
                     const timeZoneId = eventData.scheduling.config.timeZoneId || 'America/Los_Angeles';
                     
-                    if (!startDateStr || !endDateStr) {
+                    if (!eventStartDate || !eventEndDate) {
                         continue;
                     }
                     
                     // Parse dates
-                    const startDate = new Date(startDateStr);
-                    const endDate = new Date(endDateStr);
+                    const startDate = new Date(eventStartDate);
+                    const endDate = new Date(eventEndDate);
                     
                     // Calculate duration in minutes
                     const durationMs = endDate.getTime() - startDate.getTime();
@@ -108,7 +115,7 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                     
                     // Create ZonedDateTime for the event start
                     // Parse the ISO date string and convert to ZonedDateTime
-                    const isoDate = startDateStr.replace('Z', '');
+                    const isoDate = eventStartDate.replace('Z', '');
                     const year = parseInt(isoDate.substring(0, 4));
                     const month = parseInt(isoDate.substring(5, 7));
                     const day = parseInt(isoDate.substring(8, 10));

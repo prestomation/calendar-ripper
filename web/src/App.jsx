@@ -61,6 +61,19 @@ function App() {
     updateURL(searchTerm, tag, selectedCalendar)
   }
 
+  const handleTagSelect = (tag) => {
+    const tagCalendar = {
+      name: `tag-${tag.toLowerCase()}`,
+      fullName: `Tag: ${tag}`,
+      icsUrl: `tag-${tag.toLowerCase()}.ics`,
+      tags: [tag],
+      ripperName: 'tag-aggregate'
+    }
+    setSelectedCalendar(tagCalendar)
+    setShowHomepage(false)
+    updateURL(searchTerm, selectedTag, tagCalendar)
+  }
+
   const handleCalendarSelect = (calendar, ripperName) => {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
@@ -307,7 +320,11 @@ function App() {
         <div className="calendar-list">
           {selectedTag && (
             <div className="tag-header">
-              <div className="tag-header-content">
+              <div 
+                className="tag-header-content clickable"
+                onClick={() => handleTagSelect(selectedTag)}
+                title="Click to view tag calendar events"
+              >
                 <div className="tag-title">Tag: {selectedTag}</div>
                 <div className="tag-actions">
                   <a 
@@ -315,6 +332,7 @@ function App() {
                     download
                     title="Download tag calendar as ICS"
                     className="action-link"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     📥 ICS
                   </a>
@@ -324,6 +342,7 @@ function App() {
                     rel="noopener noreferrer"
                     title="Add tag calendar to Google Calendar"
                     className="action-link"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     📅 Google
                   </a>

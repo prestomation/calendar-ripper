@@ -147,6 +147,15 @@ body {
   align-items: center;
 }
 
+.tag-header-content.clickable {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tag-header-content.clickable:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .tag-title {
   font-weight: 700;
   font-size: 18px;

@@ -18,6 +18,8 @@ import {
   TaggedCalendar,
   TaggedExternalCalendar,
 } from "./tag_aggregator.js";
+import { RecurringEventProcessor } from "./config/recurring.js";
+import { LocalDate } from "@js-joda/core";
 
 // Get the directory name in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +32,43 @@ interface CalendarOutput {
   errorCount: number;
   tags: string[]
 }
+
+const generateRecurringCalendarList = (calendars: RipperCalendar[]) => {
+  if (calendars.length === 0) return "";
+
+  const calendarItems = calendars
+    .map((calendar) => {
+      const webcalUrl = `webcal://localhost:8000/recurring-${calendar.name}.ics`;
+      const httpUrl = `recurring-${calendar.name}.ics`;
+      const errorsUrl = `recurring-${calendar.name}-errors.txt`;
+      
+      const tagsHtml = calendar.tags && calendar.tags.length > 0
+        ? `<div class="calendar-tags">${calendar.tags
+            .map((tag) => `<span class="tag">${tag}</span>`)
+            .join(" ")}</div>`
+        : "";
+
+      return `
+        <li>
+          <strong>${calendar.friendlyname}</strong> 
+          (<a href="${httpUrl}">Download</a> | 
+          <a href="${webcalUrl}">Subscribe</a> | 
+          <a href="${errorsUrl}">Errors</a>)
+          ${tagsHtml}
+          <div class="event-count">${calendar.events.length} events</div>
+        </li>`;
+    })
+    .join("");
+
+  return `
+    <div class="ripper-section">
+      <h2>Recurring Events</h2>
+      <p>Regular events like art walks that occur on predictable schedules</p>
+      <ul>
+        ${calendarItems}
+      </ul>
+    </div>`;
+};
 
 const generateCalendarList = (
   ripper: RipperConfig,
@@ -170,6 +209,25 @@ export const main = async () => {
     }
   }
 
+  // Load recurring events
+  let recurringCalendars: RipperCalendar[] = [];
+  try {
+    const recurringPath = join("sources", "recurring.yaml");
+    const processor = new RecurringEventProcessor(recurringPath);
+    
+    // Generate events for the next 12 months
+    const startDate = LocalDate.now();
+    const endDate = startDate.plusMonths(12);
+    
+    recurringCalendars = processor.generateCalendars(startDate, endDate);
+    console.log(`Generated ${recurringCalendars.length} recurring event calendars`);
+  } catch (error) {
+    if ((error as any).code !== "ENOENT") {
+      console.error("Error loading recurring events:", error);
+      // Don't fail the program, just continue without recurring events
+    }
+  }
+
   try {
     // Create the output directory
     // If it exists, just ignore the failure. that's fine.
@@ -183,6 +241,28 @@ export const main = async () => {
   const allCalendars: RipperCalendar[] = [];
   const ripperTags = new Map<string, string[]>();
   const calendarTags = new Map<string, string[]>();
+
+  // Add recurring calendars first
+  allCalendars.push(...recurringCalendars);
+  
+  // Process recurring calendars for output
+  for (const calendar of recurringCalendars) {
+    const icsPath = `recurring-${calendar.name}.ics`;
+    const errorsPath = `recurring-${calendar.name}-errors.txt`;
+    const errorCount = calendar.errors.length;
+    totalErrorCount += errorCount;
+    const icsString = await toICS(calendar);
+    console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
+    console.error(`${errorCount} errors for recurring-${calendar.name}`);
+    if (errorCount > 0) {
+      console.error(calendar.errors);
+    }
+    await writeFile(`output/${icsPath}`, icsString);
+    await writeFile(
+      `output/${errorsPath}`,
+      JSON.stringify(calendar.errors, null, 2)
+    );
+  }
 
   for (const config of configs) {
     console.log(`Processing ${config.config.name}`);
@@ -233,6 +313,11 @@ export const main = async () => {
       outputs,
       calendarTags
     );
+  }
+
+  // Add recurring calendars to the table of contents
+  if (recurringCalendars.length > 0) {
+    tableOfContents += generateRecurringCalendarList(recurringCalendars);
   }
 
   // Add external calendars to the table of contents
@@ -332,6 +417,11 @@ END:VCALENDAR`;
     if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
   });
 
+  // Add recurring calendar tags
+  recurringCalendars.forEach(calendar => {
+    if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
+  });
+
   // Generate JSON manifest for React app
   const manifest = {
     lastUpdated: new Date().toISOString(),
@@ -345,6 +435,12 @@ END:VCALENDAR`;
         icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
         tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
       }))
+    })),
+    recurringCalendars: recurringCalendars.map(calendar => ({
+      name: calendar.name,
+      friendlyName: calendar.friendlyname,
+      icsUrl: `recurring-${calendar.name}.ics`,
+      tags: calendar.tags || []
     })),
     externalCalendars: activeExternalCalendars.map(calendar => ({
       name: calendar.name,

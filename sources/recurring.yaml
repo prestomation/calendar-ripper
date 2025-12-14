@@ -1,0 +1,195 @@
+# Recurring Events Configuration
+# This file defines events that occur on a regular schedule (e.g., "2nd Thursday")
+# rather than being scraped from a specific website
+
+events:
+  # Seattle Neighborhood Art Walks
+  - name: ballard-artwalk
+    friendlyname: "Ballard Art Walk"
+    description: "Monthly art walk in the Ballard neighborhood"
+    schedule: "2nd Saturday"
+    timezone: America/Los_Angeles
+    duration: PT4H  # 4 hours
+    start_time: "18:00"  # 6 PM
+    location: "Ballard neighborhood, Seattle"
+    url: "http://www.visitballard.com/artwalk/"
+    tags: ["Artwalk", "Ballard"]
+
+  - name: beacon-hill-artwalk
+    friendlyname: "Beacon Hill Art Walk"
+    description: "Annual art walk in the Beacon Hill neighborhood"
+    schedule: "Annual"  # Special case for annual events
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Beacon Hill neighborhood, Seattle"
+    url: "https://www.beaconbusinessalliance.org/"
+    tags: ["Artwalk", "Beacon Hill"]
+
+  - name: belltown-artwalk
+    friendlyname: "Belltown Art Walk"
+    description: "Monthly art walk in the Belltown neighborhood"
+    schedule: "2nd Friday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Belltown neighborhood, Seattle"
+    url: "http://www.belltownartwalk.com/"
+    tags: ["Artwalk", "Belltown"]
+
+  - name: capitol-hill-artwalk
+    friendlyname: "Capitol Hill Art Walk"
+    description: "Monthly art walk in the Capitol Hill neighborhood"
+    schedule: "2nd Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Capitol Hill neighborhood, Seattle"
+    url: "https://capitolhillartwalk.com/"
+    tags: ["Artwalk", "Capitol Hill"]
+
+  - name: central-district-artwalk-friday
+    friendlyname: "Central District Art Walk (First Friday)"
+    description: "Monthly art walk in the Central District on first Fridays"
+    schedule: "1st Friday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Central District neighborhood, Seattle"
+    url: "https://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty"
+    tags: ["Artwalk", "Central District"]
+
+  - name: central-district-artwalk-saturday
+    friendlyname: "Central District Art Walk (Second Saturday)"
+    description: "Monthly art walk in the Central District on second Saturdays"
+    schedule: "2nd Saturday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Central District neighborhood, Seattle"
+    url: "https://www.facebook.com/centraldistrictartwalk"
+    tags: ["Artwalk", "Central District"]
+
+  - name: chinatown-id-artwalk
+    friendlyname: "Chinatown/International District Art Walk"
+    description: "Summer art walk in the Chinatown/International District"
+    schedule: "3rd Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Chinatown/International District, Seattle"
+    url: "http://www.wingluke.org/jamfest/"
+    tags: ["Artwalk", "Chinatown", "International District"]
+    seasonal: "summer"  # Only during summer months
+
+  - name: downtown-seattle-artwalk
+    friendlyname: "Downtown Seattle Art Walk"
+    description: "Monthly art walk in Downtown Seattle"
+    schedule: "4th Friday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Downtown Seattle"
+    url: "https://www.seattle.gov/arts/experience/art-walks"
+    tags: ["Artwalk", "Downtown"]
+
+  - name: fremont-artwalk
+    friendlyname: "Fremont First Friday Art Walk"
+    description: "Monthly art walk in the Fremont neighborhood"
+    schedule: "1st Friday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Fremont neighborhood, Seattle"
+    url: "http://www.fremontfirstfriday.com/"
+    tags: ["Artwalk", "Fremont"]
+
+  - name: georgetown-artwalk
+    friendlyname: "Georgetown Art Attack"
+    description: "Monthly art walk in the Georgetown neighborhood"
+    schedule: "2nd Saturday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Georgetown neighborhood, Seattle"
+    url: "https://georgetownseattle.org/art-attack/"
+    tags: ["Artwalk", "Georgetown"]
+
+  - name: lake-city-artwalk
+    friendlyname: "Lake City Art Walk"
+    description: "Monthly art walk in the Lake City neighborhood"
+    schedule: "3rd Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Lake City neighborhood, Seattle"
+    url: "https://www.turntablestrails.com/art-walk"
+    tags: ["Artwalk", "Lake City"]
+
+  - name: phinney-greenwood-artwalk
+    friendlyname: "Phinney/Greenwood Art Walk"
+    description: "Monthly art walk in the Phinney/Greenwood neighborhoods"
+    schedule: "2nd Friday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Phinney/Greenwood neighborhoods, Seattle"
+    url: "https://www.phinneycenter.org/artwalk/"
+    tags: ["Artwalk", "Phinney", "Greenwood"]
+
+  - name: pike-place-artwalk
+    friendlyname: "Pike Place Summer Art Walk"
+    description: "Summer art walk at Pike Place Market"
+    schedule: "1st Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Pike Place Market, Seattle"
+    url: "https://www.seattle.gov/arts/experience/art-walks"
+    tags: ["Artwalk", "Pike Place"]
+    seasonal: "summer"  # June - September
+
+  - name: pioneer-square-artwalk
+    friendlyname: "Pioneer Square Art Walk"
+    description: "Monthly art walk in Pioneer Square - the nation's first art walk!"
+    schedule: "1st Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Pioneer Square, Seattle"
+    url: "https://pioneersquare.org/art-walks/"
+    tags: ["Artwalk", "Pioneer Square"]
+
+  - name: university-district-artwalk
+    friendlyname: "University District Art Walk"
+    description: "Monthly art walk in the University District"
+    schedule: "3rd Friday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "University District, Seattle"
+    url: "http://www.udistrictartwalk.org/"
+    tags: ["Artwalk", "University District"]
+
+  - name: wallingford-artwalk
+    friendlyname: "Wallingford Art Walk"
+    description: "Summer art walk in the Wallingford neighborhood"
+    schedule: "2nd Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Wallingford neighborhood, Seattle"
+    url: "https://www.facebook.com/wallingfordartwalk/"
+    tags: ["Artwalk", "Wallingford"]
+    seasonal: "summer"  # May - September
+
+  - name: west-seattle-artwalk
+    friendlyname: "West Seattle Art Walk"
+    description: "Monthly art walk in West Seattle"
+    schedule: "2nd Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "West Seattle"
+    url: "http://wsartwalk.com/"
+    tags: ["Artwalk", "West Seattle"]

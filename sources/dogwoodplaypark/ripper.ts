@@ -11,6 +11,9 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
     // Default location for all events
     private DEFAULT_LOCATION = "Dogwood Play Park, 12568 33rd Ave NE, Seattle, WA 98125";
     
+    // Class-level deduplication set to persist across multiple parseEvents calls
+    private seenEvents = new Set<string>();
+    
     /**
      * Parse events from the Dogwood Play Park HTML page
      * The events are embedded in both JSON-LD script tag and wix-warmup-data script tag
@@ -20,8 +23,9 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
             // First try to extract detailed event data from wix-warmup-data
             const warmupEvents = this.extractEventsFromWarmupData(html);
             
-            // If we got events from warmup data, return those
-            if (warmupEvents.length > 0 && warmupEvents.some(e => 'summary' in e)) {
+            // If we got events from warmup data (including empty array due to deduplication), return those
+            // Only fall back to JSON-LD if warmup data extraction actually failed (returned null/undefined)
+            if (warmupEvents !== null && warmupEvents !== undefined) {
                 return warmupEvents;
             }
             
@@ -40,12 +44,12 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
      * Extract events from the wix-warmup-data script tag
      * This contains more detailed event information including actual dates and times
      */
-    private extractEventsFromWarmupData(html: HTMLElement): RipperEvent[] {
+    private extractEventsFromWarmupData(html: HTMLElement): RipperEvent[] | null {
         try {
             // Find the wix-warmup-data script tag
             const warmupDataTag = html.querySelector('script#wix-warmup-data');
             if (!warmupDataTag || !warmupDataTag.textContent) {
-                return [];
+                return null;
             }
             
             // Parse the JSON data
@@ -56,12 +60,11 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
             const eventsData = warmupData?.appsWarmupData?.['140603ad-af8d-84a5-2c80-a0f60cb47351']?.['widgetcomp-kp1kqz5a']?.events?.events;
             
             if (!eventsData || !Array.isArray(eventsData) || eventsData.length === 0) {
-                return [];
+                return null;
             }
             
             // Process each event and deduplicate by title+date combination
             const events: RipperEvent[] = [];
-            const seenEvents = new Set<string>();
             
             for (const eventData of eventsData) {
                 try {
@@ -78,10 +81,10 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                     const uniqueKey = `${title}-${startDateStr}`;
                     
                     // Skip if we've already processed this event
-                    if (seenEvents.has(uniqueKey)) {
+                    if (this.seenEvents.has(uniqueKey)) {
                         continue;
                     }
-                    seenEvents.add(uniqueKey);
+                    this.seenEvents.add(uniqueKey);
                     const description = eventData.description || '';
                     const url = `https://www.dogwoodplaypark.com/event-details/${eventData.slug}`;
                     const imageUrl = eventData.mainImage?.url;
@@ -152,11 +155,7 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
             
             return events;
         } catch (error) {
-            return [{
-                type: "ParseError",
-                reason: `Error extracting events from warmup data: ${error}`,
-                context: "wix-warmup-data"
-            }];
+            return null;
         }
     }
     

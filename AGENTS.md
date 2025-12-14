@@ -16,3 +16,32 @@ When working with this codebase, please review the steering file first to unders
 - Current development workflow and limitations
 
 The steering file provides essential context for making informed decisions about code changes, new feature implementations, and maintaining consistency with the existing architecture.
+
+## Unit Tests
+
+Unit tests for rippers are located in the individual ripper directories alongside the implementation files:
+
+```
+sources/
+  ├── ripper-name/
+  │   ├── ripper.yaml      # Configuration
+  │   ├── ripper.ts        # Implementation  
+  │   ├── ripper.test.ts   # Unit tests
+  │   └── sample-data.html # Test data (optional)
+```
+
+### Test Framework
+- Uses **Vitest** as the test framework
+- Tests should cover:
+  - Event extraction from sample HTML/JSON data
+  - Error handling for malformed data
+  - Deduplication logic (if applicable)
+  - Date/time parsing accuracy
+  - Event property validation
+
+### Test Guidelines
+- Include sample HTML/JSON files for realistic testing
+- Test both success and failure scenarios
+- Verify event properties (summary, date, duration, location, etc.)
+- Test deduplication across multiple parseEvents calls
+- Ensure graceful handling of missing or malformed data

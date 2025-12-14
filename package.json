@@ -10,7 +10,7 @@
     "web:dev": "cd web && vite",
     "web:build": "cd web && vite build",
     "web:preview": "cd web && vite preview",
-    "build-web": "npm run generate-calendars && npm run web:build"
+    "build": "npm run generate-calendars && npm run web:build"
   },
   "dependencies": {
     "@js-joda/core": "^5.5.3",

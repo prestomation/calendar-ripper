@@ -286,20 +286,30 @@ export const main = async () => {
         tags: calendar.tags || [],
       });
     }
+  }
 
   console.log("generating JSON manifest");
+
+  // Collect all unique tags
+  const allTags = new Set<string>();
+  configs.forEach(ripper => {
+    if (ripper.config.tags) ripper.config.tags.forEach(tag => allTags.add(tag));
+    ripper.config.calendars.forEach(calendar => {
+      if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
+    });
+  });
 
   // Generate JSON manifest for React app
   const manifest = {
     lastUpdated: new Date().toISOString(),
-    rippers: allCalendars.map(ripper => ({
-      name: ripper.name,
-      description: ripper.description,
-      calendars: ripper.calendars.map(calendar => ({
+    rippers: configs.map(ripper => ({
+      name: ripper.config.name,
+      description: ripper.config.description,
+      calendars: ripper.config.calendars.map(calendar => ({
         name: calendar.name,
         friendlyName: calendar.friendlyname,
-        icsUrl: `${ripper.name}-${calendar.name}.ics`,
-        tags: [...(ripper.tags || []), ...(calendar.tags || [])]
+        icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
+        tags: [...(ripper.config.tags || []), ...(calendar.tags || [])]
       }))
     })),
     tags: Array.from(allTags).sort()
@@ -307,77 +317,4 @@ export const main = async () => {
 
   await writeFile("output/manifest.json", JSON.stringify(manifest, null, 2));
   await writeFile("errorCount.txt", totalErrorCount.toString());
-};
-const generateAggregateCalendarList = (
-  outputs: CalendarOutput[],
-  taggedCalendars: RipperCalendar[],
-  taggedExternalCalendars: TaggedExternalCalendar[]
-) => {
-  if (outputs.length === 0) {
-    return "";
-  }
-
-  const toc = outputs
-    .map((calendar) => {
-      // Create a webcal link by replacing http with webcal
-      // Since we don't know the actual host, we'll use a relative path that works with the server
-      const webcalLink = `webcal://REPLACE_WITH_BASE${calendar.icsPath}`;
-      const fullIcsLink = `https://REPLACE_WITH_BASE${calendar.icsPath}`;
-
-      // Get the tag name from the calendar path (tag-tagname.ics)
-      const tagName = calendar.icsPath.replace("tag-", "").replace(".ics", "");
-
-      // Find all calendars with this tag (case-insensitive comparison)
-      const sourceCalendars = taggedCalendars
-        .filter((tc) =>
-          tc.tags.some((tag) => tag.toLowerCase() === tagName.toLowerCase())
-        )
-        .map((tc) => tc.friendlyname);
-
-      // Find all external calendars with this tag (case-insensitive comparison)
-      const sourceExternalCalendars = taggedExternalCalendars
-        .filter((tec) =>
-          tec.tags.some((tag) => tag.toLowerCase() === tagName.toLowerCase())
-        )
-        .map((tec) => tec.calendar.friendlyname);
-
-      // Combine all source calendars
-      const allSources = [...sourceCalendars, ...sourceExternalCalendars];
-
-      // Create the source list HTML
-      const sourcesHtml =
-        allSources.length > 0
-          ? `<div class="aggregate-sources">
-                <strong>Sources:</strong>
-                ${allSources
-                  .map(
-                    (source) => `<div class="aggregate-source">${source}</div>`
-                  )
-                  .join("")}
-              </div>`
-          : "";
-
-      return `<div class="calendar-item">
-            <div class="calendar-title">
-                <a href="${calendar.icsPath}">${calendar.friendlyName}</a>
-            </div>
-            <div class="calendar-actions">
-                <a href="${calendar.errorsPath}">(${calendar.errorCount} errors)</a>
-                <a href="${webcalLink}" title="Subscribe to this calendar in iCal/Outlook">[Subscribe]</a>
-                <button class="copy-btn" data-clipboard-text="${fullIcsLink}" title="Copy calendar URL to clipboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-                    </svg>
-                </button>
-            </div>
-            ${sourcesHtml}
-        </div>`;
-    })
-    .join("\n");
-
-  return `<div class="calendar-section">
-        <h2>Tag-Based Calendars</h2>
-        ${toc}
-    </div>`;
 };

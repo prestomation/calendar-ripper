@@ -164,7 +164,7 @@ This will:
 ### Web Interface (Modern)
 
 ```bash
-npm run build-web
+npm run build
 ```
 
 This will:

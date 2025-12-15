@@ -114,11 +114,10 @@ export interface IRipper {
 export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
-        const utcDate = convert(e.date).toDate();
         const m: icsOriginal.EventAttributes = {
             title: e.summary,
-            startInputType: "utc",
-            start: utcDate.getTime(),
+            startInputType: "local",
+            start: [e.date.year(), e.date.monthValue(), e.date.dayOfMonth(), e.date.hour(), e.date.minute()],
             duration: { hours: e.duration.toHours(), minutes: e.duration.toMinutes() % 60 },
             description: e.description,
             location: e.location,
@@ -136,7 +135,21 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
         return m;
     });
 
-    const ics = await createICSEvents(mapped) as string;
+    let ics = await createICSEvents(mapped) as string;
+
+    // Post-process to add TZID for events with RRULE
+    // The ics library outputs UTC times, but RRULE needs local time with TZID
+    calendar.events.forEach(e => {
+        if (e.rrule) {
+            const tzid = e.date.zone().id();
+            const localTime = `${e.date.year()}${String(e.date.monthValue()).padStart(2, '0')}${String(e.date.dayOfMonth()).padStart(2, '0')}T${String(e.date.hour()).padStart(2, '0')}${String(e.date.minute()).padStart(2, '0')}00`;
+            // Replace UTC DTSTART with local time + TZID
+            ics = ics.replace(
+                /DTSTART:\d{8}T\d{6}Z/,
+                `DTSTART;TZID=${tzid}:${localTime}`
+            );
+        }
+    });
 
     return ics;
 }

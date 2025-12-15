@@ -135,10 +135,11 @@ export class RecurringEventProcessor {
     }
 
     private findNextOccurrence(startDate: LocalDate, ordinal: number, dayOfWeek: DayOfWeek): LocalDate | null {
+        // Start from the beginning of the current month
         let currentMonth = startDate.withDayOfMonth(1);
         
-        // Check current month first
-        for (let monthOffset = 0; monthOffset < 12; monthOffset++) {
+        // Check current month first, then next few months
+        for (let monthOffset = 0; monthOffset < 3; monthOffset++) {
             const testMonth = currentMonth.plusMonths(monthOffset);
             const occurrence = this.findNthDayOfWeekInMonth(testMonth, ordinal, dayOfWeek);
             
@@ -177,12 +178,19 @@ export class RecurringEventProcessor {
 
     private findNthDayOfWeekInMonth(monthStart: LocalDate, ordinal: number, dayOfWeek: DayOfWeek): LocalDate | null {
         const firstOfMonth = monthStart.withDayOfMonth(1);
-        const firstOccurrence = firstOfMonth.with(TemporalAdjusters.nextOrSame(dayOfWeek));
-        const targetDate = firstOccurrence.plusWeeks(ordinal - 1);
         
-        // Check if the target date is still in the same month
-        if (targetDate.month() === firstOfMonth.month()) {
-            return targetDate;
+        // Find all occurrences of the day in the month
+        const occurrences: LocalDate[] = [];
+        let current = firstOfMonth.with(TemporalAdjusters.nextOrSame(dayOfWeek));
+        
+        while (current.month() === firstOfMonth.month()) {
+            occurrences.push(current);
+            current = current.plusWeeks(1);
+        }
+        
+        // Return the nth occurrence (1-indexed)
+        if (ordinal <= occurrences.length) {
+            return occurrences[ordinal - 1];
         }
         
         return null;

@@ -24,7 +24,10 @@ function App() {
       const calendarId = params.get('calendar')
       if (calendarId && calendars.length > 0) {
         const calendar = findCalendarById(calendarId)
-        if (calendar) setSelectedCalendar(calendar)
+        if (calendar) {
+          setSelectedCalendar(calendar)
+          setShowHomepage(false)
+        }
       }
     }
     
@@ -32,6 +35,21 @@ function App() {
     window.addEventListener('hashchange', updateFromURL)
     return () => window.removeEventListener('hashchange', updateFromURL)
   }, [calendars])
+
+  // Handle deeplinking when calendars first load
+  useEffect(() => {
+    if (calendars.length > 0) {
+      const params = new URLSearchParams(window.location.hash.slice(1))
+      const calendarId = params.get('calendar')
+      if (calendarId) {
+        const calendar = findCalendarById(calendarId)
+        if (calendar) {
+          setSelectedCalendar(calendar)
+          setShowHomepage(false)
+        }
+      }
+    }
+  }, [calendars.length])
 
   const updateURL = (search, tag, calendar) => {
     const params = new URLSearchParams()

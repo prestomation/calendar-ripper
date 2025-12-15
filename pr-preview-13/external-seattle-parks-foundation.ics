@@ -1,0 +1,341 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Seattle Parks Foundation - ECPv6.15.11//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Seattle Parks Foundation
+X-ORIGINAL-URL:https://www.seattleparksfoundation.org
+X-WR-CALDESC:Events for Seattle Parks Foundation
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20240310T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20241103T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251215T130000
+DTEND;TZID=America/Los_Angeles:20251215T153000
+DTSTAMP:20251214T215025
+CREATED:20251208T212254Z
+LAST-MODIFIED:20251208T214810Z
+UID:208294-1765803600-1765812600@www.seattleparksfoundation.org
+SUMMARY:Planting and seeding at Discovery Park
+DESCRIPTION:Join us for a restoration work party at Discovery Park. \nWe have a few plants that need to be planted and some seeding that needs to be done. We need to prepare some beds and plant\, and cross our fingers\, for luck. We will probably cut back some invasives if we have time. \nRegister
+URL:https://www.seattleparksfoundation.org/event/planting-and-seeding/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251216T090000
+DTEND;TZID=America/Los_Angeles:20251216T120000
+DTSTAMP:20251214T215025
+CREATED:20251208T212208Z
+LAST-MODIFIED:20251208T213709Z
+UID:208278-1765875600-1765886400@www.seattleparksfoundation.org
+SUMMARY:Frink Ridge Planting
+DESCRIPTION:Join us for a restoration work party at Frink Park. \nWe will do some ground preparation and invasive plant removal and then plant native species in their place. \nRegister
+URL:https://www.seattleparksfoundation.org/event/frink-ridge-planting/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251216T100000
+DTEND;TZID=America/Los_Angeles:20251216T130000
+DTSTAMP:20251214T215025
+CREATED:20251113T192819Z
+LAST-MODIFIED:20251113T193109Z
+UID:205133-1765879200-1765890000@www.seattleparksfoundation.org
+SUMMARY:Pigeon Point Park Restoration Event
+DESCRIPTION:Join us for a restoration work party at Pigeon Point. \nDelridge Neighborhoods Development Association offers twice-weekly opportunities for hands-on volunteering outdoors in the forests of West Seattle. Volunteers work to support our mission\, values\, history and commitment to social justice in the Delridge neighborhood. \nRegister
+URL:https://www.seattleparksfoundation.org/event/pigeon-point-park-restoration-event-52/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251220T090000
+DTEND;TZID=America/Los_Angeles:20251220T120000
+DTSTAMP:20251214T215025
+CREATED:20251030T183323Z
+LAST-MODIFIED:20251030T184013Z
+UID:202791-1766221200-1766232000@www.seattleparksfoundation.org
+SUMMARY:Carkeek Stars Work Party
+DESCRIPTION:Join us for a restoration work party at Carkeek Park. \nJoin other enthusiastic volunteers for a fun morning of forest restoration and trails maintenance. We have a wide variety of tasks you can help with. Adults and teenagers welcome. If you are a group of 5 or more contact Dale Johnson. Follow the STARS signs to our meeting place\, which will be the parking lot at the Environmental Learning Center. Welcome! \nRegister
+URL:https://www.seattleparksfoundation.org/event/carkeek-stars-work-party-20/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251220T100000
+DTEND;TZID=America/Los_Angeles:20251220T120000
+DTSTAMP:20251214T215025
+CREATED:20241212T191452Z
+LAST-MODIFIED:20241212T192911Z
+UID:141299-1766224800-1766232000@www.seattleparksfoundation.org
+SUMMARY:East Duwamish Work Party
+DESCRIPTION:Join a restoration work party at East Duwamish GS: S Chicago St. \nHelp take care of the forest along this neighborhood trail! Depending on the time of the year\, we’ll be pulling and removing ivy\, cutting back and digging out blackberry or planting new plants; but always having a good time! \nThe forest is in South Beacon Hill/Rainier Beach. Use 8631 39th Ave S as an approximate address for the upper trail entrance\, where volunteers will meet.  \nOpen to the public\nAll ages OK \nLearn more + register here
+URL:https://www.seattleparksfoundation.org/event/east-duwamish-work-party-24/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251220T100000
+DTEND;TZID=America/Los_Angeles:20251220T120000
+DTSTAMP:20251214T215025
+CREATED:20250815T174923Z
+LAST-MODIFIED:20250815T174923Z
+UID:190227-1766224800-1766232000@www.seattleparksfoundation.org
+SUMMARY:Seattle Sensory Garden Volunteer Work Party
+DESCRIPTION:Volunteer at Seattle Sensory Garden! \nJoin a work party and volunteer with others who care about this inclusive public space. \nLearn more about Seattle Sensory Garden here.
+URL:https://www.seattleparksfoundation.org/event/seattle-sensory-garden-volunteer-work-party-8/
+LOCATION:Seattle Sensory Garden\, 750 N 50th St\, Seattle\, 98103\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/08/img_4256.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251220T100000
+DTEND;TZID=America/Los_Angeles:20251220T140000
+DTSTAMP:20251214T215025
+CREATED:20250113T171839Z
+LAST-MODIFIED:20250113T173028Z
+UID:147112-1766224800-1766239200@www.seattleparksfoundation.org
+SUMMARY:3rd Saturday forest restoration at Jackson Park Trail!
+DESCRIPTION:Join a restoration work party at Jackson Park Golf Course. \nHelp restore native plants along this lovely trail around the public golf course. We’re out there every third Saturday. Enjoy the birds\, trees\, Thornton Creek\, and views into the golf course (and the occasional golf ball find!) \nLearn more + register
+URL:https://www.seattleparksfoundation.org/event/3rd-saturday-forest-restoration-at-jackson-park-trail-22/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251220T100000
+DTEND;TZID=America/Los_Angeles:20251220T140000
+DTSTAMP:20251214T215025
+CREATED:20251208T212208Z
+LAST-MODIFIED:20251208T213348Z
+UID:208274-1766224800-1766239200@www.seattleparksfoundation.org
+SUMMARY:solstice tree planting at Mount Baker Park
+DESCRIPTION:Join us for a restoration work party at Mount Baker Park. \nHappy solstice everyone! It’s winter\, it’s wet\, there’s mud\, we love it. come celebrate native plant stewards favorite holiday. \nLearn more + register
+URL:https://www.seattleparksfoundation.org/event/solstice-tree-plant/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251221T100000
+DTEND;TZID=America/Los_Angeles:20251221T130000
+DTSTAMP:20251214T215025
+CREATED:20251113T192836Z
+LAST-MODIFIED:20251113T194257Z
+UID:205142-1766311200-1766322000@www.seattleparksfoundation.org
+SUMMARY:Capehart Forest with Friends of Discovery Park
+DESCRIPTION:Join us for a restoration work party at Discovery Park. \nCapehart Forest is the most wildlife-diverse area in Discovery Park. Come help us promote forest health and increase its biodiversity by weeding out invasives\, mulching and aerate the soil to encourage symbiotic fungi\, and plant this years native shrubs and groundcovers. \nRegister
+URL:https://www.seattleparksfoundation.org/event/capehart-forest-with-friends-of-discovery-park/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/11/capehart-forest-with-friends-of-discovery-park_2875-pfjciw.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251221T130000
+DTEND;TZID=America/Los_Angeles:20251221T150000
+DTSTAMP:20251214T215025
+CREATED:20251113T192851Z
+LAST-MODIFIED:20251113T194643Z
+UID:205145-1766322000-1766329200@www.seattleparksfoundation.org
+SUMMARY:Cheasty Forest at Hanford Steps
+DESCRIPTION:Join us for a restoration work party at Cheasty GS: Cheasty Blvd. \nWe will plant shrubs\, ferns and wild flowers. Then mulch with a thick layer of woodchips\, that will keep the the soil moist and suppress weeds. \nRegister \nLearn more about Cheasty Greenspace here.
+URL:https://www.seattleparksfoundation.org/event/cheasty-forest-at-hanford-steps-22/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/Cheasty-Trails-lead.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251227T100000
+DTEND;TZID=America/Los_Angeles:20251227T120000
+DTSTAMP:20251214T215025
+CREATED:20251208T212153Z
+LAST-MODIFIED:20251208T213110Z
+UID:208267-1766829600-1766836800@www.seattleparksfoundation.org
+SUMMARY:English Ivy Removal - Forest Fun for Everyone
+DESCRIPTION:Join us for a restoration work party at Kubota Gardens Natural Area. \nSo much ivy! Every month\, volunteers make a big difference by removing ivy so that trees\, bushes\, ferns and other native plants have room to grow. As you will quickly see\, the ivy covers large areas of ground and is climbing up trees. We also are discovering small Himalayan blackberry plants and getting those out immediately is a priority. No experience is needed – just bring your energy and interest in making a difference! \nLearn more + register
+URL:https://www.seattleparksfoundation.org/event/english-ivy-removal-forest-fun-for-everyone-6/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260107T093000
+DTEND;TZID=America/Los_Angeles:20260107T123000
+DTSTAMP:20251214T215025
+CREATED:20251208T212152Z
+LAST-MODIFIED:20251208T212822Z
+UID:208264-1767778200-1767789000@www.seattleparksfoundation.org
+SUMMARY:Scotch Broom Patrol
+DESCRIPTION:Join us for a restoration work party at Discovery Park. \nScotch broom really stands out this time of year (especially in the brown meadows) and are easy to pull in the wet soils. We’ve got extractigators\, weed wrenches\, uprooters and heavy-duty shovels to remove these prolific pests. \nRegister
+URL:https://www.seattleparksfoundation.org/event/scotch-broom-patrol-4/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/12/42741-6sguio.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260110T093000
+DTEND;TZID=America/Los_Angeles:20260110T123000
+DTSTAMP:20251214T215025
+CREATED:20251208T212151Z
+LAST-MODIFIED:20251208T212752Z
+UID:208262-1768037400-1768048200@www.seattleparksfoundation.org
+SUMMARY:Scotch Broom Patrol
+DESCRIPTION:Join us for a restoration work party at Discovery Park. \nScotch broom really stands out this time of year (especially in the brown meadows) and are easy to pull in the wet soils. We’ve got extractigators\, weed wrenches\, uprooters and heavy-duty shovels to remove these prolific pests. \nRegister
+URL:https://www.seattleparksfoundation.org/event/scotch-broom-patrol-2/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/12/scotch-broom-patrol_4957-xbwevo.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260110T100000
+DTEND;TZID=America/Los_Angeles:20260110T130000
+DTSTAMP:20251214T215025
+CREATED:20251208T212223Z
+LAST-MODIFIED:20251208T214212Z
+UID:208286-1768039200-1768050000@www.seattleparksfoundation.org
+SUMMARY:Roxhill Park Volunteer Event
+DESCRIPTION:Join us for a restoration work party at Roxhill Park. \nYou and your fellow volunteers will participate in a forest restoration event led by Delridge Neighborhoods Development Association-Nature staff. \nRegister
+URL:https://www.seattleparksfoundation.org/event/roxhill-park-volunteer-event-9/
+LOCATION:Roxhill Park\, 2850 SW Roxbury Street\, Seattle\, WA\, 98126\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260113T100000
+DTEND;TZID=America/Los_Angeles:20260113T130000
+DTSTAMP:20251214T215025
+CREATED:20251208T212238Z
+LAST-MODIFIED:20251208T214501Z
+UID:208290-1768298400-1768309200@www.seattleparksfoundation.org
+SUMMARY:Brandon Street Natural Area Restoration
+DESCRIPTION:Join us for a restoration work party at Longfellow Creek GS: Brandon Street. \nJoin the DNDA Nature program and help restore important habitat in the critical Longfellow Creek Watershed. \nEach work party begins with a short informal forest ecology discussion and we spend the remainder of the time performing various restoration activities\, including planting native trees and shrubs\, removing invasive species\, mulching previously-planted areas and more. We work rain or shine! \nRegister
+URL:https://www.seattleparksfoundation.org/event/brandon-street-natural-area-restoration-2/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260114T093000
+DTEND;TZID=America/Los_Angeles:20260114T123000
+DTSTAMP:20251214T215025
+CREATED:20251208T212153Z
+LAST-MODIFIED:20251208T212918Z
+UID:208265-1768383000-1768393800@www.seattleparksfoundation.org
+SUMMARY:Scotch Broom Patrol
+DESCRIPTION:Join us for a restoration work party at Discovery Park. \nScotch broom really stands out this time of year (especially in the brown meadows) and are easy to pull in the wet soils. We’ve got extractigators\, weed wrenches\, uprooters and heavy-duty shovels to remove these prolific pests. \nRegister
+URL:https://www.seattleparksfoundation.org/event/scotch-broom-patrol-5/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260117T090000
+DTEND;TZID=America/Los_Angeles:20260117T120000
+DTSTAMP:20251214T215025
+CREATED:20251208T212151Z
+LAST-MODIFIED:20251208T212658Z
+UID:208261-1768640400-1768651200@www.seattleparksfoundation.org
+SUMMARY:Carkeek STARS Work Party
+DESCRIPTION:Join us for a restoration work party at Carkeek Park. \nJoin other enthusiastic volunteers for a fun morning of forest restoration and trails maintenance. We have a wide variety of tasks you can help with. Adults and teenagers welcome. If you are a group of 5 or more contact Dale Johnson. Follow the STARS signs to our meeting place\, which will be the parking lot at the Environmental Learning Center. Welcome! \nRegister
+URL:https://www.seattleparksfoundation.org/event/carkeek-stars-work-party-21/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260117T093000
+DTEND;TZID=America/Los_Angeles:20260117T123000
+DTSTAMP:20251214T215025
+CREATED:20251208T212152Z
+LAST-MODIFIED:20251208T212849Z
+UID:208263-1768642200-1768653000@www.seattleparksfoundation.org
+SUMMARY:Scotch Broom Patrol
+DESCRIPTION:Join us for a restoration work party at Discovery Park. \nScotch broom really stands out this time of year (especially in the brown meadows) and are easy to pull in the wet soils. We’ve got extractigators\, weed wrenches\, uprooters and heavy-duty shovels to remove these prolific pests. \nRegister
+URL:https://www.seattleparksfoundation.org/event/scotch-broom-patrol-3/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/12/42728-3d4sop.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260119T100000
+DTEND;TZID=America/Los_Angeles:20260119T130000
+DTSTAMP:20251214T215025
+CREATED:20251208T212238Z
+LAST-MODIFIED:20251208T214305Z
+UID:208288-1768816800-1768827600@www.seattleparksfoundation.org
+SUMMARY:MLK Day of Service at Pigeon Point Park!
+DESCRIPTION:Join us for a restoration work party at Pigeon Point. \nYou and your fellow volunteers will participate in a forest restoration event led by Delridge Neighborhoods Development Association-Nature staff. \nRegister
+URL:https://www.seattleparksfoundation.org/event/mlk-day-of-service-at-pigeon-point-park/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260124T100000
+DTEND;TZID=America/Los_Angeles:20260124T123000
+DTSTAMP:20251214T215025
+CREATED:20251208T212208Z
+LAST-MODIFIED:20251208T213439Z
+UID:208275-1769248800-1769257800@www.seattleparksfoundation.org
+SUMMARY:Forest Restoration - Longfellow Creek at Graham Street
+DESCRIPTION:Join us for a restoration work party at Longfellow Creek GS: Delridge Natural Area. \nYou and your fellow volunteers will participate in hands-on conservation work. This event will be some combination of removing invasive plant\, planting native plants\, and putting down wood chips\, based on how far we get in the previous event. \nRegister
+URL:https://www.seattleparksfoundation.org/event/forest-restoration-longfellow-creek-at-graham-street-4/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/12/42816-xx4cpm.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260131T100000
+DTEND;TZID=America/Los_Angeles:20260131T130000
+DTSTAMP:20251214T215026
+CREATED:20251208T212238Z
+LAST-MODIFIED:20251208T214412Z
+UID:208289-1769853600-1769864400@www.seattleparksfoundation.org
+SUMMARY:Longfellow Creek GS Restoration Event
+DESCRIPTION:Join us for a restoration work party at Longfellow Creek GS: Central. \nYou and your fellow volunteers will participate in a forest restoration event led by Delridge Neighborhoods Development Association-Nature staff. \nRegister
+URL:https://www.seattleparksfoundation.org/event/longfellow-creek-gs-restoration-event-33/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2023/03/home-NEW-2-Catherine-Anstett-Trolls-Knoll-gloves.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260228T100000
+DTEND;TZID=America/Los_Angeles:20260228T123000
+DTSTAMP:20251214T215026
+CREATED:20251208T212208Z
+LAST-MODIFIED:20251208T213507Z
+UID:208276-1772272800-1772281800@www.seattleparksfoundation.org
+SUMMARY:Forest Restoration - Longfellow Creek at Graham Street
+DESCRIPTION:Join us for a restoration work party at Longfellow Creek GS: Delridge Natural Area. \nYou and your fellow volunteers will participate in hands-on conservation work. This event will be some combination of removing invasive plant\, planting native plants\, and putting down wood chips\, based on how far we get in the previous event. \nRegister
+URL:https://www.seattleparksfoundation.org/event/forest-restoration-longfellow-creek-at-graham-street-5/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/12/42817-m4pekt.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260308T090000
+DTEND;TZID=America/Los_Angeles:20260308T113000
+DTSTAMP:20251214T215026
+CREATED:20251208T212151Z
+LAST-MODIFIED:20251208T212501Z
+UID:208260-1772960400-1772969400@www.seattleparksfoundation.org
+SUMMARY:MUCC Work Party March 8th
+DESCRIPTION:Join us for a restoration work party at Magnolia Park. \nThere is work to be done to reclaim Magnolia Park S.E. Forest in Magnolia Park. Non-native plants have taken over\, and volunteers are needed to help defend this beautiful natural area. Join neighbors and friends to help out and learn about how we plan on bringing this forest back to a natural environment. \nRegister
+URL:https://www.seattleparksfoundation.org/event/mucc-work-party-march-8th/
+ATTACH;FMTTYPE=image/jpeg:https://www.seattleparksfoundation.org/wp-content/uploads/2025/12/mucc-work-party-march-8th_8588-slmope.jpg
+END:VEVENT
+END:VCALENDAR

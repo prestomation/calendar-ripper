@@ -1,0 +1,396 @@
+{
+  "lastUpdated": "2025-12-15T05:50:28.836Z",
+  "rippers": [
+    {
+      "name": "dogwoodplaypark",
+      "description": "Dogwood Play Park and Bar - Indoor dog park events",
+      "friendlyLink": "https://www.dogwoodplaypark.com",
+      "calendars": [
+        {
+          "name": "events",
+          "friendlyName": "Dogwood Play Park Events",
+          "icsUrl": "dogwoodplaypark-events.ics",
+          "tags": [
+            "Dogs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "downtown-seattle-association",
+      "description": "Downtown Seattle Association Events Calendar",
+      "friendlyLink": "https://downtownseattle.org",
+      "calendars": [
+        {
+          "name": "pioneer-park",
+          "friendlyName": "Pioneer Park Events",
+          "icsUrl": "downtown-seattle-association-pioneer-park.ics",
+          "tags": []
+        },
+        {
+          "name": "occidental-square",
+          "friendlyName": "Occidental Square Events",
+          "icsUrl": "downtown-seattle-association-occidental-square.ics",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "events12",
+      "description": "Events12 Seattle",
+      "friendlyLink": "https://www.events12.com/seattle/",
+      "calendars": [
+        {
+          "name": "seattle-events",
+          "friendlyName": "Events12 Seattle",
+          "icsUrl": "events12-seattle-events.ics",
+          "tags": [
+            "Events"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NWMetalCalendar",
+      "description": "NW Metal Calendar",
+      "friendlyLink": "https://www.nocleansinging.com",
+      "calendars": [
+        {
+          "name": "NWMetal",
+          "friendlyName": "NW Metal Calendar",
+          "icsUrl": "NWMetalCalendar-NWMetal.ics",
+          "tags": [
+            "Music"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "seattle-beer-week",
+      "description": "Seattle Beer Week Events Calendar",
+      "friendlyLink": "https://www.seattlebeerweek.com",
+      "calendars": [
+        {
+          "name": "beer-week",
+          "friendlyName": "Seattle Beer Week",
+          "icsUrl": "seattle-beer-week-beer-week.ics",
+          "tags": [
+            "Beer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SAF",
+      "description": "Seattle Architecture Foundation",
+      "friendlyLink": "https://seattlearchitecture.org",
+      "calendars": [
+        {
+          "name": "SAF",
+          "friendlyName": "Seattle Architecture Foundation",
+          "icsUrl": "SAF-SAF.ics",
+          "tags": []
+        }
+      ]
+    },
+    {
+      "name": "siff",
+      "description": "Seattle International Film Fest",
+      "friendlyLink": "https://www.siff.net",
+      "calendars": [
+        {
+          "name": "downtown",
+          "friendlyName": "SIFF Cinema Downtown",
+          "icsUrl": "siff-downtown.ics",
+          "tags": [
+            "Movies",
+            "Downtown"
+          ]
+        },
+        {
+          "name": "uptown",
+          "friendlyName": "SIFF Cinema Uptown",
+          "icsUrl": "siff-uptown.ics",
+          "tags": [
+            "Movies",
+            "QueenAnne"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "urbancraftuprising",
+      "description": "Urban Craft Uprising - Pacific Northwest indie craft shows and markets",
+      "friendlyLink": "https://urbancraftuprising.com",
+      "calendars": [
+        {
+          "name": "events",
+          "friendlyName": "Urban Craft Uprising Events",
+          "icsUrl": "urbancraftuprising-events.ics",
+          "tags": [
+            "MakersMarket",
+            "Art"
+          ]
+        }
+      ]
+    }
+  ],
+  "recurringCalendars": [
+    {
+      "name": "ballard-artwalk",
+      "friendlyName": "Ballard Art Walk",
+      "icsUrl": "recurring-ballard-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Ballard"
+      ]
+    },
+    {
+      "name": "beacon-hill-artwalk",
+      "friendlyName": "Beacon Hill Art Walk",
+      "icsUrl": "recurring-beacon-hill-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Beacon Hill"
+      ]
+    },
+    {
+      "name": "belltown-artwalk",
+      "friendlyName": "Belltown Art Walk",
+      "icsUrl": "recurring-belltown-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Belltown"
+      ]
+    },
+    {
+      "name": "capitol-hill-artwalk",
+      "friendlyName": "Capitol Hill Art Walk",
+      "icsUrl": "recurring-capitol-hill-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Capitol Hill"
+      ]
+    },
+    {
+      "name": "central-district-artwalk-friday",
+      "friendlyName": "Central District Art Walk (First Friday)",
+      "icsUrl": "recurring-central-district-artwalk-friday.ics",
+      "tags": [
+        "Artwalk",
+        "Central District"
+      ]
+    },
+    {
+      "name": "central-district-artwalk-saturday",
+      "friendlyName": "Central District Art Walk (Second Saturday)",
+      "icsUrl": "recurring-central-district-artwalk-saturday.ics",
+      "tags": [
+        "Artwalk",
+        "Central District"
+      ]
+    },
+    {
+      "name": "chinatown-id-artwalk",
+      "friendlyName": "Chinatown/International District Art Walk",
+      "icsUrl": "recurring-chinatown-id-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "International District"
+      ]
+    },
+    {
+      "name": "downtown-seattle-artwalk",
+      "friendlyName": "Downtown Seattle Art Walk",
+      "icsUrl": "recurring-downtown-seattle-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Downtown"
+      ]
+    },
+    {
+      "name": "fremont-artwalk",
+      "friendlyName": "Fremont First Friday Art Walk",
+      "icsUrl": "recurring-fremont-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Fremont"
+      ]
+    },
+    {
+      "name": "georgetown-artwalk",
+      "friendlyName": "Georgetown Art Attack",
+      "icsUrl": "recurring-georgetown-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Georgetown"
+      ]
+    },
+    {
+      "name": "lake-city-artwalk",
+      "friendlyName": "Lake City Art Walk",
+      "icsUrl": "recurring-lake-city-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Lake City"
+      ]
+    },
+    {
+      "name": "phinney-greenwood-artwalk",
+      "friendlyName": "Phinney/Greenwood Art Walk",
+      "icsUrl": "recurring-phinney-greenwood-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Phinney",
+        "Greenwood"
+      ]
+    },
+    {
+      "name": "pike-place-artwalk",
+      "friendlyName": "Pike Place Summer Art Walk",
+      "icsUrl": "recurring-pike-place-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Pike Place"
+      ]
+    },
+    {
+      "name": "pioneer-square-artwalk",
+      "friendlyName": "Pioneer Square Art Walk",
+      "icsUrl": "recurring-pioneer-square-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Pioneer Square"
+      ]
+    },
+    {
+      "name": "university-district-artwalk",
+      "friendlyName": "University District Art Walk",
+      "icsUrl": "recurring-university-district-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "University District"
+      ]
+    },
+    {
+      "name": "wallingford-artwalk",
+      "friendlyName": "Wallingford Art Walk",
+      "icsUrl": "recurring-wallingford-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "Wallingford"
+      ]
+    },
+    {
+      "name": "west-seattle-artwalk",
+      "friendlyName": "West Seattle Art Walk",
+      "icsUrl": "recurring-west-seattle-artwalk.ics",
+      "tags": [
+        "Artwalk",
+        "West Seattle"
+      ]
+    }
+  ],
+  "externalCalendars": [
+    {
+      "name": "seattle-greenways",
+      "friendlyName": "Seattle Neighborhood Greenways Events",
+      "description": "Events with Seattle Neighborhood Greenways",
+      "icsUrl": "external-seattle-greenways.ics",
+      "originalIcsUrl": "https://calendar.google.com/calendar/ical/lt0lmiorecihqc99od0hnrtl54%40group.calendar.google.com/public/basic.ics",
+      "infoUrl": "https://www.seattlegreenways.org/get-involved/calendar/",
+      "tags": [
+        "Activism"
+      ]
+    },
+    {
+      "name": "the-urbanist",
+      "friendlyName": "The Urbanist's Local Events",
+      "description": "Events with The Urbanist",
+      "icsUrl": "external-the-urbanist.ics",
+      "originalIcsUrl": "https://calendar.google.com/calendar/ical/d80bfc1d68b67201a0040905022054725954d631248c49a12df12924f5f7293d%40group.calendar.google.com/public/basic.ics",
+      "infoUrl": "https://www.theurbanist.org/upcoming-events/",
+      "tags": [
+        "Activism"
+      ]
+    },
+    {
+      "name": "seattle-parks-foundation",
+      "friendlyName": "The Seattle Parks Foundation",
+      "description": "Seattle Parks Foundation",
+      "icsUrl": "external-seattle-parks-foundation.ics",
+      "originalIcsUrl": "https://www.seattleparksfoundation.org/?post_type=tribe_events&ical=1&eventDisplay=list",
+      "infoUrl": "https://www.seattleparksfoundation.org/events/",
+      "tags": [
+        "Volunteer"
+      ]
+    },
+    {
+      "name": "chucks-hop-shop-central-district",
+      "friendlyName": "Chuck's Hop Shop - Central District",
+      "description": "Chuck's Hop Shop Central District location events - craft beer, food trucks, and community events",
+      "icsUrl": "external-chucks-hop-shop-central-district.ics",
+      "originalIcsUrl": "https://calendar.google.com/calendar/ical/gpa2fn017a4ttjbdk3acgo4ks0%40group.calendar.google.com/public/basic.ics",
+      "infoUrl": "https://www.chuckshopshop.com/central-district",
+      "tags": [
+        "Beer",
+        "Central District"
+      ]
+    },
+    {
+      "name": "chucks-hop-shop-greenwood",
+      "friendlyName": "Chuck's Hop Shop - Greenwood",
+      "description": "Chuck's Hop Shop Greenwood location events - craft beer, food trucks, and community events",
+      "icsUrl": "external-chucks-hop-shop-greenwood.ics",
+      "originalIcsUrl": "https://calendar.google.com/calendar/ical/qfkej3ne0281epth4r5bqdb8gg%40group.calendar.google.com/public/basic.ics",
+      "infoUrl": "https://www.chuckshopshop.com/greenwood",
+      "tags": [
+        "Beer",
+        "Greenwood"
+      ]
+    },
+    {
+      "name": "chucks-hop-shop-seward-park",
+      "friendlyName": "Chuck's Hop Shop - Seward Park",
+      "description": "Chuck's Hop Shop Seward Park location events - craft beer, food trucks, and community events",
+      "icsUrl": "external-chucks-hop-shop-seward-park.ics",
+      "originalIcsUrl": "https://calendar.google.com/calendar/ical/c_4abs9f65281tp530jsbhkb3vjg%40group.calendar.google.com/public/basic.ics",
+      "infoUrl": "https://www.chuckshopshop.com/sewardpark",
+      "tags": [
+        "Beer",
+        "Seward Park"
+      ]
+    }
+  ],
+  "tags": [
+    "Activism",
+    "Art",
+    "Artwalk",
+    "Ballard",
+    "Beacon Hill",
+    "Beer",
+    "Belltown",
+    "Capitol Hill",
+    "Central District",
+    "Dogs",
+    "Downtown",
+    "Events",
+    "Fremont",
+    "Georgetown",
+    "Greenwood",
+    "International District",
+    "Lake City",
+    "MakersMarket",
+    "Movies",
+    "Music",
+    "Phinney",
+    "Pike Place",
+    "Pioneer Square",
+    "QueenAnne",
+    "Seward Park",
+    "University District",
+    "Volunteer",
+    "Wallingford",
+    "West Seattle"
+  ]
+}

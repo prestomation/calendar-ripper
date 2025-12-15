@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import Fuse from 'fuse.js'
 import ICAL from 'ical.js'
 
@@ -14,6 +14,122 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [eventsLoading, setEventsLoading] = useState(false)
   const [eventsError, setEventsError] = useState(null)
+  const [sidebarWidth, setSidebarWidth] = useState(400)
+  const [tagsHeight, setTagsHeight] = useState(150)
+  
+  const sidebarRef = useRef(null)
+  const resizeHandleRef = useRef(null)
+  const verticalResizeHandleRef = useRef(null)
+  const tagsRef = useRef(null)
+  const calendarListRef = useRef(null)
+  const agendaRef = useRef(null)
+  
+  // Resize functionality
+  const handleMouseDown = useCallback((e) => {
+    e.preventDefault()
+    const startX = e.clientX
+    const startWidth = sidebarWidth
+    
+    const handleMouseMove = (e) => {
+      const newWidth = Math.max(250, Math.min(600, startWidth + e.clientX - startX))
+      setSidebarWidth(newWidth)
+    }
+    
+    const handleMouseUp = () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
+      if (resizeHandleRef.current) {
+        resizeHandleRef.current.classList.remove('dragging')
+      }
+    }
+    
+    if (resizeHandleRef.current) {
+      resizeHandleRef.current.classList.add('dragging')
+    }
+    
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+  }, [sidebarWidth])
+  
+  // Vertical resize functionality
+  const handleVerticalMouseDown = useCallback((e) => {
+    e.preventDefault()
+    const startY = e.clientY
+    const startHeight = tagsHeight
+    
+    const handleMouseMove = (e) => {
+      const newHeight = Math.max(80, Math.min(300, startHeight + e.clientY - startY))
+      setTagsHeight(newHeight)
+    }
+    
+    const handleMouseUp = () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
+      if (verticalResizeHandleRef.current) {
+        verticalResizeHandleRef.current.classList.remove('dragging')
+      }
+    }
+    
+    if (verticalResizeHandleRef.current) {
+      verticalResizeHandleRef.current.classList.add('dragging')
+    }
+    
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+  }, [tagsHeight])
+  
+  // Scroll fade indicators
+  const updateScrollFade = useCallback((element, container) => {
+    if (!element || !container) return
+    
+    const { scrollTop, scrollHeight, clientHeight } = element
+    const canScrollUp = scrollTop > 0
+    const canScrollDown = scrollTop < scrollHeight - clientHeight - 1
+    
+    let topFade = container.querySelector('.scroll-fade-top')
+    let bottomFade = container.querySelector('.scroll-fade-bottom')
+    
+    if (!topFade) {
+      topFade = document.createElement('div')
+      topFade.className = 'scroll-fade-top'
+      container.appendChild(topFade)
+    }
+    
+    if (!bottomFade) {
+      bottomFade = document.createElement('div')
+      bottomFade.className = 'scroll-fade-bottom'
+      container.appendChild(bottomFade)
+    }
+    
+    topFade.style.opacity = canScrollUp ? '1' : '0'
+    bottomFade.style.opacity = canScrollDown ? '1' : '0'
+  }, [])
+  
+  // Set up scroll listeners
+  useEffect(() => {
+    const setupScrollListener = (ref) => {
+      const element = ref.current
+      if (!element) return
+      
+      const handleScroll = () => updateScrollFade(element, element)
+      
+      element.addEventListener('scroll', handleScroll)
+      // Initial check
+      setTimeout(() => handleScroll(), 100)
+      
+      return () => element.removeEventListener('scroll', handleScroll)
+    }
+    
+    const cleanupTags = setupScrollListener(tagsRef)
+    const cleanupCalendarList = setupScrollListener(calendarListRef)
+    const cleanupAgenda = setupScrollListener(agendaRef)
+    
+    return () => {
+      cleanupTags?.()
+      cleanupCalendarList?.()
+      cleanupAgenda?.()
+    }
+  }, [updateScrollFade, calendars, events])
 
   // URL state management
   useEffect(() => {
@@ -504,7 +620,11 @@ function App() {
 
   return (
     <div className="app">
-      <div className="sidebar">
+      <div 
+        className="sidebar" 
+        ref={sidebarRef}
+        style={{ width: `${sidebarWidth}px` }}
+      >
         <div className="header-bar">
           <button 
             className="home-button"
@@ -528,7 +648,11 @@ function App() {
           </div>
         </div>
         
-        <div className="tags">
+        <div 
+          className="tags" 
+          ref={tagsRef}
+          style={{ maxHeight: `${tagsHeight}px` }}
+        >
           <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>Tags:</div>
           <div
             className={`tag ${selectedTag === '' ? 'active' : ''}`}
@@ -545,9 +669,14 @@ function App() {
               {tag}
             </div>
           ))}
+          <div 
+            className="resize-handle-vertical"
+            ref={verticalResizeHandleRef}
+            onMouseDown={handleVerticalMouseDown}
+          />
         </div>
         
-        <div className="calendar-list">
+        <div className="calendar-list" ref={calendarListRef}>
           {selectedTag && (
             <div className="tag-header">
               <div 
@@ -755,6 +884,12 @@ function App() {
             <div className="empty-state">No calendars found</div>
           )}
         </div>
+        
+        <div 
+          className="resize-handle"
+          ref={resizeHandleRef}
+          onMouseDown={handleMouseDown}
+        />
       </div>
       
       <div className="main-content">
@@ -784,7 +919,7 @@ function App() {
             <p>Select a calendar from the sidebar to get started!</p>
           </div>
         ) : selectedCalendar ? (
-          <div className="agenda-panel">
+          <div className="agenda-panel" ref={agendaRef}>
             <div className="agenda-header">
               <div className="agenda-title-container">
                 <h1>{selectedCalendar.fullName}</h1>

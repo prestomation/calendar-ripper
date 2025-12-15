@@ -760,8 +760,8 @@ function App() {
       <div className="main-content">
         {showHomepage ? (
           <div className="homepage">
-            <h1>Calendar Browser</h1>
-            <p>Welcome to the iCalendar Ripper web interface! This tool aggregates events from various websites and presents them as searchable, filterable calendars.</p>
+            <h1>Yet Another Seattle Calendar</h1>
+            <p>Welcome to YASC! This tool aggregates events from various websites and presents them as searchable, filterable calendars. You're welcome to use this interface, but it's really meant for you to add the ICS to your favorite calendar app so you can aggregate events in your calendar however you like</p>
             
             <h2>How to Use</h2>
             <ul>

@@ -1,0 +1,15 @@
+{
+  "reporter": ["text", "html", "lcov"],
+  "exclude": [
+    "node_modules/**",
+    "web/**",
+    "output/**",
+    "**/*.test.ts",
+    "**/*.test.js",
+    "sources/**/sample-*.html",
+    "sources/**/sample-*.json",
+    "coverage/**"
+  ],
+  "extension": [".ts", ".js"],
+  "all": true
+}

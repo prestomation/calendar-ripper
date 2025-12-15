@@ -24,7 +24,10 @@ function App() {
       const calendarId = params.get('calendar')
       if (calendarId && calendars.length > 0) {
         const calendar = findCalendarById(calendarId)
-        if (calendar) setSelectedCalendar(calendar)
+        if (calendar) {
+          setSelectedCalendar(calendar)
+          setShowHomepage(false)
+        }
       }
     }
     
@@ -32,6 +35,21 @@ function App() {
     window.addEventListener('hashchange', updateFromURL)
     return () => window.removeEventListener('hashchange', updateFromURL)
   }, [calendars])
+
+  // Handle deeplinking when calendars first load
+  useEffect(() => {
+    if (calendars.length > 0) {
+      const params = new URLSearchParams(window.location.hash.slice(1))
+      const calendarId = params.get('calendar')
+      if (calendarId) {
+        const calendar = findCalendarById(calendarId)
+        if (calendar) {
+          setSelectedCalendar(calendar)
+          setShowHomepage(false)
+        }
+      }
+    }
+  }, [calendars.length])
 
   const updateURL = (search, tag, calendar) => {
     const params = new URLSearchParams()
@@ -132,11 +150,91 @@ function App() {
     return `https://maps.google.com/maps?q=${encodeURIComponent(location)}`
   }
 
-  const createGoogleCalendarUrl = (icsUrl, originalIcsUrl) => {
-    // Use original URL for external calendars, local URL for others
+  const createWebcalUrl = (icsUrl, originalIcsUrl) => {
     const urlToUse = originalIcsUrl || icsUrl
     const fullUrl = originalIcsUrl ? urlToUse : new URL(icsUrl, window.location.origin + window.location.pathname).href
-    return `https://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(fullUrl)}`
+    return fullUrl.replace(/^https?:/, 'webcal:')
+  }
+
+  const createGoogleCalendarUrl = (icsUrl, originalIcsUrl) => {
+    const webcalUrl = createWebcalUrl(icsUrl, originalIcsUrl)
+    return `webcal://calendar.google.com/calendar/u/0/r?cid=${encodeURIComponent(webcalUrl)}`
+  }
+
+  const copyToClipboard = async (text, buttonElement) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      showPopover(buttonElement, 'Copied!')
+    } catch (err) {
+      showPopover(buttonElement, 'Copy failed')
+    }
+  }
+
+  const showPopover = (element, message) => {
+    const popover = document.createElement('div')
+    popover.textContent = message
+    popover.style.cssText = `
+      position: absolute;
+      background: #333;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      z-index: 1000;
+      pointer-events: none;
+    `
+    
+    const rect = element.getBoundingClientRect()
+    popover.style.left = rect.left + 'px'
+    popover.style.top = (rect.top - 30) + 'px'
+    
+    document.body.appendChild(popover)
+    setTimeout(() => document.body.removeChild(popover), 2000)
+  }
+
+  const parseRRuleDescription = (rrule) => {
+    if (!rrule) return null
+    
+    try {
+      const parts = rrule.split(';')
+      let freq = null
+      let byday = null
+      let bymonth = null
+      
+      parts.forEach(part => {
+        const [key, value] = part.split('=')
+        if (key === 'FREQ') freq = value
+        if (key === 'BYDAY') byday = value
+        if (key === 'BYMONTH') bymonth = value
+      })
+      
+      if (freq === 'MONTHLY' && byday) {
+        const match = byday.match(/^(\d+)([A-Z]{2})$/)
+        if (match) {
+          const ordinal = match[1]
+          const day = match[2]
+          
+          const ordinalMap = { '1': '1st', '2': '2nd', '3': '3rd', '4': '4th', '5': '5th' }
+          const dayMap = { 'MO': 'Monday', 'TU': 'Tuesday', 'WE': 'Wednesday', 'TH': 'Thursday', 'FR': 'Friday', 'SA': 'Saturday', 'SU': 'Sunday' }
+          
+          let description = `${ordinalMap[ordinal]} ${dayMap[day]} of each month`
+          
+          if (bymonth) {
+            const months = bymonth.split(',').map(m => {
+              const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+              return monthNames[parseInt(m)]
+            })
+            description += ` (${months.join(', ')} only)`
+          }
+          
+          return description
+        }
+      }
+      
+      return `Recurring: ${rrule}`
+    } catch (e) {
+      return 'Recurring event'
+    }
   }
 
   // Load calendar metadata from JSON manifest
@@ -283,32 +381,94 @@ function App() {
         
         const now = new Date()
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()) // Start of today
-        const eventList = vevents
-          .map(vevent => {
-            const event = new ICAL.Event(vevent)
+        const sixMonthsFromNow = new Date(now.getFullYear(), now.getMonth() + 6, now.getDate()) // 6 months ahead
+        
+        const eventList = []
+        
+        vevents.forEach(vevent => {
+          const event = new ICAL.Event(vevent)
+          const description = event.description || ''
+          
+          // Extract calendar name from description for tag aggregates
+          let calendarName = null
+          const fromMatch = description.match(/From (.+?)$/m)
+          if (fromMatch) {
+            calendarName = fromMatch[1]
+          }
+          
+          // Check if this is a recurring event by looking for RRULE
+          const rrule = vevent.getFirstProperty('rrule')
+          const hasRRule = !!rrule
+          
+          if (hasRRule) {
+            // Handle recurring event
+            const expand = new ICAL.RecurExpansion({
+              component: vevent,
+              dtstart: vevent.getFirstPropertyValue('dtstart')
+            })
+            
+            // Get the RRULE string for description
+            const rruleString = rrule.toICALString()
+            
+            let next
+            let instanceCount = 0
+            const maxInstances = 100 // Prevent infinite loops
+            
+            while (instanceCount < maxInstances && (next = expand.next())) {
+              const startDate = next.toJSDate()
+              
+              // Only include events from today onwards and within 6 months
+              if (startDate >= today && startDate <= sixMonthsFromNow) {
+                // Calculate end date for this instance
+                const duration = event.endDate ? 
+                  event.endDate.toUnixTime() - event.startDate.toUnixTime() : 
+                  3600 // Default 1 hour if no end time
+                
+                const endDate = new Date(startDate.getTime() + (duration * 1000))
+                
+                eventList.push({
+                  id: `${event.uid}-${startDate.getTime()}`, // Unique ID for each instance
+                  title: event.summary,
+                  description: event.description,
+                  location: event.location,
+                  url: vevent.getFirstPropertyValue('url'),
+                  startDate: startDate,
+                  endDate: endDate,
+                  calendarName: calendarName,
+                  isRecurring: true,
+                  rrule: rruleString
+                })
+              }
+              
+              instanceCount++
+              
+              // Stop if we're past our date range
+              if (startDate > sixMonthsFromNow) {
+                break
+              }
+            }
+          } else {
+            // Handle single event
             const startDate = event.startDate.toJSDate()
-            const description = event.description || ''
             
-            // Extract calendar name from description for tag aggregates
-            let calendarName = null
-            const fromMatch = description.match(/From (.+?)$/m)
-            if (fromMatch) {
-              calendarName = fromMatch[1]
+            if (startDate >= today) {
+              eventList.push({
+                id: event.uid,
+                title: event.summary,
+                description: event.description,
+                location: event.location,
+                url: vevent.getFirstPropertyValue('url'),
+                startDate: startDate,
+                endDate: event.endDate?.toJSDate(),
+                calendarName: calendarName,
+                isRecurring: false
+              })
             }
-            
-            return {
-              id: event.uid,
-              title: event.summary,
-              description: event.description,
-              location: event.location,
-              url: vevent.getFirstPropertyValue('url'),
-              startDate: startDate,
-              endDate: event.endDate?.toJSDate(),
-              calendarName: calendarName
-            }
-          })
-          .filter(event => event.startDate >= today) // Filter from today onwards
-          .sort((a, b) => a.startDate - b.startDate)
+          }
+        })
+        
+        // Sort all events by start date
+        eventList.sort((a, b) => a.startDate - b.startDate)
         
         setEvents(eventList)
       } catch (error) {
@@ -397,15 +557,27 @@ function App() {
               >
                 <div className="tag-title">Tag: {selectedTag}</div>
                 <div className="tag-actions">
-                  <a 
-                    href={`tag-${selectedTag.toLowerCase()}.ics`}
-                    download
-                    title="Download tag calendar as ICS"
-                    className="action-link"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    📥 ICS
-                  </a>
+                  <div className="ics-group">
+                    <a 
+                      href={createWebcalUrl(`tag-${selectedTag.toLowerCase()}.ics`)}
+                      title="Subscribe to tag calendar"
+                      className="action-link"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      📥 ICS
+                    </a>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        const webcalUrl = createWebcalUrl(`tag-${selectedTag.toLowerCase()}.ics`)
+                        copyToClipboard(webcalUrl, e.target)
+                      }}
+                      title="Copy ICS link"
+                      className="clipboard-btn"
+                    >
+                      🔗
+                    </button>
+                  </div>
                   <a 
                     href={createGoogleCalendarUrl(`tag-${selectedTag.toLowerCase()}.ics`)}
                     target="_blank"
@@ -452,14 +624,26 @@ function App() {
                   {ripper.calendars[0]?.isExternal ? (
                     // External calendar - use original URL
                     <>
-                      <a 
-                        href={ripper.calendars[0].originalIcsUrl || ripper.calendars[0].icsUrl}
-                        target="_blank"
-                        title="Download original ICS file"
-                        className="action-link"
-                      >
-                        📥 ICS
-                      </a>
+                      <div className="ics-group">
+                        <a 
+                          href={createWebcalUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)}
+                          title="Subscribe to calendar"
+                          className="action-link"
+                        >
+                          📥 ICS
+                        </a>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            const webcalUrl = createWebcalUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)
+                            copyToClipboard(webcalUrl, e.target)
+                          }}
+                          title="Copy ICS link"
+                          className="clipboard-btn"
+                        >
+                          🔗
+                        </button>
+                      </div>
                       <a 
                         href={createGoogleCalendarUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)}
                         target="_blank"
@@ -473,14 +657,26 @@ function App() {
                   ) : (
                     // Regular ripper - use tag aggregation
                     <>
-                      <a 
-                        href={`tag-${ripper.name.toLowerCase()}.ics`}
-                        download
-                        title="Download all calendars as ICS"
-                        className="action-link"
-                      >
-                        📥 ICS
-                      </a>
+                      <div className="ics-group">
+                        <a 
+                          href={createWebcalUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
+                          title="Subscribe to all calendars"
+                          className="action-link"
+                        >
+                          📥 ICS
+                        </a>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            const webcalUrl = createWebcalUrl(`tag-${ripper.name.toLowerCase()}.ics`)
+                            copyToClipboard(webcalUrl, e.target)
+                          }}
+                          title="Copy ICS link"
+                          className="clipboard-btn"
+                        >
+                          🔗
+                        </button>
+                      </div>
                       <a 
                         href={createGoogleCalendarUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
                         target="_blank"
@@ -521,15 +717,26 @@ function App() {
                     </div>
                   </div>
                   <div className="calendar-actions">
-                    <a 
-                      href={calendar.originalIcsUrl || calendar.icsUrl}
-                      download={!calendar.originalIcsUrl}
-                      target={calendar.originalIcsUrl ? "_blank" : undefined}
-                      title="Download ICS file"
-                      className="action-link"
-                    >
-                      📥 ICS
-                    </a>
+                    <div className="ics-group">
+                      <a 
+                        href={createWebcalUrl(calendar.icsUrl, calendar.originalIcsUrl)}
+                        title="Subscribe to calendar"
+                        className="action-link"
+                      >
+                        📥 ICS
+                      </a>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          const webcalUrl = createWebcalUrl(calendar.icsUrl, calendar.originalIcsUrl)
+                          copyToClipboard(webcalUrl, e.target)
+                        }}
+                        title="Copy ICS link"
+                        className="clipboard-btn"
+                      >
+                        🔗
+                      </button>
+                    </div>
                     <a 
                       href={createGoogleCalendarUrl(calendar.icsUrl, calendar.originalIcsUrl)}
                       target="_blank"
@@ -561,8 +768,9 @@ function App() {
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>
               <li><strong>Search:</strong> Use the search bar to find specific calendars by name or content</li>
               <li><strong>Filter by Tags:</strong> Click on tags to filter calendars by category</li>
-              <li><strong>Download:</strong> Use the 📥 ICS links to add to your calendar app.</li>
-              <li><strong>Subscribe:</strong> Use the 📅 Google links to add calendars to Google Calendar</li>
+              <li><strong>Subscribe:</strong> Use the 📥 ICS links to subscribe to calendars in your calendar app.</li>
+              <li><strong>Copy Link:</strong> Use the 📋 buttons to copy calendar links to your clipboard.</li>
+              <li><strong>Google Calendar:</strong> Use the 📅 Google links to add calendars to Google Calendar</li>
             </ul>
             
             <h2>Tags</h2>
@@ -626,6 +834,14 @@ function App() {
                   <div className="event-date">{formatDate(event.startDate)}</div>
                   <div className="event-title">
                     {event.title}
+                    {event.isRecurring && (
+                      <span 
+                        className="recurring-indicator" 
+                        title={parseRRuleDescription(event.rrule) || "Recurring event"}
+                      >
+                        🔄
+                      </span>
+                    )}
                     {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
                       <span className="event-source" title={`From ${event.calendarName}`}>
                         {event.calendarName}

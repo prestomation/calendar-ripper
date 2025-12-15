@@ -44,7 +44,7 @@ export class RecurringEventProcessor {
             const calendar: RipperCalendar = {
                 name: event.name,
                 friendlyname: event.friendlyname,
-                events: this.generateEventsForSchedule(event, startDate, endDate),
+                events: this.generateRRuleEvent(event, startDate),
                 errors: [],
                 tags: event.tags
             };
@@ -54,57 +54,101 @@ export class RecurringEventProcessor {
         return calendars;
     }
 
-    private generateEventsForSchedule(
-        event: RecurringEvent, 
-        startDate: LocalDate, 
-        endDate: LocalDate
-    ): RipperCalendarEvent[] {
-        const events: RipperCalendarEvent[] = [];
+    private generateRRuleEvent(event: RecurringEvent, startDate: LocalDate): RipperCalendarEvent[] {
         const { ordinal, dayOfWeek } = this.parseSchedule(event.schedule);
         
         if (ordinal === null || dayOfWeek === null) {
-            return events; // Skip invalid schedules
+            return []; // Skip invalid schedules
         }
 
-        let currentDate = startDate.withDayOfMonth(1); // Start from first of month
+        // Find the first occurrence on or after startDate
+        const firstOccurrence = this.findNextOccurrence(startDate, ordinal, dayOfWeek);
+        if (!firstOccurrence) {
+            return [];
+        }
+
+        const zonedDateTime = ZonedDateTime.of(
+            firstOccurrence,
+            event.start_time,
+            event.timezone
+        );
+
+        // Generate RRULE based on schedule
+        const rrule = this.generateRRule(ordinal, dayOfWeek, event.seasonal);
+
+        const calendarEvent: RipperCalendarEvent = {
+            id: event.name,
+            ripped: new Date(),
+            date: zonedDateTime,
+            duration: event.duration,
+            summary: event.friendlyname,
+            description: event.description,
+            location: event.location,
+            url: event.url,
+            rrule: rrule
+        };
+
+        return [calendarEvent];
+    }
+
+    private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, seasonal?: string): string {
+        const dayAbbr = this.getDayAbbreviation(dayOfWeek);
+        let rrule = `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}`;
         
-        while (currentDate.isBefore(endDate) || currentDate.isEqual(endDate)) {
-            // Skip if seasonal restriction applies
-            if (event.seasonal && !this.isInSeason(currentDate, event.seasonal)) {
-                currentDate = currentDate.plusMonths(1);
-                continue;
+        if (seasonal) {
+            const months = this.getSeasonalMonths(seasonal);
+            if (months.length > 0) {
+                rrule += `;BYMONTH=${months.join(',')}`;
             }
-
-            const eventDate = this.findNthDayOfWeekInMonth(currentDate, ordinal, dayOfWeek);
-            
-            if (eventDate && 
-                (eventDate.isAfter(startDate) || eventDate.isEqual(startDate)) && 
-                (eventDate.isBefore(endDate) || eventDate.isEqual(endDate))) {
-                
-                const zonedDateTime = ZonedDateTime.of(
-                    eventDate,
-                    event.start_time,
-                    event.timezone
-                );
-
-                const calendarEvent: RipperCalendarEvent = {
-                    id: `${event.name}-${eventDate.toString()}`,
-                    ripped: new Date(),
-                    date: zonedDateTime,
-                    duration: event.duration,
-                    summary: event.friendlyname,
-                    description: event.description,
-                    location: event.location,
-                    url: event.url
-                };
-
-                events.push(calendarEvent);
-            }
-
-            currentDate = currentDate.plusMonths(1);
         }
+        
+        return rrule;
+    }
 
-        return events;
+    private getDayAbbreviation(dayOfWeek: DayOfWeek): string {
+        const dayMap: { [key: number]: string } = {
+            1: 'MO', // Monday
+            2: 'TU', // Tuesday  
+            3: 'WE', // Wednesday
+            4: 'TH', // Thursday
+            5: 'FR', // Friday
+            6: 'SA', // Saturday
+            7: 'SU'  // Sunday
+        };
+        return dayMap[dayOfWeek.value()];
+    }
+
+    private getSeasonalMonths(season: string): number[] {
+        switch (season.toLowerCase()) {
+            case 'summer':
+                return [6, 7, 8, 9]; // June - September
+            case 'winter':
+                return [12, 1, 2]; // December - February
+            case 'spring':
+                return [3, 4, 5]; // March - May
+            case 'fall':
+            case 'autumn':
+                return [9, 10, 11]; // September - November
+            default:
+                return []; // No restriction
+        }
+    }
+
+    private findNextOccurrence(startDate: LocalDate, ordinal: number, dayOfWeek: DayOfWeek): LocalDate | null {
+        // Start from the beginning of the current month
+        let currentMonth = startDate.withDayOfMonth(1);
+        
+        // Check current month first, then next few months
+        for (let monthOffset = 0; monthOffset < 3; monthOffset++) {
+            const testMonth = currentMonth.plusMonths(monthOffset);
+            const occurrence = this.findNthDayOfWeekInMonth(testMonth, ordinal, dayOfWeek);
+            
+            if (occurrence && (occurrence.isAfter(startDate) || occurrence.isEqual(startDate))) {
+                return occurrence;
+            }
+        }
+        
+        return null;
     }
 
     private parseSchedule(schedule: string): { ordinal: number | null, dayOfWeek: DayOfWeek | null } {
@@ -134,32 +178,21 @@ export class RecurringEventProcessor {
 
     private findNthDayOfWeekInMonth(monthStart: LocalDate, ordinal: number, dayOfWeek: DayOfWeek): LocalDate | null {
         const firstOfMonth = monthStart.withDayOfMonth(1);
-        const firstOccurrence = firstOfMonth.with(TemporalAdjusters.nextOrSame(dayOfWeek));
-        const targetDate = firstOccurrence.plusWeeks(ordinal - 1);
         
-        // Check if the target date is still in the same month
-        if (targetDate.month() === firstOfMonth.month()) {
-            return targetDate;
+        // Find all occurrences of the day in the month
+        const occurrences: LocalDate[] = [];
+        let current = firstOfMonth.with(TemporalAdjusters.nextOrSame(dayOfWeek));
+        
+        while (current.month() === firstOfMonth.month()) {
+            occurrences.push(current);
+            current = current.plusWeeks(1);
+        }
+        
+        // Return the nth occurrence (1-indexed)
+        if (ordinal <= occurrences.length) {
+            return occurrences[ordinal - 1];
         }
         
         return null;
-    }
-
-    private isInSeason(date: LocalDate, season: string): boolean {
-        const month = date.monthValue();
-        
-        switch (season.toLowerCase()) {
-            case 'summer':
-                return month >= 6 && month <= 9; // June - September
-            case 'winter':
-                return month >= 12 || month <= 2; // December - February
-            case 'spring':
-                return month >= 3 && month <= 5; // March - May
-            case 'fall':
-            case 'autumn':
-                return month >= 9 && month <= 11; // September - November
-            default:
-                return true; // Unknown season, include all months
-        }
     }
 }

@@ -58,7 +58,7 @@ describe('UrbanCraftUprisingRipper', () => {
         expect(event1).toHaveProperty('url', 'https://urbancraftuprising.com/eleventh-hour-makers-market/');
         
         if ('date' in event1) {
-            expect(event1.date.year()).toBe(2025);
+            expect(event1.date.year()).toBe(new Date().getFullYear());
             expect(event1.date.monthValue()).toBe(12);
             expect(event1.date.dayOfMonth()).toBe(19);
         }

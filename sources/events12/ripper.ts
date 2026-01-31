@@ -178,7 +178,8 @@ export default class Events12Ripper extends HTMLRipper {
         }
     }
 
-    private convertTo24Hour(hour: number, ampm: string): number {
+    private convertTo24Hour(hour: number, ampm: string | undefined): number {
+        if (!ampm) return hour;
         const isPm = ampm.toLowerCase().includes('p');
         const isAm = ampm.toLowerCase().includes('a');
         if (isPm && hour !== 12) return hour + 12;

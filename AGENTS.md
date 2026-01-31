@@ -45,13 +45,14 @@ Look for existing ICS/iCal calendar feeds first. This is the preferred method be
 - Check calendar widgets for export options
 - Search the page source for "ics", "ical", or "calendar"
 
-### 2. JSON/API (Second Best)
+### 2. API (Second Best)
 
 If no ICS feed exists, look for a public API:
 - Check browser Network tab for API calls
 - Look for API documentation or developer portals
-- Search for JSON endpoints that return event data
-- Implement a `JSONRipper` subclass in `sources/<name>/ripper.ts`
+- Search for API endpoints that return event data
+- Most commonly implement a `JSONRipper` subclass in `sources/<name>/ripper.ts`
+- For other data formats, create appropriate base Ripper classes as needed (e.g., XMLRipper, CSVRipper)
 
 **Common API patterns:**
 - REST endpoints: `/api/events`, `/events.json`

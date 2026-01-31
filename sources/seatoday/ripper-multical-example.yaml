@@ -1,0 +1,47 @@
+name: seatoday
+description: "SEAtoday Events powered by CitySpark"
+url: "https://portal.cityspark.com/PortalScripts/SEAT"
+friendlyLink: "https://seatoday.6amcity.com/events"
+tags: ["Events"]
+calendars:
+  - name: seatoday-arts
+    friendlyname: "SEAtoday Arts & Culture"
+    timezone: America/Los_Angeles
+    tags: ["Art", "Music"]
+    config:
+      citysparkTags: [2, 3, 4, 17, 18, 19, 20]  # Performing Arts, Visual Arts, Literary Arts, Music, Dance, Theater, Comedy
+
+  - name: seatoday-food-drink
+    friendlyname: "SEAtoday Food & Drink"
+    timezone: America/Los_Angeles
+    tags: ["Food", "Beer"]
+    config:
+      citysparkTags: [12]  # Food & Drink
+
+  - name: seatoday-sports
+    friendlyname: "SEAtoday Sports & Outdoors"
+    timezone: America/Los_Angeles
+    tags: ["Sports"]
+    config:
+      citysparkTags: [6, 36, 37, 38]  # Sports & Outdoors, Sports, Outdoor Recreation, Fitness
+
+  - name: seatoday-learning
+    friendlyname: "SEAtoday Learning & Professional"
+    timezone: America/Los_Angeles
+    tags: ["Education"]
+    config:
+      citysparkTags: [7, 8, 39, 40, 41]  # Learning, Professional, Conferences, Talks, Classes
+
+  - name: seatoday-community
+    friendlyname: "SEAtoday Community Events"
+    timezone: America/Los_Angeles
+    tags: ["Activism", "Volunteer"]
+    config:
+      citysparkTags: [5, 11, 31, 32]  # Destinations, Civic Benefit, Festivals, Museums
+
+  - name: seatoday-nightlife
+    friendlyname: "SEAtoday Nightlife"
+    timezone: America/Los_Angeles
+    tags: ["Nightlife"]
+    config:
+      citysparkTags: [14]  # Nightlife

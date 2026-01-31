@@ -27,6 +27,60 @@ The steering file provides essential context for making informed decisions about
 
 This ensures proper code review and prevents breaking the production deployment.
 
+## Calendar Integration Strategy
+
+When adding a new calendar source to the project, follow this priority order:
+
+### 1. ICS/iCal Feed (Best Case)
+
+Look for existing ICS/iCal calendar feeds first. This is the preferred method because:
+- Standard calendar format with well-defined schema
+- Minimal maintenance required
+- No parsing logic needed
+- Add to `sources/external.yaml` with the ICS URL
+
+**How to find ICS feeds:**
+- Check for "Subscribe" or "Export Calendar" links on the website
+- Look for `webcal://` or `.ics` URLs
+- Check calendar widgets for export options
+- Search the page source for "ics", "ical", or "calendar"
+
+### 2. JSON/API (Second Best)
+
+If no ICS feed exists, look for a public API:
+- Check browser Network tab for API calls
+- Look for API documentation or developer portals
+- Search for JSON endpoints that return event data
+- Implement a `JSONRipper` subclass in `sources/<name>/ripper.ts`
+
+**Common API patterns:**
+- REST endpoints: `/api/events`, `/events.json`
+- Calendar platforms: Localist, Eventbrite, Tribe Events
+- Check if site uses a known calendar platform (they often have APIs)
+
+### 3. HTML Scraping (Last Resort)
+
+Only implement HTML parsing if no ICS feed or API is available:
+- More fragile and requires ongoing maintenance
+- Implement an `HTMLRipper` subclass in `sources/<name>/ripper.ts`
+- Include `sample-data.html` for testing
+- Document any preprocessing needed for the HTML
+
+**When scraping HTML:**
+- Use CSS selectors to target event data
+- Handle missing fields gracefully
+- Test thoroughly with sample data
+- Add comments explaining the HTML structure
+
+### Investigation Process
+
+Before implementing, always:
+1. Check the website for ICS/calendar export options
+2. Inspect network traffic for API endpoints
+3. Search for the calendar platform being used (e.g., CitySpark, Localist)
+4. Check if the platform has public API documentation
+5. Only fall back to HTML scraping if the above fail
+
 ## Unit Tests
 
 Unit tests for rippers are located in the individual ripper directories alongside the implementation files:

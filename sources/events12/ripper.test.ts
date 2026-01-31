@@ -7,23 +7,21 @@ import Events12Ripper from './ripper.js';
 
 describe('Events12Ripper', () => {
     const timezone = ZoneId.of('America/Los_Angeles');
-    const testDate = ZonedDateTime.of(2025, 12, 13, 12, 0, 0, 0, timezone);
+    const testDate = ZonedDateTime.of(2026, 1, 31, 12, 0, 0, 0, timezone);
 
     it('should parse events from sample HTML data', async () => {
         const ripper = new Events12Ripper();
-        // Load the sample HTML file
+        // Load the sample HTML file and apply preprocessing
         const htmlContent = readFileSync('sources/events12/sample-data.html', 'utf-8');
-        const html = parse(htmlContent);
-        
+        const processedHtml = htmlContent.replace(/<\/article>/g, '</p></article>');
+        const html = parse(processedHtml);
+
         // Parse events
         const events = await ripper.parseEvents(html, testDate, {});
-        
-        // Debug: log the first few events to understand the structure
-        console.log('Total events found:', events.length);
-        console.log('First 3 events:', events.slice(0, 3));
-        
-        // Should find some events
-        expect(events.length).toBeGreaterThan(0);
+        const calEvents = events.filter(e => 'date' in e);
+
+        // Should find many events (the live page has 80+)
+        expect(calEvents.length).toBeGreaterThan(30);
     });
 
     it('should parse event with valid date and title', async () => {
@@ -38,15 +36,84 @@ describe('Events12Ripper', () => {
                 <a class="b1" href="https://www.google.com/maps/search/?api=1&query=Test%20Location" rel="nofollow">map</a>
             </article>
         `;
-        
+
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
-        
+
         expect(events.length).toBe(1);
         expect(events[0]).toHaveProperty('summary', 'Family Christmas event');
         expect(events[0]).toHaveProperty('date');
         expect(events[0]).toHaveProperty('location');
         expect(events[0].description).toContain('Downtown (0.1 miles N)');
+
+        // Should parse time range correctly: 4 to 7 p.m. = 16:00 start, 3h duration
+        const event = events[0] as any;
+        expect(event.date.hour()).toBe(16);
+        expect(event.duration.toMinutes()).toBe(180);
+    });
+
+    it('should parse date ranges', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="range1">
+                <h3>Multi-day Festival</h3>
+                <p class="date">January 1 - 11, 2026</p>
+                <p class="miles">Shoreline (11 miles N)</p>
+                <p class="event">A multi-day event <a href="https://example.com/festival">details</a></p>
+            </article>
+            <article id="range2">
+                <h3>Cross-month Event</h3>
+                <p class="date">January 1 - Dec. 31, 2026 (4:30 to 10 p.m.)</p>
+                <p class="miles">Tacoma</p>
+                <p class="event">Year-round event <a href="https://example.com/yearround">details</a></p>
+            </article>
+        `;
+
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+
+        expect(events.length).toBe(2);
+
+        // Date range should use the start date
+        const event1 = events[0] as any;
+        expect(event1.summary).toBe('Multi-day Festival');
+        expect(event1.date.monthValue()).toBe(1);
+        expect(event1.date.dayOfMonth()).toBe(1);
+        expect(event1.date.year()).toBe(2026);
+
+        // Cross-month range with time
+        const event2 = events[1] as any;
+        expect(event2.summary).toBe('Cross-month Event');
+        expect(event2.date.hour()).toBe(16);
+        expect(event2.date.minute()).toBe(30);
+        expect(event2.duration.toMinutes()).toBe(330); // 4:30pm to 10pm = 5.5 hours
+    });
+
+    it('should parse various time formats', async () => {
+        const ripper = new Events12Ripper();
+        const cases = [
+            { time: '(7 p.m.)', expectedHour: 19, expectedMin: 0, expectedDuration: 120 },
+            { time: '(9 a.m. to 2 p.m.)', expectedHour: 9, expectedMin: 0, expectedDuration: 300 },
+            { time: '(9:30 a.m. to 12 p.m.)', expectedHour: 9, expectedMin: 30, expectedDuration: 150 },
+            { time: '(10 a.m.)', expectedHour: 10, expectedMin: 0, expectedDuration: 120 },
+        ];
+
+        for (let i = 0; i < cases.length; i++) {
+            const c = cases[i];
+            const html = parse(`
+                <article id="time${i}">
+                    <h3>Event ${i}</h3>
+                    <p class="date">January 15, 2026 ${c.time}</p>
+                    <p class="event">Desc <a href="https://example.com/${i}">link</a></p>
+                </article>
+            `);
+            const events = await ripper.parseEvents(html, testDate, {});
+            expect(events.length).toBe(1);
+            const event = events[0] as any;
+            expect(event.date.hour()).toBe(c.expectedHour);
+            expect(event.date.minute()).toBe(c.expectedMin);
+            expect(event.duration.toMinutes()).toBe(c.expectedDuration);
+        }
     });
 
     it('should handle parse errors gracefully', async () => {
@@ -55,10 +122,10 @@ describe('Events12Ripper', () => {
             <h3>Malformed Event</h3>
             <p>Invalid date format</p>
         `;
-        
+
         const html = parse(malformedHtml);
         const events = await ripper.parseEvents(html, testDate, {});
-        
+
         // Should not crash and may return empty or error events
         expect(Array.isArray(events)).toBe(true);
     });
@@ -73,10 +140,10 @@ describe('Events12Ripper', () => {
                 <p class="event">Description with <a href="https://example.com/event">event link</a> and <a href="https://www.google.com/maps">map link</a></p>
             </article>
         `;
-        
+
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
-        
+
         expect(events.length).toBe(1);
         expect(events[0]).toHaveProperty('url', 'https://example.com/event');
     });

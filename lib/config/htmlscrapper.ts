@@ -34,7 +34,8 @@ export abstract class HTMLRipper implements IRipper {
             }
 
             const htmlString = await res.text();
-            const html = parse(htmlString);
+            const processedHtml = this.preprocessHtml(htmlString);
+            const html = parse(processedHtml);
             for (const cal of ripper.config.calendars) {
 
                 const events = await this.parseEvents(html, ZonedDateTime.of(day, cal.timezone), cal.config);
@@ -55,6 +56,10 @@ export abstract class HTMLRipper implements IRipper {
         });
 
 
+    }
+
+    protected preprocessHtml(html: string): string {
+        return html;
     }
 
     protected abstract parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]>

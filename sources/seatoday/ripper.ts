@@ -25,7 +25,7 @@ export default class SEAtodayRipper implements IRipper {
 
         // Parse events for each calendar
         for (const cal of ripper.config.calendars) {
-            const events = await this.parseEvents(jsonData, cal.timezone);
+            const events = await this.parseEvents(jsonData, cal.timezone, cal.config);
             calendars[cal.name].events = calendars[cal.name].events.concat(events);
         }
 
@@ -58,7 +58,7 @@ export default class SEAtodayRipper implements IRipper {
         }
     }
 
-    private async parseEvents(jsonData: any, timezone: any): Promise<RipperEvent[]> {
+    private async parseEvents(jsonData: any, timezone: any, config?: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
 
         if (!jsonData.Events || !Array.isArray(jsonData.Events)) {
@@ -81,6 +81,18 @@ export default class SEAtodayRipper implements IRipper {
                 const eventLocalDate = startDate.toLocalDateTime();
                 if (eventLocalDate.isBefore(now) || eventLocalDate.isAfter(endOfPeriod)) {
                     continue;
+                }
+
+                // Filter by tags if configured
+                if (config && config.filterTags && Array.isArray(config.filterTags)) {
+                    const eventTags = eventData.Tags || [];
+                    // Check if event has ANY of the configured tags
+                    const hasMatchingTag = eventTags.some((tagId: number) =>
+                        config.filterTags.includes(tagId)
+                    );
+                    if (!hasMatchingTag) {
+                        continue; // Skip this event, doesn't match our tags
+                    }
                 }
 
                 // Parse end date to calculate duration

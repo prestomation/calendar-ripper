@@ -1,9 +1,53 @@
 name: seatoday
-description: "SEAtoday Events powered by CitySpark"
+description: "Seattle area events from SEAtoday"
 url: "https://portal.cityspark.com/PortalScripts/SEAT"
 friendlyLink: "https://seatoday.6amcity.com/events"
 tags: ["Events"]
 calendars:
-  - name: seatoday-events
-    friendlyname: "SEAtoday Events"
+  - name: seatoday-all
+    friendlyname: "SEAtoday - All Events"
     timezone: America/Los_Angeles
+    tags: ["Events"]
+    # No filterTags means all events
+
+  - name: seatoday-arts
+    friendlyname: "SEAtoday - Arts & Culture"
+    timezone: America/Los_Angeles
+    tags: ["Art", "Music"]
+    config:
+      filterTags: [2, 3, 4, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]  # Performing Arts, Visual Arts, Literary Arts and subcategories
+
+  - name: seatoday-food
+    friendlyname: "SEAtoday - Food & Drink"
+    timezone: America/Los_Angeles
+    tags: ["Food", "Beer"]
+    config:
+      filterTags: [12]  # Food & Drink
+
+  - name: seatoday-sports
+    friendlyname: "SEAtoday - Sports & Outdoors"
+    timezone: America/Los_Angeles
+    tags: ["Sports"]
+    config:
+      filterTags: [6, 36, 37, 38]  # Sports & Outdoors, Sports, Outdoor Recreation, Fitness
+
+  - name: seatoday-learning
+    friendlyname: "SEAtoday - Learning & Education"
+    timezone: America/Los_Angeles
+    tags: ["Education"]
+    config:
+      filterTags: [7, 8, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]  # Learning, Professional and subcategories
+
+  - name: seatoday-community
+    friendlyname: "SEAtoday - Community & Civic"
+    timezone: America/Los_Angeles
+    tags: ["Activism", "Volunteer"]
+    config:
+      filterTags: [5, 11, 31, 32, 33, 34, 35]  # Destinations, Civic Benefit and subcategories
+
+  - name: seatoday-nightlife
+    friendlyname: "SEAtoday - Nightlife"
+    timezone: America/Los_Angeles
+    tags: ["Nightlife"]
+    config:
+      filterTags: [14]  # Nightlife

@@ -1,10 +1,10 @@
-import { describe, test, expect } from '@jest/globals';
+import { describe, it, expect } from 'vitest';
 import SEAtodayRipper from './ripper.js';
 import { Ripper } from '../../lib/config/schema.js';
 import { ZoneRegion } from '@js-joda/core';
 
 describe('SEAtodayRipper', () => {
-    test('should fetch and parse events from CitySpark', async () => {
+    it('should fetch and parse events from CitySpark', async () => {
         const ripper: Ripper = {
             config: {
                 name: 'seatoday',

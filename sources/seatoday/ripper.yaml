@@ -1,0 +1,9 @@
+name: seatoday
+description: "SEAtoday Events powered by CitySpark"
+url: "https://portal.cityspark.com/PortalScripts/SEAT"
+friendlyLink: "https://seatoday.6amcity.com/events"
+tags: ["Events"]
+calendars:
+  - name: seatoday-events
+    friendlyname: "SEAtoday Events"
+    timezone: America/Los_Angeles

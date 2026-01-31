@@ -56,10 +56,10 @@ export default class SIFFRipper extends HTMLRipper {
             const ampm = matches[0][3];
             const lengthMinutes = Number(matches[0][4]);
 
-            const hourOffset = ampm.toLowerCase() == "am" || hour == 12 ? 0 : 12;
+            const hour24 = (hour % 12) + (ampm.toLowerCase() === "pm" ? 12 : 0);
 
             const duration = Duration.ofMinutes(lengthMinutes);
-            const movieTime = date.withHour(hourOffset + hour).withMinute(min);
+            const movieTime = date.withHour(hour24).withMinute(min);
 
             const a: RipperCalendarEvent = {
                 description: "",

@@ -152,6 +152,25 @@ export class RecurringEventProcessor {
     }
 
     private parseSchedule(schedule: string): { ordinal: number | null, dayOfWeek: DayOfWeek | null } {
+        // Support "last Friday" format
+        const lastMatch = schedule.match(/^last\s+(\w+)$/i);
+        if (lastMatch) {
+            const dayName = lastMatch[1].toLowerCase();
+            const dayMap: { [key: string]: DayOfWeek } = {
+                'monday': DayOfWeek.MONDAY,
+                'tuesday': DayOfWeek.TUESDAY,
+                'wednesday': DayOfWeek.WEDNESDAY,
+                'thursday': DayOfWeek.THURSDAY,
+                'friday': DayOfWeek.FRIDAY,
+                'saturday': DayOfWeek.SATURDAY,
+                'sunday': DayOfWeek.SUNDAY
+            };
+            return {
+                ordinal: -1,
+                dayOfWeek: dayMap[dayName] || null
+            };
+        }
+
         const match = schedule.match(/^(\d+)(?:st|nd|rd|th)\s+(\w+)$/i);
         if (!match) {
             return { ordinal: null, dayOfWeek: null };
@@ -188,7 +207,10 @@ export class RecurringEventProcessor {
             current = current.plusWeeks(1);
         }
         
-        // Return the nth occurrence (1-indexed)
+        // Return the nth occurrence (1-indexed), or last if ordinal is -1
+        if (ordinal === -1) {
+            return occurrences[occurrences.length - 1];
+        }
         if (ordinal <= occurrences.length) {
             return occurrences[ordinal - 1];
         }

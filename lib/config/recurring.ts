@@ -209,7 +209,7 @@ export class RecurringEventProcessor {
         
         // Return the nth occurrence (1-indexed), or last if ordinal is -1
         if (ordinal === -1) {
-            return occurrences[occurrences.length - 1];
+            return occurrences.length > 0 ? occurrences[occurrences.length - 1] : null;
         }
         if (ordinal <= occurrences.length) {
             return occurrences[ordinal - 1];

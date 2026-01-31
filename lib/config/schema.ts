@@ -1,4 +1,4 @@
-import { Duration, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
+import { Duration, Period, ZoneOffset, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { z } from "zod";
 import { promisify } from 'util';
 import * as icsOriginal from 'ics';
@@ -114,10 +114,11 @@ export interface IRipper {
 export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
+        const utcDate = e.date.withZoneSameInstant(ZoneOffset.UTC);
         const m: icsOriginal.EventAttributes = {
             title: e.summary,
-            startInputType: "local",
-            start: [e.date.year(), e.date.monthValue(), e.date.dayOfMonth(), e.date.hour(), e.date.minute()],
+            startInputType: "utc",
+            start: [utcDate.year(), utcDate.monthValue(), utcDate.dayOfMonth(), utcDate.hour(), utcDate.minute()],
             duration: { hours: e.duration.toHours(), minutes: e.duration.toMinutes() % 60 },
             description: e.description,
             location: e.location,

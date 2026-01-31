@@ -193,3 +193,15 @@ events:
     location: "West Seattle"
     url: "http://wsartwalk.com/"
     tags: ["Artwalk", "West Seattle"]
+
+  # Seattle Critical Mass
+  - name: seattle-critical-mass
+    friendlyname: "Seattle Critical Mass"
+    description: "Monthly group bike ride through Seattle. Meet at 6:30 PM, ride starts at 7:00 PM."
+    schedule: "last Friday"
+    timezone: America/Los_Angeles
+    duration: PT2H
+    start_time: "18:30"
+    location: "Westlake Park, 401 Pine St, Seattle"
+    url: "https://www.instagram.com/critical_mass_seattle/"
+    tags: ["Cycling", "Downtown"]

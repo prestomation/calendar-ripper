@@ -163,17 +163,18 @@ export default class SEAtodayRipper implements IRipper {
         if (!dateString) return null;
 
         try {
-            // CitySpark dates are typically in ISO 8601 format
-            // e.g., "2026-01-31T18:00:00" or "2026-01-31T18:00:00Z"
+            // CitySpark dates are in ISO 8601 format with Z suffix (UTC)
+            // e.g., "2026-01-31T08:00:00Z" means 08:00 UTC = 00:00 Pacific
 
-            // Remove 'Z' suffix if present (we'll apply our own timezone)
-            const cleanDateString = dateString.replace(/Z$/, '');
-
-            // Parse as LocalDateTime first
-            const localDateTime = LocalDateTime.parse(cleanDateString);
-
-            // Convert to ZonedDateTime with the specified timezone
-            return ZonedDateTime.of(localDateTime, timezone);
+            if (dateString.endsWith('Z')) {
+                // Parse as UTC instant and convert to target timezone
+                const instant = ZonedDateTime.parse(dateString).toInstant();
+                return ZonedDateTime.ofInstant(instant, timezone);
+            } else {
+                // No Z suffix, treat as local time in target timezone
+                const localDateTime = LocalDateTime.parse(dateString);
+                return ZonedDateTime.of(localDateTime, timezone);
+            }
 
         } catch (error) {
             return null;

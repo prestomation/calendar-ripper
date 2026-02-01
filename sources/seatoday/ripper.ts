@@ -1,21 +1,30 @@
-import { ZonedDateTime, Duration, LocalDateTime, ChronoUnit } from "@js-joda/core";
+import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ChronoUnit } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
+
+const PAGE_SIZE = 25;
+const LOOKAHEAD_DAYS = 14;
 
 export default class SEAtodayRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const url = ripper.config.url.toString();
 
-        // Fetch the JavaScript file containing the CitySpark data
+        // Fetch the JavaScript file to extract portal settings (ppid, slug, baseUrl)
         const res = await fetch(url);
         if (!res.ok) {
             throw Error(`${res.status} ${res.statusText}`);
         }
 
         const jsContent = await res.text();
+        const portalSettings = this.extractCSparkLocals(jsContent);
 
-        // Extract the cSparkLocals object from the JavaScript
-        const jsonData = this.extractCSparkLocals(jsContent);
+        const slug = portalSettings.slug;
+        const ppid = portalSettings.ppid;
+        const siteUrl = portalSettings.siteUrl;
+        const baseUrl = portalSettings.baseUrl;
+
+        // Fetch all events for the lookahead period via the paginated API
+        const allEventData = await this.fetchAllEvents(siteUrl, slug, ppid, LOOKAHEAD_DAYS);
 
         // Initialize calendars
         const calendars: { [key: string]: {events: RipperEvent[], friendlyName: string, tags: string[]} } = {};
@@ -23,9 +32,9 @@ export default class SEAtodayRipper implements IRipper {
             calendars[c.name] = {events: [], friendlyName: c.friendlyname, tags: c.tags || []};
         }
 
-        // Parse events for each calendar
+        // Parse events for each calendar (applying tag filters)
         for (const cal of ripper.config.calendars) {
-            const events = await this.parseEvents(jsonData, cal.timezone, cal.config);
+            const events = this.parseEvents(allEventData, cal.timezone, baseUrl, cal.config);
             calendars[cal.name].events = calendars[cal.name].events.concat(events);
         }
 
@@ -58,17 +67,67 @@ export default class SEAtodayRipper implements IRipper {
         }
     }
 
-    private async parseEvents(jsonData: any, timezone: any, config?: any): Promise<RipperEvent[]> {
-        const events: RipperEvent[] = [];
+    /**
+     * Fetch events from the CitySpark API for each day in the lookahead period.
+     * Requests are made in parallel (one per day) for performance.
+     * The API returns up to 25 events per request sorted by time.
+     */
+    private async fetchAllEvents(siteUrl: string, slug: string, ppid: number, lookaheadDays: number): Promise<any[]> {
+        const apiUrl = `${siteUrl}v1/events/${slug}`;
+        const startDate = LocalDate.now();
 
-        if (!jsonData.Events || !Array.isArray(jsonData.Events)) {
-            return events;
+        // Build one request per day in the lookahead window
+        const dayRequests: Promise<any[]>[] = [];
+        for (let d = 0; d < lookaheadDays; d++) {
+            const date = startDate.plusDays(d);
+            const startStr = date.atStartOfDay().toString().substring(0, 16); // "YYYY-MM-DDTHH:mm"
+            dayRequests.push(this.fetchEventsPage(apiUrl, ppid, startStr));
         }
 
-        const now = LocalDateTime.now();
-        const endOfPeriod = now.plusDays(90); // Look ahead 90 days
+        // Fire all day requests in parallel
+        const results = await Promise.all(dayRequests);
+        return results.flat();
+    }
 
-        for (const eventData of jsonData.Events) {
+    /**
+     * Fetch a single page of events from the CitySpark API.
+     */
+    private async fetchEventsPage(apiUrl: string, ppid: number, startStr: string, skip: number = 0): Promise<any[]> {
+        const body = {
+            ppid: ppid,
+            start: startStr,
+            labels: [],
+            skip: skip,
+            defFilter: "all",
+            sort: "Time"
+        };
+
+        const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+
+        if (!res.ok) {
+            throw new Error(`CitySpark API error: ${res.status} ${res.statusText}`);
+        }
+
+        const data = await res.json() as { Success: boolean; Value: any[]; ErrorMessage?: string };
+
+        if (!data.Success) {
+            throw new Error(`CitySpark API returned error: ${data.ErrorMessage}`);
+        }
+
+        return data.Value || [];
+    }
+
+    private parseEvents(eventsData: any[], timezone: any, baseUrl: string, config?: any): RipperEvent[] {
+        const events: RipperEvent[] = [];
+
+        const startOfToday = LocalDate.now().atStartOfDay();
+        const endOfPeriod = startOfToday.plusDays(LOOKAHEAD_DAYS);
+
+        for (const eventData of eventsData) {
             try {
                 // Parse the start date (use StartUTC if available, otherwise DateStart)
                 const dateString = eventData.StartUTC || eventData.DateStart;
@@ -79,7 +138,7 @@ export default class SEAtodayRipper implements IRipper {
 
                 // Filter out past events and events too far in the future
                 const eventLocalDate = startDate.toLocalDateTime();
-                if (eventLocalDate.isBefore(now) || eventLocalDate.isAfter(endOfPeriod)) {
+                if (eventLocalDate.isBefore(startOfToday) || eventLocalDate.isAfter(endOfPeriod)) {
                     continue;
                 }
 
@@ -130,7 +189,7 @@ export default class SEAtodayRipper implements IRipper {
                     // Use the event detail URL pattern
                     const slug = this.createSlug(eventData.Name || '');
                     const dateStr = startDate.toLocalDate().toString();
-                    eventUrl = `${jsonData.baseUrl}#/details/${slug}/${eventData.PId}/${dateStr}T00`;
+                    eventUrl = `${baseUrl}#/details/${slug}/${eventData.PId}/${dateStr}T00`;
                 }
 
                 const event: RipperCalendarEvent = {

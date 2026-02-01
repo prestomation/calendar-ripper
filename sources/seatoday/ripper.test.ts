@@ -29,9 +29,11 @@ describe('SEAtodayRipper', () => {
         expect(calendars[0].name).toBe('seatoday-events');
         expect(calendars[0].friendlyname).toBe('SEAtoday Events');
 
-        // Should have some events (assuming the site is active)
         console.log(`Found ${calendars[0].events.length} events`);
         console.log(`Found ${calendars[0].errors.length} errors`);
+
+        // Should have events spanning multiple days
+        expect(calendars[0].events.length).toBeGreaterThan(25);
 
         if (calendars[0].events.length > 0) {
             const firstEvent = calendars[0].events[0];
@@ -45,6 +47,11 @@ describe('SEAtodayRipper', () => {
             expect(firstEvent.summary).toBeDefined();
             expect(firstEvent.date).toBeDefined();
             expect(firstEvent.duration).toBeDefined();
+
+            // Verify events span multiple dates
+            const uniqueDates = new Set(calendars[0].events.map(e => e.date.toLocalDate().toString()));
+            console.log(`Events span ${uniqueDates.size} unique dates:`, [...uniqueDates].sort());
+            expect(uniqueDates.size).toBeGreaterThan(1);
         }
-    }, 30000); // 30 second timeout for network request
+    }, 120000); // 2 minute timeout for multiple API requests
 });

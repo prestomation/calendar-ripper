@@ -26,6 +26,12 @@ export default class SEAtodayRipper implements IRipper {
         // Fetch all events for the lookahead period via the paginated API
         const allEventData = await this.fetchAllEvents(siteUrl, slug, ppid, LOOKAHEAD_DAYS);
 
+        // Filter for Seattle events only (the API returns events from all cities in the region)
+        const seattleEventData = allEventData.filter(event => {
+            const cityState = (event.CityState || '').toLowerCase();
+            return cityState.startsWith('seattle');
+        });
+
         // Initialize calendars
         const calendars: { [key: string]: {events: RipperEvent[], friendlyName: string, tags: string[]} } = {};
         for (const c of ripper.config.calendars) {
@@ -34,7 +40,7 @@ export default class SEAtodayRipper implements IRipper {
 
         // Parse events for each calendar (applying tag filters)
         for (const cal of ripper.config.calendars) {
-            const events = this.parseEvents(allEventData, cal.timezone, baseUrl, cal.config);
+            const events = this.parseEvents(seattleEventData, cal.timezone, baseUrl, cal.config);
             calendars[cal.name].events = calendars[cal.name].events.concat(events);
         }
 

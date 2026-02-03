@@ -127,7 +127,7 @@ export default class SEAtodayRipper implements IRipper {
         return data.Value || [];
     }
 
-    private parseEvents(eventsData: any[], timezone: any, baseUrl: string, config?: any): RipperEvent[] {
+    public parseEvents(eventsData: any[], timezone: any, baseUrl: string, config?: any): RipperEvent[] {
         const events: RipperEvent[] = [];
 
         const startOfToday = LocalDate.now().atStartOfDay();

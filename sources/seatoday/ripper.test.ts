@@ -69,34 +69,17 @@ describe('SEAtodayRipper', () => {
         expect(calEvents[0].summary).toBe('Food Event');
     });
 
-    it('should filter out events from non-Seattle cities', () => {
-        const mixedCityData = [
-            makeEvent({ PId: 1, Name: 'Seattle Show', CityState: 'Seattle, WA' }),
-            makeEvent({ PId: 2, Name: 'Tacoma Show', CityState: 'Tacoma, WA' }),
-            makeEvent({ PId: 3, Name: 'Bellevue Show', CityState: 'Bellevue, WA' }),
-            makeEvent({ PId: 4, Name: 'Another Seattle Show', CityState: 'Seattle, WA' }),
-            makeEvent({ PId: 5, Name: 'No City Event', CityState: '' }),
-            makeEvent({ PId: 6, Name: 'Null City Event', CityState: undefined }),
-        ];
+    it('should extract geo parameters from portal settings', () => {
+        const mockJs = `var cSparkLocals = {"slug":"SEAT","ppid":9228,"siteUrl":"https://portal.cityspark.com/","baseUrl":"https://seatoday.6amcity.com/events/","lat":47.6062095,"lng":-122.3320708,"distance":20};const x = 1;`;
 
-        // Apply the same city filter used in rip()
-        const seattleOnly = mixedCityData.filter(event => {
-            const cityState = (event.CityState || '').toLowerCase();
-            return cityState.startsWith('seattle');
-        });
+        // extractCSparkLocals is private, but we can test it via the class prototype
+        const settings = (ripper as any).extractCSparkLocals(mockJs);
 
-        expect(seattleOnly).toHaveLength(2);
-
-        const events = ripper.parseEvents(seattleOnly, timezone, baseUrl);
-        const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
-
-        expect(calEvents).toHaveLength(2);
-        expect(calEvents[0].summary).toBe('Seattle Show');
-        expect(calEvents[1].summary).toBe('Another Seattle Show');
-
-        for (const event of calEvents) {
-            expect(event.location!.toLowerCase()).toContain('seattle');
-        }
+        expect(settings.slug).toBe('SEAT');
+        expect(settings.ppid).toBe(9228);
+        expect(settings.lat).toBeCloseTo(47.606, 2);
+        expect(settings.lng).toBeCloseTo(-122.332, 2);
+        expect(settings.distance).toBe(20);
     });
 
     it('should strip HTML from descriptions', () => {

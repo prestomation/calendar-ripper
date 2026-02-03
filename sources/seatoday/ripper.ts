@@ -22,15 +22,13 @@ export default class SEAtodayRipper implements IRipper {
         const ppid = portalSettings.ppid;
         const siteUrl = portalSettings.siteUrl;
         const baseUrl = portalSettings.baseUrl;
+        const lat = portalSettings.lat;
+        const lng = portalSettings.lng;
+        const distance = portalSettings.distance;
 
         // Fetch all events for the lookahead period via the paginated API
-        const allEventData = await this.fetchAllEvents(siteUrl, slug, ppid, LOOKAHEAD_DAYS);
-
-        // Filter for Seattle events only (the API returns events from all cities in the region)
-        const seattleEventData = allEventData.filter(event => {
-            const cityState = (event.CityState || '').toLowerCase();
-            return cityState.startsWith('seattle');
-        });
+        // Pass lat/lng/distance so the API returns only events in the portal's geographic area
+        const allEventData = await this.fetchAllEvents(siteUrl, slug, ppid, LOOKAHEAD_DAYS, lat, lng, distance);
 
         // Initialize calendars
         const calendars: { [key: string]: {events: RipperEvent[], friendlyName: string, tags: string[]} } = {};
@@ -40,7 +38,7 @@ export default class SEAtodayRipper implements IRipper {
 
         // Parse events for each calendar (applying tag filters)
         for (const cal of ripper.config.calendars) {
-            const events = this.parseEvents(seattleEventData, cal.timezone, baseUrl, cal.config);
+            const events = this.parseEvents(allEventData, cal.timezone, baseUrl, cal.config);
             calendars[cal.name].events = calendars[cal.name].events.concat(events);
         }
 
@@ -77,8 +75,9 @@ export default class SEAtodayRipper implements IRipper {
      * Fetch events from the CitySpark API for each day in the lookahead period.
      * Requests are made in parallel (one per day) for performance.
      * The API returns up to 25 events per request sorted by time.
+     * When lat/lng/distance are provided, results are geo-filtered to that radius.
      */
-    private async fetchAllEvents(siteUrl: string, slug: string, ppid: number, lookaheadDays: number): Promise<any[]> {
+    private async fetchAllEvents(siteUrl: string, slug: string, ppid: number, lookaheadDays: number, lat?: number, lng?: number, distance?: number): Promise<any[]> {
         const apiUrl = `${siteUrl}v1/events/${slug}`;
         const startDate = LocalDate.now();
 
@@ -87,7 +86,7 @@ export default class SEAtodayRipper implements IRipper {
         for (let d = 0; d < lookaheadDays; d++) {
             const date = startDate.plusDays(d);
             const startStr = date.atStartOfDay().toString().substring(0, 16); // "YYYY-MM-DDTHH:mm"
-            dayRequests.push(this.fetchEventsPage(apiUrl, ppid, startStr));
+            dayRequests.push(this.fetchEventsPage(apiUrl, ppid, startStr, 0, lat, lng, distance));
         }
 
         // Fire all day requests in parallel
@@ -98,8 +97,8 @@ export default class SEAtodayRipper implements IRipper {
     /**
      * Fetch a single page of events from the CitySpark API.
      */
-    private async fetchEventsPage(apiUrl: string, ppid: number, startStr: string, skip: number = 0): Promise<any[]> {
-        const body = {
+    private async fetchEventsPage(apiUrl: string, ppid: number, startStr: string, skip: number = 0, lat?: number, lng?: number, distance?: number): Promise<any[]> {
+        const body: any = {
             ppid: ppid,
             start: startStr,
             labels: [],
@@ -107,6 +106,13 @@ export default class SEAtodayRipper implements IRipper {
             defFilter: "all",
             sort: "Time"
         };
+
+        // Include geo parameters to restrict results to the portal's area
+        if (lat !== undefined && lng !== undefined && distance !== undefined) {
+            body.lat = lat;
+            body.lng = lng;
+            body.distance = distance;
+        }
 
         const res = await fetch(apiUrl, {
             method: 'POST',

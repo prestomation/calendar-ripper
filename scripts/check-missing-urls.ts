@@ -26,6 +26,14 @@ interface Manifest {
   tags: string[];
 }
 
+/**
+ * Sanitizes a tag name to match the filename format used by tag_aggregator.ts
+ * e.g., "Beacon Hill" -> "beacon-hill"
+ */
+function sanitizeTagName(tag: string): string {
+  return tag.toLowerCase().replace(/[^a-z0-9]/g, "-");
+}
+
 function extractIcsUrls(manifest: Manifest): Set<string> {
   const urls = new Set<string>();
 
@@ -46,9 +54,9 @@ function extractIcsUrls(manifest: Manifest): Set<string> {
     urls.add(calendar.icsUrl);
   }
 
-  // Tag aggregation calendars
+  // Tag aggregation calendars (names are sanitized in tag_aggregator.ts)
   for (const tag of manifest.tags) {
-    urls.add(`tag-${tag}.ics`);
+    urls.add(`tag-${sanitizeTagName(tag)}.ics`);
   }
 
   return urls;

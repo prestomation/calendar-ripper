@@ -8,6 +8,7 @@
 
 import { readFile } from "fs/promises";
 import { existsSync } from "fs";
+import { resolve, normalize } from "path";
 
 interface Calendar {
   name: string;
@@ -16,14 +17,14 @@ interface Calendar {
 
 interface Ripper {
   name: string;
-  calendars: Calendar[];
+  calendars?: Calendar[];
 }
 
 interface Manifest {
-  rippers: Ripper[];
-  recurringCalendars: Calendar[];
-  externalCalendars: Calendar[];
-  tags: string[];
+  rippers?: Ripper[];
+  recurringCalendars?: Calendar[];
+  externalCalendars?: Calendar[];
+  tags?: string[];
 }
 
 /**
@@ -34,29 +35,77 @@ function sanitizeTagName(tag: string): string {
   return tag.toLowerCase().replace(/[^a-z0-9]/g, "-");
 }
 
+/**
+ * Validates that an icsUrl is safe to use as a filename (no path traversal)
+ * Returns true if the URL is safe, false otherwise
+ */
+function isValidIcsUrl(icsUrl: string): boolean {
+  // Must end with .ics
+  if (!icsUrl.endsWith(".ics")) {
+    return false;
+  }
+  // Must not contain path traversal sequences
+  if (icsUrl.includes("..") || icsUrl.includes("/") || icsUrl.includes("\\")) {
+    return false;
+  }
+  // Must only contain safe characters (alphanumeric, dash, underscore, dot)
+  if (!/^[a-zA-Z0-9_.-]+$/.test(icsUrl)) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Validates that a file path is within the expected output directory
+ */
+function isPathWithinOutput(filePath: string, outputDir: string): boolean {
+  const resolvedPath = resolve(outputDir, filePath);
+  const resolvedOutput = resolve(outputDir);
+  return normalize(resolvedPath).startsWith(normalize(resolvedOutput));
+}
+
 function extractIcsUrls(manifest: Manifest): Set<string> {
   const urls = new Set<string>();
 
   // Ripper calendars
-  for (const ripper of manifest.rippers) {
-    for (const calendar of ripper.calendars) {
-      urls.add(calendar.icsUrl);
+  if (manifest.rippers) {
+    for (const ripper of manifest.rippers) {
+      if (ripper.calendars) {
+        for (const calendar of ripper.calendars) {
+          if (calendar.icsUrl && isValidIcsUrl(calendar.icsUrl)) {
+            urls.add(calendar.icsUrl);
+          }
+        }
+      }
     }
   }
 
   // Recurring calendars
-  for (const calendar of manifest.recurringCalendars) {
-    urls.add(calendar.icsUrl);
+  if (manifest.recurringCalendars) {
+    for (const calendar of manifest.recurringCalendars) {
+      if (calendar.icsUrl && isValidIcsUrl(calendar.icsUrl)) {
+        urls.add(calendar.icsUrl);
+      }
+    }
   }
 
   // External calendars
-  for (const calendar of manifest.externalCalendars) {
-    urls.add(calendar.icsUrl);
+  if (manifest.externalCalendars) {
+    for (const calendar of manifest.externalCalendars) {
+      if (calendar.icsUrl && isValidIcsUrl(calendar.icsUrl)) {
+        urls.add(calendar.icsUrl);
+      }
+    }
   }
 
   // Tag aggregation calendars (names are sanitized in tag_aggregator.ts)
-  for (const tag of manifest.tags) {
-    urls.add(`tag-${sanitizeTagName(tag)}.ics`);
+  if (manifest.tags) {
+    for (const tag of manifest.tags) {
+      const tagUrl = `tag-${sanitizeTagName(tag)}.ics`;
+      if (isValidIcsUrl(tagUrl)) {
+        urls.add(tagUrl);
+      }
+    }
   }
 
   return urls;
@@ -85,7 +134,14 @@ async function main() {
       }
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
-    deployedManifest = await response.json() as Manifest;
+    const jsonText = await response.text();
+    try {
+      deployedManifest = JSON.parse(jsonText) as Manifest;
+    } catch (parseError) {
+      console.error(`Failed to parse deployed manifest JSON: ${parseError}`);
+      console.log("Skipping backwards compatibility check due to malformed manifest.");
+      process.exit(0);
+    }
   } catch (error) {
     console.error(`Failed to fetch deployed manifest: ${error}`);
     console.log("Skipping backwards compatibility check due to fetch error.");
@@ -99,7 +155,14 @@ async function main() {
     process.exit(1);
   }
 
-  const newManifest: Manifest = JSON.parse(await readFile(newManifestPath, "utf-8"));
+  let newManifest: Manifest;
+  try {
+    const fileContent = await readFile(newManifestPath, "utf-8");
+    newManifest = JSON.parse(fileContent) as Manifest;
+  } catch (error) {
+    console.error(`Failed to parse new manifest at ${newManifestPath}: ${error}`);
+    process.exit(1);
+  }
 
   // Extract ICS URLs from both manifests
   const deployedUrls = extractIcsUrls(deployedManifest);
@@ -118,8 +181,14 @@ async function main() {
 
   // Also check that the actual .ics files exist in the output directory
   const missingFiles: string[] = [];
+  const outputDir = "output";
   for (const url of newUrls) {
-    const filePath = `output/${url}`;
+    // Validate path is within output directory before checking
+    if (!isPathWithinOutput(url, outputDir)) {
+      console.error(`Skipping invalid path: ${url}`);
+      continue;
+    }
+    const filePath = `${outputDir}/${url}`;
     if (!existsSync(filePath)) {
       missingFiles.push(url);
     }

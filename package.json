@@ -12,7 +12,8 @@
     "web:dev": "cd web && vite",
     "web:build": "cd web && vite build",
     "web:preview": "cd web && vite preview",
-    "build": "npm run generate-calendars && npm run web:build"
+    "build": "npm run generate-calendars && npm run web:build",
+    "check-missing-urls": "node --loader ts-node/esm scripts/check-missing-urls.ts"
   },
   "dependencies": {
     "@js-joda/core": "^5.5.3",

@@ -44,6 +44,24 @@ jobs:
     - name: Build web interface
       run: npm run web:build
 
+    - name: Get GitHub Pages URL
+      id: get-pages-url
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        # Try to get the GitHub Pages URL, fail gracefully if not configured
+        PAGES_URL=$(gh api repos/${{ github.repository }}/pages --jq '.html_url' 2>/dev/null || echo "")
+        echo "PAGES_URL=${PAGES_URL}" >> "$GITHUB_OUTPUT"
+        if [ -n "$PAGES_URL" ]; then
+          echo "GitHub Pages URL: $PAGES_URL"
+        else
+          echo "GitHub Pages not configured or not accessible, skipping URL check"
+        fi
+
+    - name: Check for missing calendar URLs
+      if: steps.get-pages-url.outputs.PAGES_URL != ''
+      run: npm run check-missing-urls -- "${{ steps.get-pages-url.outputs.PAGES_URL }}"
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:

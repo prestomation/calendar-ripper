@@ -3,6 +3,8 @@ description: "Urban Craft Uprising - Pacific Northwest indie craft shows and mar
 url: "https://urbancraftuprising.com/wp-json/wp/v2/pages?search=market&per_page=50"
 friendlyLink: https://urbancraftuprising.com
 tags: ["MakersMarket", "Art"]
+# TEMPORARY: disabled for testing missing URL detection
+disabled: true
 calendars:
   - name: events
     friendlyname: "Urban Craft Uprising Events"

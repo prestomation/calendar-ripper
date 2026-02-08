@@ -2,6 +2,22 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import Fuse from 'fuse.js'
 import ICAL from 'ical.js'
 
+// Mobile: single-view nav. Tablet: compact sidebar. Desktop: full sidebar.
+const BREAKPOINT_MOBILE = 768
+const BREAKPOINT_TABLET = 1024
+
+function useBreakpoint() {
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    const onResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+  if (width < BREAKPOINT_MOBILE) return 'mobile'
+  if (width < BREAKPOINT_TABLET) return 'tablet'
+  return 'desktop'
+}
+
 function App() {
   const [calendars, setCalendars] = useState([])
   const [manifest, setManifest] = useState(null)
@@ -16,7 +32,13 @@ function App() {
   const [eventsError, setEventsError] = useState(null)
   const [sidebarWidth, setSidebarWidth] = useState(400)
   const [tagsHeight, setTagsHeight] = useState(150)
-  
+  // Mobile: 'list' shows sidebar, 'detail' shows events
+  const [mobileView, setMobileView] = useState('list')
+
+  const breakpoint = useBreakpoint()
+  const isMobile = breakpoint === 'mobile'
+  const isTablet = breakpoint === 'tablet'
+
   const sidebarRef = useRef(null)
   const resizeHandleRef = useRef(null)
   const verticalResizeHandleRef = useRef(null)
@@ -233,6 +255,7 @@ function App() {
           const calendarWithRipper = { ...firstCalendar, ripperName: firstRipper.name }
           setSelectedCalendar(calendarWithRipper)
           setShowHomepage(false)
+          if (isMobile) setMobileView('detail')
           updateURL('', tag, calendarWithRipper)
           return
         }
@@ -252,6 +275,7 @@ function App() {
     }
     setSelectedCalendar(tagCalendar)
     setShowHomepage(false)
+    if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, tagCalendar)
   }
 
@@ -259,7 +283,12 @@ function App() {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
     setShowHomepage(false)
+    if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, calendarWithRipper)
+  }
+
+  const handleMobileBack = () => {
+    setMobileView('list')
   }
 
   const createGoogleMapsUrl = (location) => {
@@ -619,18 +648,21 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div 
-        className="sidebar" 
+    <div className={`app ${isMobile ? 'app--mobile' : ''} ${isTablet ? 'app--tablet' : ''}`}>
+      {/* On mobile, only show sidebar when in 'list' view */}
+      {(!isMobile || mobileView === 'list') && (
+      <div
+        className="sidebar"
         ref={sidebarRef}
-        style={{ width: `${sidebarWidth}px` }}
+        style={!isMobile && !isTablet ? { width: `${sidebarWidth}px` } : undefined}
       >
         <div className="header-bar">
-          <button 
+          <button
             className="home-button"
             onClick={() => {
               setSelectedCalendar(null)
               setShowHomepage(true)
+              setMobileView('list')
               window.location.hash = ''
             }}
             title="Home"
@@ -649,9 +681,9 @@ function App() {
         </div>
         
         <div 
-          className="tags" 
+          className="tags"
           ref={tagsRef}
-          style={{ maxHeight: `${tagsHeight}px` }}
+          style={!isMobile && !isTablet ? { maxHeight: `${tagsHeight}px` } : undefined}
         >
           <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>Tags:</div>
           <div
@@ -669,11 +701,13 @@ function App() {
               {tag}
             </div>
           ))}
-          <div 
-            className="resize-handle-vertical"
-            ref={verticalResizeHandleRef}
-            onMouseDown={handleVerticalMouseDown}
-          />
+          {!isMobile && !isTablet && (
+            <div
+              className="resize-handle-vertical"
+              ref={verticalResizeHandleRef}
+              onMouseDown={handleVerticalMouseDown}
+            />
+          )}
         </div>
         
         <div className="calendar-list" ref={calendarListRef}>
@@ -885,14 +919,27 @@ function App() {
           )}
         </div>
         
-        <div 
-          className="resize-handle"
-          ref={resizeHandleRef}
-          onMouseDown={handleMouseDown}
-        />
+        {/* Hide resize handles on mobile and tablet */}
+        {!isMobile && !isTablet && (
+          <div
+            className="resize-handle"
+            ref={resizeHandleRef}
+            onMouseDown={handleMouseDown}
+          />
+        )}
       </div>
-      
+      )}
+
+      {/* On mobile, only show main content when in 'detail' view */}
+      {(!isMobile || mobileView === 'detail') && (
       <div className="main-content">
+        {isMobile && mobileView === 'detail' && (
+          <div className="mobile-back-bar">
+            <button className="mobile-back-btn" onClick={handleMobileBack}>
+              ← Calendars
+            </button>
+          </div>
+        )}
         {showHomepage ? (
           <div className="homepage">
             <h1>Yet Another Seattle Calendar</h1>
@@ -1032,6 +1079,7 @@ function App() {
           </p>
         </footer>
       </div>
+      )}
     </div>
   )
 }

@@ -332,8 +332,8 @@ function App() {
     popover.textContent = message
     popover.style.cssText = `
       position: absolute;
-      background: #333;
-      color: white;
+      background: var(--text-primary);
+      color: var(--bg-surface);
       padding: 4px 8px;
       border-radius: 4px;
       font-size: 12px;
@@ -1078,7 +1078,7 @@ function App() {
           <div className="empty-state">Select a calendar to view events</div>
         )}
         <footer className="footer">
-          <p style={{ color: 'red', fontWeight: 'bold', marginBottom: '4px', fontSize: '12px' }}>
+          <p className="footer-warning">
             ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
             <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
              Open an issue or pull request to add a new calendar to this page. </a>

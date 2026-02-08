@@ -571,26 +571,174 @@ body {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .app {
+/* ── Mobile back bar ── */
+.mobile-back-bar {
+  padding: 8px 16px;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mobile-back-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+
+/* ── Phone (<768px): single-view navigation ── */
+@media (max-width: 767px) {
+  .app--mobile {
     flex-direction: column;
   }
-  
-  .sidebar {
+
+  /* Sidebar takes full screen when visible */
+  .app--mobile .sidebar {
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  /* Tags: compact horizontal strip, no resizable height */
+  .app--mobile .tags {
+    max-height: 120px;
+    min-height: auto;
+    padding: 12px 16px;
+  }
+
+  .app--mobile .calendar-list {
+    padding: 12px;
+  }
+
+  .app--mobile .search-bar {
+    padding: 12px 16px;
+  }
+
+  .app--mobile .search-input {
+    padding: 10px 14px;
+  }
+
+  /* Main content takes full screen when visible */
+  .app--mobile .main-content {
+    height: 100vh;
     width: 100%;
-    height: 50vh;
   }
-  
-  .main-content {
-    height: 50vh;
+
+  .app--mobile .agenda-panel {
+    padding: 16px;
   }
-  
-  .agenda-panel {
-    padding: 20px;
+
+  .app--mobile .agenda-header h1 {
+    font-size: 22px;
   }
-  
-  .footer {
+
+  .app--mobile .event-item {
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+
+  .app--mobile .event-title {
+    font-size: 16px;
+  }
+
+  .app--mobile .footer {
+    padding: 8px 16px;
+  }
+
+  /* More compact ripper groups on mobile */
+  .app--mobile .ripper-group {
+    margin-bottom: 12px;
+  }
+
+  .app--mobile .ripper-header {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .app--mobile .calendar-item {
+    padding: 12px 14px;
+  }
+
+  .app--mobile .homepage {
+    padding: 20px 16px;
+  }
+}
+
+/* ── Tablet / Z Fold (768px–1023px): unified compact layout ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app--tablet .sidebar {
+    width: 280px !important;
+    max-width: 320px;
+    min-width: 240px;
+  }
+
+  .app--tablet .tags {
+    max-height: 100px;
+    padding: 12px 16px;
+  }
+
+  .app--tablet .search-bar {
+    padding: 12px 16px;
+  }
+
+  .app--tablet .search-input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .app--tablet .calendar-list {
+    padding: 12px;
+  }
+
+  .app--tablet .ripper-header {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .app--tablet .ripper-title {
+    font-size: 14px;
+  }
+
+  .app--tablet .calendar-item {
+    padding: 10px 14px;
+  }
+
+  .app--tablet .calendar-title {
+    font-size: 14px;
+  }
+
+  .app--tablet .agenda-panel {
+    padding: 24px;
+  }
+
+  .app--tablet .agenda-header h1 {
+    font-size: 24px;
+  }
+
+  .app--tablet .footer {
     padding: 8px 20px;
+  }
+
+  .app--tablet .tag {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .app--tablet .ripper-group {
+    margin-bottom: 16px;
+  }
+
+  .app--tablet .homepage {
+    padding: 24px;
   }
 }
 

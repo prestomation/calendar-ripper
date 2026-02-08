@@ -153,26 +153,34 @@ function App() {
     }
   }, [updateScrollFade, calendars, events])
 
-  // URL state management
-  useEffect(() => {
-    const updateFromURL = () => {
-      const params = new URLSearchParams(window.location.hash.slice(1))
-      setSearchTerm(params.get('search') || '')
-      setSelectedTag(params.get('tag') || '')
-      const calendarId = params.get('calendar')
-      if (calendarId && calendars.length > 0) {
-        const calendar = findCalendarById(calendarId)
-        if (calendar) {
-          setSelectedCalendar(calendar)
-          setShowHomepage(false)
-        }
+  // URL state management — sync React state from URL hash
+  const syncStateFromURL = useCallback(() => {
+    const params = new URLSearchParams(window.location.hash.slice(1))
+    setSearchTerm(params.get('search') || '')
+    setSelectedTag(params.get('tag') || '')
+    const calendarId = params.get('calendar')
+    if (calendarId && calendars.length > 0) {
+      const calendar = findCalendarById(calendarId)
+      if (calendar) {
+        setSelectedCalendar(calendar)
+        setShowHomepage(false)
       }
     }
-    
-    updateFromURL()
-    window.addEventListener('hashchange', updateFromURL)
-    return () => window.removeEventListener('hashchange', updateFromURL)
+    // Sync mobile view from URL
+    setMobileView(params.get('view') === 'detail' ? 'detail' : 'list')
   }, [calendars])
+
+  useEffect(() => {
+    syncStateFromURL()
+    // hashchange: handles direct hash edits / home button resets
+    window.addEventListener('hashchange', syncStateFromURL)
+    // popstate: handles Android back button / browser back
+    window.addEventListener('popstate', syncStateFromURL)
+    return () => {
+      window.removeEventListener('hashchange', syncStateFromURL)
+      window.removeEventListener('popstate', syncStateFromURL)
+    }
+  }, [syncStateFromURL])
 
   // Handle deeplinking when calendars first load
   useEffect(() => {
@@ -184,16 +192,18 @@ function App() {
         if (calendar) {
           setSelectedCalendar(calendar)
           setShowHomepage(false)
+          if (params.get('view') === 'detail') setMobileView('detail')
         }
       }
     }
   }, [calendars.length])
 
-  const updateURL = (search, tag, calendar) => {
+  const updateURL = (search, tag, calendar, view) => {
     const params = new URLSearchParams()
     if (search) params.set('search', search)
     if (tag) params.set('tag', tag)
     if (calendar) params.set('calendar', `${calendar.ripperName}-${calendar.name}`)
+    if (view === 'detail') params.set('view', 'detail')
     window.location.hash = params.toString()
   }
 
@@ -231,37 +241,38 @@ function App() {
     if (selectedTag && selectedTag !== tag) {
       setPreviousTag(selectedTag)
     }
-    
+
     // Clear search when selecting a tag
     if (searchTerm) {
       setSearchTerm('')
     }
-    
+
     setSelectedTag(tag)
-    
-    // If selecting a tag (not clearing), auto-select first calendar in that tag
-    if (tag) {
-      const filteredCalendars = calendars.filter(ripper => 
+
+    // On mobile, just filter the list — don't auto-select a calendar.
+    // On desktop/tablet where both panels are visible, auto-select
+    // the first matching calendar so the right panel isn't empty.
+    if (tag && !isMobile) {
+      const filtered = calendars.filter(ripper =>
         ripper.calendars.some(calendar => calendar.tags.includes(tag))
       )
-      
-      if (filteredCalendars.length > 0) {
-        const firstRipper = filteredCalendars[0]
-        const firstCalendar = firstRipper.calendars.find(calendar => 
+
+      if (filtered.length > 0) {
+        const firstRipper = filtered[0]
+        const firstCalendar = firstRipper.calendars.find(calendar =>
           calendar.tags.includes(tag)
         )
-        
+
         if (firstCalendar) {
           const calendarWithRipper = { ...firstCalendar, ripperName: firstRipper.name }
           setSelectedCalendar(calendarWithRipper)
           setShowHomepage(false)
-          if (isMobile) setMobileView('detail')
           updateURL('', tag, calendarWithRipper)
           return
         }
       }
     }
-    
+
     updateURL('', tag, selectedCalendar)
   }
 
@@ -276,7 +287,7 @@ function App() {
     setSelectedCalendar(tagCalendar)
     setShowHomepage(false)
     if (isMobile) setMobileView('detail')
-    updateURL(searchTerm, selectedTag, tagCalendar)
+    updateURL(searchTerm, selectedTag, tagCalendar, isMobile ? 'detail' : undefined)
   }
 
   const handleCalendarSelect = (calendar, ripperName) => {
@@ -284,11 +295,12 @@ function App() {
     setSelectedCalendar(calendarWithRipper)
     setShowHomepage(false)
     if (isMobile) setMobileView('detail')
-    updateURL(searchTerm, selectedTag, calendarWithRipper)
+    updateURL(searchTerm, selectedTag, calendarWithRipper, isMobile ? 'detail' : undefined)
   }
 
   const handleMobileBack = () => {
-    setMobileView('list')
+    // Use browser history so Android back button stays in sync
+    window.history.back()
   }
 
   const createGoogleMapsUrl = (location) => {

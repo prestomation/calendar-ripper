@@ -32,6 +32,7 @@ function App() {
   const [eventsError, setEventsError] = useState(null)
   const [sidebarWidth, setSidebarWidth] = useState(400)
   const [tagsHeight, setTagsHeight] = useState(150)
+  const [footerMinimized, setFooterMinimized] = useState(false)
   // Mobile: 'list' shows sidebar, 'detail' shows events
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
@@ -1084,18 +1085,27 @@ function App() {
         ) : (
           <div className="empty-state">Select a calendar to view events</div>
         )}
-        <footer className="footer">
-          <p className="footer-warning">
-            ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
-            <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
-             Open an issue or pull request to add a new calendar to this page. </a>
-          </p>
-          <p style={{ fontSize: '12px' }}>
-            Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
-            {manifest && (
-              <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
-            )}
-          </p>
+        <footer className={`footer ${footerMinimized ? 'footer--minimized' : ''}`}>
+          <button
+            className="footer-toggle"
+            onClick={() => setFooterMinimized(!footerMinimized)}
+            title={footerMinimized ? 'Show disclaimer' : 'Hide disclaimer'}
+          >
+            {footerMinimized ? '▲' : '▼'}
+          </button>
+          <div className="footer-content">
+            <p className="footer-warning">
+              ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
+              <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
+               Open an issue or pull request to add a new calendar to this page. </a>
+            </p>
+            <p style={{ fontSize: '12px' }}>
+              Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+              {manifest && (
+                <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
+              )}
+            </p>
+          </div>
         </footer>
       </div>
       )}

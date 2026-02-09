@@ -33,7 +33,8 @@ function App() {
   const [sidebarWidth, setSidebarWidth] = useState(400)
   const [tagsHeight, setTagsHeight] = useState(150)
   // Mobile: 'list' shows sidebar, 'detail' shows events
-  const [mobileView, setMobileView] = useState('list')
+  // Start on 'detail' so the homepage is visible on mobile
+  const [mobileView, setMobileView] = useState('detail')
 
   const breakpoint = useBreakpoint()
   const isMobile = breakpoint === 'mobile'
@@ -166,8 +167,14 @@ function App() {
         setShowHomepage(false)
       }
     }
-    // Sync mobile view from URL
-    setMobileView(params.get('view') === 'detail' ? 'detail' : 'list')
+    // Sync mobile view from URL; default to 'detail' when showing homepage
+    const urlView = params.get('view')
+    if (urlView) {
+      setMobileView(urlView === 'detail' ? 'detail' : 'list')
+    } else if (!calendarId) {
+      // No calendar selected and no explicit view — show homepage (detail)
+      setMobileView('detail')
+    }
   }, [calendars])
 
   useEffect(() => {
@@ -674,7 +681,7 @@ function App() {
             onClick={() => {
               setSelectedCalendar(null)
               setShowHomepage(true)
-              setMobileView('list')
+              setMobileView(isMobile ? 'detail' : 'list')
               window.location.hash = ''
             }}
             title="Home"
@@ -947,8 +954,8 @@ function App() {
       <div className="main-content">
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
-            <button className="mobile-back-btn" onClick={handleMobileBack}>
-              ← Calendars
+            <button className="mobile-back-btn" onClick={showHomepage ? () => setMobileView('list') : handleMobileBack}>
+              {showHomepage ? '← Browse Calendars' : '← Calendars'}
             </button>
           </div>
         )}

@@ -1056,7 +1056,23 @@ function App() {
       <div className="main-content">
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
-            <button className="mobile-back-btn" onClick={() => setMobileView('list')}>
+            <button className="mobile-back-btn" onClick={() => {
+              if (!showHomepage && selectedCalendar) {
+                // Going back from calendar detail to the tag/calendar list
+                setSelectedCalendar(null)
+                setShowHomepage(true)
+                setMobileView('list')
+                // Update URL without creating new history entry so browser back
+                // doesn't bounce back to the calendar detail
+                const params = new URLSearchParams()
+                if (searchTerm) params.set('search', searchTerm)
+                if (selectedTag) params.set('tag', selectedTag)
+                const hash = params.toString()
+                history.replaceState(null, '', hash ? '#' + hash : window.location.pathname)
+              } else {
+                setMobileView('list')
+              }
+            }}>
               {showHomepage ? '← Browse Calendars' : '← Calendars'}
             </button>
           </div>
@@ -1197,11 +1213,11 @@ function App() {
           <div className="footer-content">
             <p className="footer-warning">
               ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
-              <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">
                Open an issue or pull request to add a new calendar to this page. </a>
             </p>
             <p style={{ fontSize: '12px' }}>
-              Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
               {manifest && (
                 <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
               )}

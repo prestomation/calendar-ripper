@@ -32,8 +32,10 @@ function App() {
   const [eventsError, setEventsError] = useState(null)
   const [sidebarWidth, setSidebarWidth] = useState(400)
   const [tagsHeight, setTagsHeight] = useState(150)
+  const [footerMinimized, setFooterMinimized] = useState(false)
   // Mobile: 'list' shows sidebar, 'detail' shows events
-  const [mobileView, setMobileView] = useState('list')
+  // Start on 'detail' so the homepage is visible on mobile
+  const [mobileView, setMobileView] = useState('detail')
 
   const breakpoint = useBreakpoint()
   const isMobile = breakpoint === 'mobile'
@@ -165,9 +167,22 @@ function App() {
         setSelectedCalendar(calendar)
         setShowHomepage(false)
       }
+    } else if (!calendarId) {
+      // No calendar in URL — reset to homepage
+      setSelectedCalendar(null)
+      setShowHomepage(true)
     }
     // Sync mobile view from URL
-    setMobileView(params.get('view') === 'detail' ? 'detail' : 'list')
+    const urlView = params.get('view')
+    if (urlView === 'detail') {
+      setMobileView('detail')
+    } else if (params.toString() !== '') {
+      // URL has tag/search/other params but no view=detail — show sidebar
+      setMobileView('list')
+    } else {
+      // Empty URL — show homepage in detail view
+      setMobileView('detail')
+    }
   }, [calendars])
 
   useEffect(() => {
@@ -296,11 +311,6 @@ function App() {
     setShowHomepage(false)
     if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, calendarWithRipper, isMobile ? 'detail' : undefined)
-  }
-
-  const handleMobileBack = () => {
-    // Use browser history so Android back button stays in sync
-    window.history.back()
   }
 
   const createGoogleMapsUrl = (location) => {
@@ -674,7 +684,7 @@ function App() {
             onClick={() => {
               setSelectedCalendar(null)
               setShowHomepage(true)
-              setMobileView('list')
+              setMobileView(isMobile ? 'detail' : 'list')
               window.location.hash = ''
             }}
             title="Home"
@@ -947,8 +957,8 @@ function App() {
       <div className="main-content">
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
-            <button className="mobile-back-btn" onClick={handleMobileBack}>
-              ← Calendars
+            <button className="mobile-back-btn" onClick={() => setMobileView('list')}>
+              {showHomepage ? '← Browse Calendars' : '← Calendars'}
             </button>
           </div>
         )}
@@ -1077,18 +1087,27 @@ function App() {
         ) : (
           <div className="empty-state">Select a calendar to view events</div>
         )}
-        <footer className="footer">
-          <p className="footer-warning">
-            ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
-            <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
-             Open an issue or pull request to add a new calendar to this page. </a>
-          </p>
-          <p style={{ fontSize: '12px' }}>
-            Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
-            {manifest && (
-              <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
-            )}
-          </p>
+        <footer className={`footer ${footerMinimized ? 'footer--minimized' : ''}`}>
+          <button
+            className="footer-toggle"
+            onClick={() => setFooterMinimized(!footerMinimized)}
+            title={footerMinimized ? 'Show disclaimer' : 'Hide disclaimer'}
+          >
+            {footerMinimized ? '▲' : '▼'}
+          </button>
+          <div className="footer-content">
+            <p className="footer-warning">
+              ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
+              <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
+               Open an issue or pull request to add a new calendar to this page. </a>
+            </p>
+            <p style={{ fontSize: '12px' }}>
+              Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+              {manifest && (
+                <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
+              )}
+            </p>
+          </div>
         </footer>
       </div>
       )}

@@ -60,13 +60,13 @@ describe('App', () => {
 
   it('displays all tags in filter section', async () => {
     render(<App />)
-    
+
     await waitFor(() => {
-      expect(screen.getByText('music')).toBeInTheDocument()
+      expect(screen.getAllByText('music').length).toBeGreaterThan(0)
     })
-    
-    expect(screen.getByText('movies')).toBeInTheDocument()
-    expect(screen.getByText('events')).toBeInTheDocument()
+
+    expect(screen.getAllByText('movies').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('events').length).toBeGreaterThan(0)
   })
 
   it('filters calendars by tag when tag is clicked', async () => {
@@ -77,11 +77,11 @@ describe('App', () => {
       expect(screen.getByText('Test Calendar 1')).toBeInTheDocument()
     })
     
-    // Click on music tag
-    await user.click(screen.getByText('music'))
-    
+    // Click on music tag pill (first match is in the tags panel)
+    await user.click(screen.getAllByText('music')[0])
+
     // Should still show calendar 1 (has music tag)
-    expect(screen.getByText('Test Calendar 1')).toBeInTheDocument()
+    expect(screen.getAllByText('Test Calendar 1').length).toBeGreaterThan(0)
     // Should hide calendar 2 (no music tag) - check ripper group is hidden
     expect(screen.queryByText('Test Calendar 2')).not.toBeInTheDocument()
   })
@@ -133,13 +133,13 @@ describe('App', () => {
     })
     
     // Click music tag to filter
-    await user.click(screen.getByText('music'))
-    
+    await user.click(screen.getAllByText('music')[0])
+
     // Click All to reset
     await user.click(screen.getByText('All'))
     
     // Both calendars should be visible again
-    expect(screen.getByText('Test Calendar 1')).toBeInTheDocument()
-    expect(screen.getByText('Test Calendar 2')).toBeInTheDocument()
+    expect(screen.getAllByText('Test Calendar 1').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Test Calendar 2').length).toBeGreaterThan(0)
   })
 })

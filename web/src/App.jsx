@@ -167,13 +167,20 @@ function App() {
         setSelectedCalendar(calendar)
         setShowHomepage(false)
       }
-    }
-    // Sync mobile view from URL; default to 'detail' when showing homepage
-    const urlView = params.get('view')
-    if (urlView) {
-      setMobileView(urlView === 'detail' ? 'detail' : 'list')
     } else if (!calendarId) {
-      // No calendar selected and no explicit view — show homepage (detail)
+      // No calendar in URL — reset to homepage
+      setSelectedCalendar(null)
+      setShowHomepage(true)
+    }
+    // Sync mobile view from URL
+    const urlView = params.get('view')
+    if (urlView === 'detail') {
+      setMobileView('detail')
+    } else if (params.toString() !== '') {
+      // URL has tag/search/other params but no view=detail — show sidebar
+      setMobileView('list')
+    } else {
+      // Empty URL — show homepage in detail view
       setMobileView('detail')
     }
   }, [calendars])
@@ -304,11 +311,6 @@ function App() {
     setShowHomepage(false)
     if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, calendarWithRipper, isMobile ? 'detail' : undefined)
-  }
-
-  const handleMobileBack = () => {
-    // Use browser history so Android back button stays in sync
-    window.history.back()
   }
 
   const createGoogleMapsUrl = (location) => {
@@ -955,7 +957,7 @@ function App() {
       <div className="main-content">
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
-            <button className="mobile-back-btn" onClick={showHomepage ? () => setMobileView('list') : handleMobileBack}>
+            <button className="mobile-back-btn" onClick={() => setMobileView('list')}>
               {showHomepage ? '← Browse Calendars' : '← Calendars'}
             </button>
           </div>

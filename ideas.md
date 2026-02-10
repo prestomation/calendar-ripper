@@ -16,14 +16,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Music
 - **Note:** Supports venue-based queries. Could pull events for specific Seattle venues.
 
-### Pike Place Market Events
-- **URL:** https://www.pikeplacemarket.org/events/
-- **Platform:** WordPress with Modern Events Calendar (MEC)
-- **MEC Docs:** https://webnus.net/dstarter/flavor/flavors/modern-events-calendar/
-- **Feed:** `https://www.pikeplacemarket.org/events/?mec-ical-feed=1` (returned HTML, not ICS)
-- **Tags:** Community, Markets
-- **Note:** MEC plugin should support ICS/API but the feed URL didn't work. Try `/wp-json/mec/v1/` REST endpoints or find the correct MEC export path. May need to fall back to HTML scraping.
-
 ### Seattle.gov Department Calendars (Trumba)
 - **Trumba Docs:** https://www.trumba.com/help/api/
 - **Parks:** Try `https://www.trumba.com/calendars/seattlegov-parks.ics`

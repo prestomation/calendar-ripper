@@ -1,0 +1,25 @@
+name: showbox-presents
+description: "Showbox Presents events across The Showbox, Showbox SoDo, and Neumos venues"
+url: "https://www.showboxpresents.com/events/all"
+friendlyLink: https://www.showboxpresents.com
+tags: ["Music"]
+calendars:
+  - name: the-showbox
+    friendlyname: "The Showbox"
+    timezone: America/Los_Angeles
+    config:
+      venue: "The Showbox"
+      address: "1426 1st Avenue, Seattle, WA 98101"
+  - name: showbox-sodo
+    friendlyname: "Showbox SoDo"
+    timezone: America/Los_Angeles
+    config:
+      venue: "Showbox SoDo"
+      address: "1700 1st Ave S, Seattle, WA 98134"
+  - name: neumos
+    friendlyname: "Neumos"
+    timezone: America/Los_Angeles
+    tags: ["Capitol Hill"]
+    config:
+      venue: "Neumos"
+      address: "925 E Pike St, Seattle, WA 98103"

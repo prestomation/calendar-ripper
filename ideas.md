@@ -2,66 +2,6 @@
 
 Potential Seattle-area calendar sources to add in the future, organized by integration method.
 
-## ICS Feeds (Confirmed Working)
-
-These have verified ICS feeds and can be added directly to `sources/external.yaml`.
-
-### Unexpected Productions (Improv at Pike Place)
-- **URL:** https://www.unexpectedproductions.org/
-- **Feed:** `https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list` (verified, 28+ events)
-- **Platform:** WordPress with The Events Calendar (tribe_events)
-- **Tags:** Theatre, Pike Place
-- **Note:** Seattle's oldest improv theater in Pike Place Market. 10+ shows per week including Theatresports. Uses Eventbrite for ticketing.
-
-### Clock-Out Lounge
-- **URL:** https://clockoutlounge.com/
-- **Feed:** `https://clockoutlounge.com/?post_type=tribe_events&ical=1&eventDisplay=list` (verified, 30+ events)
-- **Platform:** WordPress with The Events Calendar (tribe_events)
-- **Tags:** Music, Beacon Hill
-- **Note:** Intimate 99-capacity music venue in Beacon Hill. Only live music venue in the neighborhood. Uses TicketWeb for ticketing.
-
-### Town Hall Seattle
-- **URL:** https://townhallseattle.org/events/
-- **Feed:** `https://townhallseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list` (verified, 30+ events)
-- **Platform:** WordPress with The Events Calendar (tribe_events)
-- **Tags:** Community, Arts
-- **Note:** 1,100-capacity nonprofit civic venue hosting 350+ events/year — talks, performances, civic discourse. Also has REST API endpoints at `/wp-json/tribe/views/v2/html`.
-
-### United Indians / Daybreak Star Indian Cultural Center
-- **URL:** https://unitedindians.org/events/
-- **Feed:** `webcal://unitedindians.org/?post_type=tribe_events&ical=1` (verified)
-- **Platform:** WordPress with The Events Calendar (tribe_events)
-- **Tags:** Community, Arts
-- **Note:** Cultural center in Discovery Park. Events include the annual Seafair Indian Days Powwow, Native Art Market, and cultural celebrations.
-
-## ICS Feeds (Needs Investigation)
-
-### SeattleArtists.com Art Walks
-- **URL:** https://www.seattleartists.com/calendar/
-- **Feed:** `https://www.seattleartists.com/?post_type=tribe_events&ical=1&eventDisplay=list`
-- **Platform:** WordPress with The Events Calendar (tribe_events)
-- **Tags:** Arts, Artwalk
-- **Note:** Returns 406 without a browser-like User-Agent header. The project's fetch() doesn't send one, so this won't work without adding a User-Agent to the fetcher.
-
-### Climate Pledge Arena
-- **URL:** https://climatepledgearena.com/events/
-- **Feed:** `webcal://climatepledgearena.com/?post_type=tribe_events&ical=1&eventDisplay=list` (unverified)
-- **Platform:** WordPress with The Events Calendar
-- **Tags:** Music, Community
-- **Note:** Site returned 503 during testing. May have bot protection. Worth retrying.
-
-### iLoveSeattle.org Community Calendar
-- **URL:** https://iloveseattle.org/all-events/
-- **Feed:** `https://iloveseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list` (unverified)
-- **Platform:** Likely WordPress with The Events Calendar
-- **Tags:** Community
-
-### Washington Ensemble Theatre (WET)
-- **URL:** https://washingtonensemble.org/
-- **Platform:** WordPress with Divi theme and All-in-One Event Calendar plugin (ai1ec)
-- **Tags:** Theatre, Capitol Hill
-- **Note:** Experimental theater collective at 12th Avenue Arts on Capitol Hill. The ai1ec plugin may have its own ICS export endpoint at `/events/?ical=1` or similar — needs investigation.
-
 ## RSS Feeds (Needs RSS/XML Ripper)
 
 ### Showbox Presents (Showbox, Showbox SoDo, Neumos, Barboza)

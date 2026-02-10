@@ -85,6 +85,33 @@ Before implementing, always:
 
 When you implement a source from `ideas.md`, remove its entry from the file so the list stays current.
 
+## Tags
+
+Tags drive the aggregate calendar system — each unique tag produces a `tag-<name>.ics` file that combines events from every source sharing that tag. The build **fails** if any tag is not in the allowlist.
+
+### Adding a new tag
+
+1. Check `lib/config/tags.ts` (`VALID_TAGS`) for an existing tag that fits. Use it if one exists.
+2. Before creating a new tag, search all config files for similar names to avoid duplicates (e.g., `"Capitol Hill"` vs `"CapitolHill"`, `"Queen Anne"` vs `"QueenAnne"`). The tag name becomes part of the ICS URL (`tag-<lowercased>.ics`), so different spellings create separate calendars.
+3. If no existing tag fits, add the new tag to `VALID_TAGS` in `lib/config/tags.ts` in the appropriate category section (Neighborhood, Activity, Market, or Community).
+4. Use the tag in the source's `tags` array in its YAML config.
+
+### Tag naming conventions
+
+- Neighborhood tags use natural casing with spaces: `"Capitol Hill"`, `"West Seattle"`, `"Pioneer Square"`
+- Activity/type tags use PascalCase without spaces: `"FarmersMarket"`, `"MakersMarket"`
+- Single-word tags are capitalized: `"Music"`, `"Beer"`, `"Dogs"`
+
+### Validation
+
+Tag validation runs at build time in `lib/calendar_ripper.ts`. It collects all unique tags from rippers, external calendars, and recurring calendars, then checks them against `VALID_TAGS`. Invalid tags cause the build to fail with the offending tag names listed in the error message.
+
+### Removing or renaming a calendar URL
+
+The CI runs `scripts/check-missing-urls.ts` which compares the new build's manifest against the deployed site. If any existing calendar URL would disappear (e.g., renaming a tag changes the `tag-*.ics` filename), the check fails.
+
+To intentionally remove a URL, add the filename to `allowed-removals.txt` in the repo root. Remove the entry from the file after the change has been deployed.
+
 ## Unit Tests
 
 Unit tests for rippers are located in the individual ripper directories alongside the implementation files:

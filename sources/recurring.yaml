@@ -173,7 +173,7 @@ events:
 
   - name: wallingford-artwalk
     friendlyname: "Wallingford Art Walk"
-    description: "Summer art walk in the Wallingford neighborhood"
+    description: "Summer art walk in the Wallingford neighborhood, May through September"
     schedule: "2nd Wednesday"
     timezone: America/Los_Angeles
     duration: PT4H
@@ -181,7 +181,7 @@ events:
     location: "Wallingford neighborhood, Seattle"
     url: "https://www.facebook.com/wallingfordartwalk/"
     tags: ["Artwalk", "Wallingford"]
-    seasonal: "summer"  # May - September
+    months: [5, 6, 7, 8, 9]  # May - September
 
   - name: west-seattle-artwalk
     friendlyname: "West Seattle Art Walk"
@@ -226,7 +226,7 @@ events:
     start_time: "11:00"
     location: "E Barbara Bailey Way between Broadway & 10th Ave E, Seattle"
     url: "https://seattlefarmersmarkets.org/chfm"
-    tags: ["FarmersMarket", "CapitolHill"]
+    tags: ["FarmersMarket", "Capitol Hill"]
 
   - name: columbia-city-farmers-market
     friendlyname: "Columbia City Farmers Market"
@@ -238,6 +238,7 @@ events:
     location: "37th Ave S & S Edmunds St, Seattle"
     url: "https://seattlefarmersmarkets.org/ccfm"
     tags: ["FarmersMarket", "Community"]
+    months: [5, 6, 7, 8, 9, 10]  # May - October
 
   - name: west-seattle-farmers-market
     friendlyname: "West Seattle Farmers Market"

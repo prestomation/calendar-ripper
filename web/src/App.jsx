@@ -359,6 +359,15 @@ function App() {
     setTimeout(() => document.body.removeChild(popover), 2000)
   }
 
+  const trackEvent = (action, icsUrl) => {
+    if (window.goatcounter?.count) {
+      window.goatcounter.count({
+        path: `${action}/${icsUrl}`,
+        event: true,
+      })
+    }
+  }
+
   const parseRRuleDescription = (rrule) => {
     if (!rrule) return null
     
@@ -743,11 +752,14 @@ function App() {
                 <div className="tag-title">Tag: {selectedTag}</div>
                 <div className="tag-actions">
                   <div className="ics-group">
-                    <a 
+                    <a
                       href={createWebcalUrl(`tag-${selectedTag.toLowerCase()}.ics`)}
                       title="Subscribe to tag calendar"
                       className="action-link"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        trackEvent('webcal', `tag-${selectedTag.toLowerCase()}.ics`)
+                      }}
                     >
                       📥 ICS
                     </a>
@@ -756,6 +768,7 @@ function App() {
                         e.stopPropagation()
                         const webcalUrl = createWebcalUrl(`tag-${selectedTag.toLowerCase()}.ics`)
                         copyToClipboard(webcalUrl, e.target)
+                        trackEvent('copy-link', `tag-${selectedTag.toLowerCase()}.ics`)
                       }}
                       title="Copy ICS link"
                       className="clipboard-btn"
@@ -763,13 +776,16 @@ function App() {
                       🔗
                     </button>
                   </div>
-                  <a 
+                  <a
                     href={createGoogleCalendarUrl(`tag-${selectedTag.toLowerCase()}.ics`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Add tag calendar to Google Calendar"
                     className="action-link"
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      trackEvent('google-calendar', `tag-${selectedTag.toLowerCase()}.ics`)
+                    }}
                   >
                     📅 Google
                   </a>
@@ -810,10 +826,11 @@ function App() {
                     // External calendar - use original URL
                     <>
                       <div className="ics-group">
-                        <a 
+                        <a
                           href={createWebcalUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)}
                           title="Subscribe to calendar"
                           className="action-link"
+                          onClick={() => trackEvent('webcal', ripper.calendars[0].icsUrl)}
                         >
                           📥 ICS
                         </a>
@@ -822,6 +839,7 @@ function App() {
                             e.stopPropagation()
                             const webcalUrl = createWebcalUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)
                             copyToClipboard(webcalUrl, e.target)
+                            trackEvent('copy-link', ripper.calendars[0].icsUrl)
                           }}
                           title="Copy ICS link"
                           className="clipboard-btn"
@@ -829,12 +847,13 @@ function App() {
                           🔗
                         </button>
                       </div>
-                      <a 
+                      <a
                         href={createGoogleCalendarUrl(ripper.calendars[0].icsUrl, ripper.calendars[0].originalIcsUrl)}
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Add to Google Calendar"
                         className="action-link"
+                        onClick={() => trackEvent('google-calendar', ripper.calendars[0].icsUrl)}
                       >
                         📅 Google
                       </a>
@@ -843,10 +862,11 @@ function App() {
                     // Regular ripper - use tag aggregation
                     <>
                       <div className="ics-group">
-                        <a 
+                        <a
                           href={createWebcalUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
                           title="Subscribe to all calendars"
                           className="action-link"
+                          onClick={() => trackEvent('webcal', `tag-${ripper.name.toLowerCase()}.ics`)}
                         >
                           📥 ICS
                         </a>
@@ -855,6 +875,7 @@ function App() {
                             e.stopPropagation()
                             const webcalUrl = createWebcalUrl(`tag-${ripper.name.toLowerCase()}.ics`)
                             copyToClipboard(webcalUrl, e.target)
+                            trackEvent('copy-link', `tag-${ripper.name.toLowerCase()}.ics`)
                           }}
                           title="Copy ICS link"
                           className="clipboard-btn"
@@ -862,12 +883,13 @@ function App() {
                           🔗
                         </button>
                       </div>
-                      <a 
+                      <a
                         href={createGoogleCalendarUrl(`tag-${ripper.name.toLowerCase()}.ics`)}
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Add all calendars to Google Calendar"
                         className="action-link"
+                        onClick={() => trackEvent('google-calendar', `tag-${ripper.name.toLowerCase()}.ics`)}
                       >
                         📅 Google
                       </a>
@@ -903,10 +925,11 @@ function App() {
                   </div>
                   <div className="calendar-actions">
                     <div className="ics-group">
-                      <a 
+                      <a
                         href={createWebcalUrl(calendar.icsUrl, calendar.originalIcsUrl)}
                         title="Subscribe to calendar"
                         className="action-link"
+                        onClick={() => trackEvent('webcal', calendar.icsUrl)}
                       >
                         📥 ICS
                       </a>
@@ -915,6 +938,7 @@ function App() {
                           e.stopPropagation()
                           const webcalUrl = createWebcalUrl(calendar.icsUrl, calendar.originalIcsUrl)
                           copyToClipboard(webcalUrl, e.target)
+                          trackEvent('copy-link', calendar.icsUrl)
                         }}
                         title="Copy ICS link"
                         className="clipboard-btn"
@@ -922,12 +946,13 @@ function App() {
                         🔗
                       </button>
                     </div>
-                    <a 
+                    <a
                       href={createGoogleCalendarUrl(calendar.icsUrl, calendar.originalIcsUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Add to Google Calendar"
                       className="action-link"
+                      onClick={() => trackEvent('google-calendar', calendar.icsUrl)}
                     >
                       📅 Google
                     </a>

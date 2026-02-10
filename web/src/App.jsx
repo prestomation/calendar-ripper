@@ -225,13 +225,18 @@ function App() {
     }
   }, [calendars.length])
 
-  const updateURL = (search, tag, calendar, view) => {
+  const updateURL = (search, tag, calendar, view, { replace = false } = {}) => {
     const params = new URLSearchParams()
     if (search) params.set('search', search)
     if (tag) params.set('tag', tag)
     if (calendar) params.set('calendar', `${calendar.ripperName}-${calendar.name}`)
     if (view === 'detail') params.set('view', 'detail')
-    window.location.hash = params.toString()
+    const hash = params.toString()
+    if (replace) {
+      history.replaceState(null, '', hash ? '#' + hash : window.location.pathname)
+    } else {
+      window.location.hash = hash
+    }
   }
 
   const findCalendarById = (id) => {
@@ -247,19 +252,19 @@ function App() {
 
   const handleSearchChange = (value) => {
     setSearchTerm(value)
-    
+
     // If starting to type and we have a tag selected, save it and clear tag selection
     if (value && selectedTag) {
       setPreviousTag(selectedTag)
       setSelectedTag('')
-      updateURL(value, '', selectedCalendar)
+      updateURL(value, '', selectedCalendar, undefined, { replace: true })
     }
     // If search is cleared and we had a previous tag, restore it
     else if (!value && previousTag) {
       setSelectedTag(previousTag)
-      updateURL(value, previousTag, selectedCalendar)
+      updateURL(value, previousTag, selectedCalendar, undefined, { replace: true })
     } else {
-      updateURL(value, selectedTag, selectedCalendar)
+      updateURL(value, selectedTag, selectedCalendar, undefined, { replace: true })
     }
   }
 
@@ -893,14 +898,98 @@ function App() {
             </div>
           )}
           
-          {filteredCalendars.map((ripper) => (
-            <div key={ripper.name} className="ripper-group">
+          {filteredCalendars.map((ripper) => {
+            const isSingleCalendar = ripper.calendars.length === 1
+            const singleCal = isSingleCalendar ? ripper.calendars[0] : null
+
+            return (
+            <div key={ripper.name} className={`ripper-group ${isSingleCalendar ? 'ripper-group--single' : ''}`}>
+              {isSingleCalendar ? (
+                /* Single calendar: merged compact view */
+                <div
+                  className={`calendar-item calendar-item--solo ${selectedCalendar?.name === singleCal.name && selectedCalendar?.ripperName === ripper.name ? 'selected' : ''}`}
+                >
+                  <div
+                    onClick={() => handleCalendarSelect(singleCal, ripper.name)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="calendar-title">
+                      {ripper.description}
+                      {singleCal.isExternal && (
+                        <span className="external-indicator" title="External calendar from original organization"> 🔗</span>
+                      )}
+                      {ripper.friendlyLink && (
+                        <a
+                          href={ripper.friendlyLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ripper-link-icon"
+                          title="Visit organization website"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          🌐
+                        </a>
+                      )}
+                    </div>
+                    <div className="calendar-tags">
+                      {singleCal.tags.map(tag => (
+                        <span
+                          key={tag}
+                          className="clickable-tag"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleTagChange(tag)
+                          }}
+                        >
+                          {formatTagLabel(tag)}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="calendar-actions">
+                    <div className="ics-group">
+                      <a
+                        href={createWebcalUrl(singleCal.icsUrl, singleCal.originalIcsUrl)}
+                        title="Subscribe to calendar"
+                        className="action-link"
+                        onClick={() => trackEvent('webcal', singleCal.icsUrl)}
+                      >
+                        📥 ICS
+                      </a>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          const webcalUrl = createWebcalUrl(singleCal.icsUrl, singleCal.originalIcsUrl)
+                          copyToClipboard(webcalUrl, e.target)
+                          trackEvent('copy-link', singleCal.icsUrl)
+                        }}
+                        title="Copy ICS link"
+                        className="clipboard-btn"
+                      >
+                        🔗
+                      </button>
+                    </div>
+                    <a
+                      href={createGoogleCalendarUrl(singleCal.icsUrl, singleCal.originalIcsUrl)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Add to Google Calendar"
+                      className="action-link"
+                      onClick={() => trackEvent('google-calendar', singleCal.icsUrl)}
+                    >
+                      📅 Google
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                /* Multiple calendars: full ripper header + calendar items */
+                <>
               <div className="ripper-header">
                 <div className="ripper-title-container">
                   <div className="ripper-title">
                     {ripper.description}
                     {ripper.calendars[0]?.isExternal && (
-                      <span 
+                      <span
                         className="external-indicator"
                         title="External calendar from original organization"
                       >
@@ -909,7 +998,7 @@ function App() {
                     )}
                   </div>
                   {ripper.friendlyLink && (
-                    <a 
+                    <a
                       href={ripper.friendlyLink}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -996,7 +1085,7 @@ function App() {
                   )}
                 </div>
               </div>
-              
+
               {ripper.calendars.map((calendar) => (
                 <div
                   key={`${ripper.name}-${calendar.name}`}
@@ -1009,7 +1098,7 @@ function App() {
                     <div className="calendar-title">{calendar.fullName}</div>
                     <div className="calendar-tags">
                       {calendar.tags.map(tag => (
-                        <span 
+                        <span
                           key={tag}
                           className="clickable-tag"
                           onClick={(e) => {
@@ -1058,8 +1147,11 @@ function App() {
                   </div>
                 </div>
               ))}
+                </>
+              )}
             </div>
-          ))}
+            )
+          })}
           {filteredCalendars.length === 0 && (
             <div className="empty-state">No calendars found</div>
           )}
@@ -1106,7 +1198,16 @@ function App() {
           <div className="homepage">
             <h1>Yet Another Seattle Calendar</h1>
             <p>Welcome to YASC! This tool aggregates events from various websites and presents them as searchable, filterable calendars. You're welcome to use this interface, but it's really meant for you to add the ICS to your favorite calendar app so you can aggregate events in your calendar however you like</p>
-            
+
+            {isMobile && (
+              <button
+                className="explore-btn"
+                onClick={() => setMobileView('list')}
+              >
+                Explore Calendars
+              </button>
+            )}
+
             <h2>How to Use</h2>
             <ul>
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>
@@ -1125,7 +1226,16 @@ function App() {
               <li>Each calendar can have multiple tags for flexible organization</li>
             </ul>
             
-            <p>Select a calendar from the sidebar to get started!</p>
+            {isMobile ? (
+              <button
+                className="explore-btn"
+                onClick={() => setMobileView('list')}
+              >
+                Explore Calendars
+              </button>
+            ) : (
+              <p>Select a calendar from the sidebar to get started!</p>
+            )}
           </div>
         ) : selectedCalendar ? (
           <div className="agenda-panel" ref={agendaRef}>

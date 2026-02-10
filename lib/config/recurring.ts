@@ -97,20 +97,20 @@ export class RecurringEventProcessor {
 
     private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, allowedMonths: number[]): string {
         const dayAbbr = this.getDayAbbreviation(dayOfWeek);
+        const byMonth = allowedMonths.length > 0 ? `;BYMONTH=${allowedMonths.join(',')}` : '';
 
-        // ordinal 0 means "every week" (weekly recurring)
-        let rrule: string;
         if (ordinal === 0) {
-            rrule = `FREQ=WEEKLY;BYDAY=${dayAbbr}`;
-        } else {
-            rrule = `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}`;
+            // Weekly recurring. When month-restricted, use FREQ=YEARLY with
+            // BYDAY+BYMONTH instead of FREQ=WEEKLY+BYMONTH because many
+            // calendar apps (Google, Apple) don't properly filter FREQ=WEEKLY
+            // by BYMONTH, causing events to stop before the last allowed month.
+            if (byMonth) {
+                return `FREQ=YEARLY;BYDAY=${dayAbbr}${byMonth}`;
+            }
+            return `FREQ=WEEKLY;BYDAY=${dayAbbr}`;
         }
 
-        if (allowedMonths.length > 0) {
-            rrule += `;BYMONTH=${allowedMonths.join(',')}`;
-        }
-
-        return rrule;
+        return `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}${byMonth}`;
     }
 
     private getDayAbbreviation(dayOfWeek: DayOfWeek): string {

@@ -122,7 +122,7 @@ events:
 
       expect(calendars).toHaveLength(1);
       const event = calendars[0].events[0];
-      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=WE;BYMONTH=6,7,8,9');
+      expect(event.rrule).toBe('FREQ=YEARLY;BYDAY=WE;BYMONTH=6,7,8,9');
       // DTSTART must be in an allowed month (June-September), not January
       expect(event.date.monthValue()).toBeGreaterThanOrEqual(6);
       expect(event.date.monthValue()).toBeLessThanOrEqual(9);
@@ -157,7 +157,7 @@ events:
       // DTSTART must be in May (first allowed month), not February
       expect(event.date.monthValue()).toBe(5);
       expect(event.date.dayOfWeek().value()).toBe(3); // Wednesday
-      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10');
+      expect(event.rrule).toBe('FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10');
     });
 
     it('should set DTSTART in allowed month for monthly schedule with months restriction', () => {
@@ -216,7 +216,7 @@ events:
 
       expect(calendars).toHaveLength(1);
       const event = calendars[0].events[0];
-      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10');
+      expect(event.rrule).toBe('FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10');
     });
 
     it('should use explicit months for monthly recurring events', () => {
@@ -274,7 +274,7 @@ events:
       expect(calendars).toHaveLength(1);
       const event = calendars[0].events[0];
       // months should take precedence over seasonal
-      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=TH;BYMONTH=4,5,6,7,8,9,10');
+      expect(event.rrule).toBe('FREQ=YEARLY;BYDAY=TH;BYMONTH=4,5,6,7,8,9,10');
     });
   });
 });

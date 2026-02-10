@@ -194,6 +194,85 @@ events:
     url: "http://wsartwalk.com/"
     tags: ["Artwalk", "West Seattle"]
 
+  # Seattle Farmers Markets
+  - name: ballard-farmers-market
+    friendlyname: "Ballard Farmers Market"
+    description: "Year-round Sunday farmers market on Ballard Avenue NW. One of Seattle's largest and most popular markets with local produce, prepared foods, and crafts."
+    schedule: "every Sunday"
+    timezone: America/Los_Angeles
+    duration: PT5H
+    start_time: "09:00"
+    location: "Ballard Ave NW between 20th Ave NW & 22nd Ave NW, Seattle"
+    url: "http://www.sfmamarkets.com/visit-ballard-farmers-market"
+    tags: ["FarmersMarket", "Ballard"]
+
+  - name: u-district-farmers-market
+    friendlyname: "University District Farmers Market"
+    description: "Year-round Saturday farmers market in the U-District. Fresh produce, flowers, baked goods, and artisan foods."
+    schedule: "every Saturday"
+    timezone: America/Los_Angeles
+    duration: PT5H
+    start_time: "09:00"
+    location: "University Way NE between NE 50th St & NE 52nd St, Seattle"
+    url: "https://seattlefarmersmarkets.org/udfm"
+    tags: ["FarmersMarket"]
+
+  - name: capitol-hill-farmers-market
+    friendlyname: "Capitol Hill Farmers Market"
+    description: "Year-round Sunday farmers market on Capitol Hill featuring local farms, food vendors, and community gathering."
+    schedule: "every Sunday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "11:00"
+    location: "E Barbara Bailey Way between Broadway & 10th Ave E, Seattle"
+    url: "https://seattlefarmersmarkets.org/chfm"
+    tags: ["FarmersMarket", "CapitolHill"]
+
+  - name: columbia-city-farmers-market
+    friendlyname: "Columbia City Farmers Market"
+    description: "Seasonal Wednesday evening farmers market in Columbia City, one block from the light rail station. Runs May through October."
+    schedule: "every Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "15:00"
+    location: "37th Ave S & S Edmunds St, Seattle"
+    url: "https://seattlefarmersmarkets.org/ccfm"
+    tags: ["FarmersMarket", "Community"]
+
+  - name: west-seattle-farmers-market
+    friendlyname: "West Seattle Farmers Market"
+    description: "Year-round Sunday farmers market in the West Seattle Junction. Local produce, artisan foods, and community events."
+    schedule: "every Sunday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "10:00"
+    location: "California Ave SW & SW Alaska St, Seattle"
+    url: "https://seattlefarmersmarkets.org/wsfm"
+    tags: ["FarmersMarket", "West Seattle"]
+
+  - name: lake-city-farmers-market
+    friendlyname: "Lake City Farmers Market"
+    description: "Seasonal Thursday afternoon farmers market in Lake City. Runs June through September."
+    schedule: "every Thursday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "15:00"
+    location: "NE 125th St & 28th Ave NE, Seattle"
+    url: "https://seattlefarmersmarkets.org/lcfm"
+    tags: ["FarmersMarket", "Lake City"]
+    seasonal: "summer"
+
+  - name: fremont-sunday-market
+    friendlyname: "Fremont Sunday Market"
+    description: "Year-round outdoor Sunday market in Fremont with 150+ vendors including vintage goods, crafts, food, and local farm produce."
+    schedule: "every Sunday"
+    timezone: America/Los_Angeles
+    duration: PT6H
+    start_time: "10:00"
+    location: "3401 Evanston Ave N, Seattle"
+    url: "http://www.fremontmarket.com/"
+    tags: ["MakersMarket", "Fremont"]
+
   # Seattle Critical Mass
   - name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"

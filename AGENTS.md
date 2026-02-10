@@ -76,11 +76,14 @@ Only implement HTML parsing if no ICS feed or API is available:
 ### Investigation Process
 
 Before implementing, always:
-1. Check the website for ICS/calendar export options
-2. Inspect network traffic for API endpoints
-3. Search for the calendar platform being used (e.g., CitySpark, Localist)
-4. Check if the platform has public API documentation
-5. Only fall back to HTML scraping if the above fail
+1. Check **`ideas.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
+2. Check the website for ICS/calendar export options
+3. Inspect network traffic for API endpoints
+4. Search for the calendar platform being used (e.g., CitySpark, Localist)
+5. Check if the platform has public API documentation
+6. Only fall back to HTML scraping if the above fail
+
+When you implement a source from `ideas.md`, remove its entry from the file so the list stays current.
 
 ## Unit Tests
 

@@ -51,15 +51,78 @@ events:
       vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
 
       const processor = new RecurringEventProcessor('/fake/path.yaml');
-      
+
       const startDate = LocalDate.of(2024, 1, 1);
       const endDate = LocalDate.of(2024, 3, 31);
-      
+
       const calendars = processor.generateCalendars(startDate, endDate);
-      
+
       expect(calendars).toHaveLength(1);
       expect(calendars[0].name).toBe('test-event');
       expect(calendars[0].friendlyname).toBe('Test Event');
+    });
+
+    it('should generate weekly recurring events with "every <day>" schedule', () => {
+      const mockYaml = `
+events:
+  - name: weekly-market
+    friendlyname: "Weekly Sunday Market"
+    description: "A weekly market every Sunday"
+    schedule: "every Sunday"
+    timezone: "America/Los_Angeles"
+    duration: "PT5H"
+    start_time: "10:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["FarmersMarket"]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+
+      // Start on a Wednesday (2024-01-03)
+      const startDate = LocalDate.of(2024, 1, 3);
+      const endDate = LocalDate.of(2024, 3, 31);
+
+      const calendars = processor.generateCalendars(startDate, endDate);
+
+      expect(calendars).toHaveLength(1);
+      expect(calendars[0].events).toHaveLength(1);
+
+      const event = calendars[0].events[0];
+      // Next Sunday after Jan 3, 2024 is Jan 7
+      expect(event.date.dayOfWeek().value()).toBe(7); // Sunday
+      expect(event.date.dayOfMonth()).toBe(7);
+      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=SU');
+    });
+
+    it('should generate seasonal weekly recurring events', () => {
+      const mockYaml = `
+events:
+  - name: seasonal-market
+    friendlyname: "Summer Wednesday Market"
+    description: "A seasonal weekly market"
+    schedule: "every Wednesday"
+    timezone: "America/Los_Angeles"
+    duration: "PT4H"
+    start_time: "15:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["FarmersMarket"]
+    seasonal: "summer"
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+
+      const startDate = LocalDate.of(2024, 1, 1);
+      const endDate = LocalDate.of(2024, 12, 31);
+
+      const calendars = processor.generateCalendars(startDate, endDate);
+
+      expect(calendars).toHaveLength(1);
+      const event = calendars[0].events[0];
+      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=WE;BYMONTH=6,7,8,9');
     });
   });
 });

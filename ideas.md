@@ -2,14 +2,6 @@
 
 Potential Seattle-area calendar sources to add in the future, organized by integration method.
 
-## RSS Feeds (Needs RSS/XML Ripper)
-
-### Showbox Presents (Showbox, Showbox SoDo, Neumos, Barboza)
-- **URL:** https://www.showboxpresents.com/events/all
-- **Feed:** `https://www.showboxpresents.com/events/rss` (verified, RSS 2.0 with Dublin Core)
-- **Tags:** Music
-- **Note:** Would need an RSS/XML ripper base class or conversion to ICS. Feed includes event title, date, link (AXS ticketing), and description. Also covers Neumos (925 E Pike St, Capitol Hill) and Barboza (basement of Neumos, 200 capacity). All use the same Showtime CMS / AXS ticketing platform.
-
 ## APIs (Needs API Key or Custom Ripper)
 
 ### Ticketmaster Discovery API

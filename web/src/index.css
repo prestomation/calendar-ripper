@@ -469,6 +469,24 @@ body {
   gap: 8px;
 }
 
+/* Single-calendar rippers: no header/sub-item split */
+.ripper-group--single {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calendar-item--solo {
+  border-bottom: none;
+}
+
+.calendar-item--solo .calendar-title {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .calendar-item {
   padding: 16px 20px;
   cursor: pointer;
@@ -1072,6 +1090,25 @@ body {
   padding: 40px;
   max-width: 800px;
   line-height: 1.6;
+}
+
+.explore-btn {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.explore-btn:hover {
+  background: var(--color-primary-dark);
 }
 
 .homepage h1 {

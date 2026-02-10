@@ -18,7 +18,8 @@ export const recurringEventSchema = z.object({
     location: z.string(),
     url: z.string(),
     tags: z.array(z.string()),
-    seasonal: z.string().optional() // "summer", "winter", etc.
+    seasonal: z.string().optional(), // "summer", "winter", etc.
+    months: z.array(z.number().int().min(1).max(12)).optional() // explicit month list, e.g. [5,6,7,8,9]
 });
 
 export const recurringConfigSchema = z.object({
@@ -74,7 +75,7 @@ export class RecurringEventProcessor {
         );
 
         // Generate RRULE based on schedule
-        const rrule = this.generateRRule(ordinal, dayOfWeek, event.seasonal);
+        const rrule = this.generateRRule(ordinal, dayOfWeek, event.seasonal, event.months);
 
         const calendarEvent: RipperCalendarEvent = {
             id: event.name,
@@ -91,7 +92,7 @@ export class RecurringEventProcessor {
         return [calendarEvent];
     }
 
-    private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, seasonal?: string): string {
+    private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, seasonal?: string, months?: number[]): string {
         const dayAbbr = this.getDayAbbreviation(dayOfWeek);
 
         // ordinal 0 means "every week" (weekly recurring)
@@ -102,11 +103,10 @@ export class RecurringEventProcessor {
             rrule = `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}`;
         }
 
-        if (seasonal) {
-            const months = this.getSeasonalMonths(seasonal);
-            if (months.length > 0) {
-                rrule += `;BYMONTH=${months.join(',')}`;
-            }
+        // Explicit months take precedence over named seasonal
+        const resolvedMonths = months ?? (seasonal ? this.getSeasonalMonths(seasonal) : []);
+        if (resolvedMonths.length > 0) {
+            rrule += `;BYMONTH=${resolvedMonths.join(',')}`;
         }
 
         return rrule;

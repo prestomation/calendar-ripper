@@ -124,6 +124,92 @@ events:
       const event = calendars[0].events[0];
       expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=WE;BYMONTH=6,7,8,9');
     });
+
+    it('should use explicit months array for BYMONTH in RRULE', () => {
+      const mockYaml = `
+events:
+  - name: custom-months-market
+    friendlyname: "May-October Market"
+    description: "A market running May through October"
+    schedule: "every Wednesday"
+    timezone: "America/Los_Angeles"
+    duration: "PT4H"
+    start_time: "15:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["FarmersMarket"]
+    months: [5, 6, 7, 8, 9, 10]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const calendars = processor.generateCalendars(
+        LocalDate.of(2024, 1, 1),
+        LocalDate.of(2024, 12, 31)
+      );
+
+      expect(calendars).toHaveLength(1);
+      const event = calendars[0].events[0];
+      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10');
+    });
+
+    it('should use explicit months for monthly recurring events', () => {
+      const mockYaml = `
+events:
+  - name: custom-months-artwalk
+    friendlyname: "May-September Art Walk"
+    description: "An art walk running May through September"
+    schedule: "2nd Wednesday"
+    timezone: "America/Los_Angeles"
+    duration: "PT4H"
+    start_time: "18:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["Artwalk"]
+    months: [5, 6, 7, 8, 9]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const calendars = processor.generateCalendars(
+        LocalDate.of(2024, 1, 1),
+        LocalDate.of(2024, 12, 31)
+      );
+
+      expect(calendars).toHaveLength(1);
+      const event = calendars[0].events[0];
+      expect(event.rrule).toBe('FREQ=MONTHLY;BYDAY=2WE;BYMONTH=5,6,7,8,9');
+    });
+
+    it('should prefer explicit months over seasonal when both are provided', () => {
+      const mockYaml = `
+events:
+  - name: override-event
+    friendlyname: "Override Event"
+    description: "Event with both seasonal and months"
+    schedule: "every Thursday"
+    timezone: "America/Los_Angeles"
+    duration: "PT4H"
+    start_time: "15:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["FarmersMarket"]
+    seasonal: "summer"
+    months: [4, 5, 6, 7, 8, 9, 10]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const calendars = processor.generateCalendars(
+        LocalDate.of(2024, 1, 1),
+        LocalDate.of(2024, 12, 31)
+      );
+
+      expect(calendars).toHaveLength(1);
+      const event = calendars[0].events[0];
+      // months should take precedence over seasonal
+      expect(event.rrule).toBe('FREQ=WEEKLY;BYDAY=TH;BYMONTH=4,5,6,7,8,9,10');
+    });
   });
 });
 
@@ -144,6 +230,44 @@ describe('recurringEventSchema', () => {
 
     const result = recurringEventSchema.safeParse(validEvent);
     expect(result.success).toBe(true);
+  });
+
+  it('should validate recurring event with months field', () => {
+    const validEvent = {
+      name: 'test-event',
+      friendlyname: 'Test Event',
+      description: 'Test Description',
+      schedule: '2nd Thursday',
+      timezone: 'America/Los_Angeles',
+      duration: 'PT2H',
+      start_time: '19:00',
+      location: 'Test Location',
+      url: 'https://example.com',
+      tags: ['test'],
+      months: [5, 6, 7, 8, 9]
+    };
+
+    const result = recurringEventSchema.safeParse(validEvent);
+    expect(result.success).toBe(true);
+  });
+
+  it('should reject months with invalid values', () => {
+    const invalidEvent = {
+      name: 'test-event',
+      friendlyname: 'Test Event',
+      description: 'Test Description',
+      schedule: '2nd Thursday',
+      timezone: 'America/Los_Angeles',
+      duration: 'PT2H',
+      start_time: '19:00',
+      location: 'Test Location',
+      url: 'https://example.com',
+      tags: ['test'],
+      months: [0, 13]  // invalid month numbers
+    };
+
+    const result = recurringEventSchema.safeParse(invalidEvent);
+    expect(result.success).toBe(false);
   });
 
   it('should reject invalid event data', () => {

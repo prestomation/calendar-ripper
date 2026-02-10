@@ -1198,7 +1198,16 @@ function App() {
           <div className="homepage">
             <h1>Yet Another Seattle Calendar</h1>
             <p>Welcome to YASC! This tool aggregates events from various websites and presents them as searchable, filterable calendars. You're welcome to use this interface, but it's really meant for you to add the ICS to your favorite calendar app so you can aggregate events in your calendar however you like</p>
-            
+
+            {isMobile && (
+              <button
+                className="explore-btn"
+                onClick={() => setMobileView('list')}
+              >
+                Explore Calendars
+              </button>
+            )}
+
             <h2>How to Use</h2>
             <ul>
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>

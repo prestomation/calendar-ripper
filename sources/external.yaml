@@ -61,4 +61,60 @@
   description: "GeekWire Events attract thousands of people to network, learn, recruit, do business, and make valuable connections with other members of the business, tech, life sciences, and innovation communities."
   icsUrl: "https://www.geekwire.com/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://www.geekwire.com/events/"
+
+# Seattle Arthouse Cinemas (from seattle-movies.innocence.com)
+- name: the-beacon-cinema
+  friendlyname: "The Beacon Cinema"
+  description: "Independent arthouse cinema in Columbia City showing curated films, repertory screenings, and special events"
+  icsUrl: "https://seattle-movies.innocence.com/thebeacon.ics"
+  infoUrl: "https://thebeacon.film/"
+  tags:
+  - Movies
+  - Community
+
+- name: central-cinema
+  friendlyname: "Central Cinema"
+  description: "Dinner theater showing classic, cult, and independent films with food and drinks on Capitol Hill"
+  icsUrl: "https://seattle-movies.innocence.com/centralcinema.ics"
+  infoUrl: "https://central-cinema.com/"
+  tags:
+  - Movies
+  - Capitol Hill
+
+- name: grand-illusion-cinema
+  friendlyname: "Grand Illusion Cinema"
+  description: "Nonprofit microcinema in the University District showing independent, experimental, and classic films"
+  icsUrl: "https://seattle-movies.innocence.com/grandillusion.ics"
+  infoUrl: "https://grandillusioncinema.org/"
+  tags:
+  - Movies
+
+- name: nw-film-forum
+  friendlyname: "Northwest Film Forum"
+  description: "Nonprofit film arts center on Capitol Hill presenting independent, international, and local films"
+  icsUrl: "https://seattle-movies.innocence.com/nwff.ics"
+  infoUrl: "https://nwfilmforum.org/"
+  tags:
+  - Movies
+  - Arts
+  - Capitol Hill
+
+# Museums
+- name: mohai
+  friendlyname: "MOHAI - Museum of History & Industry"
+  description: "Events at the Museum of History & Industry in South Lake Union including exhibits, talks, and community programs"
+  icsUrl: "https://mohai.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://mohai.org/events/"
+  tags:
+  - Museums
+  - Community
+
+# City of Seattle
+- name: seattle-gov-city-wide
+  friendlyname: "City of Seattle Events"
+  description: "City of Seattle city-wide event calendar including public meetings, community events, volunteer opportunities, and civic engagement"
+  icsUrl: "https://www.trumba.com/calendars/seattlegov-city-wide.ics"
+  infoUrl: "https://www.seattle.gov/event-calendar"
+  tags:
+  - Community
   

@@ -1,27 +1,50 @@
 // Valid tags for calendar events
 export const VALID_TAGS = [
-    // Location-based
-    "Downtown", 
+    // Neighborhood / Location
+    "Ballard",
+    "Beacon Hill",
+    "Belltown",
+    "Capitol Hill",
+    "Central District",
+    "Downtown",
+    "Fremont",
+    "Georgetown",
+    "Greenwood",
+    "International District",
+    "Lake City",
+    "Phinney",
+    "Pike Place",
+    "Pioneer Square",
     "QueenAnne",
-    "CapitolHill",
-    
+    "Seward Park",
+    "University District",
+    "Wallingford",
+    "West Seattle",
+
     // Activity types
-    "Music",
-    "Movies", 
-    "Beer",
-    "Arts",
+    "Artwalk",
     "Art",
-    
+    "Arts",
+    "Beer",
+    "Cycling",
+    "Dogs",
+    "Education",
+    "Events",
+    "Food",
+    "Movies",
+    "Music",
+    "Museums",
+    "Nightlife",
+    "Sports",
+    "Theatre",
+
     // Market types
     "FarmersMarket",
     "MakersMarket",
-    
-    // Pet/Animal related (consolidated)
-    "Dogs",
-    
+
     // Community/Social
     "Activism",
-    "Community", 
+    "Community",
     "Volunteer"
 ] as const;
 

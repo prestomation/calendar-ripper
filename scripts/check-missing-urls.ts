@@ -111,6 +111,27 @@ function extractIcsUrls(manifest: Manifest): Set<string> {
   return urls;
 }
 
+/**
+ * Loads the allowed-removals.txt file, returning a set of ICS filenames
+ * that are intentionally being removed and should not trigger a failure.
+ * Lines starting with # and blank lines are ignored.
+ */
+async function loadAllowedRemovals(): Promise<Set<string>> {
+  const allowed = new Set<string>();
+  try {
+    const content = await readFile("allowed-removals.txt", "utf-8");
+    for (const line of content.split("\n")) {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.startsWith("#")) {
+        allowed.add(trimmed);
+      }
+    }
+  } catch {
+    // File doesn't exist — no removals are pre-approved
+  }
+  return allowed;
+}
+
 async function main() {
   const deployedSiteUrl = process.argv[2];
 
@@ -171,11 +192,24 @@ async function main() {
   console.log(`Deployed calendars: ${deployedUrls.size}`);
   console.log(`New build calendars: ${newUrls.size}`);
 
-  // Find missing URLs
+  // Find missing URLs, excluding intentional removals
+  const allowedRemovals = await loadAllowedRemovals();
   const missingUrls: string[] = [];
+  const approvedRemovals: string[] = [];
   for (const url of deployedUrls) {
     if (!newUrls.has(url)) {
-      missingUrls.push(url);
+      if (allowedRemovals.has(url)) {
+        approvedRemovals.push(url);
+      } else {
+        missingUrls.push(url);
+      }
+    }
+  }
+
+  if (approvedRemovals.length > 0) {
+    console.log("\n✓ Intentional removals (listed in allowed-removals.txt):");
+    for (const url of approvedRemovals.sort()) {
+      console.log(`  ~ ${url}`);
     }
   }
 

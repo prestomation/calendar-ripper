@@ -117,4 +117,80 @@
   infoUrl: "https://www.seattle.gov/event-calendar"
   tags:
   - Community
-  
+
+# Performing Arts & Music Venues (Confirmed ICS Feeds)
+- name: unexpected-productions
+  friendlyname: "Unexpected Productions"
+  description: "Seattle's oldest improv theater in Pike Place Market - 10+ shows per week including Theatresports"
+  icsUrl: "https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.unexpectedproductions.org/"
+  tags:
+  - Theatre
+  - Pike Place
+
+- name: clock-out-lounge
+  friendlyname: "Clock-Out Lounge"
+  description: "Intimate 99-capacity music venue in Beacon Hill - the only live music venue in the neighborhood"
+  icsUrl: "https://clockoutlounge.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://clockoutlounge.com/"
+  tags:
+  - Music
+  - Beacon Hill
+
+- name: town-hall-seattle
+  friendlyname: "Town Hall Seattle"
+  description: "Nonprofit civic venue hosting 350+ events per year - talks, performances, and civic discourse"
+  icsUrl: "https://townhallseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://townhallseattle.org/events/"
+  tags:
+  - Community
+  - Arts
+
+- name: united-indians-daybreak-star
+  friendlyname: "United Indians / Daybreak Star"
+  description: "Cultural center in Discovery Park - events include Seafair Indian Days Powwow, Native Art Market, and cultural celebrations"
+  icsUrl: "https://unitedindians.org/?post_type=tribe_events&ical=1"
+  infoUrl: "https://unitedindians.org/events/"
+  tags:
+  - Community
+  - Arts
+
+# ICS Feeds (Needs Investigation - disabled)
+- name: seattle-artists-art-walks
+  friendlyname: "SeattleArtists.com Art Walks"
+  description: "Art walks and gallery events across Seattle neighborhoods"
+  icsUrl: "https://www.seattleartists.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.seattleartists.com/calendar/"
+  disabled: true  # Returns 406 without browser-like User-Agent header
+  tags:
+  - Arts
+  - Artwalk
+
+- name: climate-pledge-arena
+  friendlyname: "Climate Pledge Arena"
+  description: "Major event venue at Seattle Center hosting concerts, sports, and community events"
+  icsUrl: "https://climatepledgearena.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://climatepledgearena.com/events/"
+  disabled: true  # Site returned 503 during testing, may have bot protection
+  tags:
+  - Music
+  - Community
+
+- name: iloveseattle-community
+  friendlyname: "iLoveSeattle.org Community Calendar"
+  description: "Community events calendar for Seattle"
+  icsUrl: "https://iloveseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://iloveseattle.org/all-events/"
+  disabled: true  # Unverified feed
+  tags:
+  - Community
+
+- name: washington-ensemble-theatre
+  friendlyname: "Washington Ensemble Theatre"
+  description: "Experimental theater collective at 12th Avenue Arts on Capitol Hill"
+  icsUrl: "https://washingtonensemble.org/events/?ical=1"
+  infoUrl: "https://washingtonensemble.org/"
+  disabled: true  # Uses ai1ec plugin, ICS endpoint needs investigation
+  tags:
+  - Theatre
+  - Capitol Hill

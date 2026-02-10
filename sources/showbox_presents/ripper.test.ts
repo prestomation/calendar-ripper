@@ -137,6 +137,37 @@ describe('Showbox Presents Ripper', () => {
         expect(secondEvents.length).toBe(0);
     });
 
+    test('silently skips events with TBD dates', async () => {
+        const ripper = new ShowboxPresentsRipper();
+        const tbdHtml = parse(`<html><body>
+            <div class="entry clearfix" data-state="WA">
+                <div class="thumb"><a href="https://www.showboxpresents.com/events/detail/999"><img src="img.jpg"/></a></div>
+                <div class="info">
+                    <div class="title">
+                        <h5 class="accentColor animated">Showbox Presents</h5>
+                        <h5></h5>
+                        <h3 class="carousel_item_title_small"><a href="https://www.showboxpresents.com/events/detail/999">TBD Artist</a></h3>
+                        <h4 class="animated"></h4>
+                    </div>
+                    <div class="date-time-container">
+                        <span class="date"><span class="fa fa-calendar-o"></span>TBD</span>
+                        <span class="time"><span class="fa fa-clock-o"></span>Show 8:00 PM</span>
+                        <span class="venue"><span class="accentColor">@</span> The Showbox</span>
+                    </div>
+                </div>
+                <div class="buttons"><a href="https://www.axs.com/events/999/tbd-tickets" class="btn-tickets">Buy Tickets</a></div>
+            </div>
+        </body></html>`);
+
+        const events = await ripper.parseEvents(tbdHtml, testDate, {
+            venue: 'The Showbox',
+            address: '1426 1st Avenue, Seattle, WA 98101'
+        });
+
+        // TBD events should be silently skipped — no events and no errors
+        expect(events.length).toBe(0);
+    });
+
     test('handles empty HTML gracefully', async () => {
         const ripper = new ShowboxPresentsRipper();
         const html = parse('<html><body></body></html>');

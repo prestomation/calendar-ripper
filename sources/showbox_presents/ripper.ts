@@ -60,12 +60,16 @@ export default class ShowboxPresentsRipper extends HTMLRipper {
                 const dateEl = entry.querySelector('.date');
                 if (!dateEl) continue;
                 const dateText = dateEl.textContent.trim();
+
+                // Skip events with TBD dates — these are announced but not yet scheduled
+                if (dateText === 'TBD' || dateText.includes('TBD')) continue;
+
                 const dateMatch = dateText.match(/(\w{3}),\s+(\w{3})\s+(\d{1,2}),\s+(\d{4})/);
                 if (!dateMatch) {
                     events.push({
                         type: "ParseError",
-                        reason: `Could not parse date: "${dateText}"`,
-                        context: eventId
+                        reason: `Could not parse date: "${dateText}" for ${artistName} at ${venueName}`,
+                        context: `Event ${eventId}: ${detailUrl}`
                     });
                     continue;
                 }
@@ -75,8 +79,8 @@ export default class ShowboxPresentsRipper extends HTMLRipper {
                 if (!month) {
                     events.push({
                         type: "ParseError",
-                        reason: `Unknown month: "${dateMatch[2]}"`,
-                        context: eventId
+                        reason: `Unknown month: "${dateMatch[2]}" for ${artistName} at ${venueName}`,
+                        context: `Event ${eventId}: ${detailUrl}`
                     });
                     continue;
                 }
@@ -140,10 +144,13 @@ export default class ShowboxPresentsRipper extends HTMLRipper {
 
                 events.push(event);
             } catch (error) {
+                const entryLink = entry.querySelector('h3 a');
+                const entryArtist = entryLink?.textContent.trim() || 'unknown';
+                const entryUrl = entryLink?.getAttribute('href') || '';
                 events.push({
                     type: "ParseError",
-                    reason: `Failed to parse event entry: ${error}`,
-                    context: entry.toString().substring(0, 100)
+                    reason: `Failed to parse event for ${entryArtist} at ${venueName}: ${error}`,
+                    context: `${entryUrl}`
                 });
             }
         }

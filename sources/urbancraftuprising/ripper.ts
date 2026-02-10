@@ -1,19 +1,11 @@
 import { JSONRipper } from "../../lib/config/jsonscrapper.js";
 import { ZonedDateTime, Duration, ZoneId } from "@js-joda/core";
 import { RipperEvent } from "../../lib/config/schema.js";
-import { validateTags } from "../../lib/config/tags.js";
 
 export default class UrbanCraftUprisingRipper extends JSONRipper {
     public async parseEvents(jsonData: any, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
-        
-        // Validate tags from config
-        const ripperTags = ["MakersMarket", "Art"];
-        const tagValidation = validateTags(ripperTags);
-        if (tagValidation.invalid.length > 0) {
-            console.warn(`Invalid tags found: ${tagValidation.invalid.join(', ')}`);
-        }
-        
+
         // Filter for actual event pages (not vendor lists or resources)
         const eventPages = jsonData.filter((page: any) => {
             const title = page.title.rendered.toLowerCase();

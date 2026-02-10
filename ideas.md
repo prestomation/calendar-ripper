@@ -49,15 +49,17 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 ### Pike Place Market Events
 - **URL:** https://www.pikeplacemarket.org/events/
 - **Platform:** WordPress with Modern Events Calendar (MEC)
+- **MEC Docs:** https://webnus.net/dstarter/flavor/flavors/modern-events-calendar/
 - **Feed:** `https://www.pikeplacemarket.org/events/?mec-ical-feed=1` (returned HTML, not ICS)
 - **Tags:** Community, Markets
-- **Note:** MEC plugin should support ICS/API but the feed URL didn't work. May need to find the correct MEC endpoint or fall back to HTML scraping.
+- **Note:** MEC plugin should support ICS/API but the feed URL didn't work. Try `/wp-json/mec/v1/` REST endpoints or find the correct MEC export path. May need to fall back to HTML scraping.
 
 ### Seattle.gov Department Calendars (Trumba)
+- **Trumba Docs:** https://www.trumba.com/help/api/
 - **Parks:** Try `https://www.trumba.com/calendars/seattlegov-parks.ics`
 - **Neighborhoods:** Try `https://www.trumba.com/calendars/seattlegov-neighborhoods.ics`
 - **Public Outreach:** Try `https://www.trumba.com/calendars/seattlegov-outreach.ics`
-- **Note:** The city-wide Trumba calendar is already added. These are potential subcalendars for more targeted event feeds. The exact calendar web names need to be discovered.
+- **Note:** The city-wide Trumba calendar is already added (`seattlegov-city-wide`). These are potential subcalendars for more targeted event feeds. The exact calendar web names need to be discovered — inspect the seattle.gov pages for `trumba.com/calendars/<name>` links.
 
 ## HTML Scraping (Last Resort)
 
@@ -88,31 +90,34 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ### 19hz.info Electronic Music Events
 - **URL:** https://19hz.info/eventlisting_Seattle.php
+- **Reference:** https://github.com/19hz/19hz-map (third-party scraper for this data)
 - **Tags:** Music
-- **Note:** Plain HTML listing of electronic music events. Has SSL issues. A third-party GitHub project (19hz-map) scrapes the data.
+- **Note:** Plain HTML listing of electronic music events. Has SSL issues. The 19hz-map project may be useful reference for parsing the HTML structure.
 
 ## Additional Farmers Markets
+
+Add these to `sources/recurring.yaml` using the `"every <day>"` schedule format (see existing farmers market entries for examples). Verify schedules at the URLs below before adding — hours and seasons can change year to year.
 
 ### Magnolia Farmers Market
 - **Org:** Seattle Neighborhood Farmers Markets
 - **Schedule:** Saturdays 10am-2pm, June-October
 - **Location:** Magnolia neighborhood, Seattle
 - **URL:** https://seattlefarmersmarkets.org/
-- **Note:** Could add as a seasonal recurring event.
+- **Note:** Add as a seasonal recurring event with `seasonal: "summer"` (close enough for Jun-Oct, though imperfect).
 
 ### Wallingford Farmers Market
 - **Org:** Seattle Neighborhood Farmers Markets
 - **Schedule:** Wednesdays 3-7pm, May-September
 - **Location:** Wallingford neighborhood, Seattle
 - **URL:** https://seattlefarmersmarkets.org/
-- **Note:** Could add as a seasonal recurring event.
+- **Note:** Add as a seasonal recurring event with `seasonal: "summer"`.
 
 ### Capitol Hill Tuesday Market (Seasonal)
 - **Org:** Seattle Neighborhood Farmers Markets
 - **Schedule:** Tuesdays 3-7pm, June-September
 - **Location:** E Barbara Bailey Way, Capitol Hill, Seattle
 - **URL:** https://seattlefarmersmarkets.org/chfm
-- **Note:** Evening summer market in addition to the year-round Sunday market already added.
+- **Note:** Evening summer market in addition to the year-round Sunday market already in recurring.yaml.
 
 ## Meta-Sources / Aggregators
 

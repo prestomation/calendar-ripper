@@ -11,12 +11,12 @@
     <script>
       // Only load GoatCounter on production, not on PR previews or local dev
       (function() {
-        var dominated = ['localhost', '127.0.0.1', 'htmlpreview.github.io'];
-        if (dominated.indexOf(window.location.hostname) === -1) {
+        var blocked = ['localhost', '127.0.0.1', 'htmlpreview.github.io'];
+        if (blocked.indexOf(window.location.hostname) === -1) {
           var s = document.createElement('script');
           s.async = true;
           s.dataset.goatcounter = 'https://seattle-calendars.goatcounter.com/count';
-          s.src = '//gc.zgo.at/count.js';
+          s.src = 'https://gc.zgo.at/count.js';
           document.head.appendChild(s);
         }
       })();

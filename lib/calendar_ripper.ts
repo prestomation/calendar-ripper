@@ -406,45 +406,25 @@ END:VCALENDAR`;
 
   // Collect all unique tags and validate them
   const allTags = new Set<string>();
-  const tagErrors: string[] = [];
 
   configs.forEach(ripper => {
-    if (ripper.config.tags) {
-      const { invalid } = validateTags(ripper.config.tags);
-      invalid.forEach(tag => tagErrors.push(`ripper "${ripper.config.name}" has invalid tag "${tag}"`));
-      ripper.config.tags.forEach(tag => allTags.add(tag));
-    }
+    if (ripper.config.tags) ripper.config.tags.forEach(tag => allTags.add(tag));
     ripper.config.calendars.forEach(calendar => {
-      if (calendar.tags) {
-        const { invalid } = validateTags(calendar.tags);
-        invalid.forEach(tag => tagErrors.push(`calendar "${calendar.name}" in ripper "${ripper.config.name}" has invalid tag "${tag}"`));
-        calendar.tags.forEach(tag => allTags.add(tag));
-      }
+      if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
     });
   });
 
-  // Add external calendar tags
   activeExternalCalendars.forEach(calendar => {
-    if (calendar.tags) {
-      const { invalid } = validateTags(calendar.tags);
-      invalid.forEach(tag => tagErrors.push(`external calendar "${calendar.name}" has invalid tag "${tag}"`));
-      calendar.tags.forEach(tag => allTags.add(tag));
-    }
+    if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
   });
 
-  // Add recurring calendar tags
   recurringCalendars.forEach(calendar => {
-    if (calendar.tags) {
-      const { invalid } = validateTags(calendar.tags);
-      invalid.forEach(tag => tagErrors.push(`recurring calendar "${calendar.name}" has invalid tag "${tag}"`));
-      calendar.tags.forEach(tag => allTags.add(tag));
-    }
+    if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
   });
 
-  if (tagErrors.length > 0) {
-    console.error("Invalid tags found:");
-    tagErrors.forEach(err => console.error(`  - ${err}`));
-    throw new Error(`Build failed: ${tagErrors.length} invalid tag(s) found. Add them to VALID_TAGS in lib/config/tags.ts or fix the typo.`);
+  const { invalid: invalidTags } = validateTags(Array.from(allTags));
+  if (invalidTags.length > 0) {
+    throw new Error(`Build failed: invalid tag(s) not in VALID_TAGS: ${invalidTags.join(', ')}. Add them to lib/config/tags.ts or fix the typo.`);
   }
 
   // Generate JSON manifest for React app

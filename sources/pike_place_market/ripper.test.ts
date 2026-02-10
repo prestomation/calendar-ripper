@@ -332,9 +332,8 @@ describe('PikePlaceMarketRipper', () => {
     });
 
     describe('extractTimeFromDescription', () => {
-        const ripper = new PikePlaceMarketRipper();
-
         it('should parse "5:30 p.m. - 7 p.m."', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('Wednesday, February 11  5:30 p.m. - 7 p.m.');
             expect(result).not.toBeNull();
             expect(result!.startHour).toBe(17);
@@ -343,6 +342,7 @@ describe('PikePlaceMarketRipper', () => {
         });
 
         it('should parse "10:00am – 3:00pm"', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('Friday, February 13  10:00am \u2013 3:00pm');
             expect(result).not.toBeNull();
             expect(result!.startHour).toBe(10);
@@ -351,6 +351,7 @@ describe('PikePlaceMarketRipper', () => {
         });
 
         it('should parse "7:30 pm - 10:30 pm"', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('Show starts at 7:30 pm - 10:30 pm');
             expect(result).not.toBeNull();
             expect(result!.startHour).toBe(19);
@@ -359,6 +360,7 @@ describe('PikePlaceMarketRipper', () => {
         });
 
         it('should parse single time "7 p.m."', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('Doors open at 7 p.m.');
             expect(result).not.toBeNull();
             expect(result!.startHour).toBe(19);
@@ -367,11 +369,13 @@ describe('PikePlaceMarketRipper', () => {
         });
 
         it('should return null for text without time', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('Join us for a great event!');
             expect(result).toBeNull();
         });
 
         it('should handle noon correctly', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('12:00 p.m. - 2:00 p.m.');
             expect(result).not.toBeNull();
             expect(result!.startHour).toBe(12);
@@ -379,10 +383,17 @@ describe('PikePlaceMarketRipper', () => {
         });
 
         it('should handle midnight correctly', () => {
+            const ripper = new PikePlaceMarketRipper();
             const result = ripper.extractTimeFromDescription('12:00 a.m. - 2:00 a.m.');
             expect(result).not.toBeNull();
             expect(result!.startHour).toBe(0);
             expect(result!.duration.toMinutes()).toBe(120);
+        });
+
+        it('should return null for invalid time values', () => {
+            const ripper = new PikePlaceMarketRipper();
+            const result = ripper.extractTimeFromDescription('Event at 25:00 pm');
+            expect(result).toBeNull();
         });
     });
 });

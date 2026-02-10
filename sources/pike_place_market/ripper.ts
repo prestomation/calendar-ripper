@@ -23,10 +23,10 @@ interface JsonLdEvent {
 }
 
 export default class PikePlaceMarketRipper extends HTMLRipper {
-    private seenEvents = new Set<string>();
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
+        const seenEvents = new Set<string>();
         const jsonLdScripts = html.querySelectorAll('script[type="application/ld+json"]');
 
         for (const script of jsonLdScripts) {
@@ -40,8 +40,8 @@ export default class PikePlaceMarketRipper extends HTMLRipper {
                 const eventUrl = jsonLdEvent.url || "";
                 const eventId = this.generateEventId(jsonLdEvent.name, jsonLdEvent.startDate, eventUrl);
 
-                if (this.seenEvents.has(eventId)) continue;
-                this.seenEvents.add(eventId);
+                if (seenEvents.has(eventId)) continue;
+                seenEvents.add(eventId);
 
                 const eventDate = this.parseEventDate(jsonLdEvent.startDate, date.zone());
                 if (!eventDate) {
@@ -143,6 +143,7 @@ export default class PikePlaceMarketRipper extends HTMLRipper {
         if (singleMatch) {
             const hour = this.convertTo24Hour(parseInt(singleMatch[1]), singleMatch[3]);
             const minute = singleMatch[2] ? parseInt(singleMatch[2]) : 0;
+            if (hour === null || !this.isValidTime(hour, minute)) return null;
             return { startHour: hour, startMinute: minute, duration: Duration.ofHours(2) };
         }
 
@@ -152,44 +153,46 @@ export default class PikePlaceMarketRipper extends HTMLRipper {
     private parseTimeRange(
         startHr: number, startMin: number, startAmPm: string,
         endHr: number, endMin: number, endAmPm: string
-    ): { startHour: number; startMinute: number; duration: Duration } {
+    ): { startHour: number; startMinute: number; duration: Duration } | null {
         const startHour = this.convertTo24Hour(startHr, startAmPm);
-        const startMinute = startMin;
         const endHour = this.convertTo24Hour(endHr, endAmPm);
-        const endMinute = endMin;
 
-        const startTotal = startHour * 60 + startMinute;
-        const endTotal = endHour * 60 + endMinute;
+        if (startHour === null || endHour === null) return null;
+        if (!this.isValidTime(startHour, startMin) || !this.isValidTime(endHour, endMin)) return null;
+
+        const startTotal = startHour * 60 + startMin;
+        const endTotal = endHour * 60 + endMin;
         const durationMinutes = endTotal > startTotal ? endTotal - startTotal : 120;
 
         return {
             startHour,
-            startMinute,
+            startMinute: startMin,
             duration: Duration.ofMinutes(durationMinutes)
         };
     }
 
-    private convertTo24Hour(hour: number, ampm: string): number {
+    private convertTo24Hour(hour: number, ampm: string): number | null {
         const isPm = /p\.?m\.?/i.test(ampm);
         const isAm = /a\.?m\.?/i.test(ampm);
+        if (!isPm && !isAm) return null;
         if (isPm && hour !== 12) return hour + 12;
         if (isAm && hour === 12) return 0;
         return hour;
     }
 
+    private isValidTime(hour: number, minute: number): boolean {
+        return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59;
+    }
+
     private decodeHtmlEntities(text: string): string {
         return text
-            .replace(/&amp;/g, '&')
+            .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+            .replace(/&#(\d+);/g, (_, num) => String.fromCharCode(parseInt(num, 10)))
             .replace(/&lt;/g, '<')
             .replace(/&gt;/g, '>')
             .replace(/&quot;/g, '"')
-            .replace(/&#039;/g, "'")
-            .replace(/&#8217;/g, "\u2019")
-            .replace(/&#8211;/g, "\u2013")
-            .replace(/&#8212;/g, "\u2014")
-            .replace(/&#8216;/g, "\u2018")
-            .replace(/&#8220;/g, "\u201C")
-            .replace(/&#8221;/g, "\u201D");
+            .replace(/&apos;/g, "'")
+            .replace(/&amp;/g, '&');
     }
 
     private buildLocation(event: JsonLdEvent): string {

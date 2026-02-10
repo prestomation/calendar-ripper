@@ -18,6 +18,17 @@ function useBreakpoint() {
   return 'desktop'
 }
 
+const TAG_CATEGORIES = {
+  'Neighborhoods': ['Downtown', 'QueenAnne', 'CapitolHill'],
+  'Activities': ['Music', 'Movies', 'Beer', 'Arts', 'Art', 'Dogs'],
+  'Markets': ['FarmersMarket', 'MakersMarket'],
+  'Community': ['Activism', 'Community', 'Volunteer'],
+}
+
+function formatTagLabel(tag) {
+  return tag.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+}
+
 function App() {
   const [calendars, setCalendars] = useState([])
   const [manifest, setManifest] = useState(null)
@@ -36,6 +47,7 @@ function App() {
   // Mobile: 'list' shows sidebar, 'detail' shows events
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
+  const [tagsCollapsed, setTagsCollapsed] = useState(false)
 
   const breakpoint = useBreakpoint()
   const isMobile = breakpoint === 'mobile'
@@ -529,6 +541,34 @@ function App() {
     return Array.from(tags).sort()
   }, [calendars])
 
+  const groupedTags = useMemo(() => {
+    const tagSet = new Set(allTags)
+    const groups = []
+    for (const [category, categoryTags] of Object.entries(TAG_CATEGORIES)) {
+      const matching = categoryTags.filter(t => tagSet.has(t))
+      if (matching.length > 0) {
+        groups.push({ category, tags: matching })
+        matching.forEach(t => tagSet.delete(t))
+      }
+    }
+    if (tagSet.size > 0) {
+      groups.push({ category: 'Other', tags: Array.from(tagSet).sort() })
+    }
+    return groups
+  }, [allTags])
+
+  const tagCounts = useMemo(() => {
+    const counts = {}
+    calendars.forEach(ripper => {
+      ripper.calendars.forEach(calendar => {
+        calendar.tags.forEach(tag => {
+          counts[tag] = (counts[tag] || 0) + 1
+        })
+      })
+    })
+    return counts
+  }, [calendars])
+
   // Load events for selected calendar
   useEffect(() => {
     setEvents([]) // Clear events immediately when calendar changes
@@ -711,33 +751,92 @@ function App() {
           </div>
         </div>
         
-        <div 
-          className="tags"
+        <div
+          className={`tags ${tagsCollapsed ? 'tags--collapsed' : ''}`}
           ref={tagsRef}
-          style={!isMobile && !isTablet ? { maxHeight: `${tagsHeight}px` } : undefined}
+          style={!isMobile && !isTablet && !tagsCollapsed ? { maxHeight: `${tagsHeight}px` } : undefined}
         >
-          <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>Tags:</div>
           <div
-            className={`tag ${selectedTag === '' ? 'active' : ''}`}
-            onClick={() => handleTagChange('')}
+            className="tags-header"
+            onClick={() => setTagsCollapsed(!tagsCollapsed)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setTagsCollapsed(!tagsCollapsed) } }}
+            aria-expanded={!tagsCollapsed}
           >
-            All
-          </div>
-          {allTags.map(tag => (
-            <div
-              key={tag}
-              className={`tag ${selectedTag === tag ? 'active' : ''}`}
-              onClick={() => handleTagChange(tag)}
-            >
-              {tag}
+            <span className="tags-header-label">Tags</span>
+            <div className="tags-header-right">
+              {selectedTag && (
+                <button
+                  className="tags-clear-btn"
+                  onClick={(e) => { e.stopPropagation(); handleTagChange('') }}
+                  title="Clear tag filter"
+                  aria-label={`Clear ${formatTagLabel(selectedTag)} filter`}
+                >
+                  {formatTagLabel(selectedTag)} ×
+                </button>
+              )}
+              <span className="tags-collapse-icon" aria-hidden="true">{tagsCollapsed ? '▶' : '▼'}</span>
             </div>
-          ))}
-          {!isMobile && !isTablet && (
-            <div
-              className="resize-handle-vertical"
-              ref={verticalResizeHandleRef}
-              onMouseDown={handleVerticalMouseDown}
-            />
+          </div>
+          {!tagsCollapsed && (
+            <>
+              <div className={`tags-body ${isMobile ? 'tags-body--mobile' : ''}`}>
+                <div
+                  className={`tag ${selectedTag === '' ? 'active' : ''}`}
+                  onClick={() => handleTagChange('')}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange('') } }}
+                >
+                  All
+                </div>
+                {isMobile ? (
+                  allTags.map(tag => (
+                    <div
+                      key={tag}
+                      className={`tag ${selectedTag === tag ? 'active' : ''}`}
+                      onClick={() => handleTagChange(tag)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange(tag) } }}
+                    >
+                      {selectedTag === tag && <span className="tag-check" aria-hidden="true">✓ </span>}
+                      <span>{formatTagLabel(tag)}</span>
+                      <span className="tag-count">{tagCounts[tag] || 0}</span>
+                    </div>
+                  ))
+                ) : (
+                  groupedTags.map(group => (
+                    <div key={group.category} className="tag-category">
+                      <div className="tag-category-label">{group.category}</div>
+                      {group.tags.map(tag => (
+                        <div
+                          key={tag}
+                          className={`tag ${selectedTag === tag ? 'active' : ''}`}
+                          onClick={() => handleTagChange(tag)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange(tag) } }}
+                          title={`${formatTagLabel(tag)} — ${tagCounts[tag] || 0} calendar${(tagCounts[tag] || 0) !== 1 ? 's' : ''}`}
+                        >
+                          {selectedTag === tag && <span className="tag-check" aria-hidden="true">✓ </span>}
+                          <span>{formatTagLabel(tag)}</span>
+                          <span className="tag-count">{tagCounts[tag] || 0}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ))
+                )}
+              </div>
+              {!isMobile && !isTablet && (
+                <div
+                  className="resize-handle-vertical"
+                  ref={verticalResizeHandleRef}
+                  onMouseDown={handleVerticalMouseDown}
+                />
+              )}
+            </>
           )}
         </div>
         
@@ -749,7 +848,7 @@ function App() {
                 onClick={() => handleTagSelect(selectedTag)}
                 title="Click to view tag calendar events"
               >
-                <div className="tag-title">Tag: {selectedTag}</div>
+                <div className="tag-title">Tag: {formatTagLabel(selectedTag)}</div>
                 <div className="tag-actions">
                   <div className="ics-group">
                     <a
@@ -918,7 +1017,7 @@ function App() {
                             handleTagChange(tag)
                           }}
                         >
-                          {tag}
+                          {formatTagLabel(tag)}
                         </span>
                       ))}
                     </div>
@@ -982,7 +1081,23 @@ function App() {
       <div className="main-content">
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
-            <button className="mobile-back-btn" onClick={() => setMobileView('list')}>
+            <button className="mobile-back-btn" onClick={() => {
+              if (!showHomepage && selectedCalendar) {
+                // Going back from calendar detail to the tag/calendar list
+                setSelectedCalendar(null)
+                setShowHomepage(true)
+                setMobileView('list')
+                // Update URL without creating new history entry so browser back
+                // doesn't bounce back to the calendar detail
+                const params = new URLSearchParams()
+                if (searchTerm) params.set('search', searchTerm)
+                if (selectedTag) params.set('tag', selectedTag)
+                const hash = params.toString()
+                history.replaceState(null, '', hash ? '#' + hash : window.location.pathname)
+              } else {
+                setMobileView('list')
+              }
+            }}>
               {showHomepage ? '← Browse Calendars' : '← Calendars'}
             </button>
           </div>
@@ -1123,11 +1238,11 @@ function App() {
           <div className="footer-content">
             <p className="footer-warning">
               ⚠️ No guarantee these calendars are accurate to their sources as they are scraped automatically.
-              <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">
                Open an issue or pull request to add a new calendar to this page. </a>
             </p>
             <p style={{ fontSize: '12px' }}>
-              Powered by <a href="https://github.com/prestomation/icalendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
               {manifest && (
                 <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
               )}

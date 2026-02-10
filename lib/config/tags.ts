@@ -19,9 +19,15 @@ export const VALID_TAGS = [
     // Pet/Animal related (consolidated)
     "Dogs",
     
+    // Performing Arts
+    "Theatre",
+
+    // Museums & Galleries
+    "Museums",
+
     // Community/Social
     "Activism",
-    "Community", 
+    "Community",
     "Volunteer"
 ] as const;
 

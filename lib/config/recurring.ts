@@ -93,15 +93,22 @@ export class RecurringEventProcessor {
 
     private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, seasonal?: string): string {
         const dayAbbr = this.getDayAbbreviation(dayOfWeek);
-        let rrule = `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}`;
-        
+
+        // ordinal 0 means "every week" (weekly recurring)
+        let rrule: string;
+        if (ordinal === 0) {
+            rrule = `FREQ=WEEKLY;BYDAY=${dayAbbr}`;
+        } else {
+            rrule = `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}`;
+        }
+
         if (seasonal) {
             const months = this.getSeasonalMonths(seasonal);
             if (months.length > 0) {
                 rrule += `;BYMONTH=${months.join(',')}`;
             }
         }
-        
+
         return rrule;
     }
 
@@ -135,36 +142,52 @@ export class RecurringEventProcessor {
     }
 
     private findNextOccurrence(startDate: LocalDate, ordinal: number, dayOfWeek: DayOfWeek): LocalDate | null {
+        // Weekly events (ordinal = 0): find the next occurrence of the day of week
+        if (ordinal === 0) {
+            return startDate.with(TemporalAdjusters.nextOrSame(dayOfWeek));
+        }
+
         // Start from the beginning of the current month
         let currentMonth = startDate.withDayOfMonth(1);
-        
+
         // Check current month first, then next few months
         for (let monthOffset = 0; monthOffset < 3; monthOffset++) {
             const testMonth = currentMonth.plusMonths(monthOffset);
             const occurrence = this.findNthDayOfWeekInMonth(testMonth, ordinal, dayOfWeek);
-            
+
             if (occurrence && (occurrence.isAfter(startDate) || occurrence.isEqual(startDate))) {
                 return occurrence;
             }
         }
-        
+
         return null;
     }
 
     private parseSchedule(schedule: string): { ordinal: number | null, dayOfWeek: DayOfWeek | null } {
+        const dayMap: { [key: string]: DayOfWeek } = {
+            'monday': DayOfWeek.MONDAY,
+            'tuesday': DayOfWeek.TUESDAY,
+            'wednesday': DayOfWeek.WEDNESDAY,
+            'thursday': DayOfWeek.THURSDAY,
+            'friday': DayOfWeek.FRIDAY,
+            'saturday': DayOfWeek.SATURDAY,
+            'sunday': DayOfWeek.SUNDAY
+        };
+
+        // Support "every Sunday" format (weekly recurring, ordinal = 0)
+        const everyMatch = schedule.match(/^every\s+(\w+)$/i);
+        if (everyMatch) {
+            const dayName = everyMatch[1].toLowerCase();
+            return {
+                ordinal: 0,
+                dayOfWeek: dayMap[dayName] || null
+            };
+        }
+
         // Support "last Friday" format
         const lastMatch = schedule.match(/^last\s+(\w+)$/i);
         if (lastMatch) {
             const dayName = lastMatch[1].toLowerCase();
-            const dayMap: { [key: string]: DayOfWeek } = {
-                'monday': DayOfWeek.MONDAY,
-                'tuesday': DayOfWeek.TUESDAY,
-                'wednesday': DayOfWeek.WEDNESDAY,
-                'thursday': DayOfWeek.THURSDAY,
-                'friday': DayOfWeek.FRIDAY,
-                'saturday': DayOfWeek.SATURDAY,
-                'sunday': DayOfWeek.SUNDAY
-            };
             return {
                 ordinal: -1,
                 dayOfWeek: dayMap[dayName] || null
@@ -178,16 +201,6 @@ export class RecurringEventProcessor {
 
         const ordinal = parseInt(match[1]);
         const dayName = match[2].toLowerCase();
-        
-        const dayMap: { [key: string]: DayOfWeek } = {
-            'monday': DayOfWeek.MONDAY,
-            'tuesday': DayOfWeek.TUESDAY,
-            'wednesday': DayOfWeek.WEDNESDAY,
-            'thursday': DayOfWeek.THURSDAY,
-            'friday': DayOfWeek.FRIDAY,
-            'saturday': DayOfWeek.SATURDAY,
-            'sunday': DayOfWeek.SUNDAY
-        };
 
         return {
             ordinal,

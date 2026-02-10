@@ -57,13 +57,16 @@ export class RecurringEventProcessor {
 
     private generateRRuleEvent(event: RecurringEvent, startDate: LocalDate): RipperCalendarEvent[] {
         const { ordinal, dayOfWeek } = this.parseSchedule(event.schedule);
-        
+
         if (ordinal === null || dayOfWeek === null) {
             return []; // Skip invalid schedules
         }
 
-        // Find the first occurrence on or after startDate
-        const firstOccurrence = this.findNextOccurrence(startDate, ordinal, dayOfWeek);
+        // Resolve allowed months (explicit months take precedence over seasonal)
+        const allowedMonths = event.months ?? (event.seasonal ? this.getSeasonalMonths(event.seasonal) : []);
+
+        // Find the first occurrence on or after startDate, respecting month restrictions
+        const firstOccurrence = this.findNextOccurrence(startDate, ordinal, dayOfWeek, allowedMonths);
         if (!firstOccurrence) {
             return [];
         }
@@ -75,7 +78,7 @@ export class RecurringEventProcessor {
         );
 
         // Generate RRULE based on schedule
-        const rrule = this.generateRRule(ordinal, dayOfWeek, event.seasonal, event.months);
+        const rrule = this.generateRRule(ordinal, dayOfWeek, allowedMonths);
 
         const calendarEvent: RipperCalendarEvent = {
             id: event.name,
@@ -92,7 +95,7 @@ export class RecurringEventProcessor {
         return [calendarEvent];
     }
 
-    private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, seasonal?: string, months?: number[]): string {
+    private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, allowedMonths: number[]): string {
         const dayAbbr = this.getDayAbbreviation(dayOfWeek);
 
         // ordinal 0 means "every week" (weekly recurring)
@@ -103,10 +106,8 @@ export class RecurringEventProcessor {
             rrule = `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}`;
         }
 
-        // Explicit months take precedence over named seasonal
-        const resolvedMonths = months ?? (seasonal ? this.getSeasonalMonths(seasonal) : []);
-        if (resolvedMonths.length > 0) {
-            rrule += `;BYMONTH=${resolvedMonths.join(',')}`;
+        if (allowedMonths.length > 0) {
+            rrule += `;BYMONTH=${allowedMonths.join(',')}`;
         }
 
         return rrule;
@@ -141,18 +142,35 @@ export class RecurringEventProcessor {
         }
     }
 
-    private findNextOccurrence(startDate: LocalDate, ordinal: number, dayOfWeek: DayOfWeek): LocalDate | null {
+    private findNextOccurrence(startDate: LocalDate, ordinal: number, dayOfWeek: DayOfWeek, allowedMonths: number[]): LocalDate | null {
         // Weekly events (ordinal = 0): find the next occurrence of the day of week
         if (ordinal === 0) {
-            return startDate.with(TemporalAdjusters.nextOrSame(dayOfWeek));
+            let candidate = startDate.with(TemporalAdjusters.nextOrSame(dayOfWeek));
+            if (allowedMonths.length > 0) {
+                // Advance week by week until we land in an allowed month (cap at 12 months)
+                const limit = startDate.plusMonths(12);
+                while (!allowedMonths.includes(candidate.monthValue()) && candidate.isBefore(limit)) {
+                    candidate = candidate.plusWeeks(1);
+                }
+                if (!allowedMonths.includes(candidate.monthValue())) {
+                    return null;
+                }
+            }
+            return candidate;
         }
 
         // Start from the beginning of the current month
         let currentMonth = startDate.withDayOfMonth(1);
 
-        // Check current month first, then next few months
-        for (let monthOffset = 0; monthOffset < 3; monthOffset++) {
+        // Search up to 13 months ahead to handle any month restriction
+        for (let monthOffset = 0; monthOffset < 13; monthOffset++) {
             const testMonth = currentMonth.plusMonths(monthOffset);
+
+            // Skip months not in the allowed list
+            if (allowedMonths.length > 0 && !allowedMonths.includes(testMonth.monthValue())) {
+                continue;
+            }
+
             const occurrence = this.findNthDayOfWeekInMonth(testMonth, ordinal, dayOfWeek);
 
             if (occurrence && (occurrence.isAfter(startDate) || occurrence.isEqual(startDate))) {

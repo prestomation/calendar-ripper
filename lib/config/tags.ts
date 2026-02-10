@@ -3,7 +3,7 @@ export const VALID_TAGS = [
     // Location-based
     "Downtown", 
     "QueenAnne",
-    "CapitolHill",
+    "Capitol Hill",
     
     // Activity types
     "Music",

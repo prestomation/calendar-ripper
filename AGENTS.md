@@ -106,6 +106,12 @@ Tags drive the aggregate calendar system — each unique tag produces a `tag-<na
 
 Tag validation runs at build time in `lib/calendar_ripper.ts`. It collects all unique tags from rippers, external calendars, and recurring calendars, then checks them against `VALID_TAGS`. Invalid tags cause the build to fail with the offending tag names listed in the error message.
 
+### Removing or renaming a calendar URL
+
+The CI runs `scripts/check-missing-urls.ts` which compares the new build's manifest against the deployed site. If any existing calendar URL would disappear (e.g., renaming a tag changes the `tag-*.ics` filename), the check fails.
+
+To intentionally remove a URL, add the filename to `allowed-removals.txt` in the repo root. Remove the entry from the file after the change has been deployed.
+
 ## Unit Tests
 
 Unit tests for rippers are located in the individual ripper directories alongside the implementation files:

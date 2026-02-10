@@ -58,12 +58,12 @@ jobs:
           echo "GitHub Pages not configured or not accessible, skipping URL check"
         fi
 
-    - name: Check for missing calendar URLs
-      if: steps.get-pages-url.outputs.PAGES_URL != ''
-      run: npm run check-missing-urls -- "${{ steps.get-pages-url.outputs.PAGES_URL }}"
-
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: 'output/'
         name: ${{ inputs.artifact-name }}
+
+    - name: Check for missing calendar URLs
+      if: steps.get-pages-url.outputs.PAGES_URL != ''
+      run: npm run check-missing-urls -- "${{ steps.get-pages-url.outputs.PAGES_URL }}"

@@ -16,7 +16,7 @@ export const recurringEventSchema = z.object({
     duration: z.string().transform(d => Duration.parse(d)),
     start_time: z.string().transform(t => LocalTime.parse(t)),
     location: z.string(),
-    url: z.string(),
+    url: z.string().url(),
     tags: z.array(z.string()),
     seasonal: z.string().optional(), // "summer", "winter", etc.
     months: z.array(z.number().int().min(1).max(12)).optional() // explicit month list, e.g. [5,6,7,8,9]

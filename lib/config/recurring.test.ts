@@ -336,6 +336,42 @@ describe('recurringEventSchema', () => {
     expect(result.success).toBe(false);
   });
 
+  it('should reject empty url', () => {
+    const invalidEvent = {
+      name: 'test-event',
+      friendlyname: 'Test Event',
+      description: 'Test Description',
+      schedule: '2nd Thursday',
+      timezone: 'America/Los_Angeles',
+      duration: 'PT2H',
+      start_time: '19:00',
+      location: 'Test Location',
+      url: '',
+      tags: ['test']
+    };
+
+    const result = recurringEventSchema.safeParse(invalidEvent);
+    expect(result.success).toBe(false);
+  });
+
+  it('should reject invalid url', () => {
+    const invalidEvent = {
+      name: 'test-event',
+      friendlyname: 'Test Event',
+      description: 'Test Description',
+      schedule: '2nd Thursday',
+      timezone: 'America/Los_Angeles',
+      duration: 'PT2H',
+      start_time: '19:00',
+      location: 'Test Location',
+      url: 'not-a-url',
+      tags: ['test']
+    };
+
+    const result = recurringEventSchema.safeParse(invalidEvent);
+    expect(result.success).toBe(false);
+  });
+
   it('should reject invalid event data', () => {
     const invalidEvent = {
       name: 'invalid name with spaces',

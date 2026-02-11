@@ -339,53 +339,11 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 Add these to `sources/recurring.yaml` using the `"every <day>"` schedule format (see existing farmers market entries for examples). Verify schedules at the URLs below before adding — hours and seasons can change year to year.
 
-### Magnolia Farmers Market
-- **Org:** Seattle Neighborhood Farmers Markets
-- **Schedule:** Saturdays 10am-2pm, June-October
-- **Location:** Magnolia neighborhood, Seattle
-- **URL:** https://seattlefarmersmarkets.org/
-- **Note:** Add as a seasonal recurring event with `seasonal: "summer"` (close enough for Jun-Oct, though imperfect).
-
-### Wallingford Farmers Market
-- **Org:** Seattle Neighborhood Farmers Markets
-- **Schedule:** Wednesdays 3-7pm, May-September
-- **Location:** Wallingford neighborhood, Seattle
-- **URL:** https://seattlefarmersmarkets.org/
-- **Note:** Add as a seasonal recurring event with `seasonal: "summer"`.
-
-### Capitol Hill Tuesday Market (Seasonal)
-- **Org:** Seattle Neighborhood Farmers Markets
-- **Schedule:** Tuesdays 3-7pm, June-September
-- **Location:** E Barbara Bailey Way, Capitol Hill, Seattle
-- **URL:** https://seattlefarmersmarkets.org/chfm
-- **Note:** Evening summer market in addition to the year-round Sunday market already in recurring.yaml.
 
 ## Additional Recurring Events
 
 These are fixed-schedule events that can be added to `sources/recurring.yaml` without needing a ripper.
 
-### Columbia City Night Market
-- **Schedule:** Third Saturday of every month, 6-10pm
-- **Location:** Columbia City (four city blocks)
-- **URL:** https://www.peacepeloton.com/night-market
-- **Note:** Organized by Peace Peloton. 60 local vendors, food trucks, beer garden, live performances. Prioritizes Black-owned businesses. Free, all ages.
-
-### 210 Seattle Night Market (Pioneer Square)
-- **Schedule:** First Thursday of every month, 6-9pm (during First Thursday Art Walk)
-- **Location:** Pioneer Square
-- **URL:** https://www.210studioseattle.com/210-market
-- **Note:** Pop-up market during Pioneer Square's First Thursday Art Walk. 20-40 local makers, vintage curators, and artists.
-
-### Georgetown Flea Market
-- **Schedule:** First Saturday of every month
-- **Location:** Georgetown Trailer Park Mall
-- **URL:** http://georgetowntrailerparkmall.com/events
-- **Note:** Monthly flea market. Seasonal themed markets (Get Sprung, Monster Mash, Bizarre Bazaar) are separate events.
-
-### Food Truck Round-Up
-- **Schedule:** Second Sunday of every month
-- **Location:** 2100 6th Ave, Seattle
-- **Note:** Monthly food truck gathering. Free, family-friendly.
 
 ### Seattle Christmas Market
 - **Schedule:** Daily, November 20 - December 24 (annual)

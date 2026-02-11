@@ -1,5 +1,6 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { parse } from "node-html-parser";
 import '@js-joda/timezone';
 
 /**
@@ -52,7 +53,23 @@ export class SquarespaceRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const baseUrl = ripper.config.url;
 
-        const allEvents = await this.fetchUpcomingEvents(baseUrl);
+        let allEvents: SquarespaceEvent[];
+        try {
+            allEvents = await this.fetchUpcomingEvents(baseUrl);
+        } catch (error) {
+            return ripper.config.calendars.map(c => ({
+                name: c.name,
+                friendlyname: c.friendlyname,
+                events: [],
+                errors: [{
+                    type: "ParseError" as const,
+                    reason: `Failed to fetch events from Squarespace: ${error}`,
+                    context: baseUrl.toString()
+                }],
+                parent: ripper.config,
+                tags: c.tags || []
+            }));
+        }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
@@ -92,11 +109,18 @@ export class SquarespaceRipper implements IRipper {
      */
     protected async fetchUpcomingEvents(baseUrl: URL): Promise<SquarespaceEvent[]> {
         const allEvents: SquarespaceEvent[] = [];
+        const seenUrls = new Set<string>();
         let url = new URL(baseUrl.toString());
         url.searchParams.set('format', 'json');
 
         for (let page = 0; page < MAX_PAGES; page++) {
-            const res = await fetch(url.toString());
+            const urlString = url.toString();
+            if (seenUrls.has(urlString)) {
+                break;
+            }
+            seenUrls.add(urlString);
+
+            const res = await fetch(urlString);
             if (!res.ok) {
                 throw new Error(`${res.status} ${res.statusText}`);
             }
@@ -172,6 +196,6 @@ export class SquarespaceRipper implements IRipper {
     }
 
     private stripHtml(html: string): string {
-        return html.replace(/<\/?[^>]+(>|$)/g, '');
+        return parse(html).textContent;
     }
 }

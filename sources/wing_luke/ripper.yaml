@@ -1,0 +1,9 @@
+name: wing-luke
+description: "Wing Luke Museum events calendar"
+url: "https://www.wingluke.org/eventscalendar"
+friendlyLink: https://www.wingluke.org/eventscalendar
+tags: ["Museums", "Arts", "Community", "International District"]
+calendars:
+  - name: all-events
+    friendlyname: "Wing Luke Museum"
+    timezone: America/Los_Angeles

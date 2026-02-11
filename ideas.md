@@ -45,34 +45,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Community, Education
 - **Note:** Free events across 27 branches — author talks, story times, classes, film screenings, concerts. LibCal has a documented REST API with structured endpoints. High event volume. The main spl.org page uses Trumba with `webName: "kalendaro"`.
 
-### Wing Luke Museum (Squarespace JSON)
-- **URL:** https://www.wingluke.org/eventscalendar
-- **API:** `https://www.wingluke.org/eventscalendar?format=json` (Squarespace JSON endpoint)
-- **Platform:** Squarespace
-- **Tags:** Museums, Arts, Community, International District
-- **Note:** Museum in the Chinatown-International District. Squarespace sites expose calendar data as JSON via `?format=json`. Reference implementation: `hawry/events-are-square` on GitHub converts Squarespace calendar JSON to iCal.
-
-### NAAM (Squarespace JSON)
-- **URL:** https://www.naamnw.org/events
-- **API:** `https://www.naamnw.org/events?format=json-pretty` (Squarespace JSON endpoint)
-- **Platform:** Squarespace
-- **Tags:** Museums, Arts, Community, Central District
-- **Note:** Northwest African American Museum in the Central District. Events include performances, workshops, annual celebrations (King Day, Malcolm X Day, Juneteenth Week). Same Squarespace JSON approach as Wing Luke.
-
-### JCCCW (Squarespace JSON)
-- **URL:** https://www.jcccw.org/events
-- **API:** `https://www.jcccw.org/events?format=json-pretty` (Squarespace JSON endpoint)
-- **Platform:** Squarespace
-- **Tags:** Community, International District
-- **Note:** Japanese Cultural & Community Center of Washington. Historic landmark in the International District. Events include Kodomo no Hi, Bunka no Hi, All Things Japanese Sale, Mochitsuki.
-
-### LANGSTON (Squarespace JSON)
-- **URL:** https://www.langstonseattle.org/events/
-- **API:** `https://www.langstonseattle.org/events/?format=json` (Squarespace JSON endpoint)
-- **Platform:** Squarespace
-- **Tags:** Arts, Community, Central District
-- **Note:** Langston Hughes Performing Arts Institute. Historic performing arts center in the Central District. Hosts performances, movie nights, community conversations celebrating African American arts. Site intermittently returns 503.
-
 ### Do206 (Algolia Search API)
 - **URL:** https://do206.com/events
 - **Platform:** Ruby on Rails with Algolia search
@@ -470,4 +442,4 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 
 ### Squarespace Events-to-ICS Pattern
 - **Reference:** https://github.com/hawry/events-are-square
-- **Note:** Multiple Seattle venues use Squarespace (Wing Luke, NAAM, JCCCW, LANGSTON, On the Boards, Georgetown Trailer Park Mall, Seattle Night Market). All expose events as JSON via `?format=json` on their events page. A single Squarespace JSONRipper base class could serve many sources.
+- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, and LANGSTON are already using it. Remaining Squarespace sites (On the Boards, Georgetown Trailer Park Mall, Seattle Night Market, Seattle Public Theater) can reuse the same base class — just create a ripper.yaml + one-line ripper.ts.

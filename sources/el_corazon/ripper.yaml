@@ -1,0 +1,18 @@
+name: el-corazon
+description: "El Corazón and The Funhouse music venue events"
+url: "https://www.elcorazonseattle.com/calendar"
+friendlyLink: https://www.elcorazonseattle.com
+tags: ["Music"]
+calendars:
+  - name: el-corazon
+    friendlyname: "El Corazón"
+    timezone: America/Los_Angeles
+    config:
+      venue: "El Corazón"
+      address: "109 Eastlake Avenue East, Seattle, WA 98109"
+  - name: the-funhouse
+    friendlyname: "The Funhouse"
+    timezone: America/Los_Angeles
+    config:
+      venue: "The Funhouse"
+      address: "109 Eastlake Avenue East, Seattle, WA 98109"

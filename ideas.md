@@ -8,7 +8,7 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Docs:** https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
 - **Auth:** API key (free tier, 5000 calls/day)
 - **Tags:** Music, Theatre, Community
-- **Note:** Covers many Seattle venues including Climate Pledge Arena, The Paramount, The Moore, Neptune, McCaw Hall, Benaroya Hall, El Corazon, Chop Suey. Search by city/venue. Well-documented, reliable. A single integration could cover dozens of venues.
+- **Note:** Covers many Seattle venues including Climate Pledge Arena, The Paramount, The Moore, Neptune, McCaw Hall, Benaroya Hall, Chop Suey. Search by city/venue. Well-documented, reliable. A single integration could cover dozens of venues.
 
 ### Songkick API
 - **Docs:** https://www.songkick.com/developer
@@ -179,12 +179,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Platform:** WordPress with TicketWeb integration and FullCalendar.js
 - **Tags:** Music, Capitol Hill
 - **Note:** 500-capacity nightclub on Capitol Hill. Event data stored in a JavaScript `all_events` array with JSON-LD schema markup — relatively easy to parse. TicketWeb is a Ticketmaster subsidiary so Ticketmaster API may also cover this venue.
-
-#### El Corazon / The Funhouse
-- **URL:** https://www.elcorazonseattle.com/calendar
-- **Platform:** Possibly Webflow; returns 403 (bot protection)
-- **Tags:** Music
-- **Note:** 807-capacity venue specializing in metal, punk, and rock. Bot protection makes scraping harder. Has a Ticketmaster venue page — Ticketmaster Discovery API is the most reliable approach.
 
 #### The Triple Door
 - **URL:** https://thetripledoor.net/mainstage-calendar and https://thetripledoor.net/mq-stage-calendar

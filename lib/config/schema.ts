@@ -28,12 +28,16 @@ export const externalCalendarSchema = z.object({
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
 
+export const BUILTIN_RIPPER_TYPES = ["squarespace"] as const;
+export type BuiltinRipperType = typeof BUILTIN_RIPPER_TYPES[number];
+
 export const configSchema = z.object({
     name: z.string(),
     description: z.string(),
     url: z.string().transform(u => new URL(u)),
     friendlyLink: z.string(),
     disabled: z.boolean().default(false),
+    type: z.enum(BUILTIN_RIPPER_TYPES).optional(),
     tags: z.array(z.string()).optional(),
     calendars: z.array(calendarConfigSchema),
     // We use refine to provide our own error message

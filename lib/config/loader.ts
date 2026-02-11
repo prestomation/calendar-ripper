@@ -2,10 +2,15 @@ import { readdir } from 'fs/promises'
 import * as path from 'path';
 import { accessSync, Dirent, readFileSync } from 'fs';
 import YAML from 'yaml';
-import { configSchema, ImportError, FileParseError, Ripper, RipperError } from './schema.js';
+import { configSchema, ImportError, FileParseError, Ripper, RipperError, IRipper } from './schema.js';
+import { SquarespaceRipper } from './squarespace.js';
+
+const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
+    squarespace: SquarespaceRipper,
+};
 
 // Given a directory, assume each subdirectory is a calendar package
-// A calendar package requires a ripper.yaml and (for now) a ripper.ts that exports a default implementation of IRipper
+// A calendar package requires a ripper.yaml and either a `type` field for built-in rippers or a ripper.ts with a custom implementation
 export class RipperLoader {
     constructor(private readonly sourcesDir: string) {
     }
@@ -58,10 +63,17 @@ export async function loadRipper(sourceDirectory: {path: string, name: string}) 
     const configFile = readFileSync(path.join(sourceDirectory.path, sourceDirectory.name, "ripper.yaml")).toString();
     const configJson = YAML.parse(configFile);
     const config = configSchema.parse(configJson);
-    const ripperPath = path.join(process.cwd(), sourceDirectory.path, sourceDirectory.name, "ripper.ts");
 
+    if (config.type) {
+        const RipperClass = BUILTIN_RIPPERS[config.type];
+        if (!RipperClass) {
+            throw new Error(`Unknown built-in ripper type: ${config.type}`);
+        }
+        return { config, ripperImpl: new RipperClass() };
+    }
+
+    const ripperPath = path.join(process.cwd(), sourceDirectory.path, sourceDirectory.name, "ripper.ts");
     const module = await import(ripperPath);
     const ripperClass = new (module).default;
     return { config, ripperImpl: ripperClass };
 }
-

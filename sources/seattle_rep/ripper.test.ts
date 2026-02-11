@@ -152,6 +152,8 @@ describe('SeattleRepRipper', () => {
         const valid1 = events1.filter(e => 'summary' in e) as RipperCalendarEvent[];
         const valid2 = events2.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
+        // Verifies that the same ripper instance deduplicates across multiple calls
+        // (the base class reuses one instance for all days in the lookahead window)
         expect(valid1).toHaveLength(3);
         expect(valid2).toHaveLength(0);
     });

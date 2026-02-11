@@ -101,7 +101,7 @@ export default class SeattleRepRipper extends JSONRipper {
         );
         if (!match) return null;
 
-        const [, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr] = match;
+        const [, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr, offsetStr] = match;
         const localDateTime = LocalDateTime.of(
             parseInt(yearStr),
             parseInt(monthStr),
@@ -111,6 +111,6 @@ export default class SeattleRepRipper extends JSONRipper {
             parseInt(secondStr)
         );
 
-        return localDateTime.atZone(ZoneId.of("America/Los_Angeles"));
+        return localDateTime.atZone(ZoneId.of(offsetStr));
     }
 }

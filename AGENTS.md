@@ -134,6 +134,11 @@ sources/
   - Date/time parsing accuracy
   - Event property validation
 
+### Sample Data
+- **Always fetch live data** from the actual API/URL before writing the parser. Do not rely solely on documentation or assumptions about the data format.
+- Save a representative response as `sample-data.json` (or `sample-data.html`) and use it for tests.
+- Ensure the sample covers format variations present in the real data (e.g., dates with and without timezone offsets, optional fields that are sometimes null).
+
 ### Test Guidelines
 - Include sample HTML/JSON files for realistic testing
 - Test both success and failure scenarios

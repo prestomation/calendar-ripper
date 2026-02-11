@@ -23,8 +23,8 @@ describe('SeattleRepRipper', () => {
         const events = await ripper.parseEvents(jsonData, testDate, {});
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
-        // 3 visible performances (the hidden one with show_in_listings=false is skipped)
-        expect(valid).toHaveLength(3);
+        // 4 visible performances (the hidden one with show_in_listings=false is skipped)
+        expect(valid).toHaveLength(4);
     });
 
     test('parses title with prefix correctly', async () => {
@@ -154,7 +154,7 @@ describe('SeattleRepRipper', () => {
 
         // Verifies that the same ripper instance deduplicates across multiple calls
         // (the base class reuses one instance for all days in the lookahead window)
-        expect(valid1).toHaveLength(3);
+        expect(valid1).toHaveLength(4);
         expect(valid2).toHaveLength(0);
     });
 
@@ -185,6 +185,23 @@ describe('SeattleRepRipper', () => {
         expect(errors).toHaveLength(1);
         expect(errors[0].type).toBe('ParseError');
         expect(errors[0].reason).toContain('Could not parse perf_date');
+    });
+
+    test('parses space-separated date format without offset', async () => {
+        const ripper = new SeattleRepRipper();
+        const jsonData = loadSampleData();
+
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        const spaceDate = valid.find(e => e.id === '1887')!;
+        expect(spaceDate).toBeDefined();
+        expect(spaceDate.summary).toBe('Space Date Show');
+        expect(spaceDate.date.year()).toBe(2025);
+        expect(spaceDate.date.monthValue()).toBe(8);
+        expect(spaceDate.date.dayOfMonth()).toBe(28);
+        expect(spaceDate.date.hour()).toBe(18);
+        expect(spaceDate.date.minute()).toBe(0);
     });
 
     test('skips entries missing required fields', async () => {

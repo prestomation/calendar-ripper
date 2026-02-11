@@ -95,9 +95,9 @@ export default class SeattleRepRipper extends JSONRipper {
     }
 
     private parseDate(isoString: string): ZonedDateTime | null {
-        // Parse "2026-02-13T19:30:00-08:00"
+        // Parse "2026-02-13T19:30:00-08:00" or "2026-02-13 19:30:00"
         const match = isoString.match(
-            /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})([+-]\d{2}:\d{2})$/
+            /^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2}):(\d{2})([+-]\d{2}:\d{2})?$/
         );
         if (!match) return null;
 
@@ -111,6 +111,9 @@ export default class SeattleRepRipper extends JSONRipper {
             parseInt(secondStr)
         );
 
-        return localDateTime.atZone(ZoneId.of(offsetStr));
+        const zone = offsetStr
+            ? ZoneId.of(offsetStr)
+            : ZoneId.of("America/Los_Angeles");
+        return localDateTime.atZone(zone);
     }
 }

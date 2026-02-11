@@ -23,13 +23,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Public Outreach:** Try `https://www.trumba.com/calendars/seattlegov-outreach.ics`
 - **Note:** The city-wide Trumba calendar is already added (`seattlegov-city-wide`). These are potential subcalendars for more targeted event feeds. The exact calendar web names need to be discovered — inspect the seattle.gov pages for `trumba.com/calendars/<name>` links.
 
-### Seattle Rep (JSON API)
-- **URL:** https://www.seattlerep.org/plays/events
-- **API:** `https://www.seattlerep.org/plays/json` (confirmed working, public JSON endpoint)
-- **Platform:** Custom Angular.js site; ticketing via Tessitura
-- **Tags:** Theatre
-- **Note:** Major regional nonprofit theater at Seattle Center. The JSON endpoint returns structured performance data including `perf_date` (ISO 8601), `title`, `facility`, `is_on_sale`, `tickets_available`, `prices`, `event_url`, `image_url`, and `keywords`. ~40+ performances. Ideal JSONRipper candidate.
-
 ### Taproot Theatre (OvationTix API)
 - **URL:** https://taproottheatre.org/
 - **API:** OvationTix public REST API — `https://api.ovationtix.com/public/events/client(37019)`

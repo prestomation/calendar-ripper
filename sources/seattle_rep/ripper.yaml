@@ -1,0 +1,9 @@
+name: seattle-rep
+description: "Seattle Repertory Theatre Performances"
+url: "https://www.seattlerep.org/plays/json"
+friendlyLink: https://www.seattlerep.org
+tags: ["Theatre"]
+calendars:
+  - name: all-performances
+    friendlyname: "Seattle Rep"
+    timezone: America/Los_Angeles

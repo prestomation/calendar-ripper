@@ -274,6 +274,88 @@ events:
     url: "http://www.fremontmarket.com/"
     tags: ["MakersMarket", "Fremont"]
 
+  # Additional Farmers Markets
+  - name: magnolia-farmers-market
+    friendlyname: "Magnolia Farmers Market"
+    description: "Seasonal Saturday farmers market in the Magnolia neighborhood. Runs June through October."
+    schedule: "every Saturday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "10:00"
+    location: "Magnolia neighborhood, Seattle"
+    url: "https://seattlefarmersmarkets.org/"
+    tags: ["FarmersMarket", "Community"]
+    months: [6, 7, 8, 9, 10]  # June - October
+
+  - name: wallingford-farmers-market
+    friendlyname: "Wallingford Farmers Market"
+    description: "Seasonal Wednesday evening farmers market in Wallingford. Runs May through September."
+    schedule: "every Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "15:00"
+    location: "Wallingford neighborhood, Seattle"
+    url: "https://seattlefarmersmarkets.org/"
+    tags: ["FarmersMarket", "Wallingford"]
+    months: [5, 6, 7, 8, 9]  # May - September
+
+  - name: capitol-hill-tuesday-market
+    friendlyname: "Capitol Hill Tuesday Farmers Market"
+    description: "Seasonal Tuesday evening farmers market on Capitol Hill. Runs June through September."
+    schedule: "every Tuesday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "15:00"
+    location: "E Barbara Bailey Way, Capitol Hill, Seattle"
+    url: "https://seattlefarmersmarkets.org/chfm"
+    tags: ["FarmersMarket", "Capitol Hill"]
+    months: [6, 7, 8, 9]  # June - September
+
+  # Night Markets and Flea Markets
+  - name: columbia-city-night-market
+    friendlyname: "Columbia City Night Market"
+    description: "Monthly night market organized by Peace Peloton. 60 local vendors, food trucks, beer garden, and live performances. Prioritizes Black-owned businesses. Free, all ages."
+    schedule: "3rd Saturday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "18:00"
+    location: "Columbia City, Seattle"
+    url: "https://www.peacepeloton.com/night-market"
+    tags: ["MakersMarket", "Community"]
+
+  - name: 210-seattle-night-market
+    friendlyname: "210 Seattle Night Market"
+    description: "Pop-up market during Pioneer Square's First Thursday Art Walk. 20-40 local makers, vintage curators, and artists."
+    schedule: "1st Thursday"
+    timezone: America/Los_Angeles
+    duration: PT3H
+    start_time: "18:00"
+    location: "Pioneer Square, Seattle"
+    url: "https://www.210studioseattle.com/210-market"
+    tags: ["MakersMarket", "Pioneer Square"]
+
+  - name: georgetown-flea-market
+    friendlyname: "Georgetown Flea Market"
+    description: "Monthly flea market at the Georgetown Trailer Park Mall."
+    schedule: "1st Saturday"
+    timezone: America/Los_Angeles
+    duration: PT5H
+    start_time: "10:00"
+    location: "Georgetown Trailer Park Mall, Georgetown, Seattle"
+    url: "http://georgetowntrailerparkmall.com/events"
+    tags: ["MakersMarket", "Georgetown"]
+
+  - name: food-truck-round-up
+    friendlyname: "Food Truck Round-Up"
+    description: "Monthly food truck gathering. Free and family-friendly."
+    schedule: "2nd Sunday"
+    timezone: America/Los_Angeles
+    duration: PT4H
+    start_time: "11:00"
+    location: "2100 6th Ave, Seattle"
+    url: ""
+    tags: ["Food", "Community"]
+
   # Seattle Critical Mass
   - name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"

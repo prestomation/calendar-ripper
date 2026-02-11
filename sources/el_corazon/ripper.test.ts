@@ -116,6 +116,33 @@ describe('El Corazon Ripper', () => {
         expect(secondEvents.length).toBe(0);
     });
 
+    test('processing both venues with same ripper returns all events', async () => {
+        const ripper = new ElCorazonRipper();
+        const html = loadSampleHtml();
+        const address = '109 Eastlake Avenue East, Seattle, WA 98109';
+
+        const elCorazonEvents = await ripper.parseEvents(html, testDate, {
+            venue: 'El Corazón', address
+        });
+        const funhouseEvents = await ripper.parseEvents(html, testDate, {
+            venue: 'The Funhouse', address
+        });
+
+        const ecValid = elCorazonEvents.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const fhValid = funhouseEvents.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(ecValid.length).toBe(3);
+        expect(fhValid.length).toBe(3);
+
+        // Verify no cross-venue contamination
+        for (const event of ecValid) {
+            expect(event.location).toContain('El Corazón');
+        }
+        for (const event of fhValid) {
+            expect(event.location).toContain('The Funhouse');
+        }
+    });
+
     test('handles empty HTML gracefully', async () => {
         const ripper = new ElCorazonRipper();
         const html = parse('<html><body></body></html>');

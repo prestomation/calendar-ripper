@@ -9,12 +9,17 @@ const MONTHS: Record<string, number> = {
 };
 
 export default class ElCorazonRipper extends HTMLRipper {
-    private seenEvents = new Set<string>();
+    private seenEventsByVenue = new Map<string, Set<string>>();
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
         const venueName: string = config.venue;
         const venueAddress: string = config.address;
+
+        if (!this.seenEventsByVenue.has(venueName)) {
+            this.seenEventsByVenue.set(venueName, new Set<string>());
+        }
+        const seenEvents = this.seenEventsByVenue.get(venueName)!;
 
         const entries = html.querySelectorAll('.ec-col-item');
 
@@ -32,9 +37,9 @@ export default class ElCorazonRipper extends HTMLRipper {
                 const eventSlug = eventPath.replace(/^\/shows\//, '');
                 if (!eventSlug) continue;
 
-                // Deduplicate
-                if (this.seenEvents.has(eventSlug)) continue;
-                this.seenEvents.add(eventSlug);
+                // Deduplicate within this venue
+                if (seenEvents.has(eventSlug)) continue;
+                seenEvents.add(eventSlug);
 
                 // Extract title
                 const titleEl = entry.querySelector('.title div');

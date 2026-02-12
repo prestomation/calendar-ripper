@@ -46,6 +46,7 @@ export default class ChopSueyRipper extends HTMLRipper {
         // Extract the all_events JavaScript array from the page
         const scriptContent = html.querySelectorAll('script')
             .map(s => s.textContent)
+            .filter((t): t is string => t !== null)
             .find(t => t.includes('all_events'));
 
         if (!scriptContent) return events;
@@ -126,9 +127,10 @@ export default class ChopSueyRipper extends HTMLRipper {
 
                 events.push(event);
             } catch (error) {
+                const errorMessage = error instanceof Error ? error.message : String(error);
                 events.push({
                     type: "ParseError",
-                    reason: `Failed to parse event ${evt.id}: ${error}`,
+                    reason: `Failed to parse event ${evt.id}: ${errorMessage}`,
                     context: evt.id
                 });
             }
@@ -140,19 +142,39 @@ export default class ChopSueyRipper extends HTMLRipper {
     private extractEventsFromScript(script: string): ChopSueyEvent[] {
         const events: ChopSueyEvent[] = [];
 
-        // Match each event object in the all_events array
-        // Format: { id: '15782', start: '2026-02-12', title: '...', doors: '...', displayTime: '...' }
-        const eventPattern = /\{\s*id:\s*'(\d+)',\s*start:\s*'([^']+)',[^}]*?title:\s*'([^']*(?:&#\d+;[^']*)*)',[^}]*?doors:\s*'([^']*)',[^}]*?displayTime:\s*'([^']*)'/g;
+        // Extract individual fields with simple, non-backtracking patterns
+        const idPattern = /id:\s*'(\d+)'/g;
+        const startPattern = /start:\s*'([^']+)'/g;
+        const titlePattern = /title:\s*'([^']*)'/g;
+        const doorsPattern = /doors:\s*'([^']*)'/g;
+        const displayTimePattern = /displayTime:\s*'([^']*)'/g;
 
-        let match;
-        while ((match = eventPattern.exec(script)) !== null) {
-            events.push({
-                id: match[1],
-                start: match[2],
-                title: match[3],
-                doors: match[4],
-                displayTime: match[5]
-            });
+        // Split into event blocks by matching opening braces in the array
+        const blocks = script.split(/\{\s*(?=id:\s*')/);
+
+        for (const block of blocks) {
+            const idMatch = idPattern.exec(block);
+            const startMatch = startPattern.exec(block);
+            const titleMatch = titlePattern.exec(block);
+            const doorsMatch = doorsPattern.exec(block);
+            const displayTimeMatch = displayTimePattern.exec(block);
+
+            // Reset lastIndex for each block
+            idPattern.lastIndex = 0;
+            startPattern.lastIndex = 0;
+            titlePattern.lastIndex = 0;
+            doorsPattern.lastIndex = 0;
+            displayTimePattern.lastIndex = 0;
+
+            if (idMatch && startMatch && titleMatch) {
+                events.push({
+                    id: idMatch[1],
+                    start: startMatch[1],
+                    title: titleMatch[1],
+                    doors: doorsMatch?.[1] || '',
+                    displayTime: displayTimeMatch?.[1] || ''
+                });
+            }
         }
 
         return events;

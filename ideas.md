@@ -177,12 +177,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Arts, Museums
 - **Note:** Three locations: SAM downtown, Seattle Asian Art Museum, Olympic Sculpture Park. Events have structured `data-attributes` (data-end-date, data-location, data-category, data-audiences) on HTML article elements, making scraping more straightforward.
 
-#### Museum of Pop Culture (MoPOP)
-- **URL:** https://www.mopop.org/events
-- **Platform:** Webflow CMS with FullCalendar 6.1.19
-- **Tags:** Museums, Arts, Community
-- **Note:** Major museum at Seattle Center. JSON-LD Event schema present. Interestingly hosts pricing data as JSON on GitHub (`Marketing-Ops-MOPOP/ticket-prices`). May be accessible via Webflow `?format=json` convention.
-
 #### Woodland Park Zoo
 - **URL:** https://zoo.org/events/
 - **Platform:** Custom (returns 503); ticketing at `tickets.zoo.org`

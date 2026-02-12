@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Disney's The Lion King",
+    "type": "event",
+    "id": "vvG1HZ9pCgODPp",
+    "url": "https://www.ticketmaster.com/disneys-the-lion-king-seattle/event/vvG1HZ9pCgODPp",
+    "dates": {
+      "start": {
+        "localDate": "2026-02-13",
+        "localTime": "19:30:00",
+        "dateTime": "2026-02-14T03:30:00Z",
+        "dateTBD": false,
+        "dateTBA": false,
+        "timeTBA": false,
+        "noSpecificTime": false
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "onsale" }
+    },
+    "info": "Ages 6+. Children under 3 will not be admitted.",
+    "pleaseNote": "No cameras or recording devices allowed.",
+    "priceRanges": [
+      { "type": "standard", "currency": "USD", "min": 35.0, "max": 175.0 }
+    ],
+    "images": [
+      { "ratio": "16_9", "url": "https://s1.ticketm.net/dam/a/abc/lion-king-16_9.jpg", "width": 1024, "height": 576 },
+      { "ratio": "3_2", "url": "https://s1.ticketm.net/dam/a/abc/lion-king-3_2.jpg", "width": 640, "height": 427 }
+    ],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Paramount Theatre",
+          "type": "venue",
+          "id": "KovZpZAFkvEA",
+          "timezone": "America/Los_Angeles",
+          "city": { "name": "Seattle" },
+          "state": { "name": "Washington", "stateCode": "WA" },
+          "address": { "line1": "911 Pine St" }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Opeth",
+    "type": "event",
+    "id": "vvG1HZbqMQxDPp",
+    "url": "https://www.ticketmaster.com/opeth-seattle/event/vvG1HZbqMQxDPp",
+    "dates": {
+      "start": {
+        "localDate": "2026-02-14",
+        "localTime": "20:00:00",
+        "dateTime": "2026-02-15T04:00:00Z",
+        "dateTBD": false,
+        "dateTBA": false,
+        "timeTBA": false,
+        "noSpecificTime": false
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "onsale" }
+    },
+    "priceRanges": [
+      { "type": "standard", "currency": "USD", "min": 45.0, "max": 85.0 }
+    ],
+    "images": [
+      { "ratio": "16_9", "url": "https://s1.ticketm.net/dam/a/opeth/opeth-16_9.jpg", "width": 1024, "height": 576 }
+    ],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Moore Theatre",
+          "type": "venue",
+          "id": "KovZpZA1vFJA",
+          "timezone": "America/Los_Angeles",
+          "city": { "name": "Seattle" },
+          "state": { "name": "Washington", "stateCode": "WA" },
+          "address": { "line1": "1932 2nd Ave" }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Jimmy O. Yang",
+    "type": "event",
+    "id": "vvG1HZbqNQyEPp",
+    "url": "https://www.ticketmaster.com/jimmy-o-yang-seattle/event/vvG1HZbqNQyEPp",
+    "dates": {
+      "start": {
+        "localDate": "2026-02-15",
+        "localTime": "20:00:00",
+        "dateTime": "2026-02-16T04:00:00Z",
+        "dateTBD": false,
+        "dateTBA": false,
+        "timeTBA": false,
+        "noSpecificTime": false
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "onsale" }
+    },
+    "info": "Stand-up comedy show",
+    "images": [],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Neptune Theatre",
+          "type": "venue",
+          "id": "KovZpZAFnltA",
+          "timezone": "America/Los_Angeles",
+          "city": { "name": "Seattle" },
+          "state": { "name": "Washington", "stateCode": "WA" },
+          "address": { "line1": "1303 NE 45th St" }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cancelled Show",
+    "type": "event",
+    "id": "vvG1HZCancel",
+    "url": "https://www.ticketmaster.com/cancelled/event/vvG1HZCancel",
+    "dates": {
+      "start": {
+        "localDate": "2026-03-01",
+        "localTime": "20:00:00",
+        "dateTime": "2026-03-02T04:00:00Z"
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "cancelled" }
+    },
+    "images": [],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Paramount Theatre",
+          "id": "KovZpZAFkvEA"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Date Only Event",
+    "type": "event",
+    "id": "vvG1HZDateOnly",
+    "url": "https://www.ticketmaster.com/date-only/event/vvG1HZDateOnly",
+    "dates": {
+      "start": {
+        "localDate": "2026-03-15",
+        "dateTBD": false,
+        "dateTBA": false,
+        "timeTBA": true,
+        "noSpecificTime": true
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "onsale" }
+    },
+    "images": [],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Moore Theatre",
+          "id": "KovZpZA1vFJA",
+          "city": { "name": "Seattle" },
+          "state": { "stateCode": "WA" },
+          "address": { "line1": "1932 2nd Ave" }
+        }
+      ]
+    }
+  },
+  {
+    "name": "UTC Only Event",
+    "type": "event",
+    "id": "vvG1HZUtcOnly",
+    "url": "https://www.ticketmaster.com/utc-only/event/vvG1HZUtcOnly",
+    "dates": {
+      "start": {
+        "dateTime": "2026-04-01T02:00:00Z"
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "onsale" }
+    },
+    "images": [
+      { "ratio": "4_3", "url": "https://s1.ticketm.net/dam/a/utc/utc-4_3.jpg", "width": 320, "height": 240 }
+    ],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Neptune Theatre",
+          "id": "KovZpZAFnltA"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Postponed Show",
+    "type": "event",
+    "id": "vvG1HZPostponed",
+    "url": "https://www.ticketmaster.com/postponed/event/vvG1HZPostponed",
+    "dates": {
+      "start": {
+        "localDate": "2026-04-10",
+        "localTime": "19:00:00"
+      },
+      "timezone": "America/Los_Angeles",
+      "status": { "code": "postponed" }
+    },
+    "images": [],
+    "_embedded": {
+      "venues": [
+        {
+          "name": "Paramount Theatre",
+          "id": "KovZpZAFkvEA",
+          "city": { "name": "Seattle" },
+          "state": { "stateCode": "WA" },
+          "address": { "line1": "911 Pine St" }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,32 @@
+name: stg
+description: "Seattle Theatre Group - Paramount, Moore, and Neptune Theatres via Ticketmaster Discovery API"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://www.stgpresents.org
+tags: ["Theatre"]
+calendars:
+  - name: stg-paramount
+    friendlyname: "STG - Paramount Theatre"
+    timezone: America/Los_Angeles
+    tags: ["Downtown"]
+    config:
+      venueId: "KovZpZAFkvEA"
+      venueName: "Paramount Theatre"
+      venueAddress: "911 Pine St, Seattle, WA 98101"
+
+  - name: stg-moore
+    friendlyname: "STG - Moore Theatre"
+    timezone: America/Los_Angeles
+    tags: ["Belltown"]
+    config:
+      venueId: "KovZpZA1vFJA"
+      venueName: "Moore Theatre"
+      venueAddress: "1932 2nd Ave, Seattle, WA 98101"
+
+  - name: stg-neptune
+    friendlyname: "STG - Neptune Theatre"
+    timezone: America/Los_Angeles
+    tags: ["University District"]
+    config:
+      venueId: "KovZpZAFnltA"
+      venueName: "Neptune Theatre"
+      venueAddress: "1303 NE 45th St, Seattle, WA 98105"

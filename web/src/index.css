@@ -436,6 +436,12 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ripper-title-container .calendar-subtitle {
+  width: 100%;
+  margin-bottom: 0;
 }
 
 .ripper-title {

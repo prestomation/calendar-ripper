@@ -441,6 +441,7 @@ function App() {
         
         const ripperGroups = manifestData.rippers.map(ripper => ({
           name: ripper.name,
+          friendlyName: ripper.friendlyName,
           description: ripper.description,
           friendlyLink: ripper.friendlyLink,
           calendars: ripper.calendars.map(calendar => ({
@@ -510,7 +511,7 @@ function App() {
         searchData.push({
           ...calendar,
           ripperName: ripper.name,
-          searchText: `${ripper.name} ${calendar.name} ${calendar.fullName} ${calendar.tags.join(' ')}`
+          searchText: `${ripper.name} ${ripper.friendlyName || ''} ${ripper.description || ''} ${calendar.name} ${calendar.fullName} ${calendar.tags.join(' ')}`
         })
       })
     })
@@ -958,7 +959,7 @@ function App() {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="calendar-title">
-                      {singleCal.fullName}
+                      {ripper.friendlyName || singleCal.fullName}
                       {singleCal.isExternal && (
                         <span className="external-indicator" title="External calendar from original organization"> 🔗</span>
                       )}
@@ -978,7 +979,7 @@ function App() {
                         </a>
                       )}
                     </div>
-                    {ripper.description && ripper.description !== singleCal.fullName && (
+                    {ripper.description && ripper.description !== (ripper.friendlyName || singleCal.fullName) && (
                       <div className="calendar-subtitle">{ripper.description}</div>
                     )}
                     <div className="calendar-tags">
@@ -1043,7 +1044,7 @@ function App() {
               <div className="ripper-header">
                 <div className="ripper-title-container">
                   <div className="ripper-title">
-                    {ripper.description}
+                    {ripper.friendlyName || ripper.description}
                     {ripper.calendars[0]?.isExternal && (
                       <span
                         className="external-indicator"
@@ -1063,6 +1064,9 @@ function App() {
                     >
                       🌐
                     </a>
+                  )}
+                  {ripper.friendlyName && ripper.description && ripper.description !== ripper.friendlyName && (
+                    <div className="calendar-subtitle">{ripper.description}</div>
                   )}
                 </div>
                 <div className="ripper-actions">

@@ -989,7 +989,7 @@ function App() {
                         </span>
                       ))}
                     </div>
-                    {searchTerm && eventMatchesByCalendar.has(singleCal.icsUrl) && (
+                    {searchTerm && eventMatchesByCalendar.get(singleCal.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(singleCal.icsUrl).length} matching event{eventMatchesByCalendar.get(singleCal.icsUrl).length !== 1 ? 's' : ''}
                         <span className="event-match-preview"> — {eventMatchesByCalendar.get(singleCal.icsUrl)[0].summary}</span>
@@ -1160,7 +1160,7 @@ function App() {
                         </span>
                       ))}
                     </div>
-                    {searchTerm && eventMatchesByCalendar.has(calendar.icsUrl) && (
+                    {searchTerm && eventMatchesByCalendar.get(calendar.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(calendar.icsUrl).length} matching event{eventMatchesByCalendar.get(calendar.icsUrl).length !== 1 ? 's' : ''}
                         <span className="event-match-preview"> — {eventMatchesByCalendar.get(calendar.icsUrl)[0].summary}</span>

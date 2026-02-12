@@ -15,6 +15,7 @@ import {
   prepareTaggedCalendars,
   prepareTaggedExternalCalendars,
   createAggregateCalendars,
+  fetchExternalCalendar,
   TaggedCalendar,
   TaggedExternalCalendar,
 } from "./tag_aggregator.js";
@@ -484,6 +485,25 @@ END:VCALENDAR`;
         location: event.location,
         date: event.date.toString(),
       });
+    }
+  }
+
+  // Index external calendar events
+  for (const calendar of activeExternalCalendars) {
+    try {
+      const externalEvents = await fetchExternalCalendar(calendar.icsUrl);
+      const icsUrl = `external-${calendar.name}.ics`;
+      for (const event of externalEvents) {
+        eventsIndex.push({
+          icsUrl,
+          summary: event.summary,
+          description: event.description?.slice(0, 200),
+          location: event.location,
+          date: event.date.toString(),
+        });
+      }
+    } catch (error) {
+      console.error(`Failed to index external calendar ${calendar.friendlyname}: ${error}`);
     }
   }
 

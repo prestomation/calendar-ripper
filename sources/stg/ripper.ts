@@ -20,7 +20,7 @@ export default class STGRipper implements IRipper {
         }
 
         for (const cal of ripper.config.calendars) {
-            const venueId = cal.config?.venueId;
+            const venueId = cal.config?.venueId as string | undefined;
             if (!venueId) continue;
 
             const rawEvents = await this.fetchVenueEvents(apiKey, venueId);

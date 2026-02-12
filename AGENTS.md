@@ -125,6 +125,10 @@ sources/
   │   └── sample-data.html # Test data (optional)
 ```
 
+### Running Tests
+- Run **`npm run test:all`** to execute both calendar generation tests and web tests in one command. This is the same target used in CI.
+- `npm run test` runs only the calendar/ripper tests; `npm run test:web` runs only the web UI tests.
+
 ### Test Framework
 - Uses **Vitest** as the test framework
 - Tests should cover:

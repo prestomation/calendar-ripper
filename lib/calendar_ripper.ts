@@ -433,6 +433,7 @@ END:VCALENDAR`;
     lastUpdated: new Date().toISOString(),
     rippers: configs.filter(ripper => !ripper.config.disabled).map(ripper => ({
       name: ripper.config.name,
+      friendlyName: ripper.config.friendlyname,
       description: ripper.config.description,
       friendlyLink: ripper.config.friendlyLink,
       calendars: ripper.config.calendars.map(calendar => ({

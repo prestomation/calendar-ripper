@@ -436,6 +436,12 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ripper-title-container .calendar-subtitle {
+  width: 100%;
+  margin-bottom: 0;
 }
 
 .ripper-title {
@@ -513,6 +519,19 @@ body {
   margin-bottom: 8px;
   color: var(--text-primary);
   font-size: 15px;
+}
+
+.calendar-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.recurring-indicator {
+  font-size: 12px;
+  opacity: 0.7;
+  cursor: help;
 }
 
 .calendar-tags {
@@ -1043,6 +1062,10 @@ body {
 
   .app--tablet .calendar-title {
     font-size: 14px;
+  }
+
+  .app--tablet .calendar-subtitle {
+    font-size: 12px;
   }
 
   .app--tablet .agenda-panel {

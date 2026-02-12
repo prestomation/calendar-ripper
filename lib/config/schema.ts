@@ -33,6 +33,7 @@ export type BuiltinRipperType = typeof BUILTIN_RIPPER_TYPES[number];
 
 export const configSchema = z.object({
     name: z.string(),
+    friendlyname: z.string().optional(),
     description: z.string(),
     url: z.string().transform(u => new URL(u)),
     friendlyLink: z.string(),

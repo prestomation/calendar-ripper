@@ -469,7 +469,7 @@ function App() {
         // Add recurring calendars as individual groups
         const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
           name: calendar.name,
-          description: `Recurring: ${calendar.friendlyName}`,
+          description: null,
           friendlyLink: null,
           calendars: [{
             name: calendar.name,
@@ -958,9 +958,12 @@ function App() {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="calendar-title">
-                      {ripper.description}
+                      {singleCal.fullName}
                       {singleCal.isExternal && (
                         <span className="external-indicator" title="External calendar from original organization"> 🔗</span>
+                      )}
+                      {singleCal.isRecurring && (
+                        <span className="recurring-indicator" title="Recurring event"> 🔄</span>
                       )}
                       {ripper.friendlyLink && (
                         <a
@@ -975,6 +978,9 @@ function App() {
                         </a>
                       )}
                     </div>
+                    {ripper.description && ripper.description !== singleCal.fullName && (
+                      <div className="calendar-subtitle">{ripper.description}</div>
+                    )}
                     <div className="calendar-tags">
                       {singleCal.tags.map(tag => (
                         <span

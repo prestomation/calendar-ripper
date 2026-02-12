@@ -8,7 +8,7 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Docs:** https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
 - **Auth:** API key (free tier, 5000 calls/day)
 - **Tags:** Music, Theatre, Community
-- **Note:** Covers many Seattle venues including Climate Pledge Arena, McCaw Hall, Benaroya Hall, Chop Suey. Search by city/venue. Well-documented, reliable. A single integration could cover dozens of venues. STG venues (Paramount, Moore, Neptune) are already implemented in `sources/stg/` using this API.
+- **Note:** A shared `TicketmasterRipper` built-in type is available in `lib/config/ticketmaster.ts`. Currently covers: STG venues (Paramount, Moore, Neptune, 5th Avenue Theatre) in `sources/stg/`, Climate Pledge Arena, The Crocodile & Madame Lou's, WAMU Theater, McCaw Hall, Benaroya Hall (both halls), Tractor Tavern, Lumen Field, and T-Mobile Park. Additional Seattle-area venues can be added by creating a new source directory with just a `ripper.yaml` using `type: ticketmaster`.
 
 ### Songkick API
 - **Docs:** https://www.songkick.com/developer
@@ -89,7 +89,7 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **URL:** https://www.5thavenue.org/shows/
 - **Platform:** Umbraco (.NET CMS); ticketing via Tessitura TNEW at `my.5thavenue.org`
 - **Tags:** Theatre, Downtown
-- **Note:** Premier musical theater venue downtown. Broadway-scale musicals and touring shows. Events page loads dynamically via JavaScript (Tessitura TNEW v7.77.0.3). Could investigate TNEW internal API calls. STG also presents shows here, so some events may be covered by Ticketmaster API.
+- **Note:** **Now covered via Ticketmaster API** in `sources/stg/` (STG presents shows here). The 5th Avenue Theatre Company's own productions may not be on Ticketmaster — could investigate TNEW internal API calls for those.
 
 #### ACT Theatre / Union Arts Center
 - **URL:** https://acttheatre.org/whats-on/ (redirects to unionartscenter.org)
@@ -156,12 +156,12 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 #### The Crocodile / Madame Lou's
 - **URL:** https://www.thecrocodile.com/
 - **Tags:** Music, Belltown
-- **Note:** Showtime CMS / AXS platform. Ticketing through TicketWeb (venue ID: 10352). Madame Lou's (300-capacity, 2505 1st Ave) is part of the same site. Could potentially use TicketWeb API instead of scraping. Events also on Ticketmaster/Live Nation.
+- **Note:** **Now covered via Ticketmaster API** in `sources/crocodile/`. Both The Crocodile (main room) and Madame Lou's (downstairs) have separate Ticketmaster venue IDs.
 
 #### Tractor Tavern
 - **URL:** https://tractortavern.com/
 - **Tags:** Music, Ballard
-- **Note:** No ICS or API. Event listing on homepage.
+- **Note:** **Now covered via Ticketmaster API** in `sources/tractor_tavern/`.
 
 #### Nectar Lounge
 - **URL:** https://nectarlounge.com/events/calendar/
@@ -239,13 +239,13 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **URL:** https://www.seattlesymphony.org/benaroyahall
 - **Platform:** Custom
 - **Tags:** Music, Downtown
-- **Note:** Home of Seattle Symphony. 2,500-seat auditorium plus 540-seat Nordstrom Recital Hall. Mix of symphony performances and external rentals. Ticketmaster Discovery API covers non-symphony events.
+- **Note:** **Both halls now covered via Ticketmaster API** in `sources/benaroya_hall/` (S. Mark Taper Auditorium and Nordstrom Recital Hall). Seattle Symphony's own performances may not be on Ticketmaster — could investigate the symphony's ticketing system for those.
 
 #### McCaw Hall
 - **URL:** https://www.mccawhall.com/events-tickets/events-calendar
 - **Platform:** Showtime CMS / Ticketmaster
 - **Tags:** Arts
-- **Note:** 2,900-seat venue at Seattle Center. Home of PNB and Seattle Opera. Events on Ticketmaster — Discovery API could cover this venue.
+- **Note:** **Now covered via Ticketmaster API** in `sources/mccaw_hall/`. PNB and Seattle Opera performances may also appear here.
 
 ### Community and Cultural Centers
 

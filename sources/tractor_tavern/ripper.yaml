@@ -1,0 +1,14 @@
+name: tractor-tavern
+type: ticketmaster
+description: "Intimate Ballard music venue known for Americana, folk, indie, and roots music"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://tractortavern.com
+tags: ["Music", "Ballard"]
+calendars:
+  - name: tractor-tavern
+    friendlyname: "Tractor Tavern"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZpZAdnvnA"
+      venueName: "Tractor Tavern"
+      venueAddress: "5213 Ballard Ave NW, Seattle, WA 98107"

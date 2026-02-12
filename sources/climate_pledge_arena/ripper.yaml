@@ -1,0 +1,15 @@
+name: climate-pledge-arena
+type: ticketmaster
+description: "Seattle's premier arena at Seattle Center, home of the Kraken and Storm"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://climatepledgearena.com
+tags: ["Music", "Sports"]
+calendars:
+  - name: climate-pledge-arena
+    friendlyname: "Climate Pledge Arena"
+    timezone: America/Los_Angeles
+    tags: ["QueenAnne"]
+    config:
+      venueId: "KovZ917Ahkk"
+      venueName: "Climate Pledge Arena"
+      venueAddress: "334 1st Ave N, Seattle, WA 98109"

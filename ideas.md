@@ -174,12 +174,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Music
 - **Note:** Plain HTML listing of electronic music events. Has SSL issues. The 19hz-map project may be useful reference for parsing the HTML structure.
 
-#### Chop Suey
-- **URL:** https://chopsuey.com/calendar/
-- **Platform:** WordPress with TicketWeb integration and FullCalendar.js
-- **Tags:** Music, Capitol Hill
-- **Note:** 500-capacity nightclub on Capitol Hill. Event data stored in a JavaScript `all_events` array with JSON-LD schema markup — relatively easy to parse. TicketWeb is a Ticketmaster subsidiary so Ticketmaster API may also cover this venue.
-
 #### The Triple Door
 - **URL:** https://thetripledoor.net/mainstage-calendar and https://thetripledoor.net/mq-stage-calendar
 - **Platform:** Bandzoogle; legacy ASP ticketing at `tickets.thetripledoor.net`

@@ -91,10 +91,10 @@ describe('App', () => {
     render(<App />)
     
     await waitFor(() => {
-      expect(screen.getByPlaceholderText('Search calendars...')).toBeInTheDocument()
+      expect(screen.getByPlaceholderText('Search calendars and events...')).toBeInTheDocument()
     })
     
-    const searchInput = screen.getByPlaceholderText('Search calendars...')
+    const searchInput = screen.getByPlaceholderText('Search calendars and events...')
     await user.type(searchInput, 'Calendar 1')
     
     expect(searchInput.value).toBe('Calendar 1')
@@ -113,10 +113,10 @@ describe('App', () => {
     render(<App />)
     
     await waitFor(() => {
-      expect(screen.getByPlaceholderText('Search calendars...')).toBeInTheDocument()
+      expect(screen.getByPlaceholderText('Search calendars and events...')).toBeInTheDocument()
     })
     
-    const searchInput = screen.getByPlaceholderText('Search calendars...')
+    const searchInput = screen.getByPlaceholderText('Search calendars and events...')
     await user.type(searchInput, 'nonexistent')
     
     await waitFor(() => {

@@ -536,6 +536,19 @@ body {
   color: white;
 }
 
+.event-match-hint {
+  font-size: 11px;
+  color: var(--color-primary);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-match-preview {
+  color: var(--text-muted);
+}
+
 .main-content {
   flex: 1;
   display: flex;

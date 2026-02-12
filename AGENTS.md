@@ -145,3 +145,7 @@ sources/
 - Verify event properties (summary, date, duration, location, etc.)
 - Test deduplication across multiple parseEvents calls
 - Ensure graceful handling of missing or malformed data
+
+## Writing Descriptions
+
+The `description` field in `ripper.yaml` is customer-facing. Keep it focused on **what** the source is (the venue or organization), not **how** it's implemented. Don't mention APIs, scraping methods, or other implementation details.

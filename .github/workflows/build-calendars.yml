@@ -36,7 +36,9 @@ jobs:
 
     - name: Generate calendars
       id: generate-calendars
-      run: | 
+      env:
+        TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+      run: |
         npm run generate-calendars
         cat errorCount.txt
         echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"

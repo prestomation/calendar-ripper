@@ -8,7 +8,7 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Docs:** https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
 - **Auth:** API key (free tier, 5000 calls/day)
 - **Tags:** Music, Theatre, Community
-- **Note:** Covers many Seattle venues including Climate Pledge Arena, The Paramount, The Moore, Neptune, McCaw Hall, Benaroya Hall, Chop Suey. Search by city/venue. Well-documented, reliable. A single integration could cover dozens of venues.
+- **Note:** Covers many Seattle venues including Climate Pledge Arena, McCaw Hall, Benaroya Hall, Chop Suey. Search by city/venue. Well-documented, reliable. A single integration could cover dozens of venues. STG venues (Paramount, Moore, Neptune) are already implemented in `sources/stg/` using this API.
 
 ### Songkick API
 - **Docs:** https://www.songkick.com/developer

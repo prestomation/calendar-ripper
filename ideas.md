@@ -121,12 +121,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Arts
 - **Note:** Major ballet company at McCaw Hall. 100+ performances per year. Also available via McCaw Hall listings.
 
-#### On the Boards
-- **URL:** https://ontheboards.org/events
-- **Platform:** Squarespace; ticketing via Salesforce Sites
-- **Tags:** Arts, QueenAnne
-- **Note:** Contemporary performing arts center in Uptown. Per-event ICS links exist (`?format=ical` on individual event URLs) but no aggregate feed. Could iterate through event URLs to build a combined feed, or use HTMLRipper.
-
 #### Seattle Public Theater
 - **URL:** https://www.seattlepublictheater.org/current-season
 - **Platform:** Squarespace; ticketing via Arts-People
@@ -347,4 +341,4 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 
 ### Squarespace Events-to-ICS Pattern
 - **Reference:** https://github.com/hawry/events-are-square
-- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, and LANGSTON are already using it. Remaining Squarespace sites (On the Boards, Georgetown Trailer Park Mall, Seattle Night Market, Seattle Public Theater) can reuse the same base class — just create a ripper.yaml + one-line ripper.ts.
+- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, and On the Boards are already using it. Remaining Squarespace sites (Georgetown Trailer Park Mall, Seattle Night Market, Seattle Public Theater) can reuse the same base class — just create a ripper.yaml + one-line ripper.ts.

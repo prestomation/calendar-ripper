@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/build-calendars.yml
+    secrets: inherit
 
   check-errors:
     runs-on: ubuntu-latest

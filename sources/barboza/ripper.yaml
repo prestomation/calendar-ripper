@@ -1,0 +1,16 @@
+name: barboza
+type: axs
+friendlyname: "Barboza"
+description: "Intimate Capitol Hill music venue located below Neumos"
+url: "https://www.axs.com/venues/124813/barboza-seattle-tickets"
+friendlyLink: https://www.neumos.com/barboza
+tags: ["Music", "Capitol Hill"]
+calendars:
+  - name: barboza
+    friendlyname: "Barboza"
+    timezone: America/Los_Angeles
+    config:
+      venueId: 124813
+      venueSlug: "barboza-seattle-tickets"
+      venueName: "Barboza"
+      venueAddress: "925 E Pike St, Seattle, WA 98122"

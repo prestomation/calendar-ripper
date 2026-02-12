@@ -1,0 +1,16 @@
+name: 5thavenue
+type: axs
+friendlyname: "The 5th Avenue Theatre"
+description: "Historic Seattle theatre presenting Broadway musicals, concerts, and special events"
+url: "https://www.axs.com/venues/133070/5th-avenue-theatre-seattle-tickets"
+friendlyLink: https://www.5thavenue.org
+tags: ["Theatre", "Downtown"]
+calendars:
+  - name: 5thavenue
+    friendlyname: "The 5th Avenue Theatre"
+    timezone: America/Los_Angeles
+    config:
+      venueId: 133070
+      venueSlug: "5th-avenue-theatre-seattle-tickets"
+      venueName: "The 5th Avenue Theatre"
+      venueAddress: "1308 5th Ave, Seattle, WA 98101"

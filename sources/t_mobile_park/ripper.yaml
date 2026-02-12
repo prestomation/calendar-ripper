@@ -1,0 +1,14 @@
+name: t-mobile-park
+type: ticketmaster
+description: "Home of the Seattle Mariners, with a retractable roof and year-round events"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://www.mlb.com/mariners/ballpark
+tags: ["Sports"]
+calendars:
+  - name: t-mobile-park
+    friendlyname: "T-Mobile Park"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZpZAEevAA"
+      venueName: "T-Mobile Park"
+      venueAddress: "1250 1st Ave S, Seattle, WA 98134"

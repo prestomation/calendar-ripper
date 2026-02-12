@@ -1,0 +1,14 @@
+name: lumen-field
+type: ticketmaster
+description: "Seattle's major outdoor stadium, home of the Seahawks and Sounders FC"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://www.lumenfield.com
+tags: ["Sports"]
+calendars:
+  - name: lumen-field
+    friendlyname: "Lumen Field"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZpZAEknnA"
+      venueName: "Lumen Field"
+      venueAddress: "800 Occidental Ave S, Seattle, WA 98134"

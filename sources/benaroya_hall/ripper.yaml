@@ -1,0 +1,22 @@
+name: benaroya-hall
+type: ticketmaster
+description: "Home of the Seattle Symphony, with the main S. Mark Taper Auditorium and intimate Nordstrom Recital Hall"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://www.seattlesymphony.org/benaroyahall
+tags: ["Music", "Downtown"]
+calendars:
+  - name: benaroya-taper
+    friendlyname: "Benaroya Hall - S. Mark Taper Auditorium"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZpZAaIEvA"
+      venueName: "Benaroya Hall - S. Mark Taper Auditorium"
+      venueAddress: "200 University St, Seattle, WA 98101"
+
+  - name: benaroya-nordstrom
+    friendlyname: "Benaroya Hall - Nordstrom Recital Hall"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZpZAaIAkA"
+      venueName: "Benaroya Hall - Nordstrom Recital Hall"
+      venueAddress: "200 University St, Seattle, WA 98101"

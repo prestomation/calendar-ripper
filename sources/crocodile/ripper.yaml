@@ -1,0 +1,22 @@
+name: crocodile
+type: ticketmaster
+description: "Legendary Seattle live music venue in Belltown, with the intimate Madame Lou's downstairs"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://www.thecrocodile.com
+tags: ["Music", "Belltown"]
+calendars:
+  - name: crocodile-main
+    friendlyname: "The Crocodile"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZpZA1vFtA"
+      venueName: "The Crocodile"
+      venueAddress: "2505 1st Ave, Seattle, WA 98121"
+
+  - name: crocodile-madame-lous
+    friendlyname: "Madame Lou's"
+    timezone: America/Los_Angeles
+    config:
+      venueId: "KovZ917AYIq"
+      venueName: "Madame Lou's"
+      venueAddress: "2505 1st Ave, Seattle, WA 98121"

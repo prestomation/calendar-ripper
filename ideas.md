@@ -4,12 +4,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ## APIs (Needs API Key or Custom Ripper)
 
-### Ticketmaster Discovery API
-- **Docs:** https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/
-- **Auth:** API key (free tier, 5000 calls/day)
-- **Tags:** Music, Theatre, Community
-- **Note:** Covers many Seattle venues including Climate Pledge Arena, McCaw Hall, Benaroya Hall, Chop Suey. Search by city/venue. Well-documented, reliable. A single integration could cover dozens of venues. STG venues (Paramount, Moore, Neptune) are already implemented in `sources/stg/` using this API.
-
 ### Songkick API
 - **Docs:** https://www.songkick.com/developer
 - **Auth:** API key
@@ -85,12 +79,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Theatre
 - **Note:** Most comprehensive regional theatre calendar covering King, Pierce, Snohomish, Thurston, and Kitsap counties. Categories include Theatre, Comedy, Dance, Outdoor Shows. No ICS or API found.
 
-#### The 5th Avenue Theatre
-- **URL:** https://www.5thavenue.org/shows/
-- **Platform:** Umbraco (.NET CMS); ticketing via Tessitura TNEW at `my.5thavenue.org`
-- **Tags:** Theatre, Downtown
-- **Note:** Premier musical theater venue downtown. Broadway-scale musicals and touring shows. Events page loads dynamically via JavaScript (Tessitura TNEW v7.77.0.3). Could investigate TNEW internal API calls. STG also presents shows here, so some events may be covered by Ticketmaster API.
-
 #### ACT Theatre / Union Arts Center
 - **URL:** https://acttheatre.org/whats-on/ (redirects to unionartscenter.org)
 - **Platform:** WordPress with Avada theme; ticketing at `order.unionartscenter.org`
@@ -152,16 +140,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Note:** Adapts literary works for the stage. Revived after closing in 2023, now producing one show at a time. Low event volume — lower priority.
 
 ### Music Venues
-
-#### The Crocodile / Madame Lou's
-- **URL:** https://www.thecrocodile.com/
-- **Tags:** Music, Belltown
-- **Note:** Showtime CMS / AXS platform. Ticketing through TicketWeb (venue ID: 10352). Madame Lou's (300-capacity, 2505 1st Ave) is part of the same site. Could potentially use TicketWeb API instead of scraping. Events also on Ticketmaster/Live Nation.
-
-#### Tractor Tavern
-- **URL:** https://tractortavern.com/
-- **Tags:** Music, Ballard
-- **Note:** No ICS or API. Event listing on homepage.
 
 #### Nectar Lounge
 - **URL:** https://nectarlounge.com/events/calendar/
@@ -234,18 +212,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Platform:** Unknown (site returned 503); ticketing at `tickets.nordicmuseum.org`
 - **Tags:** Museums, Arts, Ballard
 - **Note:** Museum in Ballard dedicated to Nordic history, art, and culture. Events include the Mostly Nordic Chamber Music Series, Nordic Sol, Julefest, film screenings, and lectures.
-
-#### Benaroya Hall / Seattle Symphony
-- **URL:** https://www.seattlesymphony.org/benaroyahall
-- **Platform:** Custom
-- **Tags:** Music, Downtown
-- **Note:** Home of Seattle Symphony. 2,500-seat auditorium plus 540-seat Nordstrom Recital Hall. Mix of symphony performances and external rentals. Ticketmaster Discovery API covers non-symphony events.
-
-#### McCaw Hall
-- **URL:** https://www.mccawhall.com/events-tickets/events-calendar
-- **Platform:** Showtime CMS / Ticketmaster
-- **Tags:** Arts
-- **Note:** 2,900-seat venue at Seattle Center. Home of PNB and Seattle Opera. Events on Ticketmaster — Discovery API could cover this venue.
 
 ### Community and Cultural Centers
 

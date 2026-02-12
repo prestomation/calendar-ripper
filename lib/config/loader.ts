@@ -4,9 +4,11 @@ import { accessSync, Dirent, readFileSync } from 'fs';
 import YAML from 'yaml';
 import { configSchema, ImportError, FileParseError, Ripper, RipperError, IRipper } from './schema.js';
 import { SquarespaceRipper } from './squarespace.js';
+import { TicketmasterRipper } from './ticketmaster.js';
 
 const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     squarespace: SquarespaceRipper,
+    ticketmaster: TicketmasterRipper,
 };
 
 // Given a directory, assume each subdirectory is a calendar package

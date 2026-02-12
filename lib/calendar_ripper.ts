@@ -460,5 +460,44 @@ END:VCALENDAR`;
   };
 
   await writeFile("output/manifest.json", JSON.stringify(manifest, null, 2));
+
+  // Generate events index for full-text event search
+  const EVENTS_INDEX_SIZE_WARNING_KB = 500;
+  const eventsIndex: Array<{
+    icsUrl: string;
+    summary: string;
+    description?: string;
+    location?: string;
+    date: string;
+  }> = [];
+
+  for (const calendar of allCalendars) {
+    const icsUrl = calendar.parent
+      ? `${calendar.parent.name}-${calendar.name}.ics`
+      : `recurring-${calendar.name}.ics`;
+
+    for (const event of calendar.events) {
+      eventsIndex.push({
+        icsUrl,
+        summary: event.summary,
+        description: event.description?.slice(0, 200),
+        location: event.location,
+        date: event.date.toString(),
+      });
+    }
+  }
+
+  const eventsIndexJson = JSON.stringify(eventsIndex);
+  const eventsIndexSizeKB = (Buffer.byteLength(eventsIndexJson, "utf8") / 1024).toFixed(1);
+  console.log(`Events index: ${eventsIndex.length} events, ${eventsIndexSizeKB} KB`);
+
+  if (parseFloat(eventsIndexSizeKB) > EVENTS_INDEX_SIZE_WARNING_KB) {
+    console.warn(
+      `⚠️  Events index is ${eventsIndexSizeKB} KB (threshold: ${EVENTS_INDEX_SIZE_WARNING_KB} KB). ` +
+      `Consider switching to a chunked search solution like Pagefind (https://pagefind.app).`
+    );
+  }
+
+  await writeFile("output/events-index.json", eventsIndexJson);
   await writeFile("errorCount.txt", totalErrorCount.toString());
 };

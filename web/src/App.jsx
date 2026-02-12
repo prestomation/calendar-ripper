@@ -38,6 +38,7 @@ function App() {
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [events, setEvents] = useState([])
+  const [eventsIndex, setEventsIndex] = useState([])
   const [loading, setLoading] = useState(true)
   const [eventsLoading, setEventsLoading] = useState(false)
   const [eventsError, setEventsError] = useState(null)
@@ -480,17 +481,28 @@ function App() {
         }))
         
         setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
+
+        // Load events index for full-text event search
+        try {
+          const eventsResponse = await fetch('./events-index.json')
+          if (eventsResponse.ok) {
+            const eventsData = await eventsResponse.json()
+            setEventsIndex(eventsData)
+          }
+        } catch (e) {
+          console.warn('Events index not available, event search disabled')
+        }
       } catch (error) {
         console.error('Failed to load calendars:', error)
       } finally {
         setLoading(false)
       }
     }
-    
+
     loadCalendars()
   }, [])
 
-  // Fuzzy search setup
+  // Fuzzy search setup — calendar names
   const fuse = useMemo(() => {
     const searchData = []
     calendars.forEach(ripper => {
@@ -502,26 +514,58 @@ function App() {
         })
       })
     })
-    
+
     return new Fuse(searchData, {
       keys: ['searchText'],
       threshold: 0.3
     })
   }, [calendars])
 
+  // Fuzzy search setup — event content
+  const eventFuse = useMemo(() => {
+    if (!eventsIndex.length) return null
+    return new Fuse(eventsIndex, {
+      keys: ['summary', 'description', 'location'],
+      threshold: 0.3
+    })
+  }, [eventsIndex])
+
+  // Event matches grouped by calendar icsUrl (only computed when searching)
+  const eventMatchesByCalendar = useMemo(() => {
+    const map = new Map()
+    if (!searchTerm || !eventFuse) return map
+    eventFuse.search(searchTerm, { limit: 100 }).forEach(({ item }) => {
+      if (!map.has(item.icsUrl)) map.set(item.icsUrl, [])
+      map.get(item.icsUrl).push(item)
+    })
+    return map
+  }, [searchTerm, eventFuse])
+
   // Filter calendars based on search and tag
   const filteredCalendars = useMemo(() => {
     let result = calendars
-    
+
     if (searchTerm || selectedTag) {
       const matchingCalendars = new Set()
-      
+
       if (searchTerm) {
+        // Calendar name/tag matches
         fuse.search(searchTerm).forEach(item => {
           matchingCalendars.add(`${item.item.ripperName}-${item.item.name}`)
         })
+
+        // Event content matches — surface calendars containing matching events
+        for (const icsUrl of eventMatchesByCalendar.keys()) {
+          calendars.forEach(ripper => {
+            ripper.calendars.forEach(calendar => {
+              if (calendar.icsUrl === icsUrl) {
+                matchingCalendars.add(`${ripper.name}-${calendar.name}`)
+              }
+            })
+          })
+        }
       }
-      
+
       result = calendars.map(ripper => ({
         ...ripper,
         calendars: ripper.calendars.filter(calendar => {
@@ -531,9 +575,9 @@ function App() {
         })
       })).filter(ripper => ripper.calendars.length > 0)
     }
-    
+
     return result
-  }, [calendars, searchTerm, selectedTag, fuse])
+  }, [calendars, searchTerm, selectedTag, fuse, eventMatchesByCalendar])
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -749,7 +793,7 @@ function App() {
             <input
               type="text"
               className="search-input"
-              placeholder="Search calendars..."
+              placeholder="Search calendars and events..."
               value={searchTerm}
               onChange={(e) => handleSearchChange(e.target.value)}
             />
@@ -945,6 +989,12 @@ function App() {
                         </span>
                       ))}
                     </div>
+                    {searchTerm && eventMatchesByCalendar.has(singleCal.icsUrl) && (
+                      <div className="event-match-hint">
+                        {eventMatchesByCalendar.get(singleCal.icsUrl).length} matching event{eventMatchesByCalendar.get(singleCal.icsUrl).length !== 1 ? 's' : ''}
+                        <span className="event-match-preview"> — {eventMatchesByCalendar.get(singleCal.icsUrl)[0].summary}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="calendar-actions">
                     <div className="ics-group">
@@ -1110,6 +1160,12 @@ function App() {
                         </span>
                       ))}
                     </div>
+                    {searchTerm && eventMatchesByCalendar.has(calendar.icsUrl) && (
+                      <div className="event-match-hint">
+                        {eventMatchesByCalendar.get(calendar.icsUrl).length} matching event{eventMatchesByCalendar.get(calendar.icsUrl).length !== 1 ? 's' : ''}
+                        <span className="event-match-preview"> — {eventMatchesByCalendar.get(calendar.icsUrl)[0].summary}</span>
+                      </div>
+                    )}
                   </div>
                   <div className="calendar-actions">
                     <div className="ics-group">
@@ -1211,7 +1267,7 @@ function App() {
             <h2>How to Use</h2>
             <ul>
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>
-              <li><strong>Search:</strong> Use the search bar to find specific calendars by name or content</li>
+              <li><strong>Search:</strong> Use the search bar to find calendars by name, or search across all event titles, descriptions, and locations</li>
               <li><strong>Filter by Tags:</strong> Click on tags to filter calendars by category</li>
               <li><strong>Subscribe:</strong> Use the 📥 ICS links to subscribe to calendars in your calendar app.</li>
               <li><strong>Copy Link:</strong> Use the 📋 buttons to copy calendar links to your clipboard.</li>

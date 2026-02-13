@@ -238,6 +238,7 @@ export const main = async () => {
 
   let tableOfContents: string = "";
   let totalErrorCount = 0;
+  const zeroEventCalendars: string[] = [];
 
   // Collect all calendars and their tags
   const allCalendars: RipperCalendar[] = [];
@@ -255,6 +256,9 @@ export const main = async () => {
     totalErrorCount += errorCount;
     const icsString = await toICS(calendar);
     console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
+    if (calendar.events.length === 0) {
+      zeroEventCalendars.push(`recurring-${calendar.name}`);
+    }
     console.error(`${errorCount} errors for recurring-${calendar.name}`);
     if (errorCount > 0) {
       console.error(calendar.errors);
@@ -293,6 +297,9 @@ export const main = async () => {
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
       console.log(`${calendar.events.length} events for ${config.config.name}-${calendar.name}`);
+      if (calendar.events.length === 0) {
+        zeroEventCalendars.push(`${config.config.name}-${calendar.name}`);
+      }
       console.error(`${errorCount} errors for ${config.config.name}-${calendar.name}`);
       if (errorCount > 0) {
         console.error(calendar.errors);
@@ -358,6 +365,9 @@ export const main = async () => {
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
+      if (calendar.events.length === 0) {
+        zeroEventCalendars.push(calendar.name);
+      }
 
       await writeFile(`output/${icsPath}`, icsString);
       await writeFile(
@@ -521,4 +531,8 @@ END:VCALENDAR`;
 
   await writeFile("output/events-index.json", eventsIndexJson);
   await writeFile("errorCount.txt", totalErrorCount.toString());
+  await writeFile("zeroEventCalendars.txt", zeroEventCalendars.join("\n"));
+  if (zeroEventCalendars.length > 0) {
+    console.warn(`⚠️  ${zeroEventCalendars.length} calendar(s) with 0 events: ${zeroEventCalendars.join(", ")}`);
+  }
 };

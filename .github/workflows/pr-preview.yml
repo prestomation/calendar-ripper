@@ -69,14 +69,21 @@ jobs:
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
             const previewUrl = `http://htmlpreview.github.io/?https://github.com/${{ github.repository }}/blob/pr-previews/pr-preview-${{ github.event.number }}/index.html`;
-            
+
+            const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
+            const zeroEventCalendars = zeroEventCalendarsRaw.trim().split('\n').filter(Boolean);
+            const zeroEventSection = zeroEventCalendars.length > 0
+              ? `\n\n<details>\n<summary>⚠️ ${zeroEventCalendars.length} calendar(s) with 0 events</summary>\n\n${zeroEventCalendars.map(c => `- \`${c}\``).join('\n')}\n\n</details>`
+              : '\n\n✅ All calendars have events';
+
             const body = `## 📅 Calendar Preview
-            
-            **Status:** ${errorBadge}
-            **Preview:** [View Calendar Index](${previewUrl})
-            **Commit:** ${{ github.event.pull_request.head.sha }}
-            
-            > 🔗 Preview powered by htmlpreview.github.io`;
+
+**Status:** ${errorBadge}
+**Preview:** [View Calendar Index](${previewUrl})
+**Commit:** ${{ github.event.pull_request.head.sha }}
+${zeroEventSection}
+
+> 🔗 Preview powered by htmlpreview.github.io`;
             
             if (botComment) {
               await github.rest.issues.updateComment({

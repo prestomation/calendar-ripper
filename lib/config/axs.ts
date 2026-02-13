@@ -56,26 +56,47 @@ export class AXSRipper implements IRipper {
     private async fetchPage(url: string): Promise<string> {
         // Use curl instead of fetch to avoid Cloudflare TLS fingerprint blocking.
         // Node.js fetch (undici) is detected and rejected with 403; curl is not.
-        const { stdout } = await execFileAsync('curl', [
-            '-s', '-L', '--max-time', '30',
-            '-H', 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            '-H', 'Accept: text/html,application/xhtml+xml',
-            '-H', 'Accept-Language: en-US,en;q=0.9',
-            '-w', '\n%{http_code}',
-            url,
-        ], { maxBuffer: 10 * 1024 * 1024 });
+        let stdout: string;
+        try {
+            const result = await execFileAsync('curl', [
+                '-s', '-L', '--max-time', '30',
+                '-H', 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                '-H', 'Accept: text/html,application/xhtml+xml',
+                '-H', 'Accept-Language: en-US,en;q=0.9',
+                '-w', '\n%{http_code}',
+                url,
+            ], { maxBuffer: 10 * 1024 * 1024 });
+            stdout = result.stdout;
+        } catch (error: any) {
+            throw new Error(`curl failed for ${url}: ${error.message || error}`);
+        }
 
         const lastNewline = stdout.lastIndexOf('\n');
+        if (lastNewline === -1) {
+            throw new Error(`Unexpected curl output for ${url}: no status code found`);
+        }
+
         const statusCode = stdout.slice(lastNewline + 1).trim();
         const body = stdout.slice(0, lastNewline);
 
+        if (!/^\d{3}$/.test(statusCode)) {
+            throw new Error(`Could not parse HTTP status from curl output for ${url}: '${statusCode}'`);
+        }
+
         if (statusCode !== '200') {
-            throw new Error(`AXS fetch error: ${statusCode} for venue URL ${url}`);
+            throw new Error(`AXS fetch error: HTTP ${statusCode} for ${url}`);
         }
         return body;
     }
 
     private async fetchVenueEvents(venueId: number, venueSlug: string): Promise<any[]> {
+        if (!Number.isInteger(venueId) || venueId <= 0) {
+            throw new Error(`Invalid venueId: ${venueId}`);
+        }
+        if (!/^[a-z0-9-]+$/.test(venueSlug)) {
+            throw new Error(`Invalid venueSlug: ${venueSlug}`);
+        }
+
         const allEvents: any[] = [];
 
         for (let page = 1; page <= MAX_PAGES; page++) {

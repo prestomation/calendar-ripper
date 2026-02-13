@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import '@js-joda/timezone';
 
 const EVENTS_PER_PAGE = 10;
@@ -15,8 +15,6 @@ const MAX_PAGES = 10;
  *   - venueAddress: full address used as location fallback
  */
 export class AXSRipper implements IRipper {
-    private seenEvents = new Set<string>();
-
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
@@ -28,9 +26,17 @@ export class AXSRipper implements IRipper {
             const venueSlug = cal.config?.venueSlug as string | undefined;
             if (!venueId || !venueSlug) continue;
 
-            const rawEvents = await this.fetchVenueEvents(venueId, venueSlug);
-            const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
-            calendars[cal.name].events = parsed;
+            try {
+                const rawEvents = await this.fetchVenueEvents(venueId, venueSlug);
+                const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
+                calendars[cal.name].events = parsed;
+            } catch (error) {
+                calendars[cal.name].events = [{
+                    type: "ParseError" as const,
+                    reason: `Failed to fetch AXS events for venue ${venueId}: ${error}`,
+                    context: `venueSlug: ${venueSlug}`
+                }];
+            }
         }
 
         return Object.keys(calendars).map(key => ({
@@ -93,6 +99,7 @@ export class AXSRipper implements IRipper {
 
     public parseEvents(eventsData: any[], timezone: any, config: any): RipperEvent[] {
         const events: RipperEvent[] = [];
+        const seenEvents = new Set<string>();
 
         for (const event of eventsData) {
             try {
@@ -101,8 +108,8 @@ export class AXSRipper implements IRipper {
                 if (!eventId || !title) continue;
 
                 const dedupKey = String(eventId);
-                if (this.seenEvents.has(dedupKey)) continue;
-                this.seenEvents.add(dedupKey);
+                if (seenEvents.has(dedupKey)) continue;
+                seenEvents.add(dedupKey);
 
                 const date = this.parseDate(event.date, timezone);
                 if (!date) {

@@ -172,7 +172,20 @@ describe('AXSRipper', () => {
         }
     });
 
-    it('deduplicates events across multiple parseEvents calls', () => {
+    it('deduplicates events within a single parseEvents call', () => {
+        const ripper = new AXSRipper();
+        const sampleData = loadSampleData();
+
+        // Simulate duplicate entries (e.g. from paginated results)
+        const duplicatedData = [...sampleData, ...sampleData];
+        const events = ripper.parseEvents(duplicatedData, timezone, config);
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        // Should still only have 4 unique events despite doubled input
+        expect(valid).toHaveLength(4);
+    });
+
+    it('does not carry dedup state across separate parseEvents calls', () => {
         const ripper = new AXSRipper();
         const sampleData = loadSampleData();
 
@@ -183,7 +196,7 @@ describe('AXSRipper', () => {
         const valid2 = events2.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         expect(valid1).toHaveLength(4);
-        expect(valid2).toHaveLength(0);
+        expect(valid2).toHaveLength(4);
     });
 
     it('returns parse error for events with no date', () => {

@@ -51,6 +51,7 @@ jobs:
         {
           echo "ZERO_EVENT_CALENDARS<<${delimiter}"
           cat zeroEventCalendars.txt
+          echo ""
           echo "${delimiter}"
         } >> "$GITHUB_OUTPUT"
 

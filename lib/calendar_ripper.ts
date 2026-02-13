@@ -286,7 +286,21 @@ export const main = async () => {
     }
 
     // Rip the calendars
-    const calendars = await config.ripperImpl.rip(config);
+    let calendars: RipperCalendar[];
+    try {
+      calendars = await config.ripperImpl.rip(config);
+    } catch (error) {
+      console.error(`Ripper ${config.config.name} threw an unhandled error: ${error}`);
+      // Produce empty calendars with the error so the build continues
+      calendars = config.config.calendars.map(cal => ({
+        name: cal.name,
+        friendlyname: cal.friendlyname,
+        events: [],
+        errors: [{ type: "ParseError" as const, reason: `Ripper crashed: ${error}`, context: "" }],
+        parent: config.config,
+        tags: cal.tags || [],
+      }));
+    }
     allCalendars.push(...calendars);
 
     const outputs: CalendarOutput[] = [];

@@ -1,0 +1,16 @@
+name: clockout-lounge
+type: axs
+friendlyname: "Clock-Out Lounge"
+description: "Beacon Hill bar and music venue with live shows, comedy, and community events"
+url: "https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets"
+friendlyLink: https://www.clockoutlounge.com
+tags: ["Music", "Beacon Hill"]
+calendars:
+  - name: clockout-lounge
+    friendlyname: "Clock-Out Lounge"
+    timezone: America/Los_Angeles
+    config:
+      venueId: 128701
+      venueSlug: "clock-out-lounge-seattle-tickets"
+      venueName: "Clock-Out Lounge"
+      venueAddress: "4864 Beacon Ave S, Seattle, WA 98108"

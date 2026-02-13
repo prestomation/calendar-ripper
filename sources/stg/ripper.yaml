@@ -1,6 +1,6 @@
 name: stg
 friendlyname: "Seattle Theatre Group"
-description: "Seattle Theatre Group - Paramount, Moore, Neptune, and 5th Avenue Theatres"
+description: "Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.stgpresents.org
 tags: ["Theatre"]
@@ -32,11 +32,3 @@ calendars:
       venueName: "Neptune Theatre"
       venueAddress: "1303 NE 45th St, Seattle, WA 98105"
 
-  - name: stg-5th-avenue
-    friendlyname: "STG - The 5th Avenue Theatre"
-    timezone: America/Los_Angeles
-    tags: ["Downtown"]
-    config:
-      venueId: "KovZpa3Mze"
-      venueName: "The 5th Avenue Theatre"
-      venueAddress: "1308 5th Ave, Seattle, WA 98101"

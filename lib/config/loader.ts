@@ -5,10 +5,12 @@ import YAML from 'yaml';
 import { configSchema, ImportError, FileParseError, Ripper, RipperError, IRipper } from './schema.js';
 import { SquarespaceRipper } from './squarespace.js';
 import { TicketmasterRipper } from './ticketmaster.js';
+import { AXSRipper } from './axs.js';
 
 const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     squarespace: SquarespaceRipper,
     ticketmaster: TicketmasterRipper,
+    axs: AXSRipper,
 };
 
 // Given a directory, assume each subdirectory is a calendar package

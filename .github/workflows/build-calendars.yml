@@ -12,12 +12,16 @@ on:
       error-count:
         description: "Number of errors during calendar generation"
         value: ${{ jobs.build.outputs.error-count }}
+      zero-event-calendars:
+        description: "Newline-separated list of calendars with 0 events"
+        value: ${{ jobs.build.outputs.zero-event-calendars }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
+      zero-event-calendars: ${{ steps.generate-calendars.outputs.ZERO_EVENT_CALENDARS }}
 
     steps:
     - name: Checkout repository
@@ -42,6 +46,14 @@ jobs:
         npm run generate-calendars
         cat errorCount.txt
         echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
+        cat zeroEventCalendars.txt
+        delimiter="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "ZERO_EVENT_CALENDARS<<${delimiter}"
+          cat zeroEventCalendars.txt
+          echo ""
+          echo "${delimiter}"
+        } >> "$GITHUB_OUTPUT"
 
     - name: Build web interface
       run: npm run web:build

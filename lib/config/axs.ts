@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperEvent } from "./schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import '@js-joda/timezone';
 
 const EVENTS_PER_PAGE = 10;
@@ -28,9 +28,18 @@ export class AXSRipper implements IRipper {
             const venueSlug = cal.config?.venueSlug as string | undefined;
             if (!venueId || !venueSlug) continue;
 
-            const rawEvents = await this.fetchVenueEvents(venueId, venueSlug);
-            const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
-            calendars[cal.name].events = parsed;
+            this.seenEvents.clear();
+            try {
+                const rawEvents = await this.fetchVenueEvents(venueId, venueSlug);
+                const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
+                calendars[cal.name].events = parsed;
+            } catch (error) {
+                calendars[cal.name].events = [{
+                    type: "ParseError" as const,
+                    reason: `Failed to fetch AXS events for venue ${venueId}: ${error}`,
+                    context: undefined
+                }];
+            }
         }
 
         return Object.keys(calendars).map(key => ({

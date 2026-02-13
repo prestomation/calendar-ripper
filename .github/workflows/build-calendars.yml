@@ -47,10 +47,11 @@ jobs:
         cat errorCount.txt
         echo "ERROR_COUNT=$(cat errorCount.txt)" >> "$GITHUB_OUTPUT"
         cat zeroEventCalendars.txt
+        delimiter="ghadelim_$(openssl rand -hex 8)"
         {
-          echo 'ZERO_EVENT_CALENDARS<<EOF'
+          echo "ZERO_EVENT_CALENDARS<<${delimiter}"
           cat zeroEventCalendars.txt
-          echo 'EOF'
+          echo "${delimiter}"
         } >> "$GITHUB_OUTPUT"
 
     - name: Build web interface

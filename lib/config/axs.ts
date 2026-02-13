@@ -1,6 +1,10 @@
 import { ZonedDateTime, Duration, LocalDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import '@js-joda/timezone';
+import { execFile } from 'child_process';
+import { promisify } from 'util';
+
+const execFileAsync = promisify(execFile);
 
 const EVENTS_PER_PAGE = 10;
 const MAX_PAGES = 10;
@@ -49,6 +53,28 @@ export class AXSRipper implements IRipper {
         }));
     }
 
+    private async fetchPage(url: string): Promise<string> {
+        // Use curl instead of fetch to avoid Cloudflare TLS fingerprint blocking.
+        // Node.js fetch (undici) is detected and rejected with 403; curl is not.
+        const { stdout } = await execFileAsync('curl', [
+            '-s', '-L', '--max-time', '30',
+            '-H', 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            '-H', 'Accept: text/html,application/xhtml+xml',
+            '-H', 'Accept-Language: en-US,en;q=0.9',
+            '-w', '\n%{http_code}',
+            url,
+        ], { maxBuffer: 10 * 1024 * 1024 });
+
+        const lastNewline = stdout.lastIndexOf('\n');
+        const statusCode = stdout.slice(lastNewline + 1).trim();
+        const body = stdout.slice(0, lastNewline);
+
+        if (statusCode !== '200') {
+            throw new Error(`AXS fetch error: ${statusCode} for venue URL ${url}`);
+        }
+        return body;
+    }
+
     private async fetchVenueEvents(venueId: number, venueSlug: string): Promise<any[]> {
         const allEvents: any[] = [];
 
@@ -56,18 +82,7 @@ export class AXSRipper implements IRipper {
             const pageParam = page > 1 ? `?page=${page}` : '';
             const url = `https://www.axs.com/venues/${venueId}/${venueSlug}${pageParam}`;
 
-            const res = await fetch(url, {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    'Accept': 'text/html,application/xhtml+xml',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                }
-            });
-            if (!res.ok) {
-                throw new Error(`AXS fetch error: ${res.status} ${res.statusText} for venue ${venueId}`);
-            }
-
-            const html = await res.text();
+            const html = await this.fetchPage(url);
             const pageData = this.extractNextData(html);
             if (!pageData) {
                 throw new Error(`Could not extract event data from AXS page for venue ${venueId}`);

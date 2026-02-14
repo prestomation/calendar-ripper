@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Fremont Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:UWsVQ6inbnCQLMCqCmtDy
+SUMMARY:Fremont Sunday Market
+DTSTAMP:20260214T003616Z
+DTSTART;TZID=America/Los_Angeles:20260215T100000
+DESCRIPTION:Year-round outdoor Sunday market in Fremont with 150+ vendors i
+	ncluding vintage goods\, crafts\, food\, and local farm produce.\n\nFrom F
+	remont Sunday Market
+URL:http://www.fremontmarket.com/
+LOCATION:3401 Evanston Ave N\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:cl5bMTZcc9qt6m-cgtCxt
+SUMMARY:Fremont First Friday Art Walk
+DTSTAMP:20260214T003616Z
+DTSTART;TZID=America/Los_Angeles:20260306T180000
+DESCRIPTION:Monthly art walk in the Fremont neighborhood\n\nFrom Fremont Fi
+	rst Friday Art Walk
+URL:http://www.fremontfirstfriday.com/
+LOCATION:Fremont neighborhood\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1FR
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

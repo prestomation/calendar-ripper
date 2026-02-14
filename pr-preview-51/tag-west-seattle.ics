@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:West Seattle Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:ot0hF9KC7Wlre3JwpjUKJ
+SUMMARY:West Seattle Farmers Market
+DTSTAMP:20260214T003616Z
+DTSTART;TZID=America/Los_Angeles:20260215T100000
+DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
+	Local produce\, artisan foods\, and community events.\n\nFrom West Seattle
+	 Farmers Market
+URL:https://seattlefarmersmarkets.org/wsfm
+LOCATION:California Ave SW & SW Alaska St\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:sEcuHOREvkCzvpbyhc9H9
+SUMMARY:West Seattle Art Walk
+DTSTAMP:20260214T003616Z
+DTSTART;TZID=America/Los_Angeles:20260312T180000
+DESCRIPTION:Monthly art walk in West Seattle\n\nFrom West Seattle Art Walk
+URL:http://wsartwalk.com/
+LOCATION:West Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2TH
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

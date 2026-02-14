@@ -15,17 +15,6 @@ events:
     url: "http://www.visitballard.com/artwalk/"
     tags: ["Artwalk", "Ballard"]
 
-  - name: beacon-hill-artwalk
-    friendlyname: "Beacon Hill Art Walk"
-    description: "Annual art walk in the Beacon Hill neighborhood"
-    schedule: "Annual"  # Special case for annual events
-    timezone: America/Los_Angeles
-    duration: PT4H
-    start_time: "18:00"
-    location: "Beacon Hill neighborhood, Seattle"
-    url: "https://www.beaconbusinessalliance.org/"
-    tags: ["Artwalk", "Beacon Hill"]
-
   - name: belltown-artwalk
     friendlyname: "Belltown Art Walk"
     description: "Monthly art walk in the Belltown neighborhood"

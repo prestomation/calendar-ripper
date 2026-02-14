@@ -15,12 +15,15 @@ export default class DowntownSeattleRipper extends JSONRipper {
             }];
         }
         
-        // Filter events by venue if specified in config
+        // Filter events by venue if specified in config.
+        // The API returns venue as either an object or an array of objects.
         let filteredEvents = jsonData.events;
         if (config && config.venue_id) {
-            filteredEvents = filteredEvents.filter((event: any) => 
-                event.venue && event.venue.id === parseInt(config.venue_id)
-            );
+            const targetId = parseInt(config.venue_id);
+            filteredEvents = filteredEvents.filter((event: any) => {
+                const venue = this.getVenue(event);
+                return venue && venue.id === targetId;
+            });
         }
         
         for (const event of filteredEvents) {
@@ -63,9 +66,9 @@ export default class DowntownSeattleRipper extends JSONRipper {
                 
                 // Format location with all available venue information
                 let location = undefined;
-                if (event.venue) {
-                    const venue = event.venue;
-                    location = `${venue.venue}, ${venue.address}, ${venue.city}, ${venue.stateprovince} ${venue.zip}`;
+                const venueObj = this.getVenue(event);
+                if (venueObj) {
+                    location = `${venueObj.venue}, ${venueObj.address}, ${venueObj.city}, ${venueObj.stateprovince} ${venueObj.zip}`;
                 }
                 
                 // Process image if available
@@ -112,6 +115,13 @@ export default class DowntownSeattleRipper extends JSONRipper {
         return events;
     }
     
+    // The Tribe Events API returns venue as either an object or an array.
+    private getVenue(event: any): any | null {
+        if (!event.venue) return null;
+        if (Array.isArray(event.venue)) return event.venue[0] ?? null;
+        return event.venue;
+    }
+
     // Helper method to strip HTML tags from description
     private stripHtml(html: string): string {
         return html.replace(/<\/?[^>]+(>|$)/g, "");

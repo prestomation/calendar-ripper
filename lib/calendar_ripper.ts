@@ -1,5 +1,5 @@
 import { RipperLoader } from "./config/loader.js";
-import { writeFile, mkdir, readFile } from "fs/promises";
+import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
 import {
   RipperConfig,
   toICS,
@@ -238,7 +238,9 @@ export const main = async () => {
 
   let tableOfContents: string = "";
   let totalErrorCount = 0;
-  const zeroEventCalendars: string[] = [];
+
+  // Track event counts per calendar for summary
+  const eventCounts: Array<{ name: string; type: string; events: number }> = [];
 
   // Collect all calendars and their tags
   const allCalendars: RipperCalendar[] = [];
@@ -256,8 +258,9 @@ export const main = async () => {
     totalErrorCount += errorCount;
     const icsString = await toICS(calendar);
     console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
+    eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length });
     if (calendar.events.length === 0) {
-      zeroEventCalendars.push(`recurring-${calendar.name}`);
+      console.log(`::warning::Calendar recurring-${calendar.name} has 0 events — this may indicate a problem`);
     }
     console.error(`${errorCount} errors for recurring-${calendar.name}`);
     if (errorCount > 0) {
@@ -311,8 +314,9 @@ export const main = async () => {
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
       console.log(`${calendar.events.length} events for ${config.config.name}-${calendar.name}`);
+      eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length });
       if (calendar.events.length === 0) {
-        zeroEventCalendars.push(`${config.config.name}-${calendar.name}`);
+        console.log(`::warning::Calendar ${config.config.name}-${calendar.name} has 0 events — this may indicate a problem`);
       }
       console.error(`${errorCount} errors for ${config.config.name}-${calendar.name}`);
       if (errorCount > 0) {
@@ -379,8 +383,10 @@ export const main = async () => {
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
+      console.log(`${calendar.events.length} events for ${calendar.name}`);
+      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length });
       if (calendar.events.length === 0) {
-        zeroEventCalendars.push(calendar.name);
+        console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
       }
 
       await writeFile(`output/${icsPath}`, icsString);
@@ -411,7 +417,12 @@ export const main = async () => {
       const icsContent = await response.text();
       const localFileName = `external-${calendar.name}.ics`;
       await writeFile(`output/${localFileName}`, icsContent);
-      console.log(`  - Saved as ${localFileName}`);
+      const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
+      console.log(`${eventCount} events for external-${calendar.name}`);
+      eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount });
+      if (eventCount === 0) {
+        console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has 0 events — this may indicate a problem`);
+      }
     } catch (error) {
       console.error(`  - Failed to fetch ${calendar.friendlyname}: ${error}`);
       // Create empty calendar file as fallback
@@ -545,8 +556,36 @@ END:VCALENDAR`;
 
   await writeFile("output/events-index.json", eventsIndexJson);
   await writeFile("errorCount.txt", totalErrorCount.toString());
-  await writeFile("zeroEventCalendars.txt", zeroEventCalendars.join("\n"));
+
+  // Print event count summary
+  const zeroEventCalendars = eventCounts.filter(c => c.events === 0);
+  await writeFile("zeroEventCalendars.txt", zeroEventCalendars.map(c => c.name).join("\n"));
+
+  console.log("\n=== Event Count Summary ===");
+  for (const entry of eventCounts) {
+    console.log(`  ${entry.name}: ${entry.events} events (${entry.type})`);
+  }
+  const totalEvents = eventCounts.reduce((sum, c) => sum + c.events, 0);
+  console.log(`  Total: ${totalEvents} events across ${eventCounts.length} calendars`);
   if (zeroEventCalendars.length > 0) {
-    console.warn(`⚠️  ${zeroEventCalendars.length} calendar(s) with 0 events: ${zeroEventCalendars.join(", ")}`);
+    console.log(`  ⚠ ${zeroEventCalendars.length} calendar(s) with 0 events: ${zeroEventCalendars.map(c => c.name).join(", ")}`);
+  }
+  console.log("===========================\n");
+
+  // Write GitHub Actions step summary if running in CI
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const summaryLines = [
+      "## Calendar Event Counts\n",
+      "| Calendar | Type | Events |",
+      "|----------|------|--------|",
+      ...eventCounts.map(c => `| ${c.name} | ${c.type} | ${c.events === 0 ? "⚠️ 0" : c.events} |`),
+      "",
+      `**Total:** ${totalEvents} events across ${eventCounts.length} calendars`,
+    ];
+    if (zeroEventCalendars.length > 0) {
+      summaryLines.push("");
+      summaryLines.push(`> ⚠️ **${zeroEventCalendars.length} calendar(s) with 0 events:** ${zeroEventCalendars.map(c => c.name).join(", ")}`);
+    }
+    await appendFile(process.env.GITHUB_STEP_SUMMARY, summaryLines.join("\n") + "\n");
   }
 };

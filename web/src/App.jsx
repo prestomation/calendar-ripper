@@ -519,6 +519,18 @@ function App() {
     return map
   }, [searchTerm, eventFuse])
 
+  // When searching, filter loaded events to only matching ones
+  const filteredEvents = useMemo(() => {
+    if (!searchTerm || !selectedCalendar) return events
+    const term = searchTerm.toLowerCase()
+    const matched = events.filter(event =>
+      (event.title && event.title.toLowerCase().includes(term)) ||
+      (event.description && event.description.toLowerCase().includes(term)) ||
+      (event.location && event.location.toLowerCase().includes(term))
+    )
+    return matched
+  }, [events, searchTerm, selectedCalendar])
+
   // Filter calendars based on search and tag
   const filteredCalendars = useMemo(() => {
     let result = calendars
@@ -769,7 +781,7 @@ function App() {
           </button>
           <div className="search-bar">
             <div className="search-input-wrapper">
-              <span className="search-icon" aria-hidden="true">🔍</span>
+              <svg className="search-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <input
                 type="text"
                 className="search-input"
@@ -1346,7 +1358,30 @@ function App() {
               </div>
               <p>Upcoming events</p>
             </div>
-            
+
+            {searchTerm && (
+              <div className="detail-search-bar">
+                <div className="search-input-wrapper">
+                  <svg className="search-icon" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input
+                    type="text"
+                    className="search-input"
+                    placeholder="Search events..."
+                    value={searchTerm}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                  />
+                  <button
+                    className="search-clear-btn"
+                    onClick={() => handleSearchChange('')}
+                    title="Clear search"
+                    aria-label="Clear search"
+                  >
+                    ✕
+                  </button>
+                </div>
+              </div>
+            )}
+
             {eventsLoading ? (
               <div className="loading-spinner">
                 <div className="spinner"></div>
@@ -1370,53 +1405,63 @@ function App() {
                 </button>
               </div>
             ) : events.length > 0 ? (
-              events.map(event => (
-                <div key={event.id} className="event-item">
-                  <div className="event-date">{formatDate(event.startDate)}</div>
-                  <div className="event-title">
-                    {event.title}
-                    {event.isRecurring && (
-                      <span 
-                        className="recurring-indicator" 
-                        title={parseRRuleDescription(event.rrule) || "Recurring event"}
-                      >
-                        🔄
-                      </span>
+              <>
+                {searchTerm && (
+                  <div className="search-filter-banner">
+                    {filteredEvents.length > 0
+                      ? `Showing ${filteredEvents.length} of ${events.length} events matching "${searchTerm}"`
+                      : `No events matching "${searchTerm}"`}
+                    <button className="link-button" onClick={() => handleSearchChange('')}>Show all events</button>
+                  </div>
+                )}
+                {(searchTerm ? filteredEvents : events).map(event => (
+                  <div key={event.id} className="event-item">
+                    <div className="event-date">{formatDate(event.startDate)}</div>
+                    <div className="event-title">
+                      {event.title}
+                      {event.isRecurring && (
+                        <span
+                          className="recurring-indicator"
+                          title={parseRRuleDescription(event.rrule) || "Recurring event"}
+                        >
+                          🔄
+                        </span>
+                      )}
+                      {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
+                        <span className="event-source" title={`From ${event.calendarName}`}>
+                          {event.calendarName}
+                        </span>
+                      )}
+                      {event.url && (
+                        <a
+                          href={event.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="event-link-icon"
+                          title="View event details"
+                        >
+                          🔗
+                        </a>
+                      )}
+                    </div>
+                    {event.description && (
+                      <div className="event-details">{event.description}</div>
                     )}
-                    {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
-                      <span className="event-source" title={`From ${event.calendarName}`}>
-                        {event.calendarName}
-                      </span>
-                    )}
-                    {event.url && (
-                      <a 
-                        href={event.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="event-link-icon"
-                        title="View event details"
-                      >
-                        🔗
-                      </a>
+                    {event.location && (
+                      <div className="event-location">
+                        📍 <a
+                          href={createGoogleMapsUrl(event.location)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="location-link"
+                        >
+                          {event.location}
+                        </a>
+                      </div>
                     )}
                   </div>
-                  {event.description && (
-                    <div className="event-details">{event.description}</div>
-                  )}
-                  {event.location && (
-                    <div className="event-location">
-                      📍 <a 
-                        href={createGoogleMapsUrl(event.location)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="location-link"
-                      >
-                        {event.location}
-                      </a>
-                    </div>
-                  )}
-                </div>
-              ))
+                ))}
+              </>
             ) : (
               <div className="empty-state">No upcoming events</div>
             )}

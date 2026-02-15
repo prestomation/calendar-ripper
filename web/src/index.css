@@ -178,14 +178,15 @@ body {
 .search-icon {
   position: absolute;
   left: 12px;
-  font-size: 14px;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.4;
+  color: var(--text-muted);
+  flex-shrink: 0;
 }
 
 .search-input {
   width: 100%;
-  padding: 12px 36px 12px 36px;
+  padding: 12px 36px 12px 40px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 14px;
@@ -594,6 +595,24 @@ body {
   color: var(--text-muted);
   border-bottom: 1px solid var(--border-color);
   background: var(--bg-surface);
+}
+
+.detail-search-bar {
+  margin-bottom: 16px;
+}
+
+.search-filter-banner {
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--bg-muted);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .event-match-hint {

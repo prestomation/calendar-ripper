@@ -1007,7 +1007,7 @@ body {
   }
 
   .app--mobile .search-input {
-    padding: 10px 14px;
+    padding: 10px 36px 10px 40px;
   }
 
   /* Main content takes full screen when visible */
@@ -1120,7 +1120,7 @@ body {
   }
 
   .app--tablet .search-input {
-    padding: 10px 12px;
+    padding: 10px 36px 10px 40px;
     font-size: 13px;
   }
 

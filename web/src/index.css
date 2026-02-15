@@ -554,6 +554,9 @@ body {
   margin-bottom: 8px;
   color: var(--text-primary);
   font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .calendar-subtitle {
@@ -567,6 +570,22 @@ body {
   font-size: 12px;
   opacity: 0.7;
   cursor: help;
+}
+
+.calendar-event-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-muted);
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.calendar-item.selected .calendar-event-count {
+  background: var(--bg-primary-subtle);
+  color: var(--color-primary);
 }
 
 .calendar-tags {
@@ -691,6 +710,13 @@ body {
 
 .agenda-link-icon:hover {
   opacity: 1;
+}
+
+.agenda-description {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .agenda-header p {

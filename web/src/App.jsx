@@ -80,7 +80,28 @@ function App() {
   const tagsRef = useRef(null)
   const calendarListRef = useRef(null)
   const agendaRef = useRef(null)
+  const searchInputRef = useRef(null)
   
+  // Keyboard shortcuts: "/" to focus search, Escape to clear
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const active = document.activeElement
+        const isInput = active?.tagName === 'INPUT' || active?.tagName === 'TEXTAREA' || active?.isContentEditable
+        if (!isInput) {
+          e.preventDefault()
+          searchInputRef.current?.focus()
+        }
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInputRef.current && searchTerm) {
+        handleSearchChange('')
+        searchInputRef.current?.blur()
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [searchTerm])
+
   // Resize functionality
   const handleMouseDown = useCallback((e) => {
     e.preventDefault()
@@ -281,10 +302,18 @@ function App() {
     return null
   }
 
+  const searchDebounceRef = useRef(null)
+  // Clean up debounce timer on unmount
+  useEffect(() => {
+    return () => clearTimeout(searchDebounceRef.current)
+  }, [])
   const handleSearchChange = (value) => {
     setSearchTerm(value)
-    // Search and tag now work together — no need to clear the tag
-    updateURL(value, selectedTag, selectedCalendar, undefined, { replace: true })
+    // Debounce URL update
+    clearTimeout(searchDebounceRef.current)
+    searchDebounceRef.current = setTimeout(() => {
+      updateURL(value, selectedTag, selectedCalendar, undefined, { replace: true })
+    }, 150)
   }
 
   const handleTagChange = (tag) => {
@@ -588,6 +617,15 @@ function App() {
     })
     return map
   }, [calendars])
+
+  // Helper: count upcoming events per calendar from events-index
+  const eventCountByIcsUrl = useMemo(() => {
+    const counts = {}
+    eventsIndex.forEach(event => {
+      counts[event.icsUrl] = (counts[event.icsUrl] || 0) + 1
+    })
+    return counts
+  }, [eventsIndex])
 
   // Helper: look up a calendar's tags from its icsUrl
   const calendarTagsByIcsUrl = useMemo(() => {
@@ -907,6 +945,19 @@ function App() {
     })
   }
 
+  const formatDateRange = (startDate, endDate) => {
+    const start = formatDate(startDate)
+    if (!endDate) return start
+
+    const sameDay = startDate.toDateString() === endDate.toDateString()
+    if (sameDay) {
+      const endTime = endDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+      return `${start} – ${endTime}`
+    }
+
+    return `${start} – ${formatDate(endDate)}`
+  }
+
   if (loading) {
     return <div className="loading">Loading calendars...</div>
   }
@@ -945,9 +996,10 @@ function App() {
             <div className="search-input-wrapper">
               <svg className="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               <input
+                ref={searchInputRef}
                 type="text"
                 className="search-input"
-                placeholder="Search calendars and events..."
+                placeholder='Search calendars and events... (press "/" to focus)'
                 value={searchTerm}
                 onChange={(e) => handleSearchChange(e.target.value)}
               />
@@ -1154,6 +1206,11 @@ function App() {
                           🌐
                         </a>
                       )}
+                      {eventCountByIcsUrl[singleCal.icsUrl] > 0 && (
+                        <span className="calendar-event-count" title={`${eventCountByIcsUrl[singleCal.icsUrl]} upcoming event${eventCountByIcsUrl[singleCal.icsUrl] !== 1 ? 's' : ''}`}>
+                          {eventCountByIcsUrl[singleCal.icsUrl]}
+                        </span>
+                      )}
                     </div>
                     {ripper.description && ripper.description !== (ripper.friendlyName || singleCal.fullName) && (
                       <div className="calendar-subtitle">{ripper.description}</div>
@@ -1335,7 +1392,14 @@ function App() {
                     onClick={() => handleCalendarSelect(calendar, ripper.name)}
                     style={{ cursor: 'pointer' }}
                   >
-                    <div className="calendar-title">{calendar.fullName}</div>
+                    <div className="calendar-title">
+                      {calendar.fullName}
+                      {eventCountByIcsUrl[calendar.icsUrl] > 0 && (
+                        <span className="calendar-event-count" title={`${eventCountByIcsUrl[calendar.icsUrl]} upcoming event${eventCountByIcsUrl[calendar.icsUrl] !== 1 ? 's' : ''}`}>
+                          {eventCountByIcsUrl[calendar.icsUrl]}
+                        </span>
+                      )}
+                    </div>
                     <div className="calendar-tags">
                       {calendar.tags.map(tag => (
                         <span
@@ -1460,7 +1524,17 @@ function App() {
               <div className="agenda-title-container">
                 <h1>Happening Soon</h1>
               </div>
-              <p>Events across all calendars in the next 7 days{selectedTag ? ` tagged "${formatTagLabel(selectedTag)}"` : ''}</p>
+              <p>
+                {(() => {
+                  const totalEvents = happeningSoonEvents.reduce((sum, g) => sum + g.events.length, 0)
+                  const parts = []
+                  if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
+                  else parts.push('Events')
+                  parts.push('across all calendars in the next 7 days')
+                  if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
+                  return parts.join(' ')
+                })()}
+              </p>
             </div>
 
             <div className="agenda-tags">
@@ -1646,7 +1720,15 @@ function App() {
                   ) : null
                 })()}
               </div>
-              <p>Upcoming events</p>
+              {(() => {
+                const ripper = calendars.find(r => r.name === selectedCalendar.ripperName)
+                const description = ripper?.description
+                if (description && description !== selectedCalendar.fullName && description !== ripper?.friendlyName) {
+                  return <p className="agenda-description">{description}</p>
+                }
+                return null
+              })()}
+              <p>Upcoming events{events.length > 0 && !eventsLoading ? ` (${searchTerm ? filteredEvents.length : events.length})` : ''}</p>
             </div>
 
             {searchTerm && (
@@ -1704,51 +1786,81 @@ function App() {
                     <button className="link-button" onClick={() => handleSearchChange('')}>Show all events</button>
                   </div>
                 )}
-                {(searchTerm ? filteredEvents : events).map(event => (
-                  <div key={event.id} className="event-item">
-                    <div className="event-date">{formatDate(event.startDate)}</div>
-                    <div className="event-title">
-                      {event.title}
-                      {event.isRecurring && (
-                        <span
-                          className="recurring-indicator"
-                          title={parseRRuleDescription(event.rrule) || "Recurring event"}
-                        >
-                          🔄
-                        </span>
-                      )}
-                      {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
-                        <span className="event-source" title={`From ${event.calendarName}`}>
-                          {event.calendarName}
-                        </span>
-                      )}
-                      {event.url && (
-                        <a
-                          href={event.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="event-link-icon"
-                          title="View event details"
-                        >
-                          🔗
-                        </a>
-                      )}
-                    </div>
-                    <EventDescription text={event.description} />
-                    {event.location && (
-                      <div className="event-location">
-                        📍 <a
-                          href={createGoogleMapsUrl(event.location)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="location-link"
-                        >
-                          {event.location}
-                        </a>
+                {(() => {
+                  const displayEvents = searchTerm ? filteredEvents : events
+                  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+                  const now = new Date()
+                  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+                  let lastDateLabel = null
+
+                  return displayEvents.map(event => {
+                    const eventDay = new Date(event.startDate.getFullYear(), event.startDate.getMonth(), event.startDate.getDate())
+                    const diffDays = Math.round((eventDay - todayStart) / (1000 * 60 * 60 * 24))
+                    let dateLabel
+                    if (diffDays === 0) dateLabel = 'Today'
+                    else if (diffDays === 1) dateLabel = 'Tomorrow'
+                    else if (diffDays > 1 && diffDays < 7) dateLabel = dayNames[eventDay.getDay()]
+                    else dateLabel = eventDay.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
+
+                    const showHeader = dateLabel !== lastDateLabel
+                    lastDateLabel = dateLabel
+                    const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+
+                    return (
+                      <div key={event.id}>
+                        {showHeader && (
+                          <div className="day-group-header">
+                            <span className="day-group-label">{dateLabel}</span>
+                            {diffDays < 7 && <span className="day-group-date">{dateSubtitle}</span>}
+                          </div>
+                        )}
+                        <div className="event-item">
+                          <div className="event-date">{formatDateRange(event.startDate, event.endDate)}</div>
+                          <div className="event-title">
+                            {event.title}
+                            {event.isRecurring && (
+                              <span
+                                className="recurring-indicator"
+                                title={parseRRuleDescription(event.rrule) || "Recurring event"}
+                              >
+                                🔄
+                              </span>
+                            )}
+                            {selectedCalendar?.ripperName === 'tag-aggregate' && event.calendarName && (
+                              <span className="event-source" title={`From ${event.calendarName}`}>
+                                {event.calendarName}
+                              </span>
+                            )}
+                            {event.url && (
+                              <a
+                                href={event.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="event-link-icon"
+                                title="View event details"
+                              >
+                                🔗
+                              </a>
+                            )}
+                          </div>
+                          <EventDescription text={event.description} />
+                          {event.location && (
+                            <div className="event-location">
+                              📍 <a
+                                href={createGoogleMapsUrl(event.location)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="location-link"
+                              >
+                                {event.location}
+                              </a>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
-                  </div>
-                ))}
+                    )
+                  })
+                })()}
               </>
             ) : (
               <div className="empty-state">No upcoming events</div>

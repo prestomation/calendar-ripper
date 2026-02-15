@@ -1,30 +1,10 @@
 name: pacific-science-center
 friendlyname: "Pacific Science Center"
-description: "Pacific Science Center Events Calendar"
+description: "Science museum at Seattle Center with interactive exhibits, laser shows, an IMAX theater, and special events for all ages"
 url: "https://pacificsciencecenter.org/wp-json/wp/v2/event"
-friendlyLink: https://pacificsciencecenter.org
-# DISABLED: WordPress API only provides publication dates, not actual event dates
-# The API returns events with publication dates (e.g., Dec 8) instead of actual event dates (e.g., Dec 17)
-# This causes all events to appear in the past or have incorrect dates
-# Would need proper event calendar plugin with structured date fields to work correctly
-disabled: true
-lookahead: P3M
+friendlyLink: https://pacificsciencecenter.org/events/
+tags: ["Education", "Museums"]
 calendars:
   - name: all-events
-    friendlyname: "All Pacific Science Center Events"
+    friendlyname: "Pacific Science Center Events"
     timezone: America/Los_Angeles
-  - name: laser-dome
-    friendlyname: "Laser Dome Events"
-    timezone: America/Los_Angeles
-    config:
-      location_id: 40
-  - name: paccar-theater
-    friendlyname: "PACCAR Theater Events"
-    timezone: America/Los_Angeles
-    config:
-      location_id: 39
-  - name: special-events
-    friendlyname: "Special Events"
-    timezone: America/Los_Angeles
-    config:
-      event_series_id: 34

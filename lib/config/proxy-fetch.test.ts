@@ -69,6 +69,25 @@ describe("proxyFetch", () => {
 
         expect(result).toBe(expected);
     });
+
+    it("accepts a URL object and converts to string", async () => {
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await proxyFetch(new URL("https://example.com/path"));
+
+        expect(mockFetch).toHaveBeenCalledWith("https://example.com/path", undefined);
+    });
+
+    it("accepts a URL object when proxying", async () => {
+        process.env.PROXY_URL = "https://proxy.example.com/";
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await proxyFetch(new URL("https://example.com/path"));
+
+        const [calledUrl] = mockFetch.mock.calls[0];
+        const parsed = new URL(calledUrl);
+        expect(parsed.searchParams.get("url")).toBe("https://example.com/path");
+    });
 });
 
 describe("getFetchForConfig", () => {

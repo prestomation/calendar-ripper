@@ -10,20 +10,21 @@
  *   const res = await fetchFn(url, init);
  */
 
-type FetchFn = (url: string, init?: RequestInit) => Promise<Response>;
+export type FetchFn = (url: string | URL, init?: RequestInit) => Promise<Response>;
 
 /**
  * Fetch through the authenticated proxy. Falls back to direct fetch when
  * the PROXY_URL environment variable is not set.
  */
-export function proxyFetch(url: string, init?: RequestInit): Promise<Response> {
+export function proxyFetch(url: string | URL, init?: RequestInit): Promise<Response> {
+    const urlStr = url.toString();
     const proxyUrl = process.env.PROXY_URL;
     if (!proxyUrl) {
-        return fetch(url, init);
+        return fetch(urlStr, init);
     }
 
     const proxied = new URL(proxyUrl);
-    proxied.searchParams.set("url", url);
+    proxied.searchParams.set("url", urlStr);
     return fetch(proxied.toString(), init);
 }
 
@@ -36,5 +37,5 @@ export function getFetchForConfig(config: { proxy?: boolean }): FetchFn {
     if (config.proxy) {
         return proxyFetch;
     }
-    return (url: string, init?: RequestInit) => fetch(url, init);
+    return (url: string | URL, init?: RequestInit) => fetch(url, init);
 }

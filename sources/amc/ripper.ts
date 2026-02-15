@@ -1,6 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
-import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const GRAPHQL_URL = "https://graph.amctheatres.com/graphql";
@@ -79,7 +79,7 @@ interface FlatShowtime {
  * Each calendar entry specifies a theatre slug in its config.
  */
 export default class AMCRipper implements IRipper {
-    private fetchFn: (url: string, init?: RequestInit) => Promise<Response> = (url, init) => fetch(url, init);
+    private fetchFn: FetchFn = (url, init) => fetch(url, init);
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);

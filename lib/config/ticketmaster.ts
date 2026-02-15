@@ -1,6 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
-import { getFetchForConfig } from "./proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 200;
@@ -18,7 +18,7 @@ const LOOKAHEAD_MONTHS = 3;
  */
 export class TicketmasterRipper implements IRipper {
     private seenEvents = new Set<string>();
-    private fetchFn: (url: string, init?: RequestInit) => Promise<Response> = (url, init) => fetch(url, init);
+    private fetchFn: FetchFn = (url, init) => fetch(url, init);
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);

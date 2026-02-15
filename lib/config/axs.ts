@@ -1,6 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
-import { getFetchForConfig } from "./proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
@@ -20,7 +20,7 @@ const MAX_PAGES = 10;
  *   - venueAddress: full address used as location fallback
  */
 export class AXSRipper implements IRipper {
-    private fetchFn: ((url: string, init?: RequestInit) => Promise<Response>) | null = null;
+    private fetchFn: FetchFn | null = null;
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);

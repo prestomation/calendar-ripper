@@ -1,6 +1,6 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
-import { getFetchForConfig } from "./proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
 
@@ -51,7 +51,7 @@ const MAX_PAGES = 10;
  * ripper.yaml with the events page URL.
  */
 export class SquarespaceRipper implements IRipper {
-    private fetchFn: (url: string, init?: RequestInit) => Promise<Response> = (url, init) => fetch(url, init);
+    private fetchFn: FetchFn = (url, init) => fetch(url, init);
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);

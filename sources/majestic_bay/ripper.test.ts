@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import MajesticBayRipper from './ripper.js';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
-import { ZoneRegion } from '@js-joda/core';
+import { Duration } from '@js-joda/core';
 import '@js-joda/timezone';
 import fs from 'fs';
 import path from 'path';
@@ -12,8 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 function loadSampleHtml(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
 }
-
-const timezone = ZoneRegion.of('America/Los_Angeles');
 
 describe('MajesticBayRipper', () => {
     it('extracts JSON-LD events from sample HTML', () => {
@@ -32,7 +30,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         expect(valid.length).toBe(55);
@@ -43,7 +41,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const hamnet = valid.find(e => e.summary === 'Hamnet');
@@ -55,7 +53,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const hamnet = valid.find(e => e.id === 'veezi-34125')!;
@@ -72,7 +70,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         // Hamnet: PT2H6M = 126 minutes
@@ -89,7 +87,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         expect(valid[0].location).toBe('Majestic Bay Theatres, 2044 NW Market St., Seattle, WA, 98107, USA');
@@ -100,7 +98,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const hamnet = valid.find(e => e.id === 'veezi-34125')!;
@@ -112,7 +110,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         for (const event of valid) {
@@ -127,7 +125,7 @@ describe('MajesticBayRipper', () => {
 
         // Double the events to simulate duplicates
         const duplicated = [...veeziEvents, ...veeziEvents];
-        const events = ripper.parseEvents(duplicated, timezone);
+        const events = ripper.parseEvents(duplicated);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         expect(valid.length).toBe(55);
@@ -138,7 +136,7 @@ describe('MajesticBayRipper', () => {
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const errors = events.filter(e => 'type' in e) as RipperError[];
 
         expect(errors).toHaveLength(0);
@@ -159,7 +157,7 @@ describe('MajesticBayRipper', () => {
             duration: "PT2H",
             name: "Bad Date Movie",
             url: "https://example.com/purchase/99999"
-        }], timezone);
+        }]);
 
         const errors = events.filter(e => 'type' in e) as RipperError[];
         expect(errors).toHaveLength(1);
@@ -167,12 +165,28 @@ describe('MajesticBayRipper', () => {
         expect(errors[0].reason).toContain('Could not parse date');
     });
 
+    it('defaults to 2 hours when duration is missing', () => {
+        const ripper = new MajesticBayRipper();
+
+        const events = ripper.parseEvents([{
+            "@type": "VisualArtsEvent",
+            startDate: "2026-02-15T12:30:00-08:00",
+            duration: undefined as any,
+            name: "No Duration Movie",
+            url: "https://example.com/purchase/88888"
+        }]);
+
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        expect(valid).toHaveLength(1);
+        expect(valid[0].duration).toEqual(Duration.ofHours(2));
+    });
+
     it('includes multiple distinct films', () => {
         const ripper = new MajesticBayRipper();
         const html = loadSampleHtml();
         const veeziEvents = ripper.extractEvents(html);
 
-        const events = ripper.parseEvents(veeziEvents, timezone);
+        const events = ripper.parseEvents(veeziEvents);
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         const titles = new Set(valid.map(e => e.summary));

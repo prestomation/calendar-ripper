@@ -1,4 +1,4 @@
-import { ZonedDateTime, Duration, LocalDateTime, ZoneId } from "@js-joda/core";
+import { ZonedDateTime, Duration, LocalDateTime, ZoneOffset } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
 
@@ -34,7 +34,7 @@ export default class MajesticBayRipper implements IRipper {
         const html = await res.text();
         const events = this.extractEvents(html);
         const cal = ripper.config.calendars[0];
-        const parsed = this.parseEvents(events, cal.timezone);
+        const parsed = this.parseEvents(events);
         calendars[cal.name].events = parsed;
 
         return Object.keys(calendars).map(key => ({
@@ -73,7 +73,7 @@ export default class MajesticBayRipper implements IRipper {
         return [];
     }
 
-    public parseEvents(eventsData: VeeziEvent[], timezone: any): RipperEvent[] {
+    public parseEvents(eventsData: VeeziEvent[]): RipperEvent[] {
         const events: RipperEvent[] = [];
         const seenEvents = new Set<string>();
 
@@ -95,7 +95,9 @@ export default class MajesticBayRipper implements IRipper {
                     continue;
                 }
 
-                const duration = this.parseDuration(event.duration);
+                const duration = event.duration
+                    ? this.parseDuration(event.duration)
+                    : Duration.ofHours(2);
 
                 const location = event.location?.name
                     ? `${event.location.name}, ${event.location.address}`
@@ -141,7 +143,7 @@ export default class MajesticBayRipper implements IRipper {
             parseInt(secondStr)
         );
 
-        return localDateTime.atZone(ZoneId.of(offsetStr));
+        return localDateTime.atZone(ZoneOffset.of(offsetStr));
     }
 
     private parseDuration(isoDuration: string): Duration {

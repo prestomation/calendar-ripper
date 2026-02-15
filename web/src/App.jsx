@@ -320,8 +320,9 @@ function App() {
     setSelectedTag(tag)
 
     // When on the Happening Soon page, stay there — just filter events by tag.
+    // Use replace to avoid hashchange re-triggering syncStateFromURL.
     if (showHappeningSoon) {
-      updateURL(searchTerm, tag, null, 'happening-soon')
+      updateURL(searchTerm, tag, null, 'happening-soon', { replace: true })
       return
     }
 
@@ -349,7 +350,9 @@ function App() {
       }
     }
 
-    updateURL(searchTerm, tag, selectedCalendar)
+    // Use replace so clearing the tag doesn't trigger hashchange → syncStateFromURL
+    // which would reset to homepage when no calendar is selected.
+    updateURL(searchTerm, tag, selectedCalendar, undefined, { replace: true })
   }
 
   const handleTagSelect = (tag) => {

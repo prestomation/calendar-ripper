@@ -1628,9 +1628,7 @@ function App() {
                           {calendarNameByIcsUrl[event.icsUrl] || event.icsUrl.replace('.ics', '')}
                         </span>
                       </div>
-                      {event.description && (
-                        <div className="event-details">{event.description}</div>
-                      )}
+                      <EventDescription text={event.description} />
                       {event.location && (
                         <div className="event-location">
                           📍 <a

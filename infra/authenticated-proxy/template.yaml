@@ -24,29 +24,14 @@ Parameters:
       Leave empty to allow all domains (not recommended for production).
     Default: ""
 
-  CreateOIDCProvider:
-    Type: String
-    AllowedValues: ["true", "false"]
-    Default: "true"
-    Description: >
-      Set to "false" if a GitHub Actions OIDC provider already exists in
-      this AWS account. Only one provider per URL is allowed per account.
-
-# ---------------------------------------------------------------------------
-# Conditions
-# ---------------------------------------------------------------------------
-Conditions:
-  ShouldCreateOIDCProvider: !Equals [!Ref CreateOIDCProvider, "true"]
-
 # ---------------------------------------------------------------------------
 # Resources
 # ---------------------------------------------------------------------------
 Resources:
 
-  # -- GitHub OIDC Provider (one per account) --------------------------------
+  # -- GitHub OIDC Provider --------------------------------------------------
   GitHubOIDCProvider:
     Type: AWS::IAM::OIDCProvider
-    Condition: ShouldCreateOIDCProvider
     Properties:
       Url: https://token.actions.githubusercontent.com
       ClientIdList:
@@ -66,10 +51,7 @@ Resources:
         Statement:
           - Effect: Allow
             Principal:
-              Federated: !If
-                - ShouldCreateOIDCProvider
-                - !GetAtt GitHubOIDCProvider.Arn
-                - !Sub "arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
+              Federated: !GetAtt GitHubOIDCProvider.Arn
             Action: sts:AssumeRoleWithWebIdentity
             Condition:
               StringEquals:
@@ -116,37 +98,42 @@ Resources:
           ALLOWED_DOMAINS: !Join [",", !Ref AllowedTargetDomains]
       Code:
         # Inline handler – keep in sync with handler.ts (the tested source).
-        # 4 KB limit; this is a compact equivalent of the TypeScript version.
+        # Passthrough proxy: ?url=<target>, verb + headers + body forwarded.
         ZipFile: |
           const allowed = (process.env.ALLOWED_DOMAINS || "")
             .split(",").map(d => d.trim()).filter(Boolean);
-
-          function json(code, obj) {
-            return { statusCode: code, headers: {"Content-Type":"application/json"}, body: JSON.stringify(obj) };
-          }
+          const STRIP = new Set(["host","authorization","content-length"]);
+          const STRIP_PFX = ["x-amz-","x-forwarded-"];
+          const STRIP_RES = new Set(["transfer-encoding","connection","content-encoding","content-length"]);
 
           exports.handler = async (event) => {
-            let req;
-            try { req = JSON.parse(event.body || "{}"); }
-            catch { return json(400, {error:"Invalid JSON body"}); }
-            if (!req.url) return json(400, {error:"Missing required field: url"});
+            const target = event.queryStringParameters?.url;
+            if (!target) return {statusCode:400, headers:{}, body:"Missing required query parameter: url"};
             let hostname;
-            try { hostname = new URL(req.url).hostname; }
-            catch { return json(400, {error:"Invalid URL"}); }
+            try { hostname = new URL(target).hostname; }
+            catch { return {statusCode:400, headers:{}, body:"Invalid URL"}; }
             if (allowed.length > 0 &&
-                !allowed.some(d => hostname === d || hostname.endsWith("." + d)))
-              return json(403, {error:"Domain not allowed: " + hostname});
+                !allowed.some(d => hostname === d || hostname.endsWith("."+d)))
+              return {statusCode:403, headers:{}, body:"Domain not allowed: "+hostname};
+            const method = event.requestContext.http.method;
+            const hdrs = {};
+            for (const [k,v] of Object.entries(event.headers||{})) {
+              const l = k.toLowerCase();
+              if (STRIP.has(l) || STRIP_PFX.some(p => l.startsWith(p))) continue;
+              hdrs[k] = v;
+            }
+            const opts = {method, headers: hdrs};
+            if (event.body && method !== "GET" && method !== "HEAD")
+              opts.body = event.isBase64Encoded
+                ? Buffer.from(event.body,"base64").toString() : event.body;
             try {
-              const method = req.method || "GET";
-              const opts = { method, headers: req.headers || {} };
-              if (req.body && method !== "GET" && method !== "HEAD") opts.body = req.body;
-              const res = await fetch(req.url, opts);
+              const res = await fetch(target, opts);
               const body = await res.text();
-              const hdrs = {};
-              res.headers.forEach((v, k) => { hdrs[k] = v; });
-              return json(200, {status:res.status, statusText:res.statusText, headers:hdrs, body});
-            } catch (err) {
-              return json(502, {error:"Proxy request failed: " + err.message});
+              const rh = {};
+              res.headers.forEach((v,k) => { if (!STRIP_RES.has(k)) rh[k]=v; });
+              return {statusCode: res.status, headers: rh, body};
+            } catch(e) {
+              return {statusCode:502, headers:{}, body:"Proxy request failed: "+e.message};
             }
           };
 

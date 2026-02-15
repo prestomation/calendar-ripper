@@ -1,13 +1,27 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { handler, isDomainAllowed } from "./handler.js";
+import {
+    handler,
+    isDomainAllowed,
+    filterRequestHeaders,
+    filterResponseHeaders,
+    LambdaFunctionUrlEvent,
+} from "./handler.js";
 
-// ---------------------------------------------------------------------------
-// Stub the global fetch that the handler uses
-// ---------------------------------------------------------------------------
 const mockFetch = vi.fn();
 vi.stubGlobal("fetch", mockFetch);
 
-// Helper to build a minimal Response-like object that the handler can consume
+// ---- helpers --------------------------------------------------------------
+
+function makeEvent(overrides: Partial<LambdaFunctionUrlEvent> & { url?: string; method?: string } = {}): LambdaFunctionUrlEvent {
+    const { url, method, ...rest } = overrides;
+    return {
+        queryStringParameters: url !== undefined ? { url } : undefined,
+        headers: {},
+        requestContext: { http: { method: method ?? "GET" } },
+        ...rest,
+    };
+}
+
 function fakeResponse(body: string, init: { status: number; statusText?: string; headers?: Record<string, string> }): Response {
     return new Response(body, {
         status: init.status,
@@ -16,9 +30,8 @@ function fakeResponse(body: string, init: { status: number; statusText?: string;
     });
 }
 
-// ---------------------------------------------------------------------------
-// isDomainAllowed unit tests
-// ---------------------------------------------------------------------------
+// ---- isDomainAllowed ------------------------------------------------------
+
 describe("isDomainAllowed", () => {
     it("allows any domain when the allowlist is empty", () => {
         expect(isDomainAllowed("evil.com", [])).toBe(true);
@@ -36,8 +49,7 @@ describe("isDomainAllowed", () => {
         expect(isDomainAllowed("evil.com", ["example.com", "axs.com"])).toBe(false);
     });
 
-    it("rejects a domain that only shares a suffix", () => {
-        // "notaxs.com" should NOT match "axs.com"
+    it("rejects a domain that only shares a suffix (notaxs.com vs axs.com)", () => {
         expect(isDomainAllowed("notaxs.com", ["axs.com"])).toBe(false);
     });
 
@@ -46,9 +58,78 @@ describe("isDomainAllowed", () => {
     });
 });
 
-// ---------------------------------------------------------------------------
-// handler integration tests
-// ---------------------------------------------------------------------------
+// ---- filterRequestHeaders -------------------------------------------------
+
+describe("filterRequestHeaders", () => {
+    it("strips host, authorization, and content-length", () => {
+        const result = filterRequestHeaders({
+            host: "proxy.lambda-url.us-east-1.on.aws",
+            authorization: "AWS4-HMAC-SHA256 ...",
+            "content-length": "42",
+            "content-type": "application/json",
+            "user-agent": "Mozilla/5.0",
+        });
+        expect(result).toEqual({
+            "content-type": "application/json",
+            "user-agent": "Mozilla/5.0",
+        });
+    });
+
+    it("strips x-amz-* headers", () => {
+        const result = filterRequestHeaders({
+            "x-amz-date": "20260215T000000Z",
+            "x-amz-security-token": "tok",
+            "x-amz-content-sha256": "abc",
+            accept: "text/html",
+        });
+        expect(result).toEqual({ accept: "text/html" });
+    });
+
+    it("strips x-forwarded-* headers", () => {
+        const result = filterRequestHeaders({
+            "x-forwarded-for": "1.2.3.4",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            origin: "https://www.amctheatres.com",
+        });
+        expect(result).toEqual({ origin: "https://www.amctheatres.com" });
+    });
+
+    it("passes through application headers untouched", () => {
+        const input = {
+            accept: "text/html",
+            "accept-language": "en-US",
+            "user-agent": "CustomAgent/1.0",
+            referer: "https://example.com",
+            origin: "https://example.com",
+            "content-type": "application/json",
+        };
+        expect(filterRequestHeaders(input)).toEqual(input);
+    });
+});
+
+// ---- filterResponseHeaders ------------------------------------------------
+
+describe("filterResponseHeaders", () => {
+    it("strips hop-by-hop and encoding headers", () => {
+        const headers = new Headers({
+            "content-type": "text/html",
+            "transfer-encoding": "chunked",
+            connection: "keep-alive",
+            "content-encoding": "gzip",
+            "content-length": "1234",
+            "x-custom": "value",
+        });
+        const result = filterResponseHeaders(headers);
+        expect(result).toEqual({
+            "content-type": "text/html",
+            "x-custom": "value",
+        });
+    });
+});
+
+// ---- handler --------------------------------------------------------------
+
 describe("handler", () => {
     beforeEach(() => {
         vi.resetAllMocks();
@@ -57,48 +138,32 @@ describe("handler", () => {
 
     // -- Input validation ---------------------------------------------------
 
-    it("returns 400 for invalid JSON body", async () => {
-        const result = await handler({ body: "not json" });
+    it("returns 400 when ?url is missing", async () => {
+        const result = await handler(makeEvent());
         expect(result.statusCode).toBe(400);
-        expect(JSON.parse(result.body)).toEqual({ error: "Invalid JSON body" });
-    });
-
-    it("returns 400 when url is missing", async () => {
-        const result = await handler({ body: JSON.stringify({}) });
-        expect(result.statusCode).toBe(400);
-        expect(JSON.parse(result.body)).toEqual({ error: "Missing required field: url" });
+        expect(result.body).toContain("Missing required query parameter: url");
     });
 
     it("returns 400 for an invalid URL", async () => {
-        const result = await handler({ body: JSON.stringify({ url: "not-a-url" }) });
+        const result = await handler(makeEvent({ url: "not-a-url" }));
         expect(result.statusCode).toBe(400);
-        expect(JSON.parse(result.body)).toEqual({ error: "Invalid URL" });
-    });
-
-    it("returns 400 when body is undefined (empty event)", async () => {
-        const result = await handler({});
-        expect(result.statusCode).toBe(400);
-        expect(JSON.parse(result.body).error).toContain("Missing required field");
+        expect(result.body).toBe("Invalid URL");
     });
 
     // -- Domain allowlist ---------------------------------------------------
 
-    it("returns 403 when target domain is not in the allowlist", async () => {
+    it("returns 403 when target domain is not allowed", async () => {
         process.env.ALLOWED_DOMAINS = "www.axs.com,graph.amctheatres.com";
-        const result = await handler({
-            body: JSON.stringify({ url: "https://evil.com/steal" }),
-        });
+        const result = await handler(makeEvent({ url: "https://evil.com/steal" }));
         expect(result.statusCode).toBe(403);
-        expect(JSON.parse(result.body).error).toContain("Domain not allowed: evil.com");
+        expect(result.body).toContain("Domain not allowed: evil.com");
     });
 
     it("allows a subdomain of an allowed domain", async () => {
         process.env.ALLOWED_DOMAINS = "amctheatres.com";
         mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
 
-        const result = await handler({
-            body: JSON.stringify({ url: "https://graph.amctheatres.com/graphql" }),
-        });
+        const result = await handler(makeEvent({ url: "https://graph.amctheatres.com/graphql" }));
         expect(result.statusCode).toBe(200);
         expect(mockFetch).toHaveBeenCalledOnce();
     });
@@ -107,197 +172,174 @@ describe("handler", () => {
         process.env.ALLOWED_DOMAINS = "";
         mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
 
-        const result = await handler({
-            body: JSON.stringify({ url: "https://anything.example.org/path" }),
-        });
+        const result = await handler(makeEvent({ url: "https://anything.example.org/" }));
         expect(result.statusCode).toBe(200);
     });
 
-    // -- Proxying GET -------------------------------------------------------
+    // -- GET passthrough ----------------------------------------------------
 
-    it("proxies a GET request and returns the upstream response", async () => {
+    it("proxies a GET and passes through upstream status, headers, body", async () => {
         mockFetch.mockResolvedValueOnce(
             fakeResponse("<html>event page</html>", {
                 status: 200,
-                statusText: "OK",
-                headers: { "Content-Type": "text/html" },
+                headers: { "Content-Type": "text/html", "X-Custom": "value" },
             }),
         );
 
-        const result = await handler({
-            body: JSON.stringify({ url: "https://www.axs.com/venues/123/test" }),
-        });
+        const result = await handler(makeEvent({
+            url: "https://www.axs.com/venues/123/test",
+            headers: { "user-agent": "Mozilla/5.0", "accept": "text/html" },
+        }));
 
         expect(result.statusCode).toBe(200);
+        expect(result.body).toBe("<html>event page</html>");
+        expect(result.headers["content-type"]).toBe("text/html");
+        expect(result.headers["x-custom"]).toBe("value");
 
-        const parsed = JSON.parse(result.body);
-        expect(parsed.status).toBe(200);
-        expect(parsed.statusText).toBe("OK");
-        expect(parsed.body).toBe("<html>event page</html>");
-        expect(parsed.headers["content-type"]).toBe("text/html");
-
-        expect(mockFetch).toHaveBeenCalledWith("https://www.axs.com/venues/123/test", {
-            method: "GET",
-            headers: {},
-        });
+        expect(mockFetch).toHaveBeenCalledWith(
+            "https://www.axs.com/venues/123/test",
+            expect.objectContaining({
+                method: "GET",
+                headers: { "user-agent": "Mozilla/5.0", "accept": "text/html" },
+            }),
+        );
     });
 
-    it("defaults method to GET when not specified", async () => {
+    it("uses the request method from the event (GET by default)", async () => {
         mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
-
-        await handler({
-            body: JSON.stringify({ url: "https://example.com/" }),
-        });
-
+        await handler(makeEvent({ url: "https://example.com/" }));
         expect(mockFetch).toHaveBeenCalledWith("https://example.com/", expect.objectContaining({ method: "GET" }));
     });
 
-    // -- Proxying POST ------------------------------------------------------
+    // -- POST passthrough ---------------------------------------------------
 
-    it("proxies a POST request with body and custom headers", async () => {
+    it("proxies a POST with body and custom headers", async () => {
+        const graphqlBody = '{"query":"{ viewer { theatre { name } } }"}';
+
         mockFetch.mockResolvedValueOnce(
-            fakeResponse('{"data":{"viewer":{}}}', {
+            fakeResponse('{"data":{}}', {
                 status: 200,
-                statusText: "OK",
                 headers: { "Content-Type": "application/json" },
             }),
         );
 
-        const graphqlBody = '{"query":"{ viewer { theatre(slug:\\"test\\") { name } } }"}';
-
-        const result = await handler({
-            body: JSON.stringify({
-                url: "https://graph.amctheatres.com/graphql",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Origin": "https://www.amctheatres.com",
-                },
-                body: graphqlBody,
-            }),
-        });
+        const result = await handler(makeEvent({
+            url: "https://graph.amctheatres.com/graphql",
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                origin: "https://www.amctheatres.com",
+                referer: "https://www.amctheatres.com/",
+                // These should be stripped:
+                host: "proxy.lambda-url.us-east-1.on.aws",
+                authorization: "AWS4-HMAC-SHA256 Credential=...",
+                "x-amz-date": "20260215T000000Z",
+                "x-amz-security-token": "token123",
+            },
+            body: graphqlBody,
+        }));
 
         expect(result.statusCode).toBe(200);
-        const parsed = JSON.parse(result.body);
-        expect(parsed.status).toBe(200);
-        expect(parsed.body).toBe('{"data":{"viewer":{}}}');
+        expect(result.body).toBe('{"data":{}}');
 
-        expect(mockFetch).toHaveBeenCalledWith(
-            "https://graph.amctheatres.com/graphql",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Origin": "https://www.amctheatres.com",
-                },
-                body: graphqlBody,
-            },
-        );
+        // Verify infra headers were stripped and app headers forwarded
+        const [, fetchOpts] = mockFetch.mock.calls[0];
+        expect(fetchOpts.method).toBe("POST");
+        expect(fetchOpts.body).toBe(graphqlBody);
+        expect(fetchOpts.headers).toEqual({
+            "content-type": "application/json",
+            origin: "https://www.amctheatres.com",
+            referer: "https://www.amctheatres.com/",
+        });
     });
 
-    // -- Body stripping for GET/HEAD ----------------------------------------
+    // -- Body handling ------------------------------------------------------
 
-    it("does not forward a body for GET requests even if one is provided", async () => {
+    it("does not forward body for GET requests", async () => {
         mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
 
-        await handler({
-            body: JSON.stringify({
-                url: "https://example.com/page",
-                method: "GET",
-                body: "should be stripped",
-            }),
-        });
+        await handler(makeEvent({
+            url: "https://example.com/",
+            method: "GET",
+            body: "should be ignored",
+        }));
 
-        const callArgs = mockFetch.mock.calls[0][1] as RequestInit;
-        expect(callArgs.body).toBeUndefined();
+        const [, fetchOpts] = mockFetch.mock.calls[0];
+        expect(fetchOpts.body).toBeUndefined();
     });
 
-    it("does not forward a body for HEAD requests", async () => {
+    it("does not forward body for HEAD requests", async () => {
         mockFetch.mockResolvedValueOnce(fakeResponse("", { status: 200 }));
 
-        await handler({
-            body: JSON.stringify({
-                url: "https://example.com/page",
-                method: "HEAD",
-                body: "should be stripped",
-            }),
-        });
+        await handler(makeEvent({
+            url: "https://example.com/",
+            method: "HEAD",
+            body: "should be ignored",
+        }));
 
-        const callArgs = mockFetch.mock.calls[0][1] as RequestInit;
-        expect(callArgs.body).toBeUndefined();
+        const [, fetchOpts] = mockFetch.mock.calls[0];
+        expect(fetchOpts.body).toBeUndefined();
+    });
+
+    it("decodes base64-encoded bodies", async () => {
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
+
+        const original = '{"query":"test"}';
+        await handler(makeEvent({
+            url: "https://example.com/api",
+            method: "POST",
+            body: Buffer.from(original).toString("base64"),
+            isBase64Encoded: true,
+        }));
+
+        const [, fetchOpts] = mockFetch.mock.calls[0];
+        expect(fetchOpts.body).toBe(original);
     });
 
     // -- Upstream error passthrough -----------------------------------------
 
-    it("returns upstream non-200 status inside the 200 proxy response", async () => {
+    it("passes through upstream non-200 status directly", async () => {
         mockFetch.mockResolvedValueOnce(
             fakeResponse("Forbidden", { status: 403, statusText: "Forbidden" }),
         );
 
-        const result = await handler({
-            body: JSON.stringify({ url: "https://example.com/blocked" }),
-        });
+        const result = await handler(makeEvent({ url: "https://example.com/blocked" }));
 
-        // The proxy itself succeeded
-        expect(result.statusCode).toBe(200);
-
-        // But the upstream returned 403
-        const parsed = JSON.parse(result.body);
-        expect(parsed.status).toBe(403);
-        expect(parsed.statusText).toBe("Forbidden");
-        expect(parsed.body).toBe("Forbidden");
+        expect(result.statusCode).toBe(403);
+        expect(result.body).toBe("Forbidden");
     });
 
-    // -- Network-level failures ---------------------------------------------
+    // -- Network failures ---------------------------------------------------
 
-    it("returns 502 when fetch throws (network error)", async () => {
+    it("returns 502 when fetch throws", async () => {
         mockFetch.mockRejectedValueOnce(new Error("getaddrinfo ENOTFOUND example.com"));
 
-        const result = await handler({
-            body: JSON.stringify({ url: "https://example.com/" }),
-        });
+        const result = await handler(makeEvent({ url: "https://example.com/" }));
 
         expect(result.statusCode).toBe(502);
-        expect(JSON.parse(result.body).error).toContain("Proxy request failed");
-        expect(JSON.parse(result.body).error).toContain("ENOTFOUND");
+        expect(result.body).toContain("Proxy request failed");
+        expect(result.body).toContain("ENOTFOUND");
     });
 
-    // -- Response headers ---------------------------------------------------
+    // -- Response header filtering ------------------------------------------
 
-    it("includes all response headers from upstream", async () => {
+    it("strips hop-by-hop headers from upstream response", async () => {
         mockFetch.mockResolvedValueOnce(
             fakeResponse("ok", {
                 status: 200,
                 headers: {
-                    "X-Custom-Header": "custom-value",
-                    "Content-Type": "text/plain",
+                    "Content-Type": "text/html",
+                    "X-Request-Id": "abc123",
                 },
             }),
         );
 
-        const result = await handler({
-            body: JSON.stringify({ url: "https://example.com/" }),
-        });
+        const result = await handler(makeEvent({ url: "https://example.com/" }));
 
-        const parsed = JSON.parse(result.body);
-        expect(parsed.headers["x-custom-header"]).toBe("custom-value");
-        expect(parsed.headers["content-type"]).toBe("text/plain");
-    });
-
-    // -- Content-Type on proxy responses ------------------------------------
-
-    it("always sets Content-Type: application/json on proxy responses", async () => {
-        mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
-
-        const result = await handler({
-            body: JSON.stringify({ url: "https://example.com/" }),
-        });
-
-        expect(result.headers["Content-Type"]).toBe("application/json");
-    });
-
-    it("sets Content-Type: application/json on error responses too", async () => {
-        const result = await handler({ body: "bad json" });
-        expect(result.headers["Content-Type"]).toBe("application/json");
+        expect(result.headers["content-type"]).toBe("text/html");
+        expect(result.headers["x-request-id"]).toBe("abc123");
+        // These would be stripped if present (set by Response internals):
+        expect(result.headers["transfer-encoding"]).toBeUndefined();
+        expect(result.headers["connection"]).toBeUndefined();
     });
 });

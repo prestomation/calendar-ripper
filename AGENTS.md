@@ -150,6 +150,30 @@ sources/
 - Test deduplication across multiple parseEvents calls
 - Ensure graceful handling of missing or malformed data
 
+## Authenticated Proxy
+
+Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. An authenticated Lambda proxy in AWS forwards these requests from non-blocked IPs.
+
+See **`infra/authenticated-proxy/README.md`** for deployment and architecture details.
+
+### Enabling the proxy for a ripper
+
+Add `proxy: true` to the ripper's `ripper.yaml`:
+
+```yaml
+name: amc
+proxy: true
+url: "https://graph.amctheatres.com/graphql"
+```
+
+When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch calls for that ripper are routed through the Lambda proxy. If `PROXY_URL` is not set (local development), requests go directly to the upstream.
+
+### How it works
+
+- `lib/config/proxy-fetch.ts` exports `proxyFetch` and `getFetchForConfig` utilities
+- Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
+- Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
+
 ## Writing Descriptions
 
 The `description` field in `ripper.yaml` is customer-facing. Keep it focused on **what** the source is (the venue or organization), not **how** it's implemented. Don't mention APIs, scraping methods, or other implementation details.

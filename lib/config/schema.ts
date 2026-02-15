@@ -38,6 +38,7 @@ export const configSchema = z.object({
     url: z.string().transform(u => new URL(u)),
     friendlyLink: z.string(),
     disabled: z.boolean().default(false),
+    proxy: z.boolean().default(false),
     type: z.enum(BUILTIN_RIPPER_TYPES).optional(),
     tags: z.array(z.string()).optional(),
     calendars: z.array(calendarConfigSchema),

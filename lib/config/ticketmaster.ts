@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { getFetchForConfig } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 200;
@@ -17,8 +18,10 @@ const LOOKAHEAD_MONTHS = 3;
  */
 export class TicketmasterRipper implements IRipper {
     private seenEvents = new Set<string>();
+    private fetchFn: (url: string, init?: RequestInit) => Promise<Response> = (url, init) => fetch(url, init);
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
         const apiKey = process.env.TICKETMASTER_API_KEY;
         if (!apiKey) {
             throw new Error("TICKETMASTER_API_KEY environment variable is required for Ticketmaster ripper");
@@ -58,7 +61,7 @@ export class TicketmasterRipper implements IRipper {
         while (true) {
             const url = `https://app.ticketmaster.com/discovery/v2/events.json?venueId=${venueId}&startDateTime=${startDate}&endDateTime=${endDate}&size=${PAGE_SIZE}&page=${page}&apikey=${apiKey}`;
 
-            const res = await fetch(url);
+            const res = await this.fetchFn(url);
             if (!res.ok) {
                 throw new Error(`Ticketmaster API error: ${res.status} ${res.statusText}`);
             }

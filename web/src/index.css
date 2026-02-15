@@ -177,16 +177,17 @@ body {
 
 .search-icon {
   position: absolute;
-  left: 12px;
+  left: 14px;
+  width: 14px;
+  height: 14px;
   pointer-events: none;
   opacity: 0.4;
   color: var(--text-muted);
-  flex-shrink: 0;
 }
 
 .search-input {
   width: 100%;
-  padding: 12px 36px 12px 40px;
+  padding: 12px 36px 12px 44px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 14px;

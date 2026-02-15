@@ -290,6 +290,12 @@ function App() {
   const handleTagChange = (tag) => {
     setSelectedTag(tag)
 
+    // When on the Happening Soon page, stay there — just filter events by tag.
+    if (showHappeningSoon) {
+      updateURL(searchTerm, tag, null, 'happening-soon')
+      return
+    }
+
     // On mobile, just filter the list — don't auto-select a calendar.
     // On desktop/tablet where both panels are visible, auto-select
     // the first matching calendar so the right panel isn't empty.

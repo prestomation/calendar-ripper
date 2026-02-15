@@ -701,11 +701,28 @@ body {
 
 .agenda-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 4px;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-secondary);
+  margin: -32px -32px 24px -32px;
+  padding: 12px 32px;
   border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.agenda-tags::-webkit-scrollbar {
+  display: none;
+}
+
+.agenda-tags .tag {
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .event-item {
@@ -1108,6 +1125,11 @@ body {
     font-size: 22px;
   }
 
+  .app--mobile .agenda-tags {
+    margin: -16px -16px 16px -16px;
+    padding: 10px 16px;
+  }
+
   .app--mobile .event-item {
     padding: 14px;
     margin-bottom: 10px;
@@ -1253,6 +1275,11 @@ body {
 
   .app--tablet .agenda-header h1 {
     font-size: 24px;
+  }
+
+  .app--tablet .agenda-tags {
+    margin: -24px -24px 20px -24px;
+    padding: 10px 24px;
   }
 
   .app--tablet .footer {

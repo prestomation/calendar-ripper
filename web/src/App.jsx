@@ -34,7 +34,6 @@ function App() {
   const [manifest, setManifest] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState('')
-  const [previousTag, setPreviousTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [events, setEvents] = useState([])
@@ -253,33 +252,11 @@ function App() {
 
   const handleSearchChange = (value) => {
     setSearchTerm(value)
-
-    // If starting to type and we have a tag selected, save it and clear tag selection
-    if (value && selectedTag) {
-      setPreviousTag(selectedTag)
-      setSelectedTag('')
-      updateURL(value, '', selectedCalendar, undefined, { replace: true })
-    }
-    // If search is cleared and we had a previous tag, restore it
-    else if (!value && previousTag) {
-      setSelectedTag(previousTag)
-      updateURL(value, previousTag, selectedCalendar, undefined, { replace: true })
-    } else {
-      updateURL(value, selectedTag, selectedCalendar, undefined, { replace: true })
-    }
+    // Search and tag now work together — no need to clear the tag
+    updateURL(value, selectedTag, selectedCalendar, undefined, { replace: true })
   }
 
   const handleTagChange = (tag) => {
-    // Save current tag as previous if switching to a different tag
-    if (selectedTag && selectedTag !== tag) {
-      setPreviousTag(selectedTag)
-    }
-
-    // Clear search when selecting a tag
-    if (searchTerm) {
-      setSearchTerm('')
-    }
-
     setSelectedTag(tag)
 
     // On mobile, just filter the list — don't auto-select a calendar.
@@ -300,13 +277,13 @@ function App() {
           const calendarWithRipper = { ...firstCalendar, ripperName: firstRipper.name }
           setSelectedCalendar(calendarWithRipper)
           setShowHomepage(false)
-          updateURL('', tag, calendarWithRipper)
+          updateURL(searchTerm, tag, calendarWithRipper)
           return
         }
       }
     }
 
-    updateURL('', tag, selectedCalendar)
+    updateURL(searchTerm, tag, selectedCalendar)
   }
 
   const handleTagSelect = (tag) => {
@@ -791,13 +768,26 @@ function App() {
             🏠
           </button>
           <div className="search-bar">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search calendars and events..."
-              value={searchTerm}
-              onChange={(e) => handleSearchChange(e.target.value)}
-            />
+            <div className="search-input-wrapper">
+              <span className="search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search calendars and events..."
+                value={searchTerm}
+                onChange={(e) => handleSearchChange(e.target.value)}
+              />
+              {searchTerm && (
+                <button
+                  className="search-clear-btn"
+                  onClick={() => handleSearchChange('')}
+                  title="Clear search"
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
           </div>
         </div>
         
@@ -891,6 +881,18 @@ function App() {
         </div>
         
         <div className="calendar-list" ref={calendarListRef}>
+          {(searchTerm || selectedTag) && filteredCalendars.length > 0 && (
+            <div className="search-result-count">
+              {(() => {
+                const total = filteredCalendars.reduce((sum, r) => sum + r.calendars.length, 0)
+                const parts = []
+                parts.push(`${total} calendar${total !== 1 ? 's' : ''}`)
+                if (searchTerm) parts.push(`matching "${searchTerm}"`)
+                if (selectedTag) parts.push(`in ${formatTagLabel(selectedTag)}`)
+                return parts.join(' ')
+              })()}
+            </div>
+          )}
           {selectedTag && (
             <div className="tag-header">
               <div 
@@ -999,7 +1001,11 @@ function App() {
                     {searchTerm && eventMatchesByCalendar.get(singleCal.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(singleCal.icsUrl).length} matching event{eventMatchesByCalendar.get(singleCal.icsUrl).length !== 1 ? 's' : ''}
-                        <span className="event-match-preview"> — {eventMatchesByCalendar.get(singleCal.icsUrl)[0].summary}</span>
+                        <span className="event-match-preview">
+                          {' — '}
+                          {eventMatchesByCalendar.get(singleCal.icsUrl).slice(0, 3).map(e => e.summary).join(', ')}
+                          {eventMatchesByCalendar.get(singleCal.icsUrl).length > 3 && ', ...'}
+                        </span>
                       </div>
                     )}
                   </div>
@@ -1173,7 +1179,11 @@ function App() {
                     {searchTerm && eventMatchesByCalendar.get(calendar.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(calendar.icsUrl).length} matching event{eventMatchesByCalendar.get(calendar.icsUrl).length !== 1 ? 's' : ''}
-                        <span className="event-match-preview"> — {eventMatchesByCalendar.get(calendar.icsUrl)[0].summary}</span>
+                        <span className="event-match-preview">
+                          {' — '}
+                          {eventMatchesByCalendar.get(calendar.icsUrl).slice(0, 3).map(e => e.summary).join(', ')}
+                          {eventMatchesByCalendar.get(calendar.icsUrl).length > 3 && ', ...'}
+                        </span>
                       </div>
                     )}
                   </div>
@@ -1219,7 +1229,18 @@ function App() {
             )
           })}
           {filteredCalendars.length === 0 && (
-            <div className="empty-state">No calendars found</div>
+            <div className="empty-state">
+              <span>No calendars found</span>
+              <span className="empty-state-hint">
+                {searchTerm && selectedTag
+                  ? <>Try removing the tag filter or <button className="link-button" onClick={() => handleSearchChange('')}>clearing your search</button></>
+                  : searchTerm
+                  ? <>Try a different search term or <button className="link-button" onClick={() => handleSearchChange('')}>clear search</button></>
+                  : selectedTag
+                  ? <>No calendars with this tag. <button className="link-button" onClick={() => handleTagChange('')}>Show all</button></>
+                  : 'Try browsing by tag or searching for a topic'}
+              </span>
+            </div>
           )}
         </div>
         

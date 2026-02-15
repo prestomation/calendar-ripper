@@ -220,14 +220,18 @@ function App() {
 
     const updateHeight = () => {
       const height = el.getBoundingClientRect().height
-      panel.style.setProperty('--agenda-tags-height', `${height}px`)
+      if (height > 0) panel.style.setProperty('--agenda-tags-height', `${height}px`)
     }
 
-    updateHeight()
+    // Defer initial measurement to ensure layout is complete
+    const rafId = requestAnimationFrame(updateHeight)
     const observer = new ResizeObserver(updateHeight)
     observer.observe(el)
 
-    return () => observer.disconnect()
+    return () => {
+      cancelAnimationFrame(rafId)
+      observer.disconnect()
+    }
   }, [isMobile, showHappeningSoon])
 
   // URL state management — sync React state from URL hash

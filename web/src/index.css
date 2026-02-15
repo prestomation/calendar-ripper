@@ -1145,6 +1145,7 @@ body {
 
   .app--mobile .agenda-panel {
     padding: 16px;
+    overflow-x: hidden;
   }
 
   .app--mobile .agenda-header h1 {
@@ -1241,7 +1242,7 @@ body {
   }
 
   .app--mobile .day-group-header {
-    top: var(--agenda-tags-height, 0px);
+    top: var(--agenda-tags-height, 56px);
     background: var(--bg-secondary);
     margin-left: -16px;
     margin-right: -16px;

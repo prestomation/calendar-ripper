@@ -1253,13 +1253,13 @@ body {
   }
 
   .app--mobile .day-group-header {
-    top: 0;
+    position: static;
     background: var(--bg-secondary);
     margin-left: -16px;
     margin-right: -16px;
     padding: 10px 16px 6px;
     border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    box-shadow: none;
   }
 
   .app--mobile .day-group-label {

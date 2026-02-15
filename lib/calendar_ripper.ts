@@ -615,6 +615,7 @@ END:VCALENDAR`;
     description?: string;
     location?: string;
     date: string;
+    url?: string;
   }> = [];
 
   for (const calendar of allCalendars) {
@@ -632,6 +633,7 @@ END:VCALENDAR`;
         description: event.description?.slice(0, 200),
         location: event.location,
         date: event.date.toString(),
+        url: event.url,
       });
     }
   }
@@ -652,6 +654,7 @@ END:VCALENDAR`;
           description: event.description?.slice(0, 200),
           location: event.location,
           date: event.date.toString(),
+          url: event.url,
         });
       }
     } catch (error) {

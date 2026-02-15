@@ -1457,6 +1457,31 @@ function App() {
               <p>Events across all calendars in the next 7 days{selectedTag ? ` tagged "${formatTagLabel(selectedTag)}"` : ''}</p>
             </div>
 
+            <div className="agenda-tags">
+              <div
+                className={`tag ${selectedTag === '' ? 'active' : ''}`}
+                onClick={() => handleTagChange('')}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange('') } }}
+              >
+                All
+              </div>
+              {allTags.map(tag => (
+                <div
+                  key={tag}
+                  className={`tag ${selectedTag === tag ? 'active' : ''}`}
+                  onClick={() => handleTagChange(tag)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange(tag) } }}
+                >
+                  {selectedTag === tag && <span className="tag-check" aria-hidden="true">✓ </span>}
+                  {formatTagLabel(tag)}
+                </div>
+              ))}
+            </div>
+
             {searchTerm && (
               <div className="search-filter-banner">
                 Showing events matching "{searchTerm}"

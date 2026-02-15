@@ -607,11 +607,13 @@ function App() {
     let upcoming = eventsIndex
       .map(event => {
         // js-joda toString() format: "2026-02-15T19:00-08:00[America/Los_Angeles]"
-        // Strip the [timezone] bracket part for Date parsing
+        // Extract the IANA timezone from brackets for display, then strip for Date parsing
+        const tzMatch = event.date.match(/\[(.+)\]$/)
+        const eventTimezone = tzMatch ? tzMatch[1] : undefined
         const dateStr = event.date.replace(/\[.*\]$/, '')
         const parsed = new Date(dateStr)
         if (isNaN(parsed.getTime())) return null
-        return { ...event, parsedDate: parsed }
+        return { ...event, parsedDate: parsed, eventTimezone }
       })
       .filter(event => event && event.parsedDate >= todayStart && event.parsedDate < endDate)
 
@@ -643,7 +645,19 @@ function App() {
     let currentGroup = null
 
     for (const event of upcoming) {
-      const eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
+      // Use the event's timezone for day grouping so "Today" is correct
+      // for the event's local date, not the viewer's timezone
+      let eventDay
+      if (event.eventTimezone) {
+        try {
+          const parts = event.parsedDate.toLocaleDateString('en-CA', { timeZone: event.eventTimezone }).split('-')
+          eventDay = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]))
+        } catch {
+          eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
+        }
+      } else {
+        eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
+      }
       const diffDays = Math.round((eventDay - todayStart) / (1000 * 60 * 60 * 24))
 
       let label
@@ -1461,10 +1475,20 @@ function App() {
                   {group.events.map((event, idx) => (
                     <div key={`${event.icsUrl}-${event.summary}-${idx}`} className="event-item">
                       <div className="event-date">
-                        {event.parsedDate.toLocaleTimeString('en-US', {
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
+                        {(() => {
+                          try {
+                            return event.parsedDate.toLocaleTimeString('en-US', {
+                              hour: '2-digit',
+                              minute: '2-digit',
+                              ...(event.eventTimezone ? { timeZone: event.eventTimezone } : {})
+                            })
+                          } catch {
+                            return event.parsedDate.toLocaleTimeString('en-US', {
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })
+                          }
+                        })()}
                       </div>
                       <div className="event-title">
                         {event.summary}

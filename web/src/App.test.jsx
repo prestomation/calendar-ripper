@@ -16,7 +16,7 @@ function toJodaDateString(date) {
   const offHours = pad(Math.floor(absOff / 60))
   const offMins = pad(absOff % 60)
   const iso = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}${sign}${offHours}:${offMins}`
-  return `${iso}[LocalTest]`
+  return `${iso}[America/Los_Angeles]`
 }
 
 const mockManifest = {

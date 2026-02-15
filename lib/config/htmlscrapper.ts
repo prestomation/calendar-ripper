@@ -2,6 +2,7 @@ import { ChronoUnit, LocalDateTime, ZonedDateTime, convert, } from "@js-joda/cor
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { URLParser } from "./urlparse.js"
+import { getFetchForConfig } from "./proxy-fetch.js";
 import '@js-joda/timezone'
 
 
@@ -11,6 +12,7 @@ export abstract class HTMLRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
 
         const urlParser = new URLParser(ripper.config.url);
+        const fetchFn = getFetchForConfig(ripper.config);
 
         const now = LocalDateTime.now();
         const endOfPeriod = ripper.config.lookahead ?  now.plus(ripper.config.lookahead) : LocalDateTime.now().plusDays(1);
@@ -28,7 +30,7 @@ export abstract class HTMLRipper implements IRipper {
         for (const day of daysToRip) {
             const urlTemplate = urlParser.getTemplate();
             const url = urlTemplate.getURL(day);
-            const res = await fetch(url);
+            const res = await fetchFn(url);
             if (!res.ok) {
                 throw Error(`${res.status} ${res.statusText}`)
             }

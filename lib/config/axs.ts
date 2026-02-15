@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
+import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 import { execFile } from 'child_process';
 import { promisify } from 'util';
@@ -19,7 +20,11 @@ const MAX_PAGES = 10;
  *   - venueAddress: full address used as location fallback
  */
 export class AXSRipper implements IRipper {
+    private fetchFn: FetchFn | null = null;
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
+
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
@@ -31,7 +36,7 @@ export class AXSRipper implements IRipper {
             if (!venueId || !venueSlug) continue;
 
             try {
-                const rawEvents = await this.fetchVenueEvents(venueId, venueSlug);
+                const rawEvents = await this.fetchVenueEvents(venueId, venueSlug, ripper.config.proxy);
                 const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
                 calendars[cal.name].events = parsed;
             } catch (error) {
@@ -53,7 +58,21 @@ export class AXSRipper implements IRipper {
         }));
     }
 
-    private async fetchPage(url: string): Promise<string> {
+    private async fetchPageViaProxy(url: string): Promise<string> {
+        const res = await this.fetchFn!(url, {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml',
+                'Accept-Language': 'en-US,en;q=0.9',
+            },
+        });
+        if (!res.ok) {
+            throw new Error(`AXS fetch error: HTTP ${res.status} for ${url}`);
+        }
+        return res.text();
+    }
+
+    private async fetchPageViaCurl(url: string): Promise<string> {
         // Use curl instead of fetch to avoid Cloudflare TLS fingerprint blocking.
         // Node.js fetch (undici) is detected and rejected with 403; curl is not.
         let stdout: string;
@@ -89,7 +108,16 @@ export class AXSRipper implements IRipper {
         return body;
     }
 
-    private async fetchVenueEvents(venueId: number, venueSlug: string): Promise<any[]> {
+    private async fetchPage(url: string, useProxy: boolean): Promise<string> {
+        // When proxy is enabled, use fetch through the proxy instead of curl.
+        // The proxy runs from AWS IPs which aren't blocked by Cloudflare.
+        if (useProxy && process.env.PROXY_URL) {
+            return this.fetchPageViaProxy(url);
+        }
+        return this.fetchPageViaCurl(url);
+    }
+
+    private async fetchVenueEvents(venueId: number, venueSlug: string, useProxy?: boolean): Promise<any[]> {
         if (!Number.isInteger(venueId) || venueId <= 0) {
             throw new Error(`Invalid venueId: ${venueId}`);
         }
@@ -103,7 +131,7 @@ export class AXSRipper implements IRipper {
             const pageParam = page > 1 ? `?page=${page}` : '';
             const url = `https://www.axs.com/venues/${venueId}/${venueSlug}${pageParam}`;
 
-            const html = await this.fetchPage(url);
+            const html = await this.fetchPage(url, useProxy ?? false);
             const pageData = this.extractNextData(html);
             if (!pageData) {
                 throw new Error(`Could not extract event data from AXS page for venue ${venueId}`);

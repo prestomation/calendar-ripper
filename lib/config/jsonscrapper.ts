@@ -1,11 +1,13 @@
 import { ChronoUnit, LocalDateTime, ZonedDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import { URLParser } from "./urlparse.js"
+import { getFetchForConfig } from "./proxy-fetch.js";
 import '@js-joda/timezone'
 
 export abstract class JSONRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const urlParser = new URLParser(ripper.config.url);
+        const fetchFn = getFetchForConfig(ripper.config);
 
         const now = LocalDateTime.now();
         const endOfPeriod = ripper.config.lookahead ? now.plus(ripper.config.lookahead) : LocalDateTime.now().plusDays(1);
@@ -24,7 +26,7 @@ export abstract class JSONRipper implements IRipper {
             const urlTemplate = urlParser.getTemplate();
             const url = urlTemplate.getURL(day);
             
-            const res = await fetch(url);
+            const res = await fetchFn(url);
             if (!res.ok) {
                 throw Error(`${res.status} ${res.statusText}`)
             }

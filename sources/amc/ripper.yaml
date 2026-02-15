@@ -1,0 +1,17 @@
+name: amc
+description: "AMC Theatres movie showtimes in the Seattle area"
+url: "https://graph.amctheatres.com/graphql"
+friendlyLink: https://www.amctheatres.com
+tags: ["Movies"]
+calendars:
+  - name: pacific-place
+    friendlyname: "AMC Pacific Place 11"
+    timezone: America/Los_Angeles
+    config:
+      slug: amc-pacific-place-11
+    tags: ["Downtown"]
+  - name: oak-tree
+    friendlyname: "AMC Oak Tree 6"
+    timezone: America/Los_Angeles
+    config:
+      slug: amc-oak-tree-6

@@ -1,0 +1,825 @@
+{
+    "data": {
+        "viewer": {
+            "theatre": {
+                "theatreId": 880,
+                "name": "AMC Pacific Place 11",
+                "longName": "AMC Pacific Place 11",
+                "slug": "amc-pacific-place-11",
+                "addressLine1": "600 Pine Street",
+                "city": "Seattle",
+                "state": "Washington",
+                "postalCode": "98101-3709",
+                "utcOffset": "-08:00",
+                "movies": {
+                    "edges": [
+                        {
+                            "node": {
+                                "name": "Avatar: Fire and Ash",
+                                "runTime": 195,
+                                "mpaaRating": "PG13",
+                                "genre": "Action",
+                                "movieId": 53700,
+                                "slug": "avatar-fire-and-ash-53700",
+                                "websiteUrl": "/movies/avatar-fire-and-ash-53700",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563845,
+                                                                            "showDateTimeUtc": "2026-02-14T23:15:00.000Z",
+                                                                            "auditorium": 2,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563853,
+                                                                            "showDateTimeUtc": "2026-02-15T04:15:00.000Z",
+                                                                            "auditorium": 5,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Goat",
+                                "runTime": 99,
+                                "mpaaRating": "PG",
+                                "genre": "Animation",
+                                "movieId": 77194,
+                                "slug": "goat-77194",
+                                "websiteUrl": "/movies/goat-77194",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139999912,
+                                                                            "showDateTimeUtc": "2026-02-14T21:30:00.000Z",
+                                                                            "auditorium": 7,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139751399,
+                                                                            "showDateTimeUtc": "2026-02-15T06:20:00.000Z",
+                                                                            "auditorium": 2,
+                                                                            "status": "Sellable"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139751427,
+                                                                            "showDateTimeUtc": "2026-02-15T00:20:00.000Z",
+                                                                            "auditorium": 6,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139999914,
+                                                                            "showDateTimeUtc": "2026-02-15T03:10:00.000Z",
+                                                                            "auditorium": 7,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Wuthering Heights",
+                                "runTime": 136,
+                                "mpaaRating": "R",
+                                "genre": "Drama",
+                                "movieId": 79035,
+                                "slug": "wuthering-heights-79035",
+                                "websiteUrl": "/movies/wuthering-heights-79035",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139915985,
+                                                                            "showDateTimeUtc": "2026-02-14T23:30:00.000Z",
+                                                                            "auditorium": 9,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139915981,
+                                                                            "showDateTimeUtc": "2026-02-14T21:15:00.000Z",
+                                                                            "auditorium": 8,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563844,
+                                                                            "showDateTimeUtc": "2026-02-14T22:30:00.000Z",
+                                                                            "auditorium": 1,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563850,
+                                                                            "showDateTimeUtc": "2026-02-15T01:15:00.000Z",
+                                                                            "auditorium": 3,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139915984,
+                                                                            "showDateTimeUtc": "2026-02-15T03:15:00.000Z",
+                                                                            "auditorium": 8,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563849,
+                                                                            "showDateTimeUtc": "2026-02-15T04:30:00.000Z",
+                                                                            "auditorium": 3,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139915986,
+                                                                            "showDateTimeUtc": "2026-02-15T05:45:00.000Z",
+                                                                            "auditorium": 9,
+                                                                            "status": "Sellable"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "The Housemaid",
+                                "runTime": 131,
+                                "mpaaRating": "R",
+                                "genre": "Suspense",
+                                "movieId": 79080,
+                                "slug": "the-housemaid-79080",
+                                "websiteUrl": "/movies/the-housemaid-79080",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563854,
+                                                                            "showDateTimeUtc": "2026-02-15T01:05:00.000Z",
+                                                                            "auditorium": 5,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Send Help",
+                                "runTime": 113,
+                                "mpaaRating": "R",
+                                "genre": "Suspense",
+                                "movieId": 79522,
+                                "slug": "send-help-79522",
+                                "websiteUrl": "/movies/send-help-79522",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563846,
+                                                                            "showDateTimeUtc": "2026-02-15T03:30:00.000Z",
+                                                                            "auditorium": 2,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563859,
+                                                                            "showDateTimeUtc": "2026-02-14T20:40:00.000Z",
+                                                                            "auditorium": 9,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563861,
+                                                                            "showDateTimeUtc": "2026-02-15T00:15:00.000Z",
+                                                                            "auditorium": 10,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563862,
+                                                                            "showDateTimeUtc": "2026-02-15T06:25:00.000Z",
+                                                                            "auditorium": 10,
+                                                                            "status": "Sellable"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Hamnet",
+                                "runTime": 125,
+                                "mpaaRating": "PG13",
+                                "genre": "Drama",
+                                "movieId": 80181,
+                                "slug": "hamnet-80181",
+                                "websiteUrl": "/movies/hamnet-80181",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563842,
+                                                                            "showDateTimeUtc": "2026-02-15T01:45:00.000Z",
+                                                                            "auditorium": 1,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Crime 101",
+                                "runTime": 140,
+                                "mpaaRating": "R",
+                                "genre": "Action",
+                                "movieId": 80239,
+                                "slug": "crime-101-80239",
+                                "websiteUrl": "/movies/crime-101-80239",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139916020,
+                                                                            "showDateTimeUtc": "2026-02-14T21:00:00.000Z",
+                                                                            "auditorium": 10,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139915900,
+                                                                            "showDateTimeUtc": "2026-02-14T23:45:00.000Z",
+                                                                            "auditorium": 4,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139915901,
+                                                                            "showDateTimeUtc": "2026-02-15T03:05:00.000Z",
+                                                                            "auditorium": 10,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139916032,
+                                                                            "showDateTimeUtc": "2026-02-15T05:30:00.000Z",
+                                                                            "auditorium": 11,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Nirvanna the Band the Show the Movie",
+                                "runTime": 102,
+                                "mpaaRating": "NR",
+                                "genre": "Comedy",
+                                "movieId": 80640,
+                                "slug": "nirvanna-the-band-the-show-the-movie-80640",
+                                "websiteUrl": "/movies/nirvanna-the-band-the-show-the-movie-80640",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563865,
+                                                                            "showDateTimeUtc": "2026-02-14T21:25:00.000Z",
+                                                                            "auditorium": 11,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563864,
+                                                                            "showDateTimeUtc": "2026-02-15T00:05:00.000Z",
+                                                                            "auditorium": 11,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563851,
+                                                                            "showDateTimeUtc": "2026-02-15T03:00:00.000Z",
+                                                                            "auditorium": 4,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563852,
+                                                                            "showDateTimeUtc": "2026-02-15T05:40:00.000Z",
+                                                                            "auditorium": 4,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "MET Opera: Cinderella Encore (2026)",
+                                "runTime": 109,
+                                "mpaaRating": "NR",
+                                "genre": "Opera",
+                                "movieId": 81027,
+                                "slug": "met-opera-cinderella-encore-2026-81027",
+                                "websiteUrl": "/movies/met-opera-cinderella-encore-2026-81027",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 137010219,
+                                                                            "showDateTimeUtc": "2026-02-14T21:00:00.000Z",
+                                                                            "auditorium": 4,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Good Luck, Have Fun, Don't Die",
+                                "runTime": 134,
+                                "mpaaRating": "R",
+                                "genre": "Action",
+                                "movieId": 81410,
+                                "slug": "good-luck-have-fun-don-t-die-81410",
+                                "websiteUrl": "/movies/good-luck-have-fun-don-t-die-81410",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139999909,
+                                                                            "showDateTimeUtc": "2026-02-14T21:10:00.000Z",
+                                                                            "auditorium": 6,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139999913,
+                                                                            "showDateTimeUtc": "2026-02-15T00:00:00.000Z",
+                                                                            "auditorium": 7,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139999908,
+                                                                            "showDateTimeUtc": "2026-02-15T02:50:00.000Z",
+                                                                            "auditorium": 6,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 139999915,
+                                                                            "showDateTimeUtc": "2026-02-15T05:50:00.000Z",
+                                                                            "auditorium": 7,
+                                                                            "status": "Sellable"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Dracula",
+                                "runTime": 129,
+                                "mpaaRating": "R",
+                                "genre": "Horror",
+                                "movieId": 81573,
+                                "slug": "dracula-81573",
+                                "websiteUrl": "/movies/dracula-81573",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563843,
+                                                                            "showDateTimeUtc": "2026-02-15T04:45:00.000Z",
+                                                                            "auditorium": 1,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "The Moment",
+                                "runTime": 103,
+                                "mpaaRating": "R",
+                                "genre": "Drama",
+                                "movieId": 82134,
+                                "slug": "the-moment-82134",
+                                "websiteUrl": "/movies/the-moment-82134",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563847,
+                                                                            "showDateTimeUtc": "2026-02-14T20:30:00.000Z",
+                                                                            "auditorium": 2,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563858,
+                                                                            "showDateTimeUtc": "2026-02-15T00:30:00.000Z",
+                                                                            "auditorium": 8,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563863,
+                                                                            "showDateTimeUtc": "2026-02-15T02:45:00.000Z",
+                                                                            "auditorium": 11,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563857,
+                                                                            "showDateTimeUtc": "2026-02-15T06:30:00.000Z",
+                                                                            "auditorium": 8,
+                                                                            "status": "Sellable"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Stray Kids : The dominATE Experience",
+                                "runTime": 146,
+                                "mpaaRating": null,
+                                "genre": null,
+                                "movieId": 82318,
+                                "slug": "stray-kids-the-dominate-experience-82318",
+                                "websiteUrl": "/movies/stray-kids-the-dominate-experience-82318",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563848,
+                                                                            "showDateTimeUtc": "2026-02-14T21:45:00.000Z",
+                                                                            "auditorium": 3,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "name": "Iron Lung",
+                                "runTime": 127,
+                                "mpaaRating": "R",
+                                "genre": "Horror",
+                                "movieId": 82343,
+                                "slug": "iron-lung-82343",
+                                "websiteUrl": "/movies/iron-lung-82343",
+                                "formats": {
+                                    "date": null,
+                                    "items": [
+                                        {
+                                            "groups": {
+                                                "edges": [
+                                                    {
+                                                        "node": {
+                                                            "showtimes": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563855,
+                                                                            "showDateTimeUtc": "2026-02-14T22:00:00.000Z",
+                                                                            "auditorium": 5,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563860,
+                                                                            "showDateTimeUtc": "2026-02-15T02:40:00.000Z",
+                                                                            "auditorium": 9,
+                                                                            "status": "PastSellDate"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        "node": {
+                                                                            "showtimeId": 140563856,
+                                                                            "showDateTimeUtc": "2026-02-15T06:00:00.000Z",
+                                                                            "auditorium": 6,
+                                                                            "status": "Sellable"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

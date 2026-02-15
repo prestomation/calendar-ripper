@@ -1077,6 +1077,9 @@ body {
 
 /* ── Mobile back bar ── */
 .mobile-back-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 8px 16px;
   padding-top: calc(8px + env(safe-area-inset-top));
   border-bottom: 1px solid var(--border-color);
@@ -1084,6 +1087,12 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+}
+
+.mobile-back-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .mobile-back-btn {
@@ -1153,9 +1162,11 @@ body {
   }
 
   .app--mobile .agenda-tags {
-    margin: -16px -16px 0 -16px;
-    padding: 10px 16px;
-    border-bottom: none;
+    position: static;
+    margin: -16px -16px 8px -16px;
+    padding: 8px 16px;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
     box-shadow: none;
   }
 
@@ -1242,7 +1253,7 @@ body {
   }
 
   .app--mobile .day-group-header {
-    top: var(--agenda-tags-height, 56px);
+    top: 0;
     background: var(--bg-secondary);
     margin-left: -16px;
     margin-right: -16px;

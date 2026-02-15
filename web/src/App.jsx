@@ -80,7 +80,6 @@ function App() {
   const tagsRef = useRef(null)
   const calendarListRef = useRef(null)
   const agendaRef = useRef(null)
-  const agendaTagsRef = useRef(null)
   const searchInputRef = useRef(null)
   
   // Keyboard shortcuts: "/" to focus search, Escape to clear
@@ -209,30 +208,6 @@ function App() {
       cleanupAgenda?.()
     }
   }, [updateScrollFade, calendars, events])
-
-  // Measure agenda-tags height on mobile so day-group-headers can stack below
-  useEffect(() => {
-    const el = agendaTagsRef.current
-    if (!isMobile || !showHappeningSoon || !el) return
-
-    const panel = el.closest('.agenda-panel')
-    if (!panel) return
-
-    const updateHeight = () => {
-      const height = el.getBoundingClientRect().height
-      if (height > 0) panel.style.setProperty('--agenda-tags-height', `${height}px`)
-    }
-
-    // Defer initial measurement to ensure layout is complete
-    const rafId = requestAnimationFrame(updateHeight)
-    const observer = new ResizeObserver(updateHeight)
-    observer.observe(el)
-
-    return () => {
-      cancelAnimationFrame(rafId)
-      observer.disconnect()
-    }
-  }, [isMobile, showHappeningSoon])
 
   // URL state management — sync React state from URL hash
   const syncStateFromURL = useCallback(() => {
@@ -1544,29 +1519,32 @@ function App() {
             }}>
               {showHomepage ? '← Browse Calendars' : '← Calendars'}
             </button>
+            {showHappeningSoon && <span className="mobile-back-title">Happening Soon</span>}
           </div>
         )}
         {showHappeningSoon ? (
           <div className="agenda-panel" ref={agendaRef}>
-            <div className="agenda-header">
-              <div className="agenda-title-container">
-                <h1>Happening Soon</h1>
+            {!isMobile && (
+              <div className="agenda-header">
+                <div className="agenda-title-container">
+                  <h1>Happening Soon</h1>
+                </div>
+                <p>
+                  {(() => {
+                    const totalEvents = happeningSoonEvents.reduce((sum, g) => sum + g.events.length, 0)
+                    const parts = []
+                    if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
+                    else parts.push('Events')
+                    parts.push('across all calendars in the next 7 days')
+                    if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
+                    return parts.join(' ')
+                  })()}
+                </p>
               </div>
-              <p>
-                {(() => {
-                  const totalEvents = happeningSoonEvents.reduce((sum, g) => sum + g.events.length, 0)
-                  const parts = []
-                  if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
-                  else parts.push('Events')
-                  parts.push('across all calendars in the next 7 days')
-                  if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
-                  return parts.join(' ')
-                })()}
-              </p>
-            </div>
+            )}
 
             {isMobile && (
-              <div className="agenda-tags" ref={agendaTagsRef}>
+              <div className="agenda-tags">
                 <div
                   className={`tag ${selectedTag === '' ? 'active' : ''}`}
                   onClick={() => handleTagChange('')}

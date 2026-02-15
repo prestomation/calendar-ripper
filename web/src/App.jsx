@@ -69,6 +69,7 @@ function App() {
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
   const [tagsCollapsed, setTagsCollapsed] = useState(false)
+  const [currentDayHeader, setCurrentDayHeader] = useState(null)
 
   const breakpoint = useBreakpoint()
   const isMobile = breakpoint === 'mobile'
@@ -82,6 +83,54 @@ function App() {
   const agendaRef = useRef(null)
   const searchInputRef = useRef(null)
   
+  // Track current day-group-header on mobile scroll for the back bar
+  useEffect(() => {
+    if (!isMobile || mobileView !== 'detail') {
+      setCurrentDayHeader(null)
+      return
+    }
+
+    let scrollCleanup = null
+    let attached = false
+
+    const setup = () => {
+      if (attached) return
+      const container = agendaRef.current
+      if (!container) return
+
+      const handleScroll = () => {
+        const headers = container.querySelectorAll('.day-group-header')
+        let current = null
+        const containerTop = container.getBoundingClientRect().top
+
+        for (const header of headers) {
+          if (header.getBoundingClientRect().top <= containerTop + 10) {
+            current = {
+              label: header.querySelector('.day-group-label')?.textContent || '',
+              date: header.querySelector('.day-group-date')?.textContent || ''
+            }
+          }
+        }
+        setCurrentDayHeader(current)
+      }
+
+      container.addEventListener('scroll', handleScroll, { passive: true })
+      handleScroll()
+      attached = true
+      scrollCleanup = () => container.removeEventListener('scroll', handleScroll)
+    }
+
+    // Try immediately, and also after a frame for navigation timing
+    // (agendaRef may not be set yet after view transitions)
+    setup()
+    const frameId = requestAnimationFrame(setup)
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      scrollCleanup?.()
+    }
+  }, [isMobile, mobileView, showHappeningSoon, selectedCalendar, events, eventsLoading])
+
   // Keyboard shortcuts: "/" to focus search, Escape to clear
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -1517,53 +1566,67 @@ function App() {
                 setMobileView('list')
               }
             }}>
-              {showHomepage ? '← Browse Calendars' : '← Calendars'}
+              <span className="mobile-back-icon">📅</span> ←
             </button>
+            {currentDayHeader ? (
+              <span className="mobile-bar-day">
+                <span className="mobile-bar-day-label">{currentDayHeader.label}</span>
+                {currentDayHeader.date && <span className="mobile-bar-day-date">{currentDayHeader.date}</span>}
+              </span>
+            ) : (
+              <span className="mobile-back-title">
+                {showHappeningSoon ? 'Happening Soon' : selectedCalendar?.fullName || ''}
+              </span>
+            )}
           </div>
         )}
         {showHappeningSoon ? (
           <div className="agenda-panel" ref={agendaRef}>
-            <div className="agenda-header">
-              <div className="agenda-title-container">
-                <h1>Happening Soon</h1>
+            {!isMobile && (
+              <div className="agenda-header">
+                <div className="agenda-title-container">
+                  <h1>Happening Soon</h1>
+                </div>
+                <p>
+                  {(() => {
+                    const totalEvents = happeningSoonEvents.reduce((sum, g) => sum + g.events.length, 0)
+                    const parts = []
+                    if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
+                    else parts.push('Events')
+                    parts.push('across all calendars in the next 7 days')
+                    if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
+                    return parts.join(' ')
+                  })()}
+                </p>
               </div>
-              <p>
-                {(() => {
-                  const totalEvents = happeningSoonEvents.reduce((sum, g) => sum + g.events.length, 0)
-                  const parts = []
-                  if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
-                  else parts.push('Events')
-                  parts.push('across all calendars in the next 7 days')
-                  if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
-                  return parts.join(' ')
-                })()}
-              </p>
-            </div>
+            )}
 
-            <div className="agenda-tags">
-              <div
-                className={`tag ${selectedTag === '' ? 'active' : ''}`}
-                onClick={() => handleTagChange('')}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange('') } }}
-              >
-                All
-              </div>
-              {allTags.map(tag => (
+            {isMobile && (
+              <div className="agenda-tags">
                 <div
-                  key={tag}
-                  className={`tag ${selectedTag === tag ? 'active' : ''}`}
-                  onClick={() => handleTagChange(tag)}
+                  className={`tag ${selectedTag === '' ? 'active' : ''}`}
+                  onClick={() => handleTagChange('')}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange(tag) } }}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange('') } }}
                 >
-                  {selectedTag === tag && <span className="tag-check" aria-hidden="true">✓ </span>}
-                  {formatTagLabel(tag)}
+                  All
                 </div>
-              ))}
-            </div>
+                {allTags.map(tag => (
+                  <div
+                    key={tag}
+                    className={`tag ${selectedTag === tag ? 'active' : ''}`}
+                    onClick={() => handleTagChange(tag)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange(tag) } }}
+                  >
+                    {selectedTag === tag && <span className="tag-check" aria-hidden="true">✓ </span>}
+                    {formatTagLabel(tag)}
+                  </div>
+                ))}
+              </div>
+            )}
 
             {searchTerm && (
               <div className="search-filter-banner">

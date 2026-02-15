@@ -10,6 +10,10 @@ const MONTHS: Record<string, number> = {
     'September': 9, 'October': 10, 'November': 11, 'December': 12
 };
 
+function normalizeMonth(name: string): string {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
 const MAX_PAGES = 10;
 const BASE_URL = "https://www.seattlecenter.com";
 
@@ -174,7 +178,8 @@ export default class SeattleCenterRipper implements IRipper {
         );
         if (!dateMatch) return null;
 
-        const month = MONTHS[dateMatch[1]];
+        const month = MONTHS[normalizeMonth(dateMatch[1])];
+        if (month === undefined) return null;
         const day = parseInt(dateMatch[2]);
         const year = this.inferYear(month, day);
 

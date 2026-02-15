@@ -59,6 +59,16 @@ describe('SeattleCenterRipper', () => {
             const result = ripper.parseDateTime('February 15', 'invalid time', timezone);
             expect(result).toBeNull();
         });
+
+        it('handles case-insensitive month names', () => {
+            const lower = ripper.parseDateTime('february 15', '7:00 p.m.', timezone);
+            expect(lower).not.toBeNull();
+            expect(lower!.monthValue()).toBe(2);
+
+            const upper = ripper.parseDateTime('MARCH 1', '10:00 a.m.', timezone);
+            expect(upper).not.toBeNull();
+            expect(upper!.monthValue()).toBe(3);
+        });
     });
 
     describe('extractLocation', () => {

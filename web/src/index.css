@@ -1102,11 +1102,19 @@ body {
   background: none;
   border: none;
   color: var(--color-primary);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  padding: 4px 2px;
+  padding: 6px 4px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mobile-back-icon {
+  font-size: 16px;
+  line-height: 1;
 }
 
 .mobile-bar-day {

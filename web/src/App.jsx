@@ -89,29 +89,47 @@ function App() {
       setCurrentDayHeader(null)
       return
     }
-    const container = agendaRef.current
-    if (!container) return
 
-    const handleScroll = () => {
-      const headers = container.querySelectorAll('.day-group-header')
-      let current = null
-      const containerTop = container.getBoundingClientRect().top
+    let scrollCleanup = null
+    let attached = false
 
-      for (const header of headers) {
-        if (header.getBoundingClientRect().top <= containerTop + 10) {
-          current = {
-            label: header.querySelector('.day-group-label')?.textContent || '',
-            date: header.querySelector('.day-group-date')?.textContent || ''
+    const setup = () => {
+      if (attached) return
+      const container = agendaRef.current
+      if (!container) return
+
+      const handleScroll = () => {
+        const headers = container.querySelectorAll('.day-group-header')
+        let current = null
+        const containerTop = container.getBoundingClientRect().top
+
+        for (const header of headers) {
+          if (header.getBoundingClientRect().top <= containerTop + 10) {
+            current = {
+              label: header.querySelector('.day-group-label')?.textContent || '',
+              date: header.querySelector('.day-group-date')?.textContent || ''
+            }
           }
         }
+        setCurrentDayHeader(current)
       }
-      setCurrentDayHeader(current)
+
+      container.addEventListener('scroll', handleScroll, { passive: true })
+      handleScroll()
+      attached = true
+      scrollCleanup = () => container.removeEventListener('scroll', handleScroll)
     }
 
-    container.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => container.removeEventListener('scroll', handleScroll)
-  }, [isMobile, mobileView, showHappeningSoon, selectedCalendar, events])
+    // Try immediately, and also after a frame for navigation timing
+    // (agendaRef may not be set yet after view transitions)
+    setup()
+    const frameId = requestAnimationFrame(setup)
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      scrollCleanup?.()
+    }
+  }, [isMobile, mobileView, showHappeningSoon, selectedCalendar, events, eventsLoading])
 
   // Keyboard shortcuts: "/" to focus search, Escape to clear
   useEffect(() => {
@@ -1548,7 +1566,7 @@ function App() {
                 setMobileView('list')
               }
             }}>
-              ←
+              <span className="mobile-back-icon">📅</span> ←
             </button>
             {currentDayHeader ? (
               <span className="mobile-bar-day">

@@ -7,7 +7,7 @@
  */
 
 import { readFile } from "fs/promises";
-import { existsSync } from "fs";
+import { existsSync, readdirSync } from "fs";
 import { resolve, normalize } from "path";
 
 interface Calendar {
@@ -169,28 +169,28 @@ async function main() {
     process.exit(0);
   }
 
-  // Read the new manifest
-  const newManifestPath = "output/manifest.json";
-  if (!existsSync(newManifestPath)) {
-    console.error(`New manifest not found at ${newManifestPath}. Run the build first.`);
+  // Scan the output directory for .ics files on disk.
+  // This is more reliable than reading the manifest because the manifest may
+  // intentionally exclude calendars with no future events while still
+  // generating the ICS files for existing subscribers.
+  const outputDir = "output";
+  if (!existsSync(outputDir)) {
+    console.error(`Output directory not found at ${outputDir}. Run the build first.`);
     process.exit(1);
   }
 
-  let newManifest: Manifest;
-  try {
-    const fileContent = await readFile(newManifestPath, "utf-8");
-    newManifest = JSON.parse(fileContent) as Manifest;
-  } catch (error) {
-    console.error(`Failed to parse new manifest at ${newManifestPath}: ${error}`);
-    process.exit(1);
+  const newUrls = new Set<string>();
+  for (const file of readdirSync(outputDir)) {
+    if (file.endsWith(".ics") && isValidIcsUrl(file)) {
+      newUrls.add(file);
+    }
   }
 
-  // Extract ICS URLs from both manifests
+  // Extract ICS URLs from deployed manifest
   const deployedUrls = extractIcsUrls(deployedManifest);
-  const newUrls = extractIcsUrls(newManifest);
 
   console.log(`Deployed calendars: ${deployedUrls.size}`);
-  console.log(`New build calendars: ${newUrls.size}`);
+  console.log(`New build calendars (on disk): ${newUrls.size}`);
 
   // Find missing URLs, excluding intentional removals
   const allowedRemovals = await loadAllowedRemovals();
@@ -213,21 +213,6 @@ async function main() {
     }
   }
 
-  // Also check that the actual .ics files exist in the output directory
-  const missingFiles: string[] = [];
-  const outputDir = "output";
-  for (const url of newUrls) {
-    // Validate path is within output directory before checking
-    if (!isPathWithinOutput(url, outputDir)) {
-      console.error(`Skipping invalid path: ${url}`);
-      continue;
-    }
-    const filePath = `${outputDir}/${url}`;
-    if (!existsSync(filePath)) {
-      missingFiles.push(url);
-    }
-  }
-
   // Report results
   let hasErrors = false;
 
@@ -238,14 +223,6 @@ async function main() {
     }
     console.error("\nThese URLs may be in use by subscribers. If removal is intentional,");
     console.error("consider keeping the calendar with a deprecation notice or redirect.");
-    hasErrors = true;
-  }
-
-  if (missingFiles.length > 0) {
-    console.error("\n❌ Missing files: The following calendars are in the manifest but files don't exist:");
-    for (const url of missingFiles.sort()) {
-      console.error(`  - ${url}`);
-    }
     hasErrors = true;
   }
 

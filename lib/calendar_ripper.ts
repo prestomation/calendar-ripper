@@ -22,10 +22,65 @@ import {
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { LocalDate } from "@js-joda/core";
 import { validateTags } from "./config/tags.js";
+// @ts-ignore — ical.js has no type declarations
+import ICAL from "ical.js";
 
 // Get the directory name in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+/**
+ * Check if ICS content contains any events with a start date on or after today.
+ * Uses ical.js to properly handle recurring events (RRULE expansion).
+ */
+export function hasFutureEventsInICS(icsContent: string, today?: Date): boolean {
+  const now = today ?? new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const maxDate = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
+
+  try {
+    const jcalData = ICAL.parse(icsContent);
+    const comp = new ICAL.Component(jcalData);
+    const vevents = comp.getAllSubcomponents("vevent");
+
+    for (const vevent of vevents) {
+      const rrule = vevent.getFirstProperty("rrule");
+
+      if (rrule) {
+        // Recurring event — expand instances to check for future occurrences
+        try {
+          const expand = new ICAL.RecurExpansion({
+            component: vevent,
+            dtstart: vevent.getFirstPropertyValue("dtstart"),
+          });
+
+          let next;
+          let instanceCount = 0;
+          while (instanceCount < 10000 && (next = expand.next())) {
+            const startDate = next.toJSDate();
+            if (startDate >= todayStart) return true;
+            if (startDate > maxDate) break;
+            instanceCount++;
+          }
+        } catch {
+          // If RRULE expansion fails, fall back to checking DTSTART directly
+          const event = new ICAL.Event(vevent);
+          if (event.startDate?.toJSDate() >= todayStart) return true;
+        }
+      } else {
+        // Single event — check DTSTART
+        const event = new ICAL.Event(vevent);
+        const startDate = event.startDate?.toJSDate();
+        if (startDate && startDate >= todayStart) return true;
+      }
+    }
+  } catch {
+    // If ical.js parsing fails entirely, return false (calendar is malformed)
+    return false;
+  }
+
+  return false;
+}
 
 interface CalendarOutput {
   friendlyName: string;
@@ -242,6 +297,11 @@ export const main = async () => {
   // Track event counts per calendar for summary
   const eventCounts: Array<{ name: string; type: string; events: number }> = [];
 
+  // Track which calendars have future events (on or after today)
+  // Calendars with no future events will be excluded from the manifest
+  const calendarsWithFutureEvents = new Set<string>();
+  const todayLocal = LocalDate.now();
+
   // Collect all calendars and their tags
   const allCalendars: RipperCalendar[] = [];
   const ripperTags = new Map<string, string[]>();
@@ -259,6 +319,9 @@ export const main = async () => {
     const icsString = await toICS(calendar);
     console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
     eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length });
+    if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
+      calendarsWithFutureEvents.add(`recurring-${calendar.name}.ics`);
+    }
     if (calendar.events.length === 0) {
       console.log(`::warning::Calendar recurring-${calendar.name} has 0 events — this may indicate a problem`);
     }
@@ -315,6 +378,9 @@ export const main = async () => {
       const icsString = await toICS(calendar);
       console.log(`${calendar.events.length} events for ${config.config.name}-${calendar.name}`);
       eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length });
+      if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
+        calendarsWithFutureEvents.add(icsPath);
+      }
       if (calendar.events.length === 0) {
         console.log(`::warning::Calendar ${config.config.name}-${calendar.name} has 0 events — this may indicate a problem`);
       }
@@ -420,6 +486,9 @@ export const main = async () => {
       const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
       console.log(`${eventCount} events for external-${calendar.name}`);
       eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount });
+      if (hasFutureEventsInICS(icsContent)) {
+        calendarsWithFutureEvents.add(localFileName);
+      }
       if (eventCount === 0) {
         console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has 0 events — this may indicate a problem`);
       }
@@ -463,7 +532,26 @@ END:VCALENDAR`;
     throw new Error(`Build failed: invalid tag(s) not in VALID_TAGS: ${invalidTags.join(', ')}. Add them to lib/config/tags.ts or fix the typo.`);
   }
 
-  // Generate JSON manifest for React app
+  // Log calendars excluded from manifest due to no future events
+  const allCalendarIcsUrls: string[] = [];
+  for (const ripper of configs.filter(r => !r.config.disabled)) {
+    for (const cal of ripper.config.calendars) {
+      allCalendarIcsUrls.push(`${ripper.config.name}-${cal.name}.ics`);
+    }
+  }
+  for (const cal of recurringCalendars) {
+    allCalendarIcsUrls.push(`recurring-${cal.name}.ics`);
+  }
+  for (const cal of activeExternalCalendars) {
+    allCalendarIcsUrls.push(`external-${cal.name}.ics`);
+  }
+
+  const excludedFromManifest = allCalendarIcsUrls.filter(url => !calendarsWithFutureEvents.has(url));
+  if (excludedFromManifest.length > 0) {
+    console.log(`\nExcluding ${excludedFromManifest.length} calendar(s) with no future events from manifest: ${excludedFromManifest.join(', ')}`);
+  }
+
+  // Generate JSON manifest for React app, filtering out calendars with no future events
   const manifest = {
     lastUpdated: new Date().toISOString(),
     rippers: configs.filter(ripper => !ripper.config.disabled).map(ripper => ({
@@ -471,30 +559,51 @@ END:VCALENDAR`;
       friendlyName: ripper.config.friendlyname,
       description: ripper.config.description,
       friendlyLink: ripper.config.friendlyLink,
-      calendars: ripper.config.calendars.map(calendar => ({
+      calendars: ripper.config.calendars
+        .filter(calendar => calendarsWithFutureEvents.has(`${ripper.config.name}-${calendar.name}.ics`))
+        .map(calendar => ({
+          name: calendar.name,
+          friendlyName: calendar.friendlyname,
+          icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
+          tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
+        }))
+    })).filter(ripper => ripper.calendars.length > 0),
+    recurringCalendars: recurringCalendars
+      .filter(calendar => calendarsWithFutureEvents.has(`recurring-${calendar.name}.ics`))
+      .map(calendar => ({
         name: calendar.name,
         friendlyName: calendar.friendlyname,
-        icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
-        tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
-      }))
-    })),
-    recurringCalendars: recurringCalendars.map(calendar => ({
-      name: calendar.name,
-      friendlyName: calendar.friendlyname,
-      icsUrl: `recurring-${calendar.name}.ics`,
-      tags: calendar.tags || []
-    })),
-    externalCalendars: activeExternalCalendars.map(calendar => ({
-      name: calendar.name,
-      friendlyName: calendar.friendlyname,
-      description: calendar.description,
-      icsUrl: `external-${calendar.name}.ics`, // Local file for web app
-      originalIcsUrl: calendar.icsUrl, // Original URL for subscription links
-      infoUrl: calendar.infoUrl,
-      tags: calendar.tags || []
-    })),
-    tags: Array.from(allTags).sort()
+        icsUrl: `recurring-${calendar.name}.ics`,
+        tags: calendar.tags || []
+      })),
+    externalCalendars: activeExternalCalendars
+      .filter(calendar => calendarsWithFutureEvents.has(`external-${calendar.name}.ics`))
+      .map(calendar => ({
+        name: calendar.name,
+        friendlyName: calendar.friendlyname,
+        description: calendar.description,
+        icsUrl: `external-${calendar.name}.ics`, // Local file for web app
+        originalIcsUrl: calendar.icsUrl, // Original URL for subscription links
+        infoUrl: calendar.infoUrl,
+        tags: calendar.tags || []
+      })),
+    tags: [] as string[]
   };
+
+  // Recompute tags from only the calendars that made it into the manifest
+  const manifestTags = new Set<string>();
+  manifest.rippers.forEach(ripper => {
+    ripper.calendars.forEach(calendar => {
+      calendar.tags.forEach(tag => manifestTags.add(tag));
+    });
+  });
+  manifest.recurringCalendars.forEach(calendar => {
+    calendar.tags.forEach(tag => manifestTags.add(tag));
+  });
+  manifest.externalCalendars.forEach(calendar => {
+    calendar.tags.forEach(tag => manifestTags.add(tag));
+  });
+  manifest.tags = Array.from(manifestTags).sort();
 
   await writeFile("output/manifest.json", JSON.stringify(manifest, null, 2));
 
@@ -513,6 +622,9 @@ END:VCALENDAR`;
       ? `${calendar.parent.name}-${calendar.name}.ics`
       : `recurring-${calendar.name}.ics`;
 
+    // Skip calendars excluded from manifest (no future events)
+    if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+
     for (const event of calendar.events) {
       eventsIndex.push({
         icsUrl,
@@ -526,9 +638,13 @@ END:VCALENDAR`;
 
   // Index external calendar events
   for (const calendar of activeExternalCalendars) {
+    const icsUrl = `external-${calendar.name}.ics`;
+
+    // Skip calendars excluded from manifest (no future events)
+    if (!calendarsWithFutureEvents.has(icsUrl)) continue;
+
     try {
       const externalEvents = await fetchExternalCalendar(calendar.icsUrl);
-      const icsUrl = `external-${calendar.name}.ics`;
       for (const event of externalEvents) {
         eventsIndex.push({
           icsUrl,

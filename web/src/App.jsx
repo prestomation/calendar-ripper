@@ -69,6 +69,7 @@ function App() {
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
   const [tagsCollapsed, setTagsCollapsed] = useState(false)
+  const [currentDayHeader, setCurrentDayHeader] = useState(null)
 
   const breakpoint = useBreakpoint()
   const isMobile = breakpoint === 'mobile'
@@ -82,6 +83,36 @@ function App() {
   const agendaRef = useRef(null)
   const searchInputRef = useRef(null)
   
+  // Track current day-group-header on mobile scroll for the back bar
+  useEffect(() => {
+    if (!isMobile || mobileView !== 'detail') {
+      setCurrentDayHeader(null)
+      return
+    }
+    const container = agendaRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+      const headers = container.querySelectorAll('.day-group-header')
+      let current = null
+      const containerTop = container.getBoundingClientRect().top
+
+      for (const header of headers) {
+        if (header.getBoundingClientRect().top <= containerTop + 10) {
+          current = {
+            label: header.querySelector('.day-group-label')?.textContent || '',
+            date: header.querySelector('.day-group-date')?.textContent || ''
+          }
+        }
+      }
+      setCurrentDayHeader(current)
+    }
+
+    container.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => container.removeEventListener('scroll', handleScroll)
+  }, [isMobile, mobileView, showHappeningSoon, selectedCalendar, events])
+
   // Keyboard shortcuts: "/" to focus search, Escape to clear
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -1517,9 +1548,18 @@ function App() {
                 setMobileView('list')
               }
             }}>
-              {showHomepage ? '← Browse Calendars' : '← Calendars'}
+              ←
             </button>
-            {showHappeningSoon && <span className="mobile-back-title">Happening Soon</span>}
+            {currentDayHeader ? (
+              <span className="mobile-bar-day">
+                <span className="mobile-bar-day-label">{currentDayHeader.label}</span>
+                {currentDayHeader.date && <span className="mobile-bar-day-date">{currentDayHeader.date}</span>}
+              </span>
+            ) : (
+              <span className="mobile-back-title">
+                {showHappeningSoon ? 'Happening Soon' : selectedCalendar?.fullName || ''}
+              </span>
+            )}
           </div>
         )}
         {showHappeningSoon ? (

@@ -1,0 +1,179 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Authenticated HTTP proxy Lambda with Function URL (SigV4 auth).
+  GitHub Actions assumes the output IAM role via OIDC to invoke the proxy,
+  which forwards requests from AWS IPs instead of GitHub runner IPs.
+
+# ---------------------------------------------------------------------------
+# Parameters
+# ---------------------------------------------------------------------------
+Parameters:
+  GitHubOrg:
+    Type: String
+    Description: GitHub organization or user that owns the repository.
+
+  GitHubRepo:
+    Type: String
+    Description: GitHub repository name (without the org prefix).
+
+  AllowedTargetDomains:
+    Type: CommaDelimitedList
+    Description: >
+      Comma-separated list of domains the proxy is allowed to fetch
+      (e.g. "www.axs.com,graph.amctheatres.com").
+      Leave empty to allow all domains (not recommended for production).
+    Default: ""
+
+  CreateOIDCProvider:
+    Type: String
+    AllowedValues: ["true", "false"]
+    Default: "true"
+    Description: >
+      Set to "false" if a GitHub Actions OIDC provider already exists in
+      this AWS account. Only one provider per URL is allowed per account.
+
+# ---------------------------------------------------------------------------
+# Conditions
+# ---------------------------------------------------------------------------
+Conditions:
+  ShouldCreateOIDCProvider: !Equals [!Ref CreateOIDCProvider, "true"]
+
+# ---------------------------------------------------------------------------
+# Resources
+# ---------------------------------------------------------------------------
+Resources:
+
+  # -- GitHub OIDC Provider (one per account) --------------------------------
+  GitHubOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Condition: ShouldCreateOIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      ThumbprintList:
+        # AWS verifies GitHub's OIDC certs directly; value is required but
+        # not used for validation.
+        - 6938fd4d98bab03faadb97b34396831e3780aea1
+
+  # -- IAM role that GitHub Actions assumes ----------------------------------
+  GitHubActionsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${AWS::StackName}-github-actions"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !If
+                - ShouldCreateOIDCProvider
+                - !GetAtt GitHubOIDCProvider.Arn
+                - !Sub "arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com"
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+              StringLike:
+                token.actions.githubusercontent.com:sub: !Sub "repo:${GitHubOrg}/${GitHubRepo}:*"
+      Policies:
+        - PolicyName: InvokeProxyFunctionUrl
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunctionUrl
+                Resource: !GetAtt ProxyFunction.Arn
+
+  # -- Lambda execution role -------------------------------------------------
+  ProxyFunctionExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${AWS::StackName}-lambda-exec"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  # -- Lambda function -------------------------------------------------------
+  ProxyFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-proxy"
+      Description: Authenticated HTTP proxy for calendar rippers
+      Runtime: nodejs20.x
+      Handler: index.handler
+      Role: !GetAtt ProxyFunctionExecutionRole.Arn
+      Timeout: 30
+      MemorySize: 256
+      Environment:
+        Variables:
+          ALLOWED_DOMAINS: !Join [",", !Ref AllowedTargetDomains]
+      Code:
+        # Inline handler – keep in sync with handler.ts (the tested source).
+        # 4 KB limit; this is a compact equivalent of the TypeScript version.
+        ZipFile: |
+          const allowed = (process.env.ALLOWED_DOMAINS || "")
+            .split(",").map(d => d.trim()).filter(Boolean);
+
+          function json(code, obj) {
+            return { statusCode: code, headers: {"Content-Type":"application/json"}, body: JSON.stringify(obj) };
+          }
+
+          exports.handler = async (event) => {
+            let req;
+            try { req = JSON.parse(event.body || "{}"); }
+            catch { return json(400, {error:"Invalid JSON body"}); }
+            if (!req.url) return json(400, {error:"Missing required field: url"});
+            let hostname;
+            try { hostname = new URL(req.url).hostname; }
+            catch { return json(400, {error:"Invalid URL"}); }
+            if (allowed.length > 0 &&
+                !allowed.some(d => hostname === d || hostname.endsWith("." + d)))
+              return json(403, {error:"Domain not allowed: " + hostname});
+            try {
+              const method = req.method || "GET";
+              const opts = { method, headers: req.headers || {} };
+              if (req.body && method !== "GET" && method !== "HEAD") opts.body = req.body;
+              const res = await fetch(req.url, opts);
+              const body = await res.text();
+              const hdrs = {};
+              res.headers.forEach((v, k) => { hdrs[k] = v; });
+              return json(200, {status:res.status, statusText:res.statusText, headers:hdrs, body});
+            } catch (err) {
+              return json(502, {error:"Proxy request failed: " + err.message});
+            }
+          };
+
+  # -- Function URL with IAM auth -------------------------------------------
+  ProxyFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      AuthType: AWS_IAM
+      TargetFunctionArn: !GetAtt ProxyFunction.Arn
+
+# ---------------------------------------------------------------------------
+# Outputs
+# ---------------------------------------------------------------------------
+Outputs:
+  ProxyFunctionUrl:
+    Description: >
+      Lambda Function URL. Store as a GitHub Actions secret
+      (e.g. PROXY_FUNCTION_URL) and use it in your rippers.
+    Value: !GetAtt ProxyFunctionUrl.FunctionUrl
+
+  GitHubActionsRoleArn:
+    Description: >
+      IAM role ARN for GitHub Actions to assume via OIDC. Add this as a
+      GitHub Actions secret (e.g. AWS_ROLE_ARN) and configure the
+      aws-actions/configure-aws-credentials action with it.
+    Value: !GetAtt GitHubActionsRole.Arn
+
+  ProxyFunctionArn:
+    Description: Lambda function ARN (for reference / debugging).
+    Value: !GetAtt ProxyFunction.Arn

@@ -225,7 +225,7 @@ function App() {
       // Empty URL — show homepage in detail view
       setMobileView('detail')
     }
-  }, [calendars])
+  }, [calendars, isMobile])
 
   useEffect(() => {
     syncStateFromURL()
@@ -657,7 +657,9 @@ function App() {
         currentGroup = { label, dateSubtitle, events: [] }
         groups.push(currentGroup)
       }
-      currentGroup.events.push(event)
+      if (currentGroup) {
+        currentGroup.events.push(event)
+      }
     }
 
     return groups

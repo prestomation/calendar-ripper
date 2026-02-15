@@ -7,6 +7,18 @@ import App from './App'
 // Mock fetch
 global.fetch = vi.fn()
 
+// Format a Date as a js-joda-style string: "2026-02-15T19:00:00-08:00[America/Los_Angeles]"
+function toJodaDateString(date) {
+  const pad = (n, len = 2) => String(n).padStart(len, '0')
+  const offset = -date.getTimezoneOffset()
+  const sign = offset >= 0 ? '+' : '-'
+  const absOff = Math.abs(offset)
+  const offHours = pad(Math.floor(absOff / 60))
+  const offMins = pad(absOff % 60)
+  const iso = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}${sign}${offHours}:${offMins}`
+  return `${iso}[LocalTest]`
+}
+
 const mockManifest = {
   lastUpdated: '2024-12-13T17:00:00.000Z',
   rippers: [
@@ -167,14 +179,14 @@ describe('App', () => {
         summary: 'Tonight Concert',
         description: 'A great show',
         location: 'The Venue',
-        date: todayEvent.toISOString(),
+        date: toJodaDateString(todayEvent),
       },
       {
         icsUrl: 'test-ripper-calendar2.ics',
         summary: 'Tomorrow Movie',
         description: 'A great movie',
         location: 'The Theater',
-        date: tomorrowEvent.toISOString(),
+        date: toJodaDateString(tomorrowEvent),
       }
     ]
 
@@ -212,7 +224,7 @@ describe('App', () => {
       {
         icsUrl: 'test-ripper-calendar1.ics',
         summary: 'Far Future Event',
-        date: farFutureEvent.toISOString(),
+        date: toJodaDateString(farFutureEvent),
       }
     ]
 

@@ -22,6 +22,8 @@ import {
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { LocalDate } from "@js-joda/core";
 import { validateTags } from "./config/tags.js";
+// @ts-ignore — ical.js has no type declarations
+import ICAL from "ical.js";
 
 // Get the directory name in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -29,17 +31,54 @@ const __dirname = dirname(__filename);
 
 /**
  * Check if ICS content contains any events with a start date on or after today.
- * Uses string comparison of YYYYMMDD date strings for efficiency.
+ * Uses ical.js to properly handle recurring events (RRULE expansion).
  */
 export function hasFutureEventsInICS(icsContent: string, today?: Date): boolean {
   const now = today ?? new Date();
-  const todayStr = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const maxDate = new Date(now.getFullYear() + 1, now.getMonth(), now.getDate());
 
-  const dtStartPattern = /DTSTART(?:;[^:]*)?:(\d{8})/g;
-  let match;
-  while ((match = dtStartPattern.exec(icsContent)) !== null) {
-    if (match[1] >= todayStr) return true;
+  try {
+    const jcalData = ICAL.parse(icsContent);
+    const comp = new ICAL.Component(jcalData);
+    const vevents = comp.getAllSubcomponents("vevent");
+
+    for (const vevent of vevents) {
+      const rrule = vevent.getFirstProperty("rrule");
+
+      if (rrule) {
+        // Recurring event — expand instances to check for future occurrences
+        try {
+          const expand = new ICAL.RecurExpansion({
+            component: vevent,
+            dtstart: vevent.getFirstPropertyValue("dtstart"),
+          });
+
+          let next;
+          let instanceCount = 0;
+          while (instanceCount < 10000 && (next = expand.next())) {
+            const startDate = next.toJSDate();
+            if (startDate >= todayStart) return true;
+            if (startDate > maxDate) break;
+            instanceCount++;
+          }
+        } catch {
+          // If RRULE expansion fails, fall back to checking DTSTART directly
+          const event = new ICAL.Event(vevent);
+          if (event.startDate?.toJSDate() >= todayStart) return true;
+        }
+      } else {
+        // Single event — check DTSTART
+        const event = new ICAL.Event(vevent);
+        const startDate = event.startDate?.toJSDate();
+        if (startDate && startDate >= todayStart) return true;
+      }
+    }
+  } catch {
+    // If ical.js parsing fails entirely, return false (calendar is malformed)
+    return false;
   }
+
   return false;
 }
 

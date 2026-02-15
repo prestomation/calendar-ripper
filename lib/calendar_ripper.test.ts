@@ -193,94 +193,196 @@ describe('hasFutureEventsInICS', () => {
   const today = new Date(2026, 1, 15); // Feb 15, 2026
 
   it('should return true when ICS contains events after today', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART:20260301T100000Z
-SUMMARY:Future Event
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:future-1@test',
+      'DTSTART:20260301T100000Z',
+      'DTEND:20260301T110000Z',
+      'SUMMARY:Future Event',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
   });
 
   it('should return true when ICS contains events on today', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART:20260215T100000Z
-SUMMARY:Today Event
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:today-1@test',
+      'DTSTART:20260215T100000Z',
+      'DTEND:20260215T110000Z',
+      'SUMMARY:Today Event',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
   });
 
   it('should return false when ICS contains only past events', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART:20250101T100000Z
-SUMMARY:Past Event
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:past-1@test',
+      'DTSTART:20250101T100000Z',
+      'DTEND:20250101T110000Z',
+      'SUMMARY:Past Event',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
   });
 
   it('should return false for empty ICS content', () => {
-    const icsContent = `BEGIN:VCALENDAR
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
   });
 
   it('should handle DTSTART with timezone parameters', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260401T190000
-SUMMARY:Future Event with TZ
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:tz-1@test',
+      'DTSTART;TZID=America/Los_Angeles:20260401T190000',
+      'DTEND;TZID=America/Los_Angeles:20260401T200000',
+      'SUMMARY:Future Event with TZ',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
   });
 
   it('should handle all-day events (date only, no time)', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260301
-SUMMARY:Future All-Day Event
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:allday-1@test',
+      'DTSTART;VALUE=DATE:20260301',
+      'DTEND;VALUE=DATE:20260302',
+      'SUMMARY:Future All-Day Event',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
   });
 
   it('should return true if at least one event is in the future', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART:20240601T100000Z
-SUMMARY:Old Past Event
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250101T100000Z
-SUMMARY:Recent Past Event
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260601T100000Z
-SUMMARY:Future Event
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:mix-1@test',
+      'DTSTART:20240601T100000Z',
+      'DTEND:20240601T110000Z',
+      'SUMMARY:Old Past Event',
+      'END:VEVENT',
+      'BEGIN:VEVENT',
+      'UID:mix-2@test',
+      'DTSTART:20250101T100000Z',
+      'DTEND:20250101T110000Z',
+      'SUMMARY:Recent Past Event',
+      'END:VEVENT',
+      'BEGIN:VEVENT',
+      'UID:mix-3@test',
+      'DTSTART:20260601T100000Z',
+      'DTEND:20260601T110000Z',
+      'SUMMARY:Future Event',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
     expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
   });
 
   it('should return false when all events are past', () => {
-    const icsContent = `BEGIN:VCALENDAR
-BEGIN:VEVENT
-DTSTART:20240601T100000Z
-SUMMARY:Old Past Event
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20250101T100000Z
-SUMMARY:Recent Past Event
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260214T100000Z
-SUMMARY:Yesterday Event
-END:VEVENT
-END:VCALENDAR`;
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:past-a@test',
+      'DTSTART:20240601T100000Z',
+      'DTEND:20240601T110000Z',
+      'SUMMARY:Old Past Event',
+      'END:VEVENT',
+      'BEGIN:VEVENT',
+      'UID:past-b@test',
+      'DTSTART:20250101T100000Z',
+      'DTEND:20250101T110000Z',
+      'SUMMARY:Recent Past Event',
+      'END:VEVENT',
+      'BEGIN:VEVENT',
+      'UID:past-c@test',
+      'DTSTART:20260214T100000Z',
+      'DTEND:20260214T110000Z',
+      'SUMMARY:Yesterday Event',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
+  });
+
+  it('should detect future events from weekly recurring rule with past DTSTART', () => {
+    // Weekly event starting in the past — RRULE generates future instances
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:recur-weekly@test',
+      'DTSTART:20260101T180000Z',
+      'DTEND:20260101T190000Z',
+      'RRULE:FREQ=WEEKLY;BYDAY=TH',
+      'SUMMARY:Weekly Meetup',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should return false for recurring event with UNTIL in the past', () => {
+    // Recurring event that ended before today
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:recur-ended@test',
+      'DTSTART:20250101T180000Z',
+      'DTEND:20250101T190000Z',
+      'RRULE:FREQ=WEEKLY;BYDAY=WE;UNTIL=20250201T000000Z',
+      'SUMMARY:Ended Series',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
+  });
+
+  it('should detect future events from monthly recurring rule', () => {
+    // Monthly event starting way in the past
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'BEGIN:VEVENT',
+      'UID:recur-monthly@test',
+      'DTSTART:20240115T180000Z',
+      'DTEND:20240115T190000Z',
+      'RRULE:FREQ=MONTHLY;BYMONTHDAY=15',
+      'SUMMARY:Monthly Meetup',
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should return false for malformed ICS content', () => {
+    const icsContent = 'not valid ics data at all';
     expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
   });
 });

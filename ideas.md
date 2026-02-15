@@ -166,11 +166,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ### Museums and Venues
 
-#### Seattle Center Event Calendar
-- **URL:** https://www.seattlecenter.com/events/event-calendar
-- **Tags:** Arts, Community
-- **Note:** Custom-built calendar with no export or API. Would require scraping dynamic content. jQuery-based with custom event filtering.
-
 #### Seattle Art Museum (SAM)
 - **URL:** https://www.seattleartmuseum.org/whats-on/events
 - **Platform:** Kirby CMS with custom JavaScript filtering

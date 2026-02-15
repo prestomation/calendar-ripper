@@ -4,11 +4,12 @@ import { RipperConfig, RipperCalendar, ExternalCalendar } from './config/schema.
 import { ZonedDateTime, Duration } from '@js-joda/core';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { 
-  prepareTaggedCalendars, 
-  prepareTaggedExternalCalendars, 
-  createAggregateCalendars 
+import {
+  prepareTaggedCalendars,
+  prepareTaggedExternalCalendars,
+  createAggregateCalendars
 } from './tag_aggregator.js';
+import { hasFutureEventsInICS } from './calendar_ripper.js';
 
 // Mock the file system operations
 vi.mock('fs/promises', () => ({
@@ -185,5 +186,101 @@ describe('Calendar Ripper Integration with Tags', () => {
     expect(taggedCalendars[0].tags).toContain('Music');
     expect(taggedCalendars[0].tags).toContain('Entertainment');
     expect(taggedCalendars[0].tags).toContain('Arts');
+  });
+});
+
+describe('hasFutureEventsInICS', () => {
+  const today = new Date(2026, 1, 15); // Feb 15, 2026
+
+  it('should return true when ICS contains events after today', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART:20260301T100000Z
+SUMMARY:Future Event
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should return true when ICS contains events on today', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART:20260215T100000Z
+SUMMARY:Today Event
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should return false when ICS contains only past events', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART:20250101T100000Z
+SUMMARY:Past Event
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
+  });
+
+  it('should return false for empty ICS content', () => {
+    const icsContent = `BEGIN:VCALENDAR
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
+  });
+
+  it('should handle DTSTART with timezone parameters', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260401T190000
+SUMMARY:Future Event with TZ
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should handle all-day events (date only, no time)', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260301
+SUMMARY:Future All-Day Event
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should return true if at least one event is in the future', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART:20240601T100000Z
+SUMMARY:Old Past Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250101T100000Z
+SUMMARY:Recent Past Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260601T100000Z
+SUMMARY:Future Event
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(true);
+  });
+
+  it('should return false when all events are past', () => {
+    const icsContent = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+DTSTART:20240601T100000Z
+SUMMARY:Old Past Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250101T100000Z
+SUMMARY:Recent Past Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260214T100000Z
+SUMMARY:Yesterday Event
+END:VEVENT
+END:VCALENDAR`;
+    expect(hasFutureEventsInICS(icsContent, today)).toBe(false);
   });
 });

@@ -23,6 +23,7 @@ export const externalCalendarSchema = z.object({
     infoUrl: z.string().optional(),
     description: z.string().optional(),
     disabled: z.boolean().default(false),
+    proxy: z.boolean().default(false),
     tags: z.array(z.string()).optional()
 });
 

@@ -80,6 +80,7 @@ function App() {
   const tagsRef = useRef(null)
   const calendarListRef = useRef(null)
   const agendaRef = useRef(null)
+  const agendaTagsRef = useRef(null)
   const searchInputRef = useRef(null)
   
   // Keyboard shortcuts: "/" to focus search, Escape to clear
@@ -208,6 +209,26 @@ function App() {
       cleanupAgenda?.()
     }
   }, [updateScrollFade, calendars, events])
+
+  // Measure agenda-tags height on mobile so day-group-headers can stack below
+  useEffect(() => {
+    const el = agendaTagsRef.current
+    if (!isMobile || !showHappeningSoon || !el) return
+
+    const panel = el.closest('.agenda-panel')
+    if (!panel) return
+
+    const updateHeight = () => {
+      const height = el.getBoundingClientRect().height
+      panel.style.setProperty('--agenda-tags-height', `${height}px`)
+    }
+
+    updateHeight()
+    const observer = new ResizeObserver(updateHeight)
+    observer.observe(el)
+
+    return () => observer.disconnect()
+  }, [isMobile, showHappeningSoon])
 
   // URL state management — sync React state from URL hash
   const syncStateFromURL = useCallback(() => {
@@ -1541,7 +1562,7 @@ function App() {
             </div>
 
             {isMobile && (
-              <div className="agenda-tags">
+              <div className="agenda-tags" ref={agendaTagsRef}>
                 <div
                   className={`tag ${selectedTag === '' ? 'active' : ''}`}
                   onClick={() => handleTagChange('')}

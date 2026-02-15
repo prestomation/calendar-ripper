@@ -1152,8 +1152,10 @@ body {
   }
 
   .app--mobile .agenda-tags {
-    margin: -16px -16px 16px -16px;
+    margin: -16px -16px 0 -16px;
     padding: 10px 16px;
+    border-bottom: none;
+    box-shadow: none;
   }
 
   .app--mobile .event-item {
@@ -1239,7 +1241,13 @@ body {
   }
 
   .app--mobile .day-group-header {
-    padding: 10px 4px 6px;
+    top: var(--agenda-tags-height, 0px);
+    background: var(--bg-secondary);
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 10px 16px 6px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
   .app--mobile .day-group-label {

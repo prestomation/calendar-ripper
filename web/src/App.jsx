@@ -56,6 +56,7 @@ function App() {
   const [selectedTag, setSelectedTag] = useState('')
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
+  const [showHappeningSoon, setShowHappeningSoon] = useState(false)
   const [events, setEvents] = useState([])
   const [eventsIndex, setEventsIndex] = useState([])
   const [loading, setLoading] = useState(true)
@@ -193,20 +194,29 @@ function App() {
     setSearchTerm(params.get('search') || '')
     setSelectedTag(params.get('tag') || '')
     const calendarId = params.get('calendar')
-    if (calendarId && calendars.length > 0) {
+    const urlView = params.get('view')
+    if (urlView === 'happening-soon') {
+      setShowHappeningSoon(true)
+      setShowHomepage(false)
+      setSelectedCalendar(null)
+      if (isMobile) setMobileView('detail')
+    } else if (calendarId && calendars.length > 0) {
       const calendar = findCalendarById(calendarId)
       if (calendar) {
         setSelectedCalendar(calendar)
         setShowHomepage(false)
+        setShowHappeningSoon(false)
       }
     } else if (!calendarId) {
       // No calendar in URL — reset to homepage
       setSelectedCalendar(null)
       setShowHomepage(true)
+      setShowHappeningSoon(false)
     }
     // Sync mobile view from URL
-    const urlView = params.get('view')
     if (urlView === 'detail') {
+      setMobileView('detail')
+    } else if (urlView === 'happening-soon') {
       setMobileView('detail')
     } else if (params.toString() !== '') {
       // URL has tag/search/other params but no view=detail — show sidebar
@@ -251,6 +261,7 @@ function App() {
     if (tag) params.set('tag', tag)
     if (calendar) params.set('calendar', `${calendar.ripperName}-${calendar.name}`)
     if (view === 'detail') params.set('view', 'detail')
+    if (view === 'happening-soon') params.set('view', 'happening-soon')
     const hash = params.toString()
     if (replace) {
       history.replaceState(null, '', hash ? '#' + hash : window.location.pathname)
@@ -316,6 +327,7 @@ function App() {
     }
     setSelectedCalendar(tagCalendar)
     setShowHomepage(false)
+    setShowHappeningSoon(false)
     if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, tagCalendar, isMobile ? 'detail' : undefined)
   }
@@ -324,8 +336,17 @@ function App() {
     const calendarWithRipper = { ...calendar, ripperName }
     setSelectedCalendar(calendarWithRipper)
     setShowHomepage(false)
+    setShowHappeningSoon(false)
     if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, calendarWithRipper, isMobile ? 'detail' : undefined)
+  }
+
+  const handleHappeningSoon = () => {
+    setShowHappeningSoon(true)
+    setShowHomepage(false)
+    setSelectedCalendar(null)
+    if (isMobile) setMobileView('detail')
+    updateURL(searchTerm, selectedTag, null, 'happening-soon')
   }
 
   const createGoogleMapsUrl = (location) => {
@@ -550,6 +571,97 @@ function App() {
     )
     return matched
   }, [events, searchTerm, selectedCalendar])
+
+  // Helper: look up a calendar's friendly name from its icsUrl
+  const calendarNameByIcsUrl = useMemo(() => {
+    const map = {}
+    calendars.forEach(ripper => {
+      ripper.calendars.forEach(cal => {
+        map[cal.icsUrl] = ripper.friendlyName || cal.fullName
+      })
+    })
+    return map
+  }, [calendars])
+
+  // Helper: look up a calendar's tags from its icsUrl
+  const calendarTagsByIcsUrl = useMemo(() => {
+    const map = {}
+    calendars.forEach(ripper => {
+      ripper.calendars.forEach(cal => {
+        map[cal.icsUrl] = cal.tags || []
+      })
+    })
+    return map
+  }, [calendars])
+
+  // Happening Soon: group events from events-index into day buckets for the next 7 days
+  const happeningSoonEvents = useMemo(() => {
+    if (!eventsIndex.length) return []
+
+    const now = new Date()
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    const endDate = new Date(todayStart)
+    endDate.setDate(endDate.getDate() + 7)
+
+    // Parse and filter events to the next 7 days
+    let upcoming = eventsIndex
+      .map(event => {
+        // js-joda toString() format: "2026-02-15T19:00-08:00[America/Los_Angeles]"
+        // Strip the [timezone] bracket part for Date parsing
+        const dateStr = event.date.replace(/\[.*\]$/, '')
+        const parsed = new Date(dateStr)
+        if (isNaN(parsed.getTime())) return null
+        return { ...event, parsedDate: parsed }
+      })
+      .filter(event => event && event.parsedDate >= todayStart && event.parsedDate < endDate)
+
+    // Apply tag filter
+    if (selectedTag) {
+      upcoming = upcoming.filter(event => {
+        const tags = calendarTagsByIcsUrl[event.icsUrl] || []
+        return tags.includes(selectedTag)
+      })
+    }
+
+    // Apply search filter
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase()
+      upcoming = upcoming.filter(event =>
+        (event.summary && event.summary.toLowerCase().includes(term)) ||
+        (event.description && event.description.toLowerCase().includes(term)) ||
+        (event.location && event.location.toLowerCase().includes(term))
+      )
+    }
+
+    // Sort by date
+    upcoming.sort((a, b) => a.parsedDate - b.parsedDate)
+
+    // Group by day label
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const groups = []
+    let currentLabel = null
+    let currentGroup = null
+
+    for (const event of upcoming) {
+      const eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
+      const diffDays = Math.round((eventDay - todayStart) / (1000 * 60 * 60 * 24))
+
+      let label
+      if (diffDays === 0) label = 'Today'
+      else if (diffDays === 1) label = 'Tomorrow'
+      else label = dayNames[eventDay.getDay()]
+
+      if (label !== currentLabel) {
+        currentLabel = label
+        const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        currentGroup = { label, dateSubtitle, events: [] }
+        groups.push(currentGroup)
+      }
+      currentGroup.events.push(event)
+    }
+
+    return groups
+  }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl])
 
   // Filter calendars based on search and tag
   const filteredCalendars = useMemo(() => {
@@ -792,12 +904,20 @@ function App() {
             onClick={() => {
               setSelectedCalendar(null)
               setShowHomepage(true)
+              setShowHappeningSoon(false)
               setMobileView(isMobile ? 'detail' : 'list')
               window.location.hash = ''
             }}
             title="Home"
           >
             🏠
+          </button>
+          <button
+            className={`happening-soon-button ${showHappeningSoon ? 'active' : ''}`}
+            onClick={handleHappeningSoon}
+            title="See what's happening in the next 7 days"
+          >
+            Happening Soon
           </button>
           <div className="search-bar">
             <div className="search-input-wrapper">
@@ -1293,13 +1413,12 @@ function App() {
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
             <button className="mobile-back-btn" onClick={() => {
-              if (!showHomepage && selectedCalendar) {
-                // Going back from calendar detail to the tag/calendar list
+              if (showHappeningSoon || (!showHomepage && selectedCalendar)) {
+                // Going back from detail/happening-soon to the list
                 setSelectedCalendar(null)
                 setShowHomepage(true)
+                setShowHappeningSoon(false)
                 setMobileView('list')
-                // Update URL without creating new history entry so browser back
-                // doesn't bounce back to the calendar detail
                 const params = new URLSearchParams()
                 if (searchTerm) params.set('search', searchTerm)
                 if (selectedTag) params.set('tag', selectedTag)
@@ -1313,7 +1432,101 @@ function App() {
             </button>
           </div>
         )}
-        {showHomepage ? (
+        {showHappeningSoon ? (
+          <div className="agenda-panel" ref={agendaRef}>
+            <div className="agenda-header">
+              <div className="agenda-title-container">
+                <h1>Happening Soon</h1>
+              </div>
+              <p>Events across all calendars in the next 7 days{selectedTag ? ` tagged "${formatTagLabel(selectedTag)}"` : ''}</p>
+            </div>
+
+            {searchTerm && (
+              <div className="search-filter-banner">
+                Showing events matching "{searchTerm}"
+                {selectedTag && ` in ${formatTagLabel(selectedTag)}`}
+                <button className="link-button" onClick={() => handleSearchChange('')}>Clear search</button>
+              </div>
+            )}
+
+            {happeningSoonEvents.length > 0 ? (
+              happeningSoonEvents.map(group => (
+                <div key={group.label} className="day-group">
+                  <div className="day-group-header">
+                    <span className="day-group-label">{group.label}</span>
+                    <span className="day-group-date">{group.dateSubtitle}</span>
+                  </div>
+                  {group.events.map((event, idx) => (
+                    <div key={`${event.icsUrl}-${event.summary}-${idx}`} className="event-item">
+                      <div className="event-date">
+                        {event.parsedDate.toLocaleTimeString('en-US', {
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        })}
+                      </div>
+                      <div className="event-title">
+                        {event.summary}
+                        {event.url && (
+                          <a
+                            href={event.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="event-link-icon"
+                            title="View event details"
+                          >
+                            🔗
+                          </a>
+                        )}
+                        <span
+                          className="event-source clickable"
+                          title={`From ${calendarNameByIcsUrl[event.icsUrl] || event.icsUrl}`}
+                          onClick={() => {
+                            // Find and select the source calendar
+                            for (const ripper of calendars) {
+                              const cal = ripper.calendars.find(c => c.icsUrl === event.icsUrl)
+                              if (cal) {
+                                handleCalendarSelect(cal, ripper.name)
+                                return
+                              }
+                            }
+                          }}
+                        >
+                          {calendarNameByIcsUrl[event.icsUrl] || event.icsUrl.replace('.ics', '')}
+                        </span>
+                      </div>
+                      {event.description && (
+                        <div className="event-details">{event.description}</div>
+                      )}
+                      {event.location && (
+                        <div className="event-location">
+                          📍 <a
+                            href={createGoogleMapsUrl(event.location)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="location-link"
+                          >
+                            {event.location}
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))
+            ) : (
+              <div className="empty-state">
+                <span>No upcoming events in the next 7 days</span>
+                {(selectedTag || searchTerm) && (
+                  <span className="empty-state-hint">
+                    Try {selectedTag && <><button className="link-button" onClick={() => handleTagChange('')}>clearing the tag filter</button></>}
+                    {selectedTag && searchTerm && ' or '}
+                    {searchTerm && <><button className="link-button" onClick={() => handleSearchChange('')}>clearing your search</button></>}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+        ) : showHomepage ? (
           <div className="homepage">
             <h1>Yet Another Seattle Calendar</h1>
             <p>Welcome to YASC! This tool aggregates events from various websites and presents them as searchable, filterable calendars. You're welcome to use this interface, but it's really meant for you to add the ICS to your favorite calendar app so you can aggregate events in your calendar however you like</p>
@@ -1336,7 +1549,7 @@ function App() {
               <li><strong>Copy Link:</strong> Use the 📋 buttons to copy calendar links to your clipboard.</li>
               <li><strong>Google Calendar:</strong> Use the 📅 Google links to add calendars to Google Calendar</li>
             </ul>
-            
+
             <h2>Tags</h2>
             <p>Tags help organize calendars by category or theme. You can:</p>
             <ul>
@@ -1344,7 +1557,7 @@ function App() {
               <li>Download aggregate calendars that combine all events with the same tag</li>
               <li>Each calendar can have multiple tags for flexible organization</li>
             </ul>
-            
+
             {isMobile ? (
               <button
                 className="explore-btn"

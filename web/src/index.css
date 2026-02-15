@@ -819,6 +819,47 @@ body {
   text-decoration: underline;
 }
 
+/* Day group headers for Happening Soon view */
+.day-group {
+  margin-bottom: 8px;
+}
+
+.day-group-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 4px 8px;
+  border-bottom: 2px solid var(--border-color-strong);
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: var(--bg-surface);
+  z-index: 2;
+}
+
+.day-group-label {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.day-group-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.event-source.clickable {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.event-source.clickable:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
 .loading {
   display: flex;
   align-items: center;
@@ -1133,6 +1174,20 @@ body {
     top: -16px;
     font-size: 14px;
   }
+
+  .app--mobile .happening-soon-button {
+    padding: 8px 14px;
+    font-size: 13px;
+    min-height: 36px;
+  }
+
+  .app--mobile .day-group-header {
+    padding: 10px 4px 6px;
+  }
+
+  .app--mobile .day-group-label {
+    font-size: 18px;
+  }
 }
 
 /* ── Tablet / Z Fold (768px–1023px): unified compact layout ── */
@@ -1228,6 +1283,31 @@ body {
 
 .home-button:hover {
   background-color: var(--bg-primary);
+}
+
+.happening-soon-button {
+  background: var(--bg-muted);
+  border: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.happening-soon-button:hover {
+  background: var(--bg-muted-hover);
+  color: var(--text-primary);
+}
+
+.happening-soon-button.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary-dark);
 }
 
 .search-bar {

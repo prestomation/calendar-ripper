@@ -35,6 +35,8 @@ const mockManifest = {
 describe('App', () => {
   beforeEach(() => {
     fetch.mockClear()
+    // Reset URL hash to avoid state leaking between tests
+    window.location.hash = ''
     // Mock successful manifest fetch
     fetch.mockResolvedValueOnce({
       ok: true,

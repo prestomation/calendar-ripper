@@ -1,0 +1,10 @@
+name: seattle-center
+friendlyname: "Seattle Center"
+description: "Seattle Center campus events including festivals, performances, and community gatherings across venues like the Armory, Climate Pledge Arena, and McCaw Hall"
+url: "https://www.seattlecenter.com/events/event-calendar"
+friendlyLink: https://www.seattlecenter.com/events
+tags: ["Events", "QueenAnne"]
+calendars:
+  - name: seattle-center-events
+    friendlyname: "Seattle Center Events"
+    timezone: America/Los_Angeles

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import DOMPurify from 'dompurify'
 import Fuse from 'fuse.js'
 import ICAL from 'ical.js'
 
@@ -27,6 +28,25 @@ const TAG_CATEGORIES = {
 
 function formatTagLabel(tag) {
   return tag.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
+}
+
+const CONTAINS_HTML = /<[a-z][\s\S]*?>/i
+
+function sanitizeHtml(text) {
+  return DOMPurify.sanitize(text, {
+    ALLOWED_TAGS: ['p', 'br', 'b', 'i', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+    ALLOWED_ATTR: ['href', 'target', 'rel'],
+    ADD_ATTR: ['target'],
+  })
+}
+
+function EventDescription({ text }) {
+  if (!text) return null
+  if (CONTAINS_HTML.test(text)) {
+    const clean = sanitizeHtml(text)
+    return <div className="event-details" dangerouslySetInnerHTML={{ __html: clean }} />
+  }
+  return <div className="event-details">{text}</div>
 }
 
 function App() {
@@ -1444,9 +1464,7 @@ function App() {
                         </a>
                       )}
                     </div>
-                    {event.description && (
-                      <div className="event-details">{event.description}</div>
-                    )}
+                    <EventDescription text={event.description} />
                     {event.location && (
                       <div className="event-location">
                         📍 <a

@@ -760,6 +760,39 @@ body {
   margin-bottom: 8px;
 }
 
+.event-details a {
+  color: var(--link-color, #4a9eff);
+  text-decoration: underline;
+}
+
+.event-details a:hover {
+  opacity: 0.8;
+}
+
+.event-details p {
+  margin: 0 0 0.5em;
+}
+
+.event-details p:last-child {
+  margin-bottom: 0;
+}
+
+.event-details ul,
+.event-details ol {
+  margin: 0.25em 0;
+  padding-left: 1.5em;
+}
+
+.event-details h1,
+.event-details h2,
+.event-details h3,
+.event-details h4,
+.event-details h5,
+.event-details h6 {
+  font-size: 1em;
+  margin: 0.5em 0 0.25em;
+}
+
 .event-location {
   margin-top: 12px;
   font-style: italic;

@@ -47,7 +47,7 @@ export default class PacificScienceCenterRipper implements IRipper {
 
         // Parse events and shows for each calendar
         for (const cal of ripper.config.calendars) {
-            const locationFilter = cal.config?.location_id;
+            const locationFilter = (cal.config as { location_id?: number } | undefined)?.location_id;
 
             if (locationFilter) {
                 // Show calendar: parse showtimes filtered by location

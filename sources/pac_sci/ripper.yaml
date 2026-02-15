@@ -8,3 +8,16 @@ calendars:
   - name: all-events
     friendlyname: "Pacific Science Center Events"
     timezone: America/Los_Angeles
+
+  - name: laser-dome
+    friendlyname: "Laser Dome Shows"
+    timezone: America/Los_Angeles
+    tags: ["Music"]
+    config:
+      location_id: 40
+
+  - name: imax
+    friendlyname: "IMAX Shows"
+    timezone: America/Los_Angeles
+    config:
+      location_id: 39

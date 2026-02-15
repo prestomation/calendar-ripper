@@ -165,7 +165,7 @@ describe('PacificScienceCenterRipper', () => {
             const sampleHtml = fs.readFileSync(path.join(__dirname, 'sample-event-page.html'), 'utf8');
 
             const eventPages = [{
-                event: {
+                item: {
                     id: 450353,
                     title: { rendered: 'Science After Dark' },
                     excerpt: { rendered: '<p>Step into PacSci after hours for an unforgettable evening.</p>' },
@@ -174,7 +174,7 @@ describe('PacificScienceCenterRipper', () => {
                         og_image: [{ url: 'https://pacificsciencecenter.org/wp-content/uploads/2026/01/sad-vday-web.jpg' }]
                     }
                 },
-                heroHtml: sampleHtml
+                html: sampleHtml
             }];
 
             const events = ripper.parseEvents(eventPages, timezone);
@@ -192,14 +192,10 @@ describe('PacificScienceCenterRipper', () => {
             expect(calEvents[0].description).toBe('Step into PacSci after hours for an unforgettable evening.');
         });
 
-        it('returns parse error when hero HTML is null', () => {
+        it('returns parse error when HTML is null', () => {
             const eventPages = [{
-                event: {
-                    id: 1,
-                    title: { rendered: 'Test Event' },
-                    link: 'https://example.com'
-                },
-                heroHtml: null
+                item: { id: 1, title: { rendered: 'Test Event' }, link: 'https://example.com' },
+                html: null
             }];
 
             const events = ripper.parseEvents(eventPages, timezone);
@@ -209,12 +205,8 @@ describe('PacificScienceCenterRipper', () => {
 
         it('returns parse error when hero date cannot be found', () => {
             const eventPages = [{
-                event: {
-                    id: 1,
-                    title: { rendered: 'Test Event' },
-                    link: 'https://example.com'
-                },
-                heroHtml: '<html><body>No hero section</body></html>'
+                item: { id: 1, title: { rendered: 'Test Event' }, link: 'https://example.com' },
+                html: '<html><body>No hero section</body></html>'
             }];
 
             const events = ripper.parseEvents(eventPages, timezone);
@@ -224,13 +216,13 @@ describe('PacificScienceCenterRipper', () => {
 
         it('decodes HTML entities in titles', () => {
             const eventPages = [{
-                event: {
+                item: {
                     id: 1,
                     title: { rendered: 'PacSci&#8217;s Science &amp; Fun' },
                     excerpt: { rendered: '<p>Test</p>' },
                     link: 'https://example.com'
                 },
-                heroHtml: `<div class="hero-event__description">March 1, 7:00 p.m.</div>`
+                html: `<div class="hero-event__description">March 1, 7:00 p.m.</div>`
             }];
 
             const events = ripper.parseEvents(eventPages, timezone);
@@ -243,20 +235,12 @@ describe('PacificScienceCenterRipper', () => {
         it('handles multiple events', () => {
             const eventPages = [
                 {
-                    event: {
-                        id: 1,
-                        title: { rendered: 'Event One' },
-                        link: 'https://example.com/1'
-                    },
-                    heroHtml: `<div class="hero-event__description">March 1, 7:00 p.m.</div>`
+                    item: { id: 1, title: { rendered: 'Event One' }, link: 'https://example.com/1' },
+                    html: `<div class="hero-event__description">March 1, 7:00 p.m.</div>`
                 },
                 {
-                    event: {
-                        id: 2,
-                        title: { rendered: 'Event Two' },
-                        link: 'https://example.com/2'
-                    },
-                    heroHtml: `<div class="hero-event__description">March 5, 10:00 a.m. <span> - </span> 2:00 p.m.</div>`
+                    item: { id: 2, title: { rendered: 'Event Two' }, link: 'https://example.com/2' },
+                    html: `<div class="hero-event__description">March 5, 10:00 a.m. <span> - </span> 2:00 p.m.</div>`
                 }
             ];
 
@@ -270,12 +254,8 @@ describe('PacificScienceCenterRipper', () => {
 
         it('handles events without excerpt or image', () => {
             const eventPages = [{
-                event: {
-                    id: 1,
-                    title: { rendered: 'Simple Event' },
-                    link: 'https://example.com'
-                },
-                heroHtml: `<div class="hero-event__description">March 1, 7:00 p.m.</div>`
+                item: { id: 1, title: { rendered: 'Simple Event' }, link: 'https://example.com' },
+                html: `<div class="hero-event__description">March 1, 7:00 p.m.</div>`
             }];
 
             const events = ripper.parseEvents(eventPages, timezone);
@@ -284,6 +264,189 @@ describe('PacificScienceCenterRipper', () => {
             expect(calEvents).toHaveLength(1);
             expect(calEvents[0].description).toBeUndefined();
             expect(calEvents[0].image).toBeUndefined();
+        });
+    });
+
+    describe('extractShowtimes', () => {
+        it('extracts showtimes from sample show page HTML', () => {
+            const html = fs.readFileSync(path.join(__dirname, 'sample-show-page.html'), 'utf8');
+            const showtimes = ripper.extractShowtimes(html);
+
+            expect(showtimes.length).toBeGreaterThan(0);
+            expect(showtimes[0].date).toContain('February');
+            expect(showtimes[0].time).toMatch(/\d{1,2}:\d{2}\s*(am|pm)/i);
+        });
+
+        it('extracts multiple showtimes from structured HTML', () => {
+            const html = `
+            <div class="showtimes__block is-style-small">
+              <div class="showtimes__wrapper">
+                <table class="showtimes">
+                  <caption class="h3 showtimes__caption">Saturday, February 14, 2026</caption>
+                  <tr><td class="showtime__time">9:00 pm</td><td>Laser Dome</td></tr>
+                  <tr><td class="showtime__time">10:30 pm</td><td>Laser Dome</td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="showtimes__block is-style-small">
+              <div class="showtimes__wrapper">
+                <table class="showtimes">
+                  <caption class="h3 showtimes__caption">Saturday, February 21, 2026</caption>
+                  <tr><td class="showtime__time">9:00 pm</td><td>Laser Dome</td></tr>
+                </table>
+              </div>
+            </div>`;
+
+            const showtimes = ripper.extractShowtimes(html);
+            expect(showtimes).toHaveLength(3);
+            expect(showtimes[0]).toEqual({ date: 'Saturday, February 14, 2026', time: '9:00 pm' });
+            expect(showtimes[1]).toEqual({ date: 'Saturday, February 14, 2026', time: '10:30 pm' });
+            expect(showtimes[2]).toEqual({ date: 'Saturday, February 21, 2026', time: '9:00 pm' });
+        });
+
+        it('returns empty array when no showtimes section exists', () => {
+            const html = '<html><body>No shows here</body></html>';
+            const showtimes = ripper.extractShowtimes(html);
+            expect(showtimes).toHaveLength(0);
+        });
+    });
+
+    describe('parseShowtime', () => {
+        it('parses a standard showtime', () => {
+            const result = ripper.parseShowtime('Saturday, February 14, 2026', '10:30 pm', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.year()).toBe(2026);
+            expect(result!.startDate.monthValue()).toBe(2);
+            expect(result!.startDate.dayOfMonth()).toBe(14);
+            expect(result!.startDate.hour()).toBe(22);
+            expect(result!.startDate.minute()).toBe(30);
+            expect(result!.duration.toHours()).toBe(1);
+        });
+
+        it('parses afternoon IMAX showtime', () => {
+            const result = ripper.parseShowtime('Sunday, February 15, 2026', '2:10 pm', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.hour()).toBe(14);
+            expect(result!.startDate.minute()).toBe(10);
+        });
+
+        it('parses morning showtime', () => {
+            const result = ripper.parseShowtime('Monday, February 16, 2026', '10:00 am', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.hour()).toBe(10);
+        });
+
+        it('returns null for invalid date', () => {
+            const result = ripper.parseShowtime('Invalid date', '10:30 pm', timezone);
+            expect(result).toBeNull();
+        });
+
+        it('returns null for invalid time', () => {
+            const result = ripper.parseShowtime('Saturday, February 14, 2026', 'invalid', timezone);
+            expect(result).toBeNull();
+        });
+    });
+
+    describe('parseShows', () => {
+        it('parses shows with showtimes from HTML', () => {
+            const showHtml = `
+            <div class="showtimes__block is-style-small">
+              <div class="showtimes__wrapper">
+                <table class="showtimes">
+                  <caption class="h3 showtimes__caption">Saturday, February 14, 2026</caption>
+                  <tr><td class="showtime__time">10:30 pm</td><td>Laser Dome</td></tr>
+                </table>
+              </div>
+            </div>
+            <div class="showtimes__block is-style-small">
+              <div class="showtimes__wrapper">
+                <table class="showtimes">
+                  <caption class="h3 showtimes__caption">Saturday, February 21, 2026</caption>
+                  <tr><td class="showtime__time">10:30 pm</td><td>Laser Dome</td></tr>
+                </table>
+              </div>
+            </div>`;
+
+            const showPages = [{
+                item: {
+                    id: 100,
+                    title: { rendered: 'Laser Bad Bunny' },
+                    excerpt: { rendered: '<p>An immersive laser show.</p>' },
+                    link: 'https://pacificsciencecenter.org/shows/laser-bad-bunny/',
+                    location: [40],
+                    movie_type: [71]
+                },
+                html: showHtml
+            }];
+
+            const events = ripper.parseShows(showPages, timezone);
+            const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+
+            expect(calEvents).toHaveLength(2);
+            expect(calEvents[0].summary).toBe('Laser Bad Bunny');
+            expect(calEvents[0].date.monthValue()).toBe(2);
+            expect(calEvents[0].date.dayOfMonth()).toBe(14);
+            expect(calEvents[0].date.hour()).toBe(22);
+            expect(calEvents[0].location).toBe('Laser Dome, Pacific Science Center');
+            expect(calEvents[1].date.dayOfMonth()).toBe(21);
+        });
+
+        it('filters shows by location_id', () => {
+            const showPages = [
+                {
+                    item: { id: 1, title: { rendered: 'Laser Show' }, location: [40], link: 'https://example.com/1' },
+                    html: `<div class="showtimes__block is-style-small"><div class="showtimes__wrapper"><table class="showtimes"><caption class="h3 showtimes__caption">Saturday, February 14, 2026</caption><tr><td class="showtime__time">10:00 pm</td></tr></table></div></div>`
+                },
+                {
+                    item: { id: 2, title: { rendered: 'IMAX Movie' }, location: [39], link: 'https://example.com/2' },
+                    html: `<div class="showtimes__block is-style-small"><div class="showtimes__wrapper"><table class="showtimes"><caption class="h3 showtimes__caption">Sunday, February 15, 2026</caption><tr><td class="showtime__time">2:00 pm</td></tr></table></div></div>`
+                }
+            ];
+
+            // Filter for laser dome only (location 40)
+            const laserEvents = ripper.parseShows(showPages, timezone, 40);
+            const laserCal = laserEvents.filter(e => 'date' in e) as RipperCalendarEvent[];
+            expect(laserCal).toHaveLength(1);
+            expect(laserCal[0].summary).toBe('Laser Show');
+
+            // Filter for IMAX only (location 39)
+            const imaxEvents = ripper.parseShows(showPages, timezone, 39);
+            const imaxCal = imaxEvents.filter(e => 'date' in e) as RipperCalendarEvent[];
+            expect(imaxCal).toHaveLength(1);
+            expect(imaxCal[0].summary).toBe('IMAX Movie');
+            expect(imaxCal[0].location).toBe('PACCAR IMAX Theater, Pacific Science Center');
+        });
+
+        it('returns parse error when show HTML is null', () => {
+            const showPages = [{
+                item: { id: 1, title: { rendered: 'Broken Show' }, location: [40], link: 'https://example.com' },
+                html: null
+            }];
+
+            const events = ripper.parseShows(showPages, timezone);
+            expect(events).toHaveLength(1);
+            expect('type' in events[0] && events[0].type).toBe('ParseError');
+        });
+
+        it('parses shows from full sample page HTML', () => {
+            const html = fs.readFileSync(path.join(__dirname, 'sample-show-page.html'), 'utf8');
+            const showPages = [{
+                item: {
+                    id: 200,
+                    title: { rendered: 'Laser Bad Bunny' },
+                    location: [40],
+                    link: 'https://pacificsciencecenter.org/shows/laser-bad-bunny/'
+                },
+                html
+            }];
+
+            const events = ripper.parseShows(showPages, timezone);
+            const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+
+            expect(calEvents.length).toBeGreaterThan(0);
+            expect(calEvents[0].summary).toBe('Laser Bad Bunny');
+            expect(calEvents[0].location).toBe('Laser Dome, Pacific Science Center');
+            expect(calEvents[0].url).toBe('https://pacificsciencecenter.org/shows/laser-bad-bunny/');
         });
     });
 });

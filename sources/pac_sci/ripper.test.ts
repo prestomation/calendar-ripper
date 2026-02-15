@@ -136,6 +136,24 @@ describe('PacificScienceCenterRipper', () => {
             expect(result!.startDate.hour()).toBe(0);
         });
 
+        it('handles cross-midnight events', () => {
+            const result = ripper.parseHeroDate('March 1, 10:00 p.m. - 1:00 a.m.', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.hour()).toBe(22);
+            expect(result!.duration.toMinutes()).toBe(180); // 3 hours across midnight
+        });
+
+        it('handles multi-day event spanning December to January', () => {
+            const result = ripper.parseHeroDate('December 30 - January 2', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.monthValue()).toBe(12);
+            expect(result!.startDate.dayOfMonth()).toBe(30);
+            // End year should be one more than start year
+            const endMinutes = result!.duration.toMinutes();
+            // Dec 30 00:00 to Jan 2 23:59 = ~4 days
+            expect(endMinutes).toBeGreaterThan(3 * 24 * 60);
+        });
+
         it('returns null for unrecognized format', () => {
             const result = ripper.parseHeroDate('Some random text', timezone);
             expect(result).toBeNull();

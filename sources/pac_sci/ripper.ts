@@ -10,6 +10,8 @@ const MONTHS: Record<string, number> = {
     'September': 9, 'October': 10, 'November': 11, 'December': 12
 };
 
+const CONCURRENCY_LIMIT = 5;
+
 interface ParsedDate {
     startDate: ZonedDateTime;
     duration: Duration;
@@ -30,21 +32,9 @@ export default class PacificScienceCenterRipper implements IRipper {
             throw Error("Invalid API response: expected an array");
         }
 
-        // Fetch individual event pages in parallel to extract actual dates
-        const eventPages = await Promise.all(
-            eventsJson.map(async (event: any) => {
-                const link = event.link;
-                if (!link) return { event, heroHtml: null };
-                try {
-                    const pageRes = await fetch(link);
-                    if (!pageRes.ok) return { event, heroHtml: null };
-                    const html = await pageRes.text();
-                    return { event, heroHtml: html };
-                } catch {
-                    return { event, heroHtml: null };
-                }
-            })
-        );
+        // Fetch individual event pages to extract actual dates
+        // Batched to avoid overwhelming the server
+        const eventPages = await this.fetchEventPages(eventsJson);
 
         // Initialize calendars
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
@@ -66,6 +56,29 @@ export default class PacificScienceCenterRipper implements IRipper {
             parent: ripper.config,
             tags: calendars[key].tags
         }));
+    }
+
+    private async fetchEventPages(eventsJson: any[]): Promise<{ event: any, heroHtml: string | null }[]> {
+        const results: { event: any, heroHtml: string | null }[] = [];
+        for (let i = 0; i < eventsJson.length; i += CONCURRENCY_LIMIT) {
+            const batch = eventsJson.slice(i, i + CONCURRENCY_LIMIT);
+            const batchResults = await Promise.all(
+                batch.map(async (event: any) => {
+                    const link = event.link;
+                    if (!link) return { event, heroHtml: null };
+                    try {
+                        const pageRes = await fetch(link);
+                        if (!pageRes.ok) return { event, heroHtml: null };
+                        const html = await pageRes.text();
+                        return { event, heroHtml: html };
+                    } catch {
+                        return { event, heroHtml: null };
+                    }
+                })
+            );
+            results.push(...batchResults);
+        }
+        return results;
     }
 
     public parseEvents(eventPages: { event: any, heroHtml: string | null }[], timezone: ZoneRegion): RipperEvent[] {
@@ -209,8 +222,10 @@ export default class PacificScienceCenterRipper implements IRipper {
                     LocalDateTime.of(year, month, day, endTime.hour, endTime.minute),
                     timezone
                 );
-                const minutes = startDate.until(endDate, ChronoUnit.MINUTES);
-                duration = Duration.ofMinutes(minutes > 0 ? minutes : 60);
+                let minutes = startDate.until(endDate, ChronoUnit.MINUTES);
+                // Handle cross-midnight events (e.g., 10 p.m. - 1 a.m.)
+                if (minutes <= 0) minutes += 1440;
+                duration = Duration.ofMinutes(minutes);
             } else {
                 duration = Duration.ofHours(2);
             }
@@ -229,13 +244,15 @@ export default class PacificScienceCenterRipper implements IRipper {
             const endMonth = MONTHS[multiDay[3]];
             const endDay = parseInt(multiDay[4]);
 
-            const year = this.inferYear(startMonth, startDay);
+            const startYear = this.inferYear(startMonth, startDay);
+            // Handle year boundary (e.g., December 30 - January 2)
+            const endYear = endMonth < startMonth ? startYear + 1 : startYear;
             const startDate = ZonedDateTime.of(
-                LocalDateTime.of(year, startMonth, startDay, 0, 0),
+                LocalDateTime.of(startYear, startMonth, startDay, 0, 0),
                 timezone
             );
             const endDate = ZonedDateTime.of(
-                LocalDateTime.of(year, endMonth, endDay, 23, 59),
+                LocalDateTime.of(endYear, endMonth, endDay, 23, 59),
                 timezone
             );
 

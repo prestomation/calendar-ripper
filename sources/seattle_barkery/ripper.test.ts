@@ -191,4 +191,80 @@ describe('Seattle Barkery Ripper', () => {
         expect(piDayEvent!.date.hour()).toBe(0);
         expect(piDayEvent!.date.minute()).toBe(0);
     });
+
+    test('returns ParseError for event missing start_date_details', async () => {
+        const ripper = new SeattleBarkeryRipper();
+        const jsonData = {
+            events: [{
+                id: 99901,
+                title: "Bad Event",
+                start_date_details: null,
+                end_date_details: { year: "2025", month: "03", day: "01", hour: "12", minutes: "00", seconds: "00" },
+                timezone: "America/Los_Angeles"
+            }]
+        };
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+
+        expect(events).toHaveLength(1);
+        expect(events[0]).toHaveProperty('type', 'ParseError');
+        expect((events[0] as any).reason).toContain('missing start_date_details');
+    });
+
+    test('returns ParseError for event missing end_date_details', async () => {
+        const ripper = new SeattleBarkeryRipper();
+        const jsonData = {
+            events: [{
+                id: 99902,
+                title: "Bad Event",
+                start_date_details: { year: "2025", month: "03", day: "01", hour: "11", minutes: "00", seconds: "00" },
+                end_date_details: null,
+                timezone: "America/Los_Angeles"
+            }]
+        };
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+
+        expect(events).toHaveLength(1);
+        expect(events[0]).toHaveProperty('type', 'ParseError');
+        expect((events[0] as any).reason).toContain('missing end_date_details');
+    });
+
+    test('falls back to default timezone for invalid timezone string', async () => {
+        const ripper = new SeattleBarkeryRipper();
+        const jsonData = {
+            events: [{
+                id: 99903,
+                title: "Timezone Fallback Event",
+                start_date_details: { year: "2025", month: "06", day: "15", hour: "10", minutes: "00", seconds: "00" },
+                end_date_details: { year: "2025", month: "06", day: "15", hour: "12", minutes: "00", seconds: "00" },
+                timezone: "Invalid/Timezone",
+                url: "https://example.com"
+            }]
+        };
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(valid).toHaveLength(1);
+        expect(valid[0].summary).toBe('Timezone Fallback Event');
+        expect(valid[0].date.zone().toString()).toBe('America/Los_Angeles');
+    });
+
+    test('clamps negative duration to zero', async () => {
+        const ripper = new SeattleBarkeryRipper();
+        const jsonData = {
+            events: [{
+                id: 99904,
+                title: "Backwards Time Event",
+                start_date_details: { year: "2025", month: "03", day: "01", hour: "14", minutes: "00", seconds: "00" },
+                end_date_details: { year: "2025", month: "03", day: "01", hour: "10", minutes: "00", seconds: "00" },
+                timezone: "America/Los_Angeles",
+                url: "https://example.com"
+            }]
+        };
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(valid).toHaveLength(1);
+        expect(valid[0].duration.toHours()).toBe(0);
+        expect(valid[0].duration.toMinutes()).toBe(0);
+    });
 });

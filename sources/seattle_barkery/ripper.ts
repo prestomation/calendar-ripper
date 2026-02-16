@@ -23,33 +23,56 @@ export default class SeattleBarkeryRipper extends JSONRipper {
 
             try {
                 const startDetails = event.start_date_details;
-                const eventZone = event.timezone || date.zone().toString();
+                if (!startDetails?.year || !startDetails?.month || !startDetails?.day) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Event ${eventId} missing start_date_details`,
+                        context: JSON.stringify(event).substring(0, 100) + "..."
+                    });
+                    continue;
+                }
+
+                const endDetails = event.end_date_details;
+                if (!endDetails?.year || !endDetails?.month || !endDetails?.day) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Event ${eventId} missing end_date_details`,
+                        context: JSON.stringify(event).substring(0, 100) + "..."
+                    });
+                    continue;
+                }
+
+                let eventZone: string;
+                try {
+                    eventZone = event.timezone || date.zone().toString();
+                    ZoneId.of(eventZone);
+                } catch {
+                    eventZone = date.zone().toString();
+                }
 
                 const eventLocalDateTime = LocalDateTime.of(
                     parseInt(startDetails.year),
                     parseInt(startDetails.month),
                     parseInt(startDetails.day),
-                    parseInt(startDetails.hour),
-                    parseInt(startDetails.minutes),
-                    parseInt(startDetails.seconds)
+                    parseInt(startDetails.hour || "0"),
+                    parseInt(startDetails.minutes || "0"),
+                    parseInt(startDetails.seconds || "0")
                 );
 
                 const eventDate = eventLocalDateTime.atZone(ZoneId.of(eventZone));
 
-                // Calculate duration from start/end times
-                const endDetails = event.end_date_details;
                 const endLocalDateTime = LocalDateTime.of(
                     parseInt(endDetails.year),
                     parseInt(endDetails.month),
                     parseInt(endDetails.day),
-                    parseInt(endDetails.hour),
-                    parseInt(endDetails.minutes),
-                    parseInt(endDetails.seconds)
+                    parseInt(endDetails.hour || "0"),
+                    parseInt(endDetails.minutes || "0"),
+                    parseInt(endDetails.seconds || "0")
                 );
 
                 const startEpochSecond = eventLocalDateTime.atZone(ZoneId.of(eventZone)).toEpochSecond();
                 const endEpochSecond = endLocalDateTime.atZone(ZoneId.of(eventZone)).toEpochSecond();
-                const durationSeconds = endEpochSecond - startEpochSecond;
+                const durationSeconds = Math.max(0, endEpochSecond - startEpochSecond);
                 const durationHours = Math.floor(durationSeconds / 3600);
                 const durationMinutes = Math.floor((durationSeconds % 3600) / 60);
                 const duration = Duration.ofHours(durationHours).plusMinutes(durationMinutes);

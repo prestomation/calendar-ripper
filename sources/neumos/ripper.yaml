@@ -1,0 +1,15 @@
+name: neumos
+type: axs
+description: "Neumos"
+url: "https://www.axs.com/venues/102495/neumos-seattle-tickets"
+friendlyLink: https://www.neumos.com/events
+tags: ["Music", "Capitol Hill"]
+calendars:
+  - name: neumos
+    friendlyname: "Neumos"
+    timezone: America/Los_Angeles
+    config:
+      venueId: 102495
+      venueSlug: "neumos-seattle-tickets"
+      venueName: "Neumos"
+      venueAddress: "925 E Pike St, Seattle, WA 98122"

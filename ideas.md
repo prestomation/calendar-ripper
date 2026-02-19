@@ -2,6 +2,36 @@
 
 Potential Seattle-area calendar sources to add in the future, organized by integration method.
 
+## ICS Feeds (Add to external.yaml)
+
+### Hugo House
+- **URL:** https://hugohouse.org/programs-events/
+- **ICS:** `https://hugohouse.org/programs-events/?ical=1&tribe_display=list` ✅ confirmed working
+- **Platform:** WordPress with The Events Calendar plugin
+- **Tags:** Arts, Community, Capitol Hill
+- **Note:** Literary arts center on Capitol Hill. Events include author readings, workshops, writing residencies, panels. Good mix of free and ticketed events. Add to `sources/external.yaml`.
+
+### Town Hall Seattle
+- **URL:** https://townhallseattle.org/events/
+- **ICS:** `https://townhallseattle.org/events/month/?ical=1&tribe_display=list` ✅ confirmed working (10 events returned)
+- **Platform:** WordPress with The Events Calendar plugin; ticketing at `ticketing.townhallseattle.org`
+- **Tags:** Arts, Community, Downtown
+- **Note:** Historic venue at 1119 8th Ave hosting lectures, science talks, literary events, and civic conversations. 200+ events per year across two halls (the Great Hall and Forum). Add to `sources/external.yaml`.
+
+### Unexpected Productions
+- **URL:** https://www.unexpectedproductions.org/shows/
+- **ICS:** `https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list` ✅ confirmed working
+- **Platform:** WordPress with The Events Calendar plugin; ticketing via Eventbrite and VenuePilot
+- **Tags:** Arts, Community, Pike Place
+- **Note:** 40-year-old improv theater in Pike Place Market (1428 Post Alley). Weekly Seattle Theatresports and other improv formats. Non-profit 501(c)(3). Add to `sources/external.yaml`.
+
+### Georgetown Arts & Cultural Alliance (GBA)
+- **URL:** https://georgetownseattle.org/events/
+- **ICS (unverified — site returned 503):** `https://georgetownseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list`
+- **Platform:** WordPress with The Events Calendar plugin (confirmed from search results and page structure)
+- **Tags:** Arts, Community, Georgetown
+- **Note:** Georgetown Business Association events calendar. Hosts Georgetown Carnival (June), Art Attack (monthly first Saturday), Georgetown Farmers Market (seasonal), and Bites & Sites. Test the ICS URL when the site is accessible and add to `sources/external.yaml` if it works.
+
 ## APIs (Needs API Key or Custom Ripper)
 
 ### Songkick API
@@ -70,6 +100,34 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Music, Fremont
 - **Note:** New music venue in Fremont (replaced High Dive). JSON-LD Event schema present in page markup. Tixr has a documented API. Active venue with a packed schedule.
 
+### Neumos (AXS)
+- **URL:** https://www.neumos.com/events
+- **AXS Venue ID:** `102495` (confirmed at `https://www.axs.com/venues/102495/neumos-seattle-tickets`)
+- **Platform:** WordPress site; ticketing via AXS
+- **Tags:** Music, Capitol Hill
+- **Note:** Mid-size (~1,200 cap) Capitol Hill music venue at 925 E Pike St, operating since 2003. Strong indie, electronic, and touring artist schedule. The project already has an AXS ripper base class — add a `ripper.yaml` with this venue ID.
+
+### Elliott Bay Book Company (Eventbrite)
+- **URL:** https://www.elliottbaybook.com/events
+- **Eventbrite Organizer ID:** `30672130426`
+- **Platform:** Custom site; event listings via Eventbrite
+- **Tags:** Arts, Education, Capitol Hill
+- **Note:** Iconic independent bookstore at 1521 10th Ave, Capitol Hill. 50+ author readings and literary events per year, nearly all free. Events consistently listed on Eventbrite. Access via the Eventbrite API querying organizer `30672130426`.
+
+### Spectrum Dance Theater (OvationTix)
+- **URL:** https://spectrumdance.org/
+- **Platform:** WordPress; ticketing via OvationTix (AudienceView Professional) — same platform as Taproot Theatre
+- **Tags:** Arts
+- **Note:** Founded 1982, led by choreographer Donald Byrd since 2002. Contemporary dance company at Madrona Beach. OvationTix client ID needs to be extracted from the ticketing page source. Shares the OvationTix public REST API endpoint pattern with Taproot (client ID `37019`). Check `https://spectrumdance.org/tickets/` page source for their client ID.
+
+### Comedy Underground (The Events Calendar)
+- **URL:** https://www.comedyunderground.com/
+- **ICS (unverified):** `https://www.comedyunderground.com/?post_type=tribe_events&ical=1&eventDisplay=list`
+- **Ticketing:** TicketWeb — `https://www.ticketweb.com/snl/EventListings.action?orgId=17593`
+- **Platform:** WordPress with The Events Calendar plugin
+- **Tags:** Arts, Pioneer Square
+- **Note:** Pioneer Square comedy club. Weekly standup shows and touring acts. Uses The Events Calendar — test the ICS URL and add to `sources/external.yaml` if it works; otherwise implement a TicketWeb ripper.
+
 ## HTML Scraping (Last Resort)
 
 ### Theaters
@@ -132,6 +190,18 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Platform:** WordPress; ticketing via Salesforce/Tessitura
 - **Tags:** Theatre
 - **Note:** Adapts literary works for the stage. Revived after closing in 2023, now producing one show at a time. Low event volume — lower priority.
+
+#### Cornish College of the Arts
+- **URL:** https://www.cornish.edu/cornish-college-event-calendar/
+- **Platform:** WordPress (custom CMS); no calendar plugin detected; ticketing varies by event
+- **Tags:** Arts, Music, Theatre
+- **Note:** Art school with public performances, concerts, exhibitions, and visiting artist talks at the Cornish Playhouse at Seattle Center (201 Mercer St) and main campus (2014 9th Ave). September–May season with dozens of free and low-cost events. WordPress REST API exists but no events-specific endpoints; HTML scraping is the most viable route.
+
+#### Jet City Improv
+- **URL:** https://www.jetcityimprov.org/calendar.html
+- **Platform:** Webflow (main site); ticketing via PatronTicket (Salesforce) at `jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp`
+- **Tags:** Arts, University District
+- **Note:** Seattle's premier improv comedy theater at 5031 University Way NE, University District. Since 1992. Weekly house ensemble shows plus six improvised plays per year at West of Lenin. No ICS feed — would require HTML scraping the calendar page or PatronTicket API investigation.
 
 ### Music Venues
 
@@ -202,6 +272,18 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Museums, Arts, Ballard
 - **Note:** Museum in Ballard dedicated to Nordic history, art, and culture. Events include the Mostly Nordic Chamber Music Series, Nordic Sol, Julefest, film screenings, and lectures.
 
+#### Frye Art Museum
+- **URL:** https://fryemuseum.org/calendar
+- **Platform:** Custom CMS; uses Bloomberg Connects for in-museum digital guides. No ICS or API found.
+- **Tags:** Arts, Museums
+- **Note:** Free-admission art museum at 704 Terry Ave (First Hill). Artist talks, lectures, film screenings, performances, and receptions. Calendar page has structured event listings with dates — HTML scraping appears viable. Events linked to from individual pages with schema.org microdata. Low-to-medium event volume.
+
+#### Burke Museum
+- **URL:** https://www.burkemuseum.org/calendar
+- **Platform:** Custom CMS (Drupal suspected based on URL structure); no ICS feed found
+- **Tags:** Museums, University District
+- **Note:** Washington State Museum of natural history and culture on the UW campus. Hosts public lectures, Free First Thursday events (monthly, 10am–8pm extended hours), Dino Fest (annual May), and behind-the-scenes tours. Medium event volume. HTML scraping viable; Free First Thursday is also a candidate for a recurring event entry.
+
 ### Community and Cultural Centers
 
 #### Chinatown-International District (CIDBIA) Events
@@ -226,6 +308,18 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Platform:** Likely WordPress (returned 503)
 - **Tags:** Community, Beacon Hill
 - **Note:** Educational, cultural, and social service agency on Beacon Hill. 43 programs. Also operates Centilia Cultural Center. Needs further investigation when site is accessible.
+
+#### Rainier Arts Center (SEEDArts)
+- **URL:** https://rainierartscenter.org/events-calendar/
+- **Platform:** WordPress with Modern Events Calendar Lite (MEC) plugin v7.25.0; parent org is SEEDArts
+- **Tags:** Arts, Music, Community
+- **Note:** Community arts center in Rainier Valley (Rainier Beach area). Concerts, performances, and community events including World Class Music Live series. MEC Lite does not expose a global ICS feed. WP REST API at `https://rainierartscenter.org/wp-json/wp/v2/mec-events` returns events but dates are not included in the REST response — only in individual event page HTML or embedded Google Calendar link parameters (`dates=YYYYMMDD`). HTML scraping is needed; individual event pages contain date/time in schema.org microdata.
+
+#### Fremont Arts Council
+- **URL:** https://fremontartscouncil.org/calendar
+- **Platform:** Squarespace; ticketing via Zeffy
+- **Tags:** Arts, Community, Fremont
+- **Note:** Volunteer-run arts organization in Fremont. Key annual events include Fremont Solstice Parade (June), Luminata (December), and May Day parade. Squarespace site — use the existing `SquarespaceRipper` base class from `lib/config/squarespace.ts`. Create `sources/fremont_arts_council/ripper.yaml` and a one-line `ripper.ts`.
 
 ### Markets and Food
 
@@ -317,6 +411,24 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 - **Location:** Phinney Center
 - **URL:** https://www.phinneycenter.org/events/winter-festival/
 - **Note:** 140+ local vendors, juried art show, live music. 45+ years running.
+
+### Northwest Folklife Festival
+- **Schedule:** Memorial Day weekend (annual, 4 days) — 2026 dates: May 22–25
+- **Location:** Seattle Center
+- **URL:** https://nwfolklife.org/
+- **Note:** Free (donation suggested), 250,000+ attendees. 20+ stages of folk, world music, dance, storytelling. Since 1972. One of the largest community-powered arts events in the US. Add as a recurring annual entry.
+
+### Bumbershoot
+- **Schedule:** Labor Day weekend (annual, typically 2–3 days) — check bumbershoot.com for annual dates
+- **Location:** Seattle Center
+- **URL:** https://bumbershoot.com/
+- **Note:** Seattle's iconic summer-ending music and arts festival. Multi-stage event with headliners and local acts. Paid admission. Dates shift year to year; confirm before adding. Add as a recurring annual entry.
+
+### Seattle Art Fair
+- **Schedule:** Four days in late July (annual) — 2026 dates: July 23–26
+- **Location:** Lumen Field Event Center, 800 Occidental Ave S
+- **URL:** https://seattleartfair.com/
+- **Note:** Major contemporary art fair with 100+ galleries from around the world. The existing `lumen_field` ripper may pick up ticketed events, but the fair itself is worth a dedicated recurring entry. Add as an annual recurring event.
 
 ## Meta-Sources / Aggregators
 

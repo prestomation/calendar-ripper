@@ -1,0 +1,23 @@
+name: stoup-brewing
+description: "Stoup Brewing"
+url: "https://www.stoupbrewing.com/templates/sections/google-upcoming-events.ajax.php"
+friendlyLink: https://stoupbrewing.com/stoup-events/
+tags: ["Beer"]
+calendars:
+  - name: ballard
+    friendlyname: "Stoup Brewing - Ballard"
+    timezone: America/Los_Angeles
+    config:
+      location: ballard
+    tags: ["Ballard"]
+  - name: capitol-hill
+    friendlyname: "Stoup Brewing - Capitol Hill"
+    timezone: America/Los_Angeles
+    config:
+      location: capitol-hill
+    tags: ["Capitol Hill"]
+  - name: kenmore
+    friendlyname: "Stoup Brewing - Kenmore"
+    timezone: America/Los_Angeles
+    config:
+      location: kenmore

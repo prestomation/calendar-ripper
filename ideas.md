@@ -291,18 +291,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ### Markets and Food
 
-#### Seattle Night Market (206 Night Markets)
-- **URL:** https://206nightmarkets.com
-- **Platform:** Squarespace; tickets via Eventbrite
-- **Tags:** Community, Food
-- **Note:** Seattle's largest monthly indoor marketplace at Magnuson Park Hangar 30. 125+ vendor booths, food trucks, live DJs. 21+ only. Themed events (Lunar New Year, Winter Solstice). Also runs the Seattle Street Food Festival.
-
-#### Georgetown Trailer Park Mall Events
-- **URL:** http://georgetowntrailerparkmall.com/events
-- **Platform:** Squarespace
-- **Tags:** MakersMarket, Georgetown
-- **Note:** Quirky vintage trailer-based market hosting seasonal themed markets: Georgetown Flea Market (monthly 1st Saturday), Get Sprung, Monster Mash Market, Bizarre Bazaar. Could split between recurring entries and scraped seasonal events.
-
 #### Renegade Craft Fair (Seattle)
 - **URL:** https://www.renegadecraft.com/events/
 - **Platform:** WordPress with Gravity Forms
@@ -416,4 +404,4 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 
 ### Squarespace Events-to-ICS Pattern
 - **Reference:** https://github.com/hawry/events-are-square
-- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, and On the Boards are already using it. Remaining Squarespace sites (Georgetown Trailer Park Mall, Seattle Night Market, Seattle Public Theater) can reuse the same base class — just create a ripper.yaml + one-line ripper.ts.
+- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, On the Boards, Georgetown Trailer Park Mall, and 206 Night Markets are already using it. Remaining Squarespace sites (Seattle Public Theater) can reuse the same base class — just create a ripper.yaml.

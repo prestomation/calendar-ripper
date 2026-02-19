@@ -323,6 +323,10 @@ events:
     url: "https://www.210studioseattle.com/210-market"
     tags: ["MakersMarket", "Pioneer Square"]
 
+  # Note: georgetowntrailerparkmall.com/events is a Squarespace site but the events
+  # page contains only image flyers — no structured text, dates, or captions in the
+  # HTML. The Squarespace ripper produces nothing from it. Recurring entry is the
+  # only viable source until the site adds structured event data.
   - name: georgetown-flea-market
     friendlyname: "Georgetown Flea Market"
     description: "Monthly flea market at the Georgetown Trailer Park Mall."

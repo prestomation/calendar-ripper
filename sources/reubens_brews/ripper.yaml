@@ -1,0 +1,18 @@
+name: reubens-brews
+description: "Award-winning Ballard brewery with taprooms in Ballard and Downtown Seattle featuring trivia, craft nights, and community events"
+url: "https://reubensbrews.com/events/"
+friendlyLink: https://reubensbrews.com/events/
+tags: ["Beer"]
+calendars:
+  - name: ballard
+    friendlyname: "Reuben's Brews - Ballard"
+    timezone: America/Los_Angeles
+    config:
+      location: The Taproom
+    tags: ["Ballard"]
+  - name: downtown
+    friendlyname: "Reuben's Brews - Downtown"
+    timezone: America/Los_Angeles
+    config:
+      location: Downtown Seattle
+    tags: ["Downtown"]

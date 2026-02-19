@@ -4,27 +4,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ## ICS Feeds (Add to external.yaml)
 
-### Hugo House
-- **URL:** https://hugohouse.org/programs-events/
-- **ICS:** `https://hugohouse.org/programs-events/?ical=1&tribe_display=list` ✅ confirmed working
-- **Platform:** WordPress with The Events Calendar plugin
-- **Tags:** Arts, Community, Capitol Hill
-- **Note:** Literary arts center on Capitol Hill. Events include author readings, workshops, writing residencies, panels. Good mix of free and ticketed events. Add to `sources/external.yaml`.
-
-### Town Hall Seattle
-- **URL:** https://townhallseattle.org/events/
-- **ICS:** `https://townhallseattle.org/events/month/?ical=1&tribe_display=list` ✅ confirmed working (10 events returned)
-- **Platform:** WordPress with The Events Calendar plugin; ticketing at `ticketing.townhallseattle.org`
-- **Tags:** Arts, Community, Downtown
-- **Note:** Historic venue at 1119 8th Ave hosting lectures, science talks, literary events, and civic conversations. 200+ events per year across two halls (the Great Hall and Forum). Add to `sources/external.yaml`.
-
-### Unexpected Productions
-- **URL:** https://www.unexpectedproductions.org/shows/
-- **ICS:** `https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list` ✅ confirmed working
-- **Platform:** WordPress with The Events Calendar plugin; ticketing via Eventbrite and VenuePilot
-- **Tags:** Arts, Community, Pike Place
-- **Note:** 40-year-old improv theater in Pike Place Market (1428 Post Alley). Weekly Seattle Theatresports and other improv formats. Non-profit 501(c)(3). Add to `sources/external.yaml`.
-
 ### Georgetown Arts & Cultural Alliance (GBA)
 - **URL:** https://georgetownseattle.org/events/
 - **ICS (unverified — site returned 503):** `https://georgetownseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list`
@@ -100,12 +79,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Music, Fremont
 - **Note:** New music venue in Fremont (replaced High Dive). JSON-LD Event schema present in page markup. Tixr has a documented API. Active venue with a packed schedule.
 
-### Neumos (AXS)
-- **URL:** https://www.neumos.com/events
-- **AXS Venue ID:** `102495` (confirmed at `https://www.axs.com/venues/102495/neumos-seattle-tickets`)
-- **Platform:** WordPress site; ticketing via AXS
-- **Tags:** Music, Capitol Hill
-- **Note:** Mid-size (~1,200 cap) Capitol Hill music venue at 925 E Pike St, operating since 2003. Strong indie, electronic, and touring artist schedule. The project already has an AXS ripper base class — add a `ripper.yaml` with this venue ID.
 
 ### Elliott Bay Book Company (Eventbrite)
 - **URL:** https://www.elliottbaybook.com/events
@@ -315,11 +288,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Arts, Music, Community
 - **Note:** Community arts center in Rainier Valley (Rainier Beach area). Concerts, performances, and community events including World Class Music Live series. MEC Lite does not expose a global ICS feed. WP REST API at `https://rainierartscenter.org/wp-json/wp/v2/mec-events` returns events but dates are not included in the REST response — only in individual event page HTML or embedded Google Calendar link parameters (`dates=YYYYMMDD`). HTML scraping is needed; individual event pages contain date/time in schema.org microdata.
 
-#### Fremont Arts Council
-- **URL:** https://fremontartscouncil.org/calendar
-- **Platform:** Squarespace; ticketing via Zeffy
-- **Tags:** Arts, Community, Fremont
-- **Note:** Volunteer-run arts organization in Fremont. Key annual events include Fremont Solstice Parade (June), Luminata (December), and May Day parade. Squarespace site — use the existing `SquarespaceRipper` base class from `lib/config/squarespace.ts`. Create `sources/fremont_arts_council/ripper.yaml` and a one-line `ripper.ts`.
 
 ### Markets and Food
 

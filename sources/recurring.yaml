@@ -323,6 +323,21 @@ events:
     url: "https://www.210studioseattle.com/210-market"
     tags: ["MakersMarket", "Pioneer Square"]
 
+  # Note: georgetowntrailerparkmall.com/events is a Squarespace site but the events
+  # page contains only image flyers — no structured text, dates, or captions in the
+  # HTML. The Squarespace ripper produces nothing from it. Recurring entry is the
+  # only viable source until the site adds structured event data.
+  - name: georgetown-flea-market
+    friendlyname: "Georgetown Flea Market"
+    description: "Monthly flea market at the Georgetown Trailer Park Mall."
+    schedule: "1st Saturday"
+    timezone: America/Los_Angeles
+    duration: PT5H
+    start_time: "10:00"
+    location: "Georgetown Trailer Park Mall, Georgetown, Seattle"
+    url: "http://georgetowntrailerparkmall.com/events"
+    tags: ["MakersMarket", "Georgetown"]
+
   - name: food-truck-round-up
     friendlyname: "Food Truck Round-Up"
     description: "Monthly food truck gathering at the South Lake Union Saturday Market. Free and family-friendly."

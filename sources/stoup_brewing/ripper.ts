@@ -221,43 +221,57 @@ export default class StoupBrewingRipper implements IRipper {
         return { hour, minute };
     }
 
-    public parseTimeFromRange(timeRange: string): { hour: number; minute: number } | null {
-        // Formats: "5 - 9pm", "11:45am - 1pm", "7:30 - 9pm", "6:30 - 9:30pm"
-        const match = timeRange.match(/^(\d{1,2}(?::\d{2})?)\s*(am|pm)?\s*-\s*\d{1,2}(?::\d{2})?\s*(am|pm)$/);
-        if (!match) return null;
-
-        const startStr = match[1];
-        const startAmPm = match[2] || match[3]; // If start has no am/pm, use end's
-        const endAmPm = match[3];
-
-        const timeParts = startStr.match(/^(\d{1,2})(?::(\d{2}))?$/);
-        if (!timeParts) return null;
-
-        let hour = parseInt(timeParts[1]);
-        const minute = parseInt(timeParts[2] || "0");
-
-        const effectiveAmPm = startAmPm || endAmPm;
-        if (effectiveAmPm === "pm" && hour !== 12) hour += 12;
-        if (effectiveAmPm === "am" && hour === 12) hour = 0;
-
-        return { hour, minute };
-    }
-
-    public parseDuration(timeRange: string): Duration {
-        // Try to parse start and end from the range
+    /**
+     * Parse the start and end times from a time range string.
+     * Handles formats: "5 - 9pm", "11:45am - 1pm", "7:30 - 9pm", "6:30 - 9:30pm"
+     *
+     * When the start time lacks an am/pm indicator, we infer it from context:
+     * if using the end's am/pm would make start > end (e.g. "11 - 1pm" → 11pm > 1pm),
+     * the start must be in the opposite period (11am).
+     */
+    public parseTimeRange(timeRange: string): { start: { hour: number; minute: number }; end: { hour: number; minute: number } } | null {
         const match = timeRange.match(
             /^(\d{1,2}(?::\d{2})?)\s*(am|pm)?\s*-\s*(\d{1,2}(?::\d{2})?)\s*(am|pm)$/
         );
-        if (!match) return Duration.ofHours(2); // default
+        if (!match) return null;
 
         const [, startStr, startAmPm, endStr, endAmPm] = match;
 
-        const startTime = this.parseRangeTime(startStr, startAmPm || endAmPm);
         const endTime = this.parseRangeTime(endStr, endAmPm);
+        if (!endTime) return null;
 
-        if (!startTime || !endTime) return Duration.ofHours(2);
+        if (startAmPm) {
+            // Start has explicit am/pm — use it directly
+            const startTime = this.parseRangeTime(startStr, startAmPm);
+            if (!startTime) return null;
+            return { start: startTime, end: endTime };
+        }
 
-        let durationMinutes = (endTime.hour * 60 + endTime.minute) - (startTime.hour * 60 + startTime.minute);
+        // Start has no am/pm — try inheriting from end first
+        const sameAsEnd = this.parseRangeTime(startStr, endAmPm);
+        if (!sameAsEnd) return null;
+
+        // If that makes start > end, flip to the opposite period
+        const sameMinutes = sameAsEnd.hour * 60 + sameAsEnd.minute;
+        const endMinutes = endTime.hour * 60 + endTime.minute;
+        if (sameMinutes > endMinutes) {
+            const opposite = endAmPm === "pm" ? "am" : "pm";
+            const flipped = this.parseRangeTime(startStr, opposite);
+            return { start: flipped || sameAsEnd, end: endTime };
+        }
+
+        return { start: sameAsEnd, end: endTime };
+    }
+
+    public parseTimeFromRange(timeRange: string): { hour: number; minute: number } | null {
+        return this.parseTimeRange(timeRange)?.start ?? null;
+    }
+
+    public parseDuration(timeRange: string): Duration {
+        const range = this.parseTimeRange(timeRange);
+        if (!range) return Duration.ofHours(2);
+
+        let durationMinutes = (range.end.hour * 60 + range.end.minute) - (range.start.hour * 60 + range.start.minute);
         if (durationMinutes <= 0) durationMinutes += 12 * 60; // handle overnight
 
         return Duration.ofMinutes(durationMinutes);

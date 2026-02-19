@@ -130,6 +130,60 @@ describe('StoupBrewingRipper', () => {
         });
     });
 
+    describe('parseTimeRange', () => {
+        it('parses range with pm only on end', () => {
+            const ripper = new StoupBrewingRipper();
+            const result = ripper.parseTimeRange('5 - 9pm');
+            expect(result).toEqual({
+                start: { hour: 17, minute: 0 },
+                end: { hour: 21, minute: 0 },
+            });
+        });
+
+        it('parses range with am on start and pm on end', () => {
+            const ripper = new StoupBrewingRipper();
+            const result = ripper.parseTimeRange('11:45am - 1pm');
+            expect(result).toEqual({
+                start: { hour: 11, minute: 45 },
+                end: { hour: 13, minute: 0 },
+            });
+        });
+
+        it('parses range with minutes on both sides', () => {
+            const ripper = new StoupBrewingRipper();
+            const result = ripper.parseTimeRange('6:30 - 9:30pm');
+            expect(result).toEqual({
+                start: { hour: 18, minute: 30 },
+                end: { hour: 21, minute: 30 },
+            });
+        });
+
+        it('infers am for start when inheriting pm would make start > end', () => {
+            const ripper = new StoupBrewingRipper();
+            // "11 - 1pm": 11pm > 1pm, so start must be 11am
+            const result = ripper.parseTimeRange('11 - 1pm');
+            expect(result).toEqual({
+                start: { hour: 11, minute: 0 },
+                end: { hour: 13, minute: 0 },
+            });
+        });
+
+        it('inherits pm when start < end in same period', () => {
+            const ripper = new StoupBrewingRipper();
+            // "7:30 - 9pm": 7:30pm < 9pm, so pm is correct
+            const result = ripper.parseTimeRange('7:30 - 9pm');
+            expect(result).toEqual({
+                start: { hour: 19, minute: 30 },
+                end: { hour: 21, minute: 0 },
+            });
+        });
+
+        it('returns null for unparseable range', () => {
+            const ripper = new StoupBrewingRipper();
+            expect(ripper.parseTimeRange('TBD')).toBeNull();
+        });
+    });
+
     describe('parseTimeFromRange', () => {
         it('parses range with pm only on end', () => {
             const ripper = new StoupBrewingRipper();
@@ -149,6 +203,12 @@ describe('StoupBrewingRipper', () => {
         it('parses simple evening range', () => {
             const ripper = new StoupBrewingRipper();
             expect(ripper.parseTimeFromRange('7:30 - 9pm')).toEqual({ hour: 19, minute: 30 });
+        });
+
+        it('handles ambiguous cross-period range', () => {
+            const ripper = new StoupBrewingRipper();
+            // "11 - 1pm" should be 11am, not 11pm
+            expect(ripper.parseTimeFromRange('11 - 1pm')).toEqual({ hour: 11, minute: 0 });
         });
     });
 
@@ -174,6 +234,13 @@ describe('StoupBrewingRipper', () => {
         it('returns 2 hours for unparseable range', () => {
             const ripper = new StoupBrewingRipper();
             const duration = ripper.parseDuration('TBD');
+            expect(duration.toMinutes()).toBe(120);
+        });
+
+        it('correctly computes duration for ambiguous cross-period range', () => {
+            const ripper = new StoupBrewingRipper();
+            // "11 - 1pm" = 11am to 1pm = 2 hours (not 11pm to 1pm)
+            const duration = ripper.parseDuration('11 - 1pm');
             expect(duration.toMinutes()).toBe(120);
         });
     });

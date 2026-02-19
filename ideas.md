@@ -4,13 +4,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ## ICS Feeds (Add to external.yaml)
 
-### Georgetown Arts & Cultural Alliance (GBA)
-- **URL:** https://georgetownseattle.org/events/
-- **ICS (unverified — site returned 503):** `https://georgetownseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list`
-- **Platform:** WordPress with The Events Calendar plugin (confirmed from search results and page structure)
-- **Tags:** Arts, Community, Georgetown
-- **Note:** Georgetown Business Association events calendar. Hosts Georgetown Carnival (June), Art Attack (monthly first Saturday), Georgetown Farmers Market (seasonal), and Bites & Sites. Test the ICS URL when the site is accessible and add to `sources/external.yaml` if it works.
-
 ## APIs (Needs API Key or Custom Ripper)
 
 ### Songkick API
@@ -93,14 +86,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Arts
 - **Note:** Founded 1982, led by choreographer Donald Byrd since 2002. Contemporary dance company at Madrona Beach. OvationTix client ID needs to be extracted from the ticketing page source. Shares the OvationTix public REST API endpoint pattern with Taproot (client ID `37019`). Check `https://spectrumdance.org/tickets/` page source for their client ID.
 
-### Comedy Underground (The Events Calendar)
-- **URL:** https://www.comedyunderground.com/
-- **ICS (unverified):** `https://www.comedyunderground.com/?post_type=tribe_events&ical=1&eventDisplay=list`
-- **Ticketing:** TicketWeb — `https://www.ticketweb.com/snl/EventListings.action?orgId=17593`
-- **Platform:** WordPress with The Events Calendar plugin
-- **Tags:** Arts, Pioneer Square
-- **Note:** Pioneer Square comedy club. Weekly standup shows and touring acts. Uses The Events Calendar — test the ICS URL and add to `sources/external.yaml` if it works; otherwise implement a TicketWeb ripper.
-
 ## HTML Scraping (Last Resort)
 
 ### Theaters
@@ -182,12 +167,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **URL:** https://nectarlounge.com/events/calendar/
 - **Tags:** Music
 - **Note:** WordPress-based, uses Eventbrite for listings (venue group IDs: 2463, 748). Could use Eventbrite API instead of scraping.
-
-#### 19hz.info Electronic Music Events
-- **URL:** https://19hz.info/eventlisting_Seattle.php
-- **Reference:** https://github.com/19hz/19hz-map (third-party scraper for this data)
-- **Tags:** Music
-- **Note:** Plain HTML listing of electronic music events. Has SSL issues. The 19hz-map project may be useful reference for parsing the HTML structure.
 
 #### The Triple Door
 - **URL:** https://thetripledoor.net/mainstage-calendar and https://thetripledoor.net/mq-stage-calendar
@@ -404,4 +383,4 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 
 ### Squarespace Events-to-ICS Pattern
 - **Reference:** https://github.com/hawry/events-are-square
-- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, On the Boards, Georgetown Trailer Park Mall, and 206 Night Markets are already using it. Remaining Squarespace sites (Seattle Public Theater) can reuse the same base class — just create a ripper.yaml.
+- **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, On the Boards, Georgetown Trailer Park Mall, and 206 Night Markets are already using it. Seattle Public Theater uses Squarespace for its site but its `/current-season` page is a regular page (not an events collection), so the SquarespaceRipper cannot be used directly — the ticketing API (Arts-People) would need to be explored instead.

@@ -205,6 +205,27 @@
   - Arts
 
 # ICS Feeds (Needs Investigation - disabled)
+- name: comedy-underground
+  friendlyname: "Comedy Underground"
+  description: "Comedy Underground"
+  icsUrl: "https://comedyunderground.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.comedyunderground.com/"
+  disabled: true  # ICS endpoint returns 200 with empty body; investigate TicketWeb (orgId=17593) as alternative
+  tags:
+  - Arts
+  - Pioneer Square
+
+- name: gba-georgetown
+  friendlyname: "Georgetown Arts & Cultural Alliance"
+  description: "Georgetown Arts & Cultural Alliance"
+  icsUrl: "https://georgetownseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://georgetownseattle.org/events/"
+  disabled: true  # Site returned 503 during testing; test ICS URL when site is accessible
+  tags:
+  - Arts
+  - Community
+  - Georgetown
+
 - name: seattle-artists-art-walks
   friendlyname: "SeattleArtists.com Art Walks"
   description: "Art walks and gallery events across Seattle neighborhoods"

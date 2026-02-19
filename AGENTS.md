@@ -176,4 +176,9 @@ When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch ca
 
 ## Writing Descriptions
 
-The `description` field in `ripper.yaml` is customer-facing. Keep it focused on **what** the source is (the venue or organization), not **how** it's implemented. Don't mention APIs, scraping methods, or other implementation details.
+The `description` field in `ripper.yaml` is used as the `<h2>` section heading on the website. It should be **just the name** of the venue or organization — not a sentence describing what they do.
+
+- **Good:** `"Stoup Brewing"`, `"BBYC Ballard (Bale Breaker & Yonder Cider)"`, `"Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"`
+- **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events at the Urban Beer Garden"`
+
+Don't mention APIs, scraping methods, or other implementation details.

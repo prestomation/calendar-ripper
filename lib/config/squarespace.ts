@@ -31,6 +31,7 @@ export interface SquarespaceEvent {
 interface SquarespaceResponse {
     upcoming?: SquarespaceEvent[];
     past?: SquarespaceEvent[];
+    items?: SquarespaceEvent[];
     pagination?: {
         nextPage: boolean;
         nextPageOffset: number;
@@ -133,6 +134,8 @@ export class SquarespaceRipper implements IRipper {
 
             if (data.upcoming) {
                 allEvents.push(...data.upcoming);
+            } else if (data.items) {
+                allEvents.push(...data.items);
             }
 
             if (data.pagination?.nextPage && data.pagination.nextPageUrl) {

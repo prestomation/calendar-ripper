@@ -33,8 +33,8 @@ export function parseTimeCell(text: string): { hour: number; minute: number; dur
         if (start && end) {
             const startMins = start.hour * 60 + start.minute;
             let endMins = end.hour * 60 + end.minute;
-            // Handle events crossing midnight
-            if (endMins <= startMins) endMins += 24 * 60;
+            // Handle events crossing midnight (use < to avoid treating equal start/end as 24h)
+            if (endMins < startMins) endMins += 24 * 60;
             return { hour: start.hour, minute: start.minute, durationMinutes: endMins - startMins };
         }
     }
@@ -48,7 +48,7 @@ export function parseTimeCell(text: string): { hour: number; minute: number; dur
         }
     }
 
-    // Default: midnight, 3 hours
+    // Default: 8pm, 3 hours
     return { hour: 20, minute: 0, durationMinutes: 180 };
 }
 
@@ -70,7 +70,7 @@ export default class Hz19Ripper extends HTMLRipper {
             const dateDiv = cells[cells.length - 1].querySelector('.shrink');
             if (!dateDiv) continue;
 
-            const dateStr = dateDiv.text.trim(); // "2026/02/19"
+            const dateStr = dateDiv.text?.trim() ?? ''; // "2026/02/19"
             if (!/^\d{4}\/\d{2}\/\d{2}$/.test(dateStr)) continue;
 
             const [year, month, day] = dateStr.split('/').map(Number);
@@ -79,7 +79,7 @@ export default class Hz19Ripper extends HTMLRipper {
             const link = cells[1].querySelector('a');
             if (!link) continue;
 
-            const title = link.text.trim();
+            const title = link.text?.trim() ?? '';
             if (!title) continue;
 
             const eventUrl = link.getAttribute('href') || undefined;
@@ -90,11 +90,11 @@ export default class Hz19Ripper extends HTMLRipper {
             this.seenEvents.add(eventId);
 
             // Parse time from cells[0]
-            const timeText = cells[0].text;
+            const timeText = cells[0]?.text ?? '';
             const { hour, minute, durationMinutes } = parseTimeCell(timeText);
 
             // Venue: text in cells[1] after the link, before the city in parentheses
-            const eventCellText = cells[1].text;
+            const eventCellText = cells[1]?.text ?? '';
             const atIdx = eventCellText.indexOf(' @ ');
             let location: string | undefined;
             if (atIdx >= 0) {

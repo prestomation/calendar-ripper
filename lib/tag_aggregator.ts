@@ -1,5 +1,6 @@
 import { RipperCalendar, RipperCalendarEvent, RipperError, ExternalCalendar, toICS } from './config/schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
+import { getFetchForConfig } from './config/proxy-fetch.js';
 
 /**
  * Represents a calendar with its associated tags
@@ -43,9 +44,10 @@ export function collectAllTags(
  * Fetches and parses an external calendar from its URL
  * Filters events to only include those within the specified time range
  */
-export async function fetchExternalCalendar(url: string): Promise<RipperCalendarEvent[]> {
+export async function fetchExternalCalendar(url: string, options?: { proxy?: boolean }): Promise<RipperCalendarEvent[]> {
   try {
-    const response = await fetch(url);
+    const fetchFn = getFetchForConfig({ proxy: options?.proxy });
+    const response = await fetchFn(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch calendar: ${response.status} ${response.statusText}`);
     }
@@ -224,7 +226,7 @@ export async function createAggregateCalendars(
       if (tec.tags.includes(tag)) {
         try {
           console.log(`Fetching external calendar: ${tec.calendar.friendlyname}`);
-          const externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl);
+          const externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl, { proxy: tec.calendar.proxy });
           console.log(`  - Found ${externalEvents.length} events within time range`);
           
           // Add source calendar name to each event's description

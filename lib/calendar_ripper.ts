@@ -19,6 +19,7 @@ import {
   TaggedCalendar,
   TaggedExternalCalendar,
 } from "./tag_aggregator.js";
+import { getFetchForConfig } from "./config/proxy-fetch.js";
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { LocalDate } from "@js-joda/core";
 import { validateTags } from "./config/tags.js";
@@ -476,7 +477,8 @@ export const main = async () => {
   for (const calendar of activeExternalCalendars) {
     try {
       console.log(`Fetching external calendar: ${calendar.friendlyname}`);
-      const response = await fetch(calendar.icsUrl);
+      const fetchFn = getFetchForConfig({ proxy: calendar.proxy });
+      const response = await fetchFn(calendar.icsUrl);
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
@@ -646,7 +648,7 @@ END:VCALENDAR`;
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
 
     try {
-      const externalEvents = await fetchExternalCalendar(calendar.icsUrl);
+      const externalEvents = await fetchExternalCalendar(calendar.icsUrl, { proxy: calendar.proxy });
       for (const event of externalEvents) {
         eventsIndex.push({
           icsUrl,

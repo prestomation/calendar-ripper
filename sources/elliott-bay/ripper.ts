@@ -36,7 +36,7 @@ export default class ElliottBayRipper implements IRipper {
         let hasMore = true;
 
         while (hasMore) {
-            const url = `https://www.eventbriteapi.com/v3/organizers/${ORGANIZER_ID}/events/?status=live&expand=venue&time_filter=current_future&page=${page}`;
+            const url = `https://www.eventbriteapi.com/v3/organizers/${ORGANIZER_ID}/events/?status=live&expand=venue&page=${page}`;
 
             const headers: HeadersInit = {};
             if (token) {

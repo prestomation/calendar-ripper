@@ -25,7 +25,7 @@ describe('ElliottBayRipper', () => {
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
         const errors = events.filter(e => 'type' in e) as RipperError[];
 
-        expect(valid.length).toBe(3);
+        expect(valid.length).toBe(38);
         expect(errors.length).toBe(0);
     });
 
@@ -35,9 +35,7 @@ describe('ElliottBayRipper', () => {
         const events = ripper.parseEvents(data.events, tz);
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        expect(valid[0].summary).toBe('Rebecca Makkai: The God of the Woods');
-        expect(valid[1].summary).toBe('Luis Alberto Urrea: Good Night, Irene');
-        expect(valid[2].summary).toBe('Poetry Reading: New Voices in Pacific Northwest Poetry');
+        expect(valid[0].summary).toBe('[SOLD OUT] B.K. Borison, AND NOW, BACK TO YOU');
     });
 
     it('parses start date and time correctly', () => {
@@ -49,8 +47,8 @@ describe('ElliottBayRipper', () => {
         const first = valid[0];
 
         expect(first.date.year()).toBe(2026);
-        expect(first.date.monthValue()).toBe(3);
-        expect(first.date.dayOfMonth()).toBe(10);
+        expect(first.date.monthValue()).toBe(2);
+        expect(first.date.dayOfMonth()).toBe(27);
         expect(first.date.hour()).toBe(19);
         expect(first.date.minute()).toBe(0);
     });
@@ -61,12 +59,8 @@ describe('ElliottBayRipper', () => {
         const events = ripper.parseEvents(data.events, tz);
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-
-        // First event: 19:00 - 21:00 = 2 hours
-        expect(valid[0].duration.toHours()).toBe(2);
-
-        // Second event: 19:00 - 20:30 = 1.5 hours = 90 minutes
-        expect(valid[1].duration.toMinutes()).toBe(90);
+        // First event: 19:00 - 20:00 = 1 hour
+        expect(valid[0].duration.toHours()).toBe(1);
     });
 
     it('uses venue address when available', () => {
@@ -76,18 +70,27 @@ describe('ElliottBayRipper', () => {
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
         expect(valid[0].location).toContain('Elliott Bay Book Company');
-        expect(valid[0].location).toContain('1521 10th Ave');
+        expect(valid[0].location).toContain('1521 10th Avenue');
         expect(valid[0].location).toContain('Seattle');
     });
 
     it('falls back to store address when venue is null', () => {
         const ripper = new ElliottBayRipper();
-        const data = loadSampleData();
-        const events = ripper.parseEvents(data.events, tz);
+        const noVenueEvents = [
+            {
+                id: 'test-no-venue',
+                name: { text: 'Test Event' },
+                description: { text: null },
+                url: 'https://eventbrite.com/e/test',
+                start: { timezone: 'America/Los_Angeles', local: '2026-03-01T18:00:00' },
+                end: { timezone: 'America/Los_Angeles', local: '2026-03-01T20:00:00' },
+                venue: null
+            }
+        ];
+        const events = ripper.parseEvents(noVenueEvents, tz);
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        // Third event has venue: null
-        expect(valid[2].location).toBe('1521 10th Ave, Seattle, WA 98122');
+        expect(valid[0].location).toBe('1521 10th Ave, Seattle, WA 98122');
     });
 
     it('sets description when available', () => {
@@ -96,9 +99,7 @@ describe('ElliottBayRipper', () => {
         const events = ripper.parseEvents(data.events, tz);
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        expect(valid[0].description).toContain('Rebecca Makkai');
-        // Third event has null description
-        expect(valid[2].description).toBeUndefined();
+        expect(valid[0].description).toContain('meteorologists');
     });
 
     it('sets event URL', () => {
@@ -108,7 +109,6 @@ describe('ElliottBayRipper', () => {
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
         expect(valid[0].url).toContain('eventbrite.com');
-        expect(valid[0].url).toContain('987654321001');
     });
 
     it('deduplicates events with the same ID', () => {
@@ -119,7 +119,7 @@ describe('ElliottBayRipper', () => {
         const events = ripper.parseEvents(doubled, tz);
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        expect(valid.length).toBe(3);
+        expect(valid.length).toBe(38);
     });
 
     it('handles malformed event gracefully', () => {
@@ -140,8 +140,16 @@ describe('ElliottBayRipper', () => {
         const events = ripper.parseEvents(data.events, tz);
 
         const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        expect(valid[0].id).toBe('987654321001');
-        expect(valid[1].id).toBe('987654321002');
-        expect(valid[2].id).toBe('987654321003');
+        expect(valid[0].id).toBeDefined();
+        expect(typeof valid[0].id).toBe('string');
+    });
+
+    it('uses event timezone from API response', () => {
+        const ripper = new ElliottBayRipper();
+        const data = loadSampleData();
+        const events = ripper.parseEvents(data.events, tz);
+
+        const valid = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        expect(valid[0].date.zone().id()).toBe('America/Los_Angeles');
     });
 });

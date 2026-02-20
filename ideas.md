@@ -75,11 +75,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 
 ### Theaters
 
-#### NWTheatre.org Regional Theatre Calendar
-- **URL:** https://www.nwtheatre.org/calendar/
-- **Tags:** Theatre
-- **Note:** Most comprehensive regional theatre calendar covering King, Pierce, Snohomish, Thurston, and Kitsap counties. Categories include Theatre, Comedy, Dance, Outdoor Shows. No ICS or API found.
-
 #### ACT Theatre / Union Arts Center
 - **URL:** https://acttheatre.org/whats-on/ (redirects to unionartscenter.org)
 - **Platform:** WordPress with Avada theme; ticketing at `order.unionartscenter.org`

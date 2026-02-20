@@ -1,0 +1,13 @@
+name: taproot
+description: "Taproot Theatre"
+url: "https://api.ovationtix.com/public/calendar/client(37019)"
+friendlyLink: "https://taproottheatre.org"
+tags: ["Theatre", "Greenwood"]
+calendars:
+  - name: taproot
+    friendlyname: "Taproot Theatre"
+    timezone: America/Los_Angeles
+    config:
+      clientId: 37019
+      clientOrigin: "https://taproottheatre.org"
+      lookaheadMonths: 6

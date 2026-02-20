@@ -4,6 +4,80 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 
 ## ICS Feeds (Add to external.yaml)
 
+### Trumba Calendars
+
+Trumba is a calendar platform used by the City of Seattle, Seattle Public Library, and the University of Washington. All feeds follow the pattern `https://www.trumba.com/calendars/<webname>.ics`. The city-wide Seattle.gov calendar (`seattlegov-city-wide`) is already implemented. The following sub-calendars are confirmed working (HTTP 200, `BEGIN:VCALENDAR`).
+
+#### City of Seattle — Department of Neighborhoods
+- **ICS URL:** `https://www.trumba.com/calendars/neighborhoods.ics`
+- **Info URL:** https://www.seattle.gov/neighborhoods/event-calendar
+- **Tags:** Community
+- **Note:** Neighborhood cleanups, cultural events, and DON-hosted community meetings. Trumba `webName: "neighborhoods"`. Complements the existing `seattlegov-city-wide` calendar with neighborhood-focused programming.
+
+#### City of Seattle — Office of Arts & Cultural Affairs
+- **ICS URL:** `https://www.trumba.com/calendars/arts-and-cultural-affairs.ics`
+- **Info URL:** https://www.seattle.gov/arts/experience/events
+- **Tags:** Arts, Community
+- **Note:** Seattle Office of Arts & Culture events — public art programs, youth arts info sessions, community arts events. Trumba `webName: "arts-and-cultural-affairs"`.
+
+#### City of Seattle — Special Events Planning Calendar
+- **ICS URL:** `https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics`
+- **Info URL:** https://www.seattle.gov/special-events/plan-an-event/calendar
+- **Tags:** Community
+- **Note:** Permitted street fairs, markets, and stadium events. Includes recurring events like Fremont Sunday Market and other permitted large-scale events. Trumba `webName: "SpecialEventsPlanningCalendar"`. Some events may overlap with other sources; event volume is high due to recurring permit listings.
+
+#### Seattle Public Library (Trumba)
+- **ICS URL:** `https://www.trumba.com/calendars/kalendaro.ics`
+- **Info URL:** https://www.spl.org/Calendar
+- **Tags:** Community, Education
+- **Note:** 200+ events from SPL branches — story times, citizenship classes, free tax help, fitness programs, author talks, and workshops. Trumba `webName: "kalendaro"`. This ICS approach is simpler than the LibCal API route described in the APIs section below; both cover SPL events but this feed is immediately usable with no API key.
+
+#### University of Washington — Campus Events
+- **ICS URL:** `https://www.trumba.com/calendars/sea_campus.ics`
+- **Info URL:** https://calendar.washington.edu/
+- **Tags:** Community, Arts, Music, University District
+- **Note:** Main UW Seattle public calendar aggregating events across all departments. Includes lectures, public performances, community events. High volume — mix of public and academic events. Trumba `webName: "sea_campus"`.
+
+#### University of Washington — School of Music
+- **ICS URL:** `https://www.trumba.com/calendars/sea_music.ics`
+- **Info URL:** https://music.washington.edu/
+- **Tags:** Music, University District
+- **Note:** Free and ticketed concerts, recitals, and performances — jazz, baroque, chamber music, and more. Trumba `webName: "sea_music"`. More focused on public-facing events than the broad `sea_campus` feed.
+
+#### University of Washington — School of Art + Art History + Design
+- **ICS URL:** `https://www.trumba.com/calendars/sea_art.ics`
+- **Info URL:** https://art.uw.edu/
+- **Tags:** Arts, University District
+- **Note:** Public exhibitions, MFA shows, gallery openings, and symposia — e.g., Coast Salish weaving exhibitions. Trumba `webName: "sea_art"`. Includes some events that overlap with the Henry Art Gallery.
+
+#### WorkSource North Seattle
+- **ICS URL:** `https://www.trumba.com/calendars/worksource-north-seattle.ics`
+- **Info URL:** https://www.worksourcewa.com/
+- **Tags:** Community, Education
+- **Note:** Free job-skills workshops — LinkedIn, resume writing, job searching, multilingual sessions. Employment center serving North Seattle. Trumba `webName: "worksource-north-seattle"`.
+
+#### WorkSource Downtown Seattle
+- **ICS URL:** `https://www.trumba.com/calendars/worksource-downtown-seattle.ics`
+- **Info URL:** https://www.worksourcewa.com/
+- **Tags:** Community, Education
+- **Note:** Free workforce development workshops and employment services for the downtown location. Trumba `webName: "worksource-downtown-seattle"`.
+
+---
+**Other confirmed-valid UW Trumba feeds** (lower priority — primarily academic/internal audiences):
+- `sea_artsci` — UW College of Arts & Sciences (lectures, prospective student sessions)
+- `sea_info` — UW Information School (program info sessions)
+- `sea_lib` — UW Libraries Seattle (exhibitions, open scholarship workshops)
+- `sea_law` — UW School of Law (seminars, public lectures)
+- `sea_foster` — UW Foster School of Business (MBA events)
+- `sea_nursing` — UW School of Nursing (DEI events, seminars)
+- `sea_essuw` — UW Sustainability (environmental seminars)
+- `sea_comp_lit` — UW Cinema & Media Studies (film screenings, talks)
+- `sea_evans-hub` — UW Evans School Community Hub (public policy events)
+
+**Confirmed 410 Gone** (do not attempt): `seattlegov-parks`, `seattlegov-neighborhoods`, `seattlegov-outreach`, `seattlegov-arts`, `seattlegov-recreation`, `seattle-university`, `seattle-pacific-university`, `cornish`, `spl-events`, `seattle-public-library`.
+
+---
+
 ## APIs (Needs API Key or Custom Ripper)
 
 ### Songkick API
@@ -12,19 +86,12 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Music
 - **Note:** Supports venue-based queries. Could pull events for specific Seattle venues.
 
-### Seattle.gov Department Calendars (Trumba)
-- **Trumba Docs:** https://www.trumba.com/help/api/
-- **Parks:** Try `https://www.trumba.com/calendars/seattlegov-parks.ics`
-- **Neighborhoods:** Try `https://www.trumba.com/calendars/seattlegov-neighborhoods.ics`
-- **Public Outreach:** Try `https://www.trumba.com/calendars/seattlegov-outreach.ics`
-- **Note:** The city-wide Trumba calendar is already added (`seattlegov-city-wide`). These are potential subcalendars for more targeted event feeds. The exact calendar web names need to be discovered — inspect the seattle.gov pages for `trumba.com/calendars/<name>` links.
-
 ### Seattle Public Library (LibCal API)
 - **URL:** https://calendar.spl.org/event-calendar
 - **API:** LibCal REST API v1.1 at `https://calendar.spl.org/1.1/`
 - **Platform:** Springshare LibCal (calendar.spl.org); also uses Trumba on spl.org/event-calendar
 - **Tags:** Community, Education
-- **Note:** Free events across 27 branches — author talks, story times, classes, film screenings, concerts. LibCal has a documented REST API with structured endpoints. High event volume. The main spl.org page uses Trumba with `webName: "kalendaro"`.
+- **Note:** Free events across 27 branches — author talks, story times, classes, film screenings, concerts. LibCal has a documented REST API with structured endpoints. High event volume. **Simpler alternative:** the Trumba ICS feed (`https://www.trumba.com/calendars/kalendaro.ics`, `webName: "kalendaro"`) is confirmed working and ready to add to external.yaml — see the ICS Feeds section above.
 
 ### Do206 (Algolia Search API)
 - **URL:** https://do206.com/events

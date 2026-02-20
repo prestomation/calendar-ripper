@@ -15,7 +15,7 @@ import {
   prepareTaggedCalendars,
   prepareTaggedExternalCalendars,
   createAggregateCalendars,
-  fetchExternalCalendar,
+  parseExternalCalendarEvents,
   TaggedCalendar,
   TaggedExternalCalendar,
 } from "./tag_aggregator.js";
@@ -241,6 +241,36 @@ const generateExternalCalendarList = (externals: ExternalCalendar[]) => {
     </div>`;
 };
 
+const CONCURRENCY = 8;
+
+/**
+ * Runs async operations over an array with bounded concurrency.
+ * Returns results in the same order as input items.
+ */
+async function parallelMap<T, R>(
+  items: T[],
+  fn: (item: T) => Promise<R>,
+  concurrency: number
+): Promise<R[]> {
+  const results: R[] = new Array(items.length);
+  let index = 0;
+
+  async function worker() {
+    while (true) {
+      const i = index++;
+      if (i >= items.length) break;
+      results[i] = await fn(items[i]);
+    }
+  }
+
+  const workers = Array.from(
+    { length: Math.min(concurrency, items.length) },
+    () => worker()
+  );
+  await Promise.all(workers);
+  return results;
+}
+
 export const main = async () => {
   const loader = new RipperLoader("sources/");
   const [configs, errors] = await loader.loadConfigs();
@@ -311,6 +341,7 @@ export const main = async () => {
   allCalendars.push(...recurringCalendars);
   
   // Process recurring calendars for output
+  const recurringWritePromises: Promise<void>[] = [];
   for (const calendar of recurringCalendars) {
     const icsPath = `recurring-${calendar.name}.ics`;
     const errorsPath = `recurring-${calendar.name}-errors.txt`;
@@ -329,47 +360,99 @@ export const main = async () => {
     if (errorCount > 0) {
       console.error(calendar.errors);
     }
-    await writeFile(`output/${icsPath}`, icsString);
-    await writeFile(
+    recurringWritePromises.push(writeFile(`output/${icsPath}`, icsString));
+    recurringWritePromises.push(writeFile(
       `output/${errorsPath}`,
       JSON.stringify(calendar.errors, null, 2)
-    );
+    ));
+  }
+  await Promise.all(recurringWritePromises);
+
+  // Separate enabled from disabled configs
+  const enabledConfigs = configs.filter(c => !c.config.disabled);
+  for (const config of configs.filter(c => c.config.disabled)) {
+    console.log(`Skipping disabled ripper: ${config.config.name}`);
   }
 
-  for (const config of configs) {
-    console.log(`Processing ${config.config.name}`);
-    if (config.config.disabled) {
-      console.log(`Skipping disabled ripper: ${config.config.name}`);
-      continue;
-    }
-
-
-
-    // Propogate ripper tags to their calendars
+  // Propagate ripper tags to their calendars before parallel execution
+  for (const config of enabledConfigs) {
     for (const calConfig of config.config.calendars) {
         calConfig.tags = calConfig.tags || []
         calConfig.tags = [...new Set([...(calConfig.tags || []), ...(config.config.tags || [])])]
     }
+  }
 
-    // Rip the calendars
-    let calendars: RipperCalendar[];
-    try {
-      calendars = await config.ripperImpl.rip(config);
-    } catch (error) {
-      console.error(`Ripper ${config.config.name} threw an unhandled error: ${error}`);
-      // Produce empty calendars with the error so the build continues
-      calendars = config.config.calendars.map(cal => ({
-        name: cal.name,
-        friendlyname: cal.friendlyname,
-        events: [],
-        errors: [{ type: "ParseError" as const, reason: `Ripper crashed: ${error}`, context: "" }],
-        parent: config.config,
-        tags: cal.tags || [],
-      }));
+  // Filter active external calendars early so we can fetch them in parallel with rippers
+  const activeExternalCalendars = externalCalendars.filter(
+    (cal) => !cal.disabled
+  );
+
+  // --- PARALLEL PHASE: Rip all calendars + fetch all external calendars concurrently ---
+  interface ExternalFetchResult {
+    calendar: ExternalCalendar;
+    icsContent: string | null;
+    error: unknown;
+  }
+
+  const [ripperResults, externalFetchResults] = await Promise.all([
+    // Rip all calendars with bounded concurrency
+    parallelMap(
+      enabledConfigs,
+      async (config) => {
+        console.log(`Ripping ${config.config.name}`);
+        let calendars: RipperCalendar[];
+        try {
+          calendars = await config.ripperImpl.rip(config);
+        } catch (error) {
+          console.error(`Ripper ${config.config.name} threw an unhandled error: ${error}`);
+          calendars = config.config.calendars.map(cal => ({
+            name: cal.name,
+            friendlyname: cal.friendlyname,
+            events: [],
+            errors: [{ type: "ParseError" as const, reason: `Ripper crashed: ${error}`, context: "" }],
+            parent: config.config,
+            tags: cal.tags || [],
+          }));
+        }
+        return { config, calendars };
+      },
+      CONCURRENCY
+    ),
+    // Fetch all external calendars with bounded concurrency
+    parallelMap(
+      activeExternalCalendars,
+      async (calendar): Promise<ExternalFetchResult> => {
+        try {
+          console.log(`Fetching external calendar: ${calendar.friendlyname}`);
+          const response = await fetch(calendar.icsUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          }
+          return { calendar, icsContent: await response.text(), error: null };
+        } catch (error) {
+          console.error(`  - Failed to fetch ${calendar.friendlyname}: ${error}`);
+          return { calendar, icsContent: null, error };
+        }
+      },
+      CONCURRENCY
+    )
+  ]);
+
+  // Build ICS content cache from external fetch results
+  const externalIcsCache = new Map<string, string>();
+  for (const result of externalFetchResults) {
+    if (result.icsContent) {
+      externalIcsCache.set(result.calendar.icsUrl, result.icsContent);
     }
+  }
+
+  // --- Process ripper results (preserving original order for ToC) ---
+  for (const { config, calendars } of ripperResults) {
     allCalendars.push(...calendars);
 
     const outputs: CalendarOutput[] = [];
+    const writePromises: Promise<void>[] = [];
+
     for (const calendar of calendars) {
       const icsPath = `${config.config.name}-${calendar.name}.ics`;
       const errorsPath = `${config.config.name}-${calendar.name}-errors.txt`;
@@ -388,11 +471,11 @@ export const main = async () => {
       if (errorCount > 0) {
         console.error(calendar.errors);
       }
-      await writeFile(`output/${icsPath}`, icsString);
-      await writeFile(
+      writePromises.push(writeFile(`output/${icsPath}`, icsString));
+      writePromises.push(writeFile(
         `output/${errorsPath}`,
         JSON.stringify(calendar.errors, null, 2)
-      );
+      ));
       outputs.push({
         errorCount,
         errorsPath,
@@ -401,6 +484,9 @@ export const main = async () => {
         tags: calendar.tags || [],
       });
     }
+
+    await Promise.all(writePromises);
+
     tableOfContents += generateCalendarList(
       config.config,
       outputs,
@@ -414,10 +500,6 @@ export const main = async () => {
   }
 
   // Add external calendars to the table of contents
-  const activeExternalCalendars = externalCalendars.filter(
-    (cal) => !cal.disabled
-  );
-
   if (activeExternalCalendars.length > 0) {
     tableOfContents += generateExternalCalendarList(activeExternalCalendars);
   }
@@ -436,12 +518,14 @@ export const main = async () => {
   console.log("Generating aggregate calendars based on tags...");
   const aggregateCalendars = await createAggregateCalendars(
     allCalendars,
-    taggedExternalCalendars
+    taggedExternalCalendars,
+    externalIcsCache
   );
 
   // Add aggregate calendars to output
   if (aggregateCalendars.length > 0) {
     const aggregateOutputs: CalendarOutput[] = [];
+    const aggregateWritePromises: Promise<void>[] = [];
 
     for (const calendar of aggregateCalendars) {
       const icsPath = `${calendar.name}.ics`;
@@ -455,11 +539,11 @@ export const main = async () => {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
       }
 
-      await writeFile(`output/${icsPath}`, icsString);
-      await writeFile(
+      aggregateWritePromises.push(writeFile(`output/${icsPath}`, icsString));
+      aggregateWritePromises.push(writeFile(
         `output/${errorsPath}`,
         JSON.stringify(calendar.errors, null, 2)
-      );
+      ));
 
       aggregateOutputs.push({
         errorCount,
@@ -469,20 +553,17 @@ export const main = async () => {
         tags: calendar.tags || [],
       });
     }
+
+    await Promise.all(aggregateWritePromises);
   }
 
-  // Generate external calendar files
-  console.log("Generating external calendar files...");
-  for (const calendar of activeExternalCalendars) {
-    try {
-      console.log(`Fetching external calendar: ${calendar.friendlyname}`);
-      const response = await fetch(calendar.icsUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      const icsContent = await response.text();
+  // Write external calendar files from pre-fetched results
+  console.log("Writing external calendar files...");
+  const externalWritePromises: Promise<void>[] = [];
+  for (const { calendar, icsContent, error } of externalFetchResults) {
+    if (icsContent) {
       const localFileName = `external-${calendar.name}.ics`;
-      await writeFile(`output/${localFileName}`, icsContent);
+      externalWritePromises.push(writeFile(`output/${localFileName}`, icsContent));
       const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
       console.log(`${eventCount} events for external-${calendar.name}`);
       eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount });
@@ -492,8 +573,7 @@ export const main = async () => {
       if (eventCount === 0) {
         console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has 0 events — this may indicate a problem`);
       }
-    } catch (error) {
-      console.error(`  - Failed to fetch ${calendar.friendlyname}: ${error}`);
+    } else {
       // Create empty calendar file as fallback
       const emptyCalendar = `BEGIN:VCALENDAR
 VERSION:2.0
@@ -503,9 +583,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:${calendar.friendlyname} (Error)
 X-WR-CALDESC:Failed to fetch external calendar: ${error}
 END:VCALENDAR`;
-      await writeFile(`output/external-${calendar.name}.ics`, emptyCalendar);
+      externalWritePromises.push(writeFile(`output/external-${calendar.name}.ics`, emptyCalendar));
     }
   }
+  await Promise.all(externalWritePromises);
 
   console.log("generating JSON manifest");
 
@@ -638,27 +719,30 @@ END:VCALENDAR`;
     }
   }
 
-  // Index external calendar events
+  // Index external calendar events using cached ICS data
   for (const calendar of activeExternalCalendars) {
     const icsUrl = `external-${calendar.name}.ics`;
 
     // Skip calendars excluded from manifest (no future events)
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
 
-    try {
-      const externalEvents = await fetchExternalCalendar(calendar.icsUrl);
-      for (const event of externalEvents) {
-        eventsIndex.push({
-          icsUrl,
-          summary: event.summary,
-          description: event.description?.slice(0, 200),
-          location: event.location,
-          date: event.date.toString(),
-          url: event.url,
-        });
+    const cachedIcs = externalIcsCache.get(calendar.icsUrl);
+    if (cachedIcs) {
+      try {
+        const externalEvents = parseExternalCalendarEvents(cachedIcs);
+        for (const event of externalEvents) {
+          eventsIndex.push({
+            icsUrl,
+            summary: event.summary,
+            description: event.description?.slice(0, 200),
+            location: event.location,
+            date: event.date.toString(),
+            url: event.url,
+          });
+        }
+      } catch (error) {
+        console.error(`Failed to index external calendar ${calendar.friendlyname}: ${error}`);
       }
-    } catch (error) {
-      console.error(`Failed to index external calendar ${calendar.friendlyname}: ${error}`);
     }
   }
 

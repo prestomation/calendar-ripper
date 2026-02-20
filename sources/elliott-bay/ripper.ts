@@ -8,6 +8,9 @@ const DEFAULT_LOCATION = '1521 10th Ave, Seattle, WA 98122';
 export default class ElliottBayRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const token = process.env.EVENTBRITE_TOKEN;
+        if (!token) {
+            throw new Error("EVENTBRITE_TOKEN environment variable is not set");
+        }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
@@ -142,7 +145,7 @@ export default class ElliottBayRipper implements IRipper {
                 results.push({
                     type: "ParseError",
                     reason: `Failed to parse event: ${error}`,
-                    context: JSON.stringify(event).substring(0, 100) + "..."
+                    context: event.id?.toString()
                 });
             }
         }

@@ -97,7 +97,9 @@ export default class SpectrumDanceRipper implements IRipper {
 
             for (const datePerformances of Object.values(performancesByDate)) {
                 for (const perf of datePerformances) {
-                    if (typeof perf.performanceId === 'number' && !seenIds.has(perf.performanceId)) {
+                    if (typeof perf.performanceId !== 'number') {
+                        console.warn(`OvationTix: Performance missing valid performanceId:`, perf);
+                    } else if (!seenIds.has(perf.performanceId)) {
                         seenIds.add(perf.performanceId);
                         allPerformances.push(perf);
                     }

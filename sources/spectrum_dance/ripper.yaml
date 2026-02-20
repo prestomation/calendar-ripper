@@ -1,0 +1,13 @@
+name: spectrum_dance
+description: "Spectrum Dance Theater"
+url: "https://api.ovationtix.com/public/calendar/client(36947)"
+friendlyLink: "https://spectrumdance.org"
+tags: ["Arts"]
+calendars:
+  - name: spectrum_dance
+    friendlyname: "Spectrum Dance Theater"
+    timezone: America/Los_Angeles
+    config:
+      clientId: 36947
+      clientOrigin: "https://spectrumdance.org"
+      lookaheadMonths: 6

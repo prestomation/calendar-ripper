@@ -211,12 +211,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Museums, Arts, Ballard
 - **Note:** Museum in Ballard dedicated to Nordic history, art, and culture. Events include the Mostly Nordic Chamber Music Series, Nordic Sol, Julefest, film screenings, and lectures.
 
-#### Frye Art Museum
-- **URL:** https://fryemuseum.org/calendar
-- **Platform:** Custom CMS; uses Bloomberg Connects for in-museum digital guides. No ICS or API found.
-- **Tags:** Arts, Museums
-- **Note:** Free-admission art museum at 704 Terry Ave (First Hill). Artist talks, lectures, film screenings, performances, and receptions. Calendar page has structured event listings with dates — HTML scraping appears viable. Events linked to from individual pages with schema.org microdata. Low-to-medium event volume.
-
 #### Burke Museum
 - **URL:** https://www.burkemuseum.org/calendar
 - **Platform:** Custom CMS (Drupal suspected based on URL structure); no ICS feed found

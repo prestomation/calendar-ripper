@@ -256,8 +256,9 @@ async function parallelMap<T, R>(
   let index = 0;
 
   async function worker() {
-    while (index < items.length) {
+    while (true) {
       const i = index++;
+      if (i >= items.length) break;
       results[i] = await fn(items[i]);
     }
   }

@@ -72,11 +72,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Tags:** Arts, Education, Capitol Hill
 - **Note:** Iconic independent bookstore at 1521 10th Ave, Capitol Hill. 50+ author readings and literary events per year, nearly all free. Events consistently listed on Eventbrite. Access via the Eventbrite API querying organizer `30672130426`.
 
-### Spectrum Dance Theater (OvationTix)
-- **URL:** https://spectrumdance.org/
-- **Platform:** WordPress; ticketing via OvationTix (AudienceView Professional) — same platform as Taproot Theatre
-- **Tags:** Arts
-- **Note:** Founded 1982, led by choreographer Donald Byrd since 2002. Contemporary dance company at Madrona Beach. OvationTix client ID needs to be extracted from the ticketing page source. Shares the OvationTix public REST API endpoint pattern with Taproot (client ID `37019`). Check `https://spectrumdance.org/tickets/` page source for their client ID.
 
 ## HTML Scraping (Last Resort)
 

@@ -33,7 +33,7 @@ export default class MoPOPRipper extends HTMLRipper {
                 const data = JSON.parse(script.rawText);
                 if (typeof data !== 'object' || data === null) continue;
 
-                const eventItems = data.hasPart?.filter((p: any) => p["@type"] === "Event") || [];
+                const eventItems = Array.isArray(data.hasPart) ? data.hasPart.filter((p: any) => p["@type"] === "Event") : [];
                 for (const item of eventItems) {
                     const parsed = this.parseJsonLdEvent(item);
                     if (!parsed) continue;

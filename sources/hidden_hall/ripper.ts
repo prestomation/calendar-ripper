@@ -115,7 +115,7 @@ export default class HiddenHallRipper extends HTMLRipper {
     }
 
     private extractEventId(url: string): string {
-        if (!url) return `hidden-hall-${Date.now()}`;
+        if (!url) return 'hidden-hall-unknown';
         // Extract slug from URL like "https://www.tixr.com/groups/hiddenhall/events/swift-me-away-173706"
         const match = url.match(/events\/([^/?]+)/);
         return match ? match[1] : url;

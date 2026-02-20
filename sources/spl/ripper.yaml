@@ -1,0 +1,145 @@
+name: spl
+friendlyname: "Seattle Public Library"
+description: "Seattle Public Library"
+url: "https://www.trumba.com/calendars/kalendaro.json"
+friendlyLink: https://www.spl.org/event-calendar
+tags: ["Community", "Education"]
+lookahead: P6W
+calendars:
+  - name: central-library
+    friendlyname: "SPL - Central Library"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Central Library"
+    tags: ["Downtown"]
+  - name: ballard
+    friendlyname: "SPL - Ballard Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Ballard Branch"
+    tags: ["Ballard"]
+  - name: beacon-hill
+    friendlyname: "SPL - Beacon Hill Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Beacon Hill Branch"
+    tags: ["Beacon Hill"]
+  - name: broadview
+    friendlyname: "SPL - Broadview Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Broadview Branch"
+  - name: capitol-hill
+    friendlyname: "SPL - Capitol Hill Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Capitol Hill Branch"
+    tags: ["Capitol Hill"]
+  - name: columbia
+    friendlyname: "SPL - Columbia Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Columbia Branch"
+  - name: delridge
+    friendlyname: "SPL - Delridge Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Delridge Branch"
+  - name: douglass-truth
+    friendlyname: "SPL - Douglass-Truth Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Douglass-Truth Branch"
+    tags: ["Central District"]
+  - name: fremont
+    friendlyname: "SPL - Fremont Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Fremont Branch"
+    tags: ["Fremont"]
+  - name: green-lake
+    friendlyname: "SPL - Green Lake Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Green Lake Branch"
+  - name: greenwood
+    friendlyname: "SPL - Greenwood Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Greenwood Branch"
+    tags: ["Greenwood"]
+  - name: high-point
+    friendlyname: "SPL - High Point Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "High Point Branch"
+  - name: international-district
+    friendlyname: "SPL - International District/Chinatown Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "International District/Chinatown Branch"
+    tags: ["International District"]
+  - name: lake-city
+    friendlyname: "SPL - Lake City Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Lake City Branch"
+    tags: ["Lake City"]
+  - name: magnolia
+    friendlyname: "SPL - Magnolia Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Magnolia Branch"
+  - name: newholly
+    friendlyname: "SPL - NewHolly Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "NewHolly Branch"
+  - name: northeast
+    friendlyname: "SPL - Northeast Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Northeast Branch"
+  - name: northgate
+    friendlyname: "SPL - Northgate Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Northgate Branch"
+  - name: queen-anne
+    friendlyname: "SPL - Queen Anne Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Queen Anne Branch"
+    tags: ["QueenAnne"]
+  - name: rainier-beach
+    friendlyname: "SPL - Rainier Beach Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Rainier Beach Branch"
+  - name: south-park
+    friendlyname: "SPL - South Park Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "South Park Branch"
+  - name: southwest
+    friendlyname: "SPL - Southwest Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Southwest Branch"
+  - name: university
+    friendlyname: "SPL - University Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "University Branch"
+    tags: ["University District"]
+  - name: west-seattle
+    friendlyname: "SPL - West Seattle Branch"
+    timezone: America/Los_Angeles
+    config:
+      branch: "West Seattle Branch"
+    tags: ["West Seattle"]
+  - name: online
+    friendlyname: "SPL - Online Events"
+    timezone: America/Los_Angeles
+    config:
+      branch: "Online"

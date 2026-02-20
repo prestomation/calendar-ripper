@@ -124,13 +124,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** Food
 - **Note:** Comprehensive food truck schedule covering 500+ trucks across 675+ locations. Has an undocumented API reverse-engineered by the `seattle-food-truck` Python package on PyPI (https://github.com/clintval/seattle-food-truck). Provides location discovery and schedule queries.
 
-### Hidden Hall (Tixr API)
-- **URL:** https://hiddenhall.com/events/calendar/
-- **API Docs:** https://tixrapi.docs.apiary.io/
-- **Platform:** WordPress with custom "SG Events" plugin; ticketing via Tixr
-- **Tags:** Music, Fremont
-- **Note:** New music venue in Fremont (replaced High Dive). JSON-LD Event schema present in page markup. Tixr has a documented API. Active venue with a packed schedule.
-
 
 ## HTML Scraping (Last Resort)
 
@@ -239,12 +232,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Platform:** Kirby CMS with custom JavaScript filtering
 - **Tags:** Arts, Museums
 - **Note:** Three locations: SAM downtown, Seattle Asian Art Museum, Olympic Sculpture Park. Events have structured `data-attributes` (data-end-date, data-location, data-category, data-audiences) on HTML article elements, making scraping more straightforward.
-
-#### Museum of Pop Culture (MoPOP)
-- **URL:** https://www.mopop.org/events
-- **Platform:** Webflow CMS with FullCalendar 6.1.19
-- **Tags:** Museums, Arts, Community
-- **Note:** Major museum at Seattle Center. JSON-LD Event schema present. Interestingly hosts pricing data as JSON on GitHub (`Marketing-Ops-MOPOP/ticket-prices`). May be accessible via Webflow `?format=json` convention.
 
 #### Woodland Park Zoo
 - **URL:** https://zoo.org/events/

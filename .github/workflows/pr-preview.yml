@@ -28,28 +28,29 @@ jobs:
         with:
           name: pr-preview-${{ github.event.number }}
 
-      - name: Extract and prepare preview
-        run: |
-          mkdir -p pr-preview-${{ github.event.number }}
-          tar -xf artifact.tar -C pr-preview-${{ github.event.number }}
-
       - name: Deploy to preview branch
         run: |
+          # Move artifact to temp location so it survives branch checkout
+          cp artifact.tar /tmp/artifact.tar
+
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # Create or switch to preview branch
-          git checkout -B pr-previews
-          
-          # Remove old preview if exists
+
+          # Fetch and checkout existing preview branch, or create an orphan if it doesn't exist
+          if git fetch origin pr-previews 2>/dev/null; then
+            git checkout pr-previews
+          else
+            git checkout --orphan pr-previews
+            git rm -rf . 2>/dev/null || true
+          fi
+
+          # Remove old preview for THIS PR if exists, then add the new one
           rm -rf pr-preview-${{ github.event.number }}
-          
-          # Add new preview
           mkdir -p pr-preview-${{ github.event.number }}
-          tar -xf artifact.tar -C pr-preview-${{ github.event.number }}
-          
+          tar -xf /tmp/artifact.tar -C pr-preview-${{ github.event.number }}
+
           git add pr-preview-${{ github.event.number }}
-          git commit -m "Add PR #${{ github.event.number }} preview" || exit 0
+          git commit -m "Update PR #${{ github.event.number }} preview" || exit 0
           git push origin pr-previews --force
 
       - name: Comment PR with preview link

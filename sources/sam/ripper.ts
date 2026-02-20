@@ -18,8 +18,8 @@ export function parseTime(timeStr: string): { hour: number; minute: number } | n
     const match = timeStr.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
     if (!match) return null;
 
-    let hour = parseInt(match[1]);
-    const minute = match[2] ? parseInt(match[2]) : 0;
+    let hour = parseInt(match[1], 10);
+    const minute = match[2] ? parseInt(match[2], 10) : 0;
     const isPM = /pm/i.test(match[3]);
     const isAM = /am/i.test(match[3]);
 
@@ -43,7 +43,7 @@ export function parseTimeRange(text: string): { start: { hour: number; minute: n
         // Try single time (no range)
         const single = parseTime(normalized);
         if (single) {
-            return { start: single, end: { hour: single.hour + 1, minute: single.minute } };
+            return { start: single, end: { hour: (single.hour + 1) % 24, minute: single.minute } };
         }
         return null;
     }
@@ -139,9 +139,9 @@ export function articleToEvent(article: ParsedArticle, timezone: ZoneRegion): Ri
     const dateParts = article.startDate.split("-");
     if (dateParts.length !== 3) return null;
 
-    const year = parseInt(dateParts[0]);
-    const month = parseInt(dateParts[1]);
-    const day = parseInt(dateParts[2]);
+    const year = parseInt(dateParts[0], 10);
+    const month = parseInt(dateParts[1], 10);
+    const day = parseInt(dateParts[2], 10);
 
     let startHour = 10; // default to 10am
     let startMinute = 0;

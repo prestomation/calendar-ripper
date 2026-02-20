@@ -147,6 +147,80 @@
   tags:
   - Community
 
+- name: seattle-gov-neighborhoods
+  friendlyname: "City of Seattle — Department of Neighborhoods"
+  description: "City of Seattle Department of Neighborhoods"
+  icsUrl: "https://www.trumba.com/calendars/neighborhoods.ics"
+  infoUrl: "https://www.seattle.gov/neighborhoods/event-calendar"
+  tags:
+  - Community
+
+- name: seattle-gov-arts
+  friendlyname: "City of Seattle — Office of Arts & Cultural Affairs"
+  description: "Seattle Office of Arts & Culture"
+  icsUrl: "https://www.trumba.com/calendars/arts-and-cultural-affairs.ics"
+  infoUrl: "https://www.seattle.gov/arts/experience/events"
+  tags:
+  - Arts
+  - Community
+
+- name: seattle-gov-special-events
+  friendlyname: "City of Seattle — Special Events Planning Calendar"
+  description: "City of Seattle Special Events Planning Calendar"
+  icsUrl: "https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics"
+  infoUrl: "https://www.seattle.gov/special-events/plan-an-event/calendar"
+  tags:
+  - Community
+
+# University of Washington (Trumba)
+- name: uw-campus-events
+  friendlyname: "University of Washington — Campus Events"
+  description: "University of Washington"
+  icsUrl: "https://www.trumba.com/calendars/sea_campus.ics"
+  infoUrl: "https://calendar.washington.edu/"
+  tags:
+  - Community
+  - Arts
+  - Music
+  - University District
+
+- name: uw-school-of-music
+  friendlyname: "University of Washington — School of Music"
+  description: "UW School of Music"
+  icsUrl: "https://www.trumba.com/calendars/sea_music.ics"
+  infoUrl: "https://music.washington.edu/"
+  tags:
+  - Music
+  - University District
+
+- name: uw-school-of-art
+  friendlyname: "University of Washington — School of Art + Art History + Design"
+  description: "UW School of Art + Art History + Design"
+  icsUrl: "https://www.trumba.com/calendars/sea_art.ics"
+  infoUrl: "https://art.uw.edu/"
+  tags:
+  - Arts
+  - University District
+
+# WorkSource (Trumba)
+- name: worksource-north-seattle
+  friendlyname: "WorkSource North Seattle"
+  description: "WorkSource North Seattle"
+  icsUrl: "https://www.trumba.com/calendars/worksource-north-seattle.ics"
+  infoUrl: "https://www.worksourcewa.com/"
+  tags:
+  - Community
+  - Education
+
+- name: worksource-downtown-seattle
+  friendlyname: "WorkSource Downtown Seattle"
+  description: "WorkSource Downtown Seattle"
+  icsUrl: "https://www.trumba.com/calendars/worksource-downtown-seattle.ics"
+  infoUrl: "https://www.worksourcewa.com/"
+  tags:
+  - Community
+  - Education
+
 # Performing Arts & Music Venues (Confirmed ICS Feeds)
 - name: hugo-house
   friendlyname: "Hugo House"

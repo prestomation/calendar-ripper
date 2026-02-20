@@ -176,12 +176,21 @@ export default class TaprootRipper implements IRipper {
 
         try {
             // performanceDate: "MM/DD/YYYY"
-            const [monthStr, dayStr, yearStr] = String(perf.performanceDate).split('/');
-            const date = LocalDate.of(parseInt(yearStr), parseInt(monthStr), parseInt(dayStr));
+            const dateParts = String(perf.performanceDate).split('/');
+            if (dateParts.length < 3) return null;
+            const month = parseInt(dateParts[0]);
+            const day = parseInt(dateParts[1]);
+            const year = parseInt(dateParts[2]);
+            if (isNaN(month) || isNaN(day) || isNaN(year)) return null;
+            const date = LocalDate.of(year, month, day);
 
             // performanceTime24: "HH:MM:SS"
-            const [hoursStr, minutesStr] = String(perf.performanceTime24).split(':');
-            const time = LocalTime.of(parseInt(hoursStr), parseInt(minutesStr));
+            const timeParts = String(perf.performanceTime24).split(':');
+            if (timeParts.length < 2) return null;
+            const hours = parseInt(timeParts[0]);
+            const minutes = parseInt(timeParts[1]);
+            if (isNaN(hours) || isNaN(minutes)) return null;
+            const time = LocalTime.of(hours, minutes);
 
             return LocalDateTime.of(date, time);
         } catch {
@@ -192,11 +201,14 @@ export default class TaprootRipper implements IRipper {
     private stripHtml(html: string): string {
         return html
             .replace(/<[^>]*>/g, ' ')
+            .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+            .replace(/&#([0-9]+);/g, (_, dec) => String.fromCharCode(parseInt(dec, 10)))
             .replace(/&amp;/g, '&')
             .replace(/&lt;/g, '<')
             .replace(/&gt;/g, '>')
             .replace(/&quot;/g, '"')
             .replace(/&#39;/g, "'")
+            .replace(/&apos;/g, "'")
             .replace(/&nbsp;/g, ' ')
             .replace(/\s+/g, ' ')
             .trim();

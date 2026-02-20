@@ -101,8 +101,26 @@ describe('TaprootRipper', () => {
         expect(calEvents[0].summary).toBe('Till We Have Faces: Mainstage');
     });
 
-    it('should return a ParseError for invalid dates', () => {
+    it('should return a ParseError for null dates', () => {
         const performances = [makePerformance({ performanceDate: null, performanceTime24: null })];
+        const events = ripper.parseEvents(performances, timezone);
+        const errors = events.filter(e => 'type' in e) as RipperError[];
+
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+    });
+
+    it('should return a ParseError for malformed date string', () => {
+        const performances = [makePerformance({ performanceDate: '20260220', performanceTime24: '19:30:00' })];
+        const events = ripper.parseEvents(performances, timezone);
+        const errors = events.filter(e => 'type' in e) as RipperError[];
+
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+    });
+
+    it('should return a ParseError for non-numeric date parts', () => {
+        const performances = [makePerformance({ performanceDate: 'ab/cd/efgh', performanceTime24: '19:30:00' })];
         const events = ripper.parseEvents(performances, timezone);
         const errors = events.filter(e => 'type' in e) as RipperError[];
 
@@ -135,6 +153,19 @@ describe('TaprootRipper', () => {
         const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
 
         expect(calEvents[0].description).toBe('Hello & world');
+    });
+
+    it('should decode numeric HTML entities in description', () => {
+        const performances = [makePerformance({
+            performanceSubTitle: "",
+            productionDescription: "Caf&#233; &amp; &#x2665; &#60;great&#62;"
+        })];
+        const events = ripper.parseEvents(performances, timezone);
+        const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+
+        expect(calEvents[0].description).toContain('Café');
+        expect(calEvents[0].description).toContain('♥');
+        expect(calEvents[0].description).toContain('<great>');
     });
 
     it('should set duration to 2.5 hours', () => {

@@ -19,14 +19,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Public Outreach:** Try `https://www.trumba.com/calendars/seattlegov-outreach.ics`
 - **Note:** The city-wide Trumba calendar is already added (`seattlegov-city-wide`). These are potential subcalendars for more targeted event feeds. The exact calendar web names need to be discovered — inspect the seattle.gov pages for `trumba.com/calendars/<name>` links.
 
-### Taproot Theatre (OvationTix API)
-- **URL:** https://taproottheatre.org/
-- **API:** OvationTix public REST API — `https://api.ovationtix.com/public/events/client(37019)`
-- **API Docs:** https://api.ovationtix.com/public/documentation/index.html
-- **Platform:** WordPress; ticketing via OvationTix (AudienceView Professional), client ID `37019`
-- **Tags:** Theatre, Greenwood
-- **Note:** Community-focused theater in Greenwood. The OvationTix public API returns JSON with events, calendar, and series endpoints. Requires `clientId` header.
-
 ### Seattle Public Library (LibCal API)
 - **URL:** https://calendar.spl.org/event-calendar
 - **API:** LibCal REST API v1.1 at `https://calendar.spl.org/1.1/`

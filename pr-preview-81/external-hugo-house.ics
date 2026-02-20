@@ -1,0 +1,86 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hugo House - ECPv6.15.13.1//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Hugo House
+X-ORIGINAL-URL:https://hugohouse.org
+X-WR-CALDESC:Events for Hugo House
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260224T170000
+DTEND;TZID=America/Los_Angeles:20260224T210000
+DTSTAMP:20260220T001032
+CREATED:20260128T045133Z
+LAST-MODIFIED:20260219T003228Z
+UID:1514470-1771952400-1771966800@hugohouse.org
+SUMMARY:DUNE Mini-Comics Night
+DESCRIPTION:DUNE* Mini-Comics Night is where folks are invited to create the contents of a black and white\, 5.5” x 8.5” printed anthology within a limited amount of time\, in one evening with no prompts or themes. Create whatever you want but it must be physical and finished by the end of the night. \nAn exclusive edition of the book will be published and distributed to only the contributors at the following DUNE meet-up. \n \nThis is a night of communal productivity and creation with a deadline\, not just drinking and drawing. It is also meant to be a challenge to one’s abilities to create a finished piece of self-satisfied work within the limitations. Bring the art supplies and paper that you are most comfortable working with and join dozens of illustrators and cartoonists on the 4th Tuesday of each month from 5pm – 9pm. Space fills up quickly so be on time or you may have to wait for space to create. \n \nAs always\, this is a community funded project and we’ll ask for donations of $5 per submission for printing/publishing and renting the space at the historic Hugo House. Please do our hosts a favor and order one drink minimum from the Book Bar. \n \nAll are welcome! Don’t be a jerk! \n \n*There is no relation to DUNE by Frank Herbert\, but you are welcome to submit DUNE inspired works. \n \n4th Tuesday of Each Month 5-9pm \nHugo House \n1634 11th Ave\, Seattle\, WA 98122 \n \nFree admission to this event is made possible with support from 4Culture.
+URL:https://hugohouse.org/event/_2026-02-24/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260225T183000
+DTEND;TZID=America/Los_Angeles:20260225T203000
+DTSTAMP:20260220T001032
+CREATED:20260121T053724Z
+LAST-MODIFIED:20260217T214535Z
+UID:952553-1772044200-1772051400@hugohouse.org
+SUMMARY:Mix Tape: Poetry and Conversation with Former Hugo Fellows
+DESCRIPTION:Former Hugo House fellows Bill Carty\, Laura Da’\, Deirdre Lockwood and Shankar Narayan share poetry and chat about their fellowship experience and more. \nEvent Schedule: \n6:30 Introductions \nShort readings \n6:40 Bill Carty \n6:55 Laura Da’ \n7:10 Deirdre Lockwood \n7:25 Shankar Narayan \n7:40 Q&A / discussion to follow ~20 min \n8:00: Reception/book signing
+URL:https://hugohouse.org/event/_2026-02-25/
+CATEGORIES:Reading
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260226T180000
+DTEND;TZID=America/Los_Angeles:20260226T200000
+DTSTAMP:20260220T001032
+CREATED:20260128T235325Z
+LAST-MODIFIED:20260219T204836Z
+UID:966520-1772128800-1772136000@hugohouse.org
+SUMMARY:Family Secrets: A Poetic Dialogue between Esther Lin and Sharon Hashimoto
+DESCRIPTION:Please join us in uncovering long-held family secrets by way of a conversation in poems\, from ekphrases inspired by misty old photos\, secret marriages\, incarceration\, and flight from war—the poems of former Hugo House instructor Lin and noted Northwest poet and fiction writer Hashimoto don't hold back.  \nReading with Q&A to follow.
+URL:https://hugohouse.org/event/_2026-02-26/
+CATEGORIES:Reading
+END:VEVENT
+END:VCALENDAR

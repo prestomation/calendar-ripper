@@ -65,14 +65,6 @@ Potential Seattle-area calendar sources to add in the future, organized by integ
 - **Note:** New music venue in Fremont (replaced High Dive). JSON-LD Event schema present in page markup. Tixr has a documented API. Active venue with a packed schedule.
 
 
-### Elliott Bay Book Company (Eventbrite)
-- **URL:** https://www.elliottbaybook.com/events
-- **Eventbrite Organizer ID:** `30672130426`
-- **Platform:** Custom site; event listings via Eventbrite
-- **Tags:** Arts, Education, Capitol Hill
-- **Note:** Iconic independent bookstore at 1521 10th Ave, Capitol Hill. 50+ author readings and literary events per year, nearly all free. Events consistently listed on Eventbrite. Access via the Eventbrite API querying organizer `30672130426`.
-
-
 ## HTML Scraping (Last Resort)
 
 ### Theaters

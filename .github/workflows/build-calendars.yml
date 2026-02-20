@@ -42,6 +42,7 @@ jobs:
       id: generate-calendars
       env:
         TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+        EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
       run: |
         npm run generate-calendars
         cat errorCount.txt

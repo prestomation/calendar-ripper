@@ -28,13 +28,11 @@ jobs:
         with:
           name: pr-preview-${{ github.event.number }}
 
-      - name: Extract and prepare preview
-        run: |
-          mkdir -p pr-preview-${{ github.event.number }}
-          tar -xf artifact.tar -C pr-preview-${{ github.event.number }}
-
       - name: Deploy to preview branch
         run: |
+          # Move artifact to temp location so it survives branch checkout
+          cp artifact.tar /tmp/artifact.tar
+
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
@@ -49,7 +47,7 @@ jobs:
           # Remove old preview for THIS PR if exists, then add the new one
           rm -rf pr-preview-${{ github.event.number }}
           mkdir -p pr-preview-${{ github.event.number }}
-          tar -xf artifact.tar -C pr-preview-${{ github.event.number }}
+          tar -xf /tmp/artifact.tar -C pr-preview-${{ github.event.number }}
 
           git add pr-preview-${{ github.event.number }}
           git commit -m "Update PR #${{ github.event.number }} preview" || exit 0

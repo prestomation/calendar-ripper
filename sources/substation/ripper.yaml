@@ -1,5 +1,6 @@
 name: substation
 type: axs
+disabled: true # Cloudflare bot protection blocks the proxy; need a better proxy solution
 friendlyname: "Substation"
 description: "Beacon Hill music venue and community space"
 url: "https://www.axs.com/venues/131334/substation-seattle-tickets"

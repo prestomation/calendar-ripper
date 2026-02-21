@@ -12,9 +12,9 @@ describe('Events12Ripper', () => {
     it('should parse events from sample HTML data', async () => {
         const ripper = new Events12Ripper();
         const htmlContent = readFileSync('sources/events12/sample-data.html', 'utf-8');
-        // Simulate the preprocessHtml -> parse -> parseEvents flow
-        (ripper as any).rawHtml = htmlContent;
-        const html = parse(htmlContent);
+        // Exercise the actual preprocessHtml -> parse -> parseEvents flow
+        const processedHtml = (ripper as any).preprocessHtml(htmlContent);
+        const html = parse(processedHtml);
 
         const events = await ripper.parseEvents(html, testDate, {});
         const calEvents = events.filter(e => 'date' in e);

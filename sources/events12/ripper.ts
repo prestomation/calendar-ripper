@@ -23,11 +23,16 @@ export default class Events12Ripper extends HTMLRipper {
 
         // Extract each article via regex and parse individually to avoid
         // node-html-parser nesting issues with the full document.
-        const articleRegex = /<article [^>]*id="[^"]*"[^>]*>([\s\S]*?)<\/article>/g;
+        const articleRegex = /<article\s[^>]*id="[^"]*"[^>]*>[\s\S]*?<\/article>/g;
         const source = this.rawHtml || html.outerHTML;
         let match;
 
         while ((match = articleRegex.exec(source)) !== null) {
+            // Guard against zero-length matches to prevent infinite loops
+            if (match[0].length === 0) {
+                articleRegex.lastIndex++;
+                continue;
+            }
             try {
                 const article = parse(match[0]);
 

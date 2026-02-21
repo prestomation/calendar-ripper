@@ -1,0 +1,191 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Museum of History &amp; Industry - ECPv6.15.15//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Museum of History &amp; Industry
+X-ORIGINAL-URL:https://mohai.org
+X-WR-CALDESC:Events for Museum of History &amp; Industry
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260213
+DTEND;VALUE=DATE:20260223
+DTSTAMP:20260221T051930
+CREATED:20221215T080000Z
+LAST-MODIFIED:20260204T215212Z
+UID:10004185-1770940800-1771804799@mohai.org
+SUMMARY:School Employee Appreciation Week
+DESCRIPTION:During Mid-Winter Break\, MOHAI is offering FREE admission to school employees to celebrate those who work to support students throughout the Puget Sound region. \nBetween February 13 – February 22\, bring your proof of school employment to the front desk for free admission to MOHAI. Explore our special temporary exhibit Kickstands Up! 125 Years of Motorcycling in the PNW and the display Riding Together: 135 Years of Cycling in Seattle \nSchool employees also receive 20% off purchases at MOHAI Mercantile!
+URL:https://mohai.org/event/school-employee-appreciation-week/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Education
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2024/11/Teacher-Appreciation-Week_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260228T090000
+DTEND;TZID=America/Los_Angeles:20260228T110000
+DTSTAMP:20260221T051930
+CREATED:20240918T070000Z
+LAST-MODIFIED:20260114T201449Z
+UID:10004007-1772269200-1772276400@mohai.org
+SUMMARY:Sensory Friendly Morning
+DESCRIPTION:This event welcomes adults and families who may benefit from a low-sensory environment to explore the museum. During this event\, the museum will be closed to the general public and the lights and sounds in the gallery will be lowered. A sensory map and information about what to expect during your visit to MOHAI will be provided via email following registration. Spots are limited so register early! \nTítulo: Horas más tranquilas\nFecha/hora: sábado 28 de febrero\, de 9:00 a. m. a 11:00 a. m.\nCosto: gratuito con inscripción previa \nEste evento da la bienvenida a adultos y familias que puedan beneficiarse de un entorno con bajo nivel sensorial para explorar el museo. Durante el evento\, el museo permanecerá cerrado al público en general\, y se bajarán las luces y los sonidos de la galería. Tras la inscripción\, se enviará por correo electrónico un mapa sensorial e información sobre lo que puede esperar durante su visita al Museum of History & Industry (MOHAI\, Museo de Historia e Industria). Los cupos son limitados\, así que inscríbase pronto.
+URL:https://mohai.org/event/sensory-friendly-morning/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Civics
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2024/10/Sensory-Friendly-Morning_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T170000
+DTEND;TZID=America/Los_Angeles:20260305T200000
+DTSTAMP:20260221T051930
+CREATED:20230119T080000Z
+LAST-MODIFIED:20260130T214053Z
+UID:10004171-1772730000-1772740800@mohai.org
+SUMMARY:First Thursday - March
+DESCRIPTION:Visit MOHAI on the First Thursday of every month for free admission to the museum’s permanent exhibits between 5—8 pm.  \nFree admission includes access to all of MOHAI’s award winning exhibits\, including our temporary display Riding Together: 135 Years of Cycling in Seattle\, and special exhibit Kickstands Up! 125 Years of Motorcycling in the PNW. Advance online tickets are not required\, but may be reserved below. \nThis evening only\, you can also join a Bicycle Repair Workshop with Bike Works! See more information and register for the 5:30 Session or the 6:45 Session.
+URL:https://mohai.org/event/first-thursday-march/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Entertainment
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/01/free_first_thursday_march_hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T173000
+DTEND;TZID=America/Los_Angeles:20260305T183000
+DTSTAMP:20260221T051930
+CREATED:20251128T205421Z
+LAST-MODIFIED:20260205T202542Z
+UID:10005110-1772731800-1772735400@mohai.org
+SUMMARY:Bicycle Repair Workshop with Bike Works
+DESCRIPTION:This event has sold out\nAspiring and experienced cyclists alike agree that life is better when your bike works. This is why representatives from Bike Works will be onsite during Free First Thursday to teach two hour-long bicycle repair workshops. Learn the basics that will keep you safely riding after the rubber meets the road. While you’re at the museum\, get a crash course in Seattle cycling history from MOHAI’s exhibit\, Riding Together: 135 Years of Cycling in Seattle. \nThese workshops are offered for free and require registration\, as space is limited. For accessibility support\, general inquiries\, or to be added to a wait list please email programs@mohai.org.
+URL:https://mohai.org/event/bicycle-repair-workshop-with-bike-works/2026-03-05/1/
+LOCATION:Microsoft Lakefront Pavilion\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Education,Hobbies,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/11/Bicycle-Repair-Workshop-with-Bike-Works_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T184500
+DTEND;TZID=America/Los_Angeles:20260305T194500
+DTSTAMP:20260221T051930
+CREATED:20251128T205421Z
+LAST-MODIFIED:20260205T202542Z
+UID:10005111-1772736300-1772739900@mohai.org
+SUMMARY:Bicycle Repair Workshop with Bike Works
+DESCRIPTION:This event has sold out\nAspiring and experienced cyclists alike agree that life is better when your bike works. This is why representatives from Bike Works will be onsite during Free First Thursday to teach two hour-long bicycle repair workshops. Learn the basics that will keep you safely riding after the rubber meets the road. While you’re at the museum\, get a crash course in Seattle cycling history from MOHAI’s exhibit\, Riding Together: 135 Years of Cycling in Seattle. \nThese workshops are offered for free and require registration\, as space is limited. For accessibility support\, general inquiries\, or to be added to a wait list please email programs@mohai.org.
+URL:https://mohai.org/event/bicycle-repair-workshop-with-bike-works/2026-03-05/2/
+LOCATION:Microsoft Lakefront Pavilion\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Education,Hobbies,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/11/Bicycle-Repair-Workshop-with-Bike-Works_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T130000
+DTEND;TZID=America/Los_Angeles:20260307T150000
+DTSTAMP:20260221T051930
+CREATED:20260209T180500Z
+LAST-MODIFIED:20260209T180629Z
+UID:10005123-1772888400-1772895600@mohai.org
+SUMMARY:Kickstands Up! Gallery Tour with Dykes on Bikes
+DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in the Pacific Northwest with a gallery talk by a Monkey\, Ride Captain from Seattle Dykes on Bikes Womxn’s Motorcycle Club. Learn more about the organization’s history in the fight for LGBTQ+ rights and the bikes that hold a special place in their hearts. \nSpots are limited and are assigned on a first-come\, first-served basis. \nFor accessibility support\, please contact programs@mohai.org two weeks before the event. \nPhoto: MOHAI\, Seattle Post-Intelligencer Collection\, 2000.107.19930627.5.15\, by Gilbert W. Arias
+URL:https://mohai.org/event/kickstands-up-gallery-tour-with-dykes-on-bikes/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Hobbies,LGBTQIA+,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/02/Gallery-Talk-with-Dykes-on-Bikes_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260313T190000
+DTEND;TZID=America/Los_Angeles:20260313T210000
+DTSTAMP:20260221T051930
+CREATED:20260218T185724Z
+LAST-MODIFIED:20260219T201902Z
+UID:10005124-1773428400-1773435600@mohai.org
+SUMMARY:From Rails to Trails Film Screening
+DESCRIPTION:If you have ever ridden on the Burke-Gilman Trail\, you’ve traversed part of a vast\, 3\,700-mile network known as the Great American Rail-Trail. The ambitious project of converting the nation’s abandoned rail lines into public corridors\, supported by more than a century of advocacy\, is the subject of a recent PBS documentary\, From Rails to Trails. \nNarrated by actor Edward Norton\, the film tells the story of one of the most unlikely social movements in American history. Join MOHAI and Cascade Bicycle Club for a special showing of the film. Tyler Vasquez\, Seattle Policy and Advocacy Officer\, will serve as the event’s MC\, bringing energy while highlighting the bike lanes delivered over the past five years and sharing a vision for the future of biking across the Puget Sound. He will also engage with the audience by answering questions about Seattle’s Bicycle Network and discussing how we can carry forward the momentum built by the advocates who came before him. \nFrom 6-7pm\, celebrate and explore Riding Together: 135 Years of Cycling in Seattle\, MOHAI’s current exhibition on display through April 26.
+URL:https://mohai.org/event/from-rails-to-trails-film-screening/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Civics,History,Hobbies,Infrastructure,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/02/From-Rails-to-Trails-Film-Screening_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260318T183000
+DTEND;TZID=America/Los_Angeles:20260318T200000
+DTSTAMP:20260221T051930
+CREATED:20251206T070116Z
+LAST-MODIFIED:20251206T070500Z
+UID:10005113-1773858600-1773864000@mohai.org
+SUMMARY:History Café: Seattle Mystic Al Hubbard
+DESCRIPTION:Join Brad Holden\, author of Seattle Mystic Alfred M. Hubbard for a discussion of one of Seattle’s most mysterious figures. Hubbard first appeared in the papers in 1919 for his supposed invention of a perpetual motion machine that harnessed energy from Earth’s atmosphere. From there\, he transformed himself into a bootlegger\, radio pioneer\, top-secret spy\, and eventually “the Johnny Appleseed of LSD”. \nHistory Café is produced as a partnership between HistoryLink and MOHAI. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org two weeks before the program. \nGrab some food for thought–light food and drink will be available to purchase in the atrium. \nIf you can’t make it to the museum\, tune in live on the MOHAI YouTube channel to virtually attend this event.
+URL:https://mohai.org/event/history-cafe-seattle-mystic-al-hubbard/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Innovation,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/12/History-Cafe-Seattle-Mystic-Al-Hubbard_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260321T090000
+DTEND;TZID=America/Los_Angeles:20260321T150000
+DTSTAMP:20260221T051930
+CREATED:20251124T230809Z
+LAST-MODIFIED:20260219T174604Z
+UID:10005106-1774083600-1774105200@mohai.org
+SUMMARY:Motorcycle Riding Experience with Cascade Motorcycle Safety
+DESCRIPTION:Want to ride a motorcycle but don’t know where to start? Join Cascade Motorcycle Safety and Ride With Us for a chance to experience riding a motorcycle for free\, with professional Cascade Motorcycle Safety RiderCoaches helping you through each step. These 1-on-1\, 20-minute sessions are designed for total beginners\, with bikes and helmets provided. \nThis program is presented with the support of Cascade Motorcycle Safety. \nRide out the remainder of the day in MOHAI to see Kickstands Up! 125 Years of Motorcycling in the PNW. Program participants will receive a coupon for $5 off museum admission. \nAs of 2/18/26\, the location and time of this event has changed.
+URL:https://mohai.org/event/motorcycle-riding-experience-with-cascade-motorcycle-safety/
+LOCATION:South Seattle College North Parking Lot\, 6000 16th Ave SW\, Seattle\, WA\, 98106\, United States
+CATEGORIES:Hobbies,People & Culture,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/11/motorcycle-riding-lessons_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260324T180000
+DTEND;TZID=America/Los_Angeles:20260324T203000
+DTSTAMP:20260221T051930
+CREATED:20251220T005659Z
+LAST-MODIFIED:20251220T064030Z
+UID:10005114-1774375200-1774384200@mohai.org
+SUMMARY:MOHAI Mercantile Literary Series - Seattle's Locks and Ship Canal
+DESCRIPTION:MOHAI Mercantile is proud to host the official book launch event for Seattle’s Locks and Ship Canal with local historians David B. Williams and Jennifer Ott! \nThis portable guide from UW Press and HistoryLink is an introduction to the engineering marvel of the Ballard locks\, and a primer on the history of the ship canal. Hear from the authors about the tumultuous history of one of Seattle’s defining projects\, and the dramatic changes it brought to the city’s economy\, neighborhoods\, and natural environment. \nDoors open at 6pm for music and mingling. Food and drink available for purchase. \nConversation and Q&A begin at 7pm\, followed by a book signing with the authors. \nPreorder your copy through the MOHAI Mercantile beginning in January 2026!
+URL:https://mohai.org/event/mohai-mercantile-literary-series-seattles-locks-and-ship-canal/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Engineering,History,Infrastructure,Maritime
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/12/Locks-and-Ship-Canal_hero.jpg
+END:VEVENT
+END:VCALENDAR

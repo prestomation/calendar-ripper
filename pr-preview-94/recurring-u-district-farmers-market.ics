@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:University District Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:wBh3MiWDRbTa1rGRFXbzS
+SUMMARY:University District Farmers Market
+DTSTAMP:20260221T131927Z
+DTSTART;TZID=America/Los_Angeles:20260221T090000
+DESCRIPTION:Year-round Saturday farmers market in the U-District. Fresh pro
+	duce\, flowers\, baked goods\, and artisan foods.
+URL:https://seattlefarmersmarkets.org/udfm
+LOCATION:University Way NE between NE 50th St & NE 52nd St\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SA
+DURATION:PT5H
+END:VEVENT
+END:VCALENDAR

@@ -4,10 +4,11 @@ import '@js-joda/timezone';
 
 const MAX_PAGES = 10;
 const DICE_API_URL = "https://events-api.dice.fm/v1/events";
-const DICE_API_KEY = "7vYeaK9Zfi9aC94moLEF88rfLtnhicFH1q1Mb5Q8";
 
 /**
  * Shared ripper for venues that use the DICE ticketing platform.
+ *
+ * Requires the DICE_API_KEY environment variable to be set.
  *
  * Each calendar entry in ripper.yaml must include a `config` block with:
  *   - venueName: the venue name as it appears on DICE (used as the API filter)
@@ -16,6 +17,11 @@ const DICE_API_KEY = "7vYeaK9Zfi9aC94moLEF88rfLtnhicFH1q1Mb5Q8";
  */
 export class DICERipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const apiKey = process.env.DICE_API_KEY;
+        if (!apiKey) {
+            throw new Error("DICE_API_KEY environment variable is not set");
+        }
+
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
@@ -36,7 +42,7 @@ export class DICERipper implements IRipper {
             }
 
             try {
-                const rawEvents = await this.fetchAllEvents(venueName);
+                const rawEvents = await this.fetchAllEvents(venueName, apiKey);
                 calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours);
             } catch (error) {
                 calendars[cal.name].events = [{
@@ -57,7 +63,7 @@ export class DICERipper implements IRipper {
         }));
     }
 
-    public async fetchAllEvents(venueName: string): Promise<any[]> {
+    public async fetchAllEvents(venueName: string, apiKey: string): Promise<any[]> {
         const events: any[] = [];
         let page = 1;
         let nextUrl: string | null = `${DICE_API_URL}?page%5Bsize%5D=50&filter%5Bvenues%5D%5B%5D=${encodeURIComponent(venueName)}`;
@@ -65,7 +71,7 @@ export class DICERipper implements IRipper {
         while (nextUrl && page <= MAX_PAGES) {
             const res = await fetch(nextUrl, {
                 headers: {
-                    'x-api-key': DICE_API_KEY,
+                    'x-api-key': apiKey,
                     'Accept': 'application/json'
                 }
             });

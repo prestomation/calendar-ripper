@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Magnolia Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:b2XM0scsdOKeENQTMDqSl
+SUMMARY:Magnolia Farmers Market
+DTSTAMP:20260221T073322Z
+DTSTART;TZID=America/Los_Angeles:20260606T100000
+DESCRIPTION:Seasonal Saturday farmers market in the Magnolia neighborhood. 
+	Runs June through October.
+URL:https://seattlefarmersmarkets.org/
+LOCATION:Magnolia neighborhood\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=SA;BYMONTH=6,7,8,9,10
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

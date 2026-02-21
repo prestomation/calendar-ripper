@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Fremont Sunday Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:gOmj6SI1pa2QNrlCYcSKQ
+SUMMARY:Fremont Sunday Market
+DTSTAMP:20260221T073322Z
+DTSTART;TZID=America/Los_Angeles:20260222T100000
+DESCRIPTION:Year-round outdoor Sunday market in Fremont with 150+ vendors i
+	ncluding vintage goods\, crafts\, food\, and local farm produce.
+URL:http://www.fremontmarket.com/
+LOCATION:3401 Evanston Ave N\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT6H
+END:VEVENT
+END:VCALENDAR

@@ -1,27 +1,36 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { HTMLElement } from 'node-html-parser';
+import { HTMLElement, parse } from 'node-html-parser';
 import { ZonedDateTime, Duration, ZoneId } from "@js-joda/core";
 import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
 
 export default class Events12Ripper extends HTMLRipper {
     private seenEvents = new Set<string>();
+    private rawHtml = '';
 
     protected preprocessHtml(html: string): string {
-        // events12.com uses unclosed <p> tags which cause node-html-parser to
-        // incorrectly nest subsequent <article> elements inside open <p> tags,
-        // losing most articles. Adding a closing </p> before each </article>
-        // prevents this cascading nesting issue.
-        return html.replace(/<\/article>/g, '</p></article>');
+        // Store raw HTML so parseEvents can extract articles via regex.
+        // events12.com uses unclosed <p>, <td>, and <li> tags inside articles
+        // that contain tables. When node-html-parser processes the full
+        // document, these cause cascading nesting that swallows articles
+        // (especially those near the bottom). Parsing each article individually
+        // avoids this problem entirely.
+        this.rawHtml = html;
+        return html;
     }
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
 
-        // Find all article elements that contain events
-        const eventArticles = html.querySelectorAll('article[id]');
+        // Extract each article via regex and parse individually to avoid
+        // node-html-parser nesting issues with the full document.
+        const articleRegex = /<article [^>]*id="[^"]*"[^>]*>([\s\S]*?)<\/article>/g;
+        const source = this.rawHtml || html.outerHTML;
+        let match;
 
-        for (const article of eventArticles) {
+        while ((match = articleRegex.exec(source)) !== null) {
             try {
+                const article = parse(match[0]);
+
                 // Get the event title from the H3 element
                 const titleElement = article.querySelector('h3');
                 if (!titleElement) continue;
@@ -101,7 +110,7 @@ export default class Events12Ripper extends HTMLRipper {
                 events.push({
                     type: "ParseError",
                     reason: `Failed to parse event: ${error}`,
-                    context: article.innerHTML.substring(0, 100)
+                    context: match[0].substring(0, 100)
                 });
             }
         }
@@ -115,8 +124,9 @@ export default class Events12Ripper extends HTMLRipper {
             //   "December 3, 2025 (7 to 8:30 p.m.)"
             //   "January 1 - 11, 2026"
             //   "January 1 - Dec. 31, 2026 (4:30 to 10 p.m.)"
+            //   "February 21 & 28, 2026 (8 to 10 p.m.)"
             const dateMatch = dateText.match(
-                /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})(?:\s*[-–]\s*(?:\w+\.?\s+)?\d{1,2})?,?\s+(\d{4})/
+                /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})(?:\s*[-–&]\s*(?:\w+\.?\s+)?\d{1,2})?,?\s+(\d{4})/
             );
             if (!dateMatch) return null;
 
@@ -167,6 +177,9 @@ export default class Events12Ripper extends HTMLRipper {
                 if (singleMatch) {
                     startHour = this.convertTo24Hour(parseInt(singleMatch[1]), singleMatch[3]);
                     startMinute = singleMatch[2] ? parseInt(singleMatch[2]) : 0;
+                } else if (/\(noon\)/i.test(dateText)) {
+                    startHour = 12;
+                    startMinute = 0;
                 }
             }
 

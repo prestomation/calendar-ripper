@@ -1278,7 +1278,9 @@ function App() {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="calendar-title">
-                      {ripper.friendlyName || singleCal.fullName}
+                      <span className={searchTerm && calendarNameMatches.has(`${ripper.name}-${singleCal.name}`) ? 'calendar-name-match' : ''}>
+                        {ripper.friendlyName || singleCal.fullName}
+                      </span>
                       {singleCal.isExternal && (
                         <span className="external-indicator" title="External calendar from original organization"> 🔗</span>
                       )}
@@ -1320,9 +1322,6 @@ function App() {
                         </span>
                       ))}
                     </div>
-                    {searchTerm && calendarNameMatches.has(`${ripper.name}-${singleCal.name}`) && (
-                      <div className="calendar-match-hint">Calendar match</div>
-                    )}
                     {searchTerm && eventMatchesByCalendar.get(singleCal.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(singleCal.icsUrl).length} matching event{eventMatchesByCalendar.get(singleCal.icsUrl).length !== 1 ? 's' : ''}
@@ -1375,7 +1374,9 @@ function App() {
               <div className="ripper-header">
                 <div className="ripper-title-container">
                   <div className="ripper-title">
-                    {ripper.friendlyName || ripper.description}
+                    <span className={searchTerm && ripper.calendars.some(c => calendarNameMatches.has(`${ripper.name}-${c.name}`)) ? 'calendar-name-match' : ''}>
+                      {ripper.friendlyName || ripper.description}
+                    </span>
                     {ripper.calendars[0]?.isExternal && (
                       <span
                         className="external-indicator"
@@ -1398,9 +1399,6 @@ function App() {
                   )}
                   {ripper.friendlyName && ripper.description && ripper.description !== ripper.friendlyName && (
                     <div className="calendar-subtitle">{ripper.description}</div>
-                  )}
-                  {searchTerm && ripper.calendars.some(c => calendarNameMatches.has(`${ripper.name}-${c.name}`)) && (
-                    <div className="calendar-match-hint">Calendar match</div>
                   )}
                 </div>
                 <div className="ripper-actions">
@@ -1490,7 +1488,9 @@ function App() {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="calendar-title">
-                      {calendar.fullName}
+                      <span className={searchTerm && calendarNameMatches.has(`${ripper.name}-${calendar.name}`) ? 'calendar-name-match' : ''}>
+                        {calendar.fullName}
+                      </span>
                       {eventCountByIcsUrl[calendar.icsUrl] > 0 && (
                         <span className="calendar-event-count" title={`${eventCountByIcsUrl[calendar.icsUrl]} upcoming event${eventCountByIcsUrl[calendar.icsUrl] !== 1 ? 's' : ''}`}>
                           {eventCountByIcsUrl[calendar.icsUrl]}
@@ -1511,9 +1511,6 @@ function App() {
                         </span>
                       ))}
                     </div>
-                    {searchTerm && calendarNameMatches.has(`${ripper.name}-${calendar.name}`) && (
-                      <div className="calendar-match-hint">Calendar match</div>
-                    )}
                     {searchTerm && eventMatchesByCalendar.get(calendar.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(calendar.icsUrl).length} matching event{eventMatchesByCalendar.get(calendar.icsUrl).length !== 1 ? 's' : ''}

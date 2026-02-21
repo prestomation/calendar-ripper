@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-02-21T17:51:37.015Z",
+  "buildTime": "2026-02-21T18:03:42.403Z",
   "totalErrors": 13,
   "configErrors": [],
   "sources": [
@@ -119,16 +119,16 @@
   ],
   "externalCalendarFailures": [],
   "zeroEventCalendars": [
-    "tag-nightlife",
-    "tag-seward-park"
-  ],
-  "expectedEmptyCalendars": [
     "benaroya-hall-benaroya-nordstrom",
     "downtown-seattle-association-occidental-square",
     "jcccw-all-events",
     "seatoday-seatoday-nightlife",
     "seattle-barkery-all-events",
+    "tag-nightlife"
+  ],
+  "expectedEmptyCalendars": [
     "spl-university",
+    "tag-seward-park",
     "external-langston"
   ]
 }

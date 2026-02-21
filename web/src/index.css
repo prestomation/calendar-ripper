@@ -18,6 +18,7 @@
   --color-primary: #007bff;
   --color-primary-dark: #0056b3;
   --color-error: #dc3545;
+  --color-calendar-match: #16a34a;
 
   /* Borders */
   --border-color: #e9ecef;
@@ -61,6 +62,7 @@
     --color-primary: #4dabf7;
     --color-primary-dark: #339af0;
     --color-error: #ff6b6b;
+    --color-calendar-match: #4ade80;
 
     --border-color: #2c2d35;
     --border-color-strong: #3c3d45;
@@ -647,6 +649,13 @@ body {
 
 .event-match-preview {
   color: var(--text-muted);
+}
+
+.calendar-match-hint {
+  font-size: 11px;
+  color: var(--color-calendar-match);
+  margin-top: 2px;
+  font-weight: 500;
 }
 
 .main-content {

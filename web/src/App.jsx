@@ -425,7 +425,12 @@ function App() {
     setShowHomepage(false)
     setShowHappeningSoon(false)
     if (isMobile) setMobileView('detail')
-    updateURL(searchTerm, selectedTag, calendarWithRipper, isMobile ? 'detail' : undefined)
+    // When clicking a calendar that matched by name/description, clear the search
+    // so the user sees all events for the calendar they were looking for
+    const isNameMatch = searchTerm && calendarNameMatches.has(`${ripperName}-${calendar.name}`)
+    const effectiveSearch = isNameMatch ? '' : searchTerm
+    if (isNameMatch) setSearchTerm('')
+    updateURL(effectiveSearch, selectedTag, calendarWithRipper, isMobile ? 'detail' : undefined)
   }
 
   const handleHappeningSoon = () => {
@@ -789,6 +794,17 @@ function App() {
     return groups
   }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl])
 
+  // Track which calendars matched by name/description (not just event content)
+  const calendarNameMatches = useMemo(() => {
+    const nameMatches = new Set()
+    if (searchTerm) {
+      fuse.search(searchTerm).forEach(item => {
+        nameMatches.add(`${item.item.ripperName}-${item.item.name}`)
+      })
+    }
+    return nameMatches
+  }, [searchTerm, fuse])
+
   // Filter calendars based on search and tag
   const filteredCalendars = useMemo(() => {
     let result = calendars
@@ -798,9 +814,7 @@ function App() {
 
       if (searchTerm) {
         // Calendar name/tag matches
-        fuse.search(searchTerm).forEach(item => {
-          matchingCalendars.add(`${item.item.ripperName}-${item.item.name}`)
-        })
+        calendarNameMatches.forEach(id => matchingCalendars.add(id))
 
         // Event content matches — surface calendars containing matching events
         for (const icsUrl of eventMatchesByCalendar.keys()) {
@@ -822,10 +836,21 @@ function App() {
           return matchesSearch && matchesTag
         })
       })).filter(ripper => ripper.calendars.length > 0)
+
+      // Sort name/description matches to the top when searching
+      if (searchTerm && calendarNameMatches.size > 0) {
+        result.sort((a, b) => {
+          const aHasNameMatch = a.calendars.some(c => calendarNameMatches.has(`${a.name}-${c.name}`))
+          const bHasNameMatch = b.calendars.some(c => calendarNameMatches.has(`${b.name}-${c.name}`))
+          if (aHasNameMatch && !bHasNameMatch) return -1
+          if (!aHasNameMatch && bHasNameMatch) return 1
+          return 0
+        })
+      }
     }
 
     return result
-  }, [calendars, searchTerm, selectedTag, fuse, eventMatchesByCalendar])
+  }, [calendars, searchTerm, selectedTag, calendarNameMatches, eventMatchesByCalendar])
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -1295,6 +1320,9 @@ function App() {
                         </span>
                       ))}
                     </div>
+                    {searchTerm && calendarNameMatches.has(`${ripper.name}-${singleCal.name}`) && (
+                      <div className="calendar-match-hint">Calendar match</div>
+                    )}
                     {searchTerm && eventMatchesByCalendar.get(singleCal.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(singleCal.icsUrl).length} matching event{eventMatchesByCalendar.get(singleCal.icsUrl).length !== 1 ? 's' : ''}
@@ -1370,6 +1398,9 @@ function App() {
                   )}
                   {ripper.friendlyName && ripper.description && ripper.description !== ripper.friendlyName && (
                     <div className="calendar-subtitle">{ripper.description}</div>
+                  )}
+                  {searchTerm && ripper.calendars.some(c => calendarNameMatches.has(`${ripper.name}-${c.name}`)) && (
+                    <div className="calendar-match-hint">Calendar match</div>
                   )}
                 </div>
                 <div className="ripper-actions">
@@ -1480,6 +1511,9 @@ function App() {
                         </span>
                       ))}
                     </div>
+                    {searchTerm && calendarNameMatches.has(`${ripper.name}-${calendar.name}`) && (
+                      <div className="calendar-match-hint">Calendar match</div>
+                    )}
                     {searchTerm && eventMatchesByCalendar.get(calendar.icsUrl)?.length > 0 && (
                       <div className="event-match-hint">
                         {eventMatchesByCalendar.get(calendar.icsUrl).length} matching event{eventMatchesByCalendar.get(calendar.icsUrl).length !== 1 ? 's' : ''}

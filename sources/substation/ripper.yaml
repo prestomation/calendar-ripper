@@ -1,9 +1,14 @@
 name: substation
+type: eventbrite
 description: "Substation"
-url: "https://www.eventbriteapi.com/v3/organizers/18831550522/events/?status=live&expand=venue"
+url: "https://www.substationseattle.com"
 friendlyLink: https://www.substationseattle.com
 tags: ["Music", "Ballard"]
 calendars:
   - name: substation
     friendlyname: "Substation"
     timezone: America/Los_Angeles
+    config:
+      organizerId: "18831550522"
+      defaultLocation: "645 NW 45th St, Seattle, WA 98107"
+      defaultDurationHours: 3

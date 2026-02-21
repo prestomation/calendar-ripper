@@ -1,15 +1,25 @@
-import { ZonedDateTime, Duration, LocalDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { Duration, LocalDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "./schema.js";
 import '@js-joda/timezone';
 
-const ORGANIZER_ID = '18831550522';
-const DEFAULT_LOCATION = '645 NW 45th St, Seattle, WA 98107';
+const MAX_PAGES = 100;
 
-export default class SubstationRipper implements IRipper {
+/**
+ * Shared ripper for organizers that use the Eventbrite ticketing platform.
+ *
+ * Each calendar entry in ripper.yaml must include a `config` block with:
+ *   - organizerId: the Eventbrite organizer ID (e.g. "30672130426")
+ *   - defaultLocation: fallback address when no venue is provided
+ *   - defaultDurationHours: (optional) fallback duration in hours when no end time is provided (default: 2)
+ */
+export class EventbriteRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const token = process.env.EVENTBRITE_TOKEN;
         if (!token) {
             throw new Error("EVENTBRITE_TOKEN environment variable is not set");
+        }
+        if (token.length < 20) {
+            throw new Error("EVENTBRITE_TOKEN appears to be invalid (too short)");
         }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
@@ -17,10 +27,30 @@ export default class SubstationRipper implements IRipper {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
-        const rawEvents = await this.fetchAllEvents(token);
-
         for (const cal of ripper.config.calendars) {
-            calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone);
+            const organizerId = cal.config?.organizerId as string | undefined;
+            const defaultLocation = cal.config?.defaultLocation as string | undefined ?? '';
+            const defaultDurationHours = (cal.config?.defaultDurationHours as number | undefined) ?? 2;
+
+            if (!organizerId) {
+                calendars[cal.name].events = [{
+                    type: "ParseError",
+                    reason: "Missing required config field: organizerId",
+                    context: cal.name
+                }];
+                continue;
+            }
+
+            try {
+                const rawEvents = await this.fetchAllEvents(organizerId, token);
+                calendars[cal.name].events = this.parseEvents(rawEvents, cal.timezone, defaultLocation, defaultDurationHours);
+            } catch (error) {
+                calendars[cal.name].events = [{
+                    type: "ParseError",
+                    reason: `Failed to fetch Eventbrite events for organizer ${organizerId}: ${error}`,
+                    context: cal.name
+                }];
+            }
         }
 
         return Object.keys(calendars).map(key => ({
@@ -33,20 +63,16 @@ export default class SubstationRipper implements IRipper {
         }));
     }
 
-    public async fetchAllEvents(token: string | undefined): Promise<any[]> {
+    public async fetchAllEvents(organizerId: string, token: string): Promise<any[]> {
         const events: any[] = [];
         let page = 1;
-        let hasMore = true;
 
-        while (hasMore) {
-            const url = `https://www.eventbriteapi.com/v3/organizers/${ORGANIZER_ID}/events/?status=live&expand=venue&page=${page}`;
+        while (page <= MAX_PAGES) {
+            const url = `https://www.eventbriteapi.com/v3/organizers/${organizerId}/events/?status=live&expand=venue&page=${page}`;
 
-            const headers: HeadersInit = {};
-            if (token) {
-                headers['Authorization'] = `Bearer ${token}`;
-            }
-
-            const res = await fetch(url, { headers });
+            const res = await fetch(url, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
             if (!res.ok) {
                 throw new Error(`Eventbrite API error: ${res.status} ${res.statusText}`);
             }
@@ -58,22 +84,26 @@ export default class SubstationRipper implements IRipper {
             }
 
             events.push(...data.events);
-            hasMore = data.pagination?.has_more_items ?? false;
+
+            if (!data.pagination?.has_more_items) {
+                break;
+            }
+
             page++;
         }
 
         return events;
     }
 
-    public parseEvents(events: any[], timezone: ZoneId): RipperEvent[] {
+    public parseEvents(events: any[], timezone: ZoneId, defaultLocation: string, defaultDurationHours: number = 2): RipperEvent[] {
         const results: RipperEvent[] = [];
         const seenIds = new Set<string>();
 
         for (const event of events) {
             try {
-                const id = event.id?.toString();
-                if (id && seenIds.has(id)) continue;
-                if (id) seenIds.add(id);
+                const id = event.id?.toString() ?? 'unknown';
+                if (seenIds.has(id)) continue;
+                seenIds.add(id);
 
                 const name = event.name?.text;
                 if (!name) {
@@ -101,8 +131,8 @@ export default class SubstationRipper implements IRipper {
                 const eventZone = eventZoneStr ? ZoneId.of(eventZoneStr) : timezone;
                 const startDate = startDt.atZone(eventZone);
 
-                // Calculate duration from end time, default 3 hours for a live music venue
-                let duration = Duration.ofHours(3);
+                // Calculate duration from end time, fall back to defaultDurationHours
+                let duration = Duration.ofHours(defaultDurationHours);
                 const endLocal = event.end?.local;
                 if (endLocal) {
                     const endDt = LocalDateTime.parse(endLocal);
@@ -113,8 +143,8 @@ export default class SubstationRipper implements IRipper {
                     }
                 }
 
-                // Format location from venue, fall back to venue address
-                let location = DEFAULT_LOCATION;
+                // Format location from venue, fall back to defaultLocation
+                let location = defaultLocation;
                 if (event.venue) {
                     const v = event.venue;
                     const parts = [
@@ -145,7 +175,7 @@ export default class SubstationRipper implements IRipper {
                 results.push({
                     type: "ParseError",
                     reason: `Failed to parse event: ${error}`,
-                    context: event.id?.toString()
+                    context: event.id?.toString() ?? 'unknown'
                 });
             }
         }

@@ -1,0 +1,27 @@
+name: sam
+friendlyname: "Seattle Art Museum"
+description: "Seattle Art Museum"
+url: "https://www.seattleartmuseum.org/whats-on/events"
+friendlyLink: https://www.seattleartmuseum.org/whats-on/events
+tags: ["Arts", "Museums"]
+calendars:
+  - name: sam-downtown
+    friendlyname: "Seattle Art Museum - Downtown"
+    timezone: America/Los_Angeles
+    config:
+      location: "Seattle Art Museum"
+    tags: ["Downtown"]
+
+  - name: sam-asian-art
+    friendlyname: "Seattle Asian Art Museum"
+    timezone: America/Los_Angeles
+    config:
+      location: "Seattle Asian Art Museum"
+    tags: ["Capitol Hill"]
+
+  - name: sam-sculpture-park
+    friendlyname: "Olympic Sculpture Park"
+    timezone: America/Los_Angeles
+    config:
+      location: "Olympic Sculpture Park"
+    tags: ["Belltown"]

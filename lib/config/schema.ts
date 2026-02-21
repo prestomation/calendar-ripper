@@ -131,7 +131,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
-            url: e.url?.startsWith('http') ? e.url : undefined,
+            url: e.url?.startsWith('http') ? new URL(e.url).toString() : undefined,
         };
         
         // Add RRULE if present

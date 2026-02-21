@@ -168,12 +168,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 
 ### Museums and Venues
 
-#### Seattle Art Museum (SAM)
-- **URL:** https://www.seattleartmuseum.org/whats-on/events
-- **Platform:** Kirby CMS with custom JavaScript filtering
-- **Tags:** Arts, Museums
-- **Note:** Three locations: SAM downtown, Seattle Asian Art Museum, Olympic Sculpture Park. Events have structured `data-attributes` (data-end-date, data-location, data-category, data-audiences) on HTML article elements, making scraping more straightforward.
-
 #### Woodland Park Zoo
 - **URL:** https://zoo.org/events/
 - **Platform:** Custom (returns 503); ticketing at `tickets.zoo.org`

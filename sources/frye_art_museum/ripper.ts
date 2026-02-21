@@ -122,6 +122,12 @@ export default class FryeArtMuseumRipper implements IRipper {
         const dateText = dateEl.text?.trim() || "";
         const timeText = timeEl?.text?.trim() || "";
 
+        // Skip recurring date patterns (e.g. "Fridays", "Monthly, fourth Thursdays", "First Sundays")
+        // These don't represent a single concrete date; the listing page already filters by day-of-week.
+        if (this.isRecurringPattern(dateText)) {
+            return [];
+        }
+
         const parsedDate = this.parseDate(dateText);
         if (!parsedDate) {
             return [{
@@ -163,6 +169,12 @@ export default class FryeArtMuseumRipper implements IRipper {
         };
 
         return [event];
+    }
+
+    public isRecurringPattern(dateText: string): boolean {
+        // Recurring patterns contain no digits (e.g. "Fridays", "First Sundays",
+        // "Monthly, fourth Thursdays"). Concrete dates always have a day number.
+        return !/\d/.test(dateText);
     }
 
     public parseDate(dateText: string): { year: number; month: number; day: number } | null {

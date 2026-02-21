@@ -14,7 +14,7 @@ export const calendarConfigSchema = z.object({
     timezone: z.string().transform(ZoneRegion.of),
     friendlyname: z.string(),
     tags: z.array(z.string()).optional(),
-    expectEmpty: z.boolean().default(false),
+    expectEmpty: z.boolean().optional(),
 });
 
 export const externalCalendarSchema = z.object({

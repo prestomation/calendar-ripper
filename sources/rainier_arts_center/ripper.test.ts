@@ -106,6 +106,19 @@ describe('RainierArtsCenterRipper', () => {
             expect(events).toHaveLength(0);
         });
 
+        it('returns empty array for expired events', () => {
+            const ripper = new RainierArtsCenterRipper();
+            const html = `<html><body>
+                <div class="mec-event-status">Expired!</div>
+                <script type="application/ld+json" class="yoast-schema-graph">
+                {"@context":"https://schema.org","@graph":[{"@type":"Event","name":"Past Show"}]}
+                </script>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/past-show/', BEFORE_EVENT);
+
+            expect(events).toHaveLength(0);
+        });
+
         it('returns ParseError when no JSON-LD Event found', () => {
             const ripper = new RainierArtsCenterRipper();
             const html = '<html><body><p>No events here</p></body></html>';

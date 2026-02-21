@@ -17,6 +17,7 @@ try {
       configErrors: [],
       sources: [],
       externalCalendarFailures: [],
+      zeroEventCalendars: [],
       fatal: String(error),
     };
     await mkdir("output").catch(() => {});

@@ -227,3 +227,59 @@ The `description` field in `ripper.yaml` is used as the `<h2>` section heading o
 - **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events at the Urban Beer Garden"`
 
 Don't mention APIs, scraping methods, or other implementation details.
+
+## Build Errors JSON
+
+Every build writes `output/build-errors.json` with a consolidated report of all errors that occurred during calendar generation. This file is deployed alongside the website artifacts, so it can be read programmatically after a PR preview without needing access to the build logs.
+
+### Accessing from a PR preview
+
+PR previews are deployed to the `pr-previews` branch. Given a PR number, fetch the errors file at:
+
+```
+https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-preview-{PR_NUMBER}/build-errors.json
+```
+
+For example, PR #42:
+```
+https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-preview-42/build-errors.json
+```
+
+### Schema
+
+```json
+{
+  "buildTime": "2026-02-21T17:00:00.000Z",
+  "totalErrors": 5,
+  "configErrors": [
+    { "type": "FileParseError", "reason": "...", "path": "..." },
+    { "type": "ImportError", "reason": "...", "error": "...", "path": "..." }
+  ],
+  "sources": [
+    {
+      "source": "ripper-name",
+      "calendar": "calendar-name",
+      "type": "Ripper | Recurring | Aggregate",
+      "errorCount": 3,
+      "errors": [
+        { "type": "ParseError", "reason": "...", "context": "..." }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "calendar-name",
+      "friendlyName": "Friendly Name",
+      "url": "https://example.com/cal.ics",
+      "error": "HTTP 404: Not Found"
+    }
+  ],
+  "zeroEventCalendars": ["ripper-calendar", "external-calendar"]
+}
+```
+
+- **`configErrors`** — errors loading ripper configs (missing `ripper.yaml`, import failures)
+- **`sources`** — per-calendar parse errors from Ripper, Recurring, and Aggregate calendars (only entries with errors are included)
+- **`externalCalendarFailures`** — external ICS feeds that failed to fetch
+- **`zeroEventCalendars`** — calendar names that produced 0 events (may indicate a problem)
+- **`fatal`** — present only when the build crashed entirely; contains the fatal error message

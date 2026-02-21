@@ -810,6 +810,10 @@ END:VCALENDAR`;
   await writeFile("output/events-index.json", eventsIndexJson);
   await writeFile("errorCount.txt", totalErrorCount.toString());
 
+  // Print event count summary
+  const zeroEventCalendars = eventCounts.filter(c => c.events === 0);
+  await writeFile("zeroEventCalendars.txt", zeroEventCalendars.map(c => c.name).join("\n"));
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -817,15 +821,12 @@ END:VCALENDAR`;
     configErrors: configErrors.map(e => ({ ...e })),
     sources: buildErrors,
     externalCalendarFailures,
+    zeroEventCalendars: zeroEventCalendars.map(c => c.name),
   };
   await writeFile(
     "output/build-errors.json",
     JSON.stringify(buildErrorsReport, null, 2)
   );
-
-  // Print event count summary
-  const zeroEventCalendars = eventCounts.filter(c => c.events === 0);
-  await writeFile("zeroEventCalendars.txt", zeroEventCalendars.map(c => c.name).join("\n"));
 
   console.log("\n=== Event Count Summary ===");
   for (const entry of eventCounts) {

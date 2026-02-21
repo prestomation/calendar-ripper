@@ -76,7 +76,7 @@ export class DICERipper implements IRipper {
         let nextUrl: string | null = `${DICE_API_URL}?page%5Bsize%5D=50&filter%5Bvenues%5D%5B%5D=${encodeURIComponent(venueName)}`;
 
         while (nextUrl && page <= MAX_PAGES) {
-            const res = await fetch(nextUrl, {
+            const res: Response = await fetch(nextUrl, {
                 headers: {
                     'x-api-key': apiKey,
                     'Accept': 'application/json'
@@ -86,7 +86,7 @@ export class DICERipper implements IRipper {
                 throw new Error(`DICE API error: ${res.status} ${res.statusText}`);
             }
 
-            const data = await res.json();
+            const data: any = await res.json();
 
             if (!data.data || !Array.isArray(data.data)) {
                 break;

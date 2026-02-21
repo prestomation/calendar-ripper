@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Central District Art Walk (First Friday)
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:Ceeg8_a_Vu8gtygLe8U-I
+SUMMARY:Central District Art Walk (First Friday)
+DTSTAMP:20260221T174735Z
+DTSTART;TZID=America/Los_Angeles:20260306T180000
+DESCRIPTION:Monthly art walk in the Central District on first Fridays
+URL:https://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty
+LOCATION:Central District neighborhood\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1FR
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

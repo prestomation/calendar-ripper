@@ -2,6 +2,7 @@ import { RipperLoader } from "./config/loader.js";
 import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
 import {
   RipperConfig,
+  RipperError,
   toICS,
   externalConfigSchema,
   ExternalConfig,
@@ -327,6 +328,23 @@ export const main = async () => {
   // Track event counts per calendar for summary
   const eventCounts: Array<{ name: string; type: string; events: number }> = [];
 
+  // Collect all errors for consolidated build-errors.json
+  interface BuildErrorEntry {
+    source: string;
+    calendar: string;
+    type: "Ripper" | "Recurring" | "Aggregate";
+    errorCount: number;
+    errors: RipperError[];
+  }
+  const buildErrors: BuildErrorEntry[] = [];
+  const configErrors: RipperError[] = [...errors]; // from loader
+  const externalCalendarFailures: Array<{
+    name: string;
+    friendlyName: string;
+    url: string;
+    error: string;
+  }> = [];
+
   // Track which calendars have future events (on or after today)
   // Calendars with no future events will be excluded from the manifest
   const calendarsWithFutureEvents = new Set<string>();
@@ -359,6 +377,13 @@ export const main = async () => {
     console.error(`${errorCount} errors for recurring-${calendar.name}`);
     if (errorCount > 0) {
       console.error(calendar.errors);
+      buildErrors.push({
+        source: "recurring",
+        calendar: calendar.name,
+        type: "Recurring",
+        errorCount,
+        errors: calendar.errors,
+      });
     }
     recurringWritePromises.push(writeFile(`output/${icsPath}`, icsString));
     recurringWritePromises.push(writeFile(
@@ -470,6 +495,13 @@ export const main = async () => {
       console.error(`${errorCount} errors for ${config.config.name}-${calendar.name}`);
       if (errorCount > 0) {
         console.error(calendar.errors);
+        buildErrors.push({
+          source: config.config.name,
+          calendar: calendar.name,
+          type: "Ripper",
+          errorCount,
+          errors: calendar.errors,
+        });
       }
       writePromises.push(writeFile(`output/${icsPath}`, icsString));
       writePromises.push(writeFile(
@@ -538,6 +570,15 @@ export const main = async () => {
       if (calendar.events.length === 0) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
       }
+      if (errorCount > 0) {
+        buildErrors.push({
+          source: calendar.name,
+          calendar: calendar.name,
+          type: "Aggregate",
+          errorCount,
+          errors: calendar.errors,
+        });
+      }
 
       aggregateWritePromises.push(writeFile(`output/${icsPath}`, icsString));
       aggregateWritePromises.push(writeFile(
@@ -584,6 +625,12 @@ X-WR-CALNAME:${calendar.friendlyname} (Error)
 X-WR-CALDESC:Failed to fetch external calendar: ${error}
 END:VCALENDAR`;
       externalWritePromises.push(writeFile(`output/external-${calendar.name}.ics`, emptyCalendar));
+      externalCalendarFailures.push({
+        name: calendar.name,
+        friendlyName: calendar.friendlyname,
+        url: calendar.icsUrl,
+        error: String(error),
+      });
     }
   }
   await Promise.all(externalWritePromises);
@@ -762,6 +809,19 @@ END:VCALENDAR`;
 
   await writeFile("output/events-index.json", eventsIndexJson);
   await writeFile("errorCount.txt", totalErrorCount.toString());
+
+  // Write consolidated build errors JSON for programmatic access
+  const buildErrorsReport = {
+    buildTime: new Date().toISOString(),
+    totalErrors: totalErrorCount,
+    configErrors: configErrors.map(e => ({ ...e })),
+    sources: buildErrors,
+    externalCalendarFailures,
+  };
+  await writeFile(
+    "output/build-errors.json",
+    JSON.stringify(buildErrorsReport, null, 2)
+  );
 
   // Print event count summary
   const zeroEventCalendars = eventCounts.filter(c => c.events === 0);

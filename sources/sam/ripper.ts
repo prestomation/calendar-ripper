@@ -202,6 +202,9 @@ export default class SAMRipper implements IRipper {
             // Skip cancelled events
             if (article.canceled) continue;
 
+            // Skip Free First Thursday — handled by recurring calendar entry
+            if (/free first thursday/i.test(article.title)) continue;
+
             const calendarName = locationToCalendar.get(article.location);
             if (!calendarName || !calendars[calendarName]) continue;
 

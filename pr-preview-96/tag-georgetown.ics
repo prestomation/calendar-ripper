@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Georgetown Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:hajmVAfA7aGZNF9js-B1C
+SUMMARY:Georgetown Flea Market
+DTSTAMP:20260221T172301Z
+DTSTART;TZID=America/Los_Angeles:20260307T100000
+DESCRIPTION:Monthly flea market at the Georgetown Trailer Park Mall.\n\nFro
+	m Georgetown Flea Market
+URL:http://georgetowntrailerparkmall.com/events
+LOCATION:Georgetown Trailer Park Mall\, Georgetown\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1SA
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:-RmD_te5e1tYOkLuv01nc
+SUMMARY:Georgetown Art Attack
+DTSTAMP:20260221T172301Z
+DTSTART;TZID=America/Los_Angeles:20260314T180000
+DESCRIPTION:Monthly art walk in the Georgetown neighborhood\n\nFrom Georget
+	own Art Attack
+URL:https://georgetownseattle.org/art-attack/
+LOCATION:Georgetown neighborhood\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2SA
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

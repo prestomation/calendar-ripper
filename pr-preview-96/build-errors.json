@@ -1,0 +1,177 @@
+{
+  "buildTime": "2026-02-21T17:23:17.334Z",
+  "totalErrors": 16,
+  "configErrors": [
+    {
+      "type": "FileParseError",
+      "reason": "Skipping sources/nothing/ripper.yaml as it does not exist",
+      "path": "sources/nothing/ripper.yaml"
+    }
+  ],
+  "sources": [
+    {
+      "source": "frye-art-museum",
+      "calendar": "frye-art-museum",
+      "type": "Ripper",
+      "errorCount": 3,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"Monthly, fourth Thursdays\" for event: Drop-in Studio",
+          "context": "/node/3803"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"Fridays\" for event: Frye in Focus | Gallery Conversation",
+          "context": "/node/3441"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"First Sundays\" for event: Mask-Required Hours",
+          "context": "/node/512"
+        }
+      ]
+    },
+    {
+      "source": "rainier-arts-center",
+      "calendar": "rainier-arts-center",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "seattle-night-market",
+      "calendar": "all-events",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch events from Squarespace: Error: 404 Not Found",
+          "context": "https://206nightmarkets.com/events"
+        }
+      ]
+    },
+    {
+      "source": "tag-community",
+      "calendar": "tag-community",
+      "type": "Aggregate",
+      "errorCount": 2,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch events from Squarespace: Error: 404 Not Found",
+          "context": "https://206nightmarkets.com/events"
+        }
+      ]
+    },
+    {
+      "source": "tag-food",
+      "calendar": "tag-food",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch events from Squarespace: Error: 404 Not Found",
+          "context": "https://206nightmarkets.com/events"
+        }
+      ]
+    },
+    {
+      "source": "tag-museums",
+      "calendar": "tag-museums",
+      "type": "Aggregate",
+      "errorCount": 3,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"Monthly, fourth Thursdays\" for event: Drop-in Studio",
+          "context": "/node/3803"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"Fridays\" for event: Frye in Focus | Gallery Conversation",
+          "context": "/node/3441"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"First Sundays\" for event: Mask-Required Hours",
+          "context": "/node/512"
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 4,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"Monthly, fourth Thursdays\" for event: Drop-in Studio",
+          "context": "/node/3803"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"Fridays\" for event: Frye in Focus | Gallery Conversation",
+          "context": "/node/3441"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Could not parse date \"First Sundays\" for event: Mask-Required Hours",
+          "context": "/node/512"
+        },
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "nwtheatre",
+      "friendlyName": "NWTheatre.org Regional Theatre Calendar",
+      "url": "https://www.nwtheatre.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&no_html=true",
+      "error": "Error: HTTP 403: Forbidden"
+    }
+  ],
+  "zeroEventCalendars": [
+    "benaroya-hall-benaroya-nordstrom",
+    "downtown-seattle-association-occidental-square",
+    "jcccw-all-events",
+    "seatoday-seatoday-nightlife",
+    "seattle-barkery-all-events",
+    "seattle-night-market-all-events",
+    "spl-university",
+    "tag-nightlife",
+    "tag-seward-park",
+    "external-langston"
+  ]
+}

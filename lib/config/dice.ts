@@ -19,7 +19,14 @@ export class DICERipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const apiKey = process.env.DICE_API_KEY;
         if (!apiKey) {
-            throw new Error("DICE_API_KEY environment variable is not set");
+            return ripper.config.calendars.map(cal => ({
+                name: cal.name,
+                friendlyname: cal.friendlyname,
+                events: [],
+                errors: [{ type: "ParseError" as const, reason: "DICE_API_KEY environment variable is not set", context: cal.name }],
+                parent: ripper.config,
+                tags: cal.tags || [],
+            }));
         }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};

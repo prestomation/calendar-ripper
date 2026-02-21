@@ -24,7 +24,14 @@ export class TicketmasterRipper implements IRipper {
         this.fetchFn = getFetchForConfig(ripper.config);
         const apiKey = process.env.TICKETMASTER_API_KEY;
         if (!apiKey) {
-            throw new Error("TICKETMASTER_API_KEY environment variable is required for Ticketmaster ripper");
+            return ripper.config.calendars.map(cal => ({
+                name: cal.name,
+                friendlyname: cal.friendlyname,
+                events: [],
+                errors: [{ type: "ParseError" as const, reason: "TICKETMASTER_API_KEY environment variable is not set", context: cal.name }],
+                parent: ripper.config,
+                tags: cal.tags || [],
+            }));
         }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};

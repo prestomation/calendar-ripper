@@ -18,6 +18,7 @@
   --color-primary: #007bff;
   --color-primary-dark: #0056b3;
   --color-error: #dc3545;
+  --bg-calendar-match: rgba(22, 163, 74, 0.15);
 
   /* Borders */
   --border-color: #e9ecef;
@@ -61,6 +62,7 @@
     --color-primary: #4dabf7;
     --color-primary-dark: #339af0;
     --color-error: #ff6b6b;
+    --bg-calendar-match: rgba(74, 222, 128, 0.2);
 
     --border-color: #2c2d35;
     --border-color-strong: #3c3d45;
@@ -647,6 +649,13 @@ body {
 
 .event-match-preview {
   color: var(--text-muted);
+}
+
+.calendar-name-match {
+  background: var(--bg-calendar-match);
+  border-radius: 3px;
+  padding: 1px 4px;
+  margin: -1px -4px;
 }
 
 .main-content {

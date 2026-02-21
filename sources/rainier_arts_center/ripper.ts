@@ -85,7 +85,9 @@ export default class RainierArtsCenterRipper implements IRipper {
         for (const script of ldScripts) {
             if (script.getAttribute('class') === 'yoast-schema-graph') continue;
             try {
-                const parsed = JSON.parse(script.textContent);
+                const textContent = script.textContent;
+                if (!textContent) continue;
+                const parsed = JSON.parse(textContent);
                 if (parsed['@type'] === 'Event') {
                     eventData = parsed;
                     break;
@@ -225,10 +227,9 @@ export default class RainierArtsCenterRipper implements IRipper {
             if (ep === 'pm' && endHour !== 12) endHour += 12;
             if (ep === 'am' && endHour === 12) endHour = 0;
 
-            const durationMinutes = Math.max(
-                (endHour * 60 + endMin) - (startHour * 60 + startMin),
-                30
-            );
+            let durationMinutes = (endHour * 60 + endMin) - (startHour * 60 + startMin);
+            if (durationMinutes < 0) durationMinutes += 24 * 60; // handle midnight-spanning events
+            durationMinutes = Math.max(durationMinutes, 30);
             return { hour: startHour, minute: startMin, durationMinutes };
         }
 

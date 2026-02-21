@@ -131,7 +131,7 @@ describe('RainierArtsCenterRipper', () => {
                     "location": {"@type": "Place", "name": "Auditorium", "address": ""}
                 }
                 </script>
-                <abbr class="mec-events-abbr">11:00 am - 3:00 pm</abbr>
+                <div class="mec-single-event-time"><abbr class="mec-events-abbr">11:00 am - 3:00 pm</abbr></div>
                 </body></html>`;
             const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/cancelled-black-business-market/', BEFORE_EVENT);
 
@@ -153,7 +153,7 @@ describe('RainierArtsCenterRipper', () => {
                     "location": {"@type": "Place", "name": "", "address": ""}
                 }
                 </script>
-                <abbr class="mec-events-abbr">7:00 pm - 9:00 pm</abbr>
+                <div class="mec-single-event-time"><abbr class="mec-events-abbr">7:00 pm - 9:00 pm</abbr></div>
                 </body></html>`;
             const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/test-event/', BEFORE_EVENT);
 
@@ -214,6 +214,14 @@ describe('RainierArtsCenterRipper', () => {
             const ripper = new RainierArtsCenterRipper();
             const result = ripper.parseTime('7:00 pm\u20139:00 pm');
             expect(result.hour).toBe(19);
+            expect(result.durationMinutes).toBe(120);
+        });
+
+        it('handles midnight-spanning events "11:00 pm - 1:00 am"', () => {
+            const ripper = new RainierArtsCenterRipper();
+            const result = ripper.parseTime('11:00 pm - 1:00 am');
+            expect(result.hour).toBe(23);
+            expect(result.minute).toBe(0);
             expect(result.durationMinutes).toBe(120);
         });
     });

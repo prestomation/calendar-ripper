@@ -24,8 +24,9 @@ describe('Burke Museum Ripper', () => {
         const events = await ripper.parseEvents(html, testDate, {});
 
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
-        // 11 total cards, minus "Fossil Finders" (monthly, vague) and "Free First Thursday" (recurring)
-        expect(validEvents.length).toBe(9);
+        // 11 total cards, minus "Fossil Finders" (monthly, vague)
+        // "Free First Thursday" is synthesized into 2 concrete events (Mar 5, Apr 2 — Feb 5 is before test date)
+        expect(validEvents.length).toBe(11);
     });
 
     test('parses event with specific date and time range', async () => {
@@ -103,20 +104,28 @@ describe('Burke Museum Ripper', () => {
         expect(shapes!.date.dayOfMonth()).toBe(6);
     });
 
-    test('skips vague recurring date events', async () => {
+    test('skips vague recurring date events but synthesizes Free First Thursday', async () => {
         const ripper = new BurkeMuseumRipper();
         const html = loadSampleHtml();
 
         const events = await ripper.parseEvents(html, testDate, {});
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
-        // "Fossil Finders" has "Monthly event — see each listing for specific date"
+        // "Fossil Finders" has "Monthly event — see each listing for specific date" — truly vague, skipped
         const fossil = validEvents.find(e => e.summary === 'Fossil Finders');
         expect(fossil).toBeUndefined();
 
-        // "Free First Thursday" has "First Thursday of each month"
-        const firstThursday = validEvents.find(e => e.summary === 'Free First Thursday');
-        expect(firstThursday).toBeUndefined();
+        // "Free First Thursday" is synthesized into concrete dated events
+        const fftEvents = validEvents.filter(e => e.summary === 'Free First Thursday');
+        expect(fftEvents.length).toBe(2); // Mar 5 and Apr 2 (Feb 5 is before test date of Feb 21)
+
+        // First Thursday of March 2026 is March 5
+        const marchFft = fftEvents.find(e => e.date.monthValue() === 3);
+        expect(marchFft).toBeDefined();
+        expect(marchFft!.date.dayOfMonth()).toBe(5);
+        expect(marchFft!.date.hour()).toBe(10); // 10 a.m.
+        expect(marchFft!.duration.toHours()).toBe(10); // 10 a.m. – 8 p.m.
+        expect(marchFft!.description).toContain('FREE ADMISSION');
     });
 
     test('all events have required fields', async () => {

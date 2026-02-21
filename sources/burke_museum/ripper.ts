@@ -1,4 +1,4 @@
-import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { Duration, LocalDate, LocalDateTime, DayOfWeek, TemporalAdjusters, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
@@ -124,7 +124,16 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 if (/monthly event|see each.*listing/i.test(dateTimeText)) {
                     continue;
                 }
+
+                // Synthesize Free First Thursday — the website shows it with no specific date,
+                // so we generate concrete events for upcoming first Thursdays
                 if (/first \w+ of each month/i.test(dateTimeText)) {
+                    const timeResult = parseTimeRange(dateTimeText);
+                    const fftEvents = this.synthesizeFreeFirstThursday(
+                        title, eventUrl, eventId, dateTimeText, timeResult,
+                        card, date
+                    );
+                    events.push(...fftEvents);
                     continue;
                 }
 
@@ -215,6 +224,64 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                     context: undefined
                 });
             }
+        }
+
+        return events;
+    }
+
+    private synthesizeFreeFirstThursday(
+        title: string,
+        eventUrl: string,
+        baseEventId: string,
+        dateTimeText: string,
+        timeResult: { start: { hour: number; minute: number }; durationHours: number } | null,
+        card: HTMLElement,
+        date: ZonedDateTime,
+    ): RipperEvent[] {
+        const events: RipperEvent[] = [];
+        const startHour = timeResult?.start.hour ?? 10;
+        const startMinute = timeResult?.start.minute ?? 0;
+        const durationHours = timeResult?.durationHours ?? 10;
+
+        // Extract description and image from the card
+        const descField = card.querySelector('.views-field-field-teaser-text');
+        const description = descField?.textContent.trim() || undefined;
+        const badge = card.querySelector('.red-flag');
+        const category = badge?.textContent.trim() || undefined;
+        const imgEl = card.querySelector('.event-calendar-teaser-image-wrapper img');
+        const imgSrc = imgEl?.getAttribute('src');
+        const image = imgSrc ? (imgSrc.startsWith('http') ? imgSrc : `${BASE_URL}${imgSrc}`) : undefined;
+
+        let fullDescription = '';
+        if (category) fullDescription += `${category}\n`;
+        if (description) fullDescription += description;
+
+        const today = date.toLocalDate();
+        for (let i = 0; i < 3; i++) {
+            const monthStart = today.plusMonths(i).withDayOfMonth(1);
+            const firstThursday = monthStart.with(TemporalAdjusters.firstInMonth(DayOfWeek.THURSDAY));
+            if (firstThursday.isBefore(today)) continue;
+
+            const eventId = `${baseEventId}-${firstThursday.toString()}`;
+            if (this.seenEvents.has(eventId)) continue;
+            this.seenEvents.add(eventId);
+
+            const eventDate = ZonedDateTime.of(
+                LocalDateTime.of(firstThursday.year(), firstThursday.monthValue(), firstThursday.dayOfMonth(), startHour, startMinute),
+                ZoneId.of('America/Los_Angeles')
+            );
+
+            events.push({
+                id: eventId,
+                ripped: new Date(),
+                date: eventDate,
+                duration: Duration.ofMinutes(Math.round(durationHours * 60)),
+                summary: title,
+                description: fullDescription.trim() || undefined,
+                location: LOCATION,
+                url: eventUrl,
+                image,
+            });
         }
 
         return events;

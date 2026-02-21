@@ -119,12 +119,16 @@ When you implement a source from `ideas.md`, remove its entry from the file so t
 
 ### Free First Thursday
 
-Many Seattle area museums offer free admission on the first Thursday of each month. A single recurring calendar entry in `sources/recurring.yaml` (`free-first-thursday`) covers this program for all participating museums. When adding a new museum source, check whether it participates in Free First Thursday (most do). If so, the ripper should **skip** any "Free First Thursday" events it encounters to avoid duplicating the recurring entry. Examples:
+Many Seattle area museums offer free admission on the first Thursday of each month. There is a catch-all recurring entry (`free-first-thursday`) in `sources/recurring.yaml` that covers museums without their own ripper. Museum rippers that **do** exist should also surface this event:
 
-- **Burke Museum** (`sources/burke_museum/ripper.ts`): skips events matching `/first \w+ of each month/i`
-- **SAM** (`sources/sam/ripper.ts`): skips events matching `/free first thursday/i` in the title
+1. If the source website lists a "Free First Thursday" event with a concrete date, include it normally.
+2. If the website lists it with a vague recurring description (e.g., "First Thursday of each month") or doesn't list it at all, the ripper should **synthesize** concrete dated Free First Thursday events for the next few first Thursdays.
 
-If a new museum joins the program, update the description in the `free-first-thursday` recurring entry in `sources/recurring.yaml` to include it.
+Examples:
+- **Burke Museum** (`sources/burke_museum/ripper.ts`): detects "first \w+ of each month" pattern and synthesizes dated events with the hours from the page.
+- **SAM** (`sources/sam/ripper.ts`): after parsing, checks if any Free First Thursday event was found per venue; if not, synthesizes events using known FFT hours.
+
+When adding a new museum source, check whether it participates in Free First Thursday (most do). If so, add synthesis logic following the patterns above. Also update the `free-first-thursday` recurring entry description in `sources/recurring.yaml` if the museum is not already listed there.
 
 ## Tags
 

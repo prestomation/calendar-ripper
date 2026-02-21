@@ -234,6 +234,7 @@
   description: "NWTheatre.org Regional Theatre Calendar"
   icsUrl: "https://www.nwtheatre.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&no_html=true"
   infoUrl: "https://www.nwtheatre.org/calendar/"
+  disabled: true  # Returns HTTP 403 Forbidden
   tags:
   - Theatre
 

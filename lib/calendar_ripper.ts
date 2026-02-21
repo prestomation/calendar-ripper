@@ -494,6 +494,9 @@ export const main = async () => {
       if (calendar.events.length === 0 && !isExpectEmpty) {
         console.log(`::warning::Calendar ${config.config.name}-${calendar.name} has 0 events — this may indicate a problem`);
       }
+      if (calendar.events.length > 0 && isExpectEmpty) {
+        console.log(`::warning::Calendar ${config.config.name}-${calendar.name} has expectEmpty set but produced ${calendar.events.length} events — consider removing expectEmpty`);
+      }
       console.error(`${errorCount} errors for ${config.config.name}-${calendar.name}`);
       if (errorCount > 0) {
         console.error(calendar.errors);
@@ -615,6 +618,9 @@ export const main = async () => {
       }
       if (eventCount === 0 && !calendar.expectEmpty) {
         console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has 0 events — this may indicate a problem`);
+      }
+      if (eventCount > 0 && calendar.expectEmpty) {
+        console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has expectEmpty set but produced ${eventCount} events — consider removing expectEmpty`);
       }
     } else {
       // Create empty calendar file as fallback

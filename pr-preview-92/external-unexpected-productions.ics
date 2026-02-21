@@ -1,0 +1,447 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Unexpected Productions - ECPv6.15.16//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Unexpected Productions
+X-ORIGINAL-URL:https://www.unexpectedproductions.org
+X-WR-CALDESC:Events for Unexpected Productions
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260221T180000
+DTEND;TZID=America/Los_Angeles:20260221T190000
+DTSTAMP:20260220T231737
+CREATED:20251230T164704Z
+LAST-MODIFIED:20260123T190757Z
+UID:10011190-1771696800-1771700400@www.unexpectedproductions.org
+SUMMARY:No Strings Attached: An Improvised Puppet Show for Grownups
+DESCRIPTION:At Unexpected Productions’ Market Theater\, puppets let their hair down (or strings loose) in No Strings Attached—a hilarious\, adults improv puppet show. After a long day entertaining the kids\, these puppets are ready to play—singing bawdy songs\, cracking jokes\, and getting up to all kinds of outrageous fun. And the best part? You call the shots with your suggestions! \nDon’t miss this one-of-a-kind comedy show at Pike Place Market. It’s puppets\, it’s improv\, and it’s guaranteed to make you laugh. \nTHIS SHOW CONTAINS MATURE CONTENT\, LANGUAGE\, AND SITUATIONS
+URL:https://www.unexpectedproductions.org/event/no-strings-attached-an-improvised-puppet-show-for-grownups-2-3-3-2/2026-02-21/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/12/305449296_8571544809525931_4843708881624562709_n.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260221T193000
+DTEND;TZID=America/Los_Angeles:20260221T204500
+DTSTAMP:20260220T231737
+CREATED:20260120T172413Z
+LAST-MODIFIED:20260122T181302Z
+UID:10010293-1771702200-1771706700@www.unexpectedproductions.org
+SUMMARY:I Saw You: A Comedy with Heart
+DESCRIPTION:Unexpected Productions brings Seattle’s favorite alt-weekly section\, The Stranger’s I Saw U (and Craigslist Missed Connections)\, to life in a hilarious and heartwarming improv comedy show! Every Friday and Saturday at 7:30 PM\, our talented performers take the quirkiest\, sweetest\, and most outrageous listings and imagine what happens when these almost-lovers actually go on a date…and beyond. \nWhether you’re a hopeless romantic or a hardened cynic\, you’ll laugh\, cringe\, and maybe even tear up as we explore the eternal question: is fantasy really better than reality? Join us for a night of unexpected twists\, unfiltered hilarity\, and a dash of love-inspired chaos.
+URL:https://www.unexpectedproductions.org/event/i-saw-you-a-comedy-with-heart-8/2026-02-21/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/ISAWU_3-big.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260221T213000
+DTEND;TZID=America/Los_Angeles:20260221T230000
+DTSTAMP:20260220T231737
+CREATED:20260123T174220Z
+LAST-MODIFIED:20260123T174348Z
+UID:10011090-1771709400-1771714800@www.unexpectedproductions.org
+SUMMARY:Seattle Theatresports 2026
+DESCRIPTION:Seattle’s high-energy improv battle where your suggestions shape every scene. Fast\, funny\, unpredictable comedy Fri. & Sat. 9:30\n\n\n\nWelcome to Seattle’s funnest improv comedy show\, a high-energy\, no-rules showdown where your ideas shape every scene. Seattle Theatresports at Unexpected Productions’ Market Theater in Pike Place Market is part comedy battle\, part game night\, and completely powered by the crowd. Boo the judges. Cheer the Gum Wall race and laugh til it hurts! \nEvery show\, two teams of top Seattle improvisers go head to head\, performing games\, stories\, characters\, and scenes inspired entirely by your suggestions. Judges score the rounds\, decide the winners\, and shape the fun (as we boo them). No scripts. No safety nets. Just fast thinking\, bold choices\, and pure creative mayhem. \nThis isn’t your parents’ improv show\, unless your parents were super cool.
+URL:https://www.unexpectedproductions.org/event/seattle-theatresports-2026-test/2026-02-21/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Theatresports-Yellow-Small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260222T190000
+DTEND;TZID=America/Los_Angeles:20260222T201500
+DTSTAMP:20260220T231737
+CREATED:20260120T172714Z
+LAST-MODIFIED:20260126T202149Z
+UID:10011186-1771786800-1771791300@www.unexpectedproductions.org
+SUMMARY:Black Ice: An American Sitcom Improvised
+DESCRIPTION:Welcome to our live studio audience! Be a part of an improvised television sitcom in the style of Norman Lear.\n\n\n\nOur talented improvisers will use your suggestions to create an unforgettable show that will have you laughing out loud. Norman Lear was a legendary producer and writer of popular 1970s sitcoms such as All in the Family\, Maude\, The Jeffersons\, and Good Times. His shows were known for introducing political and social themes to the sitcom format. As our audience\, you have the important role of providing the laugh track and suggestions to make this show a success. So let’s work together to create a hilarious American Sitcom that will be talked about for years to come!
+URL:https://www.unexpectedproductions.org/event/black-ice-an-american-sitcom-improvised/2026-02-22/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Black-Ice-Poster-2025-Small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260224T210000
+DTEND;TZID=America/Los_Angeles:20260224T220000
+DTSTAMP:20260220T231737
+CREATED:20260106T193054Z
+LAST-MODIFIED:20260106T193054Z
+UID:10010205-1771966800-1771970400@www.unexpectedproductions.org
+SUMMARY:Improv Unexpected at Jules Maes in Georgetown
+DESCRIPTION:Improv comes to Georgetown! Seattle’s legendary improv company\, Unexpected Productions\, brings you the Improv Unexpected. The talented cast members take your suggestions and spontaneously create hilarious stories\, zany scenes\, and fun songs right on the spot and in the moment just for YOU! \n21+ with valid ID. All sales are non-refundable. If the event is rescheduled\, all purchases will be honored for the next event date. If the event is canceled\, all purchases will be refunded in full
+URL:https://www.unexpectedproductions.org/event/improv-unexpected-at-jules-maes-in-georgetown-8-2-2-2/2026-02-24/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/01/Jules-Maes-small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260225T190000
+DTEND;TZID=America/Los_Angeles:20260225T194500
+DTSTAMP:20260220T231737
+CREATED:20260106T185336Z
+LAST-MODIFIED:20260107T200832Z
+UID:10010140-1772046000-1772048700@www.unexpectedproductions.org
+SUMMARY:Improv Greenhouse feat: Market Improv
+DESCRIPTION:Get ready to be surprised\, delighted\, and maybe even see your wildest idea take on a life of its own!\n\n\n\nGraduate Greenhouse is a Wednesday night showcase featuring alumni from Unexpected Productions Improv School. Each performance highlights a different alumni group\, putting their training to the test with unpredictable scenes\, various formats\, and improvised stories. From long-form storytelling to character work\, these performers explore the boundaries of improv. \nJan 7 Market Improv \nJan 14 \nJan 21 \nBut the fun doesn’t stop there! Stick around for a double feature as we roll into Seattle’s longest-running Improv Open Mic: the Duos Open Mic! Starting at 8:00 pm\, this weekly showcase promises even more laughs\, surprises\, and improv magic.
+URL:https://www.unexpectedproductions.org/event/graduate-greenhouse-fka-an-improvised-holiday-special-2-2/2026-02-25/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/611744788_25834828646123545_7391804144568306027_n.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260225T200000
+DTEND;TZID=America/Los_Angeles:20260225T213000
+DTSTAMP:20260220T231737
+CREATED:20251204T002535Z
+LAST-MODIFIED:20251204T002535Z
+UID:10009839-1772049600-1772055000@www.unexpectedproductions.org
+SUMMARY:Duo Comedy Showcase 2026
+DESCRIPTION:Seattle’s one and only open mic dedicated to two-person improv teams! Every week at Unexpected Productions\, two-person teams take the stage to create hilarious\, fast-paced\, totally unscripted comedy right before your eyes. No scripts\, no safety nets—just pure improv magic. \nAt Duos\, everyone shines. Newer performers sharpen their game. Seasoned improvisers experiment\, take risks\, and get wonderfully weird. The results? Quick-witted scenes\, surprising twists\, and bold choices that feel impossible until you watch them happen live. \nWhether you dream of being the next Key & Peele\, Tina Fey & Amy Poehler\, or a chaotic tag-team like Deadpool & Wolverine\, this is your chance to take the mic and run with it. All experience levels are welcome. Bring a friend\, form a team\, and give Seattle a show they won’t forget. To sign up your duo\, email duoshowcase@gmail.com. \nLooking for a midweek serotonin boost? Watching the show is just as fun as performing in it. Grab a seat\, grab a friend\, and discover why Unexpected Productions is the home of Seattle improv.
+URL:https://www.unexpectedproductions.org/event/duo-comedy-showcase-2026/2026-02-25/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/12/200-px-by-250-px-DUOs-.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260226T200000
+DTEND;TZID=America/Los_Angeles:20260226T213000
+DTSTAMP:20260220T231737
+CREATED:20251204T005447Z
+LAST-MODIFIED:20251230T165100Z
+UID:10010075-1772136000-1772141400@www.unexpectedproductions.org
+SUMMARY:Loose Cannons 2026
+DESCRIPTION:Loose Cannons is Seattle improv at its most unpredictable. Every performance at Unexpected Productions in Pike Place Market is a one-of-a-kind experience: exciting\, unexpected\, a little dangerous\, and always ridiculously fun. This is the show where anything can happen and usually does. \nPart One: Part One: The night kicks off with a unique performance\, setting the performers in a new format with special guest improvisers showcasing their signature style or a never-before-seen format. Your suggestions fuel the fire\, and the improvisers will ignite the stage\, bringing your ideas to life. \nPart Two: The second half launches from a single audience suggestion\, setting the performers in motion. It might start with a song\, a monologue\, or a rapid-fire group connection game. Whatever emerges will inspire spontaneous stories\, surprising twists\, and big comedic swings. \nLoose Cannons is fueled by audience ideas\, fearless performers\, and the thrill of not knowing what happens next. You light the fuse. They run with it. What they create is entirely up to you.
+URL:https://www.unexpectedproductions.org/event/loose-cannons-2026/2026-02-26/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/02/cannon_px-lrg-250x200-1-2.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260227T193000
+DTEND;TZID=America/Los_Angeles:20260227T204500
+DTSTAMP:20260220T231737
+CREATED:20260120T172413Z
+LAST-MODIFIED:20260122T181302Z
+UID:10010294-1772220600-1772225100@www.unexpectedproductions.org
+SUMMARY:I Saw You: A Comedy with Heart
+DESCRIPTION:Unexpected Productions brings Seattle’s favorite alt-weekly section\, The Stranger’s I Saw U (and Craigslist Missed Connections)\, to life in a hilarious and heartwarming improv comedy show! Every Friday and Saturday at 7:30 PM\, our talented performers take the quirkiest\, sweetest\, and most outrageous listings and imagine what happens when these almost-lovers actually go on a date…and beyond. \nWhether you’re a hopeless romantic or a hardened cynic\, you’ll laugh\, cringe\, and maybe even tear up as we explore the eternal question: is fantasy really better than reality? Join us for a night of unexpected twists\, unfiltered hilarity\, and a dash of love-inspired chaos.
+URL:https://www.unexpectedproductions.org/event/i-saw-you-a-comedy-with-heart-8/2026-02-27/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/ISAWU_3-big.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260227T213000
+DTEND;TZID=America/Los_Angeles:20260227T230000
+DTSTAMP:20260220T231737
+CREATED:20260123T174220Z
+LAST-MODIFIED:20260123T174348Z
+UID:10011091-1772227800-1772233200@www.unexpectedproductions.org
+SUMMARY:Seattle Theatresports 2026
+DESCRIPTION:Seattle’s high-energy improv battle where your suggestions shape every scene. Fast\, funny\, unpredictable comedy Fri. & Sat. 9:30\n\n\n\nWelcome to Seattle’s funnest improv comedy show\, a high-energy\, no-rules showdown where your ideas shape every scene. Seattle Theatresports at Unexpected Productions’ Market Theater in Pike Place Market is part comedy battle\, part game night\, and completely powered by the crowd. Boo the judges. Cheer the Gum Wall race and laugh til it hurts! \nEvery show\, two teams of top Seattle improvisers go head to head\, performing games\, stories\, characters\, and scenes inspired entirely by your suggestions. Judges score the rounds\, decide the winners\, and shape the fun (as we boo them). No scripts. No safety nets. Just fast thinking\, bold choices\, and pure creative mayhem. \nThis isn’t your parents’ improv show\, unless your parents were super cool.
+URL:https://www.unexpectedproductions.org/event/seattle-theatresports-2026-test/2026-02-27/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Theatresports-Yellow-Small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260228T180000
+DTEND;TZID=America/Los_Angeles:20260228T190000
+DTSTAMP:20260220T231737
+CREATED:20251229T170840Z
+LAST-MODIFIED:20260123T191701Z
+UID:10011211-1772301600-1772305200@www.unexpectedproductions.org
+SUMMARY:Improv Happy Hour
+DESCRIPTION:Our quick-thinking performers turn your suggestions into hilarious scenes on the spot\, from movie mashups to literary spoofs and bold\, experimental comedy\, our quick-thinking performers turn. This family-friendly show at the iconic Gum Wall in Pike Place Market guarantees a night of laughter\, surprises\, and improv magic you won’t forget. Bring your wildest ideas\, your loudest laughs\, and get ready for a one-of-a-kind comedy experience—because at Improv Happy Hour\, anything can happen (and usually does)!
+URL:https://www.unexpectedproductions.org/event/improv-happy-hour-4-2-2/2026-02-28/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/06/HappyHour.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260228T193000
+DTEND;TZID=America/Los_Angeles:20260228T204500
+DTSTAMP:20260220T231737
+CREATED:20260120T172413Z
+LAST-MODIFIED:20260122T181302Z
+UID:10010295-1772307000-1772311500@www.unexpectedproductions.org
+SUMMARY:I Saw You: A Comedy with Heart
+DESCRIPTION:Unexpected Productions brings Seattle’s favorite alt-weekly section\, The Stranger’s I Saw U (and Craigslist Missed Connections)\, to life in a hilarious and heartwarming improv comedy show! Every Friday and Saturday at 7:30 PM\, our talented performers take the quirkiest\, sweetest\, and most outrageous listings and imagine what happens when these almost-lovers actually go on a date…and beyond. \nWhether you’re a hopeless romantic or a hardened cynic\, you’ll laugh\, cringe\, and maybe even tear up as we explore the eternal question: is fantasy really better than reality? Join us for a night of unexpected twists\, unfiltered hilarity\, and a dash of love-inspired chaos.
+URL:https://www.unexpectedproductions.org/event/i-saw-you-a-comedy-with-heart-8/2026-02-28/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/ISAWU_3-big.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260228T213000
+DTEND;TZID=America/Los_Angeles:20260228T230000
+DTSTAMP:20260220T231737
+CREATED:20260123T174220Z
+LAST-MODIFIED:20260123T174348Z
+UID:10011092-1772314200-1772319600@www.unexpectedproductions.org
+SUMMARY:Seattle Theatresports 2026
+DESCRIPTION:Seattle’s high-energy improv battle where your suggestions shape every scene. Fast\, funny\, unpredictable comedy Fri. & Sat. 9:30\n\n\n\nWelcome to Seattle’s funnest improv comedy show\, a high-energy\, no-rules showdown where your ideas shape every scene. Seattle Theatresports at Unexpected Productions’ Market Theater in Pike Place Market is part comedy battle\, part game night\, and completely powered by the crowd. Boo the judges. Cheer the Gum Wall race and laugh til it hurts! \nEvery show\, two teams of top Seattle improvisers go head to head\, performing games\, stories\, characters\, and scenes inspired entirely by your suggestions. Judges score the rounds\, decide the winners\, and shape the fun (as we boo them). No scripts. No safety nets. Just fast thinking\, bold choices\, and pure creative mayhem. \nThis isn’t your parents’ improv show\, unless your parents were super cool.
+URL:https://www.unexpectedproductions.org/event/seattle-theatresports-2026-test/2026-02-28/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Theatresports-Yellow-Small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260302T160000
+DTEND;TZID=America/Los_Angeles:20260302T172000
+DTSTAMP:20260220T231737
+CREATED:20260210T210657Z
+LAST-MODIFIED:20260210T210657Z
+UID:10011446-1772467200-1772472000@www.unexpectedproductions.org
+SUMMARY:Youth Clowning with Mick Holsbeke
+DESCRIPTION:Unleash your silly side! A playful\, youth-friendly class using improv\, physical comedy\, and clown games to build confidence & creativity\n\n\n\nGet ready to unleash your silly side! This series is all about having fun\, taking creative risks\, and finding the funny in the unexpected. Working as a group to start\, participants will dive head-over-heels into ensemble theater\, improvisation\, physical comedy\, and clown-inspired games\, learning how to turn everyday moments into laugh-out-loud comedy. Whether you’re interested in performing or just want to break out of your comfort zone\, this session is all about embracing play\, thinking on your feet\, and making bold comedic choices. No experience? No problem! Just bring your imagination\, a sense of humor\, and a willingness to get ridiculous. \nClass Details\nDates: 3/2 thru 4/6/26; Six (6) Monday classes \nTime: 4:00 pm to 5:20 pm \nLocation: The Clown Garage at Improv School Eastside Issaquah \n1315 NW Mall Street\, Suite 4 Issaquah\, WA 98027 (next to the Gaslamp Bar & Grill) \nMaximum students: 12 \nAges: 10-15 \nCost: $320 \nPrerequisite: None
+URL:https://www.unexpectedproductions.org/event/youth-clowning-with-mick-holsbeke/
+LOCATION:Clown Garage at the Improv School Issaquah\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98027
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/YOUTH-CLOWNING.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260302T173000
+DTEND;TZID=America/Los_Angeles:20260302T190000
+DTSTAMP:20260220T231737
+CREATED:20260210T211223Z
+LAST-MODIFIED:20260210T211223Z
+UID:10011447-1772472600-1772478000@www.unexpectedproductions.org
+SUMMARY:Clown 100: The Foundations of Clown Play with Mick Holsbeke
+DESCRIPTION:Step into the playful world of Clown! Explore presence\, vulnerability\, and joyful failure through ensemble play and laughter\n\n\n\nWelcome to the world of clowning! This foundational class invites you to step into the playful\, unpredictable\, and joy-filled realm of Clowning with other folks. Through a series of dynamic exercises in presence\, play\, rhythm\, tension\, emotional expression\, and ensemble play\, participants will explore what makes Clown so hilarious and contagious. Embracing vulnerability and the fine art of making mistakes\, we’ll turn failure into laughter and endless comic gold. Whether you’re new to performance or a seasoned artist\, this series will help you build confidence\, take creative risks\, and refine your Clown instincts. Come ready to play\, surprise yourself\, and find the fun in the unexpected! \nClass Details\nDates: Six (6) Monday classes \nTime: 5:30 pm to 7:00 pm \nLocation: The Clown Garage at Improv School Eastside Issaquah \n1315 NW Mall Street\, Suite 4 Issaquah\, WA 98027 (next to the Gaslamp Bar & Grill) \nMaximum students: 16 \nAges: 18 plus \nCost: $320 \nPrerequisite: None
+URL:https://www.unexpectedproductions.org/event/clown-100-the-foundations-of-clown-play-with-mick-holsbeke/
+LOCATION:Clown Garage at the Improv School Issaquah\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98027
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/100-Clown-Monday.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260302T190000
+DTEND;TZID=America/Los_Angeles:20260302T210000
+DTSTAMP:20260220T231737
+CREATED:20260210T211639Z
+LAST-MODIFIED:20260210T211639Z
+UID:10011448-1772478000-1772485200@www.unexpectedproductions.org
+SUMMARY:Intro to Improv Eastside - Issaquah MONDAYS
+DESCRIPTION:Discover improv in Issaquah. Build confidence\, meet new people\, and learn to create stories through fun\, supportive games and scene work.\n\n\n\nLooking for a fun\, fresh way to connect with others\, spark creativity\, and step out of the everyday routine? Welcome to Intro to Improv at Unexpected Productions Improv School Eastside in Issaquah. Whether you are a working professional hoping to improve communication\, a creative soul searching for a new outlet\, or someone simply wanting more laughter and community in your week\, this class is the perfect place to begin. \nIn this beginner-friendly course\, you will learn the foundational skills of improvisation: active listening\, collaboration\, spontaneity\, and using your own life experiences to create honest\, engaging scenes and stories. Improv is not about being funny\, it is about being present\, supportive\, and open. And yes\, along the way\, you will laugh more than you have in ages. \nOur community values connection and growth\, and this class is built on those principles. You will work in a supportive group where the guiding philosophy is simple: When your scene partner looks good\, you look good. Together\, we build trust\, confidence\, and creativity\, one scene at a time. \n\nUnder the guidance of our experienced faculty\, you will learn to:\nBe a better listener\nConquer fears and build confidence\nSpark creativity\nMeet new people and make real connections\nBecome a better problem solver\nSay yes more in your life\nStep out of your comfort zone\nImprove public speaking\nFail easier (and laugh about it)\nDiscover more about yourself\nHave an absolute blast\n\nThis class includes lots of laughter\, lots of stage time\, and zero pressure. Every student begins here. No experience needed. Just bring curiosity and a willingness to try something new. \nUnexpected Productions Improv School is thrilled to bring our newest Eastside improv classes to Issaquah\, serving the communities of the Sammamish Plateau\, East Renton\, Bellevue\, Snoqualmie Valley\, and beyond. \nClass Details\nDates: Eight (8) Monday classes \nTime: 7:00pm to 9:00pm \nLocation: Improv School Eastside Issaquah \n1315 NW Mall Street\, Suite 4 Issaquah\, WA 98027 (next to the Gaslamp Bar & Grill) \nMaximum students: 16 \nAges: 18 plus \nCost: $320 \nPrerequisite: None \nNote: Attendance at the first session is mandatory\, as it sets the tone and foundation for the entire quarter. If you know you will miss the first class\, please register for a future session.
+URL:https://www.unexpectedproductions.org/event/intro-to-improv-eastside-issaquah-mondays/
+LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/100-Mondays-Eastside.jpg
+GEO:47.5520122;-122.3251523
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260303T190000
+DTEND;TZID=America/Los_Angeles:20260303T210000
+DTSTAMP:20260220T231737
+CREATED:20260210T211929Z
+LAST-MODIFIED:20260210T212205Z
+UID:10011449-1772564400-1772571600@www.unexpectedproductions.org
+SUMMARY:Theatrical Styles with Alan Hawkins - Issaquah
+DESCRIPTION:Explore bold theatrical styles through improv\, from classical and heightened to physical\, melodramatic\, and contemporary. Come play.\n\n\n\nThis class invites improvisers to explore a wide range of theatrical styles and performance traditions\, using improvisation as the engine for discovery. While Shakespeare provides one historical foundation\, the emphasis is on learning how different styles shape character\, language\, movement\, and storytelling—and how to shift between them with confidence and play. \nThis is a practical\, hands-on class focused on experimentation\, adaptability\, and joyful risk-taking. \nWhat You’ll Do\nExplore a variety of theatrical styles through improvisation\, including \n\nClassical and heightened theatre\nShakespeare-inspired performance\nMelodrama and farce\nPhysical and movement-based theatre\nContemporary and genre-based stage styles\nLearn how style affects character\, language\, physicality\, and emotional stakes\nPractice transforming the same scene by changing theatrical style\nPerform improvised scenes and monologues with clear stylistic choices\nBuild versatility\, confidence\, and range as a theatrical improviser\n\nThis class is ideal for students who want to expand their expressive toolbox\, deepen their understanding of theatrical storytelling\, and become more adaptable performers. Whether you’re interested in classical forms\, bold physical comedy\, modern realism\, or stylized stage work\, this class offers a playful\, supportive space to explore how style shapes the stories we tell. \nUnexpected Productions Improv School is thrilled to bring our newest Eastside improv classes to Issaquah\, serving the communities of the Sammamish Plateau\, East Renton\, Bellevue\, Snoqualmie Valley\, North Bend\, and beyond. \nClass Details\nDates: Four (4) Tuesdays \nTime: 7:00 pm–9:00 pm \nLocation: Unexpected Productions – Issaquah \n1315 NW Mall Street\, Suite 4\, Issaquah\, WA 98027 (next to the Gaslamp Bar and Grill) \nMaximum Students: 16 \nCost: $270 \nPrerequisite: Improv 100 or equivalent
+URL:https://www.unexpectedproductions.org/event/theatrical-styles-with-alan-hawkins-issaquah/
+LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/Theatrical-styles-with-Alan-Hawkin-2026.jpg
+GEO:47.5520122;-122.3251523
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260304T190000
+DTEND;TZID=America/Los_Angeles:20260304T194500
+DTSTAMP:20260220T231737
+CREATED:20260106T185336Z
+LAST-MODIFIED:20260107T200832Z
+UID:10010141-1772650800-1772653500@www.unexpectedproductions.org
+SUMMARY:Improv Greenhouse feat: Market Improv
+DESCRIPTION:Get ready to be surprised\, delighted\, and maybe even see your wildest idea take on a life of its own!\n\n\n\nGraduate Greenhouse is a Wednesday night showcase featuring alumni from Unexpected Productions Improv School. Each performance highlights a different alumni group\, putting their training to the test with unpredictable scenes\, various formats\, and improvised stories. From long-form storytelling to character work\, these performers explore the boundaries of improv. \nJan 7 Market Improv \nJan 14 \nJan 21 \nBut the fun doesn’t stop there! Stick around for a double feature as we roll into Seattle’s longest-running Improv Open Mic: the Duos Open Mic! Starting at 8:00 pm\, this weekly showcase promises even more laughs\, surprises\, and improv magic.
+URL:https://www.unexpectedproductions.org/event/graduate-greenhouse-fka-an-improvised-holiday-special-2-2/2026-03-04/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/611744788_25834828646123545_7391804144568306027_n.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260304T190000
+DTEND;TZID=America/Los_Angeles:20260304T210000
+DTSTAMP:20260220T231737
+CREATED:20260210T212836Z
+LAST-MODIFIED:20260210T212836Z
+UID:10011450-1772650800-1772658000@www.unexpectedproductions.org
+SUMMARY:Improvised Musical Style and Lyrics with Ron Hippe - Issaquah
+DESCRIPTION:Find Your Voice\, Build Your Confidence\, and Create Songs on the Spot!\n\n\n\nNow at Unexpected Productions’ new Issaquah location\, unlock your creativity in a supportive\, playful\, and joy-filled class designed for anyone who’s ever hummed in the car\, belted in the shower\, or wondered\, “How do musical improvisers make that magic happen?” \nWhether you’re a seasoned improviser or stepping into musical improv for the first time\, this course welcomes you with open arms—no prior singing experience required. \nWhat You’ll Learn\nThis intensive\, dynamic class explores the foundational skills of musical improvisation through hands-on practice and group collaboration. You’ll learn how to: \n\nCreate songs and stories in the moment\nUnderstand classic song forms and how they apply to improv\nStrengthen your sense of timing\, rhythm\, and rhyme\nTurn simple prompts into memorable choruses\nBuild lyrics that feel poetic\, emotional\, or downright hilarious\nJump confidently between styles—from Broadway to jazz\, pop to chants\n\nIt’s fun\, supportive\, and incredibly energizing. You’ll be surprised at what you can create with your classmates—often within minutes. Unexpected Productions Improv School is thrilled to bring our newest Eastside improv classes to Issaquah\, serving the communities of the Sammamish Plateau\, East Renton\, Bellevue\, Snoqualmie Valley\, Northbend and beyond. \nClass Details\nDates: Four (4) Wednesdays \nTime: 7:00pm–9:00pm \nLocation: Unexpected Productions – Issaquah \n1315 NW Mall Street\, Suite 4\, Issaquah\, WA 98027 (next to the Gaslamp Bar and Grill) \nMaximum Students: 16 \nCost: $270 ($282.29 with fees
+URL:https://www.unexpectedproductions.org/event/improvised-musical-style-and-lyrics-with-ron-hippe-issaquah/
+LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/Ron-Summer-Winter-2026-Eastside.jpg
+GEO:47.5520122;-122.3251523
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260304T200000
+DTEND;TZID=America/Los_Angeles:20260304T213000
+DTSTAMP:20260220T231737
+CREATED:20251204T002535Z
+LAST-MODIFIED:20251204T002535Z
+UID:10009840-1772654400-1772659800@www.unexpectedproductions.org
+SUMMARY:Duo Comedy Showcase 2026
+DESCRIPTION:Seattle’s one and only open mic dedicated to two-person improv teams! Every week at Unexpected Productions\, two-person teams take the stage to create hilarious\, fast-paced\, totally unscripted comedy right before your eyes. No scripts\, no safety nets—just pure improv magic. \nAt Duos\, everyone shines. Newer performers sharpen their game. Seasoned improvisers experiment\, take risks\, and get wonderfully weird. The results? Quick-witted scenes\, surprising twists\, and bold choices that feel impossible until you watch them happen live. \nWhether you dream of being the next Key & Peele\, Tina Fey & Amy Poehler\, or a chaotic tag-team like Deadpool & Wolverine\, this is your chance to take the mic and run with it. All experience levels are welcome. Bring a friend\, form a team\, and give Seattle a show they won’t forget. To sign up your duo\, email duoshowcase@gmail.com. \nLooking for a midweek serotonin boost? Watching the show is just as fun as performing in it. Grab a seat\, grab a friend\, and discover why Unexpected Productions is the home of Seattle improv.
+URL:https://www.unexpectedproductions.org/event/duo-comedy-showcase-2026/2026-03-04/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/12/200-px-by-250-px-DUOs-.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T173000
+DTEND;TZID=America/Los_Angeles:20260305T190000
+DTSTAMP:20260220T231737
+CREATED:20260211T000334Z
+LAST-MODIFIED:20260211T000334Z
+UID:10011452-1772731800-1772737200@www.unexpectedproductions.org
+SUMMARY:Physical Humor 100: The Comic Technician with Mick Holsbeke
+DESCRIPTION:Get silly\, take bold creative risks\, and find the funny through ensemble improv\, physical comedy\, and playful clown-inspired games.\n\n\n\nEver since we were able to stand\, we have been able to fall\, and humans love to laugh at someone who stumbles\, trips\, bobbles\, bumps into\, gets hit by\, or struggles with problems that should be easily avoidable or\, otherwise\, are simple to solve. In this class series\, internationally renowned clown & circus artist Mick Holsbeke will guide students through an introduction to the foundations of Physical Comedy\, offering participants a broad range of experience in the joys of being clumsy\, accident-prone comic characters. \nClass Details\nDates: 3/5/26 thru 4/9/26; Six (6) Thursday classes \nTime: 5:30 PM – 7:00 PM \nLocation: The Clown Garage at the Improv School Eastside Issaquah \n1315 NW Mall Street\, Suite 4 Issaquah\, WA 98027 (next to the Gaslamp Bar & Grill) \nMaximum students: 12 \nAges: 18 plus \nCost: $320 \nPrerequisite: Clown 100
+URL:https://www.unexpectedproductions.org/event/physical-humor-100-the-comic-technician-with-mick-holsbeke/
+LOCATION:Clown Garage at the Improv School Issaquah\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98027
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/Physical-Humor.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T190000
+DTEND;TZID=America/Los_Angeles:20260305T203000
+DTSTAMP:20260220T231737
+CREATED:20260211T000007Z
+LAST-MODIFIED:20260211T000059Z
+UID:10011451-1772737200-1772742600@www.unexpectedproductions.org
+SUMMARY:Clown 100: The Foundations of Clown Play with Mick Holsbeke
+DESCRIPTION:Step into the playful world of Clown! Explore presence\, vulnerability\, and joyful failure through ensemble play and laughter\n\n\n\nWelcome to the world of clowning! This foundational class invites you to step into the playful\, unpredictable\, and joy-filled realm of Clowning with other folks. Through a series of dynamic exercises in presence\, play\, rhythm\, tension\, emotional expression\, and ensemble play\, participants will explore what makes Clown so hilarious and contagious. Embracing vulnerability and the fine art of making mistakes\, we’ll turn failure into laughter and endless comic gold. Whether you’re new to performance or a seasoned artist\, this series will help you build confidence\, take creative risks\, and refine your Clown instincts. Come ready to play\, surprise yourself\, and find the fun in the unexpected! \nClass Details\nDates: 3/5/26 thru 4/9/26; Six (6) Thursday classes \nTime: 7:00 pm to 8:30 pm \nLocation: The Clown Garage at Improv School Eastside Issaquah \n1315 NW Mall Street\, Suite 4 Issaquah\, WA 98027 (next to the Gaslamp Bar & Grill) \nMaximum students: 16 \nAges: 18 plus \nCost: $320 \nPrerequisite: None
+URL:https://www.unexpectedproductions.org/event/clown-100-the-foundations-of-clown-play-with-mick-holsbeke-2/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/CLOWN-100.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T200000
+DTEND;TZID=America/Los_Angeles:20260305T213000
+DTSTAMP:20260220T231737
+CREATED:20251204T005447Z
+LAST-MODIFIED:20251230T165100Z
+UID:10010076-1772740800-1772746200@www.unexpectedproductions.org
+SUMMARY:Loose Cannons 2026
+DESCRIPTION:Loose Cannons is Seattle improv at its most unpredictable. Every performance at Unexpected Productions in Pike Place Market is a one-of-a-kind experience: exciting\, unexpected\, a little dangerous\, and always ridiculously fun. This is the show where anything can happen and usually does. \nPart One: Part One: The night kicks off with a unique performance\, setting the performers in a new format with special guest improvisers showcasing their signature style or a never-before-seen format. Your suggestions fuel the fire\, and the improvisers will ignite the stage\, bringing your ideas to life. \nPart Two: The second half launches from a single audience suggestion\, setting the performers in motion. It might start with a song\, a monologue\, or a rapid-fire group connection game. Whatever emerges will inspire spontaneous stories\, surprising twists\, and big comedic swings. \nLoose Cannons is fueled by audience ideas\, fearless performers\, and the thrill of not knowing what happens next. You light the fuse. They run with it. What they create is entirely up to you.
+URL:https://www.unexpectedproductions.org/event/loose-cannons-2026/2026-03-05/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/02/cannon_px-lrg-250x200-1-2.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260306T193000
+DTEND;TZID=America/Los_Angeles:20260306T204500
+DTSTAMP:20260220T231737
+CREATED:20260123T200531Z
+LAST-MODIFIED:20260126T180334Z
+UID:10011222-1772825400-1772829900@www.unexpectedproductions.org
+SUMMARY:Seattle Suites: An Improvised Neil Simon Comedy
+DESCRIPTION:Improvised comedy in the style of Neil Simon\, where one hotel suite becomes a comedic pressure cooker for 3 hilarious improvised tales\n\n\n\nOne hotel suite. Countless misunderstandings. Relentless laughs. \nSeattle Suite is a laugh-driven\, fully improvised play inspired by the style of Plaza Suite and California Suite\, capturing the signature humor of Neil Simon that is fast\, verbal\, and rooted in beautifully human flaws. Each night\, a single Seattle hotel room becomes the setting for interconnected scenes inspired by your suggestions\, friends overshare and spiral\, romantic gestures go wrong\, awkward silences stretch\, and small problems become big ones. The comedy comes from character and relationship\, building through sharp dialogue\, escalating tension\, and recognizable\, lived-in situations. Perfect for fans of smart comedy\, relationship humor\, and classic theatrical wit.
+URL:https://www.unexpectedproductions.org/event/seattle-suites-an-improvised-neil-simon-comedy/2026-03-06/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/png:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Seattle-Suite_-Comedy-in-the-Clouds.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260306T213000
+DTEND;TZID=America/Los_Angeles:20260306T230000
+DTSTAMP:20260220T231737
+CREATED:20260123T174220Z
+LAST-MODIFIED:20260123T174348Z
+UID:10011093-1772832600-1772838000@www.unexpectedproductions.org
+SUMMARY:Seattle Theatresports 2026
+DESCRIPTION:Seattle’s high-energy improv battle where your suggestions shape every scene. Fast\, funny\, unpredictable comedy Fri. & Sat. 9:30\n\n\n\nWelcome to Seattle’s funnest improv comedy show\, a high-energy\, no-rules showdown where your ideas shape every scene. Seattle Theatresports at Unexpected Productions’ Market Theater in Pike Place Market is part comedy battle\, part game night\, and completely powered by the crowd. Boo the judges. Cheer the Gum Wall race and laugh til it hurts! \nEvery show\, two teams of top Seattle improvisers go head to head\, performing games\, stories\, characters\, and scenes inspired entirely by your suggestions. Judges score the rounds\, decide the winners\, and shape the fun (as we boo them). No scripts. No safety nets. Just fast thinking\, bold choices\, and pure creative mayhem. \nThis isn’t your parents’ improv show\, unless your parents were super cool.
+URL:https://www.unexpectedproductions.org/event/seattle-theatresports-2026-test/2026-03-06/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Theatresports-Yellow-Small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T133000
+DTEND;TZID=America/Los_Angeles:20260307T150000
+DTSTAMP:20260220T231737
+CREATED:20260211T000600Z
+LAST-MODIFIED:20260211T000600Z
+UID:10011453-1772890200-1772895600@www.unexpectedproductions.org
+SUMMARY:Clown 200: Reinforcing Your Clown Foundation with Mick Holsbeke
+DESCRIPTION:Deepen your clown craft through presence\, rhythm\, status\, and physical comedy—embracing failure to build confidence\, independence\, and play\n\n\n\nIn the Clown 200 class series\, students will deepen their understanding of the foundations of theatrical clowning. Participants will engage in exercises focused on presence\, rhythm\, tension\, emotional endurance\, character development\, status play\, and physical humor. By embracing failure and mistakes\, students build confidence to take new comic risks\, grow in their comedic abilities\, and gently approach independence in harnessing the elusive state of Clown. \nClass Details\nDates: 3/5/26 thru 4/9/26; Six (6) Thursday classes \nTime: 1:30 – 3:00 PM \nLocation: The Clown Garage at Improv School Eastside Issaquah \n1315 NW Mall Street\, Suite 4 Issaquah\, WA 98027 (next to the Gaslamp Bar & Grill) \nMaximum students: 12 \nAges: 18 plus \nCost: $320 \nPrerequisite: None
+URL:https://www.unexpectedproductions.org/event/clown-200-reinforcing-your-clown-foundation-with-mick-holsbeke/
+LOCATION:Clown Garage at the Improv School Issaquah\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98027
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/CLOWN-200.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T180000
+DTEND;TZID=America/Los_Angeles:20260307T190000
+DTSTAMP:20260220T231737
+CREATED:20251229T170840Z
+LAST-MODIFIED:20260123T191701Z
+UID:10011221-1772906400-1772910000@www.unexpectedproductions.org
+SUMMARY:Improv Happy Hour
+DESCRIPTION:Our quick-thinking performers turn your suggestions into hilarious scenes on the spot\, from movie mashups to literary spoofs and bold\, experimental comedy\, our quick-thinking performers turn. This family-friendly show at the iconic Gum Wall in Pike Place Market guarantees a night of laughter\, surprises\, and improv magic you won’t forget. Bring your wildest ideas\, your loudest laughs\, and get ready for a one-of-a-kind comedy experience—because at Improv Happy Hour\, anything can happen (and usually does)!
+URL:https://www.unexpectedproductions.org/event/improv-happy-hour-4-2-2/2026-03-07/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/06/HappyHour.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T193000
+DTEND;TZID=America/Los_Angeles:20260307T204500
+DTSTAMP:20260220T231737
+CREATED:20260123T200531Z
+LAST-MODIFIED:20260126T180334Z
+UID:10011223-1772911800-1772916300@www.unexpectedproductions.org
+SUMMARY:Seattle Suites: An Improvised Neil Simon Comedy
+DESCRIPTION:Improvised comedy in the style of Neil Simon\, where one hotel suite becomes a comedic pressure cooker for 3 hilarious improvised tales\n\n\n\nOne hotel suite. Countless misunderstandings. Relentless laughs. \nSeattle Suite is a laugh-driven\, fully improvised play inspired by the style of Plaza Suite and California Suite\, capturing the signature humor of Neil Simon that is fast\, verbal\, and rooted in beautifully human flaws. Each night\, a single Seattle hotel room becomes the setting for interconnected scenes inspired by your suggestions\, friends overshare and spiral\, romantic gestures go wrong\, awkward silences stretch\, and small problems become big ones. The comedy comes from character and relationship\, building through sharp dialogue\, escalating tension\, and recognizable\, lived-in situations. Perfect for fans of smart comedy\, relationship humor\, and classic theatrical wit.
+URL:https://www.unexpectedproductions.org/event/seattle-suites-an-improvised-neil-simon-comedy/2026-03-07/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/png:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Seattle-Suite_-Comedy-in-the-Clouds.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T213000
+DTEND;TZID=America/Los_Angeles:20260307T230000
+DTSTAMP:20260220T231737
+CREATED:20260123T174220Z
+LAST-MODIFIED:20260123T174348Z
+UID:10011094-1772919000-1772924400@www.unexpectedproductions.org
+SUMMARY:Seattle Theatresports 2026
+DESCRIPTION:Seattle’s high-energy improv battle where your suggestions shape every scene. Fast\, funny\, unpredictable comedy Fri. & Sat. 9:30\n\n\n\nWelcome to Seattle’s funnest improv comedy show\, a high-energy\, no-rules showdown where your ideas shape every scene. Seattle Theatresports at Unexpected Productions’ Market Theater in Pike Place Market is part comedy battle\, part game night\, and completely powered by the crowd. Boo the judges. Cheer the Gum Wall race and laugh til it hurts! \nEvery show\, two teams of top Seattle improvisers go head to head\, performing games\, stories\, characters\, and scenes inspired entirely by your suggestions. Judges score the rounds\, decide the winners\, and shape the fun (as we boo them). No scripts. No safety nets. Just fast thinking\, bold choices\, and pure creative mayhem. \nThis isn’t your parents’ improv show\, unless your parents were super cool.
+URL:https://www.unexpectedproductions.org/event/seattle-theatresports-2026-test/2026-03-07/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Theatresports-Yellow-Small.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T180000
+DTEND;TZID=America/Los_Angeles:20260309T220000
+DTSTAMP:20260220T231737
+CREATED:20260213T213520Z
+LAST-MODIFIED:20260213T213520Z
+UID:10011456-1773079200-1773093600@www.unexpectedproductions.org
+SUMMARY:Winter Improv Student Showcase
+DESCRIPTION:Come see the improv stars of the future debut the skills they’ve learned in Unexpected Productions’ Improv School.\n\n\n\nJoin us tonight at Unexpected Productions’ Market Theater for the Winter Student Showcase! \nWatch as our talented students—ranging from beginner to advanced levels—take the stage to craft spontaneous\, engaging\, and often hilarious improv scenes right before your eyes. Our 300\, 400\, and 500-level students will showcase their newly honed skills\, giving you an exclusive preview of the next generation of improv stars. \nYou’ll experience a variety of performance styles inspired by UP’s mainstage shows\, making for an unpredictable and highly entertaining night. Stick around after the show to meet the performers—you’ll be able to say\, “I saw them before they were famous!” \n6:00pm: Chad Sunday 300\, Bestock 400\, Tim 400\, Tony 500\n8:00pm: Chad Monday 300\, Chazz 400\, Laurel 400\, Liz 500 \nDon’t miss this chance to support our rising improv stars and enjoy an evening of laughter and surprises. See you there!
+URL:https://www.unexpectedproductions.org/event/winter-improv-student-showcase/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/Student-Showcase-1.jpg
+END:VEVENT
+END:VCALENDAR

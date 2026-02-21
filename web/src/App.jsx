@@ -709,9 +709,23 @@ function App() {
         const dateStr = event.date.replace(/\[.*\]$/, '')
         const parsed = new Date(dateStr)
         if (isNaN(parsed.getTime())) return null
-        return { ...event, parsedDate: parsed, eventTimezone }
+        let parsedEndDate = null
+        if (event.endDate) {
+          const endDateStr = event.endDate.replace(/\[.*\]$/, '')
+          const parsedEnd = new Date(endDateStr)
+          if (!isNaN(parsedEnd.getTime())) parsedEndDate = parsedEnd
+        }
+        return { ...event, parsedDate: parsed, parsedEndDate, eventTimezone }
       })
-      .filter(event => event && event.parsedDate >= todayStart && event.parsedDate < endDate)
+      .filter(event => {
+        if (!event) return false
+        if (event.parsedDate >= endDate) return false
+        if (event.parsedDate < todayStart) return false
+        // Filter out events whose end time has already passed
+        const effectiveEnd = event.parsedEndDate || event.parsedDate
+        if (effectiveEnd <= now) return false
+        return true
+      })
 
     // Apply tag filter
     if (selectedTag) {
@@ -1647,18 +1661,24 @@ function App() {
                     <div key={`${event.icsUrl}-${event.summary}-${idx}`} className="event-item">
                       <div className="event-date">
                         {(() => {
+                          const timeOpts = { hour: '2-digit', minute: '2-digit' }
+                          const tzOpts = event.eventTimezone ? { timeZone: event.eventTimezone } : {}
+                          let startTime
                           try {
-                            return event.parsedDate.toLocaleTimeString('en-US', {
-                              hour: '2-digit',
-                              minute: '2-digit',
-                              ...(event.eventTimezone ? { timeZone: event.eventTimezone } : {})
-                            })
+                            startTime = event.parsedDate.toLocaleTimeString('en-US', { ...timeOpts, ...tzOpts })
                           } catch {
-                            return event.parsedDate.toLocaleTimeString('en-US', {
-                              hour: '2-digit',
-                              minute: '2-digit'
-                            })
+                            startTime = event.parsedDate.toLocaleTimeString('en-US', timeOpts)
                           }
+                          if (group.label === 'Today' && event.parsedEndDate) {
+                            let endTime
+                            try {
+                              endTime = event.parsedEndDate.toLocaleTimeString('en-US', { ...timeOpts, ...tzOpts })
+                            } catch {
+                              endTime = event.parsedEndDate.toLocaleTimeString('en-US', timeOpts)
+                            }
+                            return `${startTime} – ${endTime}`
+                          }
+                          return startTime
                         })()}
                       </div>
                       <div className="event-title">

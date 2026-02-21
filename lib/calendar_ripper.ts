@@ -16,6 +16,7 @@ import {
   prepareTaggedCalendars,
   prepareTaggedExternalCalendars,
   createAggregateCalendars,
+  collectAllTags,
   parseExternalCalendarEvents,
   TaggedCalendar,
   TaggedExternalCalendar,
@@ -485,7 +486,7 @@ export const main = async () => {
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
       const calConfig = config.config.calendars.find(c => c.name === calendar.name);
-      const isExpectEmpty = config.config.expectEmpty || calConfig?.expectEmpty || false;
+      const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
       console.log(`${calendar.events.length} events for ${config.config.name}-${calendar.name}`);
       eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length, expectEmpty: isExpectEmpty });
       if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
@@ -559,6 +560,35 @@ export const main = async () => {
     externalIcsCache
   );
 
+  // Compute expectEmpty for each tag: true only if ALL contributing sources are expectEmpty
+  const tagExpectEmpty = new Map<string, boolean>();
+  for (const tag of collectAllTags(allCalendars, taggedExternalCalendars)) {
+    let hasContributors = false;
+    let allExpectEmpty = true;
+    for (const cal of allCalendars) {
+      if (cal.tags.includes(tag)) {
+        hasContributors = true;
+        const calConfig = cal.parent?.calendars.find(c => c.name === cal.name);
+        if (!(calConfig?.expectEmpty ?? cal.parent?.expectEmpty ?? false)) {
+          allExpectEmpty = false;
+          break;
+        }
+      }
+    }
+    if (allExpectEmpty) {
+      for (const tec of taggedExternalCalendars) {
+        if (tec.tags.includes(tag)) {
+          hasContributors = true;
+          if (!tec.calendar.expectEmpty) {
+            allExpectEmpty = false;
+            break;
+          }
+        }
+      }
+    }
+    tagExpectEmpty.set(tag, hasContributors && allExpectEmpty);
+  }
+
   // Add aggregate calendars to output
   if (aggregateCalendars.length > 0) {
     const aggregateOutputs: CalendarOutput[] = [];
@@ -570,9 +600,11 @@ export const main = async () => {
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
+      const aggTag = calendar.tags[0];
+      const isAggExpectEmpty = aggTag ? (tagExpectEmpty.get(aggTag) ?? false) : false;
       console.log(`${calendar.events.length} events for ${calendar.name}`);
-      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: false });
-      if (calendar.events.length === 0) {
+      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty });
+      if (calendar.events.length === 0 && !isAggExpectEmpty) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
       }
       if (errorCount > 0) {

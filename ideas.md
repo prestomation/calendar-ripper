@@ -216,12 +216,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** Community, Beacon Hill
 - **Note:** Educational, cultural, and social service agency on Beacon Hill. 43 programs. Also operates Centilia Cultural Center. Needs further investigation when site is accessible.
 
-#### Rainier Arts Center (SEEDArts)
-- **URL:** https://rainierartscenter.org/events-calendar/
-- **Platform:** WordPress with Modern Events Calendar Lite (MEC) plugin v7.25.0; parent org is SEEDArts
-- **Tags:** Arts, Music, Community
-- **Note:** Community arts center in Rainier Valley (Rainier Beach area). Concerts, performances, and community events including World Class Music Live series. MEC Lite does not expose a global ICS feed. WP REST API at `https://rainierartscenter.org/wp-json/wp/v2/mec-events` returns events but dates are not included in the REST response — only in individual event page HTML or embedded Google Calendar link parameters (`dates=YYYYMMDD`). HTML scraping is needed; individual event pages contain date/time in schema.org microdata.
-
 
 ### Markets and Food
 

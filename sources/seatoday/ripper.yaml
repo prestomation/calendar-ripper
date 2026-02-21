@@ -3,6 +3,7 @@ friendlyname: "SEAtoday"
 description: "Seattle area events from SEAtoday"
 url: "https://portal.cityspark.com/PortalScripts/SEAT"
 friendlyLink: "https://seatoday.6amcity.com/events"
+expectEmpty: true  # CitySpark API can be intermittently empty
 tags: ["Events"]
 calendars:
   - name: seatoday-all

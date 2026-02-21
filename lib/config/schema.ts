@@ -13,7 +13,8 @@ export const calendarConfigSchema = z.object({
     config: z.object({}).passthrough().optional(),
     timezone: z.string().transform(ZoneRegion.of),
     friendlyname: z.string(),
-    tags: z.array(z.string()).optional()
+    tags: z.array(z.string()).optional(),
+    expectEmpty: z.boolean().default(false),
 });
 
 export const externalCalendarSchema = z.object({
@@ -23,6 +24,7 @@ export const externalCalendarSchema = z.object({
     infoUrl: z.string().optional(),
     description: z.string().optional(),
     disabled: z.boolean().default(false),
+    expectEmpty: z.boolean().default(false),
     tags: z.array(z.string()).optional()
 });
 
@@ -39,6 +41,7 @@ export const configSchema = z.object({
     friendlyLink: z.string(),
     disabled: z.boolean().default(false),
     proxy: z.boolean().default(false),
+    expectEmpty: z.boolean().default(false),
     type: z.enum(BUILTIN_RIPPER_TYPES).optional(),
     tags: z.array(z.string()).optional(),
     calendars: z.array(calendarConfigSchema),

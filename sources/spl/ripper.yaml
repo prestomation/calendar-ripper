@@ -129,6 +129,7 @@ calendars:
   - name: university
     friendlyname: "SPL - University Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Small branch; may have no events in a given lookahead window
     config:
       branch: "University Branch"
     tags: ["University District"]

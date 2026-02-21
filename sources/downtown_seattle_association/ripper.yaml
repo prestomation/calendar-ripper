@@ -3,6 +3,7 @@ friendlyname: "Downtown Seattle Association"
 description: "Downtown Seattle Association Events Calendar"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
 friendlyLink: https://downtownseattle.org
+expectEmpty: true  # Park venues have seasonal/intermittent programming
 calendars:
   - name: pioneer-park
     friendlyname: "Pioneer Park Events"

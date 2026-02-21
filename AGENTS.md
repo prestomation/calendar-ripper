@@ -130,6 +130,57 @@ Examples:
 
 When adding a new museum source, check whether it participates in Free First Thursday (most do). If so, add synthesis logic following the patterns above. Also update the `free-first-thursday` recurring entry description in `sources/recurring.yaml` if the museum is not already listed there.
 
+## Expected-Empty Calendars (`expectEmpty`)
+
+Some calendars legitimately produce zero events — small venues with intermittent programming, seasonal sources, or individual branches of a larger system (e.g., one SPL branch out of 26). By default, the build warns about any calendar with 0 events. The `expectEmpty` flag suppresses this warning so that only genuinely broken sources surface as problems.
+
+### Usage
+
+Add `expectEmpty: true` at the **ripper level** (applies to all calendars in that ripper) or at the **calendar level** (per-calendar override):
+
+```yaml
+# Ripper-level: all calendars in this ripper may be empty
+name: seattle-barkery
+expectEmpty: true
+calendars:
+  - name: all-events
+    friendlyname: "The Seattle Barkery"
+    timezone: America/Los_Angeles
+```
+
+```yaml
+# Calendar-level: only one specific calendar may be empty
+name: spl
+calendars:
+  - name: central-library
+    friendlyname: "SPL - Central Library"
+    timezone: America/Los_Angeles
+  - name: university
+    friendlyname: "SPL - University Branch"
+    timezone: America/Los_Angeles
+    expectEmpty: true  # Small branch; may have no events in a given window
+```
+
+External calendars in `sources/external.yaml` also support `expectEmpty: true`.
+
+### Behavior
+
+- Calendars with `expectEmpty: true` that produce 0 events are **not** flagged with `::warning::` in CI
+- They appear in `build-errors.json` under `expectedEmptyCalendars` instead of `zeroEventCalendars`
+- The GitHub Actions summary shows them as "0 (expected)" rather than "⚠️ 0"
+
+### When to use
+
+- Small venues or organizations with intermittent events
+- Individual branches/locations of a larger source where some may have no upcoming events
+- Sources with seasonal programming (e.g., outdoor markets in winter)
+- Ticketmaster/API sources that may not list events far enough ahead
+
+### When NOT to use
+
+- Sources that are broken (404, 403, API changes) — these should be investigated or disabled
+- Sources that should always have events — leave them without the flag so problems are caught
+
 ## Tags
 
 Tags drive the aggregate calendar system — each unique tag produces a `tag-<name>.ics` file that combines events from every source sharing that tag. The build **fails** if any tag is not in the allowlist.
@@ -274,12 +325,14 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-pr
       "error": "HTTP 404: Not Found"
     }
   ],
-  "zeroEventCalendars": ["ripper-calendar", "external-calendar"]
+  "zeroEventCalendars": ["ripper-calendar", "external-calendar"],
+  "expectedEmptyCalendars": ["calendar-with-expect-empty-flag"]
 }
 ```
 
 - **`configErrors`** — errors loading ripper configs (missing `ripper.yaml`, import failures)
 - **`sources`** — per-calendar parse errors from Ripper, Recurring, and Aggregate calendars (only entries with errors are included)
 - **`externalCalendarFailures`** — external ICS feeds that failed to fetch
-- **`zeroEventCalendars`** — calendar names that produced 0 events (may indicate a problem)
+- **`zeroEventCalendars`** — calendar names that produced 0 events **unexpectedly** (may indicate a problem)
+- **`expectedEmptyCalendars`** — calendar names with `expectEmpty: true` that produced 0 events (not a problem)
 - **`fatal`** — present only when the build crashed entirely; contains the fatal error message

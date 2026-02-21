@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Columbia City Night Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:oLA74nPuqvUXaEIS92mI6
+SUMMARY:Columbia City Night Market
+DTSTAMP:20260221T075217Z
+DTSTART;TZID=America/Los_Angeles:20260221T180000
+DESCRIPTION:Monthly night market organized by Peace Peloton. 60 local vendo
+	rs\, food trucks\, beer garden\, and live performances. Prioritizes Black-
+	owned businesses. Free\, all ages.
+URL:https://www.peacepeloton.com/night-market
+LOCATION:Columbia City\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=3SA
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

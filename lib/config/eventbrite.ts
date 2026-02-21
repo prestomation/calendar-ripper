@@ -15,11 +15,18 @@ const MAX_PAGES = 100;
 export class EventbriteRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const token = process.env.EVENTBRITE_TOKEN;
-        if (!token) {
-            throw new Error("EVENTBRITE_TOKEN environment variable is not set");
-        }
-        if (token.length < 20) {
-            throw new Error("EVENTBRITE_TOKEN appears to be invalid (too short)");
+        if (!token || token.length < 20) {
+            const reason = !token
+                ? "EVENTBRITE_TOKEN environment variable is not set"
+                : "EVENTBRITE_TOKEN appears to be invalid (too short)";
+            return ripper.config.calendars.map(cal => ({
+                name: cal.name,
+                friendlyname: cal.friendlyname,
+                events: [],
+                errors: [{ type: "ParseError" as const, reason, context: cal.name }],
+                parent: ripper.config,
+                tags: cal.tags || [],
+            }));
         }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};

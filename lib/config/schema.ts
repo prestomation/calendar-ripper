@@ -28,7 +28,7 @@ export const externalCalendarSchema = z.object({
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
 
-export const BUILTIN_RIPPER_TYPES = ["squarespace", "ticketmaster", "axs", "eventbrite"] as const;
+export const BUILTIN_RIPPER_TYPES = ["squarespace", "ticketmaster", "axs", "eventbrite", "dice"] as const;
 export type BuiltinRipperType = typeof BUILTIN_RIPPER_TYPES[number];
 
 export const configSchema = z.object({

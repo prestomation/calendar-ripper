@@ -1,0 +1,14 @@
+name: vera-project
+type: dice
+description: "The Vera Project"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Vera+Project"
+friendlyLink: https://theveraproject.org/events/
+tags: ["Music", "Arts"]
+calendars:
+  - name: vera-project
+    friendlyname: "The Vera Project"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "The Vera Project"
+      defaultLocation: "305 Harrison Street, Seattle, WA 98109"
+      defaultDurationHours: 3

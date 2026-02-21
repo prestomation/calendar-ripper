@@ -65,6 +65,7 @@ If the site uses one of these platforms, use the corresponding `type` in `ripper
 
 | Platform | `type` value | Config fields (per calendar) |
 |---|---|---|
+| DICE | `dice` | `venueName` (required, as shown on DICE), `defaultLocation`, `defaultDurationHours` (optional, default 3) |
 | Eventbrite | `eventbrite` | `organizerId` (required), `defaultLocation`, `defaultDurationHours` (optional, default 2) |
 | Squarespace | `squarespace` | see `lib/config/squarespace.ts` |
 | Ticketmaster | `ticketmaster` | see `lib/config/ticketmaster.ts` |

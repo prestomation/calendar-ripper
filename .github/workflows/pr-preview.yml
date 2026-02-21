@@ -53,6 +53,12 @@ jobs:
           git commit -m "Update PR #${{ github.event.number }} preview" || exit 0
           git push origin pr-previews --force
 
+      - name: Extract build errors
+        run: |
+          mkdir -p /tmp/build-errors
+          tar -xf /tmp/artifact.tar -C /tmp/build-errors build-errors.json 2>/dev/null || \
+            printf '{"totalErrors":0,"configErrors":[],"sources":[],"externalCalendarFailures":[]}' > /tmp/build-errors/build-errors.json
+
       - name: Comment PR with preview link
         uses: actions/github-script@v7
         with:
@@ -62,11 +68,11 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            
-            const botComment = comments.find(comment => 
+
+            const botComment = comments.find(comment =>
               comment.user.type === 'Bot' && comment.body.includes('📅 Calendar Preview')
             );
-            
+
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
             const previewUrl = `http://htmlpreview.github.io/?https://github.com/${{ github.repository }}/blob/pr-previews/pr-preview-${{ github.event.number }}/index.html`;
@@ -77,17 +83,64 @@ jobs:
               ? `\n\n<details>\n<summary>⚠️ ${zeroEventCalendars.length} calendar(s) with 0 events</summary>\n\n${zeroEventCalendars.map(c => `- \`${c}\``).join('\n')}\n\n</details>`
               : '\n\n✅ All calendars have events';
 
+            // Read build-errors.json for detailed error breakdown
+            const fs = require('fs');
+            let buildErrors = { configErrors: [], sources: [], externalCalendarFailures: [] };
+            try {
+              buildErrors = JSON.parse(fs.readFileSync('/tmp/build-errors/build-errors.json', 'utf8'));
+            } catch (e) {
+              // File unavailable or parse failed — skip detailed breakdown
+            }
+
+            let errorSection = '';
+            if (parseInt(errorCount) > 0) {
+              const lines = [];
+              const configErrors = buildErrors.configErrors || [];
+              const sourceErrors = buildErrors.sources || [];
+              const externalFailures = buildErrors.externalCalendarFailures || [];
+
+              if (configErrors.length > 0) {
+                lines.push(`**Config errors (${configErrors.length}):**`);
+                configErrors.forEach(e => {
+                  lines.push(`- \`${e.path || e.type}\`: ${e.reason}`);
+                });
+                lines.push('');
+              }
+
+              if (sourceErrors.length > 0) {
+                const totalSourceErrors = sourceErrors.reduce((a, s) => a + s.errorCount, 0);
+                lines.push(`**Parse errors in ${sourceErrors.length} calendar(s) (${totalSourceErrors} total):**`);
+                sourceErrors.forEach(s => {
+                  lines.push(`- \`${s.source}/${s.calendar}\`: ${s.errorCount} error(s)`);
+                });
+                lines.push('');
+              }
+
+              if (externalFailures.length > 0) {
+                lines.push(`**External calendar failures (${externalFailures.length}):**`);
+                externalFailures.forEach(f => {
+                  lines.push(`- \`${f.name}\`: ${f.error}`);
+                });
+                lines.push('');
+              }
+
+              if (lines.length > 0) {
+                errorSection = `\n\n<details>\n<summary>🔍 ${errorCount} error(s) — click to expand</summary>\n\n${lines.join('\n')}\n</details>`;
+              }
+            }
+
             const body = [
               '## 📅 Calendar Preview',
               '',
               `**Status:** ${errorBadge}`,
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
+              errorSection,
               zeroEventSection,
               '',
               '> 🔗 Preview powered by htmlpreview.github.io'
             ].join('\n');
-            
+
             if (botComment) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,

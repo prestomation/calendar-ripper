@@ -349,6 +349,21 @@ events:
     url: "http://slumarket.com/popups"
     tags: ["Food", "Community"]
 
+  # Free First Thursday — area museums offer free admission on the first Thursday of each month.
+  # Participating museums include SAM, Seattle Asian Art Museum, Burke Museum, Museum of Flight,
+  # MOHAI, National Nordic Museum, and Holocaust Center for Humanity. Hours vary by venue.
+  # See the link for the full list and current hours.
+  - name: free-first-thursday
+    friendlyname: "Free First Thursday at Seattle Area Museums"
+    description: "Free admission at participating Seattle area museums on the first Thursday of every month. Includes SAM (10am–8pm), Seattle Asian Art Museum (10am–5pm), Burke Museum (10am–8pm), Museum of Flight (5–9pm), MOHAI (5–8pm), National Nordic Museum (10am–8pm), and Holocaust Center for Humanity (4–7pm)."
+    schedule: "1st Thursday"
+    timezone: America/Los_Angeles
+    duration: PT10H
+    start_time: "10:00"
+    location: "Various Seattle museums"
+    url: "https://www.seattlecreates.org/events/free-first-thursdays-2026"
+    tags: ["Museums", "Community"]
+
   # Seattle Critical Mass
   - name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"

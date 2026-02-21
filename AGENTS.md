@@ -117,6 +117,19 @@ Before implementing, always:
 
 When you implement a source from `ideas.md`, remove its entry from the file so the list stays current.
 
+### Free First Thursday
+
+Many Seattle area museums offer free admission on the first Thursday of each month. There is a catch-all recurring entry (`free-first-thursday`) in `sources/recurring.yaml` that covers museums without their own ripper. Museum rippers that **do** exist should also surface this event:
+
+1. If the source website lists a "Free First Thursday" event with a concrete date, include it normally.
+2. If the website lists it with a vague recurring description (e.g., "First Thursday of each month") or doesn't list it at all, the ripper should **synthesize** concrete dated Free First Thursday events for the next few first Thursdays.
+
+Examples:
+- **Burke Museum** (`sources/burke_museum/ripper.ts`): detects "first \w+ of each month" pattern and synthesizes dated events with the hours from the page.
+- **SAM** (`sources/sam/ripper.ts`): after parsing, checks if any Free First Thursday event was found per venue; if not, synthesizes events using known FFT hours.
+
+When adding a new museum source, check whether it participates in Free First Thursday (most do). If so, add synthesis logic following the patterns above. Also update the `free-first-thursday` recurring entry description in `sources/recurring.yaml` if the museum is not already listed there.
+
 ## Tags
 
 Tags drive the aggregate calendar system — each unique tag produces a `tag-<name>.ics` file that combines events from every source sharing that tag. The build **fails** if any tag is not in the allowlist.

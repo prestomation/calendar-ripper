@@ -127,7 +127,7 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 #### Nectar Lounge
 - **URL:** https://nectarlounge.com/events/calendar/
 - **Tags:** Music
-- **Note:** WordPress-based, uses Eventbrite for listings (venue group IDs: 2463, 748). Could use Eventbrite API instead of scraping.
+- **Note:** WordPress-based. Previously used Eventbrite but now uses Tixr (tixr.com/groups/nectarlounge) for ticketing. Would require Tixr API investigation or HTML scraping.
 
 #### The Triple Door
 - **URL:** https://thetripledoor.net/mainstage-calendar and https://thetripledoor.net/mq-stage-calendar
@@ -172,12 +172,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Platform:** Unknown (site returned 503); ticketing at `tickets.nordicmuseum.org`
 - **Tags:** Museums, Arts, Ballard
 - **Note:** Museum in Ballard dedicated to Nordic history, art, and culture. Events include the Mostly Nordic Chamber Music Series, Nordic Sol, Julefest, film screenings, and lectures.
-
-#### Burke Museum
-- **URL:** https://www.burkemuseum.org/calendar
-- **Platform:** Custom CMS (Drupal suspected based on URL structure); no ICS feed found
-- **Tags:** Museums, University District
-- **Note:** Washington State Museum of natural history and culture on the UW campus. Hosts public lectures, Free First Thursday events (monthly, 10am–8pm extended hours), Dino Fest (annual May), and behind-the-scenes tours. Medium event volume. HTML scraping viable; Free First Thursday is also a candidate for a recurring event entry.
 
 ### Community and Cultural Centers
 

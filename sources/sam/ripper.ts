@@ -1,4 +1,4 @@
-import { ZonedDateTime, Duration, LocalDateTime, ZoneRegion } from "@js-joda/core";
+import { ZonedDateTime, Duration, LocalDateTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
@@ -8,6 +8,12 @@ const LOCATION_ADDRESSES: Record<string, string> = {
     "Seattle Art Museum": "Seattle Art Museum, 1300 First Avenue, Seattle, WA 98101",
     "Seattle Asian Art Museum": "Seattle Asian Art Museum, 1400 E Prospect St, Seattle, WA 98112",
     "Olympic Sculpture Park": "Olympic Sculpture Park, 2901 Western Ave, Seattle, WA 98121",
+};
+
+// Free First Thursday hours per SAM venue (no FFT at Olympic Sculpture Park — it's always free)
+const FFT_HOURS: Record<string, { startHour: number; durationHours: number }> = {
+    "Seattle Art Museum": { startHour: 10, durationHours: 10 },       // 10 AM – 8 PM
+    "Seattle Asian Art Museum": { startHour: 10, durationHours: 7 },  // 10 AM – 5 PM
 };
 
 /**
@@ -198,6 +204,8 @@ export default class SAMRipper implements IRipper {
         const html = await this.fetchPage(ripper.config.url.toString());
         const articles = this.parseHtml(html);
 
+        const fftFoundForLocation = new Set<string>();
+
         for (const article of articles) {
             // Skip cancelled events
             if (article.canceled) continue;
@@ -207,6 +215,11 @@ export default class SAMRipper implements IRipper {
 
             const timezone = ripper.config.calendars.find(c => c.name === calendarName)?.timezone;
             if (!timezone) continue;
+
+            // Track if we see a Free First Thursday event for this location
+            if (/free first thursday/i.test(article.title)) {
+                fftFoundForLocation.add(article.location);
+            }
 
             try {
                 const event = articleToEvent(article, timezone);
@@ -222,6 +235,9 @@ export default class SAMRipper implements IRipper {
             }
         }
 
+        // Synthesize Free First Thursday events for venues where the website didn't list one
+        this.synthesizeFreeFirstThursday(calendars, locationToCalendar, fftFoundForLocation, ripper);
+
         return Object.keys(calendars).map(key => ({
             name: key,
             friendlyname: calendars[key].friendlyName,
@@ -230,6 +246,49 @@ export default class SAMRipper implements IRipper {
             parent: ripper.config,
             tags: calendars[key].tags,
         }));
+    }
+
+    private synthesizeFreeFirstThursday(
+        calendars: { [key: string]: { events: RipperEvent[]; friendlyName: string; tags: string[] } },
+        locationToCalendar: Map<string, string>,
+        fftFoundForLocation: Set<string>,
+        ripper: Ripper,
+    ): void {
+        for (const [location, fftInfo] of Object.entries(FFT_HOURS)) {
+            if (fftFoundForLocation.has(location)) continue;
+
+            const calendarName = locationToCalendar.get(location);
+            if (!calendarName || !calendars[calendarName]) continue;
+
+            const timezone = ripper.config.calendars.find(c => c.name === calendarName)?.timezone;
+            if (!timezone) continue;
+
+            // Generate Free First Thursday events for the next 3 months
+            const today = LocalDate.now();
+            for (let i = 0; i < 3; i++) {
+                const monthStart = today.plusMonths(i).withDayOfMonth(1);
+                const firstThursday = monthStart.with(TemporalAdjusters.firstInMonth(DayOfWeek.THURSDAY));
+                if (firstThursday.isBefore(today)) continue;
+
+                const eventDate = ZonedDateTime.of(
+                    LocalDateTime.of(firstThursday.year(), firstThursday.monthValue(), firstThursday.dayOfMonth(), fftInfo.startHour, 0),
+                    timezone
+                );
+
+                const event: RipperCalendarEvent = {
+                    id: `sam-fft-${location.replace(/\s+/g, '-').toLowerCase()}-${firstThursday.toString()}`,
+                    ripped: new Date(),
+                    date: eventDate,
+                    duration: Duration.ofHours(fftInfo.durationHours),
+                    summary: `Free First Thursday`,
+                    description: `Free admission at ${location}.`,
+                    location: LOCATION_ADDRESSES[location] || location,
+                    url: "https://www.seattleartmuseum.org/whats-on/programs/free-first-thursday",
+                };
+
+                calendars[calendarName].events.push(event);
+            }
+        }
     }
 
     public parseHtml(html: string): ParsedArticle[] {

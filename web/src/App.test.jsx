@@ -264,24 +264,19 @@ describe('App', () => {
   })
 
   it('shows end time for today events but not for other days', async () => {
+    // Pin time so the test is deterministic regardless of when/where it runs
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    vi.setSystemTime(new Date('2026-06-15T10:00:00'))  // 10 AM local, well before our events
+
     const user = userEvent.setup()
 
-    // Use noon UTC on the next day so the event is clearly "tomorrow" in both UTC and LA timezone,
-    // and use noon UTC today + 13 hours (next day noon UTC) for a distinct day-after event.
-    // For "today" in LA, we need a time that's both today in UTC AND today in LA (UTC-8).
-    // Using a fixed time that's safe: noon UTC today is 4 AM LA — always same day in both zones.
-    const now = new Date()
-    const todayNoonUTC = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 0) // 2 PM UTC = 6 AM LA
+    // "Today" event: 2 PM local today (4 hours from "now")
+    const todayStart = new Date(2026, 5, 15, 14, 0)  // June 15, 2 PM
+    const todayEnd = new Date(2026, 5, 15, 15, 0)     // June 15, 3 PM
 
-    // If the event is in the past, move it to 10 PM UTC tomorrow
-    const todayStart = todayNoonUTC > now
-      ? todayNoonUTC
-      : new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22, 0)
-    const todayEnd = new Date(todayStart.getTime() + 60 * 60 * 1000)
-
-    // Tomorrow (relative to todayStart) at 6 PM UTC
-    const dayAfter = new Date(todayStart.getFullYear(), todayStart.getMonth(), todayStart.getDate() + 1, 18, 0)
-    const dayAfterEnd = new Date(dayAfter.getTime() + 2 * 60 * 60 * 1000)
+    // "Day after" event: tomorrow at 6 PM
+    const dayAfter = new Date(2026, 5, 16, 18, 0)     // June 16, 6 PM
+    const dayAfterEnd = new Date(2026, 5, 16, 20, 0)   // June 16, 8 PM
 
     const mockEventsIndex = [
       {
@@ -327,6 +322,8 @@ describe('App', () => {
     const dayAfterEventItem = dayAfterEventTitle.closest('.event-item')
     const dayAfterEventDate = dayAfterEventItem.querySelector('.event-date')
     expect(dayAfterEventDate.textContent).not.toMatch(/\u2013/)
+
+    vi.useRealTimers()
   })
 
   it('shows empty state in Happening Soon when no events in next 7 days', async () => {

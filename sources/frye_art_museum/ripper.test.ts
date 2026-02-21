@@ -166,6 +166,45 @@ describe('FryeArtMuseumRipper', () => {
         });
     });
 
+    describe('isRecurringPattern', () => {
+        it('detects "Fridays" as recurring', () => {
+            const ripper = new FryeArtMuseumRipper();
+            expect(ripper.isRecurringPattern('Fridays')).toBe(true);
+        });
+
+        it('detects "Monthly, fourth Thursdays" as recurring', () => {
+            const ripper = new FryeArtMuseumRipper();
+            expect(ripper.isRecurringPattern('Monthly, fourth Thursdays')).toBe(true);
+        });
+
+        it('detects "First Sundays" as recurring', () => {
+            const ripper = new FryeArtMuseumRipper();
+            expect(ripper.isRecurringPattern('First Sundays')).toBe(true);
+        });
+
+        it('does not flag concrete dates as recurring', () => {
+            const ripper = new FryeArtMuseumRipper();
+            expect(ripper.isRecurringPattern('February 22, 2026')).toBe(false);
+            expect(ripper.isRecurringPattern('March 5')).toBe(false);
+        });
+    });
+
+    describe('parseEventDetail - recurring dates', () => {
+        it('returns empty array for recurring date patterns', () => {
+            const ripper = new FryeArtMuseumRipper();
+            const html = parse(`
+                <html><body>
+                <p class="event-single__display-date">Monthly, fourth Thursdays</p>
+                <p class="event-single__display-time">2–4 pm</p>
+                </body></html>
+            `);
+            const card = { href: '/node/3803', title: 'Drop-in Studio', dateText: 'Thursday, February 27' };
+
+            const events = ripper.parseEventDetail(card, html, 'https://fryemuseum.org/calendar/event/test');
+            expect(events).toHaveLength(0);
+        });
+    });
+
     describe('parseDate', () => {
         it('parses date with year', () => {
             const ripper = new FryeArtMuseumRipper();

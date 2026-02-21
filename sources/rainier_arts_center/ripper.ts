@@ -78,6 +78,12 @@ export default class RainierArtsCenterRipper implements IRipper {
     public parseEventPage(htmlText: string, url: string, today: LocalDate): RipperEvent[] {
         const html = parse(htmlText);
 
+        // Skip expired events — MEC marks past events with a status div
+        const statusEl = html.querySelector('div.mec-event-status');
+        if (statusEl?.textContent?.trim().toLowerCase().includes('expired')) {
+            return [];
+        }
+
         // The page has two JSON-LD blocks: a Yoast WebPage graph and a MEC Event block.
         // Select the one whose @type is "Event".
         const ldScripts = html.querySelectorAll('script[type="application/ld+json"]');

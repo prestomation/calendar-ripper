@@ -696,6 +696,7 @@ END:VCALENDAR`;
     description?: string;
     location?: string;
     date: string;
+    endDate?: string;
     url?: string;
   }> = [];
 
@@ -714,6 +715,7 @@ END:VCALENDAR`;
         description: event.description?.slice(0, 200),
         location: event.location,
         date: event.date.toString(),
+        endDate: event.date.plus(event.duration).toString(),
         url: event.url,
       });
     }
@@ -737,6 +739,7 @@ END:VCALENDAR`;
             description: event.description?.slice(0, 200),
             location: event.location,
             date: event.date.toString(),
+            endDate: event.date.plus(event.duration).toString(),
             url: event.url,
           });
         }

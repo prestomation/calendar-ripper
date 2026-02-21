@@ -168,10 +168,12 @@ describe('App', () => {
   it('switches to Happening Soon view when button is clicked', async () => {
     const user = userEvent.setup()
 
-    // Create events that are happening "today"
+    // Create events that are happening in the future to avoid being filtered out
     const now = new Date()
-    const todayEvent = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 0)
+    const todayEvent = new Date(now.getTime() + 2 * 60 * 60 * 1000) // 2 hours from now
+    const todayEventEnd = new Date(now.getTime() + 3 * 60 * 60 * 1000) // 3 hours from now
     const tomorrowEvent = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 20, 0)
+    const tomorrowEventEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22, 0)
 
     const mockEventsIndex = [
       {
@@ -180,6 +182,7 @@ describe('App', () => {
         description: 'A great show',
         location: 'The Venue',
         date: toJodaDateString(todayEvent),
+        endDate: toJodaDateString(todayEventEnd),
       },
       {
         icsUrl: 'test-ripper-calendar2.ics',
@@ -187,6 +190,7 @@ describe('App', () => {
         description: 'A great movie',
         location: 'The Theater',
         date: toJodaDateString(tomorrowEvent),
+        endDate: toJodaDateString(tomorrowEventEnd),
       }
     ]
 
@@ -211,6 +215,118 @@ describe('App', () => {
     expect(screen.getByText('Tomorrow Movie')).toBeInTheDocument()
     expect(screen.getByText('Today')).toBeInTheDocument()
     expect(screen.getByText('Tomorrow')).toBeInTheDocument()
+  })
+
+  it('filters out events whose end time has already passed', async () => {
+    const user = userEvent.setup()
+
+    const now = new Date()
+    // An event that started and ended in the past (today, but already over)
+    const pastStart = new Date(now.getTime() - 3 * 60 * 60 * 1000) // 3 hours ago
+    const pastEnd = new Date(now.getTime() - 1 * 60 * 60 * 1000) // 1 hour ago
+    // A future event today
+    const futureStart = new Date(now.getTime() + 2 * 60 * 60 * 1000)
+    const futureEnd = new Date(now.getTime() + 3 * 60 * 60 * 1000)
+
+    const mockEventsIndex = [
+      {
+        icsUrl: 'test-ripper-calendar1.ics',
+        summary: 'Already Over Event',
+        date: toJodaDateString(pastStart),
+        endDate: toJodaDateString(pastEnd),
+      },
+      {
+        icsUrl: 'test-ripper-calendar1.ics',
+        summary: 'Future Event',
+        date: toJodaDateString(futureStart),
+        endDate: toJodaDateString(futureEnd),
+      }
+    ]
+
+    fetch.mockReset()
+    fetch
+      .mockResolvedValueOnce({ ok: true, json: async () => mockManifest })
+      .mockResolvedValueOnce({ ok: true, json: async () => mockEventsIndex })
+
+    render(<App />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Happening Soon')).toBeInTheDocument()
+    })
+
+    await user.click(screen.getByText('Happening Soon'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Future Event')).toBeInTheDocument()
+    })
+
+    expect(screen.queryByText('Already Over Event')).not.toBeInTheDocument()
+  })
+
+  it('shows end time for today events but not for other days', async () => {
+    const user = userEvent.setup()
+
+    // Use noon UTC on the next day so the event is clearly "tomorrow" in both UTC and LA timezone,
+    // and use noon UTC today + 13 hours (next day noon UTC) for a distinct day-after event.
+    // For "today" in LA, we need a time that's both today in UTC AND today in LA (UTC-8).
+    // Using a fixed time that's safe: noon UTC today is 4 AM LA — always same day in both zones.
+    const now = new Date()
+    const todayNoonUTC = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 14, 0) // 2 PM UTC = 6 AM LA
+
+    // If the event is in the past, move it to 10 PM UTC tomorrow
+    const todayStart = todayNoonUTC > now
+      ? todayNoonUTC
+      : new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22, 0)
+    const todayEnd = new Date(todayStart.getTime() + 60 * 60 * 1000)
+
+    // Tomorrow (relative to todayStart) at 6 PM UTC
+    const dayAfter = new Date(todayStart.getFullYear(), todayStart.getMonth(), todayStart.getDate() + 1, 18, 0)
+    const dayAfterEnd = new Date(dayAfter.getTime() + 2 * 60 * 60 * 1000)
+
+    const mockEventsIndex = [
+      {
+        icsUrl: 'test-ripper-calendar1.ics',
+        summary: 'Today Event',
+        date: toJodaDateString(todayStart),
+        endDate: toJodaDateString(todayEnd),
+      },
+      {
+        icsUrl: 'test-ripper-calendar2.ics',
+        summary: 'Day After Event',
+        date: toJodaDateString(dayAfter),
+        endDate: toJodaDateString(dayAfterEnd),
+      }
+    ]
+
+    fetch.mockReset()
+    fetch
+      .mockResolvedValueOnce({ ok: true, json: async () => mockManifest })
+      .mockResolvedValueOnce({ ok: true, json: async () => mockEventsIndex })
+
+    render(<App />)
+
+    await waitFor(() => {
+      expect(screen.getByText('Happening Soon')).toBeInTheDocument()
+    })
+
+    await user.click(screen.getByText('Happening Soon'))
+
+    await waitFor(() => {
+      expect(screen.getByText('Today Event')).toBeInTheDocument()
+    })
+
+    // Today event should show a time range (start – end) in its event-date element
+    const todayEventTitle = screen.getByText('Today Event')
+    const todayEventItem = todayEventTitle.closest('.event-item')
+    const todayEventDate = todayEventItem.querySelector('.event-date')
+    expect(todayEventDate.textContent).toMatch(/\u2013/)
+
+    // Day-after event should show only start time (no en-dash range)
+    expect(screen.getByText('Day After Event')).toBeInTheDocument()
+    const dayAfterEventTitle = screen.getByText('Day After Event')
+    const dayAfterEventItem = dayAfterEventTitle.closest('.event-item')
+    const dayAfterEventDate = dayAfterEventItem.querySelector('.event-date')
+    expect(dayAfterEventDate.textContent).not.toMatch(/\u2013/)
   })
 
   it('shows empty state in Happening Soon when no events in next 7 days', async () => {

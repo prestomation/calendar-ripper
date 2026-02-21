@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T06:36:12.798Z",
+  "lastUpdated": "2026-02-21T06:47:29.751Z",
   "rippers": [
     {
       "name": "19hz",
@@ -49,6 +49,23 @@
       ]
     },
     {
+      "name": "benaroya-hall",
+      "friendlyName": "Benaroya Hall",
+      "description": "Home of the Seattle Symphony, with the main S. Mark Taper Auditorium and intimate Nordstrom Recital Hall",
+      "friendlyLink": "https://www.seattlesymphony.org/benaroyahall",
+      "calendars": [
+        {
+          "name": "benaroya-taper",
+          "friendlyName": "Benaroya Hall - S. Mark Taper Auditorium",
+          "icsUrl": "benaroya-hall-benaroya-taper.ics",
+          "tags": [
+            "Music",
+            "Downtown"
+          ]
+        }
+      ]
+    },
+    {
       "name": "chop-suey",
       "description": "Chop Suey music venue and nightclub events on Capitol Hill",
       "friendlyLink": "https://chopsuey.com",
@@ -60,23 +77,6 @@
           "tags": [
             "Music",
             "Capitol Hill"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "climate-pledge-arena",
-      "description": "Seattle's premier arena at Seattle Center, home of the Kraken and Storm",
-      "friendlyLink": "https://climatepledgearena.com",
-      "calendars": [
-        {
-          "name": "climate-pledge-arena",
-          "friendlyName": "Climate Pledge Arena",
-          "icsUrl": "climate-pledge-arena-climate-pledge-arena.ics",
-          "tags": [
-            "Music",
-            "Sports",
-            "QueenAnne"
           ]
         }
       ]

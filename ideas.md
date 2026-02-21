@@ -225,12 +225,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** MakersMarket
 - **Note:** National indie craft fair with Seattle editions at Magnuson Park and Seattle Center. 180+ independent makers. Multiple dates per year (spring, fall/winter). Events organized by season and city.
 
-#### Washington Beer Blog Events
-- **URL:** https://washingtonbeerblog.com/wa-beer-events/
-- **Platform:** WordPress with BoldWP Pro theme; custom events system
-- **Tags:** Beer
-- **Note:** Community-driven calendar of beer events across Washington — tap takeovers, beer releases, festivals, brewery anniversaries. Events submitted via form. No calendar plugin (custom system). Comprehensive source for the beer scene.
-
 #### Seattle Uncorked
 - **URL:** https://seattleuncorked.com/events/
 - **Platform:** Likely WordPress (returned 503)

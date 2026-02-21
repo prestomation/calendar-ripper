@@ -16,11 +16,12 @@
   },
   {
     "type": "ParseError",
-    "reason": "No Event schema.org JSON-LD found",
-    "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+    "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+    "context": ""
   },
   {
     "type": "ParseError",
-    "reason": "Failed to fetch Spectrum Dance Theater events: TypeError: fetch failed"
+    "reason": "No Event schema.org JSON-LD found",
+    "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
   }
 ]

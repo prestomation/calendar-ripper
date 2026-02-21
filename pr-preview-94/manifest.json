@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T13:20:04.127Z",
+  "lastUpdated": "2026-02-21T16:48:31.618Z",
   "rippers": [
     {
       "name": "19hz",
@@ -364,22 +364,6 @@
           "tags": [
             "Movies",
             "Ballard"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "mccaw-hall",
-      "description": "Performing arts venue at Seattle Center, home to Pacific Northwest Ballet and Seattle Opera",
-      "friendlyLink": "https://www.mccawhall.com",
-      "calendars": [
-        {
-          "name": "mccaw-hall",
-          "friendlyName": "McCaw Hall",
-          "icsUrl": "mccaw-hall-mccaw-hall.ics",
-          "tags": [
-            "Arts",
-            "QueenAnne"
           ]
         }
       ]
@@ -794,6 +778,21 @@
           "tags": [
             "Movies",
             "QueenAnne"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spectrum-dance",
+      "description": "Spectrum Dance Theater",
+      "friendlyLink": "https://spectrumdance.org",
+      "calendars": [
+        {
+          "name": "spectrum-dance",
+          "friendlyName": "Spectrum Dance Theater",
+          "icsUrl": "spectrum-dance-spectrum-dance.ics",
+          "tags": [
+            "Arts"
           ]
         }
       ]
@@ -1499,6 +1498,15 @@
       "icsUrl": "recurring-food-truck-round-up.ics",
       "tags": [
         "Food",
+        "Community"
+      ]
+    },
+    {
+      "name": "free-first-thursday",
+      "friendlyName": "Free First Thursday at Seattle Area Museums",
+      "icsUrl": "recurring-free-first-thursday.ics",
+      "tags": [
+        "Museums",
         "Community"
       ]
     },

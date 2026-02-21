@@ -185,9 +185,10 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 
 #### Jazz Alley (Dimitriou's Jazz Alley)
 - **URL:** https://www.jazzalley.com/www-home/calendar.jsp
-- **Platform:** Java/JSP custom website; returned 503 on fetch
+- **Platform:** Java/JSP custom website; blocks requests from cloud/CI IPs with 503
 - **Tags:** Music, Belltown
-- **Note:** Intimate jazz supper club at 2033 6th Ave. Operating since 1979. Low event volume (one artist per multi-day engagement). Old-school JSP site may require specific headers.
+- **Proxy required:** Yes — site returns 503 from GitHub Actions IPs; use `proxy: true` in `ripper.yaml`
+- **Note:** Intimate jazz supper club at 2033 6th Ave. Operating since 1979. Low event volume (one artist per multi-day engagement). Old-school JSP site will need the authenticated Lambda proxy to fetch successfully.
 
 #### Columbia City Theater
 - **URL:** https://columbiacitytheater.org/

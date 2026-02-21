@@ -56,8 +56,10 @@ jobs:
       - name: Extract build errors
         run: |
           mkdir -p /tmp/build-errors
-          tar -xf /tmp/artifact.tar -C /tmp/build-errors build-errors.json 2>/dev/null || \
+          tar -xf /tmp/artifact.tar -C /tmp/build-errors 2>/dev/null || true
+          if [ ! -f /tmp/build-errors/build-errors.json ]; then
             printf '{"totalErrors":0,"configErrors":[],"sources":[],"externalCalendarFailures":[]}' > /tmp/build-errors/build-errors.json
+          fi
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7
@@ -102,16 +104,16 @@ jobs:
               if (configErrors.length > 0) {
                 lines.push(`**Config errors (${configErrors.length}):**`);
                 configErrors.forEach(e => {
-                  lines.push(`- \`${e.path || e.type}\`: ${e.reason}`);
+                  lines.push(`- \`${e.path || e.type || 'unknown'}\`: ${e.reason || 'No reason provided'}`);
                 });
                 lines.push('');
               }
 
               if (sourceErrors.length > 0) {
-                const totalSourceErrors = sourceErrors.reduce((a, s) => a + s.errorCount, 0);
+                const totalSourceErrors = sourceErrors.reduce((a, s) => a + (s.errorCount || 0), 0);
                 lines.push(`**Parse errors in ${sourceErrors.length} calendar(s) (${totalSourceErrors} total):**`);
                 sourceErrors.forEach(s => {
-                  lines.push(`- \`${s.source}/${s.calendar}\`: ${s.errorCount} error(s)`);
+                  lines.push(`- \`${s.source || 'unknown'}/${s.calendar || 'unknown'}\`: ${s.errorCount || 0} error(s)`);
                 });
                 lines.push('');
               }
@@ -119,7 +121,7 @@ jobs:
               if (externalFailures.length > 0) {
                 lines.push(`**External calendar failures (${externalFailures.length}):**`);
                 externalFailures.forEach(f => {
-                  lines.push(`- \`${f.name}\`: ${f.error}`);
+                  lines.push(`- \`${f.name || 'unknown'}\`: ${f.error || 'Unknown error'}`);
                 });
                 lines.push('');
               }

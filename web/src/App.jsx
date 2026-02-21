@@ -1723,8 +1723,8 @@ function App() {
           </div>
         ) : showHomepage ? (
           <div className="homepage">
-            <h1>Yet Another Seattle Calendar</h1>
-            <p>Welcome to YASC! This tool aggregates events from various websites and presents them as searchable, filterable calendars. You're welcome to use this interface, but it's really meant for you to add the ICS to your favorite calendar app so you can aggregate events in your calendar however you like</p>
+            <h1>Seattle Community Calendars</h1>
+            <p>Browse and subscribe to event calendars from venues, neighborhoods, and organizations across Seattle. Search and filter here, or add any calendar to your favorite app using the ICS links to keep events synced automatically.</p>
 
             {isMobile && (
               <button
@@ -1740,9 +1740,7 @@ function App() {
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>
               <li><strong>Search:</strong> Use the search bar to find calendars by name, or search across all event titles, descriptions, and locations</li>
               <li><strong>Filter by Tags:</strong> Click on tags to filter calendars by category</li>
-              <li><strong>Subscribe:</strong> Use the 📥 ICS links to subscribe to calendars in your calendar app.</li>
-              <li><strong>Copy Link:</strong> Use the 📋 buttons to copy calendar links to your clipboard.</li>
-              <li><strong>Google Calendar:</strong> Use the 📅 Google links to add calendars to Google Calendar</li>
+              <li><strong>Subscribe:</strong> Use the 📥 ICS link to add a calendar to your app, 📅 to add it to Google Calendar, or 📋 to copy the link.</li>
             </ul>
 
             <h2>Tags</h2>

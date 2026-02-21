@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Wallingford Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:lw0l7_81gSacujPgWWBkO
+SUMMARY:Wallingford Farmers Market
+DTSTAMP:20260221T185214Z
+DTSTART;TZID=America/Los_Angeles:20260506T150000
+DESCRIPTION:Seasonal Wednesday evening farmers market in Wallingford. Runs 
+	May through September.
+URL:https://seattlefarmersmarkets.org/
+LOCATION:Wallingford neighborhood\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

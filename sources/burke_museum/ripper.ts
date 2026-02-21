@@ -53,7 +53,8 @@ function parseTimeRange(timeStr: string): { start: { hour: number; minute: numbe
 
         if (startTime && endTime) {
             let durationMinutes = (endTime.hour * 60 + endTime.minute) - (startTime.hour * 60 + startTime.minute);
-            if (durationMinutes <= 0) durationMinutes += 24 * 60;
+            if (durationMinutes < 0) durationMinutes += 24 * 60; // handles overnight ranges
+            if (durationMinutes === 0) return { start: startTime, durationHours: 2 }; // fallback for equal start/end
             return { start: startTime, durationHours: durationMinutes / 60 };
         }
     }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-21T19:07:12.487Z",
+  "lastUpdated": "2026-02-21T19:12:16.031Z",
   "rippers": [
     {
       "name": "19hz",
@@ -44,6 +44,23 @@
           "tags": [
             "Beer",
             "Ballard"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "benaroya-hall",
+      "friendlyName": "Benaroya Hall",
+      "description": "Home of the Seattle Symphony, with the main S. Mark Taper Auditorium and intimate Nordstrom Recital Hall",
+      "friendlyLink": "https://www.seattlesymphony.org/benaroyahall",
+      "calendars": [
+        {
+          "name": "benaroya-taper",
+          "friendlyName": "Benaroya Hall - S. Mark Taper Auditorium",
+          "icsUrl": "benaroya-hall-benaroya-taper.ics",
+          "tags": [
+            "Music",
+            "Downtown"
           ]
         }
       ]

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Lake City Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:24nrzp0QIic6xppZr3y_P
+SUMMARY:Lake City Farmers Market
+DTSTAMP:20260221T190640Z
+DTSTART;TZID=America/Los_Angeles:20260604T150000
+DESCRIPTION:Seasonal Thursday afternoon farmers market in Lake City. Runs J
+	une through September.
+URL:https://seattlefarmersmarkets.org/lcfm
+LOCATION:NE 125th St & 28th Ave NE\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=TH;BYMONTH=6,7,8,9
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

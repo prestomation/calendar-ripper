@@ -652,16 +652,14 @@ function App() {
     return map
   }, [searchTerm, eventFuse])
 
-  // When searching, filter loaded events to only matching ones
+  // When searching, filter loaded events to only matching ones (fuzzy, consistent with sidebar hints)
   const filteredEvents = useMemo(() => {
     if (!searchTerm || !selectedCalendar) return events
-    const term = searchTerm.toLowerCase()
-    const matched = events.filter(event =>
-      (event.title && event.title.toLowerCase().includes(term)) ||
-      (event.description && event.description.toLowerCase().includes(term)) ||
-      (event.location && event.location.toLowerCase().includes(term))
-    )
-    return matched
+    const fuse = new Fuse(events, {
+      keys: ['title', 'description', 'location'],
+      threshold: 0.3
+    })
+    return fuse.search(searchTerm).map(r => r.item)
   }, [events, searchTerm, selectedCalendar])
 
   // Helper: look up a calendar's friendly name from its icsUrl
@@ -740,14 +738,13 @@ function App() {
       })
     }
 
-    // Apply search filter
+    // Apply search filter (fuzzy, consistent with calendar list sidebar hints)
     if (searchTerm) {
-      const term = searchTerm.toLowerCase()
-      upcoming = upcoming.filter(event =>
-        (event.summary && event.summary.toLowerCase().includes(term)) ||
-        (event.description && event.description.toLowerCase().includes(term)) ||
-        (event.location && event.location.toLowerCase().includes(term))
-      )
+      const upcomingFuse = new Fuse(upcoming, {
+        keys: ['summary', 'description', 'location'],
+        threshold: 0.3
+      })
+      upcoming = upcomingFuse.search(searchTerm).map(r => r.item)
     }
 
     // Sort by date

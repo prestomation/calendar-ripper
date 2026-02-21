@@ -1,0 +1,312 @@
+BEGIN:VCALENDAR
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25419//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+X-WR-CALNAME:Special Events
+X-WR-TIMEZONE:America/Los_Angeles
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260215T100000
+DTEND;TZID=America/Los_Angeles:20260215T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098598
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098598
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260222T100000
+DTEND;TZID=America/Los_Angeles:20260222T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098599
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098599
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260301T100000
+DTEND;TZID=America/Los_Angeles:20260301T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098600
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098600
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260308T100000
+DTEND;TZID=America/Los_Angeles:20260308T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098601
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098601
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260315T100000
+DTEND;TZID=America/Los_Angeles:20260315T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098602
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098602
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260322T100000
+DTEND;TZID=America/Los_Angeles:20260322T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098603
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098603
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Fremont Sunday Market
+LOCATION:(Apr-Oct) - 34th St. N from Evanston to 35th St. N <br>(Nov-Mar
+ ) - 701 N. Northlake Way under Fremont Bridge
+DTSTART;TZID=America/Los_Angeles:20260329T100000
+DTEND;TZID=America/Los_Angeles:20260329T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.fremontmarket.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Special Events 
+ Planning Calendar Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Frem
+ ont
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Interdyme DBA Northwest Marketplaces
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ryan Reiter
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-499-
+ 3028
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:ryan@nwmarketplaces.com" target="_blank" rel="noopener">ryan@nwmar
+ ketplaces.com</a>
+DTSTAMP:20250131T125414Z
+DESCRIPTION:The Fremont Sunday Market highlights local food and artists 
+ including food-themed pop-ups.&#160\;<br>Open 10-4pm weekly rain or shin
+ e year round. Fremont now offers two locations - 34th Street in the summ
+ er and the covered\, winter offering underneath the Fremont Bridge.<br>S
+ tep into the heart of Seattle&#39\;s vibrant Fremont neighborhood and ex
+ perience the magic of the Fremont Sunday Market! This iconic market\, a 
+ beloved tradition for over 35 years\, is where makers\, finders\, and fo
+ odies unite for an unforgettable weekly adventure.<br><img alt="Fremont 
+ Sunday Market" src="https://www.trumba.com/i/DgC5jhYjcp2aU8cFedzkAYuf.jp
+ g" width="1522" style="max-width:100%\;">Every Sunday except June 22nd<b
+ r>The Fremont Market is open rain or shine to the public every Sunday 10
+ -4pm with over 125 booths and best brunch in town.
+CATEGORIES:Special Events
+UID:http://uid.trumba.com/event/180098604
+X-TRUMBA-LINK:https://www.seattle.gov/special-events/plan-an-event/calen
+ dar?trumbaEmbed=view%3devent%26eventid%3d180098604
+END:VEVENT
+END:VCALENDAR

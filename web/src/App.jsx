@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import DOMPurify from 'dompurify'
 import Fuse from 'fuse.js'
+
+const FUSE_THRESHOLD = 0.2
 import ICAL from 'ical.js'
 
 // Mobile: single-view nav. Tablet: compact sidebar. Desktop: full sidebar.
@@ -628,7 +630,7 @@ function App() {
 
     return new Fuse(searchData, {
       keys: ['searchText'],
-      threshold: 0.3
+      threshold: FUSE_THRESHOLD
     })
   }, [calendars])
 
@@ -637,7 +639,7 @@ function App() {
     if (!eventsIndex.length) return null
     return new Fuse(eventsIndex, {
       keys: ['summary', 'description', 'location'],
-      threshold: 0.3
+      threshold: FUSE_THRESHOLD
     })
   }, [eventsIndex])
 
@@ -652,16 +654,14 @@ function App() {
     return map
   }, [searchTerm, eventFuse])
 
-  // When searching, filter loaded events to only matching ones
+  // When searching, filter loaded events to only matching ones (fuzzy, consistent with sidebar hints)
   const filteredEvents = useMemo(() => {
     if (!searchTerm || !selectedCalendar) return events
-    const term = searchTerm.toLowerCase()
-    const matched = events.filter(event =>
-      (event.title && event.title.toLowerCase().includes(term)) ||
-      (event.description && event.description.toLowerCase().includes(term)) ||
-      (event.location && event.location.toLowerCase().includes(term))
-    )
-    return matched
+    const fuse = new Fuse(events, {
+      keys: ['title', 'description', 'location'],
+      threshold: FUSE_THRESHOLD
+    })
+    return fuse.search(searchTerm).map(r => r.item)
   }, [events, searchTerm, selectedCalendar])
 
   // Helper: look up a calendar's friendly name from its icsUrl
@@ -740,14 +740,13 @@ function App() {
       })
     }
 
-    // Apply search filter
+    // Apply search filter (fuzzy, consistent with calendar list sidebar hints)
     if (searchTerm) {
-      const term = searchTerm.toLowerCase()
-      upcoming = upcoming.filter(event =>
-        (event.summary && event.summary.toLowerCase().includes(term)) ||
-        (event.description && event.description.toLowerCase().includes(term)) ||
-        (event.location && event.location.toLowerCase().includes(term))
-      )
+      const upcomingFuse = new Fuse(upcoming, {
+        keys: ['summary', 'description', 'location'],
+        threshold: FUSE_THRESHOLD
+      })
+      upcoming = upcomingFuse.search(searchTerm).map(r => r.item)
     }
 
     // Sort by date

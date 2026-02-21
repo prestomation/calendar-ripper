@@ -45,18 +45,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** Community, Music, Arts
 - **Note:** Seattle's major event discovery platform. Uses Algolia with separate indexes for bands, venues, events, and users. The Algolia search API keys may be extractable from the page JavaScript, enabling direct queries of the events index. Could be a comprehensive aggregator source.
 
-### The Vera Project (DICE Widget API)
-- **URL:** https://theveraproject.org/events/
-- **Platform:** WordPress with DICE ticketing widget (partner ID `4b00dde0`)
-- **Tags:** Music, Arts
-- **Note:** All-ages nonprofit music and arts venue at Seattle Center. ~300 capacity. DICE partner ID and API key are visible in page source. The DICE Event List Widget loads events client-side — the widget API endpoint could potentially be reverse-engineered.
-
-### Sunset Tavern (DICE Widget API)
-- **URL:** https://sunsettavern.com/shows/
-- **Platform:** WordPress with Elementor; DICE Event List Widget
-- **Tags:** Music, Ballard
-- **Note:** 200-capacity live music venue in Ballard. Same DICE widget integration as The Vera Project. Hosts local and touring artists 7 days a week.
-
 ### SeattleFoodTruck.com (Undocumented API)
 - **URL:** https://www.seattlefoodtruck.com/schedule/westlake-park
 - **Platform:** Ruby on Rails

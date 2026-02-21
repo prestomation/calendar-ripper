@@ -1,0 +1,14 @@
+name: sunset-tavern
+type: dice
+description: "Sunset Tavern"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Sunset+Tavern"
+friendlyLink: https://sunsettavern.com/shows/
+tags: ["Music", "Ballard"]
+calendars:
+  - name: sunset-tavern
+    friendlyname: "Sunset Tavern"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "The Sunset Tavern"
+      defaultLocation: "5433 Ballard Ave NW, Seattle, WA 98107"
+      defaultDurationHours: 3

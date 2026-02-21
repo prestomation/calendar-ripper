@@ -2,6 +2,54 @@
 
 Potential Seattle-area calendar sources to add in the future, organized by integration method.
 
+## Disabled Sources (Investigate to Re-enable)
+
+These sources have existing ripper configurations but are currently disabled. They should be investigated periodically to see if they can be re-enabled.
+
+### AXS Venues — Cloudflare Bot Protection
+
+**Status:** All 4 AXS venue rippers are disabled. The project has an authenticated Lambda proxy (`infra/authenticated-proxy/`) designed to bypass IP-based blocking from GitHub Actions runners, but **the current proxy endpoint is also blocked by Cloudflare's bot protection**. Re-enabling these requires either:
+- A proxy solution that can pass Cloudflare's bot challenge (e.g., a residential proxy service, or a headless browser behind the Lambda)
+- Finding an alternative data source for AXS events (e.g., Songkick, Bandsintown, or the venue's own website)
+- AXS publishing a public API or calendar feed
+
+| Ripper | Venue | venueId | Tags |
+|--------|-------|---------|------|
+| `5thavenue` | The 5th Avenue Theatre | 133070 | Theatre, Downtown |
+| `barboza` | Barboza | 124813 | Music, Capitol Hill |
+| `clockout_lounge` | Clock-Out Lounge | 128701 | Music, Beacon Hill |
+| `neumos` | Neumos | 102495 | Music, Capitol Hill |
+
+**Note:** Clock-Out Lounge also has an ICS feed in `external.yaml` (`clock-out-lounge`) that uses Tribe Events — this is an alternative path that doesn't need AXS at all.
+
+### AMC Theatres — Cloudflare Bot Protection
+
+**Status:** Disabled. Same Cloudflare issue as AXS. Uses a custom GraphQL ripper against `graph.amctheatres.com/graphql`.
+- **Calendars:** AMC Pacific Place 11, AMC Oak Tree 6
+- **Tags:** Movies
+- **Investigation:** AMC's GraphQL API is behind aggressive bot protection. Alternative approaches: RSS feeds, third-party movie listing APIs (e.g., Fandango, Google Movies), or a headless browser proxy.
+
+### Seattle Night Market (206 Night Markets) — 404
+
+**Status:** Disabled. The Squarespace events page at `https://206nightmarkets.com/events` returns 404.
+- **Tags:** Community, Food
+- **Investigation:** Check if the site has restructured (new events URL), moved to a different platform, or shut down. The same organizer runs the Seattle Street Food Festival — check `https://206nightmarkets.com` for current event listings.
+
+### External ICS Feeds — Various Failures
+
+These external calendars in `sources/external.yaml` are disabled due to endpoint issues:
+
+| Name | Issue | Investigation |
+|------|-------|---------------|
+| `nwtheatre` | HTTP 403 Forbidden | NWTheatre.org uses the All-in-One Event Calendar (ai1ec) WordPress plugin. The ICS export endpoint may have been restricted or the plugin removed. Check if the site still has a calendar and look for alternative export options. |
+| `transit-riders-union` | Returns HTML instead of ICS | The `?rhc_action=get_icalendar_events` endpoint is broken. Check if they've switched calendar plugins or if a Tribe Events ICS feed is available instead. |
+| `comedy-underground` | HTTP 200 with empty body | Tribe Events ICS endpoint returns no data. May indicate no events are listed, or the plugin is misconfigured. Alternative: investigate TicketWeb (orgId `17593`) as a data source. |
+| `gba-georgetown` | HTTP 503 | Site was down during testing. Retry periodically — may be a temporary hosting issue. Georgetown has an active arts community so this is worth re-checking. |
+| `seattle-artists-art-walks` | HTTP 406 without browser User-Agent | Tribe Events ICS endpoint requires a browser-like `User-Agent` header. Could be fixed by adding custom headers via the proxy, or by using `proxy: true` with appropriate header injection. |
+| `climate-pledge-arena` | HTTP 503 | Site has bot protection. This is a major venue (Seattle Kraken, concerts). Alternative: Ticketmaster ripper already covers Climate Pledge Arena via `climate_pledge_arena` ripper (also a Ticketmaster type). Check if that ripper is working. |
+| `iloveseattle-community` | Unverified feed | Never confirmed working. Test the ICS URL and enable if valid. |
+| `washington-ensemble-theatre` | ai1ec plugin, needs investigation | Uses All-in-One Event Calendar plugin. Test if the ICS endpoint works with proper headers. Small experimental theater — low event volume. |
+
 ## ICS Feeds (Add to external.yaml)
 
 ### Trumba Calendars

@@ -16,6 +16,7 @@ import {
   prepareTaggedCalendars,
   prepareTaggedExternalCalendars,
   createAggregateCalendars,
+  collectAllTags,
   parseExternalCalendarEvents,
   TaggedCalendar,
   TaggedExternalCalendar,
@@ -326,7 +327,7 @@ export const main = async () => {
   let totalErrorCount = 0;
 
   // Track event counts per calendar for summary
-  const eventCounts: Array<{ name: string; type: string; events: number }> = [];
+  const eventCounts: Array<{ name: string; type: string; events: number; expectEmpty: boolean }> = [];
 
   // Collect all errors for consolidated build-errors.json
   interface BuildErrorEntry {
@@ -367,7 +368,7 @@ export const main = async () => {
     totalErrorCount += errorCount;
     const icsString = await toICS(calendar);
     console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
-    eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length });
+    eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length, expectEmpty: false });
     if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
       calendarsWithFutureEvents.add(`recurring-${calendar.name}.ics`);
     }
@@ -484,13 +485,18 @@ export const main = async () => {
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
+      const calConfig = config.config.calendars.find(c => c.name === calendar.name);
+      const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
       console.log(`${calendar.events.length} events for ${config.config.name}-${calendar.name}`);
-      eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length });
+      eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length, expectEmpty: isExpectEmpty });
       if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
         calendarsWithFutureEvents.add(icsPath);
       }
-      if (calendar.events.length === 0) {
+      if (calendar.events.length === 0 && !isExpectEmpty) {
         console.log(`::warning::Calendar ${config.config.name}-${calendar.name} has 0 events — this may indicate a problem`);
+      }
+      if (calendar.events.length > 0 && isExpectEmpty) {
+        console.log(`::warning::Calendar ${config.config.name}-${calendar.name} has expectEmpty set but produced ${calendar.events.length} events — consider removing expectEmpty`);
       }
       console.error(`${errorCount} errors for ${config.config.name}-${calendar.name}`);
       if (errorCount > 0) {
@@ -554,6 +560,35 @@ export const main = async () => {
     externalIcsCache
   );
 
+  // Compute expectEmpty for each tag: true only if ALL contributing sources are expectEmpty
+  const tagExpectEmpty = new Map<string, boolean>();
+  for (const tag of collectAllTags(allCalendars, taggedExternalCalendars)) {
+    let hasContributors = false;
+    let allExpectEmpty = true;
+    for (const cal of allCalendars) {
+      if (cal.tags.includes(tag)) {
+        hasContributors = true;
+        const calConfig = cal.parent?.calendars.find(c => c.name === cal.name);
+        if (!(calConfig?.expectEmpty ?? cal.parent?.expectEmpty ?? false)) {
+          allExpectEmpty = false;
+          break;
+        }
+      }
+    }
+    if (allExpectEmpty) {
+      for (const tec of taggedExternalCalendars) {
+        if (tec.tags.includes(tag)) {
+          hasContributors = true;
+          if (!tec.calendar.expectEmpty) {
+            allExpectEmpty = false;
+            break;
+          }
+        }
+      }
+    }
+    tagExpectEmpty.set(tag, hasContributors && allExpectEmpty);
+  }
+
   // Add aggregate calendars to output
   if (aggregateCalendars.length > 0) {
     const aggregateOutputs: CalendarOutput[] = [];
@@ -565,9 +600,11 @@ export const main = async () => {
       const errorCount = calendar.errors.length;
       totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
+      const aggTag = calendar.tags[0];
+      const isAggExpectEmpty = aggTag ? (tagExpectEmpty.get(aggTag) ?? false) : false;
       console.log(`${calendar.events.length} events for ${calendar.name}`);
-      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length });
-      if (calendar.events.length === 0) {
+      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty });
+      if (calendar.events.length === 0 && !isAggExpectEmpty) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
       }
       if (errorCount > 0) {
@@ -607,12 +644,15 @@ export const main = async () => {
       externalWritePromises.push(writeFile(`output/${localFileName}`, icsContent));
       const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
       console.log(`${eventCount} events for external-${calendar.name}`);
-      eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount });
+      eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount, expectEmpty: calendar.expectEmpty });
       if (hasFutureEventsInICS(icsContent)) {
         calendarsWithFutureEvents.add(localFileName);
       }
-      if (eventCount === 0) {
+      if (eventCount === 0 && !calendar.expectEmpty) {
         console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has 0 events — this may indicate a problem`);
+      }
+      if (eventCount > 0 && calendar.expectEmpty) {
+        console.log(`::warning::External calendar ${calendar.friendlyname} (external-${calendar.name}) has expectEmpty set but produced ${eventCount} events — consider removing expectEmpty`);
       }
     } else {
       // Create empty calendar file as fallback
@@ -811,7 +851,8 @@ END:VCALENDAR`;
   await writeFile("errorCount.txt", totalErrorCount.toString());
 
   // Print event count summary
-  const zeroEventCalendars = eventCounts.filter(c => c.events === 0);
+  const zeroEventCalendars = eventCounts.filter(c => c.events === 0 && !c.expectEmpty);
+  const expectedEmptyCalendars = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
   await writeFile("zeroEventCalendars.txt", zeroEventCalendars.map(c => c.name).join("\n"));
 
   // Write consolidated build errors JSON for programmatic access
@@ -822,6 +863,7 @@ END:VCALENDAR`;
     sources: buildErrors,
     externalCalendarFailures,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
+    expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
   };
   await writeFile(
     "output/build-errors.json",
@@ -830,12 +872,15 @@ END:VCALENDAR`;
 
   console.log("\n=== Event Count Summary ===");
   for (const entry of eventCounts) {
-    console.log(`  ${entry.name}: ${entry.events} events (${entry.type})`);
+    console.log(`  ${entry.name}: ${entry.events} events (${entry.type})${entry.expectEmpty && entry.events === 0 ? " (expected empty)" : ""}`);
   }
   const totalEvents = eventCounts.reduce((sum, c) => sum + c.events, 0);
   console.log(`  Total: ${totalEvents} events across ${eventCounts.length} calendars`);
   if (zeroEventCalendars.length > 0) {
     console.log(`  ⚠ ${zeroEventCalendars.length} calendar(s) with 0 events: ${zeroEventCalendars.map(c => c.name).join(", ")}`);
+  }
+  if (expectedEmptyCalendars.length > 0) {
+    console.log(`  ℹ ${expectedEmptyCalendars.length} calendar(s) with 0 events (expected): ${expectedEmptyCalendars.map(c => c.name).join(", ")}`);
   }
   console.log("===========================\n");
 
@@ -845,13 +890,17 @@ END:VCALENDAR`;
       "## Calendar Event Counts\n",
       "| Calendar | Type | Events |",
       "|----------|------|--------|",
-      ...eventCounts.map(c => `| ${c.name} | ${c.type} | ${c.events === 0 ? "⚠️ 0" : c.events} |`),
+      ...eventCounts.map(c => `| ${c.name} | ${c.type} | ${c.events === 0 ? (c.expectEmpty ? "0 (expected)" : "⚠️ 0") : c.events} |`),
       "",
       `**Total:** ${totalEvents} events across ${eventCounts.length} calendars`,
     ];
     if (zeroEventCalendars.length > 0) {
       summaryLines.push("");
       summaryLines.push(`> ⚠️ **${zeroEventCalendars.length} calendar(s) with 0 events:** ${zeroEventCalendars.map(c => c.name).join(", ")}`);
+    }
+    if (expectedEmptyCalendars.length > 0) {
+      summaryLines.push("");
+      summaryLines.push(`> ℹ️ **${expectedEmptyCalendars.length} calendar(s) with 0 events (expected):** ${expectedEmptyCalendars.map(c => c.name).join(", ")}`);
     }
     await appendFile(process.env.GITHUB_STEP_SUMMARY, summaryLines.join("\n") + "\n");
   }

@@ -74,6 +74,7 @@
   description: "Chuck's Hop Shop Seward Park location events - craft beer, food trucks, and community events"
   icsUrl: "https://calendar.google.com/calendar/ical/c_4abs9f65281tp530jsbhkb3vjg%40group.calendar.google.com/public/basic.ics"
   infoUrl: "https://www.chuckshopshop.com/sewardpark"
+  expectEmpty: true  # Small venue; Google Calendar may have no upcoming events
   tags:
   - Beer
   - Seward Park
@@ -234,6 +235,7 @@
   description: "NWTheatre.org Regional Theatre Calendar"
   icsUrl: "https://www.nwtheatre.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&no_html=true"
   infoUrl: "https://www.nwtheatre.org/calendar/"
+  disabled: true  # Returns HTTP 403 Forbidden
   tags:
   - Theatre
 
@@ -280,6 +282,7 @@
   description: "Events at Langston Hughes Performing Arts Institute in the Central District"
   icsUrl: "https://www.langstonseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://www.langstonseattle.org/events/"
+  expectEmpty: true  # Small venue; events are intermittent
   tags:
   - Arts
   - Community

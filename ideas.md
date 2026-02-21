@@ -45,13 +45,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** Community, Music, Arts
 - **Note:** Seattle's major event discovery platform. Uses Algolia with separate indexes for bands, venues, events, and users. The Algolia search API keys may be extractable from the page JavaScript, enabling direct queries of the events index. Could be a comprehensive aggregator source.
 
-### Substation (Eventbrite API)
-- **URL:** https://www.substationseattle.com/
-- **Eventbrite Organizer ID:** `18831550522` (64 upcoming events)
-- **Platform:** WordPress; ticketing via Eventbrite
-- **Tags:** Music, Ballard
-- **Note:** 150-capacity DIY venue between Fremont and Ballard. Rock, punk, electronic, metal. Best accessed through the Eventbrite API querying organizer `18831550522`.
-
 ### The Vera Project (DICE Widget API)
 - **URL:** https://theveraproject.org/events/
 - **Platform:** WordPress with DICE ticketing widget (partner ID `4b00dde0`)

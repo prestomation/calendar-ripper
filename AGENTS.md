@@ -59,6 +59,37 @@ If no ICS feed exists, look for a public API:
 - Calendar platforms: Localist, Eventbrite, Tribe Events
 - Check if site uses a known calendar platform (they often have APIs)
 
+**Built-in rippers for common platforms:**
+
+If the site uses one of these platforms, use the corresponding `type` in `ripper.yaml` instead of writing a custom ripper:
+
+| Platform | `type` value | Config fields (per calendar) |
+|---|---|---|
+| Eventbrite | `eventbrite` | `organizerId` (required), `defaultLocation`, `defaultDurationHours` (optional, default 2) |
+| Squarespace | `squarespace` | see `lib/config/squarespace.ts` |
+| Ticketmaster | `ticketmaster` | see `lib/config/ticketmaster.ts` |
+| AXS | `axs` | `venueId`, `venueSlug`, `venueName`, `venueAddress` |
+
+Example `ripper.yaml` for an Eventbrite organizer:
+```yaml
+name: my-venue
+type: eventbrite
+description: "My Venue"
+url: "https://www.my-venue.com/events"
+friendlyLink: https://www.my-venue.com/events
+tags: ["Music", "Capitol Hill"]
+calendars:
+  - name: my-venue
+    friendlyname: "My Venue Events"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "12345678901"
+      defaultLocation: "123 Main St, Seattle, WA 98101"
+      defaultDurationHours: 3   # optional, defaults to 2
+```
+
+Tests for built-in rippers live alongside the implementation in `lib/config/` (e.g., `lib/config/eventbrite.test.ts`) and draw on sample data from the source directories they were developed against.
+
 ### 3. HTML Scraping (Last Resort)
 
 Only implement HTML parsing if no ICS feed or API is available:

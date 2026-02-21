@@ -1,9 +1,13 @@
 name: elliott-bay
+type: eventbrite
 description: "Elliott Bay Book Company"
-url: "https://www.eventbriteapi.com/v3/organizers/30672130426/events/?status=live&expand=venue"
+url: "https://www.elliottbaybook.com/events"
 friendlyLink: https://www.elliottbaybook.com/events
 tags: ["Arts", "Education", "Capitol Hill"]
 calendars:
   - name: elliott-bay
     friendlyname: "Elliott Bay Book Company Events"
     timezone: America/Los_Angeles
+    config:
+      organizerId: "30672130426"
+      defaultLocation: "1521 10th Ave, Seattle, WA 98122"

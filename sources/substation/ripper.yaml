@@ -1,17 +1,14 @@
 name: substation
-type: axs
-disabled: true # Cloudflare bot protection blocks the proxy; need a better proxy solution
-friendlyname: "Substation"
-description: "Beacon Hill music venue and community space"
-url: "https://www.axs.com/venues/131334/substation-seattle-tickets"
+type: eventbrite
+description: "Substation"
+url: "https://www.substationseattle.com"
 friendlyLink: https://www.substationseattle.com
-tags: ["Music", "Beacon Hill"]
+tags: ["Music", "Ballard"]
 calendars:
   - name: substation
     friendlyname: "Substation"
     timezone: America/Los_Angeles
     config:
-      venueId: 131334
-      venueSlug: "substation-seattle-tickets"
-      venueName: "Substation"
-      venueAddress: "2505 S Winthrop St, Seattle, WA 98108"
+      organizerId: "18831550522"
+      defaultLocation: "645 NW 45th St, Seattle, WA 98107"
+      defaultDurationHours: 3

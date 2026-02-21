@@ -6,11 +6,13 @@ import { configSchema, ImportError, FileParseError, Ripper, RipperError, IRipper
 import { SquarespaceRipper } from './squarespace.js';
 import { TicketmasterRipper } from './ticketmaster.js';
 import { AXSRipper } from './axs.js';
+import { EventbriteRipper } from './eventbrite.js';
 
 const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     squarespace: SquarespaceRipper,
     ticketmaster: TicketmasterRipper,
     axs: AXSRipper,
+    eventbrite: EventbriteRipper,
 };
 
 // Given a directory, assume each subdirectory is a calendar package

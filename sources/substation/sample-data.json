@@ -1,0 +1,107 @@
+{
+  "pagination": {
+    "object_count": 5,
+    "page_number": 1,
+    "page_size": 50,
+    "page_count": 1,
+    "has_more_items": false
+  },
+  "events": [
+    {
+      "id": "1100000001",
+      "name": { "text": "Dark Entries: Industrial Night", "html": "Dark Entries: Industrial Night" },
+      "description": { "text": "A night of industrial, EBM, and post-punk. Doors at 8pm, show at 9pm.", "html": "A night of industrial, EBM, and post-punk. Doors at 8pm, show at 9pm." },
+      "url": "https://www.eventbrite.com/e/dark-entries-industrial-night-tickets-1100000001",
+      "start": { "timezone": "America/Los_Angeles", "local": "2026-03-07T21:00:00", "utc": "2026-03-08T05:00:00Z" },
+      "end": { "timezone": "America/Los_Angeles", "local": "2026-03-08T02:00:00", "utc": "2026-03-08T10:00:00Z" },
+      "status": "live",
+      "organizer_id": "18831550522",
+      "venue_id": "55000001",
+      "venue": {
+        "id": "55000001",
+        "name": "Substation",
+        "address": {
+          "address_1": "645 NW 45th St",
+          "city": "Seattle",
+          "region": "WA",
+          "postal_code": "98107"
+        }
+      }
+    },
+    {
+      "id": "1100000002",
+      "name": { "text": "Punk Matinee: Local Bands Showcase", "html": "Punk Matinee: Local Bands Showcase" },
+      "description": { "text": "All-ages afternoon punk show featuring four local bands. $10 at the door.", "html": "All-ages afternoon punk show featuring four local bands. $10 at the door." },
+      "url": "https://www.eventbrite.com/e/punk-matinee-local-bands-showcase-tickets-1100000002",
+      "start": { "timezone": "America/Los_Angeles", "local": "2026-03-14T14:00:00", "utc": "2026-03-14T21:00:00Z" },
+      "end": { "timezone": "America/Los_Angeles", "local": "2026-03-14T18:00:00", "utc": "2026-03-15T01:00:00Z" },
+      "status": "live",
+      "organizer_id": "18831550522",
+      "venue_id": "55000001",
+      "venue": {
+        "id": "55000001",
+        "name": "Substation",
+        "address": {
+          "address_1": "645 NW 45th St",
+          "city": "Seattle",
+          "region": "WA",
+          "postal_code": "98107"
+        }
+      }
+    },
+    {
+      "id": "1100000003",
+      "name": { "text": "Electronic Music Night: Techno & House", "html": "Electronic Music Night: Techno &amp; House" },
+      "description": { "text": "Local DJs spinning techno, house, and electronic beats all night.", "html": "Local DJs spinning techno, house, and electronic beats all night." },
+      "url": "https://www.eventbrite.com/e/electronic-music-night-tickets-1100000003",
+      "start": { "timezone": "America/Los_Angeles", "local": "2026-03-21T22:00:00", "utc": "2026-03-22T05:00:00Z" },
+      "end": { "timezone": "America/Los_Angeles", "local": "2026-03-22T02:00:00", "utc": "2026-03-22T09:00:00Z" },
+      "status": "live",
+      "organizer_id": "18831550522",
+      "venue_id": "55000001",
+      "venue": {
+        "id": "55000001",
+        "name": "Substation",
+        "address": {
+          "address_1": "645 NW 45th St",
+          "city": "Seattle",
+          "region": "WA",
+          "postal_code": "98107"
+        }
+      }
+    },
+    {
+      "id": "1100000004",
+      "name": { "text": "Metal Fest: Doom & Sludge Edition", "html": "Metal Fest: Doom &amp; Sludge Edition" },
+      "description": { "text": "Heavy riffs and skull-crushing volume. Five bands. Ear protection encouraged.", "html": "Heavy riffs and skull-crushing volume. Five bands. Ear protection encouraged." },
+      "url": "https://www.eventbrite.com/e/metal-fest-doom-sludge-tickets-1100000004",
+      "start": { "timezone": "America/Los_Angeles", "local": "2026-03-28T20:00:00", "utc": "2026-03-29T03:00:00Z" },
+      "end": { "timezone": "America/Los_Angeles", "local": "2026-03-29T01:00:00", "utc": "2026-03-29T08:00:00Z" },
+      "status": "live",
+      "organizer_id": "18831550522",
+      "venue_id": "55000001",
+      "venue": {
+        "id": "55000001",
+        "name": "Substation",
+        "address": {
+          "address_1": "645 NW 45th St",
+          "city": "Seattle",
+          "region": "WA",
+          "postal_code": "98107"
+        }
+      }
+    },
+    {
+      "id": "1100000005",
+      "name": { "text": "Post-Punk & Cold Wave Night", "html": "Post-Punk &amp; Cold Wave Night" },
+      "description": null,
+      "url": "https://www.eventbrite.com/e/post-punk-cold-wave-night-tickets-1100000005",
+      "start": { "timezone": "America/Los_Angeles", "local": "2026-04-04T21:00:00", "utc": "2026-04-05T04:00:00Z" },
+      "end": { "timezone": "America/Los_Angeles", "local": "2026-04-05T01:30:00", "utc": "2026-04-05T08:30:00Z" },
+      "status": "live",
+      "organizer_id": "18831550522",
+      "venue_id": "55000001",
+      "venue": null
+    }
+  ]
+}

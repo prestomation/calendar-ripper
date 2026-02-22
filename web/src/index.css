@@ -100,6 +100,28 @@
   .favorite-btn.active {
     color: #e87090;
   }
+
+  .homepage-favorites-cta {
+    background: #2a1520;
+    border-color: #8a3050;
+  }
+
+  .homepage-favorites-cta:hover {
+    background: #38182a;
+    border-color: #e87090;
+  }
+
+  .homepage-favorites-cta-title {
+    color: #e87090;
+  }
+
+  .homepage-favorites-cta-icon {
+    color: #e87090;
+  }
+
+  .homepage-favorites-cta-arrow {
+    color: #e87090;
+  }
 }
 
 .loading-spinner {
@@ -1517,6 +1539,59 @@ body {
 
 .explore-btn:hover {
   background: var(--color-primary-dark);
+}
+
+.homepage-favorites-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: #fff0f3;
+  border: 2px solid #e8919d;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.1s;
+  color: inherit;
+}
+
+.homepage-favorites-cta:hover {
+  background: #ffe0e8;
+  border-color: #c94060;
+  transform: translateY(-1px);
+}
+
+.homepage-favorites-cta-icon {
+  font-size: 28px;
+  color: #c94060;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.homepage-favorites-cta-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.homepage-favorites-cta-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #c94060;
+}
+
+.homepage-favorites-cta-sub {
+  font-size: 14px;
+  color: #888;
+}
+
+.homepage-favorites-cta-arrow {
+  font-size: 20px;
+  color: #c94060;
+  flex-shrink: 0;
 }
 
 .homepage h1 {

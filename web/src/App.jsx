@@ -2056,7 +2056,19 @@ function App() {
             <h1>Seattle Community Calendars</h1>
             <p>Browse and subscribe to event calendars from venues, neighborhoods, and organizations across Seattle. Search and filter here, or add any calendar to your favorite app using the ICS links to keep events synced automatically.</p>
 
-            {isMobile && (
+            {favorites.length > 0 ? (
+              <button
+                className="homepage-favorites-cta"
+                onClick={() => handleTagChange('__favorites__')}
+              >
+                <span className="homepage-favorites-cta-icon">♥</span>
+                <span className="homepage-favorites-cta-text">
+                  <span className="homepage-favorites-cta-title">View Your Favorites</span>
+                  <span className="homepage-favorites-cta-sub">{favorites.length} calendar{favorites.length !== 1 ? 's' : ''} saved</span>
+                </span>
+                <span className="homepage-favorites-cta-arrow">→</span>
+              </button>
+            ) : isMobile && (
               <button
                 className="explore-btn"
                 onClick={() => setMobileView('list')}
@@ -2070,6 +2082,7 @@ function App() {
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>
               <li><strong>Search:</strong> Use the search bar to find calendars by name, or search across all event titles, descriptions, and locations</li>
               <li><strong>Filter by Tags:</strong> Click on tags to filter calendars by category</li>
+              <li><strong>Favorites:</strong> Click the ♡ heart icon on any calendar to save it, then use the <strong>♥ Favorites</strong> tag to see only events from your saved calendars</li>
               <li><strong>Subscribe:</strong> Use the 📥 ICS link to add a calendar to your app, 📅 to add it to Google Calendar, or 📋 to copy the link.</li>
             </ul>
 

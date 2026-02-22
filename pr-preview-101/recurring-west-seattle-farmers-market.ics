@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:West Seattle Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:Fcpnxg-SlMFtWvxewWEYK
+SUMMARY:West Seattle Farmers Market
+DTSTAMP:20260222T143056Z
+DTSTART;TZID=America/Los_Angeles:20260222T100000
+DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
+	Local produce\, artisan foods\, and community events.
+URL:https://seattlefarmersmarkets.org/wsfm
+LOCATION:California Ave SW & SW Alaska St\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

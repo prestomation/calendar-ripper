@@ -2059,7 +2059,14 @@ function App() {
             {favorites.length > 0 ? (
               <button
                 className="homepage-favorites-cta"
-                onClick={() => handleTagChange('__favorites__')}
+                onClick={() => {
+                  setShowHappeningSoon(true)
+                  setShowHomepage(false)
+                  setSelectedCalendar(null)
+                  setSelectedTag('__favorites__')
+                  if (isMobile) setMobileView('detail')
+                  updateURL(searchTerm, '__favorites__', null, 'happening-soon')
+                }}
               >
                 <span className="homepage-favorites-cta-icon">♥</span>
                 <span className="homepage-favorites-cta-text">

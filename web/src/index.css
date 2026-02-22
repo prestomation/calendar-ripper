@@ -1367,6 +1367,16 @@ body {
   }
 }
 
+/* ── Large desktop (≥1024px): cap content width to improve readability ── */
+@media (min-width: 1024px) {
+  .agenda-panel {
+    /* As the panel grows past 964px (900px content + 32px padding each side),
+       grow padding symmetrically so content never exceeds 900px wide. */
+    padding-left: max(32px, calc((100% - 900px) / 2));
+    padding-right: max(32px, calc((100% - 900px) / 2));
+  }
+}
+
 /* ── Tablet / Z Fold (768px–1023px): unified compact layout ── */
 @media (min-width: 768px) and (max-width: 1023px) {
   .app--tablet .sidebar {
@@ -1497,6 +1507,7 @@ body {
   overflow-y: auto;
   padding: 40px;
   max-width: 800px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 

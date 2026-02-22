@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Pioneer Square Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:0mNN-SBU6z7uog1Depq6W
+SUMMARY:Pioneer Square Art Walk
+DTSTAMP:20260222T201135Z
+DTSTART;TZID=America/Los_Angeles:20260305T180000
+DESCRIPTION:Monthly art walk in Pioneer Square - the nation's first art wal
+	k!\n\nFrom Pioneer Square Art Walk
+URL:https://pioneersquare.org/art-walks/
+LOCATION:Pioneer Square\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1TH
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:VFoDiqw0s6bJU4Hep3Eas
+SUMMARY:210 Seattle Night Market
+DTSTAMP:20260222T201135Z
+DTSTART;TZID=America/Los_Angeles:20260305T180000
+DESCRIPTION:Pop-up market during Pioneer Square's First Thursday Art Walk. 
+	20-40 local makers\, vintage curators\, and artists.\n\nFrom 210 Seattle N
+	ight Market
+URL:https://www.210studioseattle.com/210-market
+LOCATION:Pioneer Square\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1TH
+DURATION:PT3H
+END:VEVENT
+END:VCALENDAR

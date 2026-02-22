@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Seattle Community Calendars</title>
+    <script type="module" crossorigin src="./assets/index-jhJ0oE-F.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-0qv0G-G2.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Only load GoatCounter on production, not on PR previews or local dev
+      (function() {
+        var blocked = ['localhost', '127.0.0.1', 'htmlpreview.github.io'];
+        if (blocked.indexOf(window.location.hostname) === -1) {
+          var s = document.createElement('script');
+          s.async = true;
+          s.dataset.goatcounter = 'https://seattle-calendars.goatcounter.com/count';
+          s.src = 'https://gc.zgo.at/count.js';
+          document.head.appendChild(s);
+        }
+      })();
+    </script>
+  </body>
+</html>

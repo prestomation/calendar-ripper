@@ -1,34 +1,8 @@
 {
-  "buildTime": "2026-02-22T20:11:54.364Z",
-  "totalErrors": 10,
+  "buildTime": "2026-02-22T20:20:05.009Z",
+  "totalErrors": 4,
   "configErrors": [],
   "sources": [
-    {
-      "source": "benaroya-hall",
-      "calendar": "benaroya-taper",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "benaroya-hall",
-      "calendar": "benaroya-nordstrom",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        }
-      ]
-    },
     {
       "source": "rainier-arts-center",
       "calendar": "rainier-arts-center",
@@ -39,24 +13,6 @@
           "type": "ParseError",
           "reason": "No Event schema.org JSON-LD found",
           "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
-        }
-      ]
-    },
-    {
-      "source": "tag-downtown",
-      "calendar": "tag-downtown",
-      "type": "Aggregate",
-      "errorCount": 2,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        },
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
         }
       ]
     },
@@ -77,18 +33,8 @@
       "source": "tag-music",
       "calendar": "tag-music",
       "type": "Aggregate",
-      "errorCount": 3,
+      "errorCount": 1,
       "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        },
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        },
         {
           "type": "ParseError",
           "reason": "No Event schema.org JSON-LD found",
@@ -113,7 +59,6 @@
   "externalCalendarFailures": [],
   "zeroEventCalendars": [],
   "expectedEmptyCalendars": [
-    "benaroya-hall-benaroya-taper",
     "benaroya-hall-benaroya-nordstrom",
     "downtown-seattle-association-occidental-square",
     "jcccw-all-events",

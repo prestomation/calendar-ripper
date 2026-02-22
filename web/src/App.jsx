@@ -394,6 +394,13 @@ function App() {
   const handleTagChange = (tag) => {
     setSelectedTag(tag)
 
+    // When on the Happening Soon page, stay there — just filter events by tag
+    // (including __favorites__). Use replace to avoid hashchange re-triggering syncStateFromURL.
+    if (showHappeningSoon) {
+      updateURL(searchTerm, tag, null, 'happening-soon', { replace: true })
+      return
+    }
+
     // When favorites tag is selected, show the favorites events view
     if (tag === '__favorites__') {
       setSelectedCalendar(null)
@@ -401,13 +408,6 @@ function App() {
       setShowHappeningSoon(false)
       if (isMobile) setMobileView('detail')
       updateURL(searchTerm, tag, null, undefined)
-      return
-    }
-
-    // When on the Happening Soon page, stay there — just filter events by tag.
-    // Use replace to avoid hashchange re-triggering syncStateFromURL.
-    if (showHappeningSoon) {
-      updateURL(searchTerm, tag, null, 'happening-soon', { replace: true })
       return
     }
 
@@ -768,10 +768,14 @@ function App() {
 
     // Apply tag filter
     if (selectedTag) {
-      upcoming = upcoming.filter(event => {
-        const tags = calendarTagsByIcsUrl[event.icsUrl] || []
-        return tags.includes(selectedTag)
-      })
+      if (selectedTag === '__favorites__') {
+        upcoming = upcoming.filter(event => favoritesSet.has(event.icsUrl))
+      } else {
+        upcoming = upcoming.filter(event => {
+          const tags = calendarTagsByIcsUrl[event.icsUrl] || []
+          return tags.includes(selectedTag)
+        })
+      }
     }
 
     // Apply search filter (fuzzy, consistent with calendar list sidebar hints)
@@ -825,7 +829,7 @@ function App() {
     }
 
     return groups
-  }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl])
+  }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet])
 
   // Compute events for the favorites view
   const favoritesEvents = useMemo(() => {
@@ -1785,8 +1789,11 @@ function App() {
                     const parts = []
                     if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
                     else parts.push('Events')
-                    parts.push('across all calendars in the next 7 days')
-                    if (selectedTag && selectedTag !== '__favorites__') parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
+                    if (selectedTag === '__favorites__') parts.push('from your favorited calendars in the next 7 days')
+                    else {
+                      parts.push('across all calendars in the next 7 days')
+                      if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
+                    }
                     return parts.join(' ')
                   })()}
                 </p>
@@ -1804,6 +1811,18 @@ function App() {
                 >
                   All
                 </div>
+                {favorites.length > 0 && (
+                  <div
+                    className={`tag favorites-tag ${selectedTag === '__favorites__' ? 'active' : ''}`}
+                    onClick={() => handleTagChange('__favorites__')}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange('__favorites__') } }}
+                  >
+                    {selectedTag === '__favorites__' && <span className="tag-check" aria-hidden="true">✓ </span>}
+                    ♥ Favorites
+                  </div>
+                )}
                 {allTags.map(tag => (
                   <div
                     key={tag}

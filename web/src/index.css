@@ -81,6 +81,25 @@
     --resize-handle-active: rgba(77, 171, 247, 0.5);
     --scroll-fade-color: rgba(28, 29, 37, 0.9);
   }
+
+  .tag.favorites-tag {
+    border-color: #8a3050;
+    color: #e87090;
+  }
+
+  .tag.favorites-tag.active {
+    background: #a03050;
+    border-color: #a03050;
+    color: #fff;
+  }
+
+  .favorite-btn:hover {
+    color: #e87090;
+  }
+
+  .favorite-btn.active {
+    color: #e87090;
+  }
 }
 
 .loading-spinner {
@@ -337,6 +356,48 @@ body {
 
 .tag.active .tag-count {
   opacity: 0.85;
+}
+
+/* Favorites tag */
+.tag.favorites-tag {
+  border-color: #e8919d;
+  color: #c94060;
+}
+
+.tag.favorites-tag.active {
+  background: #c94060;
+  border-color: #c94060;
+  color: #fff;
+}
+
+/* Favorite (heart) button on calendar items */
+.favorite-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--text-muted);
+  opacity: 0.4;
+  transition: opacity 0.15s, color 0.15s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.favorite-btn:hover {
+  opacity: 0.8;
+  color: #c94060;
+}
+
+.favorite-btn.active {
+  color: #c94060;
+  opacity: 1;
+}
+
+.favorite-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 @keyframes tagPulse {

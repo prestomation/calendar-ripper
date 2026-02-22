@@ -71,6 +71,24 @@ function App() {
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
   const [tagsCollapsed, setTagsCollapsed] = useState(false)
+  const [favorites, setFavorites] = useState(() => {
+    try {
+      const stored = localStorage.getItem('calendar-ripper-favorites')
+      return stored ? JSON.parse(stored) : []
+    } catch { return [] }
+  })
+
+  const favoritesSet = useMemo(() => new Set(favorites), [favorites])
+
+  const toggleFavorite = useCallback((icsUrl) => {
+    setFavorites(prev => {
+      const next = prev.includes(icsUrl)
+        ? prev.filter(u => u !== icsUrl)
+        : [...prev, icsUrl]
+      try { localStorage.setItem('calendar-ripper-favorites', JSON.stringify(next)) } catch {}
+      return next
+    })
+  }, [])
   const [currentDayHeader, setCurrentDayHeader] = useState(null)
 
   const breakpoint = useBreakpoint()
@@ -267,7 +285,13 @@ function App() {
     setSelectedTag(params.get('tag') || '')
     const calendarId = params.get('calendar')
     const urlView = params.get('view')
-    if (urlView === 'happening-soon') {
+    const urlTag = params.get('tag') || ''
+    if (urlTag === '__favorites__') {
+      setSelectedCalendar(null)
+      setShowHomepage(false)
+      setShowHappeningSoon(false)
+      if (isMobile) setMobileView('detail')
+    } else if (urlView === 'happening-soon') {
       setShowHappeningSoon(true)
       setShowHomepage(false)
       setSelectedCalendar(null)
@@ -369,6 +393,16 @@ function App() {
 
   const handleTagChange = (tag) => {
     setSelectedTag(tag)
+
+    // When favorites tag is selected, show the favorites events view
+    if (tag === '__favorites__') {
+      setSelectedCalendar(null)
+      setShowHomepage(false)
+      setShowHappeningSoon(false)
+      if (isMobile) setMobileView('detail')
+      updateURL(searchTerm, tag, null, undefined)
+      return
+    }
 
     // When on the Happening Soon page, stay there — just filter events by tag.
     // Use replace to avoid hashchange re-triggering syncStateFromURL.
@@ -793,6 +827,88 @@ function App() {
     return groups
   }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl])
 
+  // Compute events for the favorites view
+  const favoritesEvents = useMemo(() => {
+    if (!eventsIndex.length || !favorites.length || selectedTag !== '__favorites__') return []
+
+    const now = new Date()
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    const sixMonthsFromNow = new Date(now.getFullYear(), now.getMonth() + 6, now.getDate())
+
+    let upcoming = eventsIndex
+      .map(event => {
+        const tzMatch = event.date.match(/\[(.+)\]$/)
+        const eventTimezone = tzMatch ? tzMatch[1] : undefined
+        const dateStr = event.date.replace(/\[.*\]$/, '')
+        const parsed = new Date(dateStr)
+        if (isNaN(parsed.getTime())) return null
+        let parsedEndDate = null
+        if (event.endDate) {
+          const endDateStr = event.endDate.replace(/\[.*\]$/, '')
+          const parsedEnd = new Date(endDateStr)
+          if (!isNaN(parsedEnd.getTime())) parsedEndDate = parsedEnd
+        }
+        return { ...event, parsedDate: parsed, parsedEndDate, eventTimezone }
+      })
+      .filter(event => {
+        if (!event) return false
+        if (!favoritesSet.has(event.icsUrl)) return false
+        if (event.parsedDate >= sixMonthsFromNow) return false
+        if (event.parsedDate < todayStart) return false
+        const effectiveEnd = event.parsedEndDate || event.parsedDate
+        if (effectiveEnd <= now) return false
+        return true
+      })
+
+    if (searchTerm) {
+      const fuse = new Fuse(upcoming, {
+        keys: ['summary', 'description', 'location'],
+        threshold: FUSE_THRESHOLD
+      })
+      upcoming = fuse.search(searchTerm).map(r => r.item)
+    }
+
+    upcoming.sort((a, b) => a.parsedDate - b.parsedDate)
+
+    const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    const groups = []
+    let currentLabel = null
+    let currentGroup = null
+
+    for (const event of upcoming) {
+      let eventDay
+      if (event.eventTimezone) {
+        try {
+          const parts = event.parsedDate.toLocaleDateString('en-CA', { timeZone: event.eventTimezone }).split('-')
+          eventDay = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]))
+        } catch {
+          eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
+        }
+      } else {
+        eventDay = new Date(event.parsedDate.getFullYear(), event.parsedDate.getMonth(), event.parsedDate.getDate())
+      }
+      const diffDays = Math.round((eventDay - todayStart) / (1000 * 60 * 60 * 24))
+
+      let label
+      if (diffDays === 0) label = 'Today'
+      else if (diffDays === 1) label = 'Tomorrow'
+      else if (diffDays > 1 && diffDays < 7) label = dayNames[eventDay.getDay()]
+      else label = eventDay.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
+
+      if (label !== currentLabel) {
+        currentLabel = label
+        const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+        currentGroup = { label, dateSubtitle, events: [] }
+        groups.push(currentGroup)
+      }
+      if (currentGroup) {
+        currentGroup.events.push(event)
+      }
+    }
+
+    return groups
+  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm])
+
   // Track which calendars matched by name/description (not just event content)
   const calendarNameMatches = useMemo(() => {
     const nameMatches = new Set()
@@ -831,7 +947,7 @@ function App() {
         ...ripper,
         calendars: ripper.calendars.filter(calendar => {
           const matchesSearch = !searchTerm || matchingCalendars.has(`${ripper.name}-${calendar.name}`)
-          const matchesTag = !selectedTag || calendar.tags.includes(selectedTag)
+          const matchesTag = !selectedTag || (selectedTag === '__favorites__' ? favoritesSet.has(calendar.icsUrl) : calendar.tags.includes(selectedTag))
           return matchesSearch && matchesTag
         })
       })).filter(ripper => ripper.calendars.length > 0)
@@ -849,7 +965,7 @@ function App() {
     }
 
     return result
-  }, [calendars, searchTerm, selectedTag, calendarNameMatches, eventMatchesByCalendar])
+  }, [calendars, searchTerm, selectedTag, calendarNameMatches, eventMatchesByCalendar, favoritesSet])
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -1127,9 +1243,9 @@ function App() {
                   className="tags-clear-btn"
                   onClick={(e) => { e.stopPropagation(); handleTagChange('') }}
                   title="Clear tag filter"
-                  aria-label={`Clear ${formatTagLabel(selectedTag)} filter`}
+                  aria-label={`Clear ${selectedTag === '__favorites__' ? 'Favorites' : formatTagLabel(selectedTag)} filter`}
                 >
-                  {formatTagLabel(selectedTag)} ×
+                  {selectedTag === '__favorites__' ? '♥ Favorites' : formatTagLabel(selectedTag)} ×
                 </button>
               )}
               <span className="tags-collapse-icon" aria-hidden="true">{tagsCollapsed ? '▶' : '▼'}</span>
@@ -1147,6 +1263,20 @@ function App() {
                 >
                   All
                 </div>
+                {favorites.length > 0 && (
+                  <div
+                    className={`tag favorites-tag ${selectedTag === '__favorites__' ? 'active' : ''}`}
+                    onClick={() => handleTagChange('__favorites__')}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTagChange('__favorites__') } }}
+                    title={`Favorites — ${favorites.length} calendar${favorites.length !== 1 ? 's' : ''}`}
+                  >
+                    {selectedTag === '__favorites__' && <span className="tag-check" aria-hidden="true">✓ </span>}
+                    <span>♥ Favorites</span>
+                    <span className="tag-count">{favorites.length}</span>
+                  </div>
+                )}
                 {isMobile ? (
                   allTags.map(tag => (
                     <div
@@ -1204,14 +1334,14 @@ function App() {
                 const parts = []
                 parts.push(`${total} calendar${total !== 1 ? 's' : ''}`)
                 if (searchTerm) parts.push(`matching "${searchTerm}"`)
-                if (selectedTag) parts.push(`in ${formatTagLabel(selectedTag)}`)
+                if (selectedTag) parts.push(`in ${selectedTag === '__favorites__' ? 'Favorites' : formatTagLabel(selectedTag)}`)
                 return parts.join(' ')
               })()}
             </div>
           )}
-          {selectedTag && (
+          {selectedTag && selectedTag !== '__favorites__' && (
             <div className="tag-header">
-              <div 
+              <div
                 className="tag-header-content clickable"
                 onClick={() => handleTagSelect(selectedTag)}
                 title="Click to view tag calendar events"
@@ -1277,6 +1407,14 @@ function App() {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="calendar-title">
+                      <button
+                        className={`favorite-btn ${favoritesSet.has(singleCal.icsUrl) ? 'active' : ''}`}
+                        onClick={(e) => { e.stopPropagation(); toggleFavorite(singleCal.icsUrl) }}
+                        title={favoritesSet.has(singleCal.icsUrl) ? 'Remove from favorites' : 'Add to favorites'}
+                        aria-label={favoritesSet.has(singleCal.icsUrl) ? 'Remove from favorites' : 'Add to favorites'}
+                      >
+                        {favoritesSet.has(singleCal.icsUrl) ? '♥' : '♡'}
+                      </button>
                       <span className={searchTerm && calendarNameMatches.has(`${ripper.name}-${singleCal.name}`) ? 'calendar-name-match' : ''}>
                         {ripper.friendlyName || singleCal.fullName}
                       </span>
@@ -1487,6 +1625,14 @@ function App() {
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="calendar-title">
+                      <button
+                        className={`favorite-btn ${favoritesSet.has(calendar.icsUrl) ? 'active' : ''}`}
+                        onClick={(e) => { e.stopPropagation(); toggleFavorite(calendar.icsUrl) }}
+                        title={favoritesSet.has(calendar.icsUrl) ? 'Remove from favorites' : 'Add to favorites'}
+                        aria-label={favoritesSet.has(calendar.icsUrl) ? 'Remove from favorites' : 'Add to favorites'}
+                      >
+                        {favoritesSet.has(calendar.icsUrl) ? '♥' : '♡'}
+                      </button>
                       <span className={searchTerm && calendarNameMatches.has(`${ripper.name}-${calendar.name}`) ? 'calendar-name-match' : ''}>
                         {calendar.fullName}
                       </span>
@@ -1595,15 +1741,17 @@ function App() {
         {isMobile && mobileView === 'detail' && (
           <div className="mobile-back-bar">
             <button className="mobile-back-btn" onClick={() => {
-              if (showHappeningSoon || (!showHomepage && selectedCalendar)) {
-                // Going back from detail/happening-soon to the list
+              if (showHappeningSoon || selectedTag === '__favorites__' || (!showHomepage && selectedCalendar)) {
+                // Going back from detail/happening-soon/favorites to the list
+                const clearTag = selectedTag === '__favorites__'
                 setSelectedCalendar(null)
                 setShowHomepage(true)
                 setShowHappeningSoon(false)
+                if (clearTag) setSelectedTag('')
                 setMobileView('list')
                 const params = new URLSearchParams()
                 if (searchTerm) params.set('search', searchTerm)
-                if (selectedTag) params.set('tag', selectedTag)
+                if (!clearTag && selectedTag) params.set('tag', selectedTag)
                 const hash = params.toString()
                 history.replaceState(null, '', hash ? '#' + hash : window.location.pathname)
               } else {
@@ -1619,7 +1767,7 @@ function App() {
               </span>
             ) : (
               <span className="mobile-back-title">
-                {showHappeningSoon ? 'Happening Soon' : selectedCalendar?.fullName || ''}
+                {showHappeningSoon ? 'Happening Soon' : selectedTag === '__favorites__' ? '♥ Favorites' : selectedCalendar?.fullName || ''}
               </span>
             )}
           </div>
@@ -1638,7 +1786,7 @@ function App() {
                     if (totalEvents > 0) parts.push(`${totalEvents} event${totalEvents !== 1 ? 's' : ''}`)
                     else parts.push('Events')
                     parts.push('across all calendars in the next 7 days')
-                    if (selectedTag) parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
+                    if (selectedTag && selectedTag !== '__favorites__') parts.push(`tagged "${formatTagLabel(selectedTag)}"`)
                     return parts.join(' ')
                   })()}
                 </p>
@@ -1675,7 +1823,7 @@ function App() {
             {searchTerm && (
               <div className="search-filter-banner">
                 Showing events matching "{searchTerm}"
-                {selectedTag && ` in ${formatTagLabel(selectedTag)}`}
+                {selectedTag && selectedTag !== '__favorites__' && ` in ${formatTagLabel(selectedTag)}`}
                 <button className="link-button" onClick={() => handleSearchChange('')}>Clear search</button>
               </div>
             )}
@@ -1768,6 +1916,119 @@ function App() {
                     {searchTerm && <><button className="link-button" onClick={() => handleSearchChange('')}>clearing your search</button></>}
                   </span>
                 )}
+              </div>
+            )}
+          </div>
+        ) : selectedTag === '__favorites__' && !selectedCalendar ? (
+          <div className="agenda-panel" ref={agendaRef}>
+            {!isMobile && (
+              <div className="agenda-header">
+                <div className="agenda-title-container">
+                  <h1>♥ Favorites</h1>
+                </div>
+                <p>
+                  {(() => {
+                    const totalEvents = favoritesEvents.reduce((sum, g) => sum + g.events.length, 0)
+                    return totalEvents > 0
+                      ? `${totalEvents} event${totalEvents !== 1 ? 's' : ''} from ${favorites.length} favorited calendar${favorites.length !== 1 ? 's' : ''}`
+                      : `Events from ${favorites.length} favorited calendar${favorites.length !== 1 ? 's' : ''}`
+                  })()}
+                </p>
+              </div>
+            )}
+
+            {searchTerm && (
+              <div className="search-filter-banner">
+                Showing events matching "{searchTerm}"
+                <button className="link-button" onClick={() => handleSearchChange('')}>Clear search</button>
+              </div>
+            )}
+
+            {favoritesEvents.length > 0 ? (
+              favoritesEvents.map(group => (
+                <div key={group.label} className="day-group">
+                  <div className="day-group-header">
+                    <span className="day-group-label">{group.label}</span>
+                    <span className="day-group-date">{group.dateSubtitle}</span>
+                  </div>
+                  {group.events.map((event, idx) => (
+                    <div key={`${event.icsUrl}-${event.summary}-${idx}`} className="event-item">
+                      <div className="event-date">
+                        {(() => {
+                          const timeOpts = { hour: '2-digit', minute: '2-digit' }
+                          const tzOpts = event.eventTimezone ? { timeZone: event.eventTimezone } : {}
+                          let startTime
+                          try {
+                            startTime = event.parsedDate.toLocaleTimeString('en-US', { ...timeOpts, ...tzOpts })
+                          } catch {
+                            startTime = event.parsedDate.toLocaleTimeString('en-US', timeOpts)
+                          }
+                          if (event.parsedEndDate) {
+                            let endTime
+                            try {
+                              endTime = event.parsedEndDate.toLocaleTimeString('en-US', { ...timeOpts, ...tzOpts })
+                            } catch {
+                              endTime = event.parsedEndDate.toLocaleTimeString('en-US', timeOpts)
+                            }
+                            return `${startTime} – ${endTime}`
+                          }
+                          return startTime
+                        })()}
+                      </div>
+                      <div className="event-title">
+                        {event.summary}
+                        {event.url && (
+                          <a
+                            href={event.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="event-link-icon"
+                            title="View event details"
+                          >
+                            🔗
+                          </a>
+                        )}
+                        <span
+                          className="event-source clickable"
+                          title={`From ${calendarNameByIcsUrl[event.icsUrl] || event.icsUrl}`}
+                          onClick={() => {
+                            for (const ripper of calendars) {
+                              const cal = ripper.calendars.find(c => c.icsUrl === event.icsUrl)
+                              if (cal) {
+                                handleCalendarSelect(cal, ripper.name)
+                                return
+                              }
+                            }
+                          }}
+                        >
+                          {calendarNameByIcsUrl[event.icsUrl] || event.icsUrl.replace('.ics', '')}
+                        </span>
+                      </div>
+                      <EventDescription text={event.description} />
+                      {event.location && (
+                        <div className="event-location">
+                          📍 <a
+                            href={createGoogleMapsUrl(event.location)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="location-link"
+                          >
+                            {event.location}
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))
+            ) : (
+              <div className="empty-state">
+                <span>No upcoming events from your favorites</span>
+                <span className="empty-state-hint">
+                  {searchTerm
+                    ? <><button className="link-button" onClick={() => handleSearchChange('')}>Clear your search</button> to see all favorite events</>
+                    : 'Your favorited calendars have no upcoming events'}
+                </span>
               </div>
             )}
           </div>

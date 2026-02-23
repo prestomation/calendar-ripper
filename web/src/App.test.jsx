@@ -7,7 +7,9 @@ import App from './App'
 // Mock fetch
 global.fetch = vi.fn()
 
-// Format a Date as a js-joda-style string: "2026-02-15T19:00:00-08:00[America/Los_Angeles]"
+// Format a Date as a js-joda-style string: "2026-02-15T19:00:00-08:00"
+// Omits the IANA bracket so day-grouping uses the local (test-runner) timezone,
+// keeping it consistent with how the app computes todayStart.
 function toJodaDateString(date) {
   const pad = (n, len = 2) => String(n).padStart(len, '0')
   const offset = -date.getTimezoneOffset()
@@ -16,7 +18,7 @@ function toJodaDateString(date) {
   const offHours = pad(Math.floor(absOff / 60))
   const offMins = pad(absOff % 60)
   const iso = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}${sign}${offHours}:${offMins}`
-  return `${iso}[America/Los_Angeles]`
+  return iso
 }
 
 const mockManifest = {

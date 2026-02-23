@@ -64,9 +64,11 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [eventsLoading, setEventsLoading] = useState(false)
   const [eventsError, setEventsError] = useState(null)
-  const [sidebarWidth, setSidebarWidth] = useState(400)
+  const [sidebarWidth, setSidebarWidth] = useState(() =>
+    window.innerWidth < 1440 ? 320 : 360
+  )
   const [tagsHeight, setTagsHeight] = useState(150)
-  const [footerMinimized, setFooterMinimized] = useState(false)
+  const [footerMinimized, setFooterMinimized] = useState(true)
   // Mobile: 'list' shows sidebar, 'detail' shows events
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
@@ -1202,28 +1204,28 @@ function App() {
           >
             Happening Soon
           </button>
-          <div className="search-bar">
-            <div className="search-input-wrapper">
-              <svg className="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input
-                ref={searchInputRef}
-                type="text"
-                className="search-input"
-                placeholder='Search calendars and events... (press "/" to focus)'
-                value={searchTerm}
-                onChange={(e) => handleSearchChange(e.target.value)}
-              />
-              {searchTerm && (
-                <button
-                  className="search-clear-btn"
-                  onClick={() => handleSearchChange('')}
-                  title="Clear search"
-                  aria-label="Clear search"
-                >
-                  ✕
-                </button>
-              )}
-            </div>
+        </div>
+        <div className="search-bar">
+          <div className="search-input-wrapper">
+            <svg className="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input
+              ref={searchInputRef}
+              type="text"
+              className="search-input"
+              placeholder='Search calendars and events... (press "/" to focus)'
+              value={searchTerm}
+              onChange={(e) => handleSearchChange(e.target.value)}
+            />
+            {searchTerm && (
+              <button
+                className="search-clear-btn"
+                onClick={() => handleSearchChange('')}
+                title="Clear search"
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
           </div>
         </div>
         

@@ -10,6 +10,7 @@ jobs:
     secrets: inherit
     with:
       artifact-name: pr-preview-${{ github.event.number }}
+      include-favorites-api: false
 
   deploy-preview:
     runs-on: ubuntu-latest

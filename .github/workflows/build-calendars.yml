@@ -8,6 +8,11 @@ on:
         required: false
         default: "github-pages"
         type: string
+      include-favorites-api:
+        description: "Whether to include the favorites API URL in the web build"
+        required: false
+        default: true
+        type: boolean
     outputs:
       error-count:
         description: "Number of errors during calendar generation"
@@ -60,7 +65,7 @@ jobs:
     - name: Build web interface
       run: npm run web:build
       env:
-        VITE_FAVORITES_API_URL: ${{ vars.FAVORITES_API_URL }}
+        VITE_FAVORITES_API_URL: ${{ inputs.include-favorites-api && vars.FAVORITES_API_URL || '' }}
 
     - name: Get GitHub Pages URL
       id: get-pages-url

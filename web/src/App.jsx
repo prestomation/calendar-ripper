@@ -82,6 +82,12 @@ function App() {
 
   const favoritesSet = useMemo(() => new Set(favorites), [favorites])
 
+  // Auth state
+  const [authUser, setAuthUser] = useState(null)
+  const [authLoading, setAuthLoading] = useState(true)
+
+  const API_URL = import.meta.env.VITE_FAVORITES_API_URL || ''
+
   const toggleFavorite = useCallback((icsUrl) => {
     setFavorites(prev => {
       const isFav = prev.includes(icsUrl)
@@ -102,12 +108,6 @@ function App() {
       return next
     })
   }, [authUser])
-
-  // Auth state
-  const [authUser, setAuthUser] = useState(null)
-  const [authLoading, setAuthLoading] = useState(true)
-
-  const API_URL = import.meta.env.VITE_FAVORITES_API_URL || ''
 
   // Check auth on mount
   useEffect(() => {

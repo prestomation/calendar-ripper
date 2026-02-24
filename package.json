@@ -7,7 +7,7 @@
   "scripts": {
     "test": "c8 vitest run",
     "test:watch": "vitest",
-    "test:web": "cd web && vitest run",
+    "test:web": "cd web && npx vitest run",
     "test:all": "npm run test && npm run test:web",
     "generate-calendars": "node --loader ts-node/esm index.ts",
     "web:dev": "cd web && vite",

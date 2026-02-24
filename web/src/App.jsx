@@ -120,7 +120,10 @@ function App() {
   }, [])
 
   const handleLogin = () => {
-    if (API_URL) window.location.href = `${API_URL}/auth/login?provider=google`
+    if (API_URL) {
+      const returnTo = encodeURIComponent(window.location.href)
+      window.location.href = `${API_URL}/auth/login?provider=google&return_to=${returnTo}`
+    }
   }
 
   const handleLogout = async () => {

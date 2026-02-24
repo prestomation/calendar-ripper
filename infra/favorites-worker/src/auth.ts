@@ -10,11 +10,33 @@ const GOOGLE_TOKEN_URL = 'https://oauth2.googleapis.com/token'
 const GOOGLE_USERINFO_URL = 'https://www.googleapis.com/oauth2/v2/userinfo'
 const SESSION_MAX_AGE = 30 * 24 * 60 * 60 // 30 days in seconds
 
+// Allowed URL prefixes for post-login redirect
+const ALLOWED_RETURN_PREFIXES = [
+  'https://prestomation.github.io/',
+  'https://htmlpreview.github.io/?https://github.com/prestomation/',
+  'http://localhost:',
+  'http://localhost/',
+  'http://127.0.0.1:',
+  'http://127.0.0.1/',
+]
+
+function isAllowedReturnUrl(url: string): boolean {
+  try {
+    new URL(url) // validate it's a real URL
+    return ALLOWED_RETURN_PREFIXES.some(prefix => url.startsWith(prefix))
+  } catch {
+    return false
+  }
+}
+
 authRoutes.get('/login', (c) => {
   const provider = c.req.query('provider')
   if (provider !== 'google') {
     return c.json({ error: 'Unsupported provider' }, 400)
   }
+
+  const returnTo = c.req.query('return_to') || ''
+  const state = returnTo && isAllowedReturnUrl(returnTo) ? returnTo : ''
 
   const callbackUrl = new URL('/auth/callback', c.req.url).toString()
   const params = new URLSearchParams({
@@ -24,6 +46,7 @@ authRoutes.get('/login', (c) => {
     scope: 'openid email profile',
     access_type: 'online',
     prompt: 'select_account',
+    state,
   })
 
   return c.redirect(`${GOOGLE_AUTH_URL}?${params.toString()}`)
@@ -32,6 +55,7 @@ authRoutes.get('/login', (c) => {
 authRoutes.get('/callback', async (c) => {
   const code = c.req.query('code')
   if (!code) return c.json({ error: 'Missing code' }, 400)
+  const returnTo = c.req.query('state') || ''
 
   const callbackUrl = new URL('/auth/callback', c.req.url).toString()
 
@@ -93,11 +117,12 @@ authRoutes.get('/callback', async (c) => {
   const token = await signJWT({ sub: userId }, c.env.JWT_SECRET, SESSION_MAX_AGE)
 
   // Redirect back to site with session cookie
+  const redirectUrl = (returnTo && isAllowedReturnUrl(returnTo)) ? returnTo : c.env.SITE_URL
   return new Response(null, {
     status: 302,
     headers: {
-      Location: c.env.SITE_URL,
-      'Set-Cookie': `session=${token}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${SESSION_MAX_AGE}`,
+      Location: redirectUrl,
+      'Set-Cookie': `session=${token}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=${SESSION_MAX_AGE}`,
     },
   })
 })
@@ -125,6 +150,6 @@ authRoutes.get('/me', async (c) => {
 
 authRoutes.post('/logout', (c) => {
   return c.json({ ok: true }, 200, {
-    'Set-Cookie': 'session=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0',
+    'Set-Cookie': 'session=; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=0',
   })
 })

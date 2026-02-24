@@ -1,0 +1,2125 @@
+BEGIN:VCALENDAR
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25423//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+X-WR-CALNAME:College of Arts and Sciences|School of Music
+X-WR-TIMEZONE:America/Los_Angeles
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:Baroque Ensemble
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260223T193000
+DTEND;TZID=America/Los_Angeles:20260223T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-02-23/baroque-ensemble
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAeLJnkYfhUk3Wx-is2g2qe.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgAeLJnkYfhUk3Wx-is2g2qe.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T135127Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-02-23/baroque-ensemble<br><br>UW music students perform 
+ music of the&#160\;Baroque era under the direction of Tekla Cunningham.&
+ #160\;<br><br><br>FREE admission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAeLJnkYfhUk3Wx-is2g2qe.jpg
+UID:http://uid.trumba.com/event/189390122
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189390122
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Brechemin Piano Series
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260226T193000
+DTEND;TZID=America/Los_Angeles:20260226T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-02-26/brechemin-piano-serie
+ s
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDdE%2ARB-EIpnNMz3U2jJ49b.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgDdE%2ARB-EIpnNMz3U2jJ49b.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T161558Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-02-26/brechemin-piano-series<br><br>UW keyboard&#160\;st
+ udents perform music from the piano repertoire.&#160\;<br><br><br>FREE a
+ dmission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDdE%2ARB-EIpnNMz3U2jJ49b.jpg
+UID:http://uid.trumba.com/event/189334724
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189334724
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Campus\, Concert\, and University Bands
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260302T193000
+DTEND;TZID=America/Los_Angeles:20260302T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-02/campus-concert-and-un
+ iversity-bands
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation\, contact the Arts UW Ticket Offi
+ ce at 206-543-4880 or <a href="mailto:ticket@uw.edu" target="_blank" rel
+ ="noopener">ticket@uw.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBY4%2AX7jPCkb338S8PFdVW8.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBY4%2AX7jPCkb338S8PFdVW8.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543.4880
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T163817Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation\, contact the Arts UW Ticket Office at 206
+ -543-4880 or ticket@uw.edu.<br>Event Types: Performances<br>Event sponso
+ rs: UW Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543.
+ 4880<br>Facebook: http://facebook.com/UWMusic<br>Link: https://music.was
+ hington.edu/events/2026-03-02/campus-concert-and-university-bands<br><br
+ >The Campus Band (Solomon Encina\, conductor)\, Concert Band (Yuman Wu\,
+  conductor)\, and University Band (Corey Jahlas\, conductor) present the
+ ir Winter Quarter concert.&#160\;<br><br><em>$10 all tickets</em>
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBY4%2AX7jPCkb338S8PFdVW8.jpg
+UID:http://uid.trumba.com/event/189334982
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189334982
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Chamber Singers and University Chorale: &quot\;ComPassion: Consi
+ dering Matthew Shepherd&quot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260303T193000
+DTEND;TZID=America/Los_Angeles:20260303T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-03/chamber-singers-and-u
+ niversity-chorale-compassion-considering-matthew-shepard
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Gerlich
+  Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBcVxudSiTZBcyTPF-XyDws.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBcVxudSiTZBcyTPF-XyDws.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T164904Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Gerlich Theater<br>Accessibility Contact: To r
+ equest disability accommodation contact the Disability Services Office a
+ t least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, 
+ (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performa
+ nces<br>Event sponsors: UW School of Music\; www.music.washington.edu\; 
+ ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.
+ com/UWMusic<br>Link: https://music.washington.edu/events/2026-03-03/cham
+ ber-singers-and-university-chorale-compassion-considering-matthew-shepar
+ d<br><br>Chamber Singers and University Chorale collaborate with Seattle
+  University Choirs (Leann Conley-Holcom\, director) in performing &quot
+ \;Considering Matthew Shepard\,&quot\; a profound tale of discrimination
+ \, cruelty\, death\, yet with themes of hope.<br><br>$10 all tickets.&#16
+ 0\;<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBcVxudSiTZBcyTPF-XyDws.jpg
+UID:http://uid.trumba.com/event/189338206
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338206
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Guest Pianist Recital: Jonathan Shames
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260305T193000
+DTEND;TZID=America/Los_Angeles:20260305T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-05/guest-artist-concert-
+ jonathan-shames-piano
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgClJvav%2A2Qx-3jJQWRNBDIw.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgClJvav%2A2Qx-3jJQWRNBDIw.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T160000Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-03-05/guest-artist-concert-jonathan-shames-piano<br><br>
+ Guest pianist Jonathan Shames of the University of Oklahoma performs mus
+ ic by Schubert\, Janacek\, Szymanowski\, and Chopin in his solo piano re
+ cital.&#160\;<br><br><strong>Program&#160\;<br>Schubert:</strong>&#160\;
+ Sonata in c minor<br><strong>Janacek:&#160\;</strong>&#160\;Piano Sonata
+  1.X.1905<br><strong>Szymanowski:</strong>&#160\;Sch&#233\;h&#233\;razad
+ e&#160\;from&#160\;Masques<br><strong>Chopin:</strong>&#160\;&#160\;Anda
+ nte spianato and Grande Polonaise brillante<br><br>FREE admission<br><br
+ >&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgClJvav%2A2Qx-3jJQWRNBDIw.jpg
+UID:http://uid.trumba.com/event/189397047
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189397047
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Composition Studio
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260307T193000
+DTEND;TZID=America/Los_Angeles:20260307T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-07/composition-studio-co
+ ncert
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgC8uzYrr0waRtujsVWsqF5L.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgC8uzYrr0waRtujsVWsqF5L.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T173119Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-03-07/composition-studio-concert<br><br>Emerging and est
+ ablished composers explore unconventional sonic landscapes in this conce
+ rt of music by students\, faculty\, alumni\, and guests of the UW Compos
+ ition program.<br><br>FREE admission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgC8uzYrr0waRtujsVWsqF5L.jpg
+UID:http://uid.trumba.com/event/189338659
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338659
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Studio Jazz Ensemble\, Modern Band
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260309T193000
+DTEND;TZID=America/Los_Angeles:20260309T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2025-11-24/studio-jazz-ensemble-
+ and-modern-band
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Gerlich
+  Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAR3qJy4IHJcTocVgCvBZrx.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgAR3qJy4IHJcTocVgCvBZrx.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T161535Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Gerlich Theater<br>Accessibility Contact: To r
+ equest disability accommodation contact the Disability Services Office a
+ t least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, 
+ (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performa
+ nces<br>Event sponsors: UW School of Music\; www.music.washington.edu\; 
+ ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.
+ com/UWMusic<br>Link: https://music.washington.edu/events/2025-11-24/stud
+ io-jazz-ensemble-and-modern-band<br><br>The Studio Jazz Ensemble perform
+ s big band arrangements and repertory selections. The Modern&#160\;Band 
+ performs innovative arrangements of jazz standards\, selections from the
+  outer limits of the&#160\;genre\, and new original compositions.<br><br
+ >$10 all tickets.&#160\;<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAR3qJy4IHJcTocVgCvBZrx.jpg
+UID:http://uid.trumba.com/event/189089388
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189089388
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Chamber Music Showcase
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260310T140000
+DTEND;TZID=America/Los_Angeles:20260310T140000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-10/chamber-music-showcas
+ e
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgCc27Oxpxi56TqUK%2Aq%2A39Mk.jpg" target="_blank" rel
+ ="noopener" title="https://www.trumba.com/i/DgCc27Oxpxi56TqUK%2Aq%2A39Mk
+ .jpg">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T153153Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-03-10/chamber-music-showcase<br><br>Students of John Pop
+ ham present a chamber music&#160\;showcase.<br><br><br>FREE admission<br
+ ><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgCc27Oxpxi56TqUK%2Aq%2A39Mk.jp
+ g
+UID:http://uid.trumba.com/event/189396118
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189396118
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Modern Music Ensemble
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260310T193000
+DTEND;TZID=America/Los_Angeles:20260310T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-10/modern-music-ensemble
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Kathryn
+  Alvord Gerlich Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgA13mVhO%2AaAx0PlMXKLpp3L.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgA13mVhO%2AaAx0PlMXKLpp3L.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; <a href="http://www.music.washington.edu/" target="_blan
+ k" rel="noopener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T171452Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Kathryn Alvord Gerlich Theater<br>Accessibilit
+ y Contact: To request disability accommodation contact the Disability Se
+ rvices Office at least ten days in advance at: (206) 543-6450/V\, (206) 
+ 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event 
+ Types: Performances<br>Event sponsors: UW School of Music\; www.music.wa
+ shington.edu<br>Facebook: http://facebook.com/UWMusic<br>Link: https://m
+ usic.washington.edu/events/2026-03-10/modern-music-ensemble<br><br>The M
+ odern Music Ensemble (Cristina Vald&#233\;s\, director) performs music f
+ rom the mid-20th century and beyond\, including world premieres of works
+  by living composers.&#160\;<br>&#160\;&#160\;<br>Tickets: $10<br><br>&#
+ 160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgA13mVhO%2AaAx0PlMXKLpp3L.jpg
+UID:http://uid.trumba.com/event/169496319
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d169496319
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wind Ensemble and Symphonic Band: &quot\;Mystic Threads&quot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260312T193000
+DTEND;TZID=America/Los_Angeles:20260312T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-12/wind-ensemble-and-sym
+ phonic-band-mystic-threads
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBirvtBznRH60ZH%2A9IYRCxE.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBirvtBznRH60ZH%2A9IYRCxE.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T145848Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-03-12/wind-e
+ nsemble-and-symphonic-band-mystic-threads<br><br>The Wind Ensemble and S
+ ymphonic Band (Erin Bodnar\, director) presents&#160\;Mystic Threads\,&#
+ 160\;featuring music by Victoriano Valencia\, Jodie Blackshaw\, Reena Es
+ mail\, Florent Schmitt\, Luigi Zaninelli\, and others. With guest compos
+ er Simon Alami.<br><br>Tickets: $10
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBirvtBznRH60ZH%2A9IYRCxE.jpg
+UID:http://uid.trumba.com/event/189088969
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189088969
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UW Symphony with Rachel Lee Priday\, violin
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260313T193000
+DTEND;TZID=America/Los_Angeles:20260313T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-03-13/uw-symphony-orchestra
+ -rachel-lee-priday
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDuFxFMRiZVy-jSUKsWdRkd.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgDuFxFMRiZVy-jSUKsWdRkd.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T144302Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-03-13/uw-sym
+ phony-orchestra-rachel-lee-priday<br><br>David Alexander Rahbee leads &#
+ 160\;the UW Symphony in a program of music by Mieczyslaw Karlowicz and S
+ ergei Prokofiev. Faculty violinist Rachel Lee Priday is featured soloist
+  with the orchestra for Karlowicz&#39\;s Violin Concerto in A major\, op
+ . 8.&#160\;<br><br><strong>Program<br>Mieczyslaw Kar&#322\;owicz:</stron
+ g>&#160\;Violin Concerto in A major\, op.8<br><strong>Prokofiev:</strong
+ >&#160\;Symphony No.5 in B-flat major\, op.100<br><br>Tickets: $10
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDuFxFMRiZVy-jSUKsWdRkd.jpg
+UID:http://uid.trumba.com/event/169490201
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d169490201
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Guest Artist Concert: Seattle Modern Orchestra\, &quot\;Entangle
+ d Sounds&quot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260408T193000
+DTEND;TZID=America/Los_Angeles:20260408T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-08/guest-artist-concert-
+ seattle-modern-orchestra-entangled-sounds
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAq7rJ1iWMEoDmRtjjiQSoQ.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgAq7rJ1iWMEoDmRtjjiQSoQ.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Unive
+ rsity of Washington School of Music\; www.music.washington.edu\; ArtsUW 
+ Ticket Office: 206. 543.4880.
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://w
+ ww.facebook.com/UWMusic" target="_blank" rel="noopener" title="http://ww
+ w.facebook.com/UWMusic">www.facebook.com&#8230\;</a>
+DTSTAMP:20250822T143853Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Accessibility Contact: To request disability accommodation 
+ contact the Disability Services Office at least ten days in advance at: 
+ (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.
+ washington.edu.<br>Event Types: Performances<br>Event sponsors: Universi
+ ty of Washington School of Music\; www.music.washington.edu\; ArtsUW Tic
+ ket Office: 206. 543.4880.<br>Facebook: http://www.facebook.com/UWMusic<
+ br>Link: https://music.washington.edu/events/2026-04-08/guest-artist-con
+ cert-seattle-modern-orchestra-entangled-sounds<br><br>Seattle&#8217\;s c
+ ontemporary music orchestra performs&#160\;Gy&#246\;rgy Ligeti&#39\;s pi
+ ano concerto\, featuring faculty pianist and SMO member Cristina Vald&#2
+ 33\;s\, alongside new works for sinfonietta by graduate student composer
+ s and faculty members\, including Seattle newcomer and recently appointe
+ d UW composition professor William Dougherty.&#160\;SMO is joined onstag
+ e by select graduate-student members of the UW Modern Music Ensemble in 
+ this large-ensemble format.<br><br>Tickets: $20 general\; $15 UW affilia
+ te\; $10 students/seniors)
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAq7rJ1iWMEoDmRtjjiQSoQ.jpg
+UID:http://uid.trumba.com/event/189085156
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189085156
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Guest Pianist Master Class: Spencer Myer
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260413T163000
+DTEND;TZID=America/Los_Angeles:20260413T163000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-13/guest-pianist-master-
+ class-spencer-myer
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBkpoumW5JdlQPI6SamSqvI.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBkpoumW5JdlQPI6SamSqvI.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T160452Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-04-13/guest-pianist-master-class-spencer-myer<br><br>Spe
+ ncer Myer\, associate professor of music at the Jacobs School of Music a
+ t Indiana University\, leads a master class with UW piano students.&#160
+ \;<br><br><br>FREE admission<br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBkpoumW5JdlQPI6SamSqvI.jpg
+UID:http://uid.trumba.com/event/189397115
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189397115
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Faculty Concert: Carrie Shaw with Wind Up Vocal Project
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260413T193000
+DTEND;TZID=America/Los_Angeles:20260413T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-13/faculty-recital-carri
+ e-shaw-soprano-wind-vocal-project
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgB5YomdHb2ZEOOzzVqerC1g.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgB5YomdHb2ZEOOzzVqerC1g.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Unive
+ rsity of Washington School of Music\; www.music.washington.edu\; ArtsUW 
+ Ticket Office: 206. 543.4880.
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://w
+ ww.facebook.com/UWMusic" target="_blank" rel="noopener" title="http://ww
+ w.facebook.com/UWMusic">www.facebook.com&#8230\;</a>
+DTSTAMP:20250822T142958Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Accessibility Contact: To request disability accommodation 
+ contact the Disability Services Office at least ten days in advance at: 
+ (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.
+ washington.edu.<br>Event Types: Performances<br>Event sponsors: Universi
+ ty of Washington School of Music\; www.music.washington.edu\; ArtsUW Tic
+ ket Office: 206. 543.4880.<br>Facebook: http://www.facebook.com/UWMusic<
+ br>Link: https://music.washington.edu/events/2026-04-13/faculty-recital-
+ carrie-shaw-soprano-wind-vocal-project<br><br>Faculty soprano Carrie Sha
+ w&#8217\;s new Seattle-based group Wind Up Vocal Project performs musica
+ l puzzles of the past and present\, including Ming Tsao&#8217\;s &#8220
+ \;DAS WASSERGEWORDENE KANONBUCH.&#8221\;<br><br>Tickets: $20 general\; $1
+ 5 UW affiliate\; $10 students/seniors)
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgB5YomdHb2ZEOOzzVqerC1g.jpg
+UID:http://uid.trumba.com/event/189085132
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189085132
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Guest Pianist Recital: Spencer Myer
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260413T193000
+DTEND;TZID=America/Los_Angeles:20260413T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-13/guest-pianist-recital
+ -spencer-myer
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBkpoumW5JdlQPI6SamSqvI.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBkpoumW5JdlQPI6SamSqvI.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T160321Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-04-13/guest-pianist-recital-spencer-myer<br><br>The Scho
+ ol of Music keyboard program presents a solo piano recital by Spencer My
+ er\, associate professor of music at the Jacobs School of Music at India
+ na University\, performing works by Haydn\, Ravel\, Liszt\, and Carl Vin
+ e.&#160\;<br><br><strong>-----------<br>PROGRAM</strong><br><strong>Fant
+ asia in C Major\, Hob. XVII: 4: Franz Josef Haydn</strong><br><br><stron
+ g>Miroirs (1904-05):&#160\;Maurice Ravel</strong><br>Noctuelles&#160\;&#
+ 160\;&#160\;&#160\;&#160\;&#160\;&#160\;&#160\;&#160\;&#160\;&#160\;<br>
+ Oiseaux tristes<br>Une barque sur l&#8217\;oc&#233\;an<br>Alborada del g
+ racioso<br>La vall&#233\;e des cloches<br><br>Intermission<br><br><stron
+ g>Tre Sonetti del Petrarca:&#160\;Franz Liszt</strong><br>Sonetto 47 del
+  Petrarca<br>Sonetto 104 del Petrarca<br>Sonetto 123 del Petrarca<br><br
+ ><strong>Piano Sonata No. 1 (1990):&#160\;Carl Vine</strong><br><br>FREE
+  admission<br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBkpoumW5JdlQPI6SamSqvI.jpg
+UID:http://uid.trumba.com/event/189397078
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189397078
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Guest Artist Concert: Harmonia with UW Piano Students
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260417T193000
+DTEND;TZID=America/Los_Angeles:20260417T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-17/guest-artist-concert-
+ harmonia-uw-piano-students
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDTW6hdkfl8c1%2AY7enhepnK.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgDTW6hdkfl8c1%2AY7enhepnK.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T151448Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-04-17/guest-
+ artist-concert-harmonia-uw-piano-students<br><br>Seattle orchestra Harmo
+ nia (William White\, conductor) performs concerto excerpts with UW piano
+  students.<br><br><em>This performance is made possible with support fro
+ m the Willard Schultz Piano Fund in the School of Music.</em><br><br>Tic
+ kets: $20 general\; $15 UW Affiliate (employee\, retiree\, UWAA member)
+ \; $10 students and seniors
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDTW6hdkfl8c1%2AY7enhepnK.jpg
+UID:http://uid.trumba.com/event/189089089
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189089089
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Improvised Music Project Festival (IMPFEST)
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260424T193000
+DTEND;TZID=America/Los_Angeles:20260424T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-24/improvised-music-proj
+ ect-festival-impfest
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany S
+ tudio Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Disability Services Office: 206.543.6450/V\, 206.543.6452/TTY\, 206.6
+ 85.7264 (FAX)\, or e-mail at <a href="mailto:dso@u.washington.edu" targe
+ t="_blank" rel="noopener">dso@u.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAJIRXuIwat%2AQxw44lGXBbo.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgAJIRXuIwat%2AQxw44lGXBbo.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T164151Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Studio Theater<br>Accessibility Contact:
+  Disability Services Office: 206.543.6450/V\, 206.543.6452/TTY\, 206.685
+ .7264 (FAX)\, or e-mail at dso@u.washington.edu<br>Event Types: Performa
+ nces<br>Event sponsors: UW School of Music\; www.music.washington.edu\; 
+ ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.
+ com/UWMusic<br>Link: https://music.washington.edu/events/2026-04-24/impr
+ ovised-music-project-festival-impfest<br><br>The School of Music and the
+  student-run Improvised Music Project present IMPFest\, featuring UW Jaz
+ z Studies students and faculty Cuong Vu\, Ted Poor\, and Steve Rodby per
+ forming with guest artists of international renown. &#160\;<br><br>IMPFE
+ ST is made possible through generous&#160\;support from Seattle&#39\;s R
+ aynier Foundation.
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAJIRXuIwat%2AQxw44lGXBbo.jpg
+UID:http://uid.trumba.com/event/169490646
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d169490646
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Improvised Music Project Festival (IMPFEST)
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260425T193000
+DTEND;TZID=America/Los_Angeles:20260425T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-25/improvised-music-proj
+ ect-festival-impfest
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany S
+ tudio Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Disability Services Office: 206.543.6450/V\, 206.543.6452/TTY\, 206.6
+ 85.7264 (FAX)\, or e-mail at <a href="mailto:dso@u.washington.edu" targe
+ t="_blank" rel="noopener">dso@u.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAJIRXuIwat%2AQxw44lGXBbo.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgAJIRXuIwat%2AQxw44lGXBbo.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T164209Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Studio Theater<br>Accessibility Contact:
+  Disability Services Office: 206.543.6450/V\, 206.543.6452/TTY\, 206.685
+ .7264 (FAX)\, or e-mail at dso@u.washington.edu<br>Event Types: Performa
+ nces<br>Event sponsors: UW School of Music\; www.music.washington.edu\; 
+ ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.
+ com/UWMusic<br>Link: https://music.washington.edu/events/2026-04-25/impr
+ ovised-music-project-festival-impfest<br><br>The School of Music and the
+  student-run Improvised Music Project present IMPFest\, featuring UW Jaz
+ z Studies students and faculty Cuong Vu\, Ted Poor\, and Steve Rodby per
+ forming with guest artists of international renown. &#160\;<br><br>IMPFE
+ ST is made possible through generous&#160\;support from Seattle&#39\;s R
+ aynier Foundation.
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAJIRXuIwat%2AQxw44lGXBbo.jpg
+UID:http://uid.trumba.com/event/189335094
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189335094
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wind Ensemble and Symphonic Band: &quot\;Scenes and Portraits&qu
+ ot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260430T193000
+DTEND;TZID=America/Los_Angeles:20260430T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-30/wind-ensemble-and-sym
+ phonic-band-scenes-and-portraits
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBar-9319uD%2Apr6AsR7hCnS.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBar-9319uD%2Apr6AsR7hCnS.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T150259Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-04-30/wind-e
+ nsemble-and-symphonic-band-scenes-and-portraits<br><br>The Wind Ensemble
+  and Symphonic Band (Erin Bodnar\, director) presents &quot\;Scenes and 
+ Portraits\,&quot\; featuring music by Gustav Holst\, Martin Ellerby\, an
+ d others.<br><br>Tickets: $10
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBar-9319uD%2Apr6AsR7hCnS.jpg
+UID:http://uid.trumba.com/event/189088992
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189088992
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UW Symphony with Concerto Competition Winners
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260501T193000
+DTEND;TZID=America/Los_Angeles:20260501T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-01/uw-symphony-orchestra
+ -concerto-competition-winners
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgCjIGubNBEiUJpFUQbkDFZC.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgCjIGubNBEiUJpFUQbkDFZC.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T145059Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-05-01/uw-sym
+ phony-orchestra-concerto-competition-winners<br><br>David Alexander Rahb
+ ee leads the UW Symphony in a program featuring winners of the 2025-26 S
+ chool of Music Concerto Competitions. Also on the program:&#160\;Richard
+  Strauss: Till Eulenspiegel&#8217\;s Merry Pranks\, op. 28.<br><br>Ticke
+ ts: $10
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgCjIGubNBEiUJpFUQbkDFZC.jpg
+UID:http://uid.trumba.com/event/189088181
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189088181
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Faculty Concert: Melia Watras\, &quot\;New Worlds&quot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260513T193000
+DTEND;TZID=America/Los_Angeles:20260513T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-13/faculty-concert-melia
+ -watras-new-worlds
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgCIDfnr1swv-WKTB8bVMoca.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgCIDfnr1swv-WKTB8bVMoca.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Unive
+ rsity of Washington School of Music\; www.music.washington.edu\; ArtsUW 
+ Ticket Office: 206. 543.4880.
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://w
+ ww.facebook.com/UWMusic" target="_blank" rel="noopener" title="http://ww
+ w.facebook.com/UWMusic">www.facebook.com&#8230\;</a>
+DTSTAMP:20250822T143227Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Accessibility Contact: To request disability accommodation 
+ contact the Disability Services Office at least ten days in advance at: 
+ (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.
+ washington.edu.<br>Event Types: Performances<br>Event sponsors: Universi
+ ty of Washington School of Music\; www.music.washington.edu\; ArtsUW Tic
+ ket Office: 206. 543.4880.<br>Facebook: http://www.facebook.com/UWMusic<
+ br>Link: https://music.washington.edu/events/2026-05-13/faculty-concert-
+ melia-watras-new-worlds<br><br>Violist/Composer Melia Watras brings toge
+ ther an all-star lineup of composers and performers for world premiere p
+ erformances and new music. The concert features premieres of works by Ma
+ ry Kouyoumdjian\, Ha-Yang Kim\, (UW Percussion Studies chair) Bonnie Whi
+ ting\, and Watras\, and a performance of School of Music Director Jo&#23
+ 5\;l-Fran&#231\;ois Durand&#8217\;s&#160\;Cinq duos.&#160\;Watras is joi
+ ned onstage by UW faculty Pala Garcia (violin)\, Rachel Lee Priday (viol
+ in)\, John Popham (cello)\, Whiting\, and Pacific Northwest Ballet conce
+ rtmaster Michael Jinsoo Lim.<br><br>Tickets: $20 general\; $15 UW affili
+ ate\; $10 students/seniors)
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgCIDfnr1swv-WKTB8bVMoca.jpg
+UID:http://uid.trumba.com/event/189085135
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189085135
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Jazz Innovations\, Part I
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260513T193000
+DTEND;TZID=America/Los_Angeles:20260513T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-13/jazz-innovations-i
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgA2tloGvwOhQpLw1BIN1d4E.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgA2tloGvwOhQpLw1BIN1d4E.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T123859Z
+DESCRIPTION:Campus location: Music Building (MUS)<br>Campus room: Breche
+ min Auditorium<br>Accessibility Contact: To request disability accommoda
+ tion contact the Disability Services Office at least ten days in advance
+  at: (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or d
+ so@u.washington.edu.<br>Event Types: Performances<br>Event sponsors: UW 
+ Music\; www.music.washington.edu<br>Facebook: http://facebook.com/UWMusi
+ c<br>Link: https://music.washington.edu/events/2026-05-13/jazz-innovatio
+ ns-i<br><br>Small combos perform original music and arrangements of jazz
+  standards\, modern classics\, and deep cuts from the popular music repe
+ rtoire over two consecutive nights of performance.&#160\;<br><br>FREE ad
+ mission<br><br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgA2tloGvwOhQpLw1BIN1d4E.jpg
+UID:http://uid.trumba.com/event/189386582
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189386582
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Jazz Innovations\, Part II
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260514T193000
+DTEND;TZID=America/Los_Angeles:20260514T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-14/jazz-innovations-ii
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDmW4UQdHgNIFcbck40%2AIJy.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgDmW4UQdHgNIFcbck40%2AIJy.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T133123Z
+DESCRIPTION:Campus location: Music Building (MUS)<br>Campus room: Breche
+ min Auditorium<br>Accessibility Contact: To request disability accommoda
+ tion contact the Disability Services Office at least ten days in advance
+  at: (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or d
+ so@u.washington.edu.<br>Event Types: Performances<br>Event sponsors: UW 
+ Music\; www.music.washington.edu<br>Facebook: http://facebook.com/UWMusi
+ c<br>Link: https://music.washington.edu/events/2026-05-14/jazz-innovatio
+ ns-ii<br><br>Small combos perform original music and arrangements of jaz
+ z standards\, modern classics\, and deep cuts from the popular music rep
+ ertoire over two consecutive nights of performance.&#160\;<br><br>FREE a
+ dmission<br><br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDmW4UQdHgNIFcbck40%2AIJy.jpg
+UID:http://uid.trumba.com/event/189338780
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338780
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Faculty Concert: Craig Sheppard with Students
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260515T193000
+DTEND;TZID=America/Los_Angeles:20260515T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-15/faculty-recital-craig
+ -sheppard-students
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgCmDINn0jwHI65wanqb50yi.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgCmDINn0jwHI65wanqb50yi.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Unive
+ rsity of Washington School of Music\; www.music.washington.edu\; ArtsUW 
+ Ticket Office: 206. 543.4880.
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://w
+ ww.facebook.com/UWMusic" target="_blank" rel="noopener" title="http://ww
+ w.facebook.com/UWMusic">www.facebook.com&#8230\;</a>
+DTSTAMP:20250822T143423Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Accessibility Contact: To request disability accommodation 
+ contact the Disability Services Office at least ten days in advance at: 
+ (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.
+ washington.edu.<br>Event Types: Performances<br>Event sponsors: Universi
+ ty of Washington School of Music\; www.music.washington.edu\; ArtsUW Tic
+ ket Office: 206. 543.4880.<br>Facebook: http://www.facebook.com/UWMusic<
+ br>Link: https://music.washington.edu/events/2026-05-15/faculty-recital-
+ craig-sheppard-students<br><br>Faculty pianist Craig Sheppard is joined 
+ by current and former UW students in this concert celebrating the 250th 
+ anniversary of the signing of the Declaration of Independence.<br><br>Ti
+ ckets: $20 general\; $15 UW affiliate\; $10 students/seniors)
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgCmDINn0jwHI65wanqb50yi.jpg
+UID:http://uid.trumba.com/event/189085140
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189085140
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Baroque Ensemble
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260518T193000
+DTEND;TZID=America/Los_Angeles:20260518T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-18/baroque-ensemble
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBpRQV8xajaAfO5rQ01r3-x.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBpRQV8xajaAfO5rQ01r3-x.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T134747Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-05-18/baroque-ensemble<br><br>UW music students perform 
+ music of the&#160\;Baroque era under the direction of Tekla Cunningham.&
+ #160\;<br><br><br>FREE admission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBpRQV8xajaAfO5rQ01r3-x.jpg
+UID:http://uid.trumba.com/event/189390109
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189390109
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Voice Division Recital
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260519T160000
+DTEND;TZID=America/Los_Angeles:20260519T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-19/voice-division-recita
+ l
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDj-29s-WK9V9MUhgjpaIs2.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgDj-29s-WK9V9MUhgjpaIs2.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T133744Z
+DESCRIPTION:Campus location: Music Building (MUS)<br>Campus room: Breche
+ min Auditorium<br>Accessibility Contact: To request disability accommoda
+ tion contact the Disability Services Office at least ten days in advance
+  at: (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or d
+ so@u.washington.edu.<br>Event Types: Performances<br>Event sponsors: UW 
+ Music\; www.music.washington.edu<br>Facebook: http://facebook.com/UWMusi
+ c<br>Link: https://music.washington.edu/events/2026-05-19/voice-division
+ -recital<br><br>UW&#160\;voice students of Thomas Harper and Carrie Shaw
+  perform art songs and arias from the vocal repertoire.&#160\;<br><br><b
+ r>FREE admission<br><br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDj-29s-WK9V9MUhgjpaIs2.jpg
+UID:http://uid.trumba.com/event/189390078
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189390078
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Brechemin Piano Series
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260521T193000
+DTEND;TZID=America/Los_Angeles:20260521T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-21/brechemin-piano-serie
+ s
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgB9pz7mXxONpFnqSOAChOgk.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgB9pz7mXxONpFnqSOAChOgk.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T161810Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-05-21/brechemin-piano-series<br><br>UW keyboard&#160\;st
+ udents perform music from the piano repertoire.&#160\;<br><br><br>FREE a
+ dmission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgB9pz7mXxONpFnqSOAChOgk.jpg
+UID:http://uid.trumba.com/event/189334731
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189334731
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Ethnomusicology Visiting Artist Concert: Heri Purwanto\, Javanes
+ e Gamelan
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260521T193000
+DTEND;TZID=America/Los_Angeles:20260521T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-21/ethnomusicology-visit
+ ing-artist-concert-heri-purwanto
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgCpslidxMbIRN4hm-MISm48.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgCpslidxMbIRN4hm-MISm48.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T151716Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-05-21/ethnom
+ usicology-visiting-artist-concert-heri-purwanto<br><br>The master Javane
+ se gamelan musician Heri Purwanto from Indonesia performs with his UW st
+ udents and special guests in this evening of music from Java\, Indonesia
+ .<br><br>Tickets: $20 general\; $15 UW Affiliate (employee\, retiree\, U
+ WAA member)\; $10 students and seniors
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgCpslidxMbIRN4hm-MISm48.jpg
+UID:http://uid.trumba.com/event/189089091
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189089091
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Guitar Studio Recital
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260522T193000
+DTEND;TZID=America/Los_Angeles:20260522T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-22/guitar-studio-recital
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBHGnFHzSrzwjSv91qxGWrR.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBHGnFHzSrzwjSv91qxGWrR.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T172237Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-05-22/guitar-studio-recital<br><br>Students of Michael P
+ artington&#160\;perform music from the guitar repertoire.<br><br><br>FRE
+ E admission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBHGnFHzSrzwjSv91qxGWrR.jpg
+UID:http://uid.trumba.com/event/189338637
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338637
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UW Sings
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260522T193000
+DTEND;TZID=America/Los_Angeles:20260522T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-22/uw-sings
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation\, contact the Arts UW Ticket Offi
+ ce at 206-543-4880 or <a href="mailto:ticket@uw.edu" target="_blank" rel
+ ="noopener">ticket@uw.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgB4RchlQMteveangJ70xF2C.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgB4RchlQMteveangJ70xF2C.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543.4880
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T170948Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation\, contact the Arts UW Ticket Office at 206
+ -543-4880 or ticket@uw.edu.<br>Event Types: Performances<br>Event sponso
+ rs: UW Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543.
+ 4880<br>Facebook: http://facebook.com/UWMusic<br>Link: https://music.was
+ hington.edu/events/2026-05-22/uw-sings<br><br>The UW&#39\;s graduate-stu
+ dent-led choral ensembles&#8212\;the University Singers\, UW Glee\, and 
+ Treble Choir&#8212\;present an eclectic year-end concert.&#160\;<br><br>
+ <em>$10 all tickets</em>
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgB4RchlQMteveangJ70xF2C.jpg
+UID:http://uid.trumba.com/event/189338567
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338567
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Memorial Day
+DTSTART;VALUE=DATE:20260525
+DTEND;VALUE=DATE:20260526
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+URL:https://www.washington.edu/students/reg/2526cal.html#Q3
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Important Dates
+ /Deadlines
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Year";ID=30147;TYPE=CustomAsset:2026
+X-TRUMBA-CUSTOMFIELD;NAME="Quarter";ID=30148;TYPE=CustomAsset:Spring
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics
+DTSTAMP:20240909T203331Z
+DESCRIPTION:Event interval: Single day event<br>Year: 2026<br>Quarter: S
+ pring<br>Event Types: Academics<br>Link: https://www.washington.edu/stud
+ ents/reg/2526cal.html#Q3<br><br>No classes. Most University offices and 
+ buildings are closed. Check with specific offices to confirm.
+CATEGORIES:Holidays
+UID:http://uid.trumba.com/event/177468211
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d177468211
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Percussion Ensemble
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260526T193000
+DTEND;TZID=America/Los_Angeles:20260526T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-26/percussion-ensemble
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany S
+ tudio Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBgUfQlxAB-NuaPUPYqa3Fb.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBgUfQlxAB-NuaPUPYqa3Fb.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T162145Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Studio Theater<br>Accessibility Contact:
+  To request disability accommodation contact the Disability Services Off
+ ice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/T
+ TY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Per
+ formances<br>Event sponsors: UW School of Music\; www.music.washington.e
+ du\; ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://face
+ book.com/UWMusic<br>Link: https://music.washington.edu/events/2026-05-26
+ /percussion-ensemble<br><br>The UW Percussion Ensemble (Bonnie Whiting\,
+  director)&#160\;presents its Spring Quarter concert.&#160\;<br><br><br>
+ -----------<br><em>Tickets: $10</em><br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBgUfQlxAB-NuaPUPYqa3Fb.jpg
+UID:http://uid.trumba.com/event/189334763
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189334763
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Chamber Singers and University Chorale: &quot\;Bach to the Futur
+ e&quot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260528T193000
+DTEND;TZID=America/Los_Angeles:20260528T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-28/chamber-singers-and-u
+ niversity-chorale-bach-future
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Gerlich
+  Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBJu9ghVdvc8f5L8DB4c-qz.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBJu9ghVdvc8f5L8DB4c-qz.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T165309Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Gerlich Theater<br>Accessibility Contact: To r
+ equest disability accommodation contact the Disability Services Office a
+ t least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, 
+ (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performa
+ nces<br>Event sponsors: UW School of Music\; www.music.washington.edu\; 
+ ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.
+ com/UWMusic<br>Link: https://music.washington.edu/events/2026-05-28/cham
+ ber-singers-and-university-chorale-bach-future<br><br>The Chamber Singer
+ s and University Chorale present their Spring Quarter performance. The C
+ hamber Singers present two major works that align in form\, content\, an
+ d performers: J.S. Bach&#8217\;s Magnificat and Reena Esmail&#8217\;s&#1
+ 60\;This Love Between Us: Prayers for Unity\,&#160\;a collection of pray
+ ers from seven faith traditions\, set in a similar layout as Bach and em
+ ploying the same Baroque orchestra&#8212\;except the organ and bass are 
+ replaced by sitar and tabla!<br><br>$10 all tickets.&#160\;<br><br>&#160
+ \;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBJu9ghVdvc8f5L8DB4c-qz.jpg
+UID:http://uid.trumba.com/event/189338218
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338218
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Chamber Music Showcase
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260529T140000
+DTEND;TZID=America/Los_Angeles:20260529T140000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-29/chamber-music-showcas
+ e
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBlbvD136LzYnXHRx5TJN7f.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBlbvD136LzYnXHRx5TJN7f.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T153316Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-05-29/chamber-music-showcase<br><br>Students of John Pop
+ ham present a chamber music&#160\;showcase.<br><br><br>FREE admission<br
+ ><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBlbvD136LzYnXHRx5TJN7f.jpg
+UID:http://uid.trumba.com/event/189396123
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189396123
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Modern Music Ensemble
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260529T193000
+DTEND;TZID=America/Los_Angeles:20260529T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-05-29/modern-music-ensemble
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Kathryn
+  Alvord Gerlich Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDn%2AFpqVfzAta2OhrLQwsj1.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgDn%2AFpqVfzAta2OhrLQwsj1.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; <a href="http://www.music.washington.edu/" target="_blan
+ k" rel="noopener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T171645Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Kathryn Alvord Gerlich Theater<br>Accessibilit
+ y Contact: To request disability accommodation contact the Disability Se
+ rvices Office at least ten days in advance at: (206) 543-6450/V\, (206) 
+ 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event 
+ Types: Performances<br>Event sponsors: UW School of Music\; www.music.wa
+ shington.edu<br>Facebook: http://facebook.com/UWMusic<br>Link: https://m
+ usic.washington.edu/events/2026-05-29/modern-music-ensemble<br><br>The M
+ odern Music Ensemble (Cristina Vald&#233\;s\, director) performs music f
+ rom the mid-20th century and beyond\, including world premieres of works
+  by living composers.&#160\;<br>&#160\;&#160\;<br>Tickets: $10<br><br>&#
+ 160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDn%2AFpqVfzAta2OhrLQwsj1.jpg
+UID:http://uid.trumba.com/event/189338626
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189338626
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UW Gospel Choir
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260601T193000
+DTEND;TZID=America/Los_Angeles:20260601T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-06-01/uw-gospel-choir
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAWPZ7s3SVFhspE4aUKTMwS.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgAWPZ7s3SVFhspE4aUKTMwS.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250827T162830Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-06-01/uw-gos
+ pel-choir<br><br>Phyllis Byrdwell leads the UW gospel choir in songs of 
+ praise\, jubilation\, and other expressions of the Gospel tradition.<br>
+ <br>Tickets: $10<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAWPZ7s3SVFhspE4aUKTMwS.jpg
+UID:http://uid.trumba.com/event/189334803
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189334803
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Wind Ensemble and Symphonic Band: &quot\;Emblems&quot\;
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260602T193000
+DTEND;TZID=America/Los_Angeles:20260602T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-04-30/wind-ensemble-and-sym
+ phonic-band-scenes-and-portraits
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBVW7H%2Ac9yeSqupaCHpT-MH.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBVW7H%2Ac9yeSqupaCHpT-MH.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T150620Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-04-30/wind-e
+ nsemble-and-symphonic-band-scenes-and-portraits<br><br>The Wind Ensemble
+  and Symphonic Band (Erin Bodnar\, director) present &quot\;Scenes and P
+ ortraits\,&quot\; featuring music by Gustav Holst\, Martin Ellerby\, and
+  others.<br><br>Tickets: $10
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBVW7H%2Ac9yeSqupaCHpT-MH.jpg
+UID:http://uid.trumba.com/event/189089006
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189089006
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Studio Jazz Ensemble\, Modern Band
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260603T193000
+DTEND;TZID=America/Los_Angeles:20260603T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2025-11-24/studio-jazz-ensemble-
+ and-modern-band
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany S
+ tudio Theater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAHQESOEEgwPCO34QhxMXSZ.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgAHQESOEEgwPCO34QhxMXSZ.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T161304Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Studio Theater<br>Accessibility Contact:
+  To request disability accommodation contact the Disability Services Off
+ ice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/T
+ TY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Per
+ formances<br>Event sponsors: UW School of Music\; www.music.washington.e
+ du\; ArtsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://face
+ book.com/UWMusic<br>Link: https://music.washington.edu/events/2025-11-24
+ /studio-jazz-ensemble-and-modern-band<br><br>The Studio Jazz Ensemble pe
+ rforms big band arrangements and repertory selections. The Modern&#160\;
+ Band performs innovative arrangements of jazz standards\, selections fro
+ m the outer limits of the&#160\;genre\, and new original compositions.<b
+ r><br>$10 all tickets.&#160\;<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAHQESOEEgwPCO34QhxMXSZ.jpg
+UID:http://uid.trumba.com/event/189089383
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189089383
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:UW Symphony with with UW Choirs\, Giselle Wyers\, and Clara Osow
+ ski\, soprano
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260605T193000
+DTEND;TZID=America/Los_Angeles:20260605T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-06-05/uw-symphony-orchestra
+ -uw-choirs-giselle-wyers-and-clara-osowski-soprano
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Meany T
+ heater
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgAaXo-H6HZVwfUIyjg%2AADDj.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgAaXo-H6HZVwfUIyjg%2AADDj.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Sc
+ hool of Music\; www.music.washington.edu\; ArtsUW Ticket Office: 206.543
+ .4880.&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250822T145311Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Campus room: Meany Theater<br>Accessibility Contact: To req
+ uest disability accommodation contact the Disability Services Office at 
+ least ten days in advance at: (206) 543-6450/V\, (206) 543-6452/TTY\, (2
+ 06) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types: Performanc
+ es<br>Event sponsors: UW School of Music\; www.music.washington.edu\; Ar
+ tsUW Ticket Office: 206.543.4880.&nbsp\;<br>Facebook: http://facebook.co
+ m/UWMusic<br>Link: https://music.washington.edu/events/2026-06-05/uw-sym
+ phony-orchestra-uw-choirs-giselle-wyers-and-clara-osowski-soprano<br><br
+ >The UW Symphony (David Alexander Rahbee\, director) &#160\;and combined
+  UW Choirs (Giselle Wyers\, director) team up for a year-end program fea
+ turing music by Respighi\, Nadia Boulanger\, and Poulenc. Soprano Clara 
+ Osowski is featured soloist with the combined ensembles for Poulenc&#39
+ \;s Gloria (Giselle Wyers\, conductor). David Alexander Rahbee and Gisell
+ e Wyers conduct.<br><br><strong>Program</strong><br><strong>Respighi:</s
+ trong> Fountains of Rome<br><strong>Nadia Boulanger: </strong>6 Songs\, 
+ orchd. Rahbee<br><strong>Poulenc: </strong>Gloria<br><em>Clara Osowski\,
+  soprano\; Giselle Wyers\, conductor</em><br><br>Tickets: $10
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAaXo-H6HZVwfUIyjg%2AADDj.jpg
+UID:http://uid.trumba.com/event/189088212
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189088212
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Composition Studio
+LOCATION:Music Building (MUS)
+DTSTART;TZID=America/Los_Angeles:20260606T193000
+DTEND;TZID=America/Los_Angeles:20260606T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://music.washington.edu/events/2026-06-06/composition-studio-co
+ ncert
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Mu
+ sic Building (MUS)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Brechem
+ in Auditorium
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:To request disability accommodation contact the Disability Services O
+ ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
+ /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
+ arget="_blank" rel="noopener">dso@u.washington.edu</a>.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
+ mances
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBiKM7ruwuEvbMOj-s3aWyi.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBiKM7ruwuEvbMOj-s3aWyi.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Mu
+ sic\; <a href="http://www.music.washington.edu/" target="_blank" rel="no
+ opener">www.music.washington.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://f
+ acebook.com/UWMusic" target="_blank" rel="noopener" title="http://facebo
+ ok.com/UWMusic">facebook.com&#8230\;</a>
+DTSTAMP:20250828T153701Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Music B
+ uilding (MUS)<br>Campus room: Brechemin Auditorium<br>Accessibility Cont
+ act: To request disability accommodation contact the Disability Services
+  Office at least ten days in advance at: (206) 543-6450/V\, (206) 543-64
+ 52/TTY\, (206) 685-7264 (FAX)\, or dso@u.washington.edu.<br>Event Types:
+  Performances<br>Event sponsors: UW Music\; www.music.washington.edu<br>
+ Facebook: http://facebook.com/UWMusic<br>Link: https://music.washington.
+ edu/events/2026-06-06/composition-studio-concert<br><br>Emerging and est
+ ablished composers explore unconventional sonic landscapes in this conce
+ rt of music by students\, faculty\, alumni\, and guests of the UW Compos
+ ition program.<br><br>FREE admission<br><br>&#160\;
+CATEGORIES:School of Music
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBiKM7ruwuEvbMOj-s3aWyi.jpg
+UID:http://uid.trumba.com/event/189396130
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d189396130
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Juneteenth
+DTSTART;VALUE=DATE:20260619
+DTEND;VALUE=DATE:20260620
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+URL:https://www.washington.edu/students/reg/2526cal.html#Q3
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Important Dates
+ /Deadlines
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Year";ID=30147;TYPE=CustomAsset:2026
+X-TRUMBA-CUSTOMFIELD;NAME="Quarter";ID=30148;TYPE=CustomAsset:Summer
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics
+DTSTAMP:20240909T203331Z
+DESCRIPTION:Event interval: Single day event<br>Year: 2026<br>Quarter: S
+ ummer<br>Event Types: Academics<br>Link: https://www.washington.edu/stud
+ ents/reg/2526cal.html#Q3<br><br>No classes. Most University offices and 
+ buildings are closed. Check with specific offices to confirm.
+CATEGORIES:Holidays
+UID:http://uid.trumba.com/event/177468212
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d177468212
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Independence Day (Observed)
+DTSTART;VALUE=DATE:20260703
+DTEND;VALUE=DATE:20260704
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+URL:https://www.washington.edu/students/reg/2526cal.html#Q3
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Important Dates
+ /Deadlines
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Year";ID=30147;TYPE=CustomAsset:2026
+X-TRUMBA-CUSTOMFIELD;NAME="Quarter";ID=30148;TYPE=CustomAsset:Summer
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics
+DTSTAMP:20240909T203331Z
+DESCRIPTION:Event interval: Single day event<br>Year: 2026<br>Quarter: S
+ ummer<br>Event Types: Academics<br>Link: https://www.washington.edu/stud
+ ents/reg/2526cal.html#Q3<br><br>No classes. Most University offices and 
+ buildings are closed. Check with specific offices to confirm.
+CATEGORIES:Holidays
+UID:http://uid.trumba.com/event/177468213
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d177468213
+END:VEVENT
+END:VCALENDAR

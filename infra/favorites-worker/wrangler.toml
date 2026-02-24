@@ -1,0 +1,19 @@
+name = "calendar-ripper-favorites"
+main = "src/index.ts"
+compatibility_date = "2026-02-01"
+
+[vars]
+GITHUB_PAGES_BASE_URL = "https://prestomation.github.io/calendar-ripper"
+SITE_URL = "https://prestomation.github.io/calendar-ripper"
+
+[[kv_namespaces]]
+binding = "USERS"
+id = "placeholder-create-via-wrangler"
+
+[[kv_namespaces]]
+binding = "FAVORITES"
+id = "placeholder-create-via-wrangler"
+
+[[kv_namespaces]]
+binding = "FEED_TOKENS"
+id = "placeholder-create-via-wrangler"

@@ -1,0 +1,26 @@
+name: Deploy Favorites Worker
+
+on:
+  push:
+    branches: [main]
+    paths: ['infra/favorites-worker/**']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+        working-directory: infra/favorites-worker
+      - name: Run tests
+        run: npm test
+        working-directory: infra/favorites-worker
+      - name: Deploy to Cloudflare
+        run: npx wrangler deploy
+        working-directory: infra/favorites-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -122,6 +122,15 @@
   .homepage-favorites-cta-arrow {
     color: #e87090;
   }
+
+  .homepage-signin-section {
+    background: #1a2235;
+    border-color: #3a5a8a;
+  }
+
+  .homepage-signin-section:hover {
+    border-color: #4dabf7;
+  }
 }
 
 .loading-spinner {
@@ -1651,6 +1660,46 @@ body {
   font-size: 20px;
   color: #c94060;
   flex-shrink: 0;
+}
+
+.homepage-signin-section {
+  margin-top: 28px;
+  padding: 24px;
+  background: #eef4ff;
+  border: 2px solid #a0c4ff;
+  border-radius: 12px;
+}
+
+.homepage-signin-info h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text-heading);
+}
+
+.homepage-signin-info ul {
+  margin-bottom: 16px;
+}
+
+.homepage-signin-info li {
+  margin-bottom: 6px;
+}
+
+.homepage-signin-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.homepage-signin-btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
 }
 
 .homepage h1 {

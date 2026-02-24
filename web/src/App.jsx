@@ -2205,6 +2205,21 @@ function App() {
               </button>
             )}
 
+            {!authUser && API_URL && (
+              <div className="homepage-signin-section">
+                <div className="homepage-signin-info">
+                  <h2>Sign In for a Better Experience</h2>
+                  <ul>
+                    <li><strong>Sync favorites:</strong> Your saved calendars stay in sync across all your devices</li>
+                    <li><strong>Personal calendar feed:</strong> Get a single ICS link that combines all your favorites into one subscription — add it to Google Calendar, Apple Calendar, or any calendar app</li>
+                  </ul>
+                </div>
+                <button className="homepage-signin-btn" onClick={handleLogin}>
+                  Sign in with Google
+                </button>
+              </div>
+            )}
+
             <h2>How to Use</h2>
             <ul>
               <li><strong>Browse:</strong> Select any calendar from the sidebar to view upcoming events</li>

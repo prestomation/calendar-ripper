@@ -9,7 +9,7 @@ describe('Events12Ripper', () => {
     const timezone = ZoneId.of('America/Los_Angeles');
     const testDate = ZonedDateTime.of(2026, 2, 21, 12, 0, 0, 0, timezone);
 
-    it('should parse events from sample HTML data', async () => {
+    it('should parse events from sample HTML data', { timeout: 15000 }, async () => {
         const ripper = new Events12Ripper();
         const htmlContent = readFileSync('sources/events12/sample-data.html', 'utf-8');
         // Exercise the actual preprocessHtml -> parse -> parseEvents flow

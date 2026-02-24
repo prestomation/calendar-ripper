@@ -29,7 +29,7 @@ export class RipperLoader {
         let rippers: Ripper[] = [];
 
         const validSourceDirectories: Dirent[] = sourceDirectories.filter(c => {
-            const p = path.join(c.path, c.name, "ripper.yaml");
+            const p = path.join(c.parentPath, c.name, "ripper.yaml");
             try {
                 accessSync(p);
                 return true;
@@ -57,7 +57,7 @@ export class RipperLoader {
                     type: "ImportError",
                     reason: `Error importing due to ${e}`,
                     error: e,
-                    path: sourceDirectory.path
+                    path: sourceDirectory.parentPath
                 };
                 errors.push(err);
 
@@ -67,8 +67,8 @@ export class RipperLoader {
     }
 }
 
-export async function loadRipper(sourceDirectory: {path: string, name: string}) {
-    const configFile = readFileSync(path.join(sourceDirectory.path, sourceDirectory.name, "ripper.yaml")).toString();
+export async function loadRipper(sourceDirectory: {parentPath: string, name: string}) {
+    const configFile = readFileSync(path.join(sourceDirectory.parentPath, sourceDirectory.name, "ripper.yaml")).toString();
     const configJson = YAML.parse(configFile);
     const config = configSchema.parse(configJson);
 
@@ -80,7 +80,7 @@ export async function loadRipper(sourceDirectory: {path: string, name: string}) 
         return { config, ripperImpl: new RipperClass() };
     }
 
-    const ripperPath = path.join(process.cwd(), sourceDirectory.path, sourceDirectory.name, "ripper.ts");
+    const ripperPath = path.join(process.cwd(), sourceDirectory.parentPath, sourceDirectory.name, "ripper.ts");
     const module = await import(ripperPath);
     const ripperClass = new (module).default;
     return { config, ripperImpl: ripperClass };

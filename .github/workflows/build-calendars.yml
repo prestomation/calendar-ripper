@@ -59,6 +59,8 @@ jobs:
 
     - name: Build web interface
       run: npm run web:build
+      env:
+        VITE_FAVORITES_API_URL: ${{ vars.FAVORITES_API_URL }}
 
     - name: Get GitHub Pages URL
       id: get-pages-url

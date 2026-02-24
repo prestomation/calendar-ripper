@@ -170,12 +170,17 @@ describe('App', () => {
   it('switches to Happening Soon view when button is clicked', async () => {
     const user = userEvent.setup()
 
-    // Create events that are happening in the future to avoid being filtered out
-    const now = new Date()
-    const todayEvent = new Date(now.getTime() + 2 * 60 * 60 * 1000) // 2 hours from now
-    const todayEventEnd = new Date(now.getTime() + 3 * 60 * 60 * 1000) // 3 hours from now
-    const tomorrowEvent = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 20, 0)
-    const tomorrowEventEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 22, 0)
+    // Use fake timers set to noon to avoid midnight-crossing issues
+    // ("+2 hours from now" could land on tomorrow if test runs after 10 PM)
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const fakeNow = new Date()
+    fakeNow.setHours(12, 0, 0, 0)
+    vi.setSystemTime(fakeNow)
+
+    const todayEvent = new Date(fakeNow.getTime() + 2 * 60 * 60 * 1000) // 2 PM today
+    const todayEventEnd = new Date(fakeNow.getTime() + 3 * 60 * 60 * 1000) // 3 PM today
+    const tomorrowEvent = new Date(fakeNow.getFullYear(), fakeNow.getMonth(), fakeNow.getDate() + 1, 20, 0)
+    const tomorrowEventEnd = new Date(fakeNow.getFullYear(), fakeNow.getMonth(), fakeNow.getDate() + 1, 22, 0)
 
     const mockEventsIndex = [
       {
@@ -217,6 +222,8 @@ describe('App', () => {
     expect(screen.getByText('Tomorrow Movie')).toBeInTheDocument()
     expect(screen.getByText('Today')).toBeInTheDocument()
     expect(screen.getByText('Tomorrow')).toBeInTheDocument()
+
+    vi.useRealTimers()
   })
 
   it('filters out events whose end time has already passed', async () => {

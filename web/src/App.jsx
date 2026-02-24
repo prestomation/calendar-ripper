@@ -82,15 +82,82 @@ function App() {
 
   const favoritesSet = useMemo(() => new Set(favorites), [favorites])
 
+  // Auth state
+  const [authUser, setAuthUser] = useState(null)
+  const [authLoading, setAuthLoading] = useState(true)
+
+  const API_URL = import.meta.env.VITE_FAVORITES_API_URL || ''
+
   const toggleFavorite = useCallback((icsUrl) => {
     setFavorites(prev => {
-      const next = prev.includes(icsUrl)
+      const isFav = prev.includes(icsUrl)
+      const next = isFav
         ? prev.filter(u => u !== icsUrl)
         : [...prev, icsUrl]
       try { localStorage.setItem('calendar-ripper-favorites', JSON.stringify(next)) } catch {}
+
+      // Fire-and-forget API call when logged in
+      if (API_URL && authUser) {
+        const method = isFav ? 'DELETE' : 'POST'
+        fetch(`${API_URL}/favorites/${encodeURIComponent(icsUrl)}`, {
+          method,
+          credentials: 'include',
+        }).catch(() => {})
+      }
+
       return next
     })
+  }, [authUser])
+
+  // Check auth on mount
+  useEffect(() => {
+    if (!API_URL) { setAuthLoading(false); return }
+    fetch(`${API_URL}/auth/me`, { credentials: 'include' })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => { if (data?.user) setAuthUser(data.user) })
+      .catch(() => {})
+      .finally(() => setAuthLoading(false))
   }, [])
+
+  const handleLogin = () => {
+    if (API_URL) {
+      const returnTo = encodeURIComponent(window.location.href)
+      window.location.href = `${API_URL}/auth/login?provider=google&return_to=${returnTo}`
+    }
+  }
+
+  const handleLogout = async () => {
+    if (API_URL) {
+      await fetch(`${API_URL}/auth/logout`, { method: 'POST', credentials: 'include' })
+    }
+    setAuthUser(null)
+  }
+
+  // Sync favorites on login
+  useEffect(() => {
+    if (!authUser || !API_URL) return
+
+    fetch(`${API_URL}/favorites`, { credentials: 'include' })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (!data) return
+        if (data.favorites.length === 0 && favorites.length > 0) {
+          // First-time migration: push localStorage to server
+          fetch(`${API_URL}/favorites`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ favorites }),
+          })
+        } else {
+          // Server is source of truth
+          setFavorites(data.favorites)
+          try { localStorage.setItem('calendar-ripper-favorites', JSON.stringify(data.favorites)) } catch {}
+        }
+      })
+      .catch(() => {})
+  }, [authUser])
+
   const [currentDayHeader, setCurrentDayHeader] = useState(null)
 
   const breakpoint = useBreakpoint()
@@ -1205,6 +1272,32 @@ function App() {
             Happening Soon
           </button>
         </div>
+        <div className="auth-section">
+          {authLoading ? null : authUser ? (
+            <div className="auth-user-dropdown">
+              <button className="auth-user-btn" title={authUser.email}>
+                <img src={authUser.picture} alt="" className="auth-avatar" />
+                <span className="auth-name">{authUser.name}</span>
+              </button>
+              <div className="auth-dropdown-menu">
+                {authUser.feedUrl && (
+                  <button className="auth-dropdown-item" onClick={() => {
+                    navigator.clipboard.writeText(authUser.feedUrl)
+                  }}>
+                    Copy Feed URL
+                  </button>
+                )}
+                <button className="auth-dropdown-item" onClick={handleLogout}>
+                  Sign out
+                </button>
+              </div>
+            </div>
+          ) : API_URL ? (
+            <button className="auth-login-btn" onClick={handleLogin}>
+              Sign in
+            </button>
+          ) : null}
+        </div>
         <div className="search-bar">
           <div className="search-input-wrapper">
             <svg className="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1955,6 +2048,32 @@ function App() {
                       : `Events from ${favorites.length} favorited calendar${favorites.length !== 1 ? 's' : ''}`
                   })()}
                 </p>
+              </div>
+            )}
+
+            {authUser?.feedUrl && (
+              <div className="feed-url-banner">
+                <div className="feed-url-text">
+                  <strong>Subscribe to your favorites</strong>
+                  <span>Add this URL to any calendar app to see your favorites automatically.</span>
+                </div>
+                <div className="feed-url-actions">
+                  <input
+                    className="feed-url-input"
+                    readOnly
+                    value={authUser.feedUrl}
+                    onClick={(e) => e.target.select()}
+                  />
+                  <button className="feed-url-copy" onClick={() => navigator.clipboard.writeText(authUser.feedUrl)}>
+                    Copy
+                  </button>
+                </div>
+              </div>
+            )}
+            {!authUser && favorites.length > 0 && API_URL && (
+              <div className="feed-url-banner feed-url-prompt">
+                <span>Sign in to sync favorites across devices and get a calendar subscription link</span>
+                <button className="auth-login-btn" onClick={handleLogin}>Sign in</button>
               </div>
             )}
 

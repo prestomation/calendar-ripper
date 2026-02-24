@@ -1,0 +1,96 @@
+{
+  "buildTime": "2026-02-24T08:01:54.741Z",
+  "totalErrors": 4,
+  "configErrors": [],
+  "sources": [
+    {
+      "source": "rainier-arts-center",
+      "calendar": "rainier-arts-center",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-community",
+      "calendar": "tag-community",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "the-beacon-cinema",
+      "friendlyName": "The Beacon Cinema",
+      "url": "https://seattle-movies.innocence.com/thebeacon.ics",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "name": "central-cinema",
+      "friendlyName": "Central Cinema",
+      "url": "https://seattle-movies.innocence.com/centralcinema.ics",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "name": "grand-illusion-cinema",
+      "friendlyName": "Grand Illusion Cinema",
+      "url": "https://seattle-movies.innocence.com/grandillusion.ics",
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "name": "nw-film-forum",
+      "friendlyName": "Northwest Film Forum",
+      "url": "https://seattle-movies.innocence.com/nwff.ics",
+      "error": "TypeError: fetch failed"
+    }
+  ],
+  "zeroEventCalendars": [],
+  "expectedEmptyCalendars": [
+    "benaroya-hall-benaroya-nordstrom",
+    "downtown-seattle-association-pioneer-park",
+    "downtown-seattle-association-occidental-square",
+    "jcccw-all-events",
+    "seattle-barkery-all-events",
+    "spl-university",
+    "tag-seward-park",
+    "external-langston"
+  ]
+}

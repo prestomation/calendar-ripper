@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Capitol Hill Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:j0PIkD8DrW2iNICQFwp43
+SUMMARY:Capitol Hill Farmers Market
+DTSTAMP:20260224T080030Z
+DTSTART;TZID=America/Los_Angeles:20260301T110000
+DESCRIPTION:Year-round Sunday farmers market on Capitol Hill featuring loca
+	l farms\, food vendors\, and community gathering.
+URL:https://seattlefarmersmarkets.org/chfm
+LOCATION:E Barbara Bailey Way between Broadway & 10th Ave E\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

@@ -45,7 +45,7 @@ describe('Favorites API', () => {
       headers: { Cookie: cookie },
     }, env)
     expect(res.status).toBe(200)
-    const data = await res.json()
+    const data = await res.json() as { favorites: string[] }
     expect(data.favorites).toEqual([])
   })
 
@@ -66,7 +66,7 @@ describe('Favorites API', () => {
     const getRes = await app.request('/favorites', {
       headers: { Cookie: cookie },
     }, env)
-    const data = await getRes.json()
+    const data = await getRes.json() as { favorites: string[] }
     expect(data.favorites).toEqual(['stoup_brewing-all-events.ics', 'tag-music.ics'])
   })
 
@@ -81,7 +81,7 @@ describe('Favorites API', () => {
     const getRes = await app.request('/favorites', {
       headers: { Cookie: cookie },
     }, env)
-    const data = await getRes.json()
+    const data = await getRes.json() as { favorites: string[] }
     expect(data.favorites).toContain('stoup_brewing-all-events.ics')
   })
 
@@ -99,7 +99,7 @@ describe('Favorites API', () => {
     const getRes = await app.request('/favorites', {
       headers: { Cookie: cookie },
     }, env)
-    const data = await getRes.json()
+    const data = await getRes.json() as { favorites: string[] }
     const count = data.favorites.filter((f: string) => f === 'stoup_brewing-all-events.ics').length
     expect(count).toBe(1)
   })
@@ -119,7 +119,7 @@ describe('Favorites API', () => {
     const getRes = await app.request('/favorites', {
       headers: { Cookie: cookie },
     }, env)
-    const data = await getRes.json()
+    const data = await getRes.json() as { favorites: string[] }
     expect(data.favorites).not.toContain('stoup_brewing-all-events.ics')
   })
 })

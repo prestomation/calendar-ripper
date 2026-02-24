@@ -104,6 +104,61 @@ describe('Favorites API', () => {
     expect(count).toBe(1)
   })
 
+  it('PUT /favorites rejects non-array body', async () => {
+    const cookie = await makeAuthCookie()
+    const res = await app.request('/favorites', {
+      method: 'PUT',
+      headers: { Cookie: cookie, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ favorites: 'not-an-array' }),
+    }, env)
+    expect(res.status).toBe(400)
+    const data = await res.json() as { error: string }
+    expect(data.error).toContain('must be an array')
+  })
+
+  it('PUT /favorites rejects invalid URLs (protocol)', async () => {
+    const cookie = await makeAuthCookie()
+    const res = await app.request('/favorites', {
+      method: 'PUT',
+      headers: { Cookie: cookie, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ favorites: ['https://evil.com/cal.ics'] }),
+    }, env)
+    expect(res.status).toBe(400)
+    const data = await res.json() as { error: string }
+    expect(data.error).toContain('relative .ics path')
+  })
+
+  it('PUT /favorites rejects path traversal URLs', async () => {
+    const cookie = await makeAuthCookie()
+    const res = await app.request('/favorites', {
+      method: 'PUT',
+      headers: { Cookie: cookie, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ favorites: ['../../etc/passwd.ics'] }),
+    }, env)
+    expect(res.status).toBe(400)
+  })
+
+  it('PUT /favorites rejects non-.ics URLs', async () => {
+    const cookie = await makeAuthCookie()
+    const res = await app.request('/favorites', {
+      method: 'PUT',
+      headers: { Cookie: cookie, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ favorites: ['some-file.txt'] }),
+    }, env)
+    expect(res.status).toBe(400)
+  })
+
+  it('POST /favorites/:icsUrl rejects non-.ics files', async () => {
+    const cookie = await makeAuthCookie()
+    const res = await app.request('/favorites/some-file.txt', {
+      method: 'POST',
+      headers: { Cookie: cookie },
+    }, env)
+    expect(res.status).toBe(400)
+    const data = await res.json() as { error: string }
+    expect(data.error).toContain('Invalid ICS URL')
+  })
+
   it('DELETE /favorites/:icsUrl removes a favorite', async () => {
     const cookie = await makeAuthCookie()
     await app.request('/favorites/stoup_brewing-all-events.ics', {

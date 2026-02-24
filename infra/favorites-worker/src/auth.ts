@@ -36,7 +36,11 @@ authRoutes.get('/login', (c) => {
   }
 
   const returnTo = c.req.query('return_to') || ''
-  const state = returnTo && isAllowedReturnUrl(returnTo) ? returnTo : ''
+  const nonce = crypto.randomUUID()
+  const state = JSON.stringify({
+    nonce,
+    returnTo: returnTo && isAllowedReturnUrl(returnTo) ? returnTo : '',
+  })
 
   const callbackUrl = new URL('/auth/callback', c.req.url).toString()
   const params = new URLSearchParams({
@@ -49,13 +53,35 @@ authRoutes.get('/login', (c) => {
     state,
   })
 
-  return c.redirect(`${GOOGLE_AUTH_URL}?${params.toString()}`)
+  const response = c.redirect(`${GOOGLE_AUTH_URL}?${params.toString()}`)
+  response.headers.append('Set-Cookie', `oauth_nonce=${nonce}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=600`)
+  return response
 })
 
 authRoutes.get('/callback', async (c) => {
   const code = c.req.query('code')
   if (!code) return c.json({ error: 'Missing code' }, 400)
-  const returnTo = c.req.query('state') || ''
+
+  // Validate CSRF nonce from state parameter against cookie
+  let returnTo = ''
+  const stateRaw = c.req.query('state') || ''
+  if (stateRaw) {
+    try {
+      const state = JSON.parse(stateRaw) as { nonce?: string; returnTo?: string }
+      const cookies = Object.fromEntries(
+        (c.req.header('Cookie') || '').split(';').map(s => {
+          const [k, ...v] = s.trim().split('=')
+          return [k, v.join('=')]
+        })
+      )
+      if (!state.nonce || cookies.oauth_nonce !== state.nonce) {
+        return c.json({ error: 'Invalid OAuth state' }, 403)
+      }
+      returnTo = state.returnTo || ''
+    } catch {
+      return c.json({ error: 'Invalid OAuth state' }, 403)
+    }
+  }
 
   const callbackUrl = new URL('/auth/callback', c.req.url).toString()
 
@@ -116,15 +142,13 @@ authRoutes.get('/callback', async (c) => {
   // Create session JWT
   const token = await signJWT({ sub: userId }, c.env.JWT_SECRET, SESSION_MAX_AGE)
 
-  // Redirect back to site with session cookie
+  // Redirect back to site with session cookie, clear oauth nonce
   const redirectUrl = (returnTo && isAllowedReturnUrl(returnTo)) ? returnTo : c.env.SITE_URL
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: redirectUrl,
-      'Set-Cookie': `session=${token}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=${SESSION_MAX_AGE}`,
-    },
-  })
+  const headers = new Headers()
+  headers.set('Location', redirectUrl)
+  headers.append('Set-Cookie', `session=${token}; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=${SESSION_MAX_AGE}`)
+  headers.append('Set-Cookie', 'oauth_nonce=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0')
+  return new Response(null, { status: 302, headers })
 })
 
 authRoutes.get('/me', async (c) => {

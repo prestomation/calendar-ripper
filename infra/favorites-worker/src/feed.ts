@@ -41,6 +41,10 @@ feedRoutes.get('/:filename', async (c) => {
 
   const fetches = favorites.icsUrls.map(async (icsUrl) => {
     try {
+      // Validate URL is a safe relative .ics path (no protocol, no traversal)
+      if (!icsUrl.endsWith('.ics') || icsUrl.includes('://') || icsUrl.includes('..')) {
+        return
+      }
       const res = await fetch(`${baseUrl}/${icsUrl}`)
       if (res.ok) {
         icsContents.push(await res.text())

@@ -48,6 +48,55 @@ describe('Feed endpoint', () => {
     expect(body).not.toContain('BEGIN:VEVENT')
   })
 
+  it('skips favorites with protocol in URL (SSRF protection)', async () => {
+    env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      icsUrls: ['https://evil.com/steal.ics'],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = vi.fn(async () => {
+      throw new Error('Should not have been called')
+    }) as typeof fetch
+
+    try {
+      const res = await app.request('/feed/valid-token.ics', {}, env)
+      expect(res.status).toBe(200)
+      // Should return an empty calendar since the malicious URL was skipped
+      const body = await res.text()
+      expect(body).toContain('BEGIN:VCALENDAR')
+      expect(body).not.toContain('VEVENT')
+      expect(globalThis.fetch).not.toHaveBeenCalled()
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
+
+  it('skips favorites with path traversal (SSRF protection)', async () => {
+    env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      icsUrls: ['../../etc/passwd.ics'],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = vi.fn(async () => {
+      throw new Error('Should not have been called')
+    }) as typeof fetch
+
+    try {
+      const res = await app.request('/feed/valid-token.ics', {}, env)
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      expect(body).toContain('BEGIN:VCALENDAR')
+      expect(body).not.toContain('VEVENT')
+      expect(globalThis.fetch).not.toHaveBeenCalled()
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
+
   it('fetches and merges ICS files for user favorites', async () => {
     env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
     env.FAVORITES._store.set('user:google:123', JSON.stringify({

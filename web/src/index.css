@@ -1782,3 +1782,150 @@ body {
   margin-bottom: 4px;
   font-size: 12px;
 }
+
+/* Auth */
+.auth-section {
+  padding: 4px 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auth-login-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 4px 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.auth-login-btn:hover {
+  background: var(--hover-overlay);
+}
+
+.auth-user-dropdown {
+  position: relative;
+}
+
+.auth-user-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--text-primary);
+}
+
+.auth-user-btn:hover {
+  background: var(--hover-overlay);
+}
+
+.auth-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.auth-name {
+  font-size: 0.85rem;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.auth-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  min-width: 160px;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.auth-user-dropdown:hover .auth-dropdown-menu,
+.auth-user-dropdown:focus-within .auth-dropdown-menu {
+  display: block;
+}
+
+.auth-dropdown-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+.auth-dropdown-item:hover {
+  background: var(--hover-overlay);
+}
+
+/* Feed URL banner */
+.feed-url-banner {
+  padding: 12px 16px;
+  background: var(--hover-overlay);
+  border-radius: 8px;
+  margin: 8px 16px;
+}
+
+.feed-url-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.feed-url-text span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.feed-url-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.feed-url-input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: monospace;
+}
+
+.feed-url-copy {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.feed-url-copy:hover {
+  background: var(--hover-overlay);
+}
+
+.feed-url-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+}

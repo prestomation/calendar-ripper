@@ -196,6 +196,28 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** Music, Community
 - **Note:** Historic theater at 4916 Rainier Ave S, now Black-owned. Hosts live music and community events. Low event volume. No calendar plugin detected.
 
+#### Conor Byrne Pub
+- **URL:** https://www.conorbyrnepub.com/calendar
+- **Platform:** Squarespace
+- **Tags:** Music, Ballard
+- **Note:** Community co-op venue at 5140 Ballard Ave NW — Ballard's first cooperatively owned music space. Hosts a weekly Sunday open mic (sign-ups 7:30 PM, music 8 PM–1 AM) plus ticketed shows throughout the week. Historically launched acts like The Head and the Heart and Damien Jurado. Squarespace-based — try the `SquarespaceRipper` directly against the calendar page.
+
+#### Skylark Cafe
+- **URL:** https://www.skylarkcafe.com/calendar
+- **Platform:** Squarespace (`skylarkcafe.squarespace.com`)
+- **Tags:** Music, West Seattle
+- **Note:** West Seattle venue at 3803 Delridge Way SW. Hosts a weekly Wednesday open mic (sign-up 7:30 PM, music 8:30 PM) with a full backline and 16-track recording available, plus ticketed shows on other nights. Squarespace-based — try the `SquarespaceRipper`. **Caution:** Skylark faces potential displacement due to an incoming Sound Transit light rail station; verify the venue is still operating before implementing.
+
+#### Hidden Door
+- **URL:** https://www.hiddendoorseattle.com/
+- **Tags:** Music, Capitol Hill
+- **Note:** Capitol Hill venue that hosts a weekly Tuesday open mic (8 PM, music and comedy) and a weekly Thursday open mic (7 PM, music and comedy). No calendar platform identified — investigate further. Low-to-medium event volume.
+
+#### Backfire Motobar
+- **URL:** https://www.backfiremotobar.com/
+- **Tags:** Music, Nightlife
+- **Note:** Moto-themed bar at 7701 Aurora Ave N. Hosts "Tune Up Tuesday" weekly open mic (sign-up 7 PM, show 7:30–9:30 PM). All genres welcome: music gets 5–10 min sets; comedy, poetry, and other performers get 5 min sets. 21+, free. Investigate calendar platform — may have structured event listings.
+
 ### Museums and Venues
 
 #### Woodland Park Zoo
@@ -338,6 +360,85 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 - **Location:** Lumen Field Event Center, 800 Occidental Ave S
 - **URL:** https://seattleartfair.com/
 - **Note:** Major contemporary art fair with 100+ galleries from around the world. The existing `lumen_field` ripper may pick up ticketed events, but the fair itself is worth a dedicated recurring entry. Add as an annual recurring event.
+
+## Open Mic Nights
+
+Weekly recurring open mics that can be added to `sources/recurring.yaml` without a custom ripper. Verify schedules are still current before adding — open mic nights can move or discontinue on short notice.
+
+### Music Open Mics
+
+#### Conor Byrne Pub — Sunday Open Mic
+- **Schedule:** Every Sunday
+- **Time:** Sign-up 7:30 PM, music 8 PM–1 AM
+- **Location:** 5140 Ballard Ave NW, Seattle (Ballard)
+- **URL:** https://www.conorbyrnepub.com/
+- **Tags:** Music, Ballard
+- **Note:** One of Seattle's most storied open mics. Free to sign up; first come, first served. See also the Squarespace ripper entry above for the full calendar.
+
+#### Skylark Cafe — Wednesday Open Mic
+- **Schedule:** Every Wednesday
+- **Time:** Sign-up 7:30 PM, music 8:30 PM
+- **Location:** 3803 Delridge Way SW, Seattle (West Seattle)
+- **URL:** https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
+- **Tags:** Music, West Seattle
+- **Note:** Free sign-up, full backline provided, 16-track recording available. **Caution:** Skylark faces displacement due to Sound Transit light rail construction — confirm status before adding.
+
+#### Nectar Lounge — Mo Jam Mondays
+- **Schedule:** Every Monday
+- **Time:** 7:30 PM–Midnight
+- **Location:** 412 N 36th St, Seattle (Fremont)
+- **URL:** https://nectarlounge.com/
+- **Tags:** Music, Fremont
+- **Note:** Weekly music jam/open mic at Nectar Lounge. See also the Nectar Lounge ripper entry in the HTML Scraping section for the full calendar.
+
+#### Hopvine Pub — Wednesday Open Mic
+- **Schedule:** Every Wednesday
+- **Time:** 9–11 PM
+- **Location:** 507 15th Avenue E, Seattle (Capitol Hill)
+- **URL:** https://www.hopvinepub.com/
+- **Tags:** Music, Capitol Hill
+- **Note:** Casual singer/songwriter-focused open mic. Hosted by Eric Miller. All welcome.
+
+#### Couth Buzzard Books — Thursday Open Mic
+- **Schedule:** Every Thursday
+- **Time:** 7 PM
+- **Location:** 8310 Greenwood Ave N, Seattle (Phinney/Greenwood)
+- **URL:** https://www.couthbuzzard.com/
+- **Tags:** Music, Community, Phinney
+- **Note:** Acoustic, no-PA listening environment at an independent bookstore/café. All art forms welcome: music, poetry, dance, comedy, and stories. Friendly and intimate.
+
+#### Fremont Abbey — Open Mic
+- **Schedule:** 1st and 3rd Tuesdays of the month
+- **Time:** 8 PM
+- **Location:** 4272 Fremont Ave N, Seattle (Fremont)
+- **URL:** https://www.fremontabbey.org/
+- **Tags:** Music, Community, Fremont
+- **Note:** All art forms welcome at this community arts space. Twice-monthly schedule.
+
+### Comedy Open Mics
+
+#### Comedy Underground — Weekly Open Mic
+- **Schedule:** Weekly (day TBD — check website)
+- **Time:** Evening
+- **Location:** 109 S Washington St, Seattle (Pioneer Square) — at Swannies
+- **URL:** http://comedyunderground.com/seattle/open_mic.php
+- **Tags:** Nightlife, Pioneer Square
+- **Note:** Professional and amateur comedians test new material. 3-minute sets. The Comedy Underground also appears in `sources/external.yaml` as a disabled ICS feed (empty body) — the open mic page is a separate HTML page worth investigating as a data source.
+
+#### Club Comedy Seattle — "Cheap Laughs" Open Mic
+- **Schedule:** Every Wednesday
+- **Time:** 7:30 PM
+- **Location:** Club Comedy Seattle, Downtown Seattle
+- **URL:** https://www.clubcomedyseattle.com/
+- **Tags:** Nightlife, Downtown
+- **Note:** Recurring Wednesday night open mic for comedians at Club Comedy Seattle. Investigate whether their site has a structured calendar or ICS feed.
+
+#### The Rendezvous — Road Runners Open Mic Comedy
+- **Schedule:** Weekly (check Eventbrite for specific day)
+- **Location:** The Rendezvous, 2322 2nd Ave, Seattle (Belltown)
+- **URL:** https://www.eventbrite.com/o/road-runners-comedy-seattle
+- **Tags:** Nightlife, Belltown
+- **Note:** Free, friendly weekly comedy open mic. Events listed on Eventbrite — if the organizer ID is consistent, an Eventbrite ripper could pull these automatically.
 
 ## Meta-Sources / Aggregators
 

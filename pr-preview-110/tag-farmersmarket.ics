@@ -1,0 +1,153 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:FarmersMarket Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:l8KzFfHQUNhwD-mMq1aaN
+SUMMARY:University District Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260228T090000
+DESCRIPTION:Year-round Saturday farmers market in the U-District. Fresh pro
+	duce\, flowers\, baked goods\, and artisan foods.\n\nFrom University Distr
+	ict Farmers Market\n\nhttps://seattlefarmersmarkets.org/udfm
+URL:https://seattlefarmersmarkets.org/udfm
+LOCATION:University Way NE between NE 50th St & NE 52nd St\, Seattle
+X-CALRIPPER-SOURCE:u-district-farmers-market
+CATEGORIES:University District Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SA
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:WBIN7v43LebSj_8ePGR92
+SUMMARY:Ballard Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260301T090000
+DESCRIPTION:Year-round Sunday farmers market on Ballard Avenue NW. One of S
+	eattle's largest and most popular markets with local produce\, prepared fo
+	ods\, and crafts.\n\nFrom Ballard Farmers Market\n\nhttp://www.sfmamarkets
+	.com/visit-ballard-farmers-market
+URL:http://www.sfmamarkets.com/visit-ballard-farmers-market
+LOCATION:Ballard Ave NW between 20th Ave NW & 22nd Ave NW\, Seattle
+X-CALRIPPER-SOURCE:ballard-farmers-market
+CATEGORIES:Ballard Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:Dsr9nA2LDlsZnCeENeJrv
+SUMMARY:West Seattle Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260301T100000
+DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
+	Local produce\, artisan foods\, and community events.\n\nFrom West Seattle
+	 Farmers Market\n\nhttps://seattlefarmersmarkets.org/wsfm
+URL:https://seattlefarmersmarkets.org/wsfm
+LOCATION:California Ave SW & SW Alaska St\, Seattle
+X-CALRIPPER-SOURCE:west-seattle-farmers-market
+CATEGORIES:West Seattle Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:Go7dmpKpRaGoToWbGdZLa
+SUMMARY:Capitol Hill Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260301T110000
+DESCRIPTION:Year-round Sunday farmers market on Capitol Hill featuring loca
+	l farms\, food vendors\, and community gathering.\n\nFrom Capitol Hill Far
+	mers Market\n\nhttps://seattlefarmersmarkets.org/chfm
+URL:https://seattlefarmersmarkets.org/chfm
+LOCATION:E Barbara Bailey Way between Broadway & 10th Ave E\, Seattle
+X-CALRIPPER-SOURCE:capitol-hill-farmers-market
+CATEGORIES:Capitol Hill Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:jquD8YxyBR7vD5s4xUpDA
+SUMMARY:Columbia City Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260506T150000
+DESCRIPTION:Seasonal Wednesday evening farmers market in Columbia City\, on
+	e block from the light rail station. Runs May through October.\n\nFrom Col
+	umbia City Farmers Market\n\nhttps://seattlefarmersmarkets.org/ccfm
+URL:https://seattlefarmersmarkets.org/ccfm
+LOCATION:37th Ave S & S Edmunds St\, Seattle
+X-CALRIPPER-SOURCE:columbia-city-farmers-market
+CATEGORIES:Columbia City Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:56DPqp92pc3fufONQaIci
+SUMMARY:Wallingford Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260506T150000
+DESCRIPTION:Seasonal Wednesday evening farmers market in Wallingford. Runs 
+	May through September.\n\nFrom Wallingford Farmers Market\n\nhttps://seatt
+	lefarmersmarkets.org/
+URL:https://seattlefarmersmarkets.org/
+LOCATION:Wallingford neighborhood\, Seattle
+X-CALRIPPER-SOURCE:wallingford-farmers-market
+CATEGORIES:Wallingford Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:9XsbHDiNW1OhXxmblp7tj
+SUMMARY:Capitol Hill Tuesday Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260602T150000
+DESCRIPTION:Seasonal Tuesday evening farmers market on Capitol Hill. Runs J
+	une through September.\n\nFrom Capitol Hill Tuesday Farmers Market\n\nhttp
+	s://seattlefarmersmarkets.org/chfm
+URL:https://seattlefarmersmarkets.org/chfm
+LOCATION:E Barbara Bailey Way\, Capitol Hill\, Seattle
+X-CALRIPPER-SOURCE:capitol-hill-tuesday-market
+CATEGORIES:Capitol Hill Tuesday Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=TU;BYMONTH=6,7,8,9
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:UL6Fg9stibLgBux2Sm8vM
+SUMMARY:Lake City Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260604T150000
+DESCRIPTION:Seasonal Thursday afternoon farmers market in Lake City. Runs J
+	une through September.\n\nFrom Lake City Farmers Market\n\nhttps://seattle
+	farmersmarkets.org/lcfm
+URL:https://seattlefarmersmarkets.org/lcfm
+LOCATION:NE 125th St & 28th Ave NE\, Seattle
+X-CALRIPPER-SOURCE:lake-city-farmers-market
+CATEGORIES:Lake City Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=TH;BYMONTH=6,7,8,9
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:62BDfFuEN645EDqmnKRoC
+SUMMARY:Magnolia Farmers Market
+DTSTAMP:20260225T151836Z
+DTSTART;TZID=America/Los_Angeles:20260606T100000
+DESCRIPTION:Seasonal Saturday farmers market in the Magnolia neighborhood. 
+	Runs June through October.\n\nFrom Magnolia Farmers Market\n\nhttps://seat
+	tlefarmersmarkets.org/
+URL:https://seattlefarmersmarkets.org/
+LOCATION:Magnolia neighborhood\, Seattle
+X-CALRIPPER-SOURCE:magnolia-farmers-market
+CATEGORIES:Magnolia Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=SA;BYMONTH=6,7,8,9,10
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

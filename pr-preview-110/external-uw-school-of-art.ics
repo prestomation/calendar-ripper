@@ -1,0 +1,923 @@
+BEGIN:VCALENDAR
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25423//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+X-WR-CALNAME:College of Arts and Sciences|School of Art + Art History + 
+ Design
+X-WR-TIMEZONE:America/Los_Angeles
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:Woven in Wool: Resilience in Coast Salish Weaving
+DTSTART;VALUE=DATE:20250913
+DTEND;VALUE=DATE:20260831
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+URL:https://www.burkemuseum.org/exhibits/woven-wool-resilience-coast-sal
+ ish-weaving
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Visitor Services Team at <a href="mailto:burkevis@uw.edu" target="_bl
+ ank" rel="noopener">burkevis@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Exhibi
+ ts\,Special Events
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgD6D1W7ARYqcYApqBGtiihb.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgD6D1W7ARYqcYApqBGtiihb.jpg">ww
+ w.trumba.com&#8230\;</a>
+DTSTAMP:20250811T152949Z
+DESCRIPTION:Event interval: Ongoing event<br>Accessibility Contact: Visi
+ tor Services Team at burkevis@uw.edu<br>Event Types: Exhibits\,Special E
+ vents<br>Link: https://www.burkemuseum.org/exhibits/woven-wool-resilienc
+ e-coast-salish-weaving<br><br><strong>Embrace the power of wool weaving 
+ in all its forms. Centuries-old Coast Salish weaving traditions are a co
+ re part of ceremony and celebration\, yet remain under-appreciated by th
+ e public.</strong><br><br><em>Woven in Wool</em> features both historica
+ l Salish wool weavings and new creations by contemporary weavers\, inclu
+ ding robes\, vests\, tunics\, tumplines\, and skirts\, as well as weavin
+ g tools and materials. Firstperson voices from the Salish weaving commun
+ ities will contextualize their own history and artistic traditions\, lea
+ ding visitors through the process of weaving and a seasonal story of cre
+ ation: gathering\, processing &amp\; spinning\, dyeing\, and weaving.<br
+ ><br>This exhibit is a collaboration between the Coast Salish Wool Weavi
+ ng Center (CSWWC) co-curators and members of the Burke&#8217\;s staff. T
+ ogether\, they will examine the creation of woven artworks and the exten
+ sive cultural and scientific knowledge embedded in woven textiles\, whic
+ h connect generations and reflect relationships with the world around us
+ .<br><br>Exhibition runs Sept. 13\, 2025 &#8211\; Aug. 30\, 2026.
+CATEGORIES:Outside the School
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgD6D1W7ARYqcYApqBGtiihb.jpg
+UID:http://uid.trumba.com/event/188478768
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d188478768
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:indira allegra: The Book of Zero
+LOCATION:Art Building (ART)
+DTSTART;VALUE=DATE:20260204
+DTEND;VALUE=DATE:20260405
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Divers
+ ity Equity Inclusion\,Exhibits
+DTSTAMP:20251230T162452Z
+DESCRIPTION:Event interval: Ongoing event<br>Campus location: Art Buildi
+ ng (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Contact
+ : jacoblawrencegallery@uw.edu<br>Event Types: Diversity Equity Inclusion
+ \,Exhibits<br><br>Death is a fundamental first step to rebirth\, but thi
+ s transition can be a daunting prospect without a compassionate guide. O
+ ur 2026 Jacob Lawrence Legacy Resident\, Indira Allegra\, intervenes wit
+ h The Book of Zero\, a multimedia meditative experience that brings toge
+ ther powerful sensations and visuals that have emerged during Allegra&#8
+ 217\;s investigations into doula work\, death care\, and cycles of the b
+ ody and environment.<br><br>In <em>The Book of Zero</em>\, water\, weavi
+ ng\, and projections animate the earth and its afflictions. The structur
+ es of hate that have plagued our communities&#8212\;white supremacy\, pa
+ triarchy\, capitalism\, bigotry&#8212\;are in their final death throes\,
+  but they need to be helped along the way to their ultimate dissolution.
+  Borrowing from the narrative structures and poetic repetition of sacred
+  texts\, Allegra&#8217\;s guidance in <em>The Book of Zero</em> pushes t
+ hrough the violence of a difficult ending with compassion in order to we
+ lcome the spirit of a new beginning.<br><br>Rebirth happens on both coll
+ ective and individual levels. <em>The Book of Zero</em> invites you to a
+ sk yourself: What do you need to let go of before you can move forward a
+ long your personal journey? As you pass through these choreographed spac
+ es\, open yourself to the vital transformations necessary to usher in an
+  era of healing.
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/188680536
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d188680536
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Picturing the Heavens: &#201\;tienne-Leopold Trouvelot&#8217\;s&
+ #8239\;Astronomical Drawings (2026 Kollar Lecturer Rachael Z. DeLue)
+LOCATION:Student Union Building (HUB)
+DTSTART;TZID=America/Los_Angeles:20260226T180000
+DTEND;TZID=America/Los_Angeles:20260226T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:St
+ udent Union Building (HUB)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:160: Ly
+ ceum
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Benny Shell at <a href="mailto:lbshell@uw.edu" target="_blank" rel="n
+ oopener">lbshell@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Lectur
+ es/Seminars\,Special Events
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBI3D0EL5kdvD1N6ZqBDrxj.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBI3D0EL5kdvD1N6ZqBDrxj.jpg">ww
+ w.trumba.com&#8230\;</a>
+DTSTAMP:20260223T215729Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Student
+  Union Building (HUB)<br>Campus room: 160: Lyceum<br>Accessibility Conta
+ ct: Benny Shell at lbshell@uw.edu<br>Event Types: Lectures/Seminars\,Spe
+ cial Events<br><br>The UW School of Art + Art History + Design invite yo
+ u to the 2026 Kollar Lecture with Dr. Rachael Ziady DeLue\,&#160\;Christ
+ opher Binyon Sarofim &#8217\;86 Professor in American Art at Princeton U
+ niversity. The lecture is on February 26\, 6:00 pm at the Husky Union Bu
+ ilding&#39\;s Lyceum.&#160\;<br><br>In this talk\, Rachael Z. DeLue will
+  share insights from her current research and teaching on the relationsh
+ ip between art and science in nineteenth-century Europe and North Americ
+ a\, focusing on a suite of extraordinary chromolithographs created in th
+ e 1880s by the astronomer and illustrator &#201\;tienne-Leopold&#160\;Tr
+ ouvelot. Based on his work at the Harvard Observatory and the United Sta
+ tes Naval Observatory\, the chromolithographs represent&#160\;the cross-
+ pollination of art and science&#160\;in an attempt to&#160\;generate kno
+ wledge about astronomical phenomena that eluded&#160\;perception&#160\;a
+ nd resisted visualization. Prof. DeLue will consider&#160\;Trouvelot&#82
+ 17\;s&#160\;prints in relation to other such attempts on the part of fin
+ e artists and scientific illustrators to picture the celestial sphere at
+  a time when technology was limited and space travel was still the stuff
+  of science fiction.&#8239\;&#160\;<br><br><strong>ABOUT THE SPEAKER</st
+ rong><p><strong>Rachael Z. DeLue</strong> is the Christopher Binyon Saro
+ fim&#8239\;&#8217\;86 Professor&#8239\;in American&#8239\;Art at Princet
+ on University\, jointly appointed in Art &amp\; Archaeology and the Effr
+ on Center for the Study of America and associated faculty in the High Me
+ adows Environmental Institute. She also serves as the Director of the Pr
+ inceton Humanities Initiative. She specializes in the history of transat
+ lantic art and visual culture\, focusing&#8239\;on intersections between
+  art and science and the significance of the visual within the history a
+ nd theory of knowledge and on the transnational and transcultural format
+ ion of &#8220\;America&#8221\; as a geography\, identity\, and idea. Pub
+ lications include the books&#8239\;<em>George Inness and the Science of 
+ Landscape</em>\, <em>Landscape Theory</em>\,&#8239\;and <em>Arthur Dove:
+  Always Connect</em>&#8239\;as well as articles on Camille Pissarro\, Wi
+ nslow Homer\, Romare Bearden\, Charles Darwin&#8217\;s &#8220\;Tree of L
+ ife&#8221\; diagram\, Alexander von Humboldt&#8217\;s groundbreaking vis
+ ualizations of physical geography\, and constructions of Native America 
+ within Anglo-American archaeology in the early American republic. She is
+  currently completing a book entitled&#8239\;<em>Impossible Images and t
+ he Perils of Picturing</em>\, on the visualization of unseeable and imme
+ asurable phenomena in the fine arts and the sciences.</p>
+CATEGORIES:Division of Art History
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBI3D0EL5kdvD1N6ZqBDrxj.jpg
+UID:http://uid.trumba.com/event/191099879
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d191099879
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Burn Your Candle at Both Ends - Closing Reception
+LOCATION:Sand Point Gallery (7527 63rd Ave NE\, Seattle\, WA 98115)
+DTSTART;TZID=America/Los_Angeles:20260227T050000
+DTEND;TZID=America/Los_Angeles:20260227T070000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:galenic@uw.edu" target="_blank" rel="noopener">galeni
+ c@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Exhibi
+ ts
+DTSTAMP:20260223T143155Z
+DESCRIPTION:Event interval: Single day event<br>Accessibility Contact: g
+ alenic@uw.edu<br>Event Types: Exhibits<br><br>Join us this Friday\, Feb 
+ 27th\, from 5:00-7:00 pm for the closing reception of <em>Burn Your Cand
+ le at Both Ends</em>\, an exhibition of recent work by first-year MFA ca
+ ndidates <strong>Cameron McGaff </strong>and <strong>Olivia Karasiewicz<
+ /strong>.&#160\;<br><br><em>Burn Your Candle at Both Ends</em> invites v
+ iewers to consider notions of transformation\, in person\, material\, an
+ d experience. Artists Cameron McGaff and Olivia Karasiewicz are both con
+ cerned with transformation. Each spends their time excavating\, eroding
+ \, erasing assumptions about painting while literally and figuratively ca
+ rving out a vacuous space for something unexpected to be announced.&#160
+ \;<br><br>The Sand Point Studios + Gallery is located on the second floo
+ r of Building 5\, Bay C at&#160\;7527 63rd Ave NE\, Seattle\, WA 98115. 
+ Please use the entrance on the east side of the building on 63rd Ave. An
+  elevator is available for wheelchair access.&#160\;
+CATEGORIES:Division of Art
+UID:http://uid.trumba.com/event/197822419
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d197822419
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:(POSTPONED TBD) Interdisciplinary Convening (2026 Jacob Lawrence
+  Legacy Residency)
+LOCATION:Art Building (ART)
+DTSTART;TZID=America/Los_Angeles:20260227T153000
+DTEND;TZID=America/Los_Angeles:20260227T163000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://art.washington.edu/news/2026/01/05/indira-allegra-book-zero
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Lectur
+ es/Seminars\,Special Events
+DTSTAMP:20260219T171114Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Art Bui
+ lding (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Cont
+ act: jacoblawrencegallery@uw.edu<br>Event Types: Lectures/Seminars\,Spec
+ ial Events<br>Link: https://art.washington.edu/news/2026/01/05/indira-al
+ legra-book-zero<br><br><strong>This event is being postponed due to unfo
+ reseen circumstances. Date to be determined.&#160\;</strong><br><br>The 
+ process of creating <a href="https://art.washington.edu/news/2026/01/05/
+ indira-allegra-book-zero" target="_blank" rel="noopener"><em>The Book of
+  Zero</em></a>&#160\;has been deeply interdisciplinary\, involving folks
+  from UW Medicine\, Oceanography\, Landscape Architecture\, DxArts\, Mus
+ ic\, and the School of Art + Art History + Design. Join us for a convers
+ ation with indira allegra and some of their collaborators for <em>The Bo
+ ok of Zero</em>&#8212\;a weaver\, a death worker\, a doula\, and scienti
+ sts&#8212\;as they learn from one another over the course of a conversat
+ ion shaped by the exhibition.&#160\;<br><br>RSVP is encouraged but not r
+ equired.
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/197225411
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d197225411
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Info Session (In-Person)
+LOCATION:Art Rm 312: Art Building\, University of Washington\, 1915 Chel
+ an Lane\, Seattle WA 98195
+DTSTART;TZID=America/Los_Angeles:20260305T150000
+DTEND;TZID=America/Los_Angeles:20260305T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://go.oncehub.com/SoAAHDPreviewRegistration
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:ART 312
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:askadmin@uw.edu" target="_blank" rel="noopener">askad
+ min@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+DTSTAMP:20251024T131310Z
+DESCRIPTION:Event interval: Single day event<br>Campus room: ART 312<br>
+ Accessibility Contact: askadmin@uw.edu<br>Event Types: Information Sessi
+ ons<br>Link: https://go.oncehub.com/SoAAHDPreviewRegistration<br><br>We 
+ invite high school seniors\, transfer and current UW students interested
+  in majoring in one of our programs to attend a Preview session to learn
+  about the School of Art + Art History + Design and its programs.&#160\;
+ Prospective students can prepare for the session by exploring our underg
+ raduate degree programs&#160\;on our <a href="https://art.washington.edu
+ /" target="_blank" rel="noopener">website</a>.&#160\;<br><br>Sessions ar
+ e offered both in-person or in a live zoom meeting on Thursdays at 3pm P
+ ST on selected dates. You must register at the <a href="https://go.onceh
+ ub.com/SoAAHDPreviewRegistration" target="_blank" rel="noopener">link </
+ a>below.<br>&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/192151000
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d192151000
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Liberation Book Club: Movie Night
+LOCATION:Art Building (ART)
+DTSTART;TZID=America/Los_Angeles:20260310T173000
+DTEND;TZID=America/Los_Angeles:20260310T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
+ l Events
+DTSTAMP:20250916T122920Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Art Bui
+ lding (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Cont
+ act: jacoblawrencegallery@uw.edu<br>Event Types: Special Events<br><br>T
+ his program is part of the <em>Liberation Book Club</em>&#160\;at the Ja
+ cob Lawrence Gallery. This year-long program series hopes to honor our c
+ ommitment to social justice and to gather our community to think about t
+ he work of liberation through shared texts\, art\, film\, music\, conver
+ sation\, and workshops. Unlike your traditional book club all the readin
+ g and study happens together\, so no need to prepare. Join us monthly as
+  we approach the topic of liberation from a number of perspectives. We l
+ ook forward to being in community with you.&#160\;
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/190127942
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d190127942
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Info Session (Zoom)
+DTSTART;TZID=America/Los_Angeles:20260312T150000
+DTEND;TZID=America/Los_Angeles:20260312T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://go.oncehub.com/SoAAHDPreviewRegistration
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:askadmin@uw.edu" target="_blank" rel="noopener">askad
+ min@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+DTSTAMP:20251024T131327Z
+DESCRIPTION:Event interval: Single day event<br>Accessibility Contact: a
+ skadmin@uw.edu<br>Event Types: Information Sessions<br>Link: https://go.
+ oncehub.com/SoAAHDPreviewRegistration<br><br>We invite high school senio
+ rs\, transfer and current UW students interested in majoring in one of o
+ ur programs to attend a Preview session to learn about the School of Art
+  + Art History + Design and its programs.&#160\;Prospective students can
+  prepare for the session by exploring our undergraduate degree programs&
+ #160\;on our <a href="https://art.washington.edu/" target="_blank" rel="
+ noopener">website</a>.&#160\;<br><br>Sessions are offered both in-person
+  or in a live zoom meeting on Thursdays at 3pm PST on selected dates. Yo
+ u must register at the <a href="https://go.oncehub.com/SoAAHDPreviewRegi
+ stration" target="_blank" rel="noopener">link </a>below.<br>&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/192151001
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d192151001
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Info Session (In-Person)
+LOCATION:Art Rm 312: Art Building\, University of Washington\, 1915 Chel
+ an Lane\, Seattle WA 98195
+DTSTART;TZID=America/Los_Angeles:20260409T150000
+DTEND;TZID=America/Los_Angeles:20260409T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://go.oncehub.com/SoAAHDPreviewRegistration
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:ART 312
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:askadmin@uw.edu" target="_blank" rel="noopener">askad
+ min@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+DTSTAMP:20251024T132022Z
+DESCRIPTION:Event interval: Single day event<br>Campus room: ART 312<br>
+ Accessibility Contact: askadmin@uw.edu<br>Event Types: Information Sessi
+ ons<br>Link: https://go.oncehub.com/SoAAHDPreviewRegistration<br><br>We 
+ invite high school seniors\, transfer and current UW students interested
+  in majoring in one of our programs to attend a Preview session to learn
+  about the School of Art + Art History + Design and its programs.&#160\;
+ Prospective students can prepare for the session by exploring our underg
+ raduate degree programs&#160\;on our <a href="https://art.washington.edu
+ /" target="_blank" rel="noopener">website</a>.&#160\;<br><br>Sessions ar
+ e offered both in-person or in a live zoom meeting on Thursdays at 3pm P
+ ST on selected dates. You must register at the <a href="https://go.onceh
+ ub.com/SoAAHDPreviewRegistration" target="_blank" rel="noopener">link </
+ a>below.<br>&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/192151015
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d192151015
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Sand Point Open Studios
+LOCATION:7527 63rd Ave NE Seattle\, WA 98115
+DTSTART;TZID=America/Los_Angeles:20260410T170000
+DTEND;TZID=America/Los_Angeles:20260410T190000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:galenic@uw.edu" target="_blank" rel="noopener">galeni
+ c@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
+ l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Paint
+ ing + Drawing + Printmaking Program\, Division of Art
+DTSTAMP:20260220T144321Z
+DESCRIPTION:Event interval: Single day event<br>Accessibility Contact: g
+ alenic@uw.edu<br>Event Types: Special Events<br>Event sponsors: Painting
+  + Drawing + Printmaking Program\, Division of Art<br><br>Please join us
+  for this unique opportunity to visit the private studios of the Paintin
+ g + Drawing MFA students and Division of Art faculty at the School&#39\;
+ s Sand Point facilities. We will also be celebrating the opening of <a h
+ ref="https://www.rebeccashippee.net/" target="_blank" rel="noopener">Reb
+ ecca Shippee</a>&#8217\;s show in the Sand Point Gallery.&#160\;<br><br>
+ Everyone is welcome! Students\, alumni and the general public are invite
+ d for an evening of conversation\, interaction\, and art. RSVP is encour
+ ged but not required.&#160\;<br><br>The Sand Point Studios + Gallery is 
+ located on the second floor of Building 5\, Bay C at&#160\;<a href="http
+ ://maps.google.com/?q=47.684016\,-122.261917(Exhibit+Reception+-+Human%2
+ c+Being)" target="_blank" rel="noopener">7527 63rd Ave NE\, Seattle\, WA
+  98115</a>. Please use the entrance on the east side of the building on 
+ 63rd Ave. An elevator is available for wheelchair access.&#160\;
+CATEGORIES:Division of Art
+UID:http://uid.trumba.com/event/197278349
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d197278349
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Liberation Book Club: Community\, Collaboration\, and Conflict
+LOCATION:Art Building (ART)
+DTSTART;TZID=America/Los_Angeles:20260414T173000
+DTEND;TZID=America/Los_Angeles:20260414T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
+ l Events
+DTSTAMP:20250916T122932Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Art Bui
+ lding (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Cont
+ act: jacoblawrencegallery@uw.edu<br>Event Types: Special Events<br><br>O
+ ur question to consider: We are all in this together\, so\, how do we ac
+ tually do this work <em>together</em>?<br><br><br><br>This program is pa
+ rt of the <em>Liberation Book Club</em>&#160\;at the Jacob Lawrence Gall
+ ery. This year-long program series hopes to honor our commitment to soci
+ al justice and to gather our community to think about the work of libera
+ tion through shared texts\, art\, film\, music\, conversation\, and work
+ shops. Unlike your traditional book club all the reading and study happe
+ ns together\, so no need to prepare. Join us monthly as we approach the 
+ topic of liberation from a number of perspectives. We look forward to be
+ ing in community with you.&#160\;
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/190127954
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d190127954
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Info Session (Zoom)
+DTSTART;TZID=America/Los_Angeles:20260416T150000
+DTEND;TZID=America/Los_Angeles:20260416T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://go.oncehub.com/SoAAHDPreviewRegistration
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:askadmin@uw.edu" target="_blank" rel="noopener">askad
+ min@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+DTSTAMP:20251024T132052Z
+DESCRIPTION:Event interval: Single day event<br>Accessibility Contact: a
+ skadmin@uw.edu<br>Event Types: Information Sessions<br>Link: https://go.
+ oncehub.com/SoAAHDPreviewRegistration<br><br>We invite high school senio
+ rs\, transfer and current UW students interested in majoring in one of o
+ ur programs to attend a Preview session to learn about the School of Art
+  + Art History + Design and its programs.&#160\;Prospective students can
+  prepare for the session by exploring our undergraduate degree programs&
+ #160\;on our <a href="https://art.washington.edu/" target="_blank" rel="
+ noopener">website</a>.&#160\;<br><br>Sessions are offered both in-person
+  or in a live zoom meeting on Thursdays at 3pm PST on selected dates. Yo
+ u must register at the <a href="https://go.oncehub.com/SoAAHDPreviewRegi
+ stration" target="_blank" rel="noopener">link </a>below.<br>&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/192151016
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d192151016
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2026 BA in Art Graduation Exhibitions
+LOCATION:Art Building (ART)
+DTSTART;VALUE=DATE:20260428
+DTEND;VALUE=DATE:20260606
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Exhibi
+ ts
+DTSTAMP:20250821T155441Z
+DESCRIPTION:Event interval: Ongoing event<br>Campus location: Art Buildi
+ ng (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Contact
+ : jacoblawrencegallery@uw.edu<br>Event Types: Exhibits<br>
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/188680549
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d188680549
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Info Session (In-Person)
+LOCATION:Art Rm 312: Art Building\, University of Washington\, 1915 Chel
+ an Lane\, Seattle WA 98195
+DTSTART;TZID=America/Los_Angeles:20260507T150000
+DTEND;TZID=America/Los_Angeles:20260507T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://go.oncehub.com/SoAAHDPreviewRegistration
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:ART 312
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:askadmin@uw.edu" target="_blank" rel="noopener">askad
+ min@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+DTSTAMP:20251024T132122Z
+DESCRIPTION:Event interval: Single day event<br>Campus room: ART 312<br>
+ Accessibility Contact: askadmin@uw.edu<br>Event Types: Information Sessi
+ ons<br>Link: https://go.oncehub.com/SoAAHDPreviewRegistration<br><br>We 
+ invite high school seniors\, transfer and current UW students interested
+  in majoring in one of our programs to attend a Preview session to learn
+  about the School of Art + Art History + Design and its programs.&#160\;
+ Prospective students can prepare for the session by exploring our underg
+ raduate degree programs&#160\;on our <a href="https://art.washington.edu
+ /" target="_blank" rel="noopener">website</a>.&#160\;<br><br>Sessions ar
+ e offered both in-person or in a live zoom meeting on Thursdays at 3pm P
+ ST on selected dates. You must register at the <a href="https://go.onceh
+ ub.com/SoAAHDPreviewRegistration" target="_blank" rel="noopener">link </
+ a>below.<br>&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/192151017
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d192151017
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Stroum Lectures 2026 with Rafael Neis: Did &#8216\;Men&#8217\; a
+ nd &#8216\;Women&#8217\; Always Exist? What the Talmud Can Tell Us
+LOCATION:Kane Hall (KNE)
+DTSTART;TZID=America/Los_Angeles:20260512T190000
+DTEND;TZID=America/Los_Angeles:20260512T210000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ka
+ ne Hall (KNE)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Kane 22
+ 5\, Walker-Ames Room
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jewishst@uw.edu" target="_blank" rel="noopener">jewis
+ hst@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBPPUfcr0tAVGKlsaprZ1H4.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBPPUfcr0tAVGKlsaprZ1H4.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Strou
+ m Center for Jewish Studies
+X-TRUMBA-CUSTOMFIELD;NAME="Target Audience";ID=42285;TYPE=SingleLine:Ope
+ n to public. Registration required.
+DTSTAMP:20260202T163401Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Kane Ha
+ ll (KNE)<br>Campus room: Kane 225\, Walker-Ames Room<br>Accessibility Co
+ ntact: jewishst@uw.edu<br>Event Types: Academics<br>Event sponsors: Stro
+ um Center for Jewish Studies<br>Target Audience: Open to public. Registr
+ ation required.<br><br>Join us for the first lecture of the UW&#39\;s an
+ nual Stroum Lectures in Jewish Studies. This year the series features Un
+ iversity of Michigan scholar and artist <strong>Rafael Neis.&#160\;</str
+ ong><br><br><em>Registration link coming soon.&#160\;</em><br><br><stron
+ g>Lecture 1:&#160\;Did &#8216\;Men&#8217\; and &#8216\;Women&#8217\; Alw
+ ays Exist? What the Talmud Can Tell Us</strong><br>We often assume that 
+ the categories &#8220\;man&#8221\; and &#8220\;woman&#8221\; are timeles
+ s and self-evident. But what if they aren&#8217\;t?&#160\;In this talk\,
+  Professor Rafael Neis invites us to explore a surprising question: did 
+ &#8220\;men&#8221\; and &#8220\;women\,&#8221\; as fixed and stable cate
+ gories\, always exist in the way we imagine them today?&#160\;Turning to
+  the Talmud\, Neis shows how the rabbis wrestled with bodies\, identity
+ \, and social roles in ways that don&#8217\;t always fit neatly into mode
+ rn assumptions. By setting aside what we think we already know about gen
+ der\, we can discover fresh and unexpected ways of reading these ancient
+  texts&#8212\;and gain insight into how the rabbis themselves understood
+  human difference.&#160\;Along the way\, Neis opens up intriguing new pe
+ rspectives on rabbinic thought\, revealing a tradition that is more curi
+ ous\, complex\, and inventive than we might expect.&#160\;Please join us
+  for an informal reception following the lecture.<br><br><strong>Read ab
+ out the <a href="https://calendar.washington.edu/sea_jewish/Stroum-Lectu
+ res-2026-with-Rafael-Neis-Monsters-Hybrids-and-Holy-Images-Rethinking-Bo
+ dies-in-Ancient-Jewish-Art/E196384221" target="_blank" rel="noopener">se
+ cond lecture here.</a></strong><br><br><strong>Rafael&#160\;Neis</strong
+ >&#160\;is a scholar and artist. Neis is the Jean and Samuel Frankel Pro
+ fessor of Rabbinic Literature and is appointed in the Department of Hist
+ ory and Frankel Center for Judaic Studies at the University of Michigan.
+  As Faculty Director of Arts Learning at Michigan&#8217\;s&#160\;Arts in
+ itiative\, Neis supports campus-wide art-integrated pedagogy. Their seco
+ nd book\,&#160\;<em>When&#160\;a Human Gives Birth to a Raven: Rabbis &a
+ mp\; the Reproduction of Species</em>\, was published in 2023 by Univers
+ ity of California Press. Their artwork has been featured in shows and in
+  many publications.&#160\;<br><br>---<br><em><strong>The&#160\;Stroum Le
+ ctures in Jewish Studies</strong>&#160\;is a nationally-renowned series 
+ of public lectures\, which has brought Jewish studies luminaries from ar
+ ound the globe to the University of Washington for more than fifty years
+ . Made possible through the support of the Samuel and Althea Stroum Lect
+ ures Endowment\, this annual series is a cornerstone program of UW&#39\;
+ s Stroum Center for Jewish Studies and has led to impactful conversation
+ s\, groundbreaking scholarship\, and award-winning publications. You may
+  view the full Stroum Lectures archive&#160\;<a href="https://jewishstud
+ ies.washington.edu/stroum-lectures-archive-2/" target="_blank" rel="noop
+ ener">here</a>&#160\;and review corresponding books published by Univers
+ ity of Washington Press&#160\;<a href="https://uwapress.uw.edu/search-re
+ sults/?series=samuel-and-althea-stroum-lectures-in-jewish-studies" targe
+ t="_blank" rel="noopener">here</a>.<br><br>Image: 4th-7th c. incantation
+  bowl written in Aramaic from Iraq. Photo by Osama Shukir Muhammed Amin 
+ via Wikimedia Commons.</em>
+CATEGORIES:Outside the School
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBPPUfcr0tAVGKlsaprZ1H4.jpg
+UID:http://uid.trumba.com/event/196383949
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d196383949
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Info Session (Zoom)
+DTSTART;TZID=America/Los_Angeles:20260514T150000
+DTEND;TZID=America/Los_Angeles:20260514T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://go.oncehub.com/SoAAHDPreviewRegistration
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:askadmin@uw.edu" target="_blank" rel="noopener">askad
+ min@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+DTSTAMP:20251024T132151Z
+DESCRIPTION:Event interval: Single day event<br>Accessibility Contact: a
+ skadmin@uw.edu<br>Event Types: Information Sessions<br>Link: https://go.
+ oncehub.com/SoAAHDPreviewRegistration<br><br>We invite high school senio
+ rs\, transfer and current UW students interested in majoring in one of o
+ ur programs to attend a Preview session to learn about the School of Art
+  + Art History + Design and its programs.&#160\;Prospective students can
+  prepare for the session by exploring our undergraduate degree programs&
+ #160\;on our <a href="https://art.washington.edu/" target="_blank" rel="
+ noopener">website</a>.&#160\;<br><br>Sessions are offered both in-person
+  or in a live zoom meeting on Thursdays at 3pm PST on selected dates. Yo
+ u must register at the <a href="https://go.oncehub.com/SoAAHDPreviewRegi
+ stration" target="_blank" rel="noopener">link </a>below.<br>&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/192151019
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d192151019
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Stroum Lectures 2026 with Rafael Neis: Monsters\, Hybrids\, and 
+ Holy Images - Rethinking Bodies in Ancient Jewish Art
+LOCATION:Student Union Building (HUB)
+DTSTART;TZID=America/Los_Angeles:20260514T160000
+DTEND;TZID=America/Los_Angeles:20260514T173000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:St
+ udent Union Building (HUB)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:HUB 214
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jewishst@uw.edu" target="_blank" rel="noopener">jewis
+ hst@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBPPUfcr0tAVGKlsaprZ1H4.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgBPPUfcr0tAVGKlsaprZ1H4.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:The S
+ troum Center for Jewish Studies
+X-TRUMBA-CUSTOMFIELD;NAME="Target Audience";ID=42285;TYPE=SingleLine:Ope
+ n to public. Registration required.
+DTSTAMP:20260202T163415Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Student
+  Union Building (HUB)<br>Campus room: HUB 214<br>Accessibility Contact: 
+ jewishst@uw.edu<br>Event Types: Academics<br>Event sponsors: The Stroum 
+ Center for Jewish Studies<br>Target Audience: Open to public. Registrati
+ on required.<br><br>Join us for the first lecture of UW&#39\;s annual St
+ roum Lectures in Jewish Studies. This year the series features Universit
+ y of Michigan scholar and artist <strong>Rafael Neis.&#160\;</strong><br
+ ><br><em>Registration link coming soon. </em><strong>Read about the <a h
+ ref="https://calendar.washington.edu/sea_jewish/Stroum-Lectures-2026-wit
+ h-Rafael-Neis-Did-Men-and-Women-Always-Exist-What-the-Talmud-Can-Tell-Us
+ /E196383949" target="_blank" rel="noopener">first lecture here.</a>&#160
+ \;</strong><br><br><strong>Lecture 2. Monsters\, Hybrids\, and Holy Imag
+ es: Rethinking Bodies in Ancient Jewish Art&#160\;&#160\;</strong><br>Wa
+ lk through the ancient world and you would have been surrounded by image
+ s of all kinds of beings&#8212\;human figures\, animals\, hybrids\, and 
+ creatures that blur the line between the familiar and the fantastic. The
+ se images appeared everywhere: in streets and homes\, bathhouses and syn
+ agogues\, public buildings and sacred spaces.&#160\;In this talk\, Profe
+ ssor Rafael Neis explores a handful of striking examples from ancient Je
+ wish art and asks what happens when we look at them with fresh eyes. Ins
+ tead of sorting these figures into modern boxes about &#8220\;human\,&#8
+ 221\; &#8220\;animal\,&#8221\; &#8220\;male\,&#8221\; or &#8220\;female
+ \,&#8221\; Neis invites us to step back and see how ancient artists and c
+ ommunities imagined bodies more broadly.&#160\;By letting go of some of 
+ our present-day assumptions\, we begin to notice new patterns and possib
+ ilities&#8212\;and gain insight into how people in the ancient world und
+ erstood identity\, difference\, and the sacred. The result is a richer\,
+  more surprising picture of Jewish visual culture\, filled with creativi
+ ty\, complexity\, and imagination.&#160\;<br><br><strong>Rafael&#160\;Ne
+ is</strong>&#160\;is a scholar and artist. Neis is the Jean and Samuel F
+ rankel Professor of Rabbinic Literature and is appointed in the Departme
+ nt of History and Frankel Center for Judaic Studies at the University of
+  Michigan. As Faculty Director of Arts Learning at Michigan&#8217\;s&#16
+ 0\;Arts initiative\, Neis supports campus-wide art-integrated pedagogy. 
+ Their second book\,&#160\;<em>When&#160\;a Human Gives Birth to a Raven:
+  Rabbis &amp\; the Reproduction of Species</em>\, was published in 2023 
+ by University of California Press. Their artwork has been featured in sh
+ ows and in many publications.&#160\;<br><br>---<br><em>The&#160\;<strong
+ >Stroum Lectures in Jewish Studies</strong>&#160\;is a nationally-renown
+ ed series of public lectures\, which has brought Jewish studies luminari
+ es from around the globe to the University of Washington for more than f
+ ifty years. Made possible through the support of the Samuel and Althea S
+ troum Lectures Endowment\, this annual series is a cornerstone program o
+ f UW&#39\;s Stroum Center for Jewish Studies and has led to impactful co
+ nversations\, groundbreaking scholarship\, and award-winning publication
+ s. You may view the full Stroum Lectures archive&#160\;<a href="https://
+ jewishstudies.washington.edu/stroum-lectures-archive-2/" target="_blank"
+  rel="noopener">here</a>&#160\;and review corresponding books published 
+ by University of Washington Press&#160\;<a href="https://uwapress.uw.edu
+ /search-results/?series=samuel-and-althea-stroum-lectures-in-jewish-stud
+ ies" target="_blank" rel="noopener">here</a>.<br><br>Image:&#160\;4th-7t
+ h c. incantation bowl written in Aramaic from Iraq. Photo by Osama Shuki
+ r Muhammed Amin via Wikimedia Commons.</em>
+CATEGORIES:Outside the School
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBPPUfcr0tAVGKlsaprZ1H4.jpg
+UID:http://uid.trumba.com/event/196384221
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d196384221
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:MFA + MDes Thesis Exhibition
+LOCATION:Henry Art Gallery (HAG)
+DTSTART;VALUE=DATE:20260516
+DTEND;VALUE=DATE:20260615
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:He
+ nry Art Gallery (HAG)
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Visit henryart.org/visit/accessibility
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Exhibi
+ ts
+DTSTAMP:20260130T170408Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Henry A
+ rt Gallery (HAG)<br>Accessibility Contact: Visit henryart.org/visit/acce
+ ssibility<br>Event Types: Exhibits<br><br>Please save the date for the 2
+ 026 MFA + MDes Thesis Exhibition at the Henry Art Gallery\, with an open
+ ing Reception on June 5th. Details coming soon.&#160\;
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/196452434
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d196452434
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Liberation Book Club: Freeing the Body
+LOCATION:Art Building (ART)
+DTSTART;TZID=America/Los_Angeles:20260519T173000
+DTEND;TZID=America/Los_Angeles:20260519T193000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
+ l Events
+DTSTAMP:20250916T122550Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Art Bui
+ lding (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Cont
+ act: jacoblawrencegallery@uw.edu<br>Event Types: Special Events<br><br>O
+ ur question to consider:&#160\;What if liberation starts in the body?<br
+ ><br>This program is part of the <em>Liberation Book Club</em>&#160\;at 
+ the Jacob Lawrence Gallery. This year-long program series hopes to honor
+  our commitment to social justice and to gather our community to think a
+ bout the work of liberation through shared texts\, art\, film\, music\, 
+ conversation\, and workshops. Unlike your traditional book club all the 
+ reading and study happens together\, so no need to prepare. Join us mont
+ hly as we approach the topic of liberation from a number of perspectives
+ . We look forward to being in community with you.&#160\;
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/190127959
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d190127959
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2026 Design Show
+LOCATION:Art Building (ART)
+DTSTART;VALUE=DATE:20260610
+DTEND;VALUE=DATE:20260627
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
+ awrence Gallery
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:jacoblawrencegallery@uw.edu" target="_blank" rel="noo
+ pener">jacoblawrencegallery@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Exhibi
+ ts
+DTSTAMP:20250821T155523Z
+DESCRIPTION:Event interval: Ongoing event<br>Campus location: Art Buildi
+ ng (ART)<br>Campus room: Jacob Lawrence Gallery<br>Accessibility Contact
+ : jacoblawrencegallery@uw.edu<br>Event Types: Exhibits<br>
+CATEGORIES:Jacob Lawrence Gallery
+UID:http://uid.trumba.com/event/188680541
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d188680541
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:2026 SoA+AH+D Graduation Celebration
+LOCATION:Meany Hall (MNY)
+DTSTART;TZID=America/Los_Angeles:20260613T090000
+DTEND;TZID=America/Los_Angeles:20260613T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
+ any Hall (MNY)
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:ticket@uw.edu" target="_blank" rel="noopener">ticket@
+ uw.edu</a> or 206-543-4880
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Ceremo
+ nies\,Student Activities
+DTSTAMP:20260210T121641Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
+ all (MNY)<br>Accessibility Contact: ticket@uw.edu or 206-543-4880<br>Eve
+ nt Types: Ceremonies\,Student Activities<br><br>Please save the date for
+  the School&#8217\;s annual Graduation Celebration in Meany Hall on Satu
+ rday\, June 13\, 2026. Graduating students will receive a formal invitat
+ ion by email in April.&#160\;<br><br><strong>ACCESSIBILITY</strong><br>F
+ or accessibility information\, visit the <a href="https://meanycenter.or
+ g/visit/accessibility" target="_blank" rel="noopener">Meany&#39\;s websi
+ te</a>.&#160\;<br>To request accommodation for Meany Center events or fo
+ r Meany Center specific questions\, please contact the ArtsUW Ticket Off
+ ice at <a href="mailto:ticket@uw.edu" target="_blank" rel="noopener">tic
+ ket@uw.edu</a> or call 206-543-4880.
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/197106230
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d197106230
+END:VEVENT
+END:VCALENDAR

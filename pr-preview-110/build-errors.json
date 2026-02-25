@@ -1,0 +1,71 @@
+{
+  "buildTime": "2026-02-25T15:18:53.646Z",
+  "totalErrors": 4,
+  "configErrors": [],
+  "sources": [
+    {
+      "source": "rainier-arts-center",
+      "calendar": "rainier-arts-center",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-community",
+      "calendar": "tag-community",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [],
+  "zeroEventCalendars": [],
+  "expectedEmptyCalendars": [
+    "benaroya-hall-benaroya-nordstrom",
+    "downtown-seattle-association-pioneer-park",
+    "downtown-seattle-association-occidental-square",
+    "jcccw-all-events",
+    "seattle-barkery-all-events",
+    "spl-university",
+    "tag-seward-park",
+    "external-langston"
+  ]
+}

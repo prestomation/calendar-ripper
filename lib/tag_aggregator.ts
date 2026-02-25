@@ -211,13 +211,15 @@ export async function createAggregateCalendars(
     for (const tc of taggedCalendars) {
       if (tc.tags.includes(tag)) {
         console.log(`  - Adding events from calendar: ${tc.friendlyname}`);
-        // Add source calendar name to each event's description
+        // Tag each event with its source calendar for identification in aggregated feeds
         const eventsWithSource = tc.events.map(event => {
           if ('summary' in event) { // Check if it's a RipperCalendarEvent
             const sourceInfo = `\n\nFrom ${tc.friendlyname}`;
             return {
               ...event,
-              description: event.description ? `${event.description}${sourceInfo}` : sourceInfo
+              description: event.description ? `${event.description}${sourceInfo}` : sourceInfo,
+              sourceCalendar: tc.friendlyname,
+              sourceCalendarName: tc.name,
             };
           }
           return event;
@@ -249,12 +251,14 @@ export async function createAggregateCalendars(
 
           console.log(`  - Adding ${externalEvents.length} events from ${tec.calendar.friendlyname}`);
 
-          // Add source calendar name to each event's description
+          // Tag each event with its source calendar for identification in aggregated feeds
           const eventsWithSource = externalEvents.map(event => {
             const sourceInfo = `\n\nFrom ${tec.calendar.friendlyname}`;
             return {
               ...event,
-              description: event.description ? `${event.description}${sourceInfo}` : sourceInfo
+              description: event.description ? `${event.description}${sourceInfo}` : sourceInfo,
+              sourceCalendar: tec.calendar.friendlyname,
+              sourceCalendarName: tec.calendar.name,
             };
           });
 

@@ -95,6 +95,8 @@ export interface RipperCalendarEvent {
     url?: string;
     image?: string;  // URL to the event image
     rrule?: string;  // RFC 5545 RRULE for recurring events
+    sourceCalendar?: string;      // Source calendar friendly name (set during aggregation)
+    sourceCalendarName?: string;  // Source calendar slug (set during aggregation)
 };
 
 export type RipperEvent = RipperCalendarEvent | RipperError;
@@ -120,6 +122,14 @@ export interface IRipper {
 }
 
 
+function safeUrl(raw: string): string | undefined {
+    try {
+        return new URL(raw).toString();
+    } catch {
+        return undefined;
+    }
+}
+
 export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
@@ -129,12 +139,15 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             startInputType: "utc",
             start: [utcDate.year(), utcDate.monthValue(), utcDate.dayOfMonth(), utcDate.hour(), utcDate.minute()],
             duration: { hours: e.duration.toHours(), minutes: e.duration.toMinutes() % 60 },
-            description: e.description,
+            description: e.url?.startsWith('http')
+                ? (e.description ? `${e.description}\n\n${e.url}` : e.url)
+                : e.description,
             location: e.location,
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
-            url: e.url?.startsWith('http') ? new URL(e.url).toString() : undefined,
+            url: e.url?.startsWith('http') ? safeUrl(e.url) : undefined,
+            categories: e.sourceCalendar ? [e.sourceCalendar] : undefined,
         };
         
         // Add RRULE if present
@@ -160,6 +173,29 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             );
         }
     });
+
+    // Post-process to add X-CALRIPPER-SOURCE for events with source tracking.
+    // Match by CATEGORIES line (which we set to sourceCalendar) rather than
+    // array index, so the mapping stays correct even if the ICS library
+    // filters or reorders events.
+    if (calendar.events.some(e => e.sourceCalendarName)) {
+        const nameToSlug = new Map<string, string>();
+        for (const e of calendar.events) {
+            if (e.sourceCalendar && e.sourceCalendarName) {
+                nameToSlug.set(e.sourceCalendar, e.sourceCalendarName);
+            }
+        }
+
+        ics = ics.replace(
+            /CATEGORIES:(.+)/g,
+            (match, category) => {
+                const slug = nameToSlug.get(category.trim());
+                return slug
+                    ? `X-CALRIPPER-SOURCE:${slug}\r\n${match}`
+                    : match;
+            }
+        );
+    }
 
     return ics;
 }

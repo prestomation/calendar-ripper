@@ -122,6 +122,14 @@ export interface IRipper {
 }
 
 
+function safeUrl(raw: string): string | undefined {
+    try {
+        return new URL(raw).toString();
+    } catch {
+        return undefined;
+    }
+}
+
 export const toICS = async (calendar: RipperCalendar): Promise<string> => {
 
     const mapped: icsOriginal.EventAttributes[] = calendar.events.map(e => {
@@ -138,7 +146,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             productId: "CalendarRipper",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
-            url: e.url?.startsWith('http') ? new URL(e.url).toString() : undefined,
+            url: e.url?.startsWith('http') ? safeUrl(e.url) : undefined,
             categories: e.sourceCalendar ? [e.sourceCalendar] : undefined,
         };
         
@@ -166,21 +174,27 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
         }
     });
 
-    // Post-process to add X-CALRIPPER-SOURCE for events with source tracking
+    // Post-process to add X-CALRIPPER-SOURCE for events with source tracking.
+    // Match by CATEGORIES line (which we set to sourceCalendar) rather than
+    // array index, so the mapping stays correct even if the ICS library
+    // filters or reorders events.
     if (calendar.events.some(e => e.sourceCalendarName)) {
-        const parts = ics.split('BEGIN:VEVENT');
-        const header = parts[0];
-        const eventParts = parts.slice(1);
-
-        const processed = eventParts.map((block, i) => {
-            const event = calendar.events[i];
-            if (event?.sourceCalendarName) {
-                return `BEGIN:VEVENT\r\nX-CALRIPPER-SOURCE:${event.sourceCalendarName}${block}`;
+        const nameToSlug = new Map<string, string>();
+        for (const e of calendar.events) {
+            if (e.sourceCalendar && e.sourceCalendarName) {
+                nameToSlug.set(e.sourceCalendar, e.sourceCalendarName);
             }
-            return `BEGIN:VEVENT${block}`;
-        });
+        }
 
-        ics = header + processed.join('');
+        ics = ics.replace(
+            /CATEGORIES:(.+)/g,
+            (match, category) => {
+                const slug = nameToSlug.get(category.trim());
+                return slug
+                    ? `X-CALRIPPER-SOURCE:${slug}\r\n${match}`
+                    : match;
+            }
+        );
     }
 
     return ics;

@@ -6,31 +6,31 @@ METHOD:PUBLISH
 X-WR-CALNAME:Pioneer Square Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-X-CALRIPPER-SOURCE:pioneer-square-artwalk
-UID:bnr2OcIIr_aLAY9XZmwtG
+UID:G9zR_dpazDp3Zrvp3RKoQ
 SUMMARY:Pioneer Square Art Walk
-DTSTAMP:20260225T053445Z
+DTSTAMP:20260225T070518Z
 DTSTART;TZID=America/Los_Angeles:20260305T180000
 DESCRIPTION:Monthly art walk in Pioneer Square - the nation's first art wal
 	k!\n\nFrom Pioneer Square Art Walk\n\nhttps://pioneersquare.org/art-walks/
 URL:https://pioneersquare.org/art-walks/
 LOCATION:Pioneer Square\, Seattle
+X-CALRIPPER-SOURCE:pioneer-square-artwalk
 CATEGORIES:Pioneer Square Art Walk
 TRANSP:TRANSPARENT
 RRULE:FREQ=MONTHLY;BYDAY=1TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-X-CALRIPPER-SOURCE:210-seattle-night-market
-UID:H4bPeBzGzGq90wg8OOSv2
+UID:r37rF1zDpp5Umosove7d4
 SUMMARY:210 Seattle Night Market
-DTSTAMP:20260225T053445Z
+DTSTAMP:20260225T070518Z
 DTSTART;TZID=America/Los_Angeles:20260305T180000
 DESCRIPTION:Pop-up market during Pioneer Square's First Thursday Art Walk. 
 	20-40 local makers\, vintage curators\, and artists.\n\nFrom 210 Seattle N
 	ight Market\n\nhttps://www.210studioseattle.com/210-market
 URL:https://www.210studioseattle.com/210-market
 LOCATION:Pioneer Square\, Seattle
+X-CALRIPPER-SOURCE:210-seattle-night-market
 CATEGORIES:210 Seattle Night Market
 TRANSP:TRANSPARENT
 RRULE:FREQ=MONTHLY;BYDAY=1TH

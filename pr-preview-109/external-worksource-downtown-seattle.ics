@@ -1,0 +1,1955 @@
+BEGIN:VCALENDAR
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25423//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+X-WR-CALNAME:WorkSource Downtown Seattle
+X-WR-TIMEZONE:America/Los_Angeles
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+SUMMARY:Work for Washington &#8211\; Job Hunter Virtual Workshop &#8211
+ \; Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260224T130000
+DTEND;TZID=America/Los_Angeles:20260224T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260220T153932Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Would you consider service to the pe
+ ople of the State of Washington? Advantages and benefits of working for 
+ various state agencies will be discussed. In this workshop you&#39\;ll l
+ earn how agencies use different application processes how to prepare to 
+ meet their expectations. Specific tips for applying to state agencies wi
+ ll be provided.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034237
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034237
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: ESD Self&#8208\;Employment Assistance Program (SEAP) 
+ Orientation (Virtual)
+LOCATION:Zoom Online Meeting: Link and meeting information will be share
+ d by e-mail at a minimum of 1 hour before the online workshop begins\, b
+ ut usually the day before.
+DTSTART;TZID=America/Los_Angeles:20260226T093000
+DTEND;TZID=America/Los_Angeles:20260226T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.<br><br>Video conferencing will use a large portio
+ n of bandwidth and data. Before signing up\, be sure you have a data pla
+ n or reliable Wi-Fi access that can accommodate this. To attend the work
+ shop\, you are encouraged to use a device capable of viewing video\, con
+ tent and have audio capability. There is a call-in feature\, if you cann
+ ot log in virtually.<br><br>A waitlist option will be enabled for this e
+ vent. This waitlist is automated and if an attendee drops their registra
+ tion\, the next registrant on the waitlist will be invited. Each worksho
+ p requires a separate registration.<br>When you sign up for this event\,
+  please use the same name and email address that you use with your works
+ ourcewa.com account\, if possible.<br><br>Contact the facilitator listed
+  above in the contact lines for any additional questions or changes.<br>
+ <br>If you need an accommodation to participate in this training\, pleas
+ e contact the facilitators for this workshop. Please provide your name\,
+  accommodation request\, and your town/city of residence. Please make yo
+ ur accommodation request as early as possible so arrangements can be mad
+ e.</p>&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T105425Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: <
+ p>Please go to <a href="http://www.worksourcewa.com" target="_blank">Wor
+ kSourceWA.com</a> and create your account prior to attending this worksh
+ op.\n\nVideo conferencing will use a large portion of bandwidth and data
+ . Before signing up\, be sure you have a data plan or reliable Wi-Fi acc
+ ess that can accommodate this. To attend the workshop\, you are encourag
+ ed to use a device capable of viewing video\, content and have audio cap
+ ability. There is a call-in feature\, if you cannot log in virtually.\n
+ \nA waitlist option will be enabled for this event. This waitlist is auto
+ mated and if an attendee drops their registration\, the next registrant 
+ on the waitlist will be invited. Each workshop requires a separate regis
+ tration.\nWhen you sign up for this event\, please use the same name and
+  email address that you use with your worksourcewa.com account\, if poss
+ ible.\n\nContact the facilitator listed above in the contact lines for a
+ ny additional questions or changes.\n\nIf you need an accommodation to p
+ articipate in this training\, please contact the facilitators for this w
+ orkshop. Please provide your name\, accommodation request\, and your tow
+ n/city of residence. Please make your accommodation request as early as 
+ possible so arrangements can be made.</p>\n\n&nbsp\;<br>Event Registrati
+ on: Sign Up Required<br>Approved Unemployment Insurance (UI) Job Search 
+ Activity: Yes<br><br><p>The Self&#8208\;Employment Assistance Program (S
+ EAP) may be a great opportunity if you want to start a business!<br><br>
+ Once approved\, SEAP is a unique program that enables you to:<br>&#183\;
+  Receive entrepreneurial counseling and business coaching through a pre&
+ #8208\;approved training provider<br>&#183\; Continue to collect Unemplo
+ yment Insurance (UI) benefits while developing your business plans<br>&#
+ 183\; Work on creating your business and waives the weekly work&#8208\;s
+ earch requirement<br><br>You are invited to attend a virtual workshop to
+  explore:<br>&#8226\; What is SEAP? What does SEAP not do?<br>&#8226\; P
+ rogram eligibility requirements and deadlines &#8226\; Locate and downlo
+ ad from the SEAP Approved Provider List<br>&#8226\; What are the respons
+ ibilities of an approved training provider?<br>&#8226\; Research the pro
+ per training on the SEAP Approved Provider List<br>&#8226\; Frequently a
+ sked questions (FAQ)<br>&#8226\; How to properly complete and submit the
+  SEAP Application<br>&#8226\; Certification of Satisfactory Progress<br>
+ &#8226\; Your responsibilities while enrolled in SEAP and to remain elig
+ ible<br>&#8226\; Job Search Requirements\, WorkSource offices\, and cont
+ act information<br><br>For further information\, contact Laura Aunan at 
+ <a href="mailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">l
+ aura.aunan@esd.wa.gov</a></p>
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+UID:http://uid.trumba.com/event/193199502
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199502
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Entrevistas &#8211\; Una Clase EN L&#205\;NEA - en todo el estad
+ o
+LOCATION:Reuni&#243\;n en l&#237\;nea de WebEx: La informaci&#243\;n del
+  enlace y de la reuni&#243\;n se compartir&#225\; por correo electr&#243
+ \;nico como m&#237\;nimo 1 hora antes de que comience el taller en l&#23
+ 7\;nea
+DTSTART;TZID=America/Los_Angeles:20260226T130000
+DTEND;TZID=America/Los_Angeles:20260226T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Alisha
+  Garcia
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:alisha.garcia@esd.wa.gov" target="_blank" rel="noopener">alisha.ga
+ rcia@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:Spanish
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>El cliente tendr&#225\; que registrarse en WorkSourceWA.com antes 
+ de la clase. Este taller se ofrece en l&#237\;nea a trav&#233\;s de las 
+ reuniones de WebEx.</p><p>La videoconferencia utilizar&#225\; una gran p
+ arte del ancho de banda de internet y una gran cantidad de datos. Antes 
+ de participar\, aseg&#250\;rese de tener un plan de datos o acceso WiFi 
+ confiable que pueda acomodar esto. Para asistir al taller\, debe usar un
+  dispositivo\, o una combinaci&#243\;n de dispositivos\, con capaz de ve
+ r video y contenido (computadora\, dispositivo m&#243\;vil o sistema de 
+ video) y tener capacidad de audio. Para obtener informaci&#243\;n sobre 
+ c&#243\;mo unirse a una reuni&#243\;n de WebEx para asistir al taller\, 
+ favor hacer &lt\;&lt\;clic&gt\;&gt\; en el enlace <a href="https://help.
+ webex.com/es-co/nrbgeodb/Join-a-Webex-Meeting" target="_blank" rel="noop
+ ener">AQUI</a>.</p><p>Se establecer&#225\; una opci&#243\;n de lista de 
+ espera para este evento. Si un solicitante retira su registro\, se invit
+ ar&#225\; al siguiente solicitante de registro de la lista de espera. Ca
+ da taller requiere un registro separado. Cuando se registra en este even
+ to\, usa el mismo nombre y direcci&#243\;n de correo electr&#243\;nico q
+ ue usa con la cuenta de worksourcewa.com\, si es posible.</p><p>Si neces
+ ita alg&#250\;n tipo de servicio especial por una condici&#243\;n de dis
+ capacidad en este taller de empleo\, por favor comun&#237\;quese con Ken
+  (habla espa&#241\;ol) por correo electr&#243\;nico en <a href="mailto:e
+ sdgpvirtualservices@esd.wa.gov" target="_blank" rel="noopener">esdgpvirt
+ ualservices@esd.wa.gov</a>. Deber&#225\; facilitar su nombre\, el tipo d
+ e servicio especial requerido y su ciudad de residencia. Ind&#237\;queno
+ s los servicios especiales que requiere cuanto antes para poder acomodar
+ los. Si el nivel de ingl&#233\;s de Ud. es limitado y necesita informaci
+ &#243\;n en otro idioma distinto al ingl&#233\;s\, ind&#237\;queselo a K
+ en para poder acomodar el idioma necesario.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260113T154316Z
+DESCRIPTION:Contact Name: Alisha Garcia<br>Contact Email: alisha.garcia@
+ esd.wa.gov<br>Workshop Language Option: Spanish<br>Additional Informatio
+ n: <p>El cliente tendr&aacute\; que registrarse en WorkSourceWA.com ante
+ s de la clase. Este taller se ofrece en l&iacute\;nea a trav&eacute\;s d
+ e las reuniones de WebEx.</p><p>La videoconferencia utilizar&aacute\; un
+ a gran parte del ancho de banda de internet y una gran cantidad de datos
+ . Antes de participar\, aseg&uacute\;rese de tener un plan de datos o ac
+ ceso WiFi confiable que pueda acomodar esto. Para asistir al taller\, de
+ be usar un dispositivo\, o una combinaci&oacute\;n de dispositivos\, con
+  capaz de ver video y contenido (computadora\, dispositivo m&oacute\;vil
+  o sistema de video) y tener capacidad de audio. Para obtener informaci&
+ oacute\;n sobre c&oacute\;mo unirse a una reuni&oacute\;n de WebEx para 
+ asistir al taller\, favor hacer &lt\;&lt\;clic&gt\;&gt\; en el enlace <a
+  href="https://help.webex.com/es-co/nrbgeodb/Join-a-Webex-Meeting">AQUI<
+ /a>.</p><p>Se establecer&aacute\; una opci&oacute\;n de lista de espera 
+ para este evento. Si un solicitante retira su registro\, se invitar&aacu
+ te\; al siguiente solicitante de registro de la lista de espera. Cada ta
+ ller requiere un registro separado. Cuando se registra en este evento\, 
+ usa el mismo nombre y direcci&oacute\;n de correo electr&oacute\;nico qu
+ e usa con la cuenta de worksourcewa.com\, si es posible.</p><p>Si necesi
+ ta alg&uacute\;n tipo de servicio especial por una condici&oacute\;n de 
+ discapacidad en este taller de empleo\, por favor comun&iacute\;quese co
+ n Ken (habla espa&ntilde\;ol) por correo electr&oacute\;nico en <a href=
+ "mailto:esdgpvirtualservices@esd.wa.gov">esdgpvirtualservices@esd.wa.gov
+ </a>. Deber&aacute\; facilitar su nombre\, el tipo de servicio especial 
+ requerido y su ciudad de residencia. Ind&iacute\;quenos los servicios es
+ peciales que requiere cuanto antes para poder acomodarlos. Si el nivel d
+ e ingl&eacute\;s de Ud. es limitado y necesita informaci&oacute\;n en ot
+ ro idioma distinto al ingl&eacute\;s\, ind&iacute\;queselo a Ken para po
+ der acomodar el idioma necesario.</p><br>Event Registration: Sign Up Req
+ uired<br>Approved Unemployment Insurance (UI) Job Search Activity: Yes<b
+ r><br><p>Usted podr&#237\;a tener el mejor curr&#237\;culo que hay\, per
+ o si no se presenta bien en la entrevista\, no vale. El poder expresarse
+  bien en una entrevista de trabajo es una necesidad\, y les aconsejamos 
+ como prepararse para hacerlo. Es imperativo el saber qu&#233\; buscan lo
+ s empleadores. En este taller aprender&#225\; t&#233\;cnicas de entrevis
+ ta y tendr&#225\; la oportunidad de entender como responder a las pregun
+ tas m&#225\;s frecuentes\, y algunas veces dif&#237\;ciles\, pero en un 
+ ambiente real&#237\;stico y de apoyo mutuo.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/195443169
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d195443169
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Skills and Abilities Analysis to Build Effective Job Search Stra
+ tegies &#8211\; Job Hunter Virtual Workshop - Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260226T130000
+DTEND;TZID=America/Los_Angeles:20260226T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260224T124525Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>A key part of your job search is und
+ erstanding your knowledge\, strengths and transferrable skills. Knowing 
+ yourself and what you have to offer often leads to increased confidence 
+ when searching for meaningful work. This workshop will cover Career Inte
+ rest Assessments and using that information to make informed decisions a
+ bout job opportunities and find your next career. Additionally\, we will
+  also cover strategies for uncovering the hidden job market and the best
+  resources for job searching.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034238
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034238
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WIOA Employment &amp\; Training Program
+LOCATION:2024 3rd Ave<br>Seattle\, WA 98121
+DTSTART;TZID=America/Los_Angeles:20260303T100000
+DTEND;TZID=America/Los_Angeles:20260303T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Room";ID=28326;TYPE=SingleLine:Classroom 212
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260210T144849Z
+DESCRIPTION:Room: Classroom 212<br>Workshop Language Option: English<br>
+ Additional Information: Please go to <a href="http://www.worksourcewa.co
+ m" target="_blank">WorkSourceWA.com</a> and create your account prior to
+  attending this workshop.<br>Approved Unemployment Insurance (UI) Job Se
+ arch Activity: Yes<br><br>YWCA&#39\;s WIOA Employment Program provides l
+ ow-income people with a full range of individualized employment and supp
+ ort services needed to achieve self-sufficiency.<ul> <li>Career developm
+ ent and coaching&#160\;	</li><li>Job search and placement assistance	</l
+ i><li>Identifying strengths and barriers&#160\;	</li><li>Clothing and tr
+ ansportation support	</li><li>Referrals to community resources&#160\;	</
+ li><li>Financial Education and resources</li></ul>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/197111779
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d197111779
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:***CANCELLED*** Effective Applications\, Resumes and Cover Lette
+ rs &#8211\; Job Hunter Virtual Workshop &#8211\; Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260303T130000
+DTEND;TZID=America/Los_Angeles:20260303T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260223T085953Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Understanding the employer&#8217\;s 
+ point of view is crucial in any job search. In this workshop\, you&#39\;
+ ll learn how employers evaluate Applications\, Resumes and Cover Letters
+  and how to be better prepared to meet an employer&#8217\;s expectations
+ . Additionally\, we will cover how to create a General Application Guide
+  that&#8217\;s helpful when completing paper and online applications as 
+ well as learning which resume and cover letter formats best showcase you
+ r strengths to stand out in a competitive job market.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034239
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034239
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: Orientation to Commissioner-Approved Training (CAT) a
+ nd Training Benefits (TB)
+LOCATION:ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the
+  workshop start time\, usually the day prior to the workshop.
+DTSTART;TZID=America/Los_Angeles:20260305T093000
+DTEND;TZID=America/Los_Angeles:20260305T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Orientation to 
+ CAT and TB
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T105538Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: P
+ lease go to <a href="http://www.worksourcewa.com" target="_blank">WorkSo
+ urceWA.com</a> and create your account prior to attending this workshop.
+ <br>Event Registration: Sign Up Required<br>Approved Unemployment Insura
+ nce (UI) Job Search Activity: Yes<br><br>Are you receiving Unemployment 
+ Insurance benefits and considering enrolling in some additional training
+  to enhance your skills or to change your career path? If so\, you will 
+ need to apply for Commissioner-Approved Training (CAT) and/or Training B
+ enefits (TB). This workshop will guide you through the requirements\, pr
+ ocesses\, and research needed to submit an application.
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg
+UID:http://uid.trumba.com/event/193199478
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199478
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:***CANCELLED*** Interviewing &#8211\; Job Hunter Virtual Worksho
+ p - Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260305T130000
+DTEND;TZID=America/Los_Angeles:20260305T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260223T090105Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Being able to handle a job interview
+  is a necessity for any job seeker. Knowing what employers are looking f
+ or and being prepared can significantly increase your chances of securin
+ g the job. In this workshop\, you will learn valuable interviewing tips 
+ and have the chance to consider answers to frequently asked&#8212\;and s
+ ometimes difficult&#8212\;questions in a supportive\, realistic environm
+ ent.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034244
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034244
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Work for Washington &#8211\; Job Hunter Virtual Workshop &#8211
+ \; Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260310T130000
+DTEND;TZID=America/Los_Angeles:20260310T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T161244Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Would you consider service to the pe
+ ople of the State of Washington? Advantages and benefits of working for 
+ various state agencies will be discussed. In this workshop you&#39\;ll l
+ earn how agencies use different application processes how to prepare to 
+ meet their expectations. Specific tips for applying to state agencies wi
+ ll be provided.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034253
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034253
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: ESD Self&#8208\;Employment Assistance Program (SEAP) 
+ Orientation (Virtual)
+LOCATION:Zoom Online Meeting: Link and meeting information will be share
+ d by e-mail at a minimum of 1 hour before the online workshop begins\, b
+ ut usually the day before.
+DTSTART;TZID=America/Los_Angeles:20260312T093000
+DTEND;TZID=America/Los_Angeles:20260312T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.<br><br>Video conferencing will use a large portio
+ n of bandwidth and data. Before signing up\, be sure you have a data pla
+ n or reliable Wi-Fi access that can accommodate this. To attend the work
+ shop\, you are encouraged to use a device capable of viewing video\, con
+ tent and have audio capability. There is a call-in feature\, if you cann
+ ot log in virtually.<br><br>A waitlist option will be enabled for this e
+ vent. This waitlist is automated and if an attendee drops their registra
+ tion\, the next registrant on the waitlist will be invited. Each worksho
+ p requires a separate registration.<br>When you sign up for this event\,
+  please use the same name and email address that you use with your works
+ ourcewa.com account\, if possible.<br><br>Contact the facilitator listed
+  above in the contact lines for any additional questions or changes.<br>
+ <br>If you need an accommodation to participate in this training\, pleas
+ e contact the facilitators for this workshop. Please provide your name\,
+  accommodation request\, and your town/city of residence. Please make yo
+ ur accommodation request as early as possible so arrangements can be mad
+ e.</p>&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T105829Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: <
+ p>Please go to <a href="http://www.worksourcewa.com" target="_blank">Wor
+ kSourceWA.com</a> and create your account prior to attending this worksh
+ op.\n\nVideo conferencing will use a large portion of bandwidth and data
+ . Before signing up\, be sure you have a data plan or reliable Wi-Fi acc
+ ess that can accommodate this. To attend the workshop\, you are encourag
+ ed to use a device capable of viewing video\, content and have audio cap
+ ability. There is a call-in feature\, if you cannot log in virtually.\n
+ \nA waitlist option will be enabled for this event. This waitlist is auto
+ mated and if an attendee drops their registration\, the next registrant 
+ on the waitlist will be invited. Each workshop requires a separate regis
+ tration.\nWhen you sign up for this event\, please use the same name and
+  email address that you use with your worksourcewa.com account\, if poss
+ ible.\n\nContact the facilitator listed above in the contact lines for a
+ ny additional questions or changes.\n\nIf you need an accommodation to p
+ articipate in this training\, please contact the facilitators for this w
+ orkshop. Please provide your name\, accommodation request\, and your tow
+ n/city of residence. Please make your accommodation request as early as 
+ possible so arrangements can be made.</p>\n\n&nbsp\;<br>Event Registrati
+ on: Sign Up Required<br>Approved Unemployment Insurance (UI) Job Search 
+ Activity: Yes<br><br><p>The Self&#8208\;Employment Assistance Program (S
+ EAP) may be a great opportunity if you want to start a business!<br><br>
+ Once approved\, SEAP is a unique program that enables you to:<br>&#183\;
+  Receive entrepreneurial counseling and business coaching through a pre&
+ #8208\;approved training provider<br>&#183\; Continue to collect Unemplo
+ yment Insurance (UI) benefits while developing your business plans<br>&#
+ 183\; Work on creating your business and waives the weekly work&#8208\;s
+ earch requirement<br><br>You are invited to attend a virtual workshop to
+  explore:<br>&#8226\; What is SEAP? What does SEAP not do?<br>&#8226\; P
+ rogram eligibility requirements and deadlines &#8226\; Locate and downlo
+ ad from the SEAP Approved Provider List<br>&#8226\; What are the respons
+ ibilities of an approved training provider?<br>&#8226\; Research the pro
+ per training on the SEAP Approved Provider List<br>&#8226\; Frequently a
+ sked questions (FAQ)<br>&#8226\; How to properly complete and submit the
+  SEAP Application<br>&#8226\; Certification of Satisfactory Progress<br>
+ &#8226\; Your responsibilities while enrolled in SEAP and to remain elig
+ ible<br>&#8226\; Job Search Requirements\, WorkSource offices\, and cont
+ act information<br><br>For further information\, contact Laura Aunan at 
+ <a href="mailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">l
+ aura.aunan@esd.wa.gov</a></p>
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+UID:http://uid.trumba.com/event/193199503
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199503
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Skills and Abilities Analysis to Build Effective Job Search Stra
+ tegies &#8211\; Job Hunter Virtual Workshop - Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260312T130000
+DTEND;TZID=America/Los_Angeles:20260312T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T161609Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>A key part of your job search is und
+ erstanding your knowledge\, strengths and transferrable skills. Knowing 
+ yourself and what you have to offer often leads to increased confidence 
+ when searching for meaningful work. This workshop will cover Career Inte
+ rest Assessments and using that information to make informed decisions a
+ bout job opportunities and find your next career. Additionally\, we will
+  also cover strategies for uncovering the hidden job market and the best
+  resources for job searching.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034255
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034255
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Effective Applications\, Resumes and Cover Letters &#8211\; Job 
+ Hunter Virtual Workshop &#8211\; Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260317T130000
+DTEND;TZID=America/Los_Angeles:20260317T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T161917Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Understanding the employer&#8217\;s 
+ point of view is crucial in any job search. In this workshop\, you&#39\;
+ ll learn how employers evaluate Applications\, Resumes and Cover Letters
+  and how to be better prepared to meet an employer&#8217\;s expectations
+ . Additionally\, we will cover how to create a General Application Guide
+  that&#8217\;s helpful when completing paper and online applications as 
+ well as learning which resume and cover letter formats best showcase you
+ r strengths to stand out in a competitive job market.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034258
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034258
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: Orientation to Commissioner-Approved Training (CAT) a
+ nd Training Benefits (TB)
+LOCATION:ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the
+  workshop start time\, usually the day prior to the workshop.
+DTSTART;TZID=America/Los_Angeles:20260319T093000
+DTEND;TZID=America/Los_Angeles:20260319T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Orientation to 
+ CAT and TB
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T110000Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: P
+ lease go to <a href="http://www.worksourcewa.com" target="_blank">WorkSo
+ urceWA.com</a> and create your account prior to attending this workshop.
+ <br>Event Registration: Sign Up Required<br>Approved Unemployment Insura
+ nce (UI) Job Search Activity: Yes<br><br>Are you receiving Unemployment 
+ Insurance benefits and considering enrolling in some additional training
+  to enhance your skills or to change your career path? If so\, you will 
+ need to apply for Commissioner-Approved Training (CAT) and/or Training B
+ enefits (TB). This workshop will guide you through the requirements\, pr
+ ocesses\, and research needed to submit an application.
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg
+UID:http://uid.trumba.com/event/193199479
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199479
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Interviewing &#8211\; Job Hunter Virtual Workshop - Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260319T130000
+DTEND;TZID=America/Los_Angeles:20260319T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T162635Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Being able to handle a job interview
+  is a necessity for any job seeker. Knowing what employers are looking f
+ or and being prepared can significantly increase your chances of securin
+ g the job. In this workshop\, you will learn valuable interviewing tips 
+ and have the chance to consider answers to frequently asked&#8212\;and s
+ ometimes difficult&#8212\;questions in a supportive\, realistic environm
+ ent.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034261
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034261
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Work for Washington &#8211\; Job Hunter Virtual Workshop &#8211
+ \; Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260324T130000
+DTEND;TZID=America/Los_Angeles:20260324T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T162950Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Would you consider service to the pe
+ ople of the State of Washington? Advantages and benefits of working for 
+ various state agencies will be discussed. In this workshop you&#39\;ll l
+ earn how agencies use different application processes how to prepare to 
+ meet their expectations. Specific tips for applying to state agencies wi
+ ll be provided.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034263
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034263
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: ESD Self&#8208\;Employment Assistance Program (SEAP) 
+ Orientation (Virtual)
+LOCATION:Zoom Online Meeting: Link and meeting information will be share
+ d by e-mail at a minimum of 1 hour before the online workshop begins\, b
+ ut usually the day before.
+DTSTART;TZID=America/Los_Angeles:20260326T093000
+DTEND;TZID=America/Los_Angeles:20260326T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.<br><br>Video conferencing will use a large portio
+ n of bandwidth and data. Before signing up\, be sure you have a data pla
+ n or reliable Wi-Fi access that can accommodate this. To attend the work
+ shop\, you are encouraged to use a device capable of viewing video\, con
+ tent and have audio capability. There is a call-in feature\, if you cann
+ ot log in virtually.<br><br>A waitlist option will be enabled for this e
+ vent. This waitlist is automated and if an attendee drops their registra
+ tion\, the next registrant on the waitlist will be invited. Each worksho
+ p requires a separate registration.<br>When you sign up for this event\,
+  please use the same name and email address that you use with your works
+ ourcewa.com account\, if possible.<br><br>Contact the facilitator listed
+  above in the contact lines for any additional questions or changes.<br>
+ <br>If you need an accommodation to participate in this training\, pleas
+ e contact the facilitators for this workshop. Please provide your name\,
+  accommodation request\, and your town/city of residence. Please make yo
+ ur accommodation request as early as possible so arrangements can be mad
+ e.</p>&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T110036Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: <
+ p>Please go to <a href="http://www.worksourcewa.com" target="_blank">Wor
+ kSourceWA.com</a> and create your account prior to attending this worksh
+ op.\n\nVideo conferencing will use a large portion of bandwidth and data
+ . Before signing up\, be sure you have a data plan or reliable Wi-Fi acc
+ ess that can accommodate this. To attend the workshop\, you are encourag
+ ed to use a device capable of viewing video\, content and have audio cap
+ ability. There is a call-in feature\, if you cannot log in virtually.\n
+ \nA waitlist option will be enabled for this event. This waitlist is auto
+ mated and if an attendee drops their registration\, the next registrant 
+ on the waitlist will be invited. Each workshop requires a separate regis
+ tration.\nWhen you sign up for this event\, please use the same name and
+  email address that you use with your worksourcewa.com account\, if poss
+ ible.\n\nContact the facilitator listed above in the contact lines for a
+ ny additional questions or changes.\n\nIf you need an accommodation to p
+ articipate in this training\, please contact the facilitators for this w
+ orkshop. Please provide your name\, accommodation request\, and your tow
+ n/city of residence. Please make your accommodation request as early as 
+ possible so arrangements can be made.</p>\n\n&nbsp\;<br>Event Registrati
+ on: Sign Up Required<br>Approved Unemployment Insurance (UI) Job Search 
+ Activity: Yes<br><br><p>The Self&#8208\;Employment Assistance Program (S
+ EAP) may be a great opportunity if you want to start a business!<br><br>
+ Once approved\, SEAP is a unique program that enables you to:<br>&#183\;
+  Receive entrepreneurial counseling and business coaching through a pre&
+ #8208\;approved training provider<br>&#183\; Continue to collect Unemplo
+ yment Insurance (UI) benefits while developing your business plans<br>&#
+ 183\; Work on creating your business and waives the weekly work&#8208\;s
+ earch requirement<br><br>You are invited to attend a virtual workshop to
+  explore:<br>&#8226\; What is SEAP? What does SEAP not do?<br>&#8226\; P
+ rogram eligibility requirements and deadlines &#8226\; Locate and downlo
+ ad from the SEAP Approved Provider List<br>&#8226\; What are the respons
+ ibilities of an approved training provider?<br>&#8226\; Research the pro
+ per training on the SEAP Approved Provider List<br>&#8226\; Frequently a
+ sked questions (FAQ)<br>&#8226\; How to properly complete and submit the
+  SEAP Application<br>&#8226\; Certification of Satisfactory Progress<br>
+ &#8226\; Your responsibilities while enrolled in SEAP and to remain elig
+ ible<br>&#8226\; Job Search Requirements\, WorkSource offices\, and cont
+ act information<br><br>For further information\, contact Laura Aunan at 
+ <a href="mailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">l
+ aura.aunan@esd.wa.gov</a></p>
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+UID:http://uid.trumba.com/event/193199504
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199504
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Skills and Abilities Analysis to Build Effective Job Search Stra
+ tegies &#8211\; Job Hunter Virtual Workshop - Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260326T130000
+DTEND;TZID=America/Los_Angeles:20260326T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T163320Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>A key part of your job search is und
+ erstanding your knowledge\, strengths and transferrable skills. Knowing 
+ yourself and what you have to offer often leads to increased confidence 
+ when searching for meaningful work. This workshop will cover Career Inte
+ rest Assessments and using that information to make informed decisions a
+ bout job opportunities and find your next career. Additionally\, we will
+  also cover strategies for uncovering the hidden job market and the best
+  resources for job searching.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034273
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034273
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Effective Applications\, Resumes and Cover Letters &#8211\; Job 
+ Hunter Virtual Workshop &#8211\; Statewide
+LOCATION:Virtual via Zoom
+DTSTART;TZID=America/Los_Angeles:20260331T130000
+DTEND;TZID=America/Los_Angeles:20260331T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Virtua
+ l Services Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:ESDGPVirtualServices@esd.wa.gov" target="_blank" rel="noopener">ES
+ DGPVirtualServices@esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&#8217\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov" target="_blank" rel="noopener">ESDGPVirtualServices@esd.wa.gov</a> 
+ to your email contacts\, so your email will recognize - not reject - the
+  invitation message with link.</p><p>When you sign up for this event\, p
+ lease use the same name and email address that you use with your worksou
+ rcewa.com account.</p><p>Contact the facilitators listed above in the co
+ ntact lines for any additional questions or changes.</p><p>If you need a
+ n accommodation for a disability to participate in this training\, pleas
+ e contact the facilitators listed as contacts in this event. Provide you
+ r name\, accommodation request\, and your town/city of residence. Please
+  make your accommodation request as early as possible so arrangements ca
+ n be made. If you have limited English proficiency and need information 
+ in a language other than English\, please contact the facilitators for l
+ anguage assistance.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260123T163641Z
+DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
+ irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
+ onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
+ target="_blank">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.</p><p>Video conferencing will use a large portion
+  of bandwidth and data. Before signing up\, be sure you have a data plan
+  or reliable WiFi access that can accommodate this. To attend the worksh
+ op\, you are encouraged to use a device capable of viewing video and con
+ tent and have audio capability.</p><p>Waitlists are automated. If a pers
+ on cancels their registration\, the next person on the waitlist will be 
+ notified. (If you are waitlisted and receive the automated message that 
+ you are invited to register\, you don&rsquo\;t need to take any further 
+ action. The facilitators will send you the class information.) All autom
+ ated system waitlist notifications will be sent the workday prior to the
+  workshop. If you do not receive a notification by that time\, you shoul
+ d not expect to attend that workshop and should register for a future wo
+ rkshop.</p><p>In some cases\, messages from the facilitators or the sign
+ up service may be directed by your email provider to your junk/spam fold
+ er. Please check that folder for system and facilitator messages or invi
+ tes. It is important to add <a href="mailto:ESDGPVirtualServices@esd.wa.
+ gov">ESDGPVirtualServices@esd.wa.gov</a> to your email contacts\, so you
+ r email will recognize - not reject - the invitation message with link.<
+ /p><p>When you sign up for this event\, please use the same name and ema
+ il address that you use with your worksourcewa.com account.</p><p>Contac
+ t the facilitators listed above in the contact lines for any additional 
+ questions or changes.</p><p>If you need an accommodation for a disabilit
+ y to participate in this training\, please contact the facilitators list
+ ed as contacts in this event. Provide your name\, accommodation request
+ \, and your town/city of residence. Please make your accommodation reques
+ t as early as possible so arrangements can be made. If you have limited 
+ English proficiency and need information in a language other than Englis
+ h\, please contact the facilitators for language assistance.</p><br>Even
+ t Registration: Sign Up Required<br>Approved Unemployment Insurance (UI)
+  Job Search Activity: Yes<br><br><p>Understanding the employer&#8217\;s 
+ point of view is crucial in any job search. In this workshop\, you&#39\;
+ ll learn how employers evaluate Applications\, Resumes and Cover Letters
+  and how to be better prepared to meet an employer&#8217\;s expectations
+ . Additionally\, we will cover how to create a General Application Guide
+  that&#8217\;s helpful when completing paper and online applications as 
+ well as learning which resume and cover letter formats best showcase you
+ r strengths to stand out in a competitive job market.</p>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/196034276
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d196034276
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: Orientation to Commissioner-Approved Training (CAT) a
+ nd Training Benefits (TB)
+LOCATION:ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the
+  workshop start time\, usually the day prior to the workshop.
+DTSTART;TZID=America/Los_Angeles:20260402T093000
+DTEND;TZID=America/Los_Angeles:20260402T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Orientation to 
+ CAT and TB
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T110102Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: P
+ lease go to <a href="http://www.worksourcewa.com" target="_blank">WorkSo
+ urceWA.com</a> and create your account prior to attending this workshop.
+ <br>Event Registration: Sign Up Required<br>Approved Unemployment Insura
+ nce (UI) Job Search Activity: Yes<br><br>Are you receiving Unemployment 
+ Insurance benefits and considering enrolling in some additional training
+  to enhance your skills or to change your career path? If so\, you will 
+ need to apply for Commissioner-Approved Training (CAT) and/or Training B
+ enefits (TB). This workshop will guide you through the requirements\, pr
+ ocesses\, and research needed to submit an application.
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg
+UID:http://uid.trumba.com/event/193199481
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199481
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:WIOA Employment &amp\; Training Program
+LOCATION:2024 3rd Ave<br>Seattle\, WA 98121
+DTSTART;TZID=America/Los_Angeles:20260407T100000
+DTEND;TZID=America/Los_Angeles:20260407T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Room";ID=28326;TYPE=SingleLine:Classroom 212
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260210T144849Z
+DESCRIPTION:Room: Classroom 212<br>Workshop Language Option: English<br>
+ Additional Information: Please go to <a href="http://www.worksourcewa.co
+ m" target="_blank">WorkSourceWA.com</a> and create your account prior to
+  attending this workshop.<br>Approved Unemployment Insurance (UI) Job Se
+ arch Activity: Yes<br><br>YWCA&#39\;s WIOA Employment Program provides l
+ ow-income people with a full range of individualized employment and supp
+ ort services needed to achieve self-sufficiency.<ul> <li>Career developm
+ ent and coaching&#160\;	</li><li>Job search and placement assistance	</l
+ i><li>Identifying strengths and barriers&#160\;	</li><li>Clothing and tr
+ ansportation support	</li><li>Referrals to community resources&#160\;	</
+ li><li>Financial Education and resources</li></ul>
+CATEGORIES:WorkSource Downtown Seattle
+UID:http://uid.trumba.com/event/197111780
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d197111780
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: ESD Self&#8208\;Employment Assistance Program (SEAP) 
+ Orientation (Virtual)
+LOCATION:Zoom Online Meeting: Link and meeting information will be share
+ d by e-mail at a minimum of 1 hour before the online workshop begins\, b
+ ut usually the day before.
+DTSTART;TZID=America/Los_Angeles:20260409T093000
+DTEND;TZID=America/Los_Angeles:20260409T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.<br><br>Video conferencing will use a large portio
+ n of bandwidth and data. Before signing up\, be sure you have a data pla
+ n or reliable Wi-Fi access that can accommodate this. To attend the work
+ shop\, you are encouraged to use a device capable of viewing video\, con
+ tent and have audio capability. There is a call-in feature\, if you cann
+ ot log in virtually.<br><br>A waitlist option will be enabled for this e
+ vent. This waitlist is automated and if an attendee drops their registra
+ tion\, the next registrant on the waitlist will be invited. Each worksho
+ p requires a separate registration.<br>When you sign up for this event\,
+  please use the same name and email address that you use with your works
+ ourcewa.com account\, if possible.<br><br>Contact the facilitator listed
+  above in the contact lines for any additional questions or changes.<br>
+ <br>If you need an accommodation to participate in this training\, pleas
+ e contact the facilitators for this workshop. Please provide your name\,
+  accommodation request\, and your town/city of residence. Please make yo
+ ur accommodation request as early as possible so arrangements can be mad
+ e.</p>&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T110132Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: <
+ p>Please go to <a href="http://www.worksourcewa.com" target="_blank">Wor
+ kSourceWA.com</a> and create your account prior to attending this worksh
+ op.\n\nVideo conferencing will use a large portion of bandwidth and data
+ . Before signing up\, be sure you have a data plan or reliable Wi-Fi acc
+ ess that can accommodate this. To attend the workshop\, you are encourag
+ ed to use a device capable of viewing video\, content and have audio cap
+ ability. There is a call-in feature\, if you cannot log in virtually.\n
+ \nA waitlist option will be enabled for this event. This waitlist is auto
+ mated and if an attendee drops their registration\, the next registrant 
+ on the waitlist will be invited. Each workshop requires a separate regis
+ tration.\nWhen you sign up for this event\, please use the same name and
+  email address that you use with your worksourcewa.com account\, if poss
+ ible.\n\nContact the facilitator listed above in the contact lines for a
+ ny additional questions or changes.\n\nIf you need an accommodation to p
+ articipate in this training\, please contact the facilitators for this w
+ orkshop. Please provide your name\, accommodation request\, and your tow
+ n/city of residence. Please make your accommodation request as early as 
+ possible so arrangements can be made.</p>\n\n&nbsp\;<br>Event Registrati
+ on: Sign Up Required<br>Approved Unemployment Insurance (UI) Job Search 
+ Activity: Yes<br><br><p>The Self&#8208\;Employment Assistance Program (S
+ EAP) may be a great opportunity if you want to start a business!<br><br>
+ Once approved\, SEAP is a unique program that enables you to:<br>&#183\;
+  Receive entrepreneurial counseling and business coaching through a pre&
+ #8208\;approved training provider<br>&#183\; Continue to collect Unemplo
+ yment Insurance (UI) benefits while developing your business plans<br>&#
+ 183\; Work on creating your business and waives the weekly work&#8208\;s
+ earch requirement<br><br>You are invited to attend a virtual workshop to
+  explore:<br>&#8226\; What is SEAP? What does SEAP not do?<br>&#8226\; P
+ rogram eligibility requirements and deadlines &#8226\; Locate and downlo
+ ad from the SEAP Approved Provider List<br>&#8226\; What are the respons
+ ibilities of an approved training provider?<br>&#8226\; Research the pro
+ per training on the SEAP Approved Provider List<br>&#8226\; Frequently a
+ sked questions (FAQ)<br>&#8226\; How to properly complete and submit the
+  SEAP Application<br>&#8226\; Certification of Satisfactory Progress<br>
+ &#8226\; Your responsibilities while enrolled in SEAP and to remain elig
+ ible<br>&#8226\; Job Search Requirements\, WorkSource offices\, and cont
+ act information<br><br>For further information\, contact Laura Aunan at 
+ <a href="mailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">l
+ aura.aunan@esd.wa.gov</a></p>
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+UID:http://uid.trumba.com/event/193199506
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199506
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: Orientation to Commissioner-Approved Training (CAT) a
+ nd Training Benefits (TB)
+LOCATION:ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the
+  workshop start time\, usually the day prior to the workshop.
+DTSTART;TZID=America/Los_Angeles:20260416T093000
+DTEND;TZID=America/Los_Angeles:20260416T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Orientation to 
+ CAT and TB
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T110154Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: P
+ lease go to <a href="http://www.worksourcewa.com" target="_blank">WorkSo
+ urceWA.com</a> and create your account prior to attending this workshop.
+ <br>Event Registration: Sign Up Required<br>Approved Unemployment Insura
+ nce (UI) Job Search Activity: Yes<br><br>Are you receiving Unemployment 
+ Insurance benefits and considering enrolling in some additional training
+  to enhance your skills or to change your career path? If so\, you will 
+ need to apply for Commissioner-Approved Training (CAT) and/or Training B
+ enefits (TB). This workshop will guide you through the requirements\, pr
+ ocesses\, and research needed to submit an application.
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgD6Q-UhlWPsStP2KgcLRtTL.jpg
+UID:http://uid.trumba.com/event/193199482
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199482
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:STATEWIDE: ESD Self&#8208\;Employment Assistance Program (SEAP) 
+ Orientation (Virtual)
+LOCATION:Zoom Online Meeting: Link and meeting information will be share
+ d by e-mail at a minimum of 1 hour before the online workshop begins\, b
+ ut usually the day before.
+DTSTART;TZID=America/Los_Angeles:20260423T093000
+DTEND;TZID=America/Los_Angeles:20260423T110000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Laura 
+ Aunan
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">laura.aunan
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:<p>Please go to <a href="http://www.worksourcewa.com" target="_blank"
+  rel="noopener">WorkSourceWA.com</a> and create your account prior to at
+ tending this workshop.<br><br>Video conferencing will use a large portio
+ n of bandwidth and data. Before signing up\, be sure you have a data pla
+ n or reliable Wi-Fi access that can accommodate this. To attend the work
+ shop\, you are encouraged to use a device capable of viewing video\, con
+ tent and have audio capability. There is a call-in feature\, if you cann
+ ot log in virtually.<br><br>A waitlist option will be enabled for this e
+ vent. This waitlist is automated and if an attendee drops their registra
+ tion\, the next registrant on the waitlist will be invited. Each worksho
+ p requires a separate registration.<br>When you sign up for this event\,
+  please use the same name and email address that you use with your works
+ ourcewa.com account\, if possible.<br><br>Contact the facilitator listed
+  above in the contact lines for any additional questions or changes.<br>
+ <br>If you need an accommodation to participate in this training\, pleas
+ e contact the facilitators for this workshop. Please provide your name\,
+  accommodation request\, and your town/city of residence. Please make yo
+ ur accommodation request as early as possible so arrangements can be mad
+ e.</p>&#160\;
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg" target="_blank" rel="
+ noopener" title="https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+ ">www.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260209T110636Z
+DESCRIPTION:Contact Name: Laura Aunan<br>Contact Email: laura.aunan@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: <
+ p>Please go to <a href="http://www.worksourcewa.com" target="_blank">Wor
+ kSourceWA.com</a> and create your account prior to attending this worksh
+ op.\n\nVideo conferencing will use a large portion of bandwidth and data
+ . Before signing up\, be sure you have a data plan or reliable Wi-Fi acc
+ ess that can accommodate this. To attend the workshop\, you are encourag
+ ed to use a device capable of viewing video\, content and have audio cap
+ ability. There is a call-in feature\, if you cannot log in virtually.\n
+ \nA waitlist option will be enabled for this event. This waitlist is auto
+ mated and if an attendee drops their registration\, the next registrant 
+ on the waitlist will be invited. Each workshop requires a separate regis
+ tration.\nWhen you sign up for this event\, please use the same name and
+  email address that you use with your worksourcewa.com account\, if poss
+ ible.\n\nContact the facilitator listed above in the contact lines for a
+ ny additional questions or changes.\n\nIf you need an accommodation to p
+ articipate in this training\, please contact the facilitators for this w
+ orkshop. Please provide your name\, accommodation request\, and your tow
+ n/city of residence. Please make your accommodation request as early as 
+ possible so arrangements can be made.</p>\n\n&nbsp\;<br>Event Registrati
+ on: Sign Up Required<br>Approved Unemployment Insurance (UI) Job Search 
+ Activity: Yes<br><br><p>The Self&#8208\;Employment Assistance Program (S
+ EAP) may be a great opportunity if you want to start a business!<br><br>
+ Once approved\, SEAP is a unique program that enables you to:<br>&#183\;
+  Receive entrepreneurial counseling and business coaching through a pre&
+ #8208\;approved training provider<br>&#183\; Continue to collect Unemplo
+ yment Insurance (UI) benefits while developing your business plans<br>&#
+ 183\; Work on creating your business and waives the weekly work&#8208\;s
+ earch requirement<br><br>You are invited to attend a virtual workshop to
+  explore:<br>&#8226\; What is SEAP? What does SEAP not do?<br>&#8226\; P
+ rogram eligibility requirements and deadlines &#8226\; Locate and downlo
+ ad from the SEAP Approved Provider List<br>&#8226\; What are the respons
+ ibilities of an approved training provider?<br>&#8226\; Research the pro
+ per training on the SEAP Approved Provider List<br>&#8226\; Frequently a
+ sked questions (FAQ)<br>&#8226\; How to properly complete and submit the
+  SEAP Application<br>&#8226\; Certification of Satisfactory Progress<br>
+ &#8226\; Your responsibilities while enrolled in SEAP and to remain elig
+ ible<br>&#8226\; Job Search Requirements\, WorkSource offices\, and cont
+ act information<br><br>For further information\, contact Laura Aunan at 
+ <a href="mailto:laura.aunan@esd.wa.gov" target="_blank" rel="noopener">l
+ aura.aunan@esd.wa.gov</a></p>
+CATEGORIES:WorkSource Downtown Seattle
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBw%2ASqentWD83FlOzJ-cL7U.jpg
+UID:http://uid.trumba.com/event/193199466
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d193199466
+END:VEVENT
+END:VCALENDAR

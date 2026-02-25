@@ -95,6 +95,8 @@ export interface RipperCalendarEvent {
     url?: string;
     image?: string;  // URL to the event image
     rrule?: string;  // RFC 5545 RRULE for recurring events
+    sourceCalendar?: string;      // Source calendar friendly name (set during aggregation)
+    sourceCalendarName?: string;  // Source calendar slug (set during aggregation)
 };
 
 export type RipperEvent = RipperCalendarEvent | RipperError;
@@ -137,6 +139,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
             url: e.url?.startsWith('http') ? new URL(e.url).toString() : undefined,
+            categories: e.sourceCalendar ? [e.sourceCalendar] : undefined,
         };
         
         // Add RRULE if present
@@ -162,6 +165,23 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             );
         }
     });
+
+    // Post-process to add X-CALRIPPER-SOURCE for events with source tracking
+    if (calendar.events.some(e => e.sourceCalendarName)) {
+        const parts = ics.split('BEGIN:VEVENT');
+        const header = parts[0];
+        const eventParts = parts.slice(1);
+
+        const processed = eventParts.map((block, i) => {
+            const event = calendar.events[i];
+            if (event?.sourceCalendarName) {
+                return `BEGIN:VEVENT\r\nX-CALRIPPER-SOURCE:${event.sourceCalendarName}${block}`;
+            }
+            return `BEGIN:VEVENT${block}`;
+        });
+
+        ics = header + processed.join('');
+    }
 
     return ics;
 }

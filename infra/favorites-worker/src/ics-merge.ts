@@ -3,6 +3,10 @@ export function mergeIcsFiles(icsContents: string[]): string {
   const eventBlocks: string[] = []
 
   for (const ics of icsContents) {
+    // Extract calendar name from X-WR-CALNAME header for source identification
+    const calNameMatch = ics.match(/^X-WR-CALNAME:(.+)$/m)
+    const calName = calNameMatch ? calNameMatch[1].trim() : null
+
     const events = ics.split('BEGIN:VEVENT')
     for (let i = 1; i < events.length; i++) {
       const block = events[i].split('END:VEVENT')[0]
@@ -12,7 +16,14 @@ export function mergeIcsFiles(icsContents: string[]): string {
       if (uid && seenUids.has(uid)) continue
       if (uid) seenUids.add(uid)
 
-      eventBlocks.push(`BEGIN:VEVENT${block}END:VEVENT`)
+      // Inject source identification if we know the calendar name
+      // and the event doesn't already have X-CALRIPPER-SOURCE (tag aggregates already have it)
+      let enrichedBlock = block
+      if (calName && !block.includes('X-CALRIPPER-SOURCE:')) {
+        enrichedBlock = `\r\nX-CALRIPPER-SOURCE:${calName}\r\nCATEGORIES:${calName}${block}`
+      }
+
+      eventBlocks.push(`BEGIN:VEVENT${enrichedBlock}END:VEVENT`)
     }
   }
 

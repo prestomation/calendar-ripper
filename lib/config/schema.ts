@@ -129,7 +129,9 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
             startInputType: "utc",
             start: [utcDate.year(), utcDate.monthValue(), utcDate.dayOfMonth(), utcDate.hour(), utcDate.minute()],
             duration: { hours: e.duration.toHours(), minutes: e.duration.toMinutes() % 60 },
-            description: e.description,
+            description: e.url?.startsWith('http')
+                ? (e.description ? `${e.description}\n\n${e.url}` : e.url)
+                : e.description,
             location: e.location,
             productId: "CalendarRipper",
             transp: "TRANSPARENT",

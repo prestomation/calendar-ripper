@@ -56,9 +56,9 @@ export class RecurringEventProcessor {
     }
 
     private generateRRuleEvent(event: RecurringEvent, startDate: LocalDate): RipperCalendarEvent[] {
-        const { ordinal, dayOfWeek } = this.parseSchedule(event.schedule);
+        const { ordinals, dayOfWeek } = this.parseSchedule(event.schedule);
 
-        if (ordinal === null || dayOfWeek === null) {
+        if (ordinals.length === 0 || dayOfWeek === null) {
             return []; // Skip invalid schedules
         }
 
@@ -66,7 +66,7 @@ export class RecurringEventProcessor {
         const allowedMonths = event.months ?? (event.seasonal ? this.getSeasonalMonths(event.seasonal) : []);
 
         // Find the first occurrence on or after startDate, respecting month restrictions
-        const firstOccurrence = this.findNextOccurrence(startDate, ordinal, dayOfWeek, allowedMonths);
+        const firstOccurrence = this.findNextOccurrence(startDate, ordinals, dayOfWeek, allowedMonths);
         if (!firstOccurrence) {
             return [];
         }
@@ -78,7 +78,7 @@ export class RecurringEventProcessor {
         );
 
         // Generate RRULE based on schedule
-        const rrule = this.generateRRule(ordinal, dayOfWeek, allowedMonths);
+        const rrule = this.generateRRule(ordinals, dayOfWeek, allowedMonths);
 
         const calendarEvent: RipperCalendarEvent = {
             id: event.name,
@@ -95,11 +95,11 @@ export class RecurringEventProcessor {
         return [calendarEvent];
     }
 
-    private generateRRule(ordinal: number, dayOfWeek: DayOfWeek, allowedMonths: number[]): string {
+    private generateRRule(ordinals: number[], dayOfWeek: DayOfWeek, allowedMonths: number[]): string {
         const dayAbbr = this.getDayAbbreviation(dayOfWeek);
         const byMonth = allowedMonths.length > 0 ? `;BYMONTH=${allowedMonths.join(',')}` : '';
 
-        if (ordinal === 0) {
+        if (ordinals.length === 1 && ordinals[0] === 0) {
             // Weekly recurring. When month-restricted, use FREQ=YEARLY with
             // BYDAY+BYMONTH instead of FREQ=WEEKLY+BYMONTH because many
             // calendar apps (Google, Apple) don't properly filter FREQ=WEEKLY
@@ -110,7 +110,8 @@ export class RecurringEventProcessor {
             return `FREQ=WEEKLY;BYDAY=${dayAbbr}`;
         }
 
-        return `FREQ=MONTHLY;BYDAY=${ordinal}${dayAbbr}${byMonth}`;
+        const byDay = ordinals.map(o => `${o}${dayAbbr}`).join(',');
+        return `FREQ=MONTHLY;BYDAY=${byDay}${byMonth}`;
     }
 
     private getDayAbbreviation(dayOfWeek: DayOfWeek): string {
@@ -142,9 +143,9 @@ export class RecurringEventProcessor {
         }
     }
 
-    private findNextOccurrence(startDate: LocalDate, ordinal: number, dayOfWeek: DayOfWeek, allowedMonths: number[]): LocalDate | null {
+    private findNextOccurrence(startDate: LocalDate, ordinals: number[], dayOfWeek: DayOfWeek, allowedMonths: number[]): LocalDate | null {
         // Weekly events (ordinal = 0): find the next occurrence of the day of week
-        if (ordinal === 0) {
+        if (ordinals.length === 1 && ordinals[0] === 0) {
             let candidate = startDate.with(TemporalAdjusters.nextOrSame(dayOfWeek));
             if (allowedMonths.length > 0) {
                 // Advance week by week until we land in an allowed month (cap at 12 months)
@@ -171,17 +172,22 @@ export class RecurringEventProcessor {
                 continue;
             }
 
-            const occurrence = this.findNthDayOfWeekInMonth(testMonth, ordinal, dayOfWeek);
+            // Find the earliest occurrence across all ordinals in this month
+            const candidates = ordinals
+                .map(ordinal => this.findNthDayOfWeekInMonth(testMonth, ordinal, dayOfWeek))
+                .filter((d): d is LocalDate => d !== null)
+                .filter(d => d.isAfter(startDate) || d.isEqual(startDate))
+                .sort((a, b) => a.compareTo(b));
 
-            if (occurrence && (occurrence.isAfter(startDate) || occurrence.isEqual(startDate))) {
-                return occurrence;
+            if (candidates.length > 0) {
+                return candidates[0];
             }
         }
 
         return null;
     }
 
-    private parseSchedule(schedule: string): { ordinal: number | null, dayOfWeek: DayOfWeek | null } {
+    private parseSchedule(schedule: string): { ordinals: number[], dayOfWeek: DayOfWeek | null } {
         const dayMap: { [key: string]: DayOfWeek } = {
             'monday': DayOfWeek.MONDAY,
             'tuesday': DayOfWeek.TUESDAY,
@@ -197,7 +203,7 @@ export class RecurringEventProcessor {
         if (everyMatch) {
             const dayName = everyMatch[1].toLowerCase();
             return {
-                ordinal: 0,
+                ordinals: [0],
                 dayOfWeek: dayMap[dayName] || null
             };
         }
@@ -207,21 +213,33 @@ export class RecurringEventProcessor {
         if (lastMatch) {
             const dayName = lastMatch[1].toLowerCase();
             return {
-                ordinal: -1,
+                ordinals: [-1],
+                dayOfWeek: dayMap[dayName] || null
+            };
+        }
+
+        // Support compound "1st and 3rd Tuesday" format
+        const compoundMatch = schedule.match(/^(\d+)(?:st|nd|rd|th)\s+and\s+(\d+)(?:st|nd|rd|th)\s+(\w+)$/i);
+        if (compoundMatch) {
+            const ordinal1 = parseInt(compoundMatch[1]);
+            const ordinal2 = parseInt(compoundMatch[2]);
+            const dayName = compoundMatch[3].toLowerCase();
+            return {
+                ordinals: [ordinal1, ordinal2],
                 dayOfWeek: dayMap[dayName] || null
             };
         }
 
         const match = schedule.match(/^(\d+)(?:st|nd|rd|th)\s+(\w+)$/i);
         if (!match) {
-            return { ordinal: null, dayOfWeek: null };
+            return { ordinals: [], dayOfWeek: null };
         }
 
         const ordinal = parseInt(match[1]);
         const dayName = match[2].toLowerCase();
 
         return {
-            ordinal,
+            ordinals: [ordinal],
             dayOfWeek: dayMap[dayName] || null
         };
     }

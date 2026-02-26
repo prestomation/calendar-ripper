@@ -247,6 +247,102 @@ events:
       expect(event.rrule).toBe('FREQ=MONTHLY;BYDAY=2WE;BYMONTH=5,6,7,8,9');
     });
 
+    it('should generate compound schedule with "1st and 3rd Tuesday"', () => {
+      const mockYaml = `
+events:
+  - name: open-mic
+    friendlyname: "Open Mic Night"
+    description: "Twice-monthly open mic"
+    schedule: "1st and 3rd Tuesday"
+    timezone: "America/Los_Angeles"
+    duration: "PT2H"
+    start_time: "20:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["OpenMic"]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+
+      // Start on Jan 1, 2024 (Monday)
+      const startDate = LocalDate.of(2024, 1, 1);
+      const endDate = LocalDate.of(2024, 3, 31);
+
+      const calendars = processor.generateCalendars(startDate, endDate);
+
+      expect(calendars).toHaveLength(1);
+      expect(calendars[0].events).toHaveLength(1);
+
+      const event = calendars[0].events[0];
+      // First Tuesday on or after Jan 1 is Jan 2 (1st Tuesday of January)
+      expect(event.date.dayOfWeek().value()).toBe(2); // Tuesday
+      expect(event.date.dayOfMonth()).toBe(2);
+      expect(event.rrule).toBe('FREQ=MONTHLY;BYDAY=1TU,3TU');
+    });
+
+    it('should pick earliest ordinal for DTSTART with compound schedule', () => {
+      const mockYaml = `
+events:
+  - name: open-mic
+    friendlyname: "Open Mic Night"
+    description: "Twice-monthly open mic"
+    schedule: "1st and 3rd Tuesday"
+    timezone: "America/Los_Angeles"
+    duration: "PT2H"
+    start_time: "20:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["OpenMic"]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+
+      // Start on Jan 10, 2024 — after 1st Tuesday (Jan 2) but before 3rd Tuesday (Jan 16)
+      const startDate = LocalDate.of(2024, 1, 10);
+      const endDate = LocalDate.of(2024, 3, 31);
+
+      const calendars = processor.generateCalendars(startDate, endDate);
+
+      expect(calendars).toHaveLength(1);
+      const event = calendars[0].events[0];
+      // Should pick 3rd Tuesday (Jan 16) since 1st Tuesday (Jan 2) is before startDate
+      expect(event.date.dayOfMonth()).toBe(16);
+      expect(event.date.monthValue()).toBe(1);
+      expect(event.rrule).toBe('FREQ=MONTHLY;BYDAY=1TU,3TU');
+    });
+
+    it('should support compound schedule with month restriction', () => {
+      const mockYaml = `
+events:
+  - name: summer-open-mic
+    friendlyname: "Summer Open Mic"
+    description: "Twice-monthly open mic in summer"
+    schedule: "2nd and 4th Friday"
+    timezone: "America/Los_Angeles"
+    duration: "PT2H"
+    start_time: "19:00"
+    location: "Test Location"
+    url: "https://example.com"
+    tags: ["OpenMic"]
+    months: [6, 7, 8]
+`;
+      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+
+      const processor = new RecurringEventProcessor('/fake/path.yaml');
+
+      const startDate = LocalDate.of(2024, 1, 1);
+      const endDate = LocalDate.of(2024, 12, 31);
+
+      const calendars = processor.generateCalendars(startDate, endDate);
+
+      expect(calendars).toHaveLength(1);
+      const event = calendars[0].events[0];
+      expect(event.date.monthValue()).toBe(6); // June (first allowed month)
+      expect(event.rrule).toBe('FREQ=MONTHLY;BYDAY=2FR,4FR;BYMONTH=6,7,8');
+    });
+
     it('should prefer explicit months over seasonal when both are provided', () => {
       const mockYaml = `
 events:

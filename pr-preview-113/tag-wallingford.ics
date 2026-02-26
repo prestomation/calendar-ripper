@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Wallingford Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:eqi2rjkRmkUKuGVUIJ8OO
+SUMMARY:Wallingford Farmers Market
+DTSTAMP:20260226T080001Z
+DTSTART;TZID=America/Los_Angeles:20260506T150000
+DESCRIPTION:Seasonal Wednesday evening farmers market in Wallingford. Runs 
+	May through September.\n\nFrom Wallingford Farmers Market\n\nhttps://seatt
+	lefarmersmarkets.org/
+URL:https://seattlefarmersmarkets.org/
+LOCATION:Wallingford neighborhood\, Seattle
+X-CALRIPPER-SOURCE:wallingford-farmers-market
+CATEGORIES:Wallingford Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:Ni9StLANcSF9J1DsK18M0
+SUMMARY:Wallingford Art Walk
+DTSTAMP:20260226T080001Z
+DTSTART;TZID=America/Los_Angeles:20260513T180000
+DESCRIPTION:Summer art walk in the Wallingford neighborhood\, May through S
+	eptember\n\nFrom Wallingford Art Walk\n\nhttps://www.facebook.com/wallingf
+	ordartwalk/
+URL:https://www.facebook.com/wallingfordartwalk/
+LOCATION:Wallingford neighborhood\, Seattle
+X-CALRIPPER-SOURCE:wallingford-artwalk
+CATEGORIES:Wallingford Art Walk
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2WE;BYMONTH=5,6,7,8,9
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

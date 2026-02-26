@@ -1,0 +1,192 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:MakersMarket Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:At2Ig4ABZnq_IxSwuSizB
+SUMMARY:Fremont Sunday Market
+DTSTAMP:20260226T080002Z
+DTSTART;TZID=America/Los_Angeles:20260301T100000
+DESCRIPTION:Year-round outdoor Sunday market in Fremont with 150+ vendors i
+	ncluding vintage goods\, crafts\, food\, and local farm produce.\n\nFrom F
+	remont Sunday Market\n\nhttp://www.fremontmarket.com/
+URL:http://www.fremontmarket.com/
+LOCATION:3401 Evanston Ave N\, Seattle
+X-CALRIPPER-SOURCE:fremont-sunday-market
+CATEGORIES:Fremont Sunday Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:eeZrjgfND_a-ohvVKMlM3
+SUMMARY:210 Seattle Night Market
+DTSTAMP:20260226T080002Z
+DTSTART;TZID=America/Los_Angeles:20260305T180000
+DESCRIPTION:Pop-up market during Pioneer Square's First Thursday Art Walk. 
+	20-40 local makers\, vintage curators\, and artists.\n\nFrom 210 Seattle N
+	ight Market\n\nhttps://www.210studioseattle.com/210-market
+URL:https://www.210studioseattle.com/210-market
+LOCATION:Pioneer Square\, Seattle
+X-CALRIPPER-SOURCE:210-seattle-night-market
+CATEGORIES:210 Seattle Night Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1TH
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:Se88LahpEMQmEaNiE1HKu
+SUMMARY:Georgetown Flea Market
+DTSTAMP:20260226T080002Z
+DTSTART;TZID=America/Los_Angeles:20260307T100000
+DESCRIPTION:Monthly flea market at the Georgetown Trailer Park Mall.\n\nFro
+	m Georgetown Flea Market\n\nhttp://georgetowntrailerparkmall.com/events
+URL:http://georgetowntrailerparkmall.com/events
+LOCATION:Georgetown Trailer Park Mall\, Georgetown\, Seattle
+X-CALRIPPER-SOURCE:georgetown-flea-market
+CATEGORIES:Georgetown Flea Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1SA
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:bxglcqr5lIu_VQ9zKHmGg
+SUMMARY:Columbia City Night Market
+DTSTAMP:20260226T080002Z
+DTSTART;TZID=America/Los_Angeles:20260321T180000
+DESCRIPTION:Monthly night market organized by Peace Peloton. 60 local vendo
+	rs\, food trucks\, beer garden\, and live performances. Prioritizes Black-
+	owned businesses. Free\, all ages.\n\nFrom Columbia City Night Market\n\nh
+	ttps://www.peacepeloton.com/night-market
+URL:https://www.peacepeloton.com/night-market
+LOCATION:Columbia City\, Seattle
+X-CALRIPPER-SOURCE:columbia-city-night-market
+CATEGORIES:Columbia City Night Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=3SA
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:EGTSHiRUtxX80S04oNfaZ
+SUMMARY:Bend Handmade Market | Brought to you by Urban Craft Uprising
+DTSTAMP:20260226T080002Z
+DTSTART:20260606T190000Z
+DESCRIPTION:You&#8217\;ll find over 100 makers and artists selling handmade
+	 goods.\n\nFrom Urban Craft Uprising Events\n\nhttps://urbancraftuprising.
+	com/bend-handmade-market/
+URL:https://urbancraftuprising.com/bend-handmade-market/
+LOCATION:100 makers and artists selling handmade goods. For those of you wh
+	o have never been to an Urban Craft Uprising show\, our events feature han
+	dcrafted goods including jewelry\, housewares\, clothing\, toys\, art\, ba
+	th &amp\; body products\, paper goods\, fiber arts\, candles\, and so much
+	 more!
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:Z_3GHI96tfhYhfkm2uMIN
+SUMMARY:Port Townsend Handmade Market
+DTSTAMP:20260226T080002Z
+DTSTART:20260711T190000Z
+DESCRIPTION:) SATURDAY\, July 11th 10AM &#8211\; 5pm | FREE to attend.\n\nF
+	rom Urban Craft Uprising Events\n\nhttps://urbancraftuprising.com/port-tow
+	nsend-handmade-market/
+URL:https://urbancraftuprising.com/port-townsend-handmade-market/
+LOCATION:75 makers and artists selling handmade goods\, as well as food ven
+	dors! We will be setting up along several blocks in the downtown area to s
+	howcase the best handmade products being made here in the Pacific Northwes
+	t. For those of you who have never been to an Urban Craft Uprising show\, 
+	our events feature handcrafted goods including jewelry\, housewares\, clot
+	hing\, toys\, art\, bath &amp\; body products\, paper goods\, fiber arts\,
+	 candles\, and so much more!
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:X3IwdrCG4C6gUhVOPFygG
+SUMMARY:Derby Days | Brought to you by Urban Craft Uprising
+DTSTAMP:20260226T080002Z
+DTSTART:20260725T190000Z
+DESCRIPTION:Derby Days features the longest running community bike race in 
+	the US.\n\nFrom Urban Craft Uprising Events\n\nhttps://urbancraftuprising.
+	com/derby-days/
+URL:https://urbancraftuprising.com/derby-days/
+LOCATION:Magnuson Park
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:kWMwlBZrSfNibsBf9EN4E
+SUMMARY:Urban Craft Uprising Summer Show
+DTSTAMP:20260226T080002Z
+DTSTART:20260725T190000Z
+DESCRIPTION:At our Summer Show\, you can now find 130+ makers all selling h
+	andmade goods both indoors and out\, including jewelry\, housewares\, clot
+	hing\, toys\, bath &amp\; body products\, candles\, and so much more.\n\nF
+	rom Urban Craft Uprising Events\n\nhttps://urbancraftuprising.com/ucu/
+URL:https://urbancraftuprising.com/ucu/
+LOCATION:MAGNUSON PARK
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:9SDoYVb2erkeBNy5PDUk1
+SUMMARY:Coastal Craft Uprising in Seaside | Brought to you by Urban Craft U
+	prising
+DTSTAMP:20260226T080002Z
+DTSTART:20260817T190000Z
+DESCRIPTION:You’ll find 100+ makers and artists selling handmade goods.\n\n
+	From Urban Craft Uprising Events\n\nhttps://urbancraftuprising.com/coastal
+	-craft-uprising/
+URL:https://urbancraftuprising.com/coastal-craft-uprising/
+LOCATION:29457 testimonials-widget type-testimonials-widget status-publish 
+	category-esf-vendors" style="">
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:gwkYOrrnoDGYgVCSN1Efg
+SUMMARY:Urban Craft Market at Fairview
+DTSTAMP:20260226T080002Z
+DTSTART:20261210T200000Z
+DESCRIPTION:If you are looking for last minute gifts for the holiday season
+	\, join us at 400 Fairview to shop with over 25 amazing handmade makers.\n
+	\nFrom Urban Craft Uprising Events\n\nhttps://urbancraftuprising.com/urban
+	-craft-market-at-fairview/
+URL:https://urbancraftuprising.com/urban-craft-market-at-fairview/
+LOCATION:6 class="xu06os2 x1ok221b" style="text-align: center\;">
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+BEGIN:VEVENT
+UID:f1V2QzbJelvl0wIb-RHpc
+SUMMARY:Eleventh Hour Makers Market
+DTSTAMP:20260226T080002Z
+DTSTART:20261219T200000Z
+DESCRIPTION:Urban Craft Uprising is thrilled to partner with Pacific Place 
+	to present the Eleventh Hour Makers Market – your holiday shopping salvati
+	on.\n\nFrom Urban Craft Uprising Events\n\nhttps://urbancraftuprising.com/
+	eleventh-hour-makers-market/
+URL:https://urbancraftuprising.com/eleventh-hour-makers-market/
+LOCATION:PACIFIC PLACE
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Urban Craft Uprising Events
+TRANSP:TRANSPARENT
+DURATION:PT6H
+END:VEVENT
+END:VCALENDAR

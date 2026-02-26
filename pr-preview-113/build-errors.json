@@ -1,0 +1,191 @@
+{
+  "buildTime": "2026-02-26T08:00:18.459Z",
+  "totalErrors": 16,
+  "configErrors": [],
+  "sources": [
+    {
+      "source": "rainier-arts-center",
+      "calendar": "rainier-arts-center",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-downtown",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-asian-art",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-sculpture-park",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-belltown",
+      "calendar": "tag-belltown",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-capitol-hill",
+      "calendar": "tag-capitol-hill",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-downtown",
+      "calendar": "tag-downtown",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-community",
+      "calendar": "tag-community",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-museums",
+      "calendar": "tag-museums",
+      "type": "Aggregate",
+      "errorCount": 3,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 4,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [],
+  "zeroEventCalendars": [
+    "sam-sam-downtown",
+    "sam-sam-asian-art",
+    "sam-sam-sculpture-park"
+  ],
+  "expectedEmptyCalendars": [
+    "benaroya-hall-benaroya-nordstrom",
+    "downtown-seattle-association-pioneer-park",
+    "downtown-seattle-association-occidental-square",
+    "jcccw-all-events",
+    "seattle-barkery-all-events",
+    "spl-university",
+    "tag-seward-park",
+    "external-langston"
+  ]
+}

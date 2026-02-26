@@ -40,7 +40,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 DTSTART;TZID=Europe/Kyiv:20260224T100000
 DTEND;TZID=Europe/Kyiv:20260227T000000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260204T185734Z
 LAST-MODIFIED:20260204T185747Z
 UID:10003170-1771927200-1772150400@www.geekwire.com
@@ -55,7 +55,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260226T090000
 DTEND;TZID=America/Los_Angeles:20260227T170000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260219T170949Z
 LAST-MODIFIED:20260219T170949Z
 UID:10003210-1772096400-1772211600@www.geekwire.com
@@ -70,7 +70,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260226T163000
 DTEND;TZID=America/Los_Angeles:20260226T190000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260204T183751Z
 LAST-MODIFIED:20260204T183751Z
 UID:10003187-1772123400-1772132400@www.geekwire.com
@@ -85,7 +85,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260226T180000
 DTEND;TZID=America/Los_Angeles:20260226T200000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260219T172533Z
 LAST-MODIFIED:20260219T172533Z
 UID:10003212-1772128800-1772136000@www.geekwire.com
@@ -98,7 +98,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260227T100000
 DTEND;TZID=America/Los_Angeles:20260227T113000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260218T173618Z
 LAST-MODIFIED:20260218T173618Z
 UID:10003196-1772186400-1772191800@www.geekwire.com
@@ -112,7 +112,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260227T120000
 DTEND;TZID=America/Los_Angeles:20260227T143000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260212T202359Z
 LAST-MODIFIED:20260212T202359Z
 UID:10003191-1772193600-1772202600@www.geekwire.com
@@ -127,7 +127,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260228T120000
 DTEND;TZID=America/Los_Angeles:20260228T140000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260204T185851Z
 LAST-MODIFIED:20260204T185851Z
 UID:10003167-1772280000-1772287200@www.geekwire.com
@@ -141,7 +141,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260305T080000
 DTEND;TZID=America/Los_Angeles:20260308T170000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260205T223946Z
 LAST-MODIFIED:20260205T223946Z
 UID:10003190-1772697600-1772989200@www.geekwire.com
@@ -154,7 +154,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260305T120000
 DTEND;TZID=America/Los_Angeles:20260305T130000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260224T174638Z
 LAST-MODIFIED:20260224T174638Z
 UID:10003217-1772712000-1772715600@www.geekwire.com
@@ -165,9 +165,49 @@ LOCATION:Zoom
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-094553.png
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T120000
+DTEND;TZID=America/Los_Angeles:20260305T170000
+DTSTAMP:20260226T113342
+CREATED:20260226T183435Z
+LAST-MODIFIED:20260226T183435Z
+UID:10003223-1772712000-1772730000@www.geekwire.com
+SUMMARY:Seattle Enterprise AI Summit
+DESCRIPTION:OneSixOne Ventures is bringing some of the brightest minds in AI for an insightful dialogue and curated networking experience! \nDue to limited space\, this event is expected to sell out so RSVP asap to secure your spot. \nThis event is sponsored by TinyFish AI\, Archera AI\, Innodata\, Clark Nuber\, and SVB. \nFull speaker list and agenda will be announced on official event page.
+URL:https://www.geekwire.com/calendar-event/seattle-enterprise-ai-summit/
+LOCATION:WA
+CATEGORIES:Artificial Intelligence
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T120000
+DTEND;TZID=America/Los_Angeles:20260305T170000
+DTSTAMP:20260226T113342
+CREATED:20260226T183924Z
+LAST-MODIFIED:20260226T183924Z
+UID:10003225-1772712000-1772730000@www.geekwire.com
+SUMMARY:Seattle Enterprise AI Summit
+DESCRIPTION:OneSixOne Ventures is bringing some of the brightest minds in AI for an insightful dialogue and curated networking experience! \nConfirmed speakers include:\nMatt McIlwain\, Managing Director at Madrona\nSudheesh Nair\, Founder of TinyFish AI; Previously founded ThoughtSpot and Nutanix\nLi Deng\, ex-Chief AI Scientist at Microsoft and Citadel; Chief AI Officer at Vatic Investments\nVikas Kamran\, President at Gradial; former CEO / Founder of Revel\nHasibul Haque\, Co-founder / CEO at Cielara AI; ex-Head of Engineering at Uber & VMWare\nBob Rapp\, Data Science & AI Leader at General Motors\nMarc Austin\, Founder / CEO at Hedgehog; ex-Head of IoT at Jasper\nRamesh Parameswaran\, Founder of LangGrant (formerly WinDocks)\nPrashant Ahluwalia\, Founder & Head of Technology & Innovation Engineering at Google Trust & Safety\nMark Fussell\, Founder & CEO at Diagrid \nFull agenda will be announced soon! Due to limited space\, this event is expected to sell out so RSVP asap to secure your spot. \nThis event is sponsored by TinyFish AI\, Archera AI\, Innodata\, Clark Nuber\, and SVB.
+URL:https://www.geekwire.com/calendar-event/seattle-enterprise-ai-summit-2/
+LOCATION:WA
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-26-103011.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T160000
+DTEND;TZID=America/Los_Angeles:20260305T190000
+DTSTAMP:20260226T113342
+CREATED:20260226T183539Z
+LAST-MODIFIED:20260226T183539Z
+UID:10003218-1772726400-1772737200@www.geekwire.com
+SUMMARY:How to go From Venture-Backed Founder to World-Class Exec in the Age of AI
+DESCRIPTION:You’ve raised the money. You’ve built the team. You’ve survived the chaos that kills most startups. But here’s the question no one in your cap table is asking you: Are you actually becoming the leader your company needs to reach $100M and beyond? The uncomfortable truth? The founder who gets you to Series A is rarely the same person who takes a company to the top. Not because of strategy. Not because of market fit. But because of you\, your patterns\, your blind spots\, the unconscious operating system running underneath every decision you make under pressure. \nThe world’s most elite CEOs\, pro athletes\, and top executives don’t just optimize their business. They ruthlessly optimize themselves. And in the age of AI\, where leverage has never been higher and the gap between good and great leaders is widening faster than ever\, your inner game is your ultimate competitive advantage. Seth Taylor has spent over a decade and 5\,000+ coaching sessions working with the top 1% of performers across business and professional sports. He doesn’t do surface-level. He goes to the places most coaches won’t: the ego\, the fear\, the unconscious patterns quietly capping your growth\, and helps elite operators break through to a level of leadership that is genuinely rare. \nThis is not a seminar. This is not a motivational talk. This is a raw\, honest\, high-signal conversation about what it actually takes to evolve from a scrappy\, visionary founder into a world-class executive that commands rooms\, scales culture\, and leads with the kind of clarity and conviction that investors\, boards\, and A-players are drawn to. If you’re already good\, this is how you become exceptional. \nThose interested can apply through FounderNexus.com
+URL:https://www.geekwire.com/calendar-event/how-to-go-from-venture-backed-founder-to-world-class-exec-in-the-age-of-ai/
+LOCATION:University of Washington: CoMotion\, 1100 NE Campus Pkwy #200\, Seattle\, WA 98105
+CATEGORIES:Artificial Intelligence,Startups
+ORGANIZER;CN="FounderNexus":MAILTO:info@FounderNexus.com
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260305T170000
 DTEND;TZID=America/Los_Angeles:20260305T183000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260121T162219Z
 LAST-MODIFIED:20260121T162219Z
 UID:10003156-1772730000-1772735400@www.geekwire.com
@@ -180,9 +220,23 @@ ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/01/77
 ORGANIZER;CN="Albers School of Business and Economics":MAILTO:marckwor@seattleu.edu
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260305T180000
+DTEND;TZID=America/Los_Angeles:20260305T200000
+DTSTAMP:20260226T113342
+CREATED:20260226T183546Z
+LAST-MODIFIED:20260226T183546Z
+UID:10003216-1772733600-1772740800@www.geekwire.com
+SUMMARY:Seattle Postgres: Inside Databricks Lakebase and Neon Serverless PostgreSQL
+DESCRIPTION:In 2025\, Databricks announced Lakebase\, a new category of databases\, and launched it based on Neon Serverless PostgreSQL technology. In this talk\, David will explain what makes Neon and Lakebase unique\, diving deep into its data lake-based disaggregated compute and storage architecture. He will also explore what makes these systems exceptionally well-suited for new app developers and AI agents with features such as instant provisioning\, branching\, and scaling. Notably\, 80% of databases on Neon are now created by agents\, a trend that reflects the shifting landscape of database management. In addition to classic PostgreSQL and enterprise workloads. Demos will include how to get started in seconds for free\, with no sign up required. \n===== Speaker:\nDavid is a Principal Engineer at Databricks in Bellevue\, focusing on Lakebase. Prior to joining Databricks\, he held various leadership roles over nine years at AWS\, including technical responsibility for the initial launch of Amazon Aurora PostgreSQL and serving as Director of the Aurora Limitless Database project. David has nearly 30 years of experience in relational databases\, having contributed to SAP HANA\, Sybase IQ\, and Sybase ASE.
+URL:https://www.geekwire.com/calendar-event/seattle-postgres-inside-databricks-lakebase-and-neon-serverless-postgresql/
+LOCATION:Steam Plant – Fred Hutch Cancer Center\, 1241 Eastlake Ave E\, Seattle\, United States
+CATEGORIES:Developer,Educational events,Geek Life,Meetups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/seapug2024d-copy.png
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260306T100000
 DTEND;TZID=America/Los_Angeles:20260306T140000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260219T171002Z
 LAST-MODIFIED:20260219T171002Z
 UID:10003209-1772791200-1772805600@www.geekwire.com
@@ -197,7 +251,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260310T053000
 DTEND;TZID=America/Los_Angeles:20260310T193000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260218T173323Z
 LAST-MODIFIED:20260218T173323Z
 UID:10003202-1773120600-1773171000@www.geekwire.com
@@ -213,7 +267,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260310T180000
 DTEND;TZID=America/Los_Angeles:20260310T180000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260218T173447Z
 LAST-MODIFIED:20260223T170658Z
 UID:10003200-1773165600-1773165600@www.geekwire.com
@@ -227,9 +281,24 @@ GEO:47.6081198;-122.3371594
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Benaroya Hall 200 University Street Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=200 University Street:geo:-122.3371594,47.6081198
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260313T090000
+DTEND;TZID=America/Los_Angeles:20260313T100000
+DTSTAMP:20260226T113342
+CREATED:20260226T183555Z
+LAST-MODIFIED:20260226T183555Z
+UID:10003214-1773392400-1773396000@www.geekwire.com
+SUMMARY:Eastside Marketing Morning Brew Meetup
+DESCRIPTION:Marketing keeps changing fast. New tools. New algorithms. New ideas. And the best way to keep up isn’t by competing over who’s doing the best. It’s by learning together. \nWhen someone shares what worked for them and what didn’t\, everyone benefits. That’s the power of showing up honestly.\nIf you want genuine conversations\, come join us. \nWe’ll have some light snacks and no registration required. Free parking in open spaces only.
+URL:https://www.geekwire.com/calendar-event/eastside-marketing-morning-brew-meetup/
+LOCATION:Beyondsoft Consulting Inc.\, 2010 156th Ave NE\, Bellevue\, 98007\, United States
+CATEGORIES:Meetups
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/02/March-2026-Eastside-Marketing-Morning-Brew-Meetup-updated.jpeg
+ORGANIZER;CN="Beyondsoft Consulting Inc":MAILTO:marketing@us.beyondsoft.com
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260313T113000
 DTEND;TZID=America/Los_Angeles:20260313T130000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20251024T200315Z
 LAST-MODIFIED:20251024T200315Z
 UID:10003059-1773401400-1773406800@www.geekwire.com
@@ -244,7 +313,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260316T163000
 DTEND;TZID=America/Los_Angeles:20260316T193000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260218T172221Z
 LAST-MODIFIED:20260218T172221Z
 UID:10003206-1773678600-1773689400@www.geekwire.com
@@ -257,7 +326,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260316T170000
 DTEND;TZID=America/Los_Angeles:20260316T180000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260212T202336Z
 LAST-MODIFIED:20260212T202336Z
 UID:10003195-1773680400-1773684000@www.geekwire.com
@@ -272,7 +341,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260317
 DTEND;VALUE=DATE:20260320
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260108T201524Z
 LAST-MODIFIED:20260108T201524Z
 UID:10003141-1773705600-1773964799@www.geekwire.com
@@ -283,9 +352,37 @@ LOCATION:Seattle Convention Center\, 705 Pike Street\, Seattle\, Washington\, 98
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-162618.png
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260318T133000
+DTEND;TZID=America/Los_Angeles:20260318T153000
+DTSTAMP:20260226T113342
+CREATED:20260226T183605Z
+LAST-MODIFIED:20260226T183605Z
+UID:10003213-1773840600-1773847800@www.geekwire.com
+SUMMARY:Facilitation Lab Seattle withg Amanda Baker and Voltage Control
+DESCRIPTION:Led by Amanda Baker\, this session follows the Practice Playground format: an interactive\, rotating structure where participants step into the facilitator role\, role-play real scenarios\, and offer constructive feedback. It’s practical\, energizing\, and grounded in real-world challenges — not theory. \nBring a current facilitation dilemma: a workshop you’re shaping\, a team dynamic that needs attention\, or a moment you’d like to navigate differently next time. You’ll test ideas\, gain new perspectives\, and make concrete progress in a supportive environment. \nWhether you facilitate or actively participate\, you’ll leave with sharper tools\, stronger confidence\, and insights you can immediately apply to your work. \nJoin a community of people committed to creating better conversations and more effective group experiences.
+URL:https://www.geekwire.com/calendar-event/facilitation-lab-seattle-withg-amanda-baker-and-voltage-control/
+LOCATION:WSECU-Rita Koontz Community Space\, 1121 NE 45th St\, Seattle\, 98105\, United States
+CATEGORIES:Educational events,Meetups
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/02/8.jpg
+ORGANIZER;CN="Voltage Control":MAILTO:info@voltagecontrol.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260318T163000
+DTEND;TZID=America/Los_Angeles:20260318T183000
+DTSTAMP:20260226T113342
+CREATED:20260226T184108Z
+LAST-MODIFIED:20260226T184108Z
+UID:10003226-1773851400-1773858600@www.geekwire.com
+SUMMARY:GTM IN THE AI ERA
+DESCRIPTION:​GTM in the AI Era: People\, Stack\, and What’s Actually Working \n​Join us at AI House for an off-the-record style\, high-signal conversation on how AI is reshaping go-to-market. This is a moderated panel\, built for real dialogue and practical takeaways\, not pitches or demos. \n​We’ll unpack three angles leaders are navigating right now: \n​People & AI: hiring trends\, AI literacy\, and recruiting impact \n​GTM Foundations + Tech Stack: what must be true before layering AI into your GTM motion \n​Market Trends & Lessons Learned: what’s working\, what isn’t\, and where teams are getting surprised \n​Date: March 18\nTime: 4:30–6:30 PM (networking before and after the panel)\nLocation: AI House\nFormat: 35–45 minute moderated panel + networking \n​Who it’s for: CROs\, VPs/Directors of Sales\, Growth leaders\, Founders\, and select Investors. \n​Capacity is limited. If this is your world\, you’ll leave with sharper perspective\, clearer language\, and a more grounded view of what “AI-ready GTM” actually looks like.
+URL:https://www.geekwire.com/calendar-event/gtm-in-the-ai-era/
+LOCATION:AI House\, 2801 Alaskan Wy\, Seattle\, WA\, 98121
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-26-104022.png
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260324T013000
 DTEND;TZID=America/Los_Angeles:20260324T053000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20251219T204247Z
 LAST-MODIFIED:20260108T200935Z
 UID:10003125-1774315800-1774330200@www.geekwire.com
@@ -301,7 +398,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260326
 DTEND;VALUE=DATE:20260330
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260127T172315Z
 LAST-MODIFIED:20260127T172315Z
 UID:10003172-1774483200-1774828799@www.geekwire.com
@@ -314,7 +411,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260401T080000
 DTEND;TZID=America/Los_Angeles:20260401T170000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20251118T020742Z
 LAST-MODIFIED:20251118T020742Z
 UID:10003089-1775030400-1775062800@www.geekwire.com
@@ -329,7 +426,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260404T090000
 DTEND;TZID=America/Los_Angeles:20260404T180000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260123T172859Z
 LAST-MODIFIED:20260216T025803Z
 UID:10003165-1775293200-1775325600@www.geekwire.com
@@ -345,7 +442,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T113000
 DTEND;TZID=America/Los_Angeles:20260410T130000
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20251024T200341Z
 LAST-MODIFIED:20251024T200341Z
 UID:10003060-1775820600-1775826000@www.geekwire.com
@@ -358,7 +455,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260415
-DTSTAMP:20260225T235945
+DTSTAMP:20260226T113342
 CREATED:20260224T175403Z
 LAST-MODIFIED:20260224T175403Z
 UID:10003219-1776038400-1776211199@www.geekwire.com
@@ -367,104 +464,5 @@ DESCRIPTION:48 Hours. One Startup.\nFrom idea to pitch—here’s what your Star
 URL:https://www.geekwire.com/calendar-event/esec-startup-a-thon/
 LOCATION:UW HUB Lyceum\, 4001 E Stevens Way NE\, Seattle\, Washington\, 98195\, United States
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-095245.png
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260414T090000
-DTEND;TZID=America/Los_Angeles:20260414T150000
-DTSTAMP:20260225T235945
-CREATED:20260224T205544Z
-LAST-MODIFIED:20260224T205544Z
-UID:10003220-1776157200-1776178800@www.geekwire.com
-SUMMARY:NQN Northwest Quantum Day
-DESCRIPTION:​Date: April 14. Doors open 8am\, Sessions from 9-3pm \n​Target Audience: policy makers and staff\, investors\, academia\, emerging technologists\, and the quantum curious. \n​Agenda: \n​9:00 to 9:15 Welcome \n​9:15 to 9:45 Keynote: Quantum in the Northwest \n​9:45 to 10:30 Panel: Government’s role in Quantum Economic Development \n​10:30 to 10:45 BREAK \n​10:45 to 11:45 Panel: Quantum in Industry: A look inside the Enterprise \n​11:45 to 12:15 Presentation: The Mission of Northwest Quantum Nexus \n​12:15 to 1:00 LUNCH \n​1:00 to1:45 Panel: Quantum Technology: The investable business model \n​1:45 to 2:00 Panel: Building a Quantum Workforce for the Northwest \n​2:00 to 3:00 Fireside chat: Special guest speaker \n​3:00 to 5:00 NETWORKING
-URL:https://www.geekwire.com/calendar-event/nqn-northwest-quantum-day/
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-125437.png
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260418T100000
-DTEND;TZID=America/Los_Angeles:20260418T160000
-DTSTAMP:20260225T235945
-CREATED:20260218T173229Z
-LAST-MODIFIED:20260218T173229Z
-UID:10003204-1776506400-1776528000@www.geekwire.com
-SUMMARY:Seattle Intro to AI Development Workshop
-DESCRIPTION:Learn how to build your first AI web application at the University of Washington – Beginner friendly\, no experience required. \nJoin us for our Intro to AI Development Workshop\, a full-day\, hands-on program where you’ll build your first AI web application and learn the fundamentals of creating your own AI apps. \nNo coding experience is required. Every participant will receive free API key credits to experiment with leading models such as GPT\, Claude\, Gemini\, and more. \nBy the end of the workshop\, you will have built a custom Retrieval-Augmented Generation (RAG) chatbot. You’ll upload your own dataset\, prompt the chatbot to generate outputs\, and see how industry-standard GenAI models can be integrated into practical applications. This project-based approach gives you a clear starting point to extend your skills into more advanced AI development. \nThe day concludes with a showcase where participants can demo their projects\, connect with peers\, and ask questions directly to the instructors from Circuit Stream. \nWe look forward to seeing what you create! \nEvent Instructor: Guillaume Duteaud \nWhat You’ll Learn:\n– How to use Python to interact with leading AI models like OpenAI’s GPT\, Anthropic’s Claude\, Google Gemini\, Meta’s Llama\, and more\n– How to upload documents and connect them to an AI assistant using Retrieval-Augmented Generation (RAG)\n– How to prompt\, test\, and refine your assistant to answer questions accurately using your own data\n– How modern web apps integrate AI features—from concept to deployment \nWhat’s Included:\n– A full day of hands-on training in AI development using Python and real industry tools\n– A working AI assistant that you build using your own dataset\, and can continue to expand after the workshop\n– Free API credits to experiment with tools like GPT\, Claude\, Gemini\, and Llama\n– A project template and resource bundle to support your next steps after the workshop\n– A chance to meet instructors\, developers\, and other aspiring AI builders during the workshop showcase\n– A catered lunch \nWho Should Attend:\nThis workshop is designed for aspiring AI developers\, career changers\, and curious professionals who want to start building with AI. Whether you’re exploring a new career path\, working on a side project\, or looking to bring AI tools into your current role\, you’ll leave with a working project and a clear path forward. \nWhat to Bring:\n– A laptop (Mac or Windows)\n– We’ll provide step-by-step instructions before the workshop to help you set up your environment. If you’re new to Python\, we’ll also send you an optional pre-work tutorial to help you feel confident before arriving.\n– We’ll supply all necessary tools\, a project template\, and free API credits sponsored by Circuit Stream. \nSpaces are limited to keep the experience personal and hands-on. Whether you’re exploring AI for the first time or building on past experience\, this workshop gives you a clear starting point and a working project you can keep improving. Reserve your seat now!
-URL:https://www.geekwire.com/calendar-event/seattle-intro-to-ai-development-workshop/
-LOCATION:Maple Hall Great Room\, Maple Hall\, University of Washington\, Maple Hall Great Room\, Maple Hall\, University of Washington\, Seattle\, 98105\, United States
-CATEGORIES:Artificial Intelligence,Science
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Seattle-6.png
-ORGANIZER;CN="Circuit Stream":MAILTO:rio@circuitstream.com
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260507T090000
-DTEND;TZID=America/Los_Angeles:20260507T170000
-DTSTAMP:20260225T235945
-CREATED:20260212T202340Z
-LAST-MODIFIED:20260212T202340Z
-UID:10003194-1778144400-1778173200@www.geekwire.com
-SUMMARY:Henley Live 2026: A Seattle Business Leadership Conference
-DESCRIPTION:For one day\, step away from the noise of daily leadership demands and into a space that nourishes your growth and connection to others. \nJoin us on May 7\, 2026 at The Collective in Seattle\, for a one-day leadership conference designed to reset\, reconnect\, and reimagine how you lead and support your teams. \nHenley Leadership offers immersive learning experiences designed for business professionals at all levels\, whether you lead teams or contribute as an individual. Our approach combines honest conversations and meaningful community connections\, all delivered in our signature style: welcoming\, energizing\, and deeply human.
-URL:https://www.geekwire.com/calendar-event/henley-live-2026-a-seattle-business-leadership-conference/
-LOCATION:The Collective Seattle\, 400 Dexter Avenue North\, Seattle\, Washington\, 98109\, United States
-CATEGORIES:Conferences
-ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/02/HenleyLive.jpg
-ORGANIZER;CN="Henley Leadership Group":MAILTO:kathyaberardi@gmail.com
-GEO:47.6221728;-122.3419734
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=The Collective Seattle 400 Dexter Avenue North Seattle Washington 98109 United States;X-APPLE-RADIUS=500;X-TITLE=400 Dexter Avenue North:geo:-122.3419734,47.6221728
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260508T113000
-DTEND;TZID=America/Los_Angeles:20260508T130000
-DTSTAMP:20260225T235945
-CREATED:20251024T200349Z
-LAST-MODIFIED:20251226T215413Z
-UID:10003061-1778239800-1778245200@www.geekwire.com
-SUMMARY:Discovery Series\, Dr. Cyrus Ghjar\, Professor\, Fred Hutch
-DESCRIPTION:What if cancer didn’t strike in one dramatic moment—but instead lingered\, quietly\, for years? Long after a tumor seems gone\, cancer cells can lie dormant. And sometimes\, they return. This is the mystery of metastatic relapse—and the frontier where Dr. Cyrus Ghajar works. \n​At Fred Hutch Cancer Center\, Ghajar leads research into how dormant cancer cells evade treatment and what reactivates them. His lab bridges oncology\, immunology\, and bioengineering to explore the role of the immune system in suppressing dormant cancer cells. It’s a delicate numbers game that can tip the balance between remission and recurrence. \n​Supported by the National Institutes of Health\, the Kuni Foundation\, U.S. Department of Defense and other funders\, Ghajar holds the Peter S. Lefkarites Memorial Endowed Chair. Ghajar’s work is reshaping how we think about metastasis—not as a sudden invasion\, but a slow\, stealthy process that might be intercepted. Join us to explore how silence in the body might hold the key to preventing relapse.
-URL:https://www.geekwire.com/calendar-event/discovery-series-dr-cyrus-ghjar-professor-fred-hutch/
-LOCATION:Perkins Coie\, 1201 Third Avenue\, Seattle\, WA\, 98101\, United States
-ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/10/discoveryseries_drcyrusghjar.jpg
-GEO:47.6070578;-122.3360757
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Perkins Coie 1201 Third Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1201 Third Avenue:geo:-122.3360757,47.6070578
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260513
-DTEND;VALUE=DATE:20260516
-DTSTAMP:20260225T235945
-CREATED:20260218T172109Z
-LAST-MODIFIED:20260218T172109Z
-UID:10003207-1778630400-1778889599@www.geekwire.com
-SUMMARY:Cre8te Summit
-DESCRIPTION:Cre8te Summit is designed to help you move from ideas to execution. You’ll gain clarity\, practical skills\, and real connections that extend far beyond the event.
-URL:https://www.geekwire.com/calendar-event/cre8te-summit/
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-18-090455.png
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260515T103000
-DTEND;TZID=America/Los_Angeles:20260515T130000
-DTSTAMP:20260225T235945
-CREATED:20260204T183704Z
-LAST-MODIFIED:20260204T183704Z
-UID:10003188-1778841000-1778850000@www.geekwire.com
-SUMMARY:PacSci Ignite Luncheon
-DESCRIPTION:PacSci’s annual Ignite Luncheon brings together our community’s business\, philanthropic\, and civic leaders to celebrate the power of curiosity and innovation.
-URL:https://www.geekwire.com/calendar-event/pacsci-ignite-luncheon/
-LOCATION:Fisher Pavilion\, 305 Harrison Street\, Seattle\, WA\, 98109\, United States
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-04-103536.png
-GEO:47.620532;-122.3502738
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Fisher Pavilion 305 Harrison Street Seattle WA 98109 United States;X-APPLE-RADIUS=500;X-TITLE=305 Harrison Street:geo:-122.3502738,47.620532
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260520
-DTEND;VALUE=DATE:20260523
-DTSTAMP:20260225T235945
-CREATED:20260108T201444Z
-LAST-MODIFIED:20260108T201500Z
-UID:10003142-1779235200-1779494399@www.geekwire.com
-SUMMARY:7th Annual World ALLoT Congress
-DESCRIPTION:Continuing from the outstanding success of IEEE AIIoT 2025\, we are very proud to present IEEE World AI IoT Congress 2026 which will provide an opportunity for researchers\, educators and students to discuss and exchange ideas on issues\, trends and developments in the related fields of AI and IoT. The conference aims to bring together scholars from different disciplinary backgrounds to emphasize the dissemination of ongoing research in the fields of AI and IoT. Research papers are invited describing original work in the above-mentioned fields and related technologies. The conference will include a peer-reviewed program of technical sessions. This year we will be hosting the conference physically. \nThis conference will also promote an intense dialogue between academia and industry to bridge the gap between academic research\, industry initiatives\, and governmental policies. This is fostered through panel discussions\, keynotes\, and industry exhibits where academia is exposed to state-of-practice and results from trials and interoperability experiments. The industry in turn benefits by exposure to leading-edge research in networking as well as the opportunity to communicate with academic researchers regarding practical problems that require further research.
-URL:https://www.geekwire.com/calendar-event/7th-annual-world-allot-congress/
-LOCATION:Seattle Convention Center\, 705 Pike Street\, Seattle\, Washington\, 98101\, United States
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-162917.png
 END:VEVENT
 END:VCALENDAR

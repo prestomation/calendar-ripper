@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-26T08:00:18.330Z",
+  "lastUpdated": "2026-02-26T19:34:14.687Z",
   "rippers": [
     {
       "name": "19hz",
@@ -12,38 +12,6 @@
           "icsUrl": "19hz-all-events.ics",
           "tags": [
             "Music"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ballard-brewed",
-      "description": "Coalition of Ballard neighborhood breweries hosting collaborative events, beer releases, and community gatherings across the brewery district",
-      "friendlyLink": "https://www.ballardbrewed.com/events",
-      "calendars": [
-        {
-          "name": "all-events",
-          "friendlyName": "Ballard Brewed",
-          "icsUrl": "ballard-brewed-all-events.ics",
-          "tags": [
-            "Beer",
-            "Ballard"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "bbyc-ballard",
-      "description": "BBYC Ballard (Bale Breaker & Yonder Cider)",
-      "friendlyLink": "https://www.bbycballard.com/events-one",
-      "calendars": [
-        {
-          "name": "all-events",
-          "friendlyName": "BBYC Ballard",
-          "icsUrl": "bbyc-ballard-all-events.ics",
-          "tags": [
-            "Beer",
-            "Ballard"
           ]
         }
       ]
@@ -669,15 +637,169 @@
     },
     {
       "name": "seattle-showlists",
-      "description": "Showlist Seattle",
+      "description": "Showlists Seattle",
       "friendlyLink": "https://seattle.showlists.net",
       "calendars": [
         {
-          "name": "seattle-showlists",
-          "friendlyName": "Showlist Seattle",
-          "icsUrl": "seattle-showlists-seattle-showlists.ics",
+          "name": "baba-yaga",
+          "friendlyName": "Baba Yaga",
+          "icsUrl": "seattle-showlists-baba-yaga.ics",
           "tags": [
-            "Music"
+            "Music",
+            "Pioneer Square"
+          ]
+        },
+        {
+          "name": "central-saloon",
+          "friendlyName": "Central Saloon",
+          "icsUrl": "seattle-showlists-central-saloon.ics",
+          "tags": [
+            "Music",
+            "Pioneer Square"
+          ]
+        },
+        {
+          "name": "barboza",
+          "friendlyName": "Barboza",
+          "icsUrl": "seattle-showlists-barboza.ics",
+          "tags": [
+            "Music",
+            "Capitol Hill"
+          ]
+        },
+        {
+          "name": "vermillion",
+          "friendlyName": "Vermillion",
+          "icsUrl": "seattle-showlists-vermillion.ics",
+          "tags": [
+            "Music",
+            "Capitol Hill"
+          ]
+        },
+        {
+          "name": "belltown-yacht-club",
+          "friendlyName": "Belltown Yacht Club",
+          "icsUrl": "seattle-showlists-belltown-yacht-club.ics",
+          "tags": [
+            "Music",
+            "Belltown"
+          ]
+        },
+        {
+          "name": "hotel-crocodile",
+          "friendlyName": "Hotel Crocodile",
+          "icsUrl": "seattle-showlists-hotel-crocodile.ics",
+          "tags": [
+            "Music",
+            "Belltown"
+          ]
+        },
+        {
+          "name": "conor-byrne-pub",
+          "friendlyName": "Conor Byrne Pub",
+          "icsUrl": "seattle-showlists-conor-byrne-pub.ics",
+          "tags": [
+            "Music",
+            "Ballard"
+          ]
+        },
+        {
+          "name": "clock-out-lounge",
+          "friendlyName": "Clock-Out Lounge",
+          "icsUrl": "seattle-showlists-clock-out-lounge.ics",
+          "tags": [
+            "Music",
+            "Beacon Hill"
+          ]
+        },
+        {
+          "name": "black-and-tan-hall",
+          "friendlyName": "Black & Tan Hall",
+          "icsUrl": "seattle-showlists-black-and-tan-hall.ics",
+          "tags": [
+            "Music",
+            "Columbia City"
+          ]
+        },
+        {
+          "name": "the-royal-room",
+          "friendlyName": "The Royal Room",
+          "icsUrl": "seattle-showlists-the-royal-room.ics",
+          "tags": [
+            "Music",
+            "Columbia City"
+          ]
+        },
+        {
+          "name": "the-rabbit-box",
+          "friendlyName": "The Rabbit Box",
+          "icsUrl": "seattle-showlists-the-rabbit-box.ics",
+          "tags": [
+            "Music",
+            "Downtown"
+          ]
+        },
+        {
+          "name": "black-lodge",
+          "friendlyName": "Black Lodge",
+          "icsUrl": "seattle-showlists-black-lodge.ics",
+          "tags": [
+            "Music",
+            "Eastlake"
+          ]
+        },
+        {
+          "name": "nectar-lounge",
+          "friendlyName": "Nectar Lounge",
+          "icsUrl": "seattle-showlists-nectar-lounge.ics",
+          "tags": [
+            "Music",
+            "Fremont"
+          ]
+        },
+        {
+          "name": "bad-bar",
+          "friendlyName": "Bad Bar",
+          "icsUrl": "seattle-showlists-bad-bar.ics",
+          "tags": [
+            "Music",
+            "QueenAnne"
+          ]
+        },
+        {
+          "name": "darrells-tavern",
+          "friendlyName": "Darrell's Tavern",
+          "icsUrl": "seattle-showlists-darrells-tavern.ics",
+          "tags": [
+            "Music",
+            "Shoreline"
+          ]
+        },
+        {
+          "name": "blue-moon-tavern",
+          "friendlyName": "Blue Moon Tavern",
+          "icsUrl": "seattle-showlists-blue-moon-tavern.ics",
+          "tags": [
+            "Music",
+            "University District"
+          ]
+        },
+        {
+          "name": "skylark",
+          "friendlyName": "Skylark",
+          "icsUrl": "seattle-showlists-skylark.ics",
+          "tags": [
+            "Music",
+            "West Seattle"
+          ]
+        },
+        {
+          "name": "tims-tavern",
+          "friendlyName": "Tim's Tavern",
+          "icsUrl": "seattle-showlists-tims-tavern.ics",
+          "tags": [
+            "Music",
+            "White Center"
           ]
         }
       ]
@@ -1953,10 +2075,12 @@
     "Belltown",
     "Capitol Hill",
     "Central District",
+    "Columbia City",
     "Community",
     "Cycling",
     "Dogs",
     "Downtown",
+    "Eastlake",
     "Education",
     "Events",
     "FarmersMarket",
@@ -1977,11 +2101,13 @@
     "Pioneer Square",
     "QueenAnne",
     "Seward Park",
+    "Shoreline",
     "Sports",
     "Theatre",
     "University District",
     "Volunteer",
     "Wallingford",
-    "West Seattle"
+    "West Seattle",
+    "White Center"
   ]
 }

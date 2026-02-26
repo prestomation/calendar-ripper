@@ -6,9 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Nightlife Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:0OwXRo-linVc7ClFghZNB
+UID:cnKGEzmll68j8N-lFwFbj
 SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
-DTSTAMP:20260226T080004Z
+DTSTAMP:20260226T193402Z
 DTSTART;TZID=America/Los_Angeles:20260304T193000
 DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
 	 Seattle.\n\nFrom Club Comedy Seattle — Cheap Laughs Open Mic\n\nhttps://w
@@ -22,9 +22,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:XV_R7-ue8MfF1gqBj_WQc
+UID:AQ0loZ31usarvxbgDDydA
 SUMMARY:Comic Resistance Agency Pizzeria mic
-DTSTAMP:20260226T080004Z
+DTSTAMP:20260226T193402Z
 DTSTART:20260310T020000Z
 DESCRIPTION:A comedy game using slides\, prompts\, and audience voting.\n\n
 	Improvised stand-up open mic. No prepared material.\n\nFREE to watch or pe
@@ -38,23 +38,5 @@ X-CALRIPPER-SOURCE:seatoday-nightlife
 CATEGORIES:SEAtoday - Nightlife
 TRANSP:TRANSPARENT
 DURATION:PT1H30M
-END:VEVENT
-BEGIN:VEVENT
-UID:gwCIUI9P_rGdXCrDLTSUG
-SUMMARY:Dum Top Trivia
-DTSTAMP:20260226T080004Z
-DTSTART:20260311T020000Z
-DESCRIPTION:Every tuesday @ 7 Pm - with incredible host jeremy behrens! Tes
-	t your knowledge\, learn something new and hang with us on this fine tuesd
-	ay you dum dums! Doors @ 6PM Team Check-Ins @ 6:30PM Trivia begins @ 7PM\n
-	\nFrom SEAtoday - Nightlife\n\nhttps://seatoday.6amcity.com/events/#/detai
-	ls/dum-top-trivia/17209285/2026-03-10T00
-URL:https://seatoday.6amcity.com/events/#/details/dum-top-trivia/17209285/2
-	026-03-10T00
-LOCATION:The Cuff Complex\, 1533 13th Ave\, Seattle\, WA
-X-CALRIPPER-SOURCE:seatoday-nightlife
-CATEGORIES:SEAtoday - Nightlife
-TRANSP:TRANSPARENT
-DURATION:PT2H
 END:VEVENT
 END:VCALENDAR

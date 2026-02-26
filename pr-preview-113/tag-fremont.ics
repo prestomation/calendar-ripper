@@ -6,27 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Fremont Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:Ek9tANH8FJqKLcLSTPEcl
-SUMMARY:Family Story Time
-DTSTAMP:20260226T080000Z
-DTSTART;TZID=America/Los_Angeles:20260301T100000
-DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
-	es\, songs\, and fun learning activities. \n\nFrom SPL - Fremont Branch\n\
-	nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3d1
-	92101781
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d192101781
-LOCATION:Fremont Branch
-X-CALRIPPER-SOURCE:fremont
-CATEGORIES:SPL - Fremont Branch
-TRANSP:TRANSPARENT
-DURATION:PT30M
-END:VEVENT
-BEGIN:VEVENT
-UID:JYspK-OSlykiarOkOM0kU
+UID:udXWhyWXsTtZh9uJOZfh9
 SUMMARY:Paper Maché Party
-DTSTAMP:20260226T080000Z
-DTSTART;TZID=America/Los_Angeles:20260302T193000
+DTSTAMP:20260226T193358Z
+DTSTART;TZID=America/Los_Angeles:20260301T100000
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/paper-mace-party
 URL:https://fremontartscouncil.org/calendar/paper-mace-party
@@ -36,10 +19,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:VxomTdw9Xq_HQ3zxKC7jb
+UID:e7pQSSSQKuBu7Mm_Zgmlw
 SUMMARY:Smash That!           
-DTSTAMP:20260226T080000Z
-DTSTART;TZID=America/Los_Angeles:20260303T200000
+DTSTAMP:20260226T193358Z
+DTSTART;TZID=America/Los_Angeles:20260302T193000
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
 	ka-sglgg-w5nxa-d3kyl-f7dz4-dn2d9-xs7xn-jgcn7-wjrhs-jd8yr-blspd-efwfm-tyy4g
@@ -54,10 +37,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:ETrsRco4lMXTVeSNsCQ6H
+UID:NTvsQERlqxNF3DKkghBeE
 SUMMARY:Surrealist Prop Photo Op Workshop
-DTSTAMP:20260226T080000Z
-DTSTART;TZID=America/Los_Angeles:20260306T180000
+DTSTAMP:20260226T193358Z
+DTSTART;TZID=America/Los_Angeles:20260303T200000
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/ruhlzgviodg0r8gnoqcy7k6r5ybeha
 URL:https://fremontartscouncil.org/calendar/ruhlzgviodg0r8gnoqcy7k6r5ybeha
@@ -67,10 +50,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:hlQ8MoiJZvmQnbM2icNu7
+UID:DXG5d3Z5Ww_96mrLH3xP0
 SUMMARY:SOCKS IN THE FRYING PAN with guests Countercurrent
-DTSTAMP:20260226T080000Z
-DTSTART:20260227T030000Z
+DTSTAMP:20260226T193358Z
+DTSTART;TZID=America/Los_Angeles:20260306T180000
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/socks-in-the-frying-pan-with-guests-countercurrent-169347
 URL:https://www.tixr.com/groups/hiddenhall/events/socks-in-the-frying-pan-w
@@ -82,9 +65,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:fuxsYrkc03FACQHYqRExO
+UID:L1_J4nXvSXvRSYBfnVEEQ
+SUMMARY:Felix Martin: HOT CHIP (DJ Set) with Recess & Juliette
+DTSTAMP:20260226T193358Z
+DTSTART:20260227T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:ouLnxjcqtswEaGKF-g7MX
 SUMMARY:Smash That!            
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260227T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -100,9 +96,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:YPf7YouwC85R5UuFOqNIN
+UID:DHXoAelp3UaN1-6fl5ypK
 SUMMARY:ROMARE (DJ Set) with Manatee Commune
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260228T040000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/romare-dj-set-with-manatee-commune-164425
@@ -115,9 +111,23 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:pM_eZZ3Piha4WfJxAsRGh
+UID:1jodqZcG_w8DMgU1qrM5s
+SUMMARY:10th Annual "Dead Of Winter" 2 special nights! featuring ANDY COE B
+	AND
+DTSTAMP:20260226T193358Z
+DTSTART:20260228T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:RSXFRhKUk1Fv1KScbTFeo
 SUMMARY:Smash That!            
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260228T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -133,10 +143,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:ufaSm3v-PTazjR-nW-6Ct
+UID:Cqv6tiD7na4OrYyrDlr9C
 SUMMARY:DRAGGED UNDER (Reunion) plus Wyatt Olney & The Wreckage\, Josh Kain
 	\, College Radio
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260301T030000Z
 DESCRIPTION:$22.5\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hidden
 	hall/events/dragged-under-reunion-plus-wyatt-olney-the-wreckage-josh-kain-
@@ -150,9 +160,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:VSMG59gYRuWY2z9N-9JNZ
+UID:CvFrMHtOVX6VRfxhfeLF6
+SUMMARY:10th Annual "Dead Of Winter" 2 special nights! featuring ANDY COE B
+	AND
+DTSTAMP:20260226T193358Z
+DTSTART:20260301T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:aUJio1Wl-Ior_1ZCd31yW
 SUMMARY:Fremont Sunday Market
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260301T180000Z
 DESCRIPTION:Year-round outdoor Sunday market in Fremont with 150+ vendors i
 	ncluding vintage goods\, crafts\, food\, and local farm produce.\n\nFrom F
@@ -166,9 +190,9 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:KY2CIUxg5WzcTzMtPshGP
+UID:FBH3o257aQnlTamkuKB6c
 SUMMARY:Smash That!             
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260301T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -184,9 +208,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:scUb10k5k7hWbHD4n2Itf
+UID:32hrm11kmUXhE7KSD-ZC1
 SUMMARY:Nectar Lounge — Mo Jam Mondays
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260303T033000Z
 DESCRIPTION:Weekly music jam and open mic at Nectar Lounge.\n\nFrom Nectar 
 	Lounge — Mo Jam Mondays\n\nhttps://nectarlounge.com/
@@ -199,9 +223,22 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT4H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:60hXKovUlV3dH0A3YEsZu
+UID:IsjIoKSyGHv9ZNdElLJMo
+SUMMARY:Mo' Jam Mondays
+DTSTAMP:20260226T193358Z
+DTSTART:20260303T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:p5TpgsclwpdxD-qpDm62o
 SUMMARY:Textile Tuesday
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260304T020000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/textile-tuesday-2
@@ -212,9 +249,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ecvUhvVh-5pH1a-nna_44
+UID:bp_IqMFFV08GcA-JFUHQF
 SUMMARY:REFLECT - Deep House & Melodic Techno
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260304T030000Z
 DESCRIPTION:$14\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/reflect-deep-house-melodic-techno-169225
@@ -227,9 +264,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:guHn0skc0n5dVMB2mNHZ5
+UID:JZvJzMkT_0GqFXvNqfxcs
 SUMMARY:Fremont Abbey Open Mic
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260304T040000Z
 DESCRIPTION:All art forms welcome at this community arts space. Twice-month
 	ly open mic on the 1st and 3rd Tuesdays.\n\nFrom Fremont Abbey Open Mic\n\
@@ -243,9 +280,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1TU,3TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:iIFyAbF1zZj589_8g-sxi
+UID:Jb784ne1eO7YNsCe4c5QK
 SUMMARY:Family Story Time
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260304T181500Z
 DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities. \n\nFrom SPL - Fremont Branch\n\
@@ -260,9 +297,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:th2ryezqIbcKSSOXcPBio
+UID:0-s6KOIdQ1oewrrXak6kz
 SUMMARY:Smash That!              
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260304T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -278,9 +315,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:HBqMEuTqmi2p5SJN0XiHJ
+UID:oafRiDYDNxmcvW_SDAHvN
 SUMMARY:Lend a hand
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260305T020000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/lend-a-hand
@@ -291,9 +328,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:g0pHbenKRcjUgTPJL-2Zu
+UID:98M7Ac76IlSsmYXNiat04
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260305T030000Z
 DESCRIPTION:$10\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/western-wednesdays-country-dance-night-171452
@@ -306,9 +343,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:gnZ7Xg_2i3k8jvJOAg9Ur
+UID:FRfVFcuvEBRfCnfmovyBi
+SUMMARY:BLACK UHURU plus Georgetown Orbits
+DTSTAMP:20260226T193358Z
+DTSTART:20260305T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:QQavSTBp_lPu9xdFTzlqX
 SUMMARY:Smash That!               
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260305T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -324,9 +374,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:o-BbOM1M36hQVI_20VKKh
+UID:pANmYBL0NJz2EwvYAD5AW
 SUMMARY:MAY ERLEWINE with Packy Lundholm plus guest R.O. Shapiro
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260306T030000Z
 DESCRIPTION:$18\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/may-erlewine-with-packy-lundholm-plus-guest-r-o-shapiro-162690
@@ -339,9 +389,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:NIdst9Pp6YoyLC8cH8yje
+UID:GqaMOgarq1WtNPogdoimO
+SUMMARY:TRIPP ST. and LIL FISH plus Pressha
+DTSTAMP:20260226T193358Z
+DTSTART:20260306T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:3iWsNrw-noJJRLT0nLmWo
 SUMMARY:Smash That!               
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260306T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -357,9 +420,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:UWuN7BLcBrazvt8Q-Jxdy
+UID:MVNw_NjFq3gHQJxb6nIEQ
 SUMMARY:Fremont First Friday Art Walk
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260307T020000Z
 DESCRIPTION:Monthly art walk in the Fremont neighborhood\n\nFrom Fremont Fi
 	rst Friday Art Walk\n\nhttp://www.fremontfirstfriday.com/
@@ -372,9 +435,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:C47YoBmzPgfvLU8DqYKeA
+UID:cOax-haIrjq0kyW_iOnPd
 SUMMARY:Fremont Brewing's International Women's Day Beer Release Party!
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260307T020000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/fremont-brewings-international-womens-day-beer-re
@@ -388,9 +451,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:pcoRnaYdqZ8HLpz-XjorV
+UID:cez71UngBVVudjnbfAB8i
 SUMMARY:MOHINI DEY with Special Guests
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260307T040000Z
 DESCRIPTION:$28\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/mohini-dey-with-special-guests-165930
@@ -403,9 +466,26 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:TKb2jZtfna6yPFJk7PUWc
+UID:ryTMf9qydJ2m5ipKxftOq
+SUMMARY:Teen Arts & Crafts: Nowruz (Spring Equinox) Card-Making
+DTSTAMP:20260226T193358Z
+DTSTART:20260307T200000Z
+DESCRIPTION:Join us for a monthly drop-in art workshop series\, for youth a
+	ged 12-17\, exploring themes of identity\, culture\, and community.\n\nFro
+	m SPL - Fremont Branch\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=v
+	iew%3devent%26eventid%3d196747012
+URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
+	d196747012
+LOCATION:Fremont Branch\, Meeting Room
+X-CALRIPPER-SOURCE:fremont
+CATEGORIES:SPL - Fremont Branch
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:Esa3KBuBJOkR7W7UXY1KJ
 SUMMARY:Smash That!                
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260307T210000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -422,9 +502,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:zJT_xTaNSDEHBqalCEjKt
+UID:31l99KHHMEdggLCvm7O0n
 SUMMARY:MARCHFOURTH with Banshee Tree
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260308T040000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/marchfourth-with-banshee-tree-165363
@@ -437,9 +517,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:50Wxcz7lbgLuPO8bH4oSd
+UID:JeJbBCAEaFCbfcE3CPvRe
+SUMMARY:CHRISTIAN LÖFFLER with Orbit
+DTSTAMP:20260226T193358Z
+DTSTART:20260308T040000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:naUZGjGWr8VApow78WHHm
 SUMMARY:Smash That!                 
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260308T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -456,9 +549,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:krpNIhEdSasOye2pSIVmr
+UID:mgcHMhbSxF_-IGa6wA5Vx
+SUMMARY:Mo' Jam Mondays
+DTSTAMP:20260226T193358Z
+DTSTART:20260310T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:fGsWgpF_axei9-Han3iJN
 SUMMARY:Smash That!                  
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260311T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -475,9 +581,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:vf1ORHuIhjn8fKnRhFfOD
+UID:nft04CG35Ve5IQb1oQjRE
 SUMMARY:CHARLIE HUNTER TRIO
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260312T020000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/charlie-hunter-trio-164091
@@ -490,9 +596,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:jtKBiVfc8yE348vrnipfW
+UID:uEAuKHs2e58OFdQNjUuoN
 SUMMARY:Smash That!                   
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260312T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -509,9 +615,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:wp89w2S7Rb6nRzjPOkD0K
+UID:_CjvS8-txjVb47Yw9lck6
 SUMMARY:SHADOWGRASS with The Fretliners
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260313T020000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/shadowgrass-with-the-fretliners-162414
@@ -524,9 +630,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:2IT7Xw4_BpPXvBKwcMfF_
+UID:74kejQF8qH87hZ3uHRNJU
+SUMMARY:SUBATOMIC SOUND SYSTEM + SCREECHY DAN: 50th Anniversary Performance
+	 of Lee "Scratch" Perry's 'Super Ape' Album\, plus DJ Kid Hops (KEXP)
+DTSTAMP:20260226T193358Z
+DTSTART:20260313T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:FwPhss9-zp3TIFOG6fvlu
 SUMMARY:Smash That!                    
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260313T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/hnhejy58s9xs4h3-6l6k4-aw34r-kthlc-3asgk-5gt4c-l6a
@@ -543,9 +663,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:nArsRUX0fQrqmAZ7hqNSe
+UID:CI2k8e228y9_Y586SnotA
 SUMMARY:lespecial with Yak Attack
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260314T030000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/lespecial-with-yak-attack-171611
@@ -558,9 +678,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:Tlegi0WT8yWOHoufWP9Xj
+UID:O1Idm8bJMKs2gDl97_n2n
+SUMMARY:INXS\, The Police & Duran Duran Tribute Night
+DTSTAMP:20260226T193358Z
+DTSTART:20260314T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:dSy82R7nzfgTsP3z3xmky
 SUMMARY:Floranda Pop-up
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260314T180000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/pi-day-festivities-and-floranda-pop-up
@@ -573,9 +706,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:Et90FEThMR_355zru6wH_
+UID:23TKbvDGzprDFVyaQp2nz
 SUMMARY:Smash That!                     
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260314T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4
@@ -587,9 +720,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:0J5wtBm-w2WB-jY5RTVz6
+UID:Ot8bvh2XtyEhKdjuKW2Kp
+SUMMARY:CLINTON FEARON & Boogie Brown Band with The Selassie Ites and DJ Mi
+	ss Ashley
+DTSTAMP:20260226T193358Z
+DTSTART:20260315T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:KvXkDJAEFYfwLB7_JqpZM
 SUMMARY:GOTH vs EMO
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260315T040000Z
 DESCRIPTION:$17\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/goth-vs-emo-176975
@@ -601,9 +748,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:ne4L5pwnj2h8kEPNs8oLe
+UID:YJzeWO1affCLB_06wn0Nu
 SUMMARY:Smash That!                      
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260315T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3
@@ -615,9 +762,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:vYmZqIfVJL8-jp1NS1fkz
+UID:k5K8K_SXSGxdm8QnqaSPY
 SUMMARY:COALESCENCE CABARET
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260316T013000Z
 DESCRIPTION:$30\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/coalescence-cabaret-175908
@@ -630,9 +777,35 @@ TRANSP:TRANSPARENT
 DURATION:PT7H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:0uO6P9HoodZ-X56khuauc
+UID:Y6UYvRpt5UVuTZbi4ryj5
+SUMMARY:ERIC ROBERSON with guests Solstarr
+DTSTAMP:20260226T193358Z
+DTSTART:20260316T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:l0GaA0QtYFpKdLVgFFN-_
+SUMMARY:Mo' Jam Mondays
+DTSTAMP:20260226T193358Z
+DTSTART:20260317T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:R01pNFvrMdNBBuelLvjOJ
 SUMMARY:THE HIGH SEAGRASS with guests HEMLOCK REVIVAL
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260318T020000Z
 DESCRIPTION:$12\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/the-high-seagrass-with-guests-hemlock-revival-174650
@@ -645,9 +818,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:E6WctylZwxWbxzV-ed9Fw
+UID:DTOy-5kCkVqcCAy-S93Q-
 SUMMARY:Smash That!                       
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260318T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we
@@ -660,9 +833,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:o52iCqkpCWOkvULXlrQje
+UID:x4_hOMSKzj97iI8Os4JVY
 SUMMARY:MAC LETHAL with Jay Fiddy & RNNRS & DJ Indica Jones
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260319T020000Z
 DESCRIPTION:$22\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/mac-lethal-with-jay-fiddy-rnnrs-dj-indica-jones-171132
@@ -675,9 +848,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:OqQetgydl0kdP92d7TLXj
+UID:XakHpr7fIPyC4m5vRiqjD
 SUMMARY:Smash That!                        
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260319T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl
@@ -690,9 +863,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:MB0-wol0XocIocuEmwXQx
+UID:yZSWJb_2eh8pY0VjqOFQR
 SUMMARY:Among Authors w/ Zan Fiskum\, SuperMother
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260320T023000Z
 DESCRIPTION:$15\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/among-authors-w-zan-fiskum-supermother-174762
@@ -705,9 +878,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:MDKr4M3m-I8BxKHqOs7Wj
+UID:fBNAKJ_vLmvdM0Nvu1jQQ
+SUMMARY:ALIX PEREZ with Rob Noble & Pressha
+DTSTAMP:20260226T193358Z
+DTSTART:20260320T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:aDGopCCVThZLo80Gsx_kD
 SUMMARY:Smash That!                         
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260320T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp
@@ -720,9 +906,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:P5yzyrRjeS_F_n1W5vyOv
+UID:oyH7HfmqE83c5-YxMYhMl
 SUMMARY:R.A.P. FERREIRA (fka Milo) with AJ Suede & Progeny
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260321T010000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/r-a-p-ferreira-fka-milo-with-aj-suede-progeny-164854
@@ -735,10 +921,24 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:kkhcNpggFqoD4QoitI1x1
+UID:Fe2tQs6j4fI38QovXaMuS
+SUMMARY:LOVE VIGILANTES (Tribute to the New Order) and DARK WAVE MIXTAPE (T
+	ribute to the 80s underground & Beyond)
+DTSTAMP:20260226T193358Z
+DTSTART:20260321T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:gDweThsA6hfZmdvjco6u2
 SUMMARY:"I WANT IT THAT WAY: 90s/2000s Dance Party" feat #ALL4DORAS and DJ 
 	Dance Dance
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260321T050000Z
 DESCRIPTION:$10\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/-i-want-it-that-way-90s-2000s-dance-party-feat-all4doras-and-dj-
@@ -752,9 +952,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:WqzQYQYdMUEV01NAnindu
+UID:YqwRAVi7j7KN61G83MiAG
 SUMMARY:Smash That!                          
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260321T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2
@@ -767,10 +967,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:Pa9cknEKBWfGgSDjpH4bw
+UID:RHB5wABT3XVcWM6tIxjag
 SUMMARY:DEAL: Performing Music of the Grateful Dead *ASL Interpretation pro
 	vided*
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260322T030000Z
 DESCRIPTION:$12\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/deal-performing-music-of-the-grateful-dead-asl-interpretation-pr
@@ -784,9 +984,35 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:IDEBr8xTlMbrdmaT-DnTK
+UID:0IL2F2oOkMif4tWb0PUwa
+SUMMARY:BANGERS BEFORE BED
+DTSTAMP:20260226T193358Z
+DTSTART:20260322T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:96H7u_6gzh66FbXBj2yRA
+SUMMARY:WORK IT! : 90s/2000s R&B and Hip Hop Night
+DTSTAMP:20260226T193358Z
+DTSTART:20260322T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:A1v8ZU2pmUprHqxryUtOK
 SUMMARY:Smash That!                           
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260322T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -800,9 +1026,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:9mamS8fMb1QosJ_k9X397
+UID:4pQoAbiKNv1_oJAcKiwYB
+SUMMARY:NOUR KHODR with Special Guests
+DTSTAMP:20260226T193358Z
+DTSTART:20260323T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:wCw6XZoxHYYMnIaB29lpG
 SUMMARY:STEINZA: Steinza Was Here Tour\, with Hudson Ingram
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260324T020000Z
 DESCRIPTION:$22.5\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hidden
 	hall/events/steinza-steinza-was-here-tour-with-hudson-ingram-162237
@@ -815,9 +1054,39 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:eJM03JyNZKhfTKw7rATFR
+UID:GHAgTc5sYveR-Pte4tPMD
+SUMMARY:Mo' Jam Mondays
+DTSTAMP:20260226T193358Z
+DTSTART:20260324T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:I-txq7I_bFBS-JAcCcASd
+SUMMARY:SCOTT LAW & FRIENDS feat Andy Coe\, Keith Lowe\, Chelsea Luker\, D\
+	\'Vonne Lewis plus Jay Cobb
+DTSTAMP:20260226T193358Z
+DTSTART:20260325T020000Z
+DESCRIPTION:\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenhall/
+	events/scott-law-friends-feat-andy-coe-keith-lowe-chelsea-luker-d-vonne-le
+	wis-plus-jay-cobb-176752
+URL:https://www.tixr.com/groups/hiddenhall/events/scott-law-friends-feat-an
+	dy-coe-keith-lowe-chelsea-luker-d-vonne-lewis-plus-jay-cobb-176752
+LOCATION:Hidden Hall\, 400 N 35th St\, Seattle\, WA
+X-CALRIPPER-SOURCE:events
+CATEGORIES:Hidden Hall
+TRANSP:TRANSPARENT
+DURATION:PT7H
+END:VEVENT
+BEGIN:VEVENT
+UID:PQqmiMsOWBaXEFBHggCsV
 SUMMARY:Smash That!                            
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260325T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -831,9 +1100,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:rcoSUp7l9k_mc0pfU5f_4
+UID:3mciUQrCIfF9bhHsU6-84
 SUMMARY:SESSA with William Alexander
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260326T020000Z
 DESCRIPTION:$18.5\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hidden
 	hall/events/sessa-with-william-alexander-162232
@@ -846,9 +1115,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:wfse8siGQQaWFVVs70xm_
+UID:DtIeI2dkEI18Dum5yES9P
+SUMMARY:KVS TABLA with Special Guests
+DTSTAMP:20260226T193358Z
+DTSTART:20260326T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:AjsKy_nL-Ozs6zb_Iy6gG
 SUMMARY:Smash That!                             
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260326T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -862,9 +1144,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:GBKrdLuMt4Mk-h7agGs-2
+UID:kK67jXKlzsekYEErM6llb
 SUMMARY:CHAMPAGNE BUBBLEBATH (album release)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260327T020000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/champagne-bubblebath-album-release--165468
@@ -877,9 +1159,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:0By6tOqYM8v66jPsvZ24G
+UID:mNh7inmfzaAMWzN2_NOPP
+SUMMARY:CAREFUL WHAT YOU WISH FOR: A circus-burlesque parody of modern dati
+	ng\, fairytales\, and the questionable wishes we make along the way...
+DTSTAMP:20260226T193358Z
+DTSTART:20260327T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:ha9I8nC7JP7jytdVxrasT
 SUMMARY:Smash That!                              
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260327T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -893,9 +1189,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:sIxmhcJKcxbCxQDM-PErX
+UID:U63tKsbmANCP0Ue92B-KG
 SUMMARY:TOM HAMILTON BAND with Swindler
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260328T030000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/tom-hamilton-band-with-swindler-165021
@@ -908,9 +1204,35 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:UVAFFlP2s3TraRpqyt_MA
+UID:f_PkqhTnKTLRYEVmKJcc7
+SUMMARY:MALCOLM BROWN with Ellie Wild b2b Christine Michelle\, Jason Brown
+DTSTAMP:20260226T193358Z
+DTSTART:20260328T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:Qz2WJQoMLHm3vyqKxEegY
+SUMMARY:THE BARR BROTHERS with guest Georgia Harmer
+DTSTAMP:20260226T193358Z
+DTSTART:20260328T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:2IJYd3fGnCBaiYB9B1Oya
 SUMMARY:Smash That!                               
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260328T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -924,10 +1246,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:PTo_USsT0ynAVyBLA1hyd
+UID:bnk79l_Z56SOT5PIyT88P
 SUMMARY:CAREFUL WHAT YOU WISH FOR: A circus-burlesque parody of modern dati
 	ng\, fairytales\, and the questionable wishes we make along the way...
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260329T023000Z
 DESCRIPTION:$45\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/careful-what-you-wish-for-a-circus-burlesque-parody-of-modern-da
@@ -942,9 +1264,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:siN49xCyceY5yf58V0h7x
+UID:JIZ_tY-8hVPg9rlZ1sKEs
+SUMMARY:SKERIK LARGE BAND XXL (2 sets)
+DTSTAMP:20260226T193358Z
+DTSTART:20260329T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:iJiN5CbVc7yXralh4AoAF
 SUMMARY:Smash That!                                
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260329T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -958,9 +1293,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:K38P5wzwiqMGO4fzI03SK
+UID:t02JkI7VaBQexdxfvHi1Q
 SUMMARY:Lew Sid w/ Vic Daggs II\, Campana
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260330T023000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/lew-sid-w-vic-daggs-ii-campana-165464
@@ -973,9 +1308,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:HMwnLajzP_ZB5CbmKsQtC
+UID:blD3OLqeNs0UVAvAxBGNJ
+SUMMARY:CEZA
+DTSTAMP:20260226T193358Z
+DTSTART:20260330T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:Jk-1eY8c5d-Bd9eZbmyFz
 SUMMARY:Chrissy Chlapecka w/ Special Guests
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260331T020000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/chrissy-chlapecka-w-special-guests-174058
@@ -988,9 +1336,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:A5HxWnFO02iBLcfm486Tk
+UID:fuSvB69Y2jz0jypD-x7dW
+SUMMARY:Mo' Jam Mondays
+DTSTAMP:20260226T193358Z
+DTSTART:20260331T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:Dln4AX69M2-Bk1wWOCVML
 SUMMARY:Pity Party (Girls Club) w/ Buddha Trixie
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260401T020000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/pity-party-girls-club-w-buddha-trixie-168487
@@ -1003,9 +1364,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:E0Hh0oGSLxx3vp-m2iBHk
+UID:zOhr-tsSw0fd7vhc_vvYG
 SUMMARY:Smash That!                                 
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260401T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1019,9 +1380,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:r_7oqcSYWL98CVaNBykdL
+UID:zh72utcywXUaynH_vP1-8
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260402T020000Z
 DESCRIPTION:$10\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/western-wednesdays-country-dance-night-173559
@@ -1034,9 +1395,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:gP3tyXV7T9EFQGLgbKgZ3
+UID:8JzedeyqzEMTPnvT2cCP9
+SUMMARY:KASH'D OUT with Beach Fly
+DTSTAMP:20260226T193358Z
+DTSTART:20260402T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:YS6ovsfpqftXIsVobyqnn
 SUMMARY:Smash That!                                  
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260402T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1050,9 +1424,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:AVJq6_uiTr6ujLg88PVz3
+UID:Z_zWM-PDUeWerXGT_6yKi
 SUMMARY:Hockey Teeth w/ Poached
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260403T023000Z
 DESCRIPTION:$12\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/hockey-teeth-w-poached-175327
@@ -1065,9 +1439,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:Tp7k08TkV7uaFMtTM-KP4
+UID:oa4kwdyxVM05v83fMoSqw
+SUMMARY:YELLOW DAYS with guests
+DTSTAMP:20260226T193358Z
+DTSTART:20260403T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:qjdIQSw1K9VjMPkEya4Kn
 SUMMARY:Smash That!                                   
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260403T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1082,9 +1469,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:rfRxsL1GtNzyEkFj1Ty5O
+UID:aZOJG0d90KJKk7nUBDiHy
 SUMMARY:PARLOR GREENS with guests Annie J (full band)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260404T030000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/parlor-greens-with-guests-annie-j-full-band--161566
@@ -1097,9 +1484,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:z_1CcqHOo2oboslBwxf6v
+UID:91n64H9reAmDV1lmmomYY
+SUMMARY:PREMO RICE with Jesse Desean\, D. Mikey & DJ Indica Jones
+DTSTAMP:20260226T193358Z
+DTSTART:20260404T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:5Z3mjNLGAOqZ8aLGpp9o9
 SUMMARY:Smash That!                                    
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260404T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1114,9 +1514,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:lAqMyhRWp70692CTV7lkJ
+UID:yk1i80kkt_4A-sPiDYnvw
 SUMMARY:UNREAL. An Immersive evening of Oddities
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260405T000000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/unreal-an-immersive-evening-of-oddities
@@ -1128,9 +1528,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3XqNvbtXGaRQOq05Y5GoU
+UID:7mEnvGcpqU5J-q50qwvAD
 SUMMARY:DES ROCS with Special Guests
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260405T020000Z
 DESCRIPTION:$29.5\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hidden
 	hall/events/des-rocs-with-special-guests-166809
@@ -1143,9 +1543,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:Dd7nJxLjhrRLAqnsTIDqN
+UID:m6ZaXzLbGRqqW4TKnuBdg
+SUMMARY:YONDER MOUNTAIN STRING BAND
+DTSTAMP:20260226T193358Z
+DTSTART:20260405T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:4VFxrVglQbfotx5ILtLvS
 SUMMARY:Smash That!                                     
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260405T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1160,9 +1573,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:N72jB_yBO2FSg9TcD4KHY
+UID:hsphY3uAsfg326spcKYSZ
 SUMMARY:REFLECT - Deep House & Melodic Techno
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260408T020000Z
 DESCRIPTION:$14\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/reflect-deep-house-melodic-techno-178924
@@ -1175,9 +1588,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:V-MfCUF7p2hepO0FmF8_e
+UID:-OAhsMvAQb92fTTQ3fOdv
 SUMMARY:Smash That!                                      
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260408T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1192,9 +1605,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:CNxsj0qp5GfENqfRFjF0o
+UID:Jqlwx62hYfdB5yZWaVeO2
 SUMMARY:Smash That!                                       
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260409T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1209,9 +1622,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:gIrhetWDXFFLRu8Ns5Hwt
+UID:K1mepF4fwFCxysKB8EhbD
 SUMMARY:SATSANG (solo) with guest Joey Harkum (solo)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260410T023000Z
 DESCRIPTION:$75\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/satsang-solo-with-guest-joey-harkum-solo--165365
@@ -1224,9 +1637,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:7jVv59jhObStkGpXwHSor
+UID:K7sOeb04GCLvZ4mQqr0n_
+SUMMARY:A Flock of the 80s w/ Bands Don't Cry
+DTSTAMP:20260226T193358Z
+DTSTART:20260410T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:fRlg5CJ19HOGP70b6gWJu
 SUMMARY:Smash That!                                        
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260410T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1242,9 +1668,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:YmXH7x_NLohqXC7LyXW17
+UID:JnrPAm1heJzkxFu35lRc6
 SUMMARY:TAUK with The Jauntee
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260411T030000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/tauk-with-the-jauntee-169047
@@ -1257,9 +1683,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:cPZQH2GerqIe86pGMKoSZ
+UID:HUZ7HdJU6lLf4B_umZi8U
+SUMMARY:QUEEN MOTHER with Madman Across The Water
+DTSTAMP:20260226T193358Z
+DTSTART:20260411T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:2odJkNsxIqew0nuHKtX_k
 SUMMARY:National Pet Day Event!
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260411T180000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/national-pet-day-event
@@ -1272,9 +1711,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:dNCeJnvzWXSfw-Cm5C6rL
+UID:hhC8yqaT9_1fDRLCbtfa-
 SUMMARY:Smash That!                                         
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260411T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1290,9 +1729,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:k2LG1-rQ19JR9d-hiW_j8
+UID:KPNqbenuQzigAra-dYurY
 SUMMARY:CYTRUS x BOOT JUICE
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260412T030000Z
 DESCRIPTION:$15\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/cytrus-x-boot-juice-171126
@@ -1305,9 +1744,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:sN5MtYfk-W7z5VymCA8ke
+UID:WjqHE87_vJZ2fyxAPUIwW
 SUMMARY:Smash That!                                          
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260412T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1323,9 +1762,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:gmGmTS4NZJu-r-IO0s0Ov
+UID:1-Vc4tBJo9uEPbmDrg4ql
 SUMMARY:Dylan Reese x Adam Yokum w/ Emanuel Brown\, Sean Patek
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260413T020000Z
 DESCRIPTION:$17\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/dylan-reese-x-adam-yokum-w-emanuel-brown-sean-patek-173712
@@ -1338,9 +1777,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:NYqonxMsMlDqxaoh8hRlW
+UID:gXvxuQemBK-0M9P8wipi1
+SUMMARY:DAMAG3 w/ Amber Ryan
+DTSTAMP:20260226T193358Z
+DTSTART:20260413T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:iyO3_K5xoemxjBqdlMB4z
 SUMMARY:Smash That!                                          
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260415T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1356,9 +1808,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:W1P96TGSGNHIKwe7MCGRR
+UID:VFesG22l0PF_gIFqgnNAO
+SUMMARY:DUB FX with Prezence & Derrick Broze
+DTSTAMP:20260226T193358Z
+DTSTART:20260416T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:bG1D6G1mnbE52brt3pB3y
 SUMMARY:Smash That!                                           
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260416T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1374,9 +1839,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:AkMU79Nujxto_TrQ0yk9q
+UID:4cWX_NjHkpZMwbgkat20y
 SUMMARY:Blackheart Honeymoon w/ OK Tiger\, Marco Marco
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260417T023000Z
 DESCRIPTION:$12\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/blackheart-honeymoon-w-ok-tiger-marco-marco-177577
@@ -1389,9 +1854,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:M8IqAV6Edk8RYEzsgf2w5
+UID:aZC_6bxvuIcYXQKp2f8An
 SUMMARY:Smash That!                                            
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260417T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1407,9 +1872,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:iiQXDWDK-mx4mI46HrlZI
+UID:Bk62GROokGwxi8khCHZZr
 SUMMARY:Babes in Canyon w/ Small Paul\, Juliet Daniel
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260418T020000Z
 DESCRIPTION:$18\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/babes-in-canyon-w-small-paul-juliet-daniel-172486
@@ -1422,9 +1887,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:3f6-Y7X1xUCtuJFQXndDA
+UID:iapEWjTGPywjTvRDbCpK2
+SUMMARY:DEVIN THE DUDE with Jarv Dee & The Blakhouse Band\, plus Nobi & DJ 
+	Indica Jones
+DTSTAMP:20260226T193358Z
+DTSTART:20260418T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:jJEqI3tfExy4-OKC40ZOH
 SUMMARY:Smash That!                                            
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260418T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1440,10 +1919,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:g2cLkFeMZMIR1lvubbibC
+UID:reC1oLNq1D0ktrCob8Htw
+SUMMARY:SOUR TIMES - a tribute to Portishead
+DTSTAMP:20260226T193358Z
+DTSTART:20260419T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:QjIGIU8XQMOoHEpzns2m6
 SUMMARY:Lagos Island Seattle with Flygerian Jeff (Bay Area)\, DJ NGL (SeeYo
 	uOutside)\, DJ Nayiram
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260419T040000Z
 DESCRIPTION:$15\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/lagos-island-seattle-with-flygerian-jeff-bay-area-dj-ngl-seeyouo
@@ -1457,9 +1949,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:fwi6b_m23T9GLyxVt65Oh
+UID:VC6Tq95jNgDRnh-JlRyrI
 SUMMARY:Smash That!                                             
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260419T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1476,9 +1968,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:mEqcRB4RvTJFa_V-cyaGi
+UID:4FmLaP7RsGpLcYcQIVT7P
+SUMMARY:10 FT GANJA PLANT with Double Tiger
+DTSTAMP:20260226T193358Z
+DTSTART:20260420T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:8Rv40oP82LGNSLewiBRqz
 SUMMARY:Smash That!                                              
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260422T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1495,10 +2000,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:Y1FG1hk_BG1L2nv-doOdn
+UID:wWn8p9wL9mthz2oHnl6HD
 SUMMARY:PNW Bluegrass Getdown feat Hemlock Revival\, Si Tu Savais (plays Gr
 	isman) and The Weather Pennies
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260423T020000Z
 DESCRIPTION:$12\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/pnw-bluegrass-getdown-feat-hemlock-revival-si-tu-savais-plays-gr
@@ -1513,9 +2018,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:PxaarZbYYfdt1tqQdKKv7
+UID:AnTZEexZTipoJhmmpY_GM
 SUMMARY:Smash That!                                               
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260423T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1532,9 +2037,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:qyYB2_4Q0iQ-Tu7bBqc5g
+UID:_GKb23O5reIycm_E3kQMT
 SUMMARY:Smash That!                                                
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260424T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1551,9 +2056,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:xyn7HH6nEW2za7HD1iEpF
+UID:4qclKSydJXyzlIJRE_NVe
+SUMMARY:SUBDOCTA with Luzcid & Pressha
+DTSTAMP:20260226T193358Z
+DTSTART:20260425T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:_vGeKa5UP9qfLW5vOfptl
 SUMMARY:Earth Day Event with Squid Wizard and Kingtide Tattoos
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260425T180000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/earth-day-event-with-squid-wizard-and-kingtide-ta
@@ -1567,9 +2085,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:wHSDHkEdTof0hQMToAERl
+UID:xWknQX6VdbkJIgxfl5RT4
 SUMMARY:Smash That!                                                 
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260425T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/md38slnjeh4swp4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h
@@ -1586,9 +2104,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:5XdnhxYNkl0_U4vNr3pVy
+UID:XdrOy8ef3qFoZOASWi_T8
 SUMMARY:SHAYFER JAMES with Maiah Wynne
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260426T000000Z
 DESCRIPTION:$23.5\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hidden
 	hall/events/shayfer-james-with-maiah-wynne-171614
@@ -1601,9 +2119,22 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:-SxcLCuTrlIS6Dz43I5Ik
+UID:xaFXqkEEwOwAclpBnYf4M
+SUMMARY:SHABAZZ PALACES plus Stas THEE Boss and JusMoni
+DTSTAMP:20260226T193358Z
+DTSTART:20260426T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:CNN9nKQ7xSX8PwJ5gvpFK
 SUMMARY:Smash That!                                                  
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260426T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/z65twbexet2p7zp
@@ -1615,9 +2146,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:oAAToRJWRYMyjiOsVr4gp
+UID:RMZNL4WwZ92ZAaHvqKntK
 SUMMARY:Smash That!                                                   
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260429T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/z65twbexet2p7zp-tkd3m
@@ -1629,9 +2160,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:x71vrIydAp74VOK67ulfy
+UID:cFK480iuk0eQBY-bVWvtk
 SUMMARY:EL TEN ELEVEN
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260430T020000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/el-ten-eleven-174618
@@ -1643,9 +2174,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:qDGYYNqmD5MEpEk0dIYAB
+UID:JqLxJH0C7nLcDr5XmzFMH
 SUMMARY:Smash That!                                                    
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260430T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/z65twbexet2p7zp-tkd3m-6d422
@@ -1658,9 +2189,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:mQw_yw1eH2wQ5JbbzFWOq
+UID:uygsuryUbr-Me8eLF5uE6
+SUMMARY:Tavana w/ Special Guests
+DTSTAMP:20260226T193358Z
+DTSTART:20260501T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:hEyF9yOlv-we4CQ3LiIhh
 SUMMARY:Smash That!                                                     
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260501T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/z65twbexet2p7zp-tkd3m-6d422-j4f8x
@@ -1673,9 +2217,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:2K0BQtqZdbAT8zNkEAMpP
+UID:Dv5WiTjbqqLzA_K2WuBj4
 SUMMARY:May Day
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260502T200000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/may-day-2
@@ -1686,9 +2230,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:8otIdk60027sicuwT-V8W
+UID:u2sVORRZ0vWX-3s1umZwV
 SUMMARY:Smash That!                                                      
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260502T200000Z
 DESCRIPTION:\n\nFrom Fremont Brewing - Fremont\n\nhttps://www.fremontbrewin
 	g.com/fremont-ubg-events/z65twbexet2p7zp-tkd3m-6d422-j4f8x-ksj34
@@ -1701,9 +2245,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:vA2BynD6CMIW-ZGrhV525
+UID:lW779EgAsHmvxJOT_J7kn
 SUMMARY:Never Ending Fall plus special guest
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260503T020000Z
 DESCRIPTION:$22\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/never-ending-fall-plus-special-guest-168275
@@ -1716,9 +2260,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:oGv-r-_XTIxFysP7qnKSZ
+UID:8WTg4CPdflkX-cgbBnSXI
+SUMMARY:ATLUS with DJ Indica Jones
+DTSTAMP:20260226T193358Z
+DTSTART:20260503T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:hrvPoflXo6WM3EYRedchY
 SUMMARY:The High Seagrass w/ The Pickpockets and Hemlock Revival
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260504T020000Z
 DESCRIPTION:$12\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/the-high-seagrass-w-the-pickpockets-and-hemlock-revival-176969
@@ -1731,9 +2288,35 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:oh4tpO5cLabU2hKoCIIn9
+UID:iJgmdhZCbb6GCHASX6p2m
+SUMMARY:PUULUUP
+DTSTAMP:20260226T193358Z
+DTSTART:20260504T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:yp0l8gSG9RN6y271XJvz5
+SUMMARY:NORTHWEST @ NECTAR!
+DTSTAMP:20260226T193358Z
+DTSTART:20260507T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:YvksOI6LyAV35u0GBxCNH
 SUMMARY:FAMILY MYSTIC with Eclectrick plus late night set Cedric Swan
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260508T020000Z
 DESCRIPTION:$16\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/family-mystic-with-eclectrick-plus-late-night-set-cedric-swan-17
@@ -1747,9 +2330,49 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZvNItmHUArrkmm3AuS1Ho
+UID:dAKSRLzs8mV0B6035yy0i
+SUMMARY:ford. plus special guests
+DTSTAMP:20260226T193358Z
+DTSTART:20260508T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:2Z5TXktrJKAIiHdtLJ_6N
+SUMMARY:*Rescheduled* GZA featuring Phunky Nomads\, plus Greg Cypher\, DJ I
+	ndica Jones
+DTSTAMP:20260226T193358Z
+DTSTART:20260514T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:DaYTxMz-UdQ0Hjj6Gnqro
+SUMMARY:Nogu Svelo!
+DTSTAMP:20260226T193358Z
+DTSTART:20260515T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:LjTvOCXLa3WVJhkdoiG9j
 SUMMARY:SIDEBOOB \\'90s Prom! (lead by Shook Twins & Megan Letts)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260516T020000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/sideboob-90s-prom-lead-by-shook-twins-megan-letts--173003
@@ -1762,9 +2385,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:GWcE6Em4hZBeKzfKmip6f
+UID:_Iwv--BxTEq3W_YaPzKRL
+SUMMARY:LA SANTA CECILIA with Special Guests
+DTSTAMP:20260226T193358Z
+DTSTART:20260518T030000Z
+DESCRIPTION:\n\nFrom Nectar Lounge\n\nhttps://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:nectar-lounge
+CATEGORIES:Nectar Lounge
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:Zg9b-qz6j3qVVEEBaxDRl
 SUMMARY:Vinyl Williams *Star Harmony Tour* with HOTT MT\, Frond
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260522T030000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/vinyl-williams-star-harmony-tour-with-hott-mt-frond-175555
@@ -1777,9 +2413,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:6_Dwwxo3meS9bOUJGRjxB
+UID:VlzEzzJ6M5xyfzZV_324b
 SUMMARY:THE GOLDEN ROAD: Celebrating Bob Weir (\\'67-73)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260523T030000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/the-golden-road-celebrating-bob-weir-67-73--175911
@@ -1792,9 +2428,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:fYDc19Av8uJNcUB1sxWvU
+UID:yVQ06AqtzDxrJQzAM6aFQ
 SUMMARY:BowieVision with Jealous Dogs (Bowie / Pretenders Tributes)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260524T030000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/bowievision-with-jealous-dogs-bowie-pretenders-tributes--172498
@@ -1807,9 +2443,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:OMb5wb-6T5b8OExvJ4k2u
+UID:XccwbuKgUlOu82v6T2oBu
 SUMMARY:DOCTORFUNK (2 sets)
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260525T020000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/doctorfunk-2-sets--161569
@@ -1821,9 +2457,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:rDvuEaGopgTX0Czc7pxN0
+UID:KdzvZrAmYe1hxN-xZLZ4j
 SUMMARY:THE LOVECATS & COOOL BABIES
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260530T030000Z
 DESCRIPTION:$15\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/the-lovecats-coool-babies-176972
@@ -1836,9 +2472,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:mfV3z6veall3N7cuihk2D
+UID:rP3Zq6YweM4w3VnVd6N8L
 SUMMARY:GOOPSTEPPA with Rob Noble & Korra The Kid
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260531T030000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/goopsteppa-with-rob-noble-korra-the-kid-177066
@@ -1851,9 +2487,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:jny8wXCpTBBi3dLfhXkRK
+UID:ZL-Y0hgbj0PPbQ-j4fqto
 SUMMARY:DAKOTA POORMAN with The Olson Bros Band
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260608T020000Z
 DESCRIPTION:$15\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/dakota-poorman-with-the-olson-bros-band-178635
@@ -1866,9 +2502,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:5lYmosVzkRTRCrAVOdi5j
+UID:zItY03uj7kdGcbceQmAk-
 SUMMARY:Solstice Parade
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260620T200000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/solstice-parade
@@ -1879,9 +2515,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:t2KkBLsePn0_N910gMFe8
+UID:bbmp3FWPQDy_9t2nXzsjN
 SUMMARY:EMM x TezaTalks
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260707T020000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/emm-x-tezatalks-158386
@@ -1893,9 +2529,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:GWAcGryC4YRCjXTPoIQXi
+UID:EI3MGM8zLCDGfjIVWJo_u
 SUMMARY:Ill.GATES & SFAM plus Pressha
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260711T030000Z
 DESCRIPTION:$20\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/ill-gates-sfam-plus-pressha-175914
@@ -1908,9 +2544,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:hK85XLvyFt-7eXjl9Aagc
+UID:T1p9k_NsAQ4X_ly989aXk
 SUMMARY:PLAYLUNCH with Special Guests
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260807T020000Z
 DESCRIPTION:$19.99\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hidde
 	nhall/events/playlunch-with-special-guests-178084
@@ -1923,9 +2559,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:yk3n96u9vMOW_MrgY1Odf
+UID:4GMmH3hCJG_yeYWvFk5cP
 SUMMARY:KBONG & Johnny Cosmic with Special Guests
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260816T030000Z
 DESCRIPTION:$25\n\nFrom Hidden Hall\n\nhttps://www.tixr.com/groups/hiddenha
 	ll/events/kbong-johnny-cosmic-with-special-guests-176739
@@ -1938,9 +2574,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:mUP5MT2jOPtf3al47l8OG
+UID:pl3OIdxM9EAYEs3OgmY6U
 SUMMARY:Luminata
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20260920T003000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/luminata-2
@@ -1951,9 +2587,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:WsxTPEchyGssTae24S-kT
+UID:eSW9CTmQ07LOl_GpmA3GT
 SUMMARY:Trolloween
-DTSTAMP:20260226T080000Z
+DTSTAMP:20260226T193358Z
 DTSTART:20261101T020000Z
 DESCRIPTION:\n\nFrom Fremont Arts Council\n\nhttps://fremontartscouncil.org
 	/calendar/trolloween

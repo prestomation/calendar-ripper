@@ -76,7 +76,7 @@ export default class SeattleShowlistsRipper implements IRipper {
         const unknownVenueErrors = this.detectUnknownVenues(showData);
 
         return ripper.config.calendars.map(cal => {
-            const venueFilter: string | undefined = cal.config?.venue;
+            const venueFilter = cal.config?.venue as string | undefined;
 
             const filtered = venueFilter
                 ? showData.filter(s => s.venueName === venueFilter)

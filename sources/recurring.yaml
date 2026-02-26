@@ -364,6 +364,96 @@ events:
     url: "https://www.seattlecreates.org/events/free-first-thursdays-2026"
     tags: ["Museums", "Community"]
 
+  # Open Mic Nights — Music
+  - name: conor-byrne-open-mic
+    friendlyname: "Conor Byrne Pub — Sunday Open Mic"
+    description: "Weekly open mic at one of Seattle's most storied venues. Free to sign up, first come first served."
+    schedule: "every Sunday"
+    timezone: America/Los_Angeles
+    duration: PT5H
+    start_time: "19:30"
+    location: "5140 Ballard Ave NW, Seattle"
+    url: "https://www.conorbyrnepub.com/"
+    tags: ["OpenMic", "Music", "Ballard"]
+
+  - name: skylark-cafe-open-mic
+    friendlyname: "Skylark Cafe — Wednesday Open Mic"
+    description: "Weekly open mic with full backline provided and 16-track recording available. Free sign-up."
+    schedule: "every Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT3H30M
+    start_time: "19:30"
+    location: "3803 Delridge Way SW, Seattle"
+    url: "https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic"
+    tags: ["OpenMic", "Music", "West Seattle"]
+
+  - name: nectar-lounge-mo-jam
+    friendlyname: "Nectar Lounge — Mo Jam Mondays"
+    description: "Weekly music jam and open mic at Nectar Lounge."
+    schedule: "every Monday"
+    timezone: America/Los_Angeles
+    duration: PT4H30M
+    start_time: "19:30"
+    location: "412 N 36th St, Seattle"
+    url: "https://nectarlounge.com/"
+    tags: ["OpenMic", "Music", "Fremont"]
+
+  - name: hopvine-pub-open-mic
+    friendlyname: "Hopvine Pub — Wednesday Open Mic"
+    description: "Casual singer/songwriter-focused open mic hosted by Eric Miller. All welcome."
+    schedule: "every Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT2H
+    start_time: "21:00"
+    location: "507 15th Avenue E, Seattle"
+    url: "https://www.hopvinepub.com/"
+    tags: ["OpenMic", "Music", "Capitol Hill"]
+
+  - name: couth-buzzard-open-mic
+    friendlyname: "Couth Buzzard Books — Thursday Open Mic"
+    description: "Acoustic, no-PA listening environment at an independent bookstore/café. All art forms welcome: music, poetry, dance, comedy, and stories."
+    schedule: "every Thursday"
+    timezone: America/Los_Angeles
+    duration: PT3H
+    start_time: "19:00"
+    location: "8310 Greenwood Ave N, Seattle"
+    url: "https://www.couthbuzzard.com/"
+    tags: ["OpenMic", "Music", "Community", "Phinney"]
+
+  - name: fremont-abbey-open-mic-1st
+    friendlyname: "Fremont Abbey Open Mic (1st Tuesday)"
+    description: "All art forms welcome at this community arts space. Twice-monthly open mic."
+    schedule: "1st Tuesday"
+    timezone: America/Los_Angeles
+    duration: PT2H
+    start_time: "20:00"
+    location: "4272 Fremont Ave N, Seattle"
+    url: "https://www.fremontabbey.org/"
+    tags: ["OpenMic", "Music", "Community", "Fremont"]
+
+  - name: fremont-abbey-open-mic-3rd
+    friendlyname: "Fremont Abbey Open Mic (3rd Tuesday)"
+    description: "All art forms welcome at this community arts space. Twice-monthly open mic."
+    schedule: "3rd Tuesday"
+    timezone: America/Los_Angeles
+    duration: PT2H
+    start_time: "20:00"
+    location: "4272 Fremont Ave N, Seattle"
+    url: "https://www.fremontabbey.org/"
+    tags: ["OpenMic", "Music", "Community", "Fremont"]
+
+  # Open Mic Nights — Comedy
+  - name: club-comedy-cheap-laughs
+    friendlyname: "Club Comedy Seattle — Cheap Laughs Open Mic"
+    description: "Recurring Wednesday night open mic for comedians at Club Comedy Seattle."
+    schedule: "every Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT2H
+    start_time: "19:30"
+    location: "Club Comedy Seattle, Downtown Seattle"
+    url: "https://www.clubcomedyseattle.com/"
+    tags: ["OpenMic", "Nightlife", "Downtown"]
+
   # Seattle Critical Mass
   - name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"

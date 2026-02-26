@@ -35,6 +35,7 @@ export const VALID_TAGS = [
     "Music",
     "Museums",
     "Nightlife",
+    "OpenMic",
     "Sports",
     "Theatre",
 

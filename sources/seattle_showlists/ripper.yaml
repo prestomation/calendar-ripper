@@ -1,9 +1,151 @@
 name: seattle-showlists
-description: "Showlist Seattle"
+description: "Showlists Seattle"
 url: "https://seattle.showlists.net"
 friendlyLink: "https://seattle.showlists.net"
 tags: ["Music"]
 calendars:
-  - name: seattle-showlists
-    friendlyname: "Showlist Seattle"
+  # --- Pioneer Square ---
+  - name: baba-yaga
+    friendlyname: "Baba Yaga"
     timezone: America/Los_Angeles
+    tags: ["Pioneer Square"]
+    expectEmpty: true
+    config:
+      venue: "Baba Yaga"
+  - name: central-saloon
+    friendlyname: "Central Saloon"
+    timezone: America/Los_Angeles
+    tags: ["Pioneer Square"]
+    expectEmpty: true
+    config:
+      venue: "Central Saloon"
+
+  # --- Capitol Hill ---
+  - name: barboza
+    friendlyname: "Barboza"
+    timezone: America/Los_Angeles
+    tags: ["Capitol Hill"]
+    config:
+      venue: "Barboza"
+  - name: vermillion
+    friendlyname: "Vermillion"
+    timezone: America/Los_Angeles
+    tags: ["Capitol Hill"]
+    expectEmpty: true
+    config:
+      venue: "Vermillion"
+
+  # --- Belltown ---
+  - name: belltown-yacht-club
+    friendlyname: "Belltown Yacht Club"
+    timezone: America/Los_Angeles
+    tags: ["Belltown"]
+    config:
+      venue: "Belltown Yacht Club"
+  - name: hotel-crocodile
+    friendlyname: "Hotel Crocodile"
+    timezone: America/Los_Angeles
+    tags: ["Belltown"]
+    expectEmpty: true
+    config:
+      venue: "Hotel Crocodile"
+
+  # --- Ballard ---
+  - name: conor-byrne-pub
+    friendlyname: "Conor Byrne Pub"
+    timezone: America/Los_Angeles
+    tags: ["Ballard"]
+    config:
+      venue: "Conor Byrne Pub"
+
+  # --- Beacon Hill ---
+  - name: clock-out-lounge
+    friendlyname: "Clock-Out Lounge"
+    timezone: America/Los_Angeles
+    tags: ["Beacon Hill"]
+    config:
+      venue: "Clock-Out Lounge"
+
+  # --- Columbia City ---
+  - name: black-and-tan-hall
+    friendlyname: "Black & Tan Hall"
+    timezone: America/Los_Angeles
+    tags: ["Columbia City"]
+    expectEmpty: true
+    config:
+      venue: "Black &amp; Tan Hall"  # server sends HTML entity in venue name
+  - name: the-royal-room
+    friendlyname: "The Royal Room"
+    timezone: America/Los_Angeles
+    tags: ["Columbia City"]
+    config:
+      venue: "The Royal Room"
+
+  # --- Downtown ---
+  - name: the-rabbit-box
+    friendlyname: "The Rabbit Box"
+    timezone: America/Los_Angeles
+    tags: ["Downtown"]
+    expectEmpty: true
+    config:
+      venue: "The Rabbit Box"
+
+  # --- Eastlake ---
+  - name: black-lodge
+    friendlyname: "Black Lodge"
+    timezone: America/Los_Angeles
+    tags: ["Eastlake"]
+    expectEmpty: true
+    config:
+      venue: "Black Lodge"
+
+  # --- Fremont ---
+  - name: nectar-lounge
+    friendlyname: "Nectar Lounge"
+    timezone: America/Los_Angeles
+    tags: ["Fremont"]
+    config:
+      venue: "Nectar Lounge"
+
+  # --- Queen Anne ---
+  - name: bad-bar
+    friendlyname: "Bad Bar"
+    timezone: America/Los_Angeles
+    tags: ["QueenAnne"]
+    expectEmpty: true
+    config:
+      venue: "Bad Bar"
+
+  # --- Shoreline ---
+  - name: darrells-tavern
+    friendlyname: "Darrell's Tavern"
+    timezone: America/Los_Angeles
+    tags: ["Shoreline"]
+    expectEmpty: true
+    config:
+      venue: "Darrell's Tavern"
+
+  # --- University District ---
+  - name: blue-moon-tavern
+    friendlyname: "Blue Moon Tavern"
+    timezone: America/Los_Angeles
+    tags: ["University District"]
+    config:
+      venue: "Blue Moon Tavern"
+
+  # --- West Seattle ---
+  - name: skylark
+    friendlyname: "Skylark"
+    timezone: America/Los_Angeles
+    tags: ["West Seattle"]
+    config:
+      venue: "Skylark"
+
+  # --- White Center ---
+  - name: tims-tavern
+    friendlyname: "Tim's Tavern"
+    timezone: America/Los_Angeles
+    tags: ["White Center"]
+    expectEmpty: true
+    config:
+      venue: "Tim's Tavern"

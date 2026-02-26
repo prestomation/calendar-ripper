@@ -6,7 +6,9 @@ export const VALID_TAGS = [
     "Belltown",
     "Capitol Hill",
     "Central District",
+    "Columbia City",
     "Downtown",
+    "Eastlake",
     "Fremont",
     "Georgetown",
     "Greenwood",
@@ -17,9 +19,11 @@ export const VALID_TAGS = [
     "Pioneer Square",
     "QueenAnne",
     "Seward Park",
+    "Shoreline",
     "University District",
     "Wallingford",
     "West Seattle",
+    "White Center",
 
     // Activity types
     "Artwalk",

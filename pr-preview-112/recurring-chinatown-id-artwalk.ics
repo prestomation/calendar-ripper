@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Chinatown/International District Art Walk
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:-va_W0j3ozbpRolrwu_Nh
+SUMMARY:Chinatown/International District Art Walk
+DTSTAMP:20260226T074448Z
+DTSTART;TZID=America/Los_Angeles:20260618T180000
+DESCRIPTION:Summer art walk in the Chinatown/International District\n\nhttp
+	://www.wingluke.org/jamfest/
+URL:http://www.wingluke.org/jamfest/
+LOCATION:Chinatown/International District\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=3TH;BYMONTH=6,7,8,9
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

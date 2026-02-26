@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Phinney/Greenwood Art Walk
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:ytf6aoQTs7NLatefdYgDI
+SUMMARY:Phinney/Greenwood Art Walk
+DTSTAMP:20260226T073518Z
+DTSTART;TZID=America/Los_Angeles:20260313T180000
+DESCRIPTION:Monthly art walk in the Phinney/Greenwood neighborhoods\n\nhttp
+	s://www.phinneycenter.org/artwalk/
+URL:https://www.phinneycenter.org/artwalk/
+LOCATION:Phinney/Greenwood neighborhoods\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2FR
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

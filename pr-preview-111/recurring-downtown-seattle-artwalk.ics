@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Downtown Seattle Art Walk
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:D7VI-xT75RAm5ssd3MTj2
+SUMMARY:Downtown Seattle Art Walk
+DTSTAMP:20260226T073518Z
+DTSTART;TZID=America/Los_Angeles:20260227T180000
+DESCRIPTION:Monthly art walk in Downtown Seattle\n\nhttps://www.seattle.gov
+	/arts/experience/art-walks
+URL:https://www.seattle.gov/arts/experience/art-walks
+LOCATION:Downtown Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=4FR
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

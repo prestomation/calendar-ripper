@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Phinney Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:TaDqG8aLAFi4PbGLihcso
+SUMMARY:Couth Buzzard Books — Thursday Open Mic
+DTSTAMP:20260226T073538Z
+DTSTART;TZID=America/Los_Angeles:20260226T190000
+DESCRIPTION:Acoustic\, no-PA listening environment at an independent bookst
+	ore/café. All art forms welcome: music\, poetry\, dance\, comedy\, and sto
+	ries.\n\nFrom Couth Buzzard Books — Thursday Open Mic\n\nhttps://www.couth
+	buzzard.com/
+URL:https://www.couthbuzzard.com/
+LOCATION:8310 Greenwood Ave N\, Seattle
+X-CALRIPPER-SOURCE:couth-buzzard-open-mic
+CATEGORIES:Couth Buzzard Books — Thursday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TH
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:mvzROdDqwCtRrCi8e6ydP
+SUMMARY:Phinney/Greenwood Art Walk
+DTSTAMP:20260226T073538Z
+DTSTART;TZID=America/Los_Angeles:20260313T180000
+DESCRIPTION:Monthly art walk in the Phinney/Greenwood neighborhoods\n\nFrom
+	 Phinney/Greenwood Art Walk\n\nhttps://www.phinneycenter.org/artwalk/
+URL:https://www.phinneycenter.org/artwalk/
+LOCATION:Phinney/Greenwood neighborhoods\, Seattle
+X-CALRIPPER-SOURCE:phinney-greenwood-artwalk
+CATEGORIES:Phinney/Greenwood Art Walk
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2FR
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

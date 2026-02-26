@@ -2,39 +2,3 @@
 # One filename per line. Lines starting with # are comments.
 # Remove entries from this file after they've been deployed
 # (i.e. once the old URL is no longer live).
-
-# Consolidated duplicate CapitolHill -> "Capitol Hill" tag
-tag-capitolhill.ics
-
-# Langston moved from SquarespaceRipper to external ICS (site is now WordPress)
-langston-all-events.ics
-
-# 5th Avenue Theatre moved from STG/Ticketmaster to dedicated AXS ripper
-stg-5th-avenue.ics
-
-# Beacon Hill Art Walk removed - was Boston event, not Seattle
-recurring-beacon-hill-artwalk.ics
-
-# PacSci calendar renamed from all-events to special-events
-pacific-science-center-all-events.ics
-
-# AXS rippers disabled — Cloudflare bot protection blocks the proxy
-5thavenue-5thavenue.ics
-barboza-barboza.ics
-clockout-lounge-clockout-lounge.ics
-substation-substation.ics
-neumos-neumos.ics
-
-# AMC ripper disabled — Cloudflare bot protection blocks the proxy
-amc-pacific-place.ics
-amc-oak-tree.ics
-
-# SPL moved from external ICS to per-branch JSON ripper
-seattle-public-library.ics
-
-# Seattle Night Market disabled — Squarespace events page returns 404
-seattle-night-market-all-events.ics
-
-# NWTheatre disabled — returns HTTP 403 Forbidden
-external-nwtheatre.ics
-

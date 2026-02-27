@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:210 Seattle Night Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:hP9YXVcpQ8GY8xXJR7wyu
+SUMMARY:210 Seattle Night Market
+DTSTAMP:20260227T105818Z
+DTSTART;TZID=America/Los_Angeles:20260305T180000
+DESCRIPTION:Pop-up market during Pioneer Square's First Thursday Art Walk. 
+	20-40 local makers\, vintage curators\, and artists.\n\nhttps://www.210stu
+	dioseattle.com/210-market
+URL:https://www.210studioseattle.com/210-market
+LOCATION:Pioneer Square\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1TH
+DURATION:PT3H
+END:VEVENT
+END:VCALENDAR

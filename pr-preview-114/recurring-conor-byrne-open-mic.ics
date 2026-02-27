@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Conor Byrne Pub — Sunday Open Mic
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:Jq-wQ-keCGma6R7n2CCf-
+SUMMARY:Conor Byrne Pub — Sunday Open Mic
+DTSTAMP:20260227T105818Z
+DTSTART;TZID=America/Los_Angeles:20260301T193000
+DESCRIPTION:Weekly open mic at one of Seattle's most storied venues. Free t
+	o sign up\, first come first served.\n\nhttps://www.conorbyrnepub.com/
+URL:https://www.conorbyrnepub.com/
+LOCATION:5140 Ballard Ave NW\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT5H
+END:VEVENT
+END:VCALENDAR

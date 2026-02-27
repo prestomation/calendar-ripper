@@ -1,0 +1,230 @@
+{
+  "buildTime": "2026-02-27T10:58:53.434Z",
+  "totalErrors": 19,
+  "configErrors": [],
+  "sources": [
+    {
+      "source": "mccaw-hall",
+      "calendar": "mccaw-hall",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "rainier-arts-center",
+      "calendar": "rainier-arts-center",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-downtown",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-asian-art",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-sculpture-park",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-belltown",
+      "calendar": "tag-belltown",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-capitol-hill",
+      "calendar": "tag-capitol-hill",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-downtown",
+      "calendar": "tag-downtown",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-community",
+      "calendar": "tag-community",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-museums",
+      "calendar": "tag-museums",
+      "type": "Aggregate",
+      "errorCount": 3,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        }
+      ]
+    },
+    {
+      "source": "tag-queenanne",
+      "calendar": "tag-queenanne",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 5,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "hugo-house",
+      "friendlyName": "Hugo House",
+      "url": "https://hugohouse.org/programs-events/?ical=1&tribe_display=list",
+      "error": "null"
+    }
+  ],
+  "zeroEventCalendars": [
+    "mccaw-hall-mccaw-hall",
+    "sam-sam-downtown",
+    "sam-sam-asian-art",
+    "sam-sam-sculpture-park"
+  ],
+  "expectedEmptyCalendars": [
+    "benaroya-hall-benaroya-nordstrom",
+    "downtown-seattle-association-pioneer-park",
+    "downtown-seattle-association-occidental-square",
+    "jcccw-all-events",
+    "seattle-barkery-all-events",
+    "spl-university",
+    "tag-seward-park",
+    "external-langston"
+  ]
+}

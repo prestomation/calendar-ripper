@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Hopvine Pub — Wednesday Open Mic
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:QPoAfEXf_rRHOvg9wHROy
+SUMMARY:Hopvine Pub — Wednesday Open Mic
+DTSTAMP:20260227T105818Z
+DTSTART;TZID=America/Los_Angeles:20260304T210000
+DESCRIPTION:Casual singer/songwriter-focused open mic hosted by Eric Miller
+	. All welcome.\n\nhttps://www.hopvinepub.com/
+URL:https://www.hopvinepub.com/
+LOCATION:507 15th Avenue E\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

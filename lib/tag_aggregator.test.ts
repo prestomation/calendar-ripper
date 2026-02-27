@@ -178,18 +178,18 @@ describe('Tag Aggregator', () => {
       expect(activismCalendar?.events[0].sourceCalendarName).toBe('ripper2-calendar2');
     });
 
-    it('should append source info to event descriptions', async () => {
+    it('should preserve original event description', async () => {
       sampleCalendar1.tags = ["Music"];
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
 
       const aggregateCalendars = await createAggregateCalendars([sampleCalendar1], taggedExternalCalendars);
       const event = aggregateCalendars[0].events[0];
 
-      expect(event.description).toContain('From Calendar 1');
-      expect(event.description).toContain('Test Description 1');
+      expect(event.description).toBe('Test Description 1');
+      expect(event.sourceCalendar).toBe('Calendar 1');
     });
 
-    it('should set description to source info when event has no description', async () => {
+    it('should leave description undefined when event has no description', async () => {
       sampleEvent1.description = undefined;
       sampleCalendar1.tags = ["Music"];
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
@@ -197,7 +197,8 @@ describe('Tag Aggregator', () => {
       const aggregateCalendars = await createAggregateCalendars([sampleCalendar1], taggedExternalCalendars);
       const event = aggregateCalendars[0].events[0];
 
-      expect(event.description).toBe('\n\nFrom Calendar 1');
+      expect(event.description).toBeUndefined();
+      expect(event.sourceCalendar).toBe('Calendar 1');
     });
     
     it('should sort events by date', async () => {

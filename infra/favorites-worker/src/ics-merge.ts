@@ -21,6 +21,14 @@ export function mergeIcsFiles(icsContents: string[]): string {
       let enrichedBlock = block
       if (calName && !block.includes('X-CALRIPPER-SOURCE:')) {
         enrichedBlock = `\r\nX-CALRIPPER-SOURCE:${calName}\r\nCATEGORIES:${calName}${block}`
+
+        // Append calendar name to event description
+        const descRegex = /^(DESCRIPTION:.*(?:\r?\n[ \t].*)*)/m
+        if (descRegex.test(enrichedBlock)) {
+          enrichedBlock = enrichedBlock.replace(descRegex, `$1\\n\\nFrom ${calName}`)
+        } else {
+          enrichedBlock += `DESCRIPTION:From ${calName}\r\n`
+        }
       }
 
       eventBlocks.push(`BEGIN:VEVENT${enrichedBlock}END:VEVENT`)

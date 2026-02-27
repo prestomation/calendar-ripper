@@ -48,6 +48,17 @@ CATEGORIES:Stoup Brewing Events
 END:VEVENT
 END:VCALENDAR`
 
+const ICS_WITH_DESCRIPTION = `BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:Stoup Brewing Events
+BEGIN:VEVENT
+UID:event-desc@test
+DTSTART:20260306T100000Z
+SUMMARY:Event With Desc
+DESCRIPTION:A great beer tasting event
+END:VEVENT
+END:VCALENDAR`
+
 const ICS_NO_CALNAME = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
@@ -116,5 +127,30 @@ describe('mergeIcsFiles', () => {
     expect(result).not.toContain('X-CALRIPPER-SOURCE')
     expect(result).not.toContain('CATEGORIES')
     expect(result).toContain('No Cal Name Event')
+  })
+
+  it('adds calendar name to description for events without description', () => {
+    const result = mergeIcsFiles([ICS_A])
+    expect(result).toContain('DESCRIPTION:From Stoup Brewing Events')
+  })
+
+  it('appends calendar name to existing description', () => {
+    const result = mergeIcsFiles([ICS_WITH_DESCRIPTION])
+    expect(result).toContain('A great beer tasting event')
+    expect(result).toContain('From Stoup Brewing Events')
+    // "From" should come after original description (separated by escaped newlines)
+    expect(result).toMatch(/A great beer tasting event\\n\\nFrom Stoup Brewing Events/)
+  })
+
+  it('does not add calendar name to description for tag aggregate events', () => {
+    const result = mergeIcsFiles([ICS_WITH_SOURCE])
+    // Tag aggregates already have "From <source>" in their DESCRIPTION from toICS
+    // The merge should not add another "From" since X-CALRIPPER-SOURCE is present
+    expect(result).not.toMatch(/From Music Events/)
+  })
+
+  it('does not add description when X-WR-CALNAME is missing', () => {
+    const result = mergeIcsFiles([ICS_NO_CALNAME])
+    expect(result).not.toContain('DESCRIPTION:')
   })
 })

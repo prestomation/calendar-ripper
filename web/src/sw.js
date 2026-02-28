@@ -85,7 +85,13 @@ async function staleWhileRevalidate(request, cacheName) {
       }
     }
     return response
-  }).catch(() => cachedResponse)
+  }).catch(() => {
+    if (cachedResponse) return cachedResponse
+    return new Response('Offline and no cached data available', {
+      status: 503,
+      headers: { 'Content-Type': 'text/plain' },
+    })
+  })
 
   return cachedResponse || fetchPromise
 }

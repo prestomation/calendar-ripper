@@ -8,8 +8,13 @@ export default defineConfig({
     {
       name: 'copy-service-worker',
       writeBundle() {
-        copyFileSync('src/sw.js', '../output/sw.js')
-        copyFileSync('src/manifest.webmanifest', '../output/manifest.webmanifest')
+        try {
+          copyFileSync('src/sw.js', '../output/sw.js')
+          copyFileSync('src/manifest.webmanifest', '../output/manifest.webmanifest')
+        } catch (err) {
+          console.error('copy-service-worker plugin failed:', err.message)
+          throw err
+        }
       }
     }
   ],

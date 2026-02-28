@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Couth Buzzard Books — Thursday Open Mic
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:q4BDCgVzSElJDkN0hS__z
+SUMMARY:Couth Buzzard Books — Thursday Open Mic
+DTSTAMP:20260228T084324Z
+DTSTART;TZID=America/Los_Angeles:20260305T190000
+DESCRIPTION:Acoustic\, no-PA listening environment at an independent bookst
+	ore/café. All art forms welcome: music\, poetry\, dance\, comedy\, and sto
+	ries.\n\nhttps://www.couthbuzzard.com/
+URL:https://www.couthbuzzard.com/
+LOCATION:8310 Greenwood Ave N\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TH
+DURATION:PT3H
+END:VEVENT
+END:VCALENDAR

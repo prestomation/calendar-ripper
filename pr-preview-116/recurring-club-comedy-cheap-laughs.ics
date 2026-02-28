@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Club Comedy Seattle — Cheap Laughs Open Mic
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:Py-Lvrp4TOrphH_4ZE_BZ
+SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
+DTSTAMP:20260228T084324Z
+DTSTART;TZID=America/Los_Angeles:20260304T193000
+DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
+	 Seattle.\n\nhttps://www.clubcomedyseattle.com/
+URL:https://www.clubcomedyseattle.com/
+LOCATION:Club Comedy Seattle\, Downtown Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

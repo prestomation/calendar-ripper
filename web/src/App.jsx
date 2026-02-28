@@ -73,6 +73,8 @@ function App() {
   // Start on 'detail' so the homepage is visible on mobile
   const [mobileView, setMobileView] = useState('detail')
   const [tagsCollapsed, setTagsCollapsed] = useState(false)
+  const [isOffline, setIsOffline] = useState(typeof navigator !== 'undefined' ? !navigator.onLine : false)
+  const [dataUpdateAvailable, setDataUpdateAvailable] = useState(false)
   const [favorites, setFavorites] = useState(() => {
     try {
       const stored = localStorage.getItem('calendar-ripper-favorites')
@@ -157,6 +159,32 @@ function App() {
       })
       .catch(() => {})
   }, [authUser])
+
+  // Offline detection
+  useEffect(() => {
+    const goOffline = () => setIsOffline(true)
+    const goOnline = () => setIsOffline(false)
+    window.addEventListener('offline', goOffline)
+    window.addEventListener('online', goOnline)
+    return () => {
+      window.removeEventListener('offline', goOffline)
+      window.removeEventListener('online', goOnline)
+    }
+  }, [])
+
+  // Listen for service worker data update messages
+  useEffect(() => {
+    if (!('serviceWorker' in navigator)) return
+
+    const handler = (event) => {
+      if (event.data?.type === 'DATA_UPDATED') {
+        setDataUpdateAvailable(true)
+      }
+    }
+
+    navigator.serviceWorker.addEventListener('message', handler)
+    return () => navigator.serviceWorker.removeEventListener('message', handler)
+  }, [])
 
   const [currentDayHeader, setCurrentDayHeader] = useState(null)
 
@@ -1243,6 +1271,17 @@ function App() {
 
   return (
     <div className={`app ${isMobile ? 'app--mobile' : ''} ${isTablet ? 'app--tablet' : ''}`}>
+      {isOffline && (
+        <div className="offline-banner" role="status">
+          Offline — showing cached events
+        </div>
+      )}
+      {dataUpdateAvailable && (
+        <div className="update-toast" role="status">
+          <span>New event data available</span>
+          <button onClick={() => window.location.reload()}>Refresh</button>
+        </div>
+      )}
       {/* On mobile, only show sidebar when in 'list' view */}
       {(!isMobile || mobileView === 'list') && (
       <div

@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Georgetown Flea Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:2FcNB_G6nolZedVXO2MJj
+SUMMARY:Georgetown Flea Market
+DTSTAMP:20260228T054533Z
+DTSTART;TZID=America/Los_Angeles:20260307T100000
+DESCRIPTION:Monthly flea market at the Georgetown Trailer Park Mall.\n\nhtt
+	p://georgetowntrailerparkmall.com/events
+URL:http://georgetowntrailerparkmall.com/events
+LOCATION:Georgetown Trailer Park Mall\, Georgetown\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1SA
+DURATION:PT5H
+END:VEVENT
+END:VCALENDAR

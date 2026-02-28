@@ -77,22 +77,25 @@ Use two named caches to enable independent versioning and cleanup:
 
 | Cache Name | Contents | Strategy | Rationale |
 |---|---|---|---|
-| `app-shell-v{N}` | HTML, JS, CSS, favicon | **Cache-first**, updated on SW activation | Versioned with the SW; old caches deleted on upgrade |
+| `app-shell-v{HASH}` | HTML, JS, CSS, favicon | **Cache-first**, updated on SW activation | Versioned automatically — `{HASH}` is a short hash of the Vite build manifest, injected by the `inject-sw-assets.mjs` script at build time. Since Vite hashes every asset filename, any code change produces a new manifest hash, which gives the SW a new cache name and triggers the install → activate → cleanup cycle. |
 | `data-v1` | `manifest.json`, `events-index.json`, `*.ics` | **Stale-while-revalidate** | Data changes daily; serve cached instantly, refresh in background |
 
 ### 5.3 Service Worker Lifecycle
 
 ```
 Install
-  └── Precache app shell (index.html, JS/CSS bundles)
-     (Use Vite's build manifest to enumerate hashed asset filenames)
+  ├── Precache app shell (index.html, JS/CSS bundles)
+  │    (Use Vite's build manifest to enumerate hashed asset filenames)
+  └── Precache critical data files (manifest.json, events-index.json) into `data-v1`
+       so search, Happening Soon, and the sidebar work offline even if the user
+       navigates away before these fetches complete on first visit
 
 Activate
-  └── Delete old `app-shell-v{N-1}` caches
+  └── Delete old `app-shell-v{HASH}` caches
   └── clients.claim() so the new SW controls the page immediately
 
 Fetch (intercept)
-  ├── App shell assets (HTML, JS, CSS)  → Cache-first from `app-shell-v{N}`
+  ├── App shell assets (HTML, JS, CSS)  → Cache-first from `app-shell-v{HASH}`
   ├── manifest.json                     → Stale-while-revalidate from `data-v1`
   ├── events-index.json                 → Stale-while-revalidate from `data-v1`
   ├── *.ics                             → Stale-while-revalidate from `data-v1`
@@ -101,7 +104,7 @@ Fetch (intercept)
 
 ### 5.4 Freshness Signaling
 
-When the stale-while-revalidate background fetch completes and the response differs from the cache, the service worker posts a message to the client:
+When the stale-while-revalidate background fetch completes and the response has a different `ETag` than the cached version, the service worker posts a message to the client:
 
 ```
 Service Worker ──postMessage({ type: 'DATA_UPDATED' })──▶ App
@@ -111,13 +114,25 @@ The app can then show a subtle, non-intrusive toast: **"Updated event data avail
 
 ## 6. Implementation Details
 
-### 6.1 Service Worker File: `web/public/sw.js`
+### 6.1 Service Worker File: `web/src/sw.js`
 
-The service worker is a plain JS file (not bundled by Vite) placed in `web/public/` so Vite copies it to the output root. It needs to be at the root to control the full scope.
+The service worker is a plain JS file (not bundled by Vite) that lives in `web/src/sw.js`. A small custom Vite plugin copies it to the build output root during the build. It needs to be at the root of the output to control the full scope.
+
+> **Note:** The project sets `publicDir: '../output'` in `vite.config.js` (so generated calendar data is available to the dev server), which means the conventional `web/public/` directory is not used. A Vite plugin handles the copy instead:
+>
+> ```javascript
+> // in vite.config.js plugins array
+> {
+>   name: 'copy-service-worker',
+>   writeBundle() {
+>     copyFileSync('src/sw.js', '../output/sw.js')
+>   }
+> }
+> ```
 
 ```javascript
 // sw.js (conceptual outline)
-const APP_SHELL_CACHE = 'app-shell-v1'
+const APP_SHELL_CACHE = 'app-shell-v/* __APP_SHELL_HASH__ */'
 const DATA_CACHE = 'data-v1'
 
 // Populated at build time by a Vite plugin or script
@@ -133,11 +148,16 @@ const DATA_URL_PATTERNS = [
   /\.ics$/,
 ]
 
+// Critical data files to precache alongside the app shell so that
+// search, Happening Soon, and the sidebar work offline from the first visit
+const PRECACHE_DATA_URLS = ['./manifest.json', './events-index.json']
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(APP_SHELL_CACHE)
-      .then(cache => cache.addAll(APP_SHELL_URLS))
-      .then(() => self.skipWaiting())
+    Promise.all([
+      caches.open(APP_SHELL_CACHE).then(cache => cache.addAll(APP_SHELL_URLS)),
+      caches.open(DATA_CACHE).then(cache => cache.addAll(PRECACHE_DATA_URLS)),
+    ]).then(() => self.skipWaiting())
   )
 })
 
@@ -178,9 +198,13 @@ async function staleWhileRevalidate(request, cacheName) {
 
   const fetchPromise = fetch(request).then(response => {
     if (response.ok) {
+      // Only notify clients if the data actually changed (compare ETag)
+      const oldEtag = cachedResponse?.headers.get('etag')
+      const newEtag = response.headers.get('etag')
       cache.put(request, response.clone())
-      // Notify clients if data changed
-      notifyClients({ type: 'DATA_UPDATED' })
+      if (oldEtag && newEtag && oldEtag !== newEtag) {
+        notifyClients({ type: 'DATA_UPDATED' })
+      }
     }
     return response
   }).catch(() => cachedResponse) // Network failure: fall back to cache silently
@@ -191,18 +215,46 @@ async function staleWhileRevalidate(request, cacheName) {
 async function cacheFirst(request, cacheName) {
   const cached = await caches.match(request)
   if (cached) return cached
-  const response = await fetch(request)
-  if (response.ok) {
-    const cache = await caches.open(cacheName)
-    cache.put(request, response.clone())
+  try {
+    const response = await fetch(request)
+    if (response.ok) {
+      const cache = await caches.open(cacheName)
+      cache.put(request, response.clone())
+    }
+    return response
+  } catch (err) {
+    // Both cache miss and network failure — return an offline fallback page
+    return new Response(OFFLINE_HTML, {
+      status: 503,
+      headers: { 'Content-Type': 'text/html' },
+    })
   }
-  return response
 }
+
+// Minimal offline page shown when the app shell isn't cached and the network is down
+const OFFLINE_HTML = `<!DOCTYPE html>
+<html><head><title>Offline</title></head>
+<body style="font-family:sans-serif;text-align:center;padding:4rem">
+  <h1>You're offline</h1>
+  <p>Seattle Community Calendars needs a network connection for the first visit.
+     Please reconnect and reload.</p>
+</body></html>`
 ```
 
 ### 6.2 Build Integration
 
-Vite hashes JS/CSS filenames (e.g., `assets/App-a1b2c3d4.js`). The service worker needs to know these filenames for precaching. Two options:
+Vite hashes JS/CSS filenames (e.g., `assets/App-a1b2c3d4.js`). The service worker needs to know these filenames for precaching.
+
+**Prerequisite:** Enable Vite's build manifest by adding `manifest: true` to `vite.config.js`:
+
+```javascript
+build: {
+  outDir: '../output',
+  manifest: true,   // Writes .vite/manifest.json with hashed asset filenames
+}
+```
+
+Two options for consuming it:
 
 **Option A: Vite plugin that injects the manifest (recommended)**
 
@@ -217,8 +269,10 @@ Option B is recommended for this project — it avoids adding `vite-plugin-pwa` 
 ```javascript
 // scripts/inject-sw-assets.mjs
 import { readFileSync, writeFileSync } from 'fs'
+import { createHash } from 'crypto'
 
-const manifest = JSON.parse(readFileSync('output/.vite/manifest.json', 'utf-8'))
+const manifestRaw = readFileSync('output/.vite/manifest.json', 'utf-8')
+const manifest = JSON.parse(manifestRaw)
 const assets = Object.values(manifest).map(entry => './' + entry.file)
 // Include CSS files referenced by entries
 Object.values(manifest).forEach(entry => {
@@ -226,11 +280,13 @@ Object.values(manifest).forEach(entry => {
 })
 assets.push('./index.html')
 
-const sw = readFileSync('output/sw.js', 'utf-8')
-writeFileSync('output/sw.js', sw.replace(
-  '/* __APP_SHELL_URLS__ */',
-  JSON.stringify([...new Set(assets)])
-))
+// Derive a short hash from the build manifest for cache versioning
+const manifestHash = createHash('sha256').update(manifestRaw).digest('hex').slice(0, 8)
+
+let sw = readFileSync('output/sw.js', 'utf-8')
+sw = sw.replace('/* __APP_SHELL_URLS__ */', JSON.stringify([...new Set(assets)]))
+sw = sw.replace('/* __APP_SHELL_HASH__ */', manifestHash)
+writeFileSync('output/sw.js', sw)
 ```
 
 Update `package.json`:
@@ -365,8 +421,11 @@ async function eagerCacheIcsFiles() {
 **Trade-off**: This downloads all `.ics` files (~1-5 MB total depending on number of sources) on first visit. Acceptable on broadband/Wi-Fi, potentially expensive on metered mobile connections. Should be gated behind a check:
 
 ```javascript
-// Only eager-cache on non-metered connections
-if (navigator.connection && !navigator.connection.saveData) {
+// Eager-cache by default; skip only on explicitly metered connections.
+// navigator.connection is Chromium-only (not available in Safari/Firefox),
+// so we default to eager caching when the API is absent.
+const saveData = navigator.connection?.saveData ?? false
+if (!saveData) {
   eagerCacheIcsFiles()
 }
 ```
@@ -469,7 +528,7 @@ URL hash-based routing (`#tag=Music&calendar=stoup_brewing-all-events`) is clien
 While not strictly required for offline caching, adding a Web App Manifest enables "Add to Home Screen" on mobile, which pairs naturally with offline support:
 
 ```json
-// web/public/manifest.webmanifest
+// web/src/manifest.webmanifest (copied to output root by the Vite plugin)
 {
   "name": "Seattle Community Calendars",
   "short_name": "SEA Calendars",
@@ -514,15 +573,17 @@ Add `<link rel="manifest" href="./manifest.webmanifest">` to `web/index.html`.
 
 ## 14. Implementation Task List
 
-- [ ] Create `web/public/sw.js` with install/activate/fetch handlers
-- [ ] Create `scripts/inject-sw-assets.mjs` to inject Vite build assets into SW
+- [ ] Add `manifest: true` to `build` config in `web/vite.config.js`
+- [ ] Add `copy-service-worker` Vite plugin to `web/vite.config.js`
+- [ ] Create `web/src/sw.js` with install/activate/fetch handlers (including offline fallback page)
+- [ ] Create `scripts/inject-sw-assets.mjs` to inject Vite build assets and cache hash into SW
 - [ ] Update `web:build` script in `package.json` to run the inject script
 - [ ] Register service worker in `web/src/main.jsx`
 - [ ] Add offline state detection (`navigator.onLine` + events) to `App.jsx`
 - [ ] Add offline indicator banner to the UI
 - [ ] Add `DATA_UPDATED` message listener and update toast to `App.jsx`
 - [ ] Handle "calendar not cached" state in the events loading error path
-- [ ] Create `web/public/manifest.webmanifest`
+- [ ] Create `web/src/manifest.webmanifest` (copied to output by the Vite plugin)
 - [ ] Add manifest link and PWA meta tags to `web/index.html`
 - [ ] Add SW routing unit tests
 - [ ] Add `inject-sw-assets.mjs` unit test
@@ -532,8 +593,8 @@ Add `<link rel="manifest" href="./manifest.webmanifest">` to `web/index.html`.
 
 | Risk | Mitigation |
 |---|---|
-| SW caching bug serves stale JS indefinitely | Version the app shell cache (`app-shell-v{N}`); increment on each deploy. Users on broken versions self-heal on SW update. Include a "hard refresh" hint in the footer. |
+| SW caching bug serves stale JS indefinitely | Version the app shell cache automatically (`app-shell-v{HASH}` derived from the Vite build manifest); each deploy with code changes gets a new cache name. Users on broken versions self-heal on SW update. Include a "hard refresh" hint in the footer. |
 | `events-index.json` grows too large to cache efficiently | Already tracked with a size warning in the build (500 KB threshold). If it exceeds ~2 MB, consider splitting into daily chunks or switching to Pagefind. |
 | GitHub Pages sets short `max-age` (600s), causing the SW's revalidation fetch to hit the CDN cache | This is fine — the SW's revalidation check will get the CDN-cached version, which is fresh enough since data only changes daily. The important part is that the *browser* gets the response from the SW cache instantly. |
 | Users don't realize they're seeing stale data | The offline indicator and update toast both address this. The offline banner clarifies data is cached; the update toast offers a one-click refresh. |
-| Service worker scope issues with GitHub Pages subdirectory deployment (`/calendar-ripper/`) | Place `sw.js` at the root of the built output. Vite's `base: './'` config ensures relative paths work. The SW scope will be the deployment directory. |
+| Service worker scope issues with GitHub Pages subdirectory deployment (`/calendar-ripper/`) | The `copy-service-worker` Vite plugin places `sw.js` at the root of the built output. Vite's `base: './'` config ensures relative paths work. The SW scope will be the deployment directory. |

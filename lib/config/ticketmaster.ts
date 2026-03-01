@@ -4,15 +4,26 @@ import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 200;
-const LOOKAHEAD_MONTHS = 3;
+const DEFAULT_LOOKAHEAD_MONTHS = 3;
+const DEFAULT_DURATION_HOURS = 2;
 
 /**
  * Shared ripper for venues that use the Ticketmaster Discovery API v2.
  *
- * Each calendar entry in ripper.yaml must include a `config` block with:
+ * Each calendar entry in ripper.yaml must include a `config` block with
+ * at least one of the following search parameters:
  *   - venueId: the Ticketmaster Discovery API venue ID (e.g. "KovZpZAFkvEA")
+ *   - attractionId: the Ticketmaster Discovery API attraction ID (e.g. "K8vZ917Gku7")
+ *   - keyword: keyword search term (e.g. "Seattle Symphony Orchestra")
+ *
+ * Optional config fields:
  *   - venueName: display name used as location fallback
  *   - venueAddress: full address used as location fallback
+ *   - stateCode: state filter for keyword searches (e.g. "WA")
+ *   - defaultDurationHours: event duration in hours (default: 2)
+ *
+ * The ripper-level `lookahead` field (ISO-8601 period) controls how far ahead
+ * to search. Defaults to 3 months if not set.
  *
  * Requires the TICKETMASTER_API_KEY environment variable.
  */
@@ -41,9 +52,11 @@ export class TicketmasterRipper implements IRipper {
 
         for (const cal of ripper.config.calendars) {
             const venueId = cal.config?.venueId as string | undefined;
-            if (!venueId) continue;
+            const attractionId = cal.config?.attractionId as string | undefined;
+            const keyword = cal.config?.keyword as string | undefined;
+            if (!venueId && !attractionId && !keyword) continue;
 
-            const rawEvents = await this.fetchVenueEvents(apiKey, venueId);
+            const rawEvents = await this.fetchEvents(apiKey, ripper, { venueId, attractionId, keyword, stateCode: cal.config?.stateCode as string | undefined });
             const parsed = this.parseEvents(rawEvents, cal.timezone, cal.config);
             calendars[cal.name].events = parsed;
         }
@@ -58,15 +71,29 @@ export class TicketmasterRipper implements IRipper {
         }));
     }
 
-    private async fetchVenueEvents(apiKey: string, venueId: string): Promise<any[]> {
+    private async fetchEvents(apiKey: string, ripper: Ripper, params: { venueId?: string, attractionId?: string, keyword?: string, stateCode?: string }): Promise<any[]> {
         const allEvents: any[] = [];
         let page = 0;
 
         const startDate = LocalDate.now().toString() + "T00:00:00Z";
-        const endDate = LocalDate.now().plusMonths(LOOKAHEAD_MONTHS).toString() + "T23:59:59Z";
+        const lookahead = ripper.config.lookahead;
+        const endDate = (lookahead
+            ? LocalDate.now().plus(lookahead).toString()
+            : LocalDate.now().plusMonths(DEFAULT_LOOKAHEAD_MONTHS).toString()) + "T23:59:59Z";
 
         while (true) {
-            const url = `https://app.ticketmaster.com/discovery/v2/events.json?venueId=${venueId}&startDateTime=${startDate}&endDateTime=${endDate}&size=${PAGE_SIZE}&page=${page}&apikey=${apiKey}`;
+            const searchParams = new URLSearchParams();
+            if (params.venueId) searchParams.set('venueId', params.venueId);
+            if (params.attractionId) searchParams.set('attractionId', params.attractionId);
+            if (params.keyword) searchParams.set('keyword', params.keyword);
+            if (params.stateCode) searchParams.set('stateCode', params.stateCode);
+            searchParams.set('startDateTime', startDate);
+            searchParams.set('endDateTime', endDate);
+            searchParams.set('size', String(PAGE_SIZE));
+            searchParams.set('page', String(page));
+            searchParams.set('apikey', apiKey);
+
+            const url = `https://app.ticketmaster.com/discovery/v2/events.json?${searchParams.toString()}`;
 
             const res = await this.fetchFn(url);
             if (!res.ok) {
@@ -129,11 +156,12 @@ export class TicketmasterRipper implements IRipper {
                 if (status === 'postponed') descParts.push('POSTPONED');
                 if (status === 'rescheduled') descParts.push('RESCHEDULED');
 
+                const durationHours = (config?.defaultDurationHours as number | undefined) ?? DEFAULT_DURATION_HOURS;
                 const calEvent: RipperCalendarEvent = {
                     id: `tm-${eventId}`,
                     ripped: new Date(),
                     date: date,
-                    duration: Duration.ofHours(2),
+                    duration: Duration.ofHours(durationHours),
                     summary: event.name,
                     description: descParts.length > 0 ? descParts.join('\n') : undefined,
                     location: location || undefined,

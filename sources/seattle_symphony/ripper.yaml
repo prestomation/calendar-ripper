@@ -1,0 +1,18 @@
+name: seattle-symphony
+type: ticketmaster
+description: "Seattle Symphony"
+url: "https://app.ticketmaster.com/discovery/v2/events.json"
+friendlyLink: https://www.seattlesymphony.org/concerttickets/calendar
+lookahead: P9M
+expectEmpty: true  # Ticketmaster may not list events far enough ahead between seasons
+tags: ["Music", "Downtown"]
+calendars:
+  - name: seattle-symphony
+    friendlyname: "Seattle Symphony"
+    timezone: America/Los_Angeles
+    config:
+      keyword: "Seattle Symphony"
+      stateCode: "WA"
+      venueName: "Benaroya Hall"
+      venueAddress: "200 University St, Seattle, WA 98101"
+      defaultDurationHours: 3

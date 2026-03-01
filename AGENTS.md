@@ -68,7 +68,7 @@ If the site uses one of these platforms, use the corresponding `type` in `ripper
 | DICE | `dice` | `venueName` (required, as shown on DICE), `defaultLocation`, `defaultDurationHours` (optional, default 3) |
 | Eventbrite | `eventbrite` | `organizerId` (required), `defaultLocation`, `defaultDurationHours` (optional, default 2) |
 | Squarespace | `squarespace` | see `lib/config/squarespace.ts` |
-| Ticketmaster | `ticketmaster` | see `lib/config/ticketmaster.ts` |
+| Ticketmaster | `ticketmaster` | `venueId` or `attractionId` or `keyword` (at least one required), `venueName`, `venueAddress`, `stateCode` (optional, for keyword searches), `defaultDurationHours` (optional, default 2). Supports ripper-level `lookahead` (ISO-8601 period, default P3M). |
 | AXS | `axs` | `venueId`, `venueSlug`, `venueName`, `venueAddress` |
 
 Example `ripper.yaml` for an Eventbrite organizer:

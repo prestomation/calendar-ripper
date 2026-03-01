@@ -4,6 +4,7 @@ friendlyname: "Benaroya Hall"
 description: "Home of the Seattle Symphony, with the main S. Mark Taper Auditorium and intimate Nordstrom Recital Hall"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.seattlesymphony.org/benaroyahall
+lookahead: P9M
 expectEmpty: true  # Ticketmaster may not list events far enough ahead between seasons
 tags: ["Music", "Downtown"]
 calendars:

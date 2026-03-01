@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-01T06:56:39.051Z",
-  "totalErrors": 36,
+  "buildTime": "2026-03-01T07:00:56.574Z",
+  "totalErrors": 33,
   "configErrors": [],
   "sources": [
     {
@@ -65,19 +65,6 @@
           "type": "ParseError",
           "reason": "Failed to fetch AXS events for venue 128701: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets",
           "context": "venueSlug: clock-out-lounge-seattle-tickets"
-        }
-      ]
-    },
-    {
-      "source": "mccaw-hall",
-      "calendar": "mccaw-hall",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
         }
       ]
     },
@@ -301,19 +288,6 @@
       ]
     },
     {
-      "source": "tag-queenanne",
-      "calendar": "tag-queenanne",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        }
-      ]
-    },
-    {
       "source": "tag-beacon-hill",
       "calendar": "tag-beacon-hill",
       "type": "Aggregate",
@@ -330,13 +304,8 @@
       "source": "tag-arts",
       "calendar": "tag-arts",
       "type": "Aggregate",
-      "errorCount": 5,
+      "errorCount": 4,
       "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
-          "context": ""
-        },
         {
           "type": "ParseError",
           "reason": "No Event schema.org JSON-LD found",
@@ -374,7 +343,6 @@
     "amc-oak-tree",
     "barboza-barboza",
     "clockout-lounge-clockout-lounge",
-    "mccaw-hall-mccaw-hall",
     "naam-all-events",
     "neumos-neumos",
     "sam-sam-downtown",

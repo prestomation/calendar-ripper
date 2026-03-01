@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Cycling Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:awEje7PaF5eEWz6Ce0W9P
+SUMMARY:Seattle Critical Mass
+DTSTAMP:20260301T053035Z
+DTSTART;TZID=America/Los_Angeles:20260327T183000
+DESCRIPTION:Monthly group bike ride through Seattle. Meet at 6:30 PM\, ride
+	 starts at 7:00 PM.\n\nhttps://www.instagram.com/critical_mass_seattle/\n\
+	nFrom Seattle Critical Mass
+URL:https://www.instagram.com/critical_mass_seattle/
+LOCATION:Westlake Park\, 401 Pine St\, Seattle
+X-CALRIPPER-SOURCE:seattle-critical-mass
+CATEGORIES:Seattle Critical Mass
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=-1FR
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

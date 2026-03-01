@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Skylark Cafe — Wednesday Open Mic
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:BJWzA6E3KDuDwQWfFB6-0
+SUMMARY:Skylark Cafe — Wednesday Open Mic
+DTSTAMP:20260301T053012Z
+DTSTART;TZID=America/Los_Angeles:20260304T193000
+DESCRIPTION:Weekly open mic with full backline provided and 16-track record
+	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
+	ts/seattles-best-open-mic
+URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
+LOCATION:3803 Delridge Way SW\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT3H30M
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Ballard Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:TZLL8nzCagRBupvwmTWAB
+SUMMARY:Ballard Farmers Market
+DTSTAMP:20260301T053012Z
+DTSTART;TZID=America/Los_Angeles:20260301T090000
+DESCRIPTION:Year-round Sunday farmers market on Ballard Avenue NW. One of S
+	eattle's largest and most popular markets with local produce\, prepared fo
+	ods\, and crafts.\n\nhttp://www.sfmamarkets.com/visit-ballard-farmers-mark
+	et
+URL:http://www.sfmamarkets.com/visit-ballard-farmers-market
+LOCATION:Ballard Ave NW between 20th Ave NW & 22nd Ave NW\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT5H
+END:VEVENT
+END:VCALENDAR

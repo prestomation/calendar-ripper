@@ -108,16 +108,21 @@ export class AXSRipper implements IRipper {
         return body;
     }
 
-    private async fetchPage(url: string, useProxy: boolean): Promise<string> {
+    private async fetchPage(url: string, useProxy: string | false): Promise<string> {
         // When proxy is enabled, use fetch through the proxy instead of curl.
         // The proxy runs from AWS IPs which aren't blocked by Cloudflare.
+        // For "nodriver" proxy, NODRIVER_PROXY_URL provides a real browser
+        // fingerprint so Cloudflare is bypassed without curl.
+        if (useProxy === "nodriver" && process.env.NODRIVER_PROXY_URL) {
+            return this.fetchPageViaProxy(url);
+        }
         if (useProxy && process.env.PROXY_URL) {
             return this.fetchPageViaProxy(url);
         }
         return this.fetchPageViaCurl(url);
     }
 
-    private async fetchVenueEvents(venueId: number, venueSlug: string, useProxy?: boolean): Promise<any[]> {
+    private async fetchVenueEvents(venueId: number, venueSlug: string, useProxy?: string | false): Promise<any[]> {
         if (!Number.isInteger(venueId) || venueId <= 0) {
             throw new Error(`Invalid venueId: ${venueId}`);
         }
@@ -131,7 +136,7 @@ export class AXSRipper implements IRipper {
             const pageParam = page > 1 ? `?page=${page}` : '';
             const url = `https://www.axs.com/venues/${venueId}/${venueSlug}${pageParam}`;
 
-            const html = await this.fetchPage(url, useProxy ?? false);
+            const html = await this.fetchPage(url, useProxy || false);
             const pageData = this.extractNextData(html);
             if (!pageData) {
                 throw new Error(`Could not extract event data from AXS page for venue ${venueId}`);

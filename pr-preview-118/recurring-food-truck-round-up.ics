@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Food Truck Round-Up
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:MV9MM9jixE_RZYMH9_fIv
+SUMMARY:Food Truck Round-Up
+DTSTAMP:20260301T055339Z
+DTSTART;TZID=America/Los_Angeles:20260314T110000
+DESCRIPTION:Monthly food truck gathering at the South Lake Union Saturday M
+	arket. Free and family-friendly.\n\nhttp://slumarket.com/popups
+URL:http://slumarket.com/popups
+LOCATION:2100 6th Ave\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2SA
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

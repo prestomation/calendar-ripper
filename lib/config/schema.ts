@@ -43,7 +43,7 @@ export const configSchema = z.object({
     proxy: z.union([z.enum(["lambda", "nodriver"]), z.boolean()])
         .default(false)
         .transform(v => {
-            if (v === true) return "lambda" as const;
+            if (v === true) return "nodriver" as const;
             if (v === false) return false as const;
             return v;
         }),

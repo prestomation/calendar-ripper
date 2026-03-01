@@ -11,7 +11,7 @@
     "test:all": "npm run test && npm run test:web",
     "generate-calendars": "node --loader ts-node/esm index.ts",
     "web:dev": "cd web && vite",
-    "web:build": "cd web && vite build",
+    "web:build": "cd web && vite build && cd .. && node scripts/inject-sw-assets.mjs",
     "web:preview": "cd web && vite preview",
     "build": "npm run generate-calendars && npm run web:build",
     "check-missing-urls": "node --loader ts-node/esm scripts/check-missing-urls.ts"

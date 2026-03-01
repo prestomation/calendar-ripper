@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Capitol Hill Art Walk
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:X1ZOKoJOcA4qYLiKOHtGR
+SUMMARY:Capitol Hill Art Walk
+DTSTAMP:20260301T063633Z
+DTSTART;TZID=America/Los_Angeles:20260312T180000
+DESCRIPTION:Monthly art walk in the Capitol Hill neighborhood\n\nhttps://ca
+	pitolhillartwalk.com/
+URL:https://capitolhillartwalk.com/
+LOCATION:Capitol Hill neighborhood\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2TH
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

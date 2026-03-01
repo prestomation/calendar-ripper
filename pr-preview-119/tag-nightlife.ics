@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Nightlife Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:vZTKtoTeSt7K7thJ4Ylbv
+SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
+DTSTAMP:20260301T063655Z
+DTSTART;TZID=America/Los_Angeles:20260304T193000
+DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
+	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
+	e — Cheap Laughs Open Mic
+URL:https://www.clubcomedyseattle.com/
+LOCATION:Club Comedy Seattle\, Downtown Seattle
+X-CALRIPPER-SOURCE:club-comedy-cheap-laughs
+CATEGORIES:Club Comedy Seattle — Cheap Laughs Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:CSwr4lR8k2cWYRlp_WCX_
+SUMMARY:Comic Resistance Agency Pizzeria mic
+DTSTAMP:20260301T063655Z
+DTSTART:20260310T020000Z
+DESCRIPTION:A comedy game using slides\, prompts\, and audience voting.\n\n
+	Improvised stand-up open mic. No prepared material.\n\nFREE to watch or pe
+	rform. 18\\+\n\nSee website for more info.\n\nhttps://seatoday.6amcity.com
+	/events/#/details/comic-resistance-agency-pizzeria-mic/17383113/2026-03-09
+	T00\n\nFrom SEAtoday - Nightlife
+URL:https://seatoday.6amcity.com/events/#/details/comic-resistance-agency-p
+	izzeria-mic/17383113/2026-03-09T00
+LOCATION:Just the Tap\, 90 Blanchard St.\, Seattle\, WA
+X-CALRIPPER-SOURCE:seatoday-nightlife
+CATEGORIES:SEAtoday - Nightlife
+TRANSP:TRANSPARENT
+DURATION:PT1H30M
+END:VEVENT
+END:VCALENDAR

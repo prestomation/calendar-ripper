@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Columbia City Farmers Market
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:_ish_Ai9StriMPNBRDlfE
+SUMMARY:Columbia City Farmers Market
+DTSTAMP:20260301T063633Z
+DTSTART;TZID=America/Los_Angeles:20260506T150000
+DESCRIPTION:Seasonal Wednesday evening farmers market in Columbia City\, on
+	e block from the light rail station. Runs May through October.\n\nhttps://
+	seattlefarmersmarkets.org/ccfm
+URL:https://seattlefarmersmarkets.org/ccfm
+LOCATION:37th Ave S & S Edmunds St\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9,10
+DURATION:PT4H
+END:VEVENT
+END:VCALENDAR

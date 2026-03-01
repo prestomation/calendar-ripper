@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Fremont Abbey Open Mic
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:rgdT1VUG1mX2XrVBUWxUH
+SUMMARY:Fremont Abbey Open Mic
+DTSTAMP:20260301T063633Z
+DTSTART;TZID=America/Los_Angeles:20260303T200000
+DESCRIPTION:All art forms welcome at this community arts space. Twice-month
+	ly open mic on the 1st and 3rd Tuesdays.\n\nhttps://www.fremontabbey.org/
+URL:https://www.fremontabbey.org/
+LOCATION:4272 Fremont Ave N\, Seattle
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1TU,3TU
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

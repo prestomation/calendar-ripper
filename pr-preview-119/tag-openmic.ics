@@ -1,0 +1,120 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:OpenMic Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:ck39mY0tXsSHFxcKYcm0x
+SUMMARY:Conor Byrne Pub — Sunday Open Mic
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260301T193000
+DESCRIPTION:Weekly open mic at one of Seattle's most storied venues. Free t
+	o sign up\, first come first served.\n\nhttps://www.conorbyrnepub.com/\n\n
+	From Conor Byrne Pub — Sunday Open Mic
+URL:https://www.conorbyrnepub.com/
+LOCATION:5140 Ballard Ave NW\, Seattle
+X-CALRIPPER-SOURCE:conor-byrne-open-mic
+CATEGORIES:Conor Byrne Pub — Sunday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:WWZJE8MaSH2ncZbu5L_1D
+SUMMARY:Nectar Lounge — Mo Jam Mondays
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260302T193000
+DESCRIPTION:Weekly music jam and open mic at Nectar Lounge.\n\nhttps://nect
+	arlounge.com/\n\nFrom Nectar Lounge — Mo Jam Mondays
+URL:https://nectarlounge.com/
+LOCATION:412 N 36th St\, Seattle
+X-CALRIPPER-SOURCE:nectar-lounge-mo-jam
+CATEGORIES:Nectar Lounge — Mo Jam Mondays
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT4H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:Vz-wBYtkXnuhkjcIrsAwJ
+SUMMARY:Fremont Abbey Open Mic
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260303T200000
+DESCRIPTION:All art forms welcome at this community arts space. Twice-month
+	ly open mic on the 1st and 3rd Tuesdays.\n\nhttps://www.fremontabbey.org/\
+	n\nFrom Fremont Abbey Open Mic
+URL:https://www.fremontabbey.org/
+LOCATION:4272 Fremont Ave N\, Seattle
+X-CALRIPPER-SOURCE:fremont-abbey-open-mic
+CATEGORIES:Fremont Abbey Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1TU,3TU
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:PjUdiUWe6k9dA02UK9kJM
+SUMMARY:Skylark Cafe — Wednesday Open Mic
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260304T193000
+DESCRIPTION:Weekly open mic with full backline provided and 16-track record
+	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
+	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
+URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
+LOCATION:3803 Delridge Way SW\, Seattle
+X-CALRIPPER-SOURCE:skylark-cafe-open-mic
+CATEGORIES:Skylark Cafe — Wednesday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT3H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:ySkfWvF_CHpUt4SyCWiU2
+SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260304T193000
+DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
+	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
+	e — Cheap Laughs Open Mic
+URL:https://www.clubcomedyseattle.com/
+LOCATION:Club Comedy Seattle\, Downtown Seattle
+X-CALRIPPER-SOURCE:club-comedy-cheap-laughs
+CATEGORIES:Club Comedy Seattle — Cheap Laughs Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:m-JhxqbZDWkm7G67Atcsx
+SUMMARY:Hopvine Pub — Wednesday Open Mic
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260304T210000
+DESCRIPTION:Casual singer/songwriter-focused open mic hosted by Eric Miller
+	. All welcome.\n\nhttps://www.hopvinepub.com/\n\nFrom Hopvine Pub — Wednes
+	day Open Mic
+URL:https://www.hopvinepub.com/
+LOCATION:507 15th Avenue E\, Seattle
+X-CALRIPPER-SOURCE:hopvine-pub-open-mic
+CATEGORIES:Hopvine Pub — Wednesday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:uEutBKzTNGArdim26UZJg
+SUMMARY:Couth Buzzard Books — Thursday Open Mic
+DTSTAMP:20260301T063654Z
+DTSTART;TZID=America/Los_Angeles:20260305T190000
+DESCRIPTION:Acoustic\, no-PA listening environment at an independent bookst
+	ore/café. All art forms welcome: music\, poetry\, dance\, comedy\, and sto
+	ries.\n\nhttps://www.couthbuzzard.com/\n\nFrom Couth Buzzard Books — Thurs
+	day Open Mic
+URL:https://www.couthbuzzard.com/
+LOCATION:8310 Greenwood Ave N\, Seattle
+X-CALRIPPER-SOURCE:couth-buzzard-open-mic
+CATEGORIES:Couth Buzzard Books — Thursday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TH
+DURATION:PT3H
+END:VEVENT
+END:VCALENDAR

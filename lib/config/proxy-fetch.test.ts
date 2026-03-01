@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { proxyFetch, getFetchForConfig } from "./proxy-fetch.js";
+import { proxyFetch, nodriverFetch, getFetchForConfig } from "./proxy-fetch.js";
 
 const mockFetch = vi.fn();
 vi.stubGlobal("fetch", mockFetch);
@@ -90,10 +90,68 @@ describe("proxyFetch", () => {
     });
 });
 
+describe("nodriverFetch", () => {
+    beforeEach(() => {
+        vi.resetAllMocks();
+        delete process.env.NODRIVER_PROXY_URL;
+        delete process.env.PROXY_URL;
+    });
+
+    it("rewrites URL to nodriver sidecar when NODRIVER_PROXY_URL is set", async () => {
+        process.env.NODRIVER_PROXY_URL = "http://localhost:9222";
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await nodriverFetch("https://www.axs.com/page");
+
+        const [calledUrl] = mockFetch.mock.calls[0];
+        const parsed = new URL(calledUrl);
+        expect(parsed.origin).toBe("http://localhost:9222");
+        expect(parsed.searchParams.get("url")).toBe("https://www.axs.com/page");
+    });
+
+    it("falls back to Lambda proxy when NODRIVER_PROXY_URL is not set but PROXY_URL is", async () => {
+        process.env.PROXY_URL = "https://proxy.lambda-url.us-west-2.on.aws/";
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await nodriverFetch("https://www.axs.com/page");
+
+        const [calledUrl] = mockFetch.mock.calls[0];
+        const parsed = new URL(calledUrl);
+        expect(parsed.origin + parsed.pathname).toBe("https://proxy.lambda-url.us-west-2.on.aws/");
+        expect(parsed.searchParams.get("url")).toBe("https://www.axs.com/page");
+    });
+
+    it("falls back to direct fetch when neither proxy URL is set", async () => {
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await nodriverFetch("https://www.axs.com/page");
+
+        expect(mockFetch).toHaveBeenCalledWith("https://www.axs.com/page", undefined);
+    });
+
+    it("passes through init options", async () => {
+        process.env.NODRIVER_PROXY_URL = "http://localhost:9222";
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        const init: RequestInit = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: '{"test":true}',
+        };
+
+        await nodriverFetch("https://example.com/api", init);
+
+        const [, calledInit] = mockFetch.mock.calls[0];
+        expect(calledInit).toEqual(init);
+    });
+});
+
 describe("getFetchForConfig", () => {
     beforeEach(() => {
         vi.resetAllMocks();
         delete process.env.PROXY_URL;
+        delete process.env.NODRIVER_PROXY_URL;
+        delete process.env.DEFAULT_PROXY_TYPE;
     });
 
     it("returns a direct fetch function when proxy is false", async () => {
@@ -114,9 +172,9 @@ describe("getFetchForConfig", () => {
         expect(mockFetch).toHaveBeenCalledWith("https://example.com/", undefined);
     });
 
-    it("returns proxyFetch when proxy is true and PROXY_URL is set", async () => {
+    it('returns proxyFetch when proxy is "lambda" and PROXY_URL is set', async () => {
         process.env.PROXY_URL = "https://proxy.example.com/";
-        const fetchFn = getFetchForConfig({ proxy: true });
+        const fetchFn = getFetchForConfig({ proxy: "lambda" });
         mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
 
         await fetchFn("https://www.axs.com/page");
@@ -126,13 +184,62 @@ describe("getFetchForConfig", () => {
         expect(parsed.searchParams.get("url")).toBe("https://www.axs.com/page");
     });
 
-    it("falls back to direct fetch when proxy is true but PROXY_URL is not set", async () => {
+    it('falls back to direct fetch when proxy is "lambda" but PROXY_URL is not set', async () => {
         delete process.env.PROXY_URL;
-        const fetchFn = getFetchForConfig({ proxy: true });
+        const fetchFn = getFetchForConfig({ proxy: "lambda" });
         mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
 
         await fetchFn("https://www.axs.com/page");
 
         expect(mockFetch).toHaveBeenCalledWith("https://www.axs.com/page", undefined);
+    });
+
+    it('returns nodriverFetch when proxy is "nodriver"', async () => {
+        process.env.NODRIVER_PROXY_URL = "http://localhost:9222";
+        const fetchFn = getFetchForConfig({ proxy: "nodriver" });
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await fetchFn("https://www.axs.com/page");
+
+        const [calledUrl] = mockFetch.mock.calls[0];
+        const parsed = new URL(calledUrl);
+        expect(parsed.origin).toBe("http://localhost:9222");
+        expect(parsed.searchParams.get("url")).toBe("https://www.axs.com/page");
+    });
+
+    it('DEFAULT_PROXY_TYPE=nodriver overrides "lambda" to "nodriver"', async () => {
+        process.env.DEFAULT_PROXY_TYPE = "nodriver";
+        process.env.NODRIVER_PROXY_URL = "http://localhost:9222";
+        const fetchFn = getFetchForConfig({ proxy: "lambda" });
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await fetchFn("https://www.axs.com/page");
+
+        const [calledUrl] = mockFetch.mock.calls[0];
+        const parsed = new URL(calledUrl);
+        expect(parsed.origin).toBe("http://localhost:9222");
+    });
+
+    it("DEFAULT_PROXY_TYPE does not override proxy: false", async () => {
+        process.env.DEFAULT_PROXY_TYPE = "nodriver";
+        const fetchFn = getFetchForConfig({ proxy: false });
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await fetchFn("https://example.com/");
+
+        expect(mockFetch).toHaveBeenCalledWith("https://example.com/", undefined);
+    });
+
+    it('DEFAULT_PROXY_TYPE does not override explicit "nodriver"', async () => {
+        process.env.DEFAULT_PROXY_TYPE = "nodriver";
+        process.env.NODRIVER_PROXY_URL = "http://localhost:9222";
+        const fetchFn = getFetchForConfig({ proxy: "nodriver" });
+        mockFetch.mockResolvedValueOnce(fakeResponse("ok"));
+
+        await fetchFn("https://www.axs.com/page");
+
+        const [calledUrl] = mockFetch.mock.calls[0];
+        const parsed = new URL(calledUrl);
+        expect(parsed.origin).toBe("http://localhost:9222");
     });
 });

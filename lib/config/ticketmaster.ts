@@ -5,6 +5,8 @@ import '@js-joda/timezone';
 
 const PAGE_SIZE = 200;
 const LOOKAHEAD_MONTHS = 3;
+const MAX_RETRIES = 4;
+const BASE_DELAY_MS = 2000;
 
 /**
  * Shared ripper for venues that use the Ticketmaster Discovery API v2.
@@ -68,7 +70,7 @@ export class TicketmasterRipper implements IRipper {
         while (true) {
             const url = `https://app.ticketmaster.com/discovery/v2/events.json?venueId=${venueId}&startDateTime=${startDate}&endDateTime=${endDate}&size=${PAGE_SIZE}&page=${page}&apikey=${apiKey}`;
 
-            const res = await this.fetchFn(url);
+            const res = await this.fetchWithRetry(url);
             if (!res.ok) {
                 throw new Error(`Ticketmaster API error: ${res.status} ${res.statusText}`);
             }
@@ -83,6 +85,18 @@ export class TicketmasterRipper implements IRipper {
         }
 
         return allEvents;
+    }
+
+    private async fetchWithRetry(url: string): Promise<Response> {
+        for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+            const res = await this.fetchFn(url);
+            if (res.status !== 429 || attempt === MAX_RETRIES) {
+                return res;
+            }
+            const delay = BASE_DELAY_MS * Math.pow(2, attempt);
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+        throw new Error("unreachable");
     }
 
     public parseEvents(eventsData: any[], timezone: any, config: any): RipperEvent[] {

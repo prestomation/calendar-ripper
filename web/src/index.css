@@ -1932,11 +1932,6 @@ body {
 
 /* Offline banner */
 .offline-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
   background: var(--bg-muted);
   color: var(--text-secondary);
   text-align: center;
@@ -1944,12 +1939,6 @@ body {
   font-size: 13px;
   font-weight: 500;
   border-bottom: 1px solid var(--border-color);
-}
-
-.offline-banner ~ .app--mobile,
-.offline-banner ~ * .sidebar,
-.offline-banner ~ * .main-content {
-  padding-top: 32px;
 }
 
 /* Update toast */

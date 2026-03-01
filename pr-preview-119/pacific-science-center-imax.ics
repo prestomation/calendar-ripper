@@ -6,9 +6,22 @@ METHOD:PUBLISH
 X-WR-CALNAME:IMAX Shows
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:qu7SzJogG0oxE0aStTieo
+UID:7KOazvcixr_AyNfroDXwF
 SUMMARY:The Revenant
-DTSTAMP:20260301T070140Z
+DTSTAMP:20260301T070502Z
+DTSTART:20260227T031500Z
+DESCRIPTION:Watch the IMAX re-release of The Revenant\, which won three Osc
+	ars® for directing\, acting\, and cinematography.\n\nhttps://pacificscienc
+	ecenter.org/shows/revenant/
+URL:https://pacificsciencecenter.org/shows/revenant/
+LOCATION:PACCAR IMAX Theater\, Pacific Science Center
+TRANSP:TRANSPARENT
+DURATION:PT1H
+END:VEVENT
+BEGIN:VEVENT
+UID:PTk7mpg0kCBXDVZ45apyJ
+SUMMARY:The Revenant
+DTSTAMP:20260301T070502Z
 DTSTART:20260301T233000Z
 DESCRIPTION:Watch the IMAX re-release of The Revenant\, which won three Osc
 	ars® for directing\, acting\, and cinematography.\n\nhttps://pacificscienc

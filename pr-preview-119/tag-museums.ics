@@ -6,9 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Museums Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:hQdKW3TwAZY-D3G7dDino
+UID:chV_V68EbKgzZuNLlG-5_
 SUMMARY:Shapes and Patterns
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART;TZID=America/Los_Angeles:20260305T100000
 DESCRIPTION:Activities for Kids & Families\nLearn how shapes and patterns p
 	lay a big role in the world around us.\n\nhttps://www.burkemuseum.org/cale
@@ -21,9 +21,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:lxXYhat0slYj0LAUZBgNJ
+UID:51qbJLdjjMPgR7Fyw6OAm
 SUMMARY:Free Educator Day at MOPOP
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260117T180000Z
 DESCRIPTION:https://www.mopop.org/events/free-educator-day-yellow-brick-roa
 	d-film-festival\n\nFrom Museum of Pop Culture
@@ -36,9 +36,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:XtKCO2hLUdgSxytofCtjc
+UID:9Tw27RaS9T0TMa4qWGv9i
 SUMMARY:Follow the Yellow Brick Road: An Oz Film Festival
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260117T180000Z
 DESCRIPTION:https://www.mopop.org/events/follow-the-yellow-brick-road-an-oz
 	-film-festival\n\nFrom Museum of Pop Culture
@@ -51,9 +51,9 @@ TRANSP:TRANSPARENT
 DURATION:PT31H
 END:VEVENT
 BEGIN:VEVENT
-UID:c-2gjIiImR8rgUo2itzkM
+UID:lLb-_o-Wd8k31u6Zj-Mfh
 SUMMARY:Sensory Station Pop-Ups
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260208T200000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/sensory-station-pop-ups\n
 	\nFrom Frye Art Museum
@@ -66,24 +66,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:yr_Lc_1OpefG0s99QoIZB
-SUMMARY:Laser K-Pop
-DTSTAMP:20260301T070148Z
-DTSTART:20260223T033000Z
-DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
-	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
-	s://pacificsciencecenter.org/shows/laser-kpop/\n\nFrom Laser Dome Shows
-URL:https://pacificsciencecenter.org/shows/laser-kpop/
-LOCATION:Laser Dome\, Pacific Science Center
-X-CALRIPPER-SOURCE:laser-dome
-CATEGORIES:Laser Dome Shows
-TRANSP:TRANSPARENT
-DURATION:PT1H
-END:VEVENT
-BEGIN:VEVENT
-UID:tEzc4QT_9asymgIasA2MW
+UID:O6hWfM2qbGTJyk7LEYuXb
 SUMMARY:Here Now Art-making and Discussion Class (Spring I)
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260225T220000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/here-now-art-making-and-d
 	iscussion-class-spring-i-2026\n\nFrom Frye Art Museum
@@ -97,9 +82,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:PZrI9WunUwe_BePJ6_pUM
+UID:edYgo1ULC60o185SU2EkV
 SUMMARY:Here Now Art-making and Discussion Class (Spring I)
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260225T220000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/here-now-art-making-and-d
 	iscussion-class-spring-i-2026\n\nFrom Frye Art Museum
@@ -113,9 +98,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:mhc9EPd7CTimsXY2EuEMo
+UID:Sq1u1Ji9ckQeo6es03imV
 SUMMARY:60 Minutes in Space: Planetary Science in Action
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260227T020000Z
 DESCRIPTION:Join PacSci for a virtual exploration of Earth science beyond o
 	ur planet and the engineering tools that make discovery possible.\n\nhttps
@@ -129,9 +114,24 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:SIV2NLmfnToq3qbWMP8VR
+UID:Xp5Rljv1d0GS2Jsv9gzlL
+SUMMARY:The Revenant
+DTSTAMP:20260301T070511Z
+DTSTART:20260227T031500Z
+DESCRIPTION:Watch the IMAX re-release of The Revenant\, which won three Osc
+	ars® for directing\, acting\, and cinematography.\n\nhttps://pacificscienc
+	ecenter.org/shows/revenant/\n\nFrom IMAX Shows
+URL:https://pacificsciencecenter.org/shows/revenant/
+LOCATION:PACCAR IMAX Theater\, Pacific Science Center
+X-CALRIPPER-SOURCE:imax
+CATEGORIES:IMAX Shows
+TRANSP:TRANSPARENT
+DURATION:PT1H
+END:VEVENT
+BEGIN:VEVENT
+UID:J0LRQowm0oG3qOfp6osNk
 SUMMARY:Laser Rihanna
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260227T050000Z
 DESCRIPTION:Celebrate 10 years of Anti and all the chart-topping hits by Ri
 	hanna every Thursday at 9 p.m. in the Laser Dome.\n\nhttps://pacificscienc
@@ -144,9 +144,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:yJbNWc5opozR5dWOV14Ch
+UID:x0RLGtEUxay0mEugI0T5m
 SUMMARY:Dork Side of the Moon: A Science Comedy Show
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260228T033000Z
 DESCRIPTION:Join PacSci for a smart\, silly\, and delightfully nerdy comedy
 	 night featuring three standout performers in PACCAR IMAX Theater.\n\nhttp
@@ -160,9 +160,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Jhumds0kB0_3Ar-OrGoza
+UID:SEJXz7vDx7Jag-8z75cSd
 SUMMARY:Laser Tame Impala
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260228T033000Z
 DESCRIPTION:Hear hits from Lonerism and Currents in the Laser Dome with Las
 	er Tame Impala every Friday at 7:30 p.m.\n\nhttps://pacificsciencecenter.o
@@ -175,9 +175,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:xqfkugsKUVqH4rLwKuJSz
+UID:K5YmcZWKbeM1jRLJfI-ad
 SUMMARY:Laser Daft Punk: Random Access Memories
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260228T050000Z
 DESCRIPTION:Celebrate the iconic Daft Punk’s Random Access Memories album i
 	n its entirety every Friday at 9 p.m.\n\nhttps://pacificsciencecenter.org/
@@ -190,9 +190,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:_a_8_K27u-EQuuClagq6P
+UID:Ci4zOebUstbWk1uPmvurJ
 SUMMARY:Laser Kendrick Lamar
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260228T063000Z
 DESCRIPTION:Hear the Laser Dome’s hour-long laser show with songs from gnx\
 	, good kid\, m.A.A.d city\, and more every Friday at 10:30 p.m.\n\nhttps:/
@@ -205,9 +205,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Du8bhrYhgsdOP0Xu9flY1
+UID:1z284jmhU6QkRFNzAi_NG
 SUMMARY:Sound Off! - Showcase #3
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260228T180000Z
 DESCRIPTION:https://www.mopop.org/events/sound-off-showcase-3\n\nFrom Museu
 	m of Pop Culture
@@ -219,9 +219,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:90jR3UphF7-blGmhV4_Lq
+UID:xd5G6i46szAbpIEr70eyb
 SUMMARY:Laser Stranger Things
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260301T033000Z
 DESCRIPTION:Relive the hit television show through its iconic soundtrack in
 	 the Laser Dome every Saturday at 7:30 p.m.\n\nhttps://pacificsciencecente
@@ -234,9 +234,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:8bZcR9jnZweJ9L1y_ZiA3
+UID:959MCZkknL2LXHePbjSCt
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260301T050000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9:00 p.m.\n\nhttps://pacificsciencecenter.org/shows
@@ -249,9 +249,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:61ZdTMMYkNyPwrPzFz1YH
+UID:yf2i9vbv55ZTnb10TZOv2
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260301T063000Z
 DESCRIPTION:Get ready for the Super Bowl Halftime Performance with an hour-
 	long laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\nhtt
@@ -265,9 +265,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:dJeeotSlIEBPZUEAaA7Dn
+UID:TnNTYMLET6iP4rIcPg22V
 SUMMARY:The Revenant
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260301T233000Z
 DESCRIPTION:Watch the IMAX re-release of The Revenant\, which won three Osc
 	ars® for directing\, acting\, and cinematography.\n\nhttps://pacificscienc
@@ -280,9 +280,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:n_hPdEYBlDkwLZv9or35M
+UID:799PIYILUJlM49hX9kez6
 SUMMARY:Laser K-Pop
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260302T033000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -295,9 +295,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:wUGJEn0YhwUVO51QGXqnI
+UID:XQOrqEi8r69QmeSnNEsI6
 SUMMARY:Laser Radiohead
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260302T050000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -310,9 +310,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:XZfMCTlzvI7P90jJjF0UG
+UID:bZ6d2TV-NaHC_wqyauoX2
 SUMMARY:Small Frye: Story Time + Art
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260304T181500Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/small-frye-march-2026\n\n
 	From Frye Art Museum
@@ -325,9 +325,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Pf4kDcwoaqOzr_4LRQ6bN
+UID:8gb41CwyIbQRMIOviyY8R
 SUMMARY:Live at the Laser Dome: KEXP DJ in Residence
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260305T033000Z
 DESCRIPTION:PacSci and KEXP’s Live at the Laser Dome: KEXP DJ in Residence 
 	is excited to welcome Sonic Reducer’s DJ Dr. West in March.\n\nhttps://pac
@@ -341,9 +341,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:KdOiXQ1oCC33sydyvBVEz
+UID:Y9N3BtBGg0kuVkbGsFCcb
 SUMMARY:First Thursday - March
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260305T170000Z
 DESCRIPTION:Visit MOHAI on the First Thursday of every month for free admis
 	sion to the museum’s permanent exhibits between 5—8 pm.  \\nFree admission
@@ -364,9 +364,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:nD5cf_GRwsZF-LuoDLvsp
+UID:S23LmfsGaX6PPOuUTxQYh
 SUMMARY:Bicycle Repair Workshop with Bike Works
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260305T173000Z
 DESCRIPTION:This event has sold out\\nAspiring and experienced cyclists ali
 	ke agree that life is better when your bike works. This is why representat
@@ -390,9 +390,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:g3OMSCyDi8cG2A9Ynsnms
+UID:XCkIn93vXLG4-BhbcdQJ7
 SUMMARY:Free First Thursday at Seattle Area Museums
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260305T180000Z
 DESCRIPTION:Free admission at participating Seattle area museums on the fir
 	st Thursday of every month. Includes SAM (10am–8pm)\, Seattle Asian Art Mu
@@ -409,9 +409,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1TH
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:9eYLzUXuGFxrGNBo1fYZE
+UID:DBMSVp3vLmnqbs7H9DKBo
 SUMMARY:Free First Thursday
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260305T180000Z
 DESCRIPTION:FREE ADMISSION\nAdmission is FREE and the museum is open until 
 	8 p.m. on the first Thursday of every month.\n\nhttps://www.burkemuseum.or
@@ -424,9 +424,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:XI0ZOp2NE1bhusgiDdVIU
+UID:rTf-NNJ2yNQQ5Vgx_fnZR
 SUMMARY:Bicycle Repair Workshop with Bike Works
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260305T184500Z
 DESCRIPTION:This event has sold out\\nAspiring and experienced cyclists ali
 	ke agree that life is better when your bike works. This is why representat
@@ -450,9 +450,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:rzZFpQtawxHd36EJs_ajP
+UID:DwhoGNdsN7Z8b3QdcRYsW
 SUMMARY:STEAM Spotlight | Marine Science
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260306T010000Z
 DESCRIPTION:FREE EVENT ON FREE FIRST THURSDAY\nJoin us for STEAM Spotlight 
 	this month!\n\nhttps://www.burkemuseum.org/calendar/steam-spotlight-marine
@@ -465,9 +465,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:_vSb2z86N-iPnYRL0hCud
+UID:DZ5idkHbGoazpJkWYYbeb
 SUMMARY:Coffee & Creativity
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260306T190000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/coffee-creativity-march-2
 	026\n\nFrom Frye Art Museum
@@ -480,9 +480,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:k5zQMtD5T2GWVtSC7E264
+UID:ZYjHN5SG-dLcNUlli-SRa
 SUMMARY:Kickstands Up! Gallery Tour with Dykes on Bikes
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260307T130000Z
 DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in th
 	e Pacific Northwest with a gallery talk by a Monkey\\\, Ride Captain from 
@@ -503,9 +503,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:vLjkPqp2JG6Wr2gOGNK3j
+UID:F2S_i2Yu-HSPzeC44bxra
 SUMMARY:Corporate Member Weekend
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260312T070000Z
 DESCRIPTION:Make the most of your Corporate Membership at Pacific Science C
 	enter during Corporate Member Weekend.\n\nhttps://pacificsciencecenter.org
@@ -519,9 +519,9 @@ TRANSP:TRANSPARENT
 DURATION:PT95H59M
 END:VEVENT
 BEGIN:VEVENT
-UID:FzBrIcG6orEmQqGj1n2qA
+UID:PY1IK-sq99VFTTQtiVHys
 SUMMARY:Art History Lecture Series | Art Nouveau Jewelry
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260312T183000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/art-history-lecture-serie
 	s-art-nouveau-jewelry\n\nFrom Frye Art Museum
@@ -535,9 +535,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Y9scKauBMxZdcyaNpgDWw
+UID:mJu7k3XAQRF_aBOOaWeKV
 SUMMARY:Many Hands: The Making of Woven in Wool
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260313T010000Z
 DESCRIPTION:Panel discussion\nLearn more about the making of the special ex
 	hibition Woven in Wool.\n\nhttps://www.burkemuseum.org/calendar/many-hands
@@ -550,9 +550,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:X2tZKt25e3FTq-e2wPGr5
+UID:Oo8TTIt6zbKcBsOG17THq
 SUMMARY:From Rails to Trails Film Screening
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260313T190000Z
 DESCRIPTION:If you have ever ridden on the Burke-Gilman Trail\\\, you’ve tr
 	aversed part of a vast\\\, 3\\\,700-mile network known as the Great Americ
@@ -581,9 +581,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:QVWK3hUoyvL5vOtkuev4Q
+UID:jvpLYFr4nRNKQiOV-UIke
 SUMMARY:Mariners 50: Community & Baseball 
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260314T170000Z
 DESCRIPTION:https://www.mopop.org/events/mariners-50-community-baseball\n\n
 	From Museum of Pop Culture
@@ -595,9 +595,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:UWXuKW6J_2jyVUvQ1nKp3
+UID:iYyztRvi5lU8uSyo4DyIj
 SUMMARY:Sensory-Friendly Hours
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260316T000000Z
 DESCRIPTION:Formerly known as Exploration for All\, Sensory-Friendly Hours 
 	provide a calmer environment for learners with sensory sensitivities.\n\nh
@@ -611,9 +611,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:1CT6zmJp1uqcR-bQthWK7
+UID:8FMUjPHtL5cumBIxrqAcD
 SUMMARY:Homeschool Days
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260318T170000Z
 DESCRIPTION:Once a month\, homeschool families are invited to enjoy a day o
 	f discovery at Pacific Science Center with special discounted pricing.\n\n
@@ -627,9 +627,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:NihcitD_20SPx1c4iRKgl
+UID:x6cu2VaxbAVWG83iipF6S
 SUMMARY:History Café: Seattle Mystic Al Hubbard
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260318T183000Z
 DESCRIPTION:Join Brad Holden\\\, author of Seattle Mystic Alfred M. Hubbard
 	 for a discussion of one of Seattle’s most mysterious figures. Hubbard fir
@@ -655,9 +655,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:e3CClP5DFYZRoXmDrCgTs
+UID:kapt2PvrUMmgzmWIO8GLl
 SUMMARY:Motorcycle Riding Experience with Cascade Motorcycle Safety
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260321T090000Z
 DESCRIPTION:Want to ride a motorcycle but don’t know where to start? Join C
 	ascade Motorcycle Safety and Ride With Us for a chance to experience ridin
@@ -681,9 +681,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:mfUVXMpQfwBH9x0iFEAbd
+UID:j9ezB_tf29L4Ptg0JoJgR
 SUMMARY:BrainFest with Allen Institute
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260321T170000Z
 DESCRIPTION:Explore hands-on activities\, meet scientists and collaborators
 	\, learn about cutting-edge neuroscience research\, and even touch a real 
@@ -697,9 +697,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:pQfO7Xh8pynE4402IRQQH
+UID:hkz3dM-QvICP3RC01PTWj
 SUMMARY:2026 Annual Dinner &amp\; Auction
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260322T000000Z
 DESCRIPTION:Wing Luke Museum brings you this year’s dinner and auction them
 	e\, “New Roots”\, and returns to the Sheraton Grand Seattle.\n\nhttps://ww
@@ -713,9 +713,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:u42jo8shKMWsvMmvIG-F7
+UID:J80NK3RNIqkN4g33sNXUz
 SUMMARY:MOHAI Mercantile Literary Series - Seattle's Locks and Ship Canal
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260324T180000Z
 DESCRIPTION:MOHAI Mercantile is proud to host the official book launch even
 	t for Seattle’s Locks and Ship Canal with local historians David B. Willia
@@ -740,10 +740,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Lueh_LfKksIC9avmJ7pkr
+UID:WzW8OBQ0wZpFOzQxY8zLP
 SUMMARY:Kickstands Up! Gallery Talk with Pacific Northwest Museum of Motorc
 	ycling
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260328T140000Z
 DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in th
 	e Pacific Northwest with gallery talks by exhibit co-curators from the Pac
@@ -764,9 +764,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:G0NHFyQ3vI8npiA-b7ojy
+UID:i8vCcheyUE-tvmGyo8s9s
 SUMMARY:Member Mornings: Jurassic Park Movie Matinee
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260329T170000Z
 DESCRIPTION:Join us for a screening of Jurassic Park\, featured in MOPOP's 
 	latest Guest Curator Exhibition\, Eco-Blockbusters: Environmentalism in Ci
@@ -781,9 +781,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:3VIsMBYnC0Ex9nMw3ot4_
+UID:EUPmnQl4b7sW0y_tK1_ch
 SUMMARY:Free First Thursday
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260402T170000Z
 DESCRIPTION:FREE ADMISSION\nAdmission is FREE and the museum is open until 
 	8 p.m. on the first Thursday of every month.\n\nhttps://www.burkemuseum.or
@@ -796,9 +796,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:OExNyRxH1eF1kjShWN1wo
+UID:E6wL36YfY8_P_HUvu3yfr
 SUMMARY:MOPOP Residency: Teen Filmmakers
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260409T170000Z
 DESCRIPTION:https://www.mopop.org/events/mopop-residency-teen-filmmakers\n\
 	nFrom Museum of Pop Culture
@@ -810,9 +810,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:k1nBWK0JlVA_-UE4y1U5k
+UID:zPbv6LJbAT5bn8_601jna
 SUMMARY:Burke-ology
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260412T000000Z
 DESCRIPTION:Fundraising event\nJoin us for our annual spring fundraiser.\n\
 	nhttps://www.burkemuseum.org/calendar/burke-ology\n\nFrom Burke Museum Eve
@@ -825,9 +825,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_F4T8vd2Q4DB87QW2t77r
+UID:WYzB9VSPCocN0GYep2VMm
 SUMMARY:Northwest Films Presents: NW Film Camp
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260413T170000Z
 DESCRIPTION:https://www.mopop.org/events/nw-film-camp\n\nFrom Museum of Pop
 	 Culture
@@ -839,9 +839,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:PLokYnL2r1WDCTA45-PUE
+UID:nFJNyc5WP5R-7WT6RYuXG
 SUMMARY:MOPOP Residency: Kid Creators
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260417T170000Z
 DESCRIPTION:https://www.mopop.org/events/mopop-residency-kid-creators\n\nFr
 	om Museum of Pop Culture
@@ -853,9 +853,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:PKVJm-ddtCBri13GlMop5
+UID:jW9EzP_L70riLrmeg4gTG
 SUMMARY:Microfossil Finds from Hell Creek and Beyond — Webinar
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260420T170000Z
 DESCRIPTION:Register your class\nLearn how paleontologists piece together t
 	iny clues about past ecosystems\n\nhttps://www.burkemuseum.org/calendar/mi
@@ -869,9 +869,9 @@ TRANSP:TRANSPARENT
 DURATION:PT45M
 END:VEVENT
 BEGIN:VEVENT
-UID:4GQ66Gzya0rUzkH-pRauf
+UID:NXKwG-0zT8uQwcC54eRKD
 SUMMARY:Dino Fest 2026
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260426T170000Z
 DESCRIPTION:Fossil fun for everyone!\nDig into paleontology at the Burke’s 
 	annual festival of fossils!\n\nhttps://www.burkemuseum.org/calendar/dino-f
@@ -884,9 +884,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:-gOg4ZSAg71yFt7_t7Ziq
+UID:a9YC3Ll1RnHGVY0L1vpfN
 SUMMARY:Happy Hour
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260430T170000Z
 DESCRIPTION:https://www.mopop.org/events/happy-hour\n\nFrom Museum of Pop C
 	ulture
@@ -898,9 +898,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:PL_2jl0MpR-CFAOkpAb8M
+UID:K_jdZjDuQpGVDWEy8dfE2
 SUMMARY:Brunch
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260430T170000Z
 DESCRIPTION:https://www.mopop.org/events/brunch\n\nFrom Museum of Pop Cultu
 	re
@@ -912,10 +912,10 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:jLwCJq0kQVa4JY9AwqN47
+UID:CRBqqyc05Buc-GkeayL5R
 SUMMARY:How to Tell a Seabird's Tale: The Role of the Writer and Scientific
 	 Illustrator
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260507T013000Z
 DESCRIPTION:Panel event\nJoin three Pacific Northwest artists — two writers
 	 and one illustrator — to learn how they distill their research on our loc
@@ -931,9 +931,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:EwHpwFXVAUxw66Qc-EOaq
+UID:IUi7ayKzNTsWq7QUk9O2Q
 SUMMARY:Free First Thursday
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260507T170000Z
 DESCRIPTION:FREE ADMISSION\nAdmission is FREE and the museum is open until 
 	8 p.m. on the first Thursday of every month.\n\nhttps://www.burkemuseum.or
@@ -946,9 +946,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:7MbENu22BMyCPR9_THeH1
+UID:17VYpyC3aYXBLcNnZxmvB
 SUMMARY:Author Talk: Street Trees of Seattle
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260515T010000Z
 DESCRIPTION:Book Event\nJoin author Taha Ebrahimi for a book event for Stre
 	et Trees of Seattle: An Illustrated Walking Guide.\n\nhttps://www.burkemus
@@ -962,9 +962,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:54Jv95K0T2FQDO05xjcTw
+UID:mUAEZh40ejEKASimRi8t2
 SUMMARY:PacSci Ignite Luncheon
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260515T070000Z
 DESCRIPTION:Join us to raise funds that will provide our critical thinkers 
 	of tomorrow with hands-on science experiences today.\n\nhttps://pacificsci
@@ -978,9 +978,9 @@ TRANSP:TRANSPARENT
 DURATION:PT24H
 END:VEVENT
 BEGIN:VEVENT
-UID:F__tlyHnCWP5s3JX9cfGZ
+UID:ld9n5LwLLXrlZEJQEBX81
 SUMMARY:Teacher Professional Development: Pop Culture & Activism
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260516T170000Z
 DESCRIPTION:From musicians who use songs as a call to action to photographe
 	rs who use images as protest\, pop culture plays a critical role in activi
@@ -995,9 +995,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:gLfruV67prphoMkHWRxvk
+UID:5p_3vKixtI9SGddYRalku
 SUMMARY:Sensory-Friendly Days
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260520T170000Z
 DESCRIPTION:https://www.mopop.org/events/sensory-friendly-days\n\nFrom Muse
 	um of Pop Culture
@@ -1009,9 +1009,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:qhjVjIis_qVHMSX03r_B8
+UID:yIE1n9o0aAqVoMJ9HYz8u
 SUMMARY:Willy Wonka Supper Fan Club
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260608T170000Z
 DESCRIPTION:https://www.mopop.org/events/supper-fan-club-willy-wonka\n\nFro
 	m Museum of Pop Culture
@@ -1023,9 +1023,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:zsLr7NtVpYoMMheZLP9va
+UID:h4p9lOtbI3eO5y3M8XXkK
 SUMMARY:Rock ‘n’ Rolling! Camp
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260713T170000Z
 DESCRIPTION:https://www.mopop.org/events/rock-n-rolling-camp\n\nFrom Museum
 	 of Pop Culture
@@ -1037,9 +1037,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:2SFsV2_rAZoLVKTNLpR50
+UID:z_hS-twI8-BtYG4KdSUND
 SUMMARY:Exploring Lego Stop Motion
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260720T170000Z
 DESCRIPTION:https://www.mopop.org/events/exploring-lego-stop-motion-camp\n\
 	nFrom Museum of Pop Culture
@@ -1051,9 +1051,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:4SXwEFCcSHlM8jsw0Ebtu
+UID:aVwGzDX-T8BAjnUIuvHJ_
 SUMMARY:Exploring Fantasy Game Development
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260720T170000Z
 DESCRIPTION:https://www.mopop.org/events/exploring-fantasy-game-development
 	-camp\n\nFrom Museum of Pop Culture
@@ -1065,9 +1065,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:D1Q7T5o1ud33amiUXggLe
+UID:f69WMzGZ6eIOJh2QljZ5f
 SUMMARY:The Art of Drag Camp
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260727T170000Z
 DESCRIPTION:https://www.mopop.org/events/the-art-of-drag-camp\n\nFrom Museu
 	m of Pop Culture
@@ -1079,9 +1079,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:5II0-r2Vb53934A_XsO2_
+UID:1IAMBFZawjbnQrQPtvoj6
 SUMMARY:Exploring Sci-Fi Game Development
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260803T170000Z
 DESCRIPTION:https://www.mopop.org/events/exploring-sci-fi-game-development\
 	n\nFrom Museum of Pop Culture
@@ -1093,9 +1093,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:l-wHwGdrMW86JBFcgZqjZ
+UID:2DaoLfAxW6F9LY5-sRcqE
 SUMMARY:Star Trek Supper Fan Club
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20260905T170000Z
 DESCRIPTION:https://www.mopop.org/events/supper-fan-club-star-trek\n\nFrom 
 	Museum of Pop Culture
@@ -1107,9 +1107,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:YyxoEtCQZHsuoGmFqJzbO
+UID:yaKud4wBr1qpDlSvWPiaC
 SUMMARY:Icons of Pop Culture Gala
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20261022T170000Z
 DESCRIPTION:https://www.mopop.org/events/icons-of-pop-culture-gala\n\nFrom 
 	Museum of Pop Culture
@@ -1121,9 +1121,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:rkUjoWI_GizSE2LZdc1HY
+UID:TSw-bxm1EYvAcgFonGkID
 SUMMARY:Halo Supper Fan Club
-DTSTAMP:20260301T070148Z
+DTSTAMP:20260301T070511Z
 DTSTART:20261209T180000Z
 DESCRIPTION:https://www.mopop.org/events/supper-fan-club-halo\n\nFrom Museu
 	m of Pop Culture

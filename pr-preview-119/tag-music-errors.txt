@@ -1,6 +1,21 @@
 [
   {
     "type": "ParseError",
+    "reason": "Failed to fetch AXS events for venue 124813: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/124813/barboza-seattle-tickets",
+    "context": "venueSlug: barboza-seattle-tickets"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Failed to fetch AXS events for venue 128701: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets",
+    "context": "venueSlug: clock-out-lounge-seattle-tickets"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Failed to fetch AXS events for venue 102495: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/102495/neumos-seattle-tickets",
+    "context": "venueSlug: neumos-seattle-tickets"
+  },
+  {
+    "type": "ParseError",
     "reason": "No Event schema.org JSON-LD found",
     "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
   }

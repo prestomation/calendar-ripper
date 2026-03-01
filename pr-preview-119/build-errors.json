@@ -1,8 +1,99 @@
 {
-  "buildTime": "2026-03-01T06:37:52.487Z",
-  "totalErrors": 16,
+  "buildTime": "2026-03-01T06:56:39.051Z",
+  "totalErrors": 36,
   "configErrors": [],
   "sources": [
+    {
+      "source": "5thavenue",
+      "calendar": "5thavenue",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 133070: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/133070/5th-avenue-theatre-seattle-tickets",
+          "context": "venueSlug: 5th-avenue-theatre-seattle-tickets"
+        }
+      ]
+    },
+    {
+      "source": "amc",
+      "calendar": "pacific-place",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AMC showtimes for amc-pacific-place-11: Error: AMC GraphQL error: HTTP 403",
+          "context": "amc-pacific-place-11"
+        }
+      ]
+    },
+    {
+      "source": "amc",
+      "calendar": "oak-tree",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AMC showtimes for amc-oak-tree-6: Error: AMC GraphQL error: HTTP 403",
+          "context": "amc-oak-tree-6"
+        }
+      ]
+    },
+    {
+      "source": "barboza",
+      "calendar": "barboza",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 124813: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/124813/barboza-seattle-tickets",
+          "context": "venueSlug: barboza-seattle-tickets"
+        }
+      ]
+    },
+    {
+      "source": "clockout-lounge",
+      "calendar": "clockout-lounge",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 128701: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets",
+          "context": "venueSlug: clock-out-lounge-seattle-tickets"
+        }
+      ]
+    },
+    {
+      "source": "mccaw-hall",
+      "calendar": "mccaw-hall",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "neumos",
+      "calendar": "neumos",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 102495: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/102495/neumos-seattle-tickets",
+          "context": "venueSlug: neumos-seattle-tickets"
+        }
+      ]
+    },
     {
       "source": "rainier-arts-center",
       "calendar": "rainier-arts-center",
@@ -72,8 +163,18 @@
       "source": "tag-capitol-hill",
       "calendar": "tag-capitol-hill",
       "type": "Aggregate",
-      "errorCount": 1,
+      "errorCount": 3,
       "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 124813: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/124813/barboza-seattle-tickets",
+          "context": "venueSlug: barboza-seattle-tickets"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 102495: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/102495/neumos-seattle-tickets",
+          "context": "venueSlug: neumos-seattle-tickets"
+        },
         {
           "type": "ParseError",
           "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
@@ -85,8 +186,18 @@
       "source": "tag-downtown",
       "calendar": "tag-downtown",
       "type": "Aggregate",
-      "errorCount": 1,
+      "errorCount": 3,
       "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 133070: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/133070/5th-avenue-theatre-seattle-tickets",
+          "context": "venueSlug: 5th-avenue-theatre-seattle-tickets"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AMC showtimes for amc-pacific-place-11: Error: AMC GraphQL error: HTTP 403",
+          "context": "amc-pacific-place-11"
+        },
         {
           "type": "ParseError",
           "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
@@ -134,8 +245,23 @@
       "source": "tag-music",
       "calendar": "tag-music",
       "type": "Aggregate",
-      "errorCount": 1,
+      "errorCount": 4,
       "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 124813: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/124813/barboza-seattle-tickets",
+          "context": "venueSlug: barboza-seattle-tickets"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 128701: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets",
+          "context": "venueSlug: clock-out-lounge-seattle-tickets"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 102495: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/102495/neumos-seattle-tickets",
+          "context": "venueSlug: neumos-seattle-tickets"
+        },
         {
           "type": "ParseError",
           "reason": "No Event schema.org JSON-LD found",
@@ -144,11 +270,73 @@
       ]
     },
     {
+      "source": "tag-theatre",
+      "calendar": "tag-theatre",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 133070: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/133070/5th-avenue-theatre-seattle-tickets",
+          "context": "venueSlug: 5th-avenue-theatre-seattle-tickets"
+        }
+      ]
+    },
+    {
+      "source": "tag-movies",
+      "calendar": "tag-movies",
+      "type": "Aggregate",
+      "errorCount": 2,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AMC showtimes for amc-pacific-place-11: Error: AMC GraphQL error: HTTP 403",
+          "context": "amc-pacific-place-11"
+        },
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AMC showtimes for amc-oak-tree-6: Error: AMC GraphQL error: HTTP 403",
+          "context": "amc-oak-tree-6"
+        }
+      ]
+    },
+    {
+      "source": "tag-queenanne",
+      "calendar": "tag-queenanne",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-beacon-hill",
+      "calendar": "tag-beacon-hill",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Failed to fetch AXS events for venue 128701: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets",
+          "context": "venueSlug: clock-out-lounge-seattle-tickets"
+        }
+      ]
+    },
+    {
       "source": "tag-arts",
       "calendar": "tag-arts",
       "type": "Aggregate",
-      "errorCount": 4,
+      "errorCount": 5,
       "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: Ticketmaster API error: 429 Too Many Requests",
+          "context": ""
+        },
         {
           "type": "ParseError",
           "reason": "No Event schema.org JSON-LD found",
@@ -181,7 +369,14 @@
     }
   ],
   "zeroEventCalendars": [
+    "5thavenue-5thavenue",
+    "amc-pacific-place",
+    "amc-oak-tree",
+    "barboza-barboza",
+    "clockout-lounge-clockout-lounge",
+    "mccaw-hall-mccaw-hall",
     "naam-all-events",
+    "neumos-neumos",
     "sam-sam-downtown",
     "sam-sam-asian-art",
     "sam-sam-sculpture-park"

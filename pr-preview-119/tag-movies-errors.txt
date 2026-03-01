@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "ParseError",
+    "reason": "Failed to fetch AMC showtimes for amc-pacific-place-11: Error: AMC GraphQL error: HTTP 403",
+    "context": "amc-pacific-place-11"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Failed to fetch AMC showtimes for amc-oak-tree-6: Error: AMC GraphQL error: HTTP 403",
+    "context": "amc-oak-tree-6"
+  }
+]

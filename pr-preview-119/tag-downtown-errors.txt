@@ -1,6 +1,16 @@
 [
   {
     "type": "ParseError",
+    "reason": "Failed to fetch AXS events for venue 133070: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/133070/5th-avenue-theatre-seattle-tickets",
+    "context": "venueSlug: 5th-avenue-theatre-seattle-tickets"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Failed to fetch AMC showtimes for amc-pacific-place-11: Error: AMC GraphQL error: HTTP 403",
+    "context": "amc-pacific-place-11"
+  },
+  {
+    "type": "ParseError",
     "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
     "context": ""
   }

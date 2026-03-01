@@ -1,5 +1,5 @@
 name: amc
-disabled: true # Cloudflare bot protection blocks the proxy; need a better proxy solution
+proxy: true
 description: "AMC Theatres movie showtimes in the Seattle area"
 url: "https://graph.amctheatres.com/graphql"
 friendlyLink: https://www.amctheatres.com

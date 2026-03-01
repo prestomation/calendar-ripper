@@ -1,6 +1,6 @@
 name: barboza
 type: axs
-disabled: true # Cloudflare bot protection blocks the proxy; need a better proxy solution
+proxy: true
 friendlyname: "Barboza"
 description: "Intimate Capitol Hill music venue located below Neumos"
 url: "https://www.axs.com/venues/124813/barboza-seattle-tickets"

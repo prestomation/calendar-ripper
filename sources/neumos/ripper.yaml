@@ -1,6 +1,6 @@
 name: neumos
 type: axs
-disabled: true # Cloudflare bot protection blocks the proxy; need a better proxy solution
+proxy: true
 description: "Neumos"
 url: "https://www.axs.com/venues/102495/neumos-seattle-tickets"
 friendlyLink: https://www.neumos.com/events

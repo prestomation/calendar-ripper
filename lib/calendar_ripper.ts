@@ -425,7 +425,8 @@ export const main = async () => {
     parallelMap(
       enabledConfigs,
       async (config) => {
-        console.log(`Ripping ${config.config.name}`);
+        const proxyLabel = config.config.proxy ? ` with proxy ${config.config.proxy}` : '';
+        console.log(`Ripping ${config.config.name}${proxyLabel}`);
         let calendars: RipperCalendar[];
         try {
           calendars = await config.ripperImpl.rip(config);

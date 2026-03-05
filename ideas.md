@@ -100,6 +100,125 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Note:** Comprehensive food truck schedule covering 500+ trucks across 675+ locations. Has an undocumented API reverse-engineered by the `seattle-food-truck` Python package on PyPI (https://github.com/clintval/seattle-food-truck). Provides location discovery and schedule queries.
 
 
+## New Tags Needed
+
+Several venues below would benefit from new tags in `lib/config/tags.ts`:
+- **`Comedy`** — for comedy clubs and improv theaters (Laughs, CSz, Club Comedy, Emerald City, Jet City, Here-After)
+- **`Books`** — for bookstores with author events (Third Place Books, Ada's, University Book Store)
+- **`Gaming`** — for board game cafes and gaming conventions (Mox Boarding House, ECCC, PAX West)
+- **`Outdoors`** — for outdoor recreation organizations (The Mountaineers)
+
+## Eventbrite Rippers (Use Built-in Eventbrite Type)
+
+These venues have confirmed Eventbrite organizer pages and can use the built-in `eventbrite` ripper type.
+
+### Comedy Venues
+
+#### Laughs Comedy Club
+- **URL:** https://laughscomedyclub.com/
+- **Eventbrite organizer ID:** `29222289085` (~30 upcoming events)
+- **Address:** 5220 Roosevelt Way NE, Seattle, WA 98105
+- **Tags:** Nightlife (needs new `Comedy` tag — add to `tags.ts`)
+- **Note:** Wed-Sat shows, 200-capacity. Also on AXS. Strong candidate — high event volume.
+
+#### CSz Seattle / ComedySportz
+- **URL:** https://cszseattle.com/
+- **Eventbrite organizer ID:** `18822177366` (~10 upcoming events)
+- **Address:** 3509 Fremont Ave N, Seattle, WA 98103
+- **Tags:** Nightlife, Fremont (needs new `Comedy` tag)
+- **Note:** Competitive improv comedy since the 90s. Located in Fremont.
+
+#### Club Comedy Seattle
+- **URL:** https://do206.com/venues/club-comedy-seattle
+- **Eventbrite organizer ID:** `18936516174` (~5 upcoming events)
+- **Tags:** Nightlife, Capitol Hill (needs new `Comedy` tag)
+- **Note:** Boutique comedy venue. No dedicated website; events via Eventbrite.
+
+### Entertainment & Nightlife
+
+#### Can Can Culinary Cabaret
+- **URL:** https://thecancan.com
+- **Eventbrite organizer ID:** `33221255261` (~20 upcoming events)
+- **Address:** 95 Pine St, Seattle, WA 98101 (Pike Place Market)
+- **Tags:** Arts, Nightlife
+- **Note:** 120-seat dinner theater, cabaret shows. 20 years running. French-inspired cuisine.
+
+### Bookstores & Community
+
+#### Third Place Books
+- **URL:** https://www.thirdplacebooks.com/events
+- **Eventbrite organizer ID:** `30353358534` (~40 upcoming events)
+- **Locations:** Ravenna (6504 20th Ave NE), Seward Park (5041 Wilson Ave S), Lake Forest Park
+- **Tags:** Community (needs new `Books` tag — add to `tags.ts`)
+- **Note:** 1,000+ free events/year across 3 locations. Largest author events program in the PNW.
+
+#### Ada's Technical Books & Cafe
+- **URL:** https://adasbooks.com/events
+- **Eventbrite organizer ID:** (some events on Eventbrite, others only on their site)
+- **Address:** 425 15th Ave E, Seattle, WA 98112
+- **Tags:** Community, Capitol Hill (needs new `Books` tag)
+- **Note:** Regular book clubs (5+), community events. Queer-friendly tech bookstore. May need both Eventbrite and HTML scraping for full coverage.
+
+### Music Venues
+
+#### The Highline
+- **URL:** https://www.highlineseattle.com/calendar/
+- **Eventbrite organizer ID:** (needs investigation — calendar is Eventbrite-powered)
+- **Address:** 210 Broadway Ave E, Seattle, WA 98102
+- **Tags:** Music, Capitol Hill
+- **Note:** Live music bar, vegan food, 25+ beers. Calendar requires JavaScript. May have intermittent events — use `expectEmpty: true`.
+
+#### High Dive Seattle
+- **URL:** https://highdiveseattle.com/e/calendar/
+- **Eventbrite organizer ID:** (needs investigation — calendar is Eventbrite-powered)
+- **Address:** Fremont neighborhood
+- **Tags:** Music, Fremont
+- **Note:** Live music venue in Fremont. Calendar requires JavaScript. Note: site also hosts Hidden Hall events (which may already be covered).
+
+## Other Platform-Based Integrations
+
+### DICE Platform
+
+#### Kremwerk + Timbre Room + Cherry Complex
+- **URL:** https://www.kremwerk.com/upcoming-events
+- **Platform:** Squarespace; also on DICE (dice.fm)
+- **Address:** 1809 Minor Ave, Seattle, WA 98101
+- **Tags:** Music, Nightlife, Belltown
+- **Note:** Queer-owned underground electronic music/drag venue. Three interconnected spaces. Very active calendar. Try DICE ripper first (events confirmed on dice.fm), fall back to Squarespace ripper. Need to determine DICE venue name.
+
+### Ticketmaster Platform
+
+#### Seattle Thunderbirds (WHL Hockey)
+- **URL:** https://chl.ca/whl-thunderbirds/schedule/
+- **Platform:** Ticketmaster, AXS
+- **Address:** accesso ShoWare Center, Kent, WA
+- **Tags:** Sports
+- **Note:** WHL junior hockey. Home games in Kent (not Seattle proper). Could use existing Ticketmaster ripper type.
+
+### WordPress ICS (Try Tribe Events Endpoint First)
+
+#### Rat City Roller Derby
+- **URL:** https://ratcityrollerderby.com/events/
+- **Platform:** WordPress (try `?post_type=tribe_events&ical=1`)
+- **Tags:** Community, Sports
+- **Note:** Season 20, 4 home games at Edmonds CC. Tickets via Zeffy. Low event volume but unique. Try WordPress Tribe Events ICS endpoint first.
+
+#### Theatre Off Jackson
+- **URL:** https://theatreoffjackson.org/event-calendar/
+- **Platform:** WordPress (try `?post_type=tribe_events&ical=1`)
+- **Address:** 409 7th Ave S, Seattle, WA 98104
+- **Tags:** Theatre, International District
+- **Note:** Affordable rental venue for small arts groups. 140-seat theater. Hosts SPF (Solo Performance Festival) and multiple company productions.
+
+### SeatEngine Platform
+
+#### Emerald City Comedy Club
+- **URL:** https://www.emeraldcitycomedy.com/events
+- **Platform:** SeatEngine (www-emeraldcitycomedy-com.seatengine.com)
+- **Address:** 210 Broadway E, Seattle, WA 98102
+- **Tags:** Nightlife, Capitol Hill (needs new `Comedy` tag)
+- **Note:** Tue-Sun 6-11 PM, cabaret-style. Full food/drink menu. Investigate whether SeatEngine has an API before falling back to HTML scraping.
+
 ## HTML Scraping (Last Resort)
 
 ### Theaters
@@ -166,9 +285,9 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 
 #### Jet City Improv
 - **URL:** https://www.jetcityimprov.org/calendar.html
-- **Platform:** Webflow (main site); ticketing via PatronTicket (Salesforce) at `jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp`
-- **Tags:** Arts, University District
-- **Note:** Seattle's premier improv comedy theater at 5031 University Way NE, University District. Since 1992. Weekly house ensemble shows plus six improvised plays per year at West of Lenin. No ICS feed — would require HTML scraping the calendar page or PatronTicket API investigation.
+- **Platform:** Webflow (main site); ticketing via PatronTicket (Salesforce) at `jetcityimprov.my.salesforce-sites.com/ticket/PatronTicket__PublicTicketApp`; also on Eventbrite (organizer ID `66421638433`, ~10 upcoming events)
+- **Tags:** Arts, Nightlife, University District (needs new `Comedy` tag)
+- **Note:** Seattle's premier improv comedy theater at 5031 University Way NE, University District. Since 1992. Weekly house ensemble shows plus six improvised plays per year at West of Lenin. **Preferred approach:** Use Eventbrite ripper with organizer `66421638433` instead of HTML scraping.
 
 ### Music Venues
 
@@ -217,6 +336,79 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **URL:** https://www.backfiremotobar.com/
 - **Tags:** Music, Nightlife
 - **Note:** Moto-themed bar at 7701 Aurora Ave N. Hosts "Tune Up Tuesday" weekly open mic (sign-up 7 PM, show 7:30–9:30 PM). All genres welcome: music gets 5–10 min sets; comedy, poetry, and other performers get 5 min sets. 21+, free. Investigate calendar platform — may have structured event listings.
+
+#### The Royal Room
+- **URL:** https://theroyalroomseattle.com/
+- **Platform:** Unknown (site returned 403 on fetch)
+- **Address:** 5000 Rainier Ave S, Seattle, WA 98118
+- **Tags:** Music, Columbia City
+- **Note:** Live music venue/restaurant/lounge. Jazz, funk, world music. Active 2026 calendar.
+
+#### Central Saloon
+- **URL:** https://centralsaloon.com/music-events/
+- **Platform:** WordPress (no calendar plugin detected)
+- **Address:** 207 First Ave S, Seattle, WA 98104
+- **Tags:** Music, Pioneer Square
+- **Note:** Seattle's oldest bar (est. 1892), birthplace of grunge. Active music calendar on Bandsintown. Events on their own site may be sparse.
+
+#### Tim's Tavern
+- **URL:** https://www.timslivemusic.com/events or https://timslivemusic.com/upcoming-shows
+- **Address:** 9655 16th Ave SW, Seattle, WA 98106 (White Center)
+- **Tags:** Music, West Seattle
+- **Note:** "Together In Music" venue. Relocated from Greenwood (that location is permanently closed). Active concert calendar.
+
+#### Egan's Ballard Jam House
+- **URL:** https://www.ballardjamhouse.com/schedule.html
+- **Platform:** Custom static site
+- **Address:** 1707 NW Market St, Seattle, WA 98107
+- **Tags:** Music, Ballard
+- **Note:** Intimate jazz venue featured in Atlas Obscura and Earshot Jazz. Small, historic venue with regular jazz shows.
+
+### Dance
+
+#### Whim W'Him Seattle Contemporary Dance
+- **URL:** https://whimwhim.org/calendar/
+- **Platform:** WordPress or custom CMS
+- **Tags:** Arts, Queen Anne
+- **Note:** Award-winning contemporary dance company. 3 programs/year at Cornish Playhouse and their own Dance Center. Summer pop-ups in parks. Moderate event volume.
+
+### Gaming
+
+#### Mox Boarding House Seattle
+- **URL:** https://www.moxboardinghouse.com/pages/seattle-events
+- **Platform:** Shopify-based website
+- **Address:** 5105 Leary Ave NW, Seattle, WA 98107
+- **Tags:** Community, Ballard (needs new `Gaming` tag — add to `tags.ts`)
+- **Note:** Board game cafe/restaurant/retail. Weekly MTG, Pokemon, D&D, Warhammer events. Very high event volume. Investigate Shopify API for structured event data.
+
+### Outdoors
+
+#### The Mountaineers
+- **URL:** https://www.mountaineers.org/locations-lodges/seattle-program-center/events
+- **Platform:** Custom website
+- **Tags:** Community (needs new `Outdoors` tag — add to `tags.ts`)
+- **Note:** Pacific Northwest outdoor recreation organization. Hiking, climbing, skiing events. High event volume.
+
+### Bookstores (HTML Fallback)
+
+#### University Book Store
+- **URL:** https://ubookstore.com/
+- **Address:** 4326 University Way NE, Seattle, WA 98105
+- **Tags:** Community, University District (needs new `Books` tag)
+- **Note:** Hundreds of author events/year, many free. Oldest independent bookseller in Seattle area (since 1900). Events also listed on Do206 and EverOut.
+
+### Other Venues to Investigate
+
+#### Here-After (at The Crocodile)
+- **URL:** https://www.thecrocodile.com/here-after
+- **Address:** 2505 1st Ave, Seattle, WA 98121
+- **Tags:** Nightlife, Belltown (needs new `Comedy` tag)
+- **Note:** 100-seat comedy club, movie theater, and bar. Part of the Crocodile family. Monthly showcases, film series. May already be partially covered by the existing `crocodile` ripper — verify before creating a separate source.
+
+#### Seattle Symphony
+- **URL:** https://www.seattlesymphony.org/concerttickets/calendar
+- **Tags:** Music, Arts, Downtown
+- **Note:** Major classical music institution at Benaroya Hall. Verify whether the existing `benaroya_hall` ripper already covers Symphony events before building a separate one.
 
 ### Museums and Venues
 
@@ -360,6 +552,52 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 - **Location:** Lumen Field Event Center, 800 Occidental Ave S
 - **URL:** https://seattleartfair.com/
 - **Note:** Major contemporary art fair with 100+ galleries from around the world. The existing `lumen_field` ripper may pick up ticketed events, but the fair itself is worth a dedicated recurring entry. Add as an annual recurring event.
+
+### Conventions & Major Events
+
+#### Emerald City Comic Con (ECCC)
+- **Schedule:** Four days in early March (annual) — 2026 dates: March 5-8
+- **Location:** Seattle Convention Center
+- **URL:** https://www.emeraldcitycomiccon.com/
+- **Tags:** Community (needs new `Gaming` tag)
+- **Note:** 90,000+ attendees. Platform: ShowClix for ticketing. Add as annual recurring entry.
+
+#### Sakura-Con
+- **Schedule:** Three-four days in early April (annual) — 2026 dates: April 2-5
+- **Location:** Seattle Convention Center
+- **URL:** https://sakuracon.org/
+- **Tags:** Community, Arts
+- **Note:** Oldest anime convention in PNW. Add as annual recurring entry.
+
+#### PAX West
+- **Schedule:** Four days over Labor Day weekend (annual) — 2026 dates: September 4-7
+- **Location:** Seattle Convention Center
+- **URL:** https://west.paxsite.com/
+- **Tags:** Community (needs new `Gaming` tag)
+- **Note:** Major gaming convention. Add as annual recurring entry.
+
+#### Seattle Pride Parade
+- **Schedule:** Late June (annual) — 2026 date: June 28
+- **Location:** Downtown Seattle along 4th Ave
+- **URL:** https://seattlepride.org/events
+- **Tags:** Community
+- **Note:** 300,000+ attendees. May already have coverage via city calendar — check before adding.
+
+### Neighborhood Festivals
+
+#### Ballard Seafood & Music Fest
+- **Schedule:** Three days in mid-July (annual) — 2026 dates: July 10-12
+- **Location:** Ballard
+- **URL:** https://ballardalliance.com/programs/community-events/
+- **Tags:** Music, Food, Ballard
+- **Note:** Rebranded from Ballard SeafoodFest. Annual summer festival.
+
+#### Ballard ArtWalk
+- **Schedule:** Second Saturday of each month
+- **Location:** Ballard neighborhood businesses
+- **URL:** https://ballardalliance.com/programs/community-events/
+- **Tags:** Artwalk, Ballard
+- **Note:** Monthly event since 1997. Businesses host local artists in pop-up galleries.
 
 ## Open Mic Nights (Needs Investigation)
 

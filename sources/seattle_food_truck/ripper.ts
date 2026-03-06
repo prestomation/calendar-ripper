@@ -1,4 +1,4 @@
-import { ZonedDateTime, Duration, Instant, ZoneId } from "@js-joda/core";
+import { ZonedDateTime, Duration, Instant, ZoneId, LocalDate, Period } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
@@ -69,8 +69,12 @@ export default class SeattleFoodTruckRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
 
+        const today = LocalDate.now(ZoneId.of("America/Los_Angeles"));
+        const lookahead = ripper.config.lookahead ?? Period.ofDays(14);
+        const endDate = today.plus(lookahead);
+
         const locations = await this.fetchSeattleLocations();
-        const allLocationEvents = await this.fetchEventsForLocations(locations);
+        const allLocationEvents = await this.fetchEventsForLocations(locations, today.toString(), endDate.toString());
 
         const events: RipperEvent[] = [];
         for (const { location, sftEvents } of allLocationEvents) {
@@ -112,7 +116,9 @@ export default class SeattleFoodTruckRipper implements IRipper {
     }
 
     public async fetchEventsForLocations(
-        locations: SFTLocation[]
+        locations: SFTLocation[],
+        startDate: string,
+        endDate: string,
     ): Promise<{ location: SFTLocation; sftEvents: SFTEvent[] }[]> {
         const results: { location: SFTLocation; sftEvents: SFTEvent[] }[] = [];
 
@@ -121,7 +127,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
             const batch = locations.slice(i, i + CONCURRENCY);
             const batchResults = await Promise.all(
                 batch.map(async loc => {
-                    const events = await this.fetchEventsForLocation(loc.uid);
+                    const events = await this.fetchEventsForLocation(loc.uid, startDate, endDate);
                     return { location: loc, sftEvents: events };
                 })
             );
@@ -131,7 +137,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
         return results;
     }
 
-    public async fetchEventsForLocation(locationUid: number): Promise<SFTEvent[]> {
+    public async fetchEventsForLocation(locationUid: number, startDate: string, endDate: string): Promise<SFTEvent[]> {
         const allEvents: SFTEvent[] = [];
         let page = 1;
         let totalPages = 1;
@@ -142,6 +148,8 @@ export default class SeattleFoodTruckRipper implements IRipper {
                 with_active_trucks: "true",
                 include_bookings: "true",
                 with_booking_status: "approved",
+                start_time: startDate,
+                end_time: endDate,
                 page: String(page),
                 per: "100",
             });

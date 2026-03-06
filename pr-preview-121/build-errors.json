@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-06T01:21:59.579Z",
+  "buildTime": "2026-03-06T01:33:48.340Z",
   "totalErrors": 19,
   "configErrors": [],
   "sources": [
@@ -214,7 +214,7 @@
       "name": "hugo-house",
       "friendlyName": "Hugo House",
       "url": "https://hugohouse.org/programs-events/?ical=1&tribe_display=list",
-      "error": "Error: HTTP 524: "
+      "error": "Error: HTTP 504: Gateway Timeout"
     }
   ],
   "zeroEventCalendars": [

@@ -45,6 +45,7 @@ export const VALID_TAGS = [
 
     // Market types
     "FarmersMarket",
+    "FoodTruck",
     "MakersMarket",
 
     // Community/Social

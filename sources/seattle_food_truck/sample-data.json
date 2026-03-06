@@ -1,0 +1,130 @@
+{
+  "locations": {
+    "locations": [
+      {
+        "uid": 1,
+        "name": "Westlake Park",
+        "address": "400 Pine St, Seattle, WA 98101",
+        "location_description": "Downtown Seattle public plaza",
+        "latitude": 47.6124,
+        "longitude": -122.337,
+        "neighborhood": "Downtown",
+        "slug": "westlake-park"
+      },
+      {
+        "uid": 2,
+        "name": "South Lake Union - Amazon",
+        "address": "2201 7th Ave, Seattle, WA 98121",
+        "location_description": "Amazon Spheres area",
+        "latitude": 47.6156,
+        "longitude": -122.339,
+        "neighborhood": "South Lake Union",
+        "slug": "south-lake-union-amazon"
+      },
+      {
+        "uid": 3,
+        "name": "Fremont Sunday Market",
+        "address": "3401 Evanston Ave N, Seattle, WA 98103",
+        "location_description": "Fremont outdoor market",
+        "latitude": 47.6493,
+        "longitude": -122.3501,
+        "neighborhood": "Fremont",
+        "slug": "fremont-sunday-market"
+      }
+    ],
+    "pagination": {
+      "total_pages": 1,
+      "total_entries": 3,
+      "per_page": 100,
+      "current_page": 1
+    }
+  },
+  "events": {
+    "1": {
+      "events": [
+        {
+          "id": 101,
+          "start_time": "2026-03-10T11:00:00-08:00",
+          "end_time": "2026-03-10T14:00:00-08:00",
+          "bookings": [
+            {
+              "id": 1001,
+              "truck": {
+                "id": 11,
+                "name": "Nosh Truck",
+                "slug": "nosh-truck",
+                "food_categories": ["American", "Sandwiches"]
+              }
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "start_time": "2026-03-11T11:00:00-08:00",
+          "end_time": "2026-03-11T14:00:00-08:00",
+          "bookings": [
+            {
+              "id": 1002,
+              "truck": {
+                "id": 12,
+                "name": "Skillet Street Food",
+                "slug": "skillet-street-food",
+                "food_categories": ["American", "Burgers"]
+              }
+            },
+            {
+              "id": 1003,
+              "truck": {
+                "id": 13,
+                "name": "Raney Brothers BBQ",
+                "slug": "raney-brothers-bbq",
+                "food_categories": ["BBQ", "Southern"]
+              }
+            }
+          ]
+        }
+      ],
+      "pagination": {
+        "total_pages": 1,
+        "total_entries": 2,
+        "per_page": 100,
+        "current_page": 1
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "id": 201,
+          "start_time": "2026-03-10T11:30:00-08:00",
+          "end_time": "2026-03-10T14:30:00-08:00",
+          "bookings": [
+            {
+              "id": 2001,
+              "truck": {
+                "id": 21,
+                "name": "Tamara's Tamales",
+                "slug": "tamaras-tamales",
+                "food_categories": ["Mexican", "Tamales"]
+              }
+            }
+          ]
+        }
+      ],
+      "pagination": {
+        "total_pages": 1,
+        "total_entries": 1,
+        "per_page": 100,
+        "current_page": 1
+      }
+    },
+    "3": {
+      "events": [],
+      "pagination": {
+        "total_pages": 1,
+        "total_entries": 0,
+        "per_page": 100,
+        "current_page": 1
+      }
+    }
+  }
+}

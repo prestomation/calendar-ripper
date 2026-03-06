@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-06T00:46:00.493Z",
+  "buildTime": "2026-03-06T01:21:59.579Z",
   "totalErrors": 19,
   "configErrors": [],
   "sources": [
@@ -209,6 +209,12 @@
       "friendlyName": "City of Seattle — Special Events Planning Calendar",
       "url": "https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics",
       "error": "Error: HTTP 403: Forbidden"
+    },
+    {
+      "name": "hugo-house",
+      "friendlyName": "Hugo House",
+      "url": "https://hugohouse.org/programs-events/?ical=1&tribe_display=list",
+      "error": "Error: HTTP 524: "
     }
   ],
   "zeroEventCalendars": [

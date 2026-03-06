@@ -1,0 +1,12 @@
+[
+  {
+    "type": "ParseError",
+    "reason": "No Event schema.org JSON-LD found",
+    "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Unknown venue \"Slim's Last Chance\" not in VENUE_CONFIG — add it so events are routed to a calendar",
+    "context": "venue: Slim's Last Chance"
+  }
+]

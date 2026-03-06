@@ -1,0 +1,10 @@
+name: seattle-food-truck
+description: "Seattle Food Truck"
+url: "https://www.seattlefoodtruck.com/api/locations"
+friendlyLink: https://www.seattlefoodtruck.com
+tags: ["Food", "FoodTruck"]
+lookahead: P14D
+calendars:
+  - name: all-seattle
+    friendlyname: "Seattle Food Trucks"
+    timezone: America/Los_Angeles

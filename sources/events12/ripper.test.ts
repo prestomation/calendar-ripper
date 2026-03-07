@@ -191,6 +191,120 @@ describe('Events12Ripper', () => {
         expect(event.date.minute()).toBe(0);
     });
 
+    it('should parse multiple times format (5 & 8 p.m.) using first time', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="105051">
+                <h3>Valentine's burlesque</h3>
+                <p class="date">February 12 - 15, 2026 <span class="nobreak">(5 &amp; 8 p.m.)</span></p>
+                <p class="miles">Capitol Hill (2 miles NE)</p>
+                <p class="event">Burlesque show <a href="https://example.com/burlesque">tickets</a></p>
+            </article>
+        `;
+
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+
+        expect(events.length).toBe(1);
+        const event = events[0] as any;
+        expect(event.summary).toBe("Valentine's burlesque");
+        expect(event.date.hour()).toBe(17); // 5 p.m. = 17:00
+        expect(event.date.minute()).toBe(0);
+    });
+
+    it('should parse concerts table article', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="concerts1">
+                <h2>concerts</h2>
+                <table class="concerts">
+                    <tr><th colspan="3">Concerts
+                    <tr><td>Feb. 22<td><a href="https://example.com/show1">Cardi B</a><td>Climate Pledge
+                    <tr><td>March 23<td><a href="https://example.com/show2">Ashnikko</a><td>Showbox SoDo
+                    <tr><td>Aug. 1<td><a href="https://example.com/show3">Ed Sheeran</a><td>Lumen Field
+                    <tr><td class="concerts1" colspan="3"><a href="https://stubhub.com">more concerts</a>
+                </table>
+            </article>
+        `;
+
+        // preprocessHtml must be called first so rawHtml is populated —
+        // node-html-parser strips <table class="concerts"> from outerHTML.
+        const processedHtml = (ripper as any).preprocessHtml(sampleHtml);
+        const html = parse(processedHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(3);
+
+        const cardiB = calEvents.find((e: any) => e.summary.includes('Cardi B'));
+        expect(cardiB).toBeDefined();
+        expect(cardiB.date.monthValue()).toBe(2);
+        expect(cardiB.date.dayOfMonth()).toBe(22);
+        expect(cardiB.date.year()).toBe(2026);
+        expect(cardiB.date.hour()).toBe(20); // 8pm default
+
+        const ashnikko = calEvents.find((e: any) => e.summary.includes('Ashnikko'));
+        expect(ashnikko).toBeDefined();
+        expect(ashnikko.date.monthValue()).toBe(3);
+        expect(ashnikko.date.dayOfMonth()).toBe(23);
+
+        const edSheeran = calEvents.find((e: any) => e.summary.includes('Ed Sheeran'));
+        expect(edSheeran).toBeDefined();
+        expect(edSheeran.date.monthValue()).toBe(8);
+        expect(edSheeran.location).toBe('Lumen Field');
+        expect(edSheeran.url).toBe('https://example.com/show3');
+    });
+
+    it('should infer next year for concert dates before context month', async () => {
+        const ripper = new Events12Ripper();
+        // Context: December 2026 — a January listing rolls into 2027
+        const decDate = ZonedDateTime.of(2026, 12, 1, 12, 0, 0, 0, timezone);
+        const sampleHtml = `
+            <article id="concerts_dec">
+                <h2>concerts</h2>
+                <table class="concerts">
+                    <tr><th colspan="3">Concerts
+                    <tr><td>Jan. 5<td><a href="https://example.com/jan">Future Band</a><td>Showbox
+                </table>
+            </article>
+        `;
+
+        const processedHtml = (ripper as any).preprocessHtml(sampleHtml);
+        const html = parse(processedHtml);
+        const events = await ripper.parseEvents(html, decDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].date.year()).toBe(2027);
+        expect(calEvents[0].date.monthValue()).toBe(1);
+    });
+
+    it('should parse concerts table with multi-date and range cells using first date', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="concerts_multi">
+                <h2>concerts</h2>
+                <table class="concerts">
+                    <tr><th colspan="3">Concerts
+                    <tr><td>Feb. 21, 28<td><a href="https://example.com/soundoff">Sound Off</a><td>MoPop
+                    <tr><td>Feb. 26 - 1<td><a href="https://example.com/saje">Säje</a><td>Jazz Alley
+                </table>
+            </article>
+        `;
+
+        const processedHtml = (ripper as any).preprocessHtml(sampleHtml);
+        const html = parse(processedHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(2);
+        const soundOff = calEvents.find((e: any) => e.summary.includes('Sound Off'));
+        expect(soundOff.date.dayOfMonth()).toBe(21); // first date in "Feb. 21, 28"
+
+        const saje = calEvents.find((e: any) => e.summary.includes('Säje'));
+        expect(saje.date.dayOfMonth()).toBe(26); // start of range "Feb. 26 - 1"
+    });
+
     it('should deduplicate events', async () => {
         const ripper = new Events12Ripper();
         const sampleHtml = `

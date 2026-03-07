@@ -1,0 +1,495 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The PNA - ECPv6.15.16//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:The PNA
+X-ORIGINAL-URL:https://www.phinneycenter.org
+X-WR-CALDESC:Events for The PNA
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T130000
+DTEND;TZID=America/Los_Angeles:20260307T160000
+DTSTAMP:20260307T154421
+CREATED:20240221T213455Z
+LAST-MODIFIED:20260218T205734Z
+UID:10022291-1772888400-1772899200@www.phinneycenter.org
+SUMMARY:Fix-it Fair
+DESCRIPTION:Bring your broken items to the Fix-it Fair. The PNA Fixers will diagnose and repair your item for free (parts may be extra) while also helping reduce waste in Seattle. At the same time\, you can bond with the rest of your local community and learn something new by watching the repair. Typical items include heaters\, sewing machines\, waffle irons\, blenders\, mixers\, electric bikes\, extension cords\, lamps\, audio gear\, and more. There are hardware stores nearby if you need to fetch parts. There is also a professional knife sharpener on hand\, and we expect to have sewists to mend and hem clothing. Walk-ins are welcome but it’s helpful if you can RSVP to let us know what you’re bringing: bit.ly/GreenwoodFix-itFair. The PNA Fixers meet regularly at Greenwood Hardware on the first Wednesday of every month\, 3–6 pm. \nFree\, but donations are appreciated. \n 
+URL:https://www.phinneycenter.org/event/fix-it-fair/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Events,GSC Featured,Senior Events
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090717/D3A0344.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T193000
+DTEND;TZID=America/Los_Angeles:20260307T220000
+DTSTAMP:20260307T154421
+CREATED:20260206T193741Z
+LAST-MODIFIED:20260206T193753Z
+UID:10030895-1772911800-1772920800@www.phinneycenter.org
+SUMMARY:Kristian Bugge & Ruthie Dornfeld – 2 Fiddle masters play Danish & American music and more!
+DESCRIPTION:Kristian Bugge (Denmark) and Ruthie Dornfeld (Seattle) will entertain us with a wide range of music including Danish traditional fiddle tunes and music from the other Nordic countries to old-time American and self-composed original tunes\, spiced up with a few Venezuelan waltzes.\nKristian and Ruthie first met each other in the Danish folk music circles in the mid-1990’s\, where Ruthie had been touring regularly and growing a reputation as a well-renowned artist and fiddler since the early 1980’s. Later when Kristian was a music student\, Ruthie was guest-teaching at the Carl Nielsen Academy of Music in Odense\, Denmark and Kristian made sure to take the opportunity to study with her while she was there. About ten years later they met again in and around Seattle when Kristian had started touring and performing in the states. This summer marked a new chapter in their collaboration and friendship as they started touring and recording as a duo for the first time. Expect everything from wild polkas and jigs to lyrical waltzes\, fiery reels and happy hopsas\, all served with humor and stories from their many years on the road. The doors open at 7pm for the 7:30 cocnert in the phinney Community Hall (lower Brick Building). Advance tickets are $26/$24 members of SFS\, PNA\, or Skandia\, students\, or seniors 65+/ $10 Youth to age 17; at the door $2 more for adults ($28/$26/$10).
+URL:https://www.phinneycenter.org/event/kristian-bugge-ruthie-dornfeld-2-fiddle-masters-play-danish-american-music-and-more/
+LOCATION:Phinney Center Campus\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2026/02/06113755/Bugge-Dornfeld-1536x1536-1.jpg
+ORGANIZER;CN="Seattle Folklore Society Concerts":MAILTO:concerts@seafolklore.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T081500
+DTEND;TZID=America/Los_Angeles:20260309T084500
+DTSTAMP:20260307T154421
+CREATED:20250109T223426Z
+LAST-MODIFIED:20250127T173949Z
+UID:10025454-1773044100-1773045900@www.phinneycenter.org
+SUMMARY:Zumba Toning *Online*
+DESCRIPTION:Tailored for active older adults\, who want to focus on muscle conditioning and light weight activity\, Zumba Gold Toning blends low-intensity strength training with a fun party atmosphere. Dress comfortably and bring water. Adults of all ages welcome. Start anytime. Please contact arielb@phinneycenter.org for link to attend this online-only class.
+URL:https://www.phinneycenter.org/event/zumba-toning-gold-online/2026-03-09/
+LOCATION:Online / Virtual
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/01/09143313/Zumba.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T091500
+DTEND;TZID=America/Los_Angeles:20260309T101500
+DTSTAMP:20260307T154421
+CREATED:20250721T163217Z
+LAST-MODIFIED:20260121T190858Z
+UID:10028963-1773047700-1773051300@www.phinneycenter.org
+SUMMARY:Cardio Sculpt Dance Fitness Class with Seattle Jazzercise
+DESCRIPTION:Phinney Center\, Blue Building\, Room 7: Feel lighter\, stronger\, and happier after 40 minutes of high-intensity\, dance-based cardio followed by strength training and stretching. This is a group exercise class. Please bring a water bottle. All other equipment is provided.
+URL:https://www.phinneycenter.org/event/cardio-sculpt-dance-fitness-class-with-seattle-jazzercise-3/2026-03-09/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/07/20153712/IMG_0371.jpeg
+ORGANIZER;CN="Seattle Jazzercise Studio":MAILTO:SeattleJazzerciseStudio@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T100000
+DTEND;TZID=America/Los_Angeles:20260309T110000
+DTSTAMP:20260307T154421
+CREATED:20260113T181052Z
+LAST-MODIFIED:20260113T181052Z
+UID:10029747-1773050400-1773054000@www.phinneycenter.org
+SUMMARY:Easy Exercise
+DESCRIPTION:Health benefits for all in this popular and low-key ongoing class. Gain strength and flexibility among friendly people. What a fun way to keep moving! All skill levels welcome. Taught by Gerry Joyce. Register for online: arielb@phinneycenter.org.
+URL:https://www.phinneycenter.org/event/easy-exercise-2/2026-03-09/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090928/Easy-Exercise-hybrid-group.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T110000
+DTEND;TZID=America/Los_Angeles:20260309T120000
+DTSTAMP:20260307T154421
+CREATED:20251222T180520Z
+LAST-MODIFIED:20251222T180521Z
+UID:10029514-1773054000-1773057600@www.phinneycenter.org
+SUMMARY:Pilates for Core & Balance
+DESCRIPTION:Just under an hour of strength and balance training for standing and in-motion stability. This is a Pilates-based approach to strengthening\, stabilizing and building proprioceptive awareness for the core and lower body. We will use chairs\, bands and balls as we move (provided by the GSC). Just bring your body! Taught by Alethea Alexander. Register: 206.297.0875.
+URL:https://www.phinneycenter.org/event/pilates-for-core-balance-2-2-2-2/2026-03-09/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090831/Pilates-for-Strength.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T150000
+DTEND;TZID=America/Los_Angeles:20260309T160000
+DTSTAMP:20260307T154421
+CREATED:20260113T180243Z
+LAST-MODIFIED:20260113T183220Z
+UID:10029564-1773068400-1773072000@www.phinneycenter.org
+SUMMARY:Intermediate/Advanced French
+DESCRIPTION:Come and practice your French with French native speaker and experienced teacher Yasmina Mobarek. Relaxed atmosphere. Weekly on-going French conversation group. Open to Intermediate/Advanced speakers. \nRegister: 206.297.0875 or arielb@phinneycenter.org.
+URL:https://www.phinneycenter.org/event/intermediate-advanced-french/2026-03-09/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes,Senior Events
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/01141648/French-Class.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T150000
+DTEND;TZID=America/Los_Angeles:20260309T180000
+DTSTAMP:20260307T154421
+CREATED:20231103T114955Z
+LAST-MODIFIED:20260206T183048Z
+UID:10030807-1773068400-1773079200@www.phinneycenter.org
+SUMMARY:Hot Meal Program (dinner)
+DESCRIPTION:In addition to providing a meal\, the Hot Meal Program provides a safe environment to feel cared for and to feel like a part of this neighborhood. We offer a variety of hygiene products\, gently-used clothing\, physical therapy and medical services as well. Volunteer opportunities are available.
+URL:https://www.phinneycenter.org/event/hot-meal-program/2026-03-09/
+LOCATION:St John United Lutheran Church\, 5515 Phinney Ave N\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Services
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090857/IMG_8388.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T163000
+DTEND;TZID=America/Los_Angeles:20260309T180000
+DTSTAMP:20260307T154421
+CREATED:20260220T221652Z
+LAST-MODIFIED:20260223T222920Z
+UID:10030925-1773073800-1773079200@www.phinneycenter.org
+SUMMARY:Washington Wines Tasting Event
+DESCRIPTION:Wine expert Jayne Morris returns to the GSC to give us the scoop on wines produced right here in Washington state! 21+ only. Registration required as space is limited: 206.297.0875 or arielb@phinneycenter.org. \n 
+URL:https://www.phinneycenter.org/event/wine_tasting/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Events,GSC Featured,Senior Events
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/10/30142053/Wine-Tasting-101.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T180000
+DTEND;TZID=America/Los_Angeles:20260309T200000
+DTSTAMP:20260307T154421
+CREATED:20260115T213231Z
+LAST-MODIFIED:20260116T181640Z
+UID:10029840-1773079200-1773086400@www.phinneycenter.org
+SUMMARY:Homebuyer Workshops
+DESCRIPTION:Join us to learn the steps to home ownership and the resources that help pave the way! During part one\, we’ll cover the home buying process and best practices using recently sold homes as examples. Plus\, an informative Q&A with a home inspector. During part two\, we’ll dive deeper into available downpayment assistance (DPA) programs. You’re welcome to attend part one or both sessions. \nWe meet at 6pm every 2nd Monday of the month in the Phinney Center\, Blue Building. Snacks and NA drinks provided. Please RSVP at caitlin.lakere.com.
+URL:https://www.phinneycenter.org/event/homebuyer-workshops/2026-03-09/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/png:https://media.phinneycenter.org/wp-content/uploads/2026/01/15102626/Homebuyer-Workshops-at-the-Phinney-Center.png
+ORGANIZER;CN="Caitlin Spence at Lake":MAILTO:caitlin@lakere.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260309T190000
+DTEND;TZID=America/Los_Angeles:20260309T210000
+DTSTAMP:20260307T154422
+CREATED:20260116T195931Z
+LAST-MODIFIED:20260116T195931Z
+UID:10030527-1773082800-1773090000@www.phinneycenter.org
+SUMMARY:PNA Woodshop\, dedicated to Bill Fenimore
+DESCRIPTION:Did you know that there is a woodshop in your area? Whether you’re a newcomer to woodworking or an experienced woodworker\, the PNA woodshop is the ideal place to bring your creative projects to life. Whether you’re interested in crafting a bench\, flower bed\, jewelry box\, chair\, or cupboard\, the possibilities are endless. All you need to do is become a PNA member\, attend an orientation\, and complete two safety classes. Once you’ve done that\, you can reserve your shop time and get started on your project.
+URL:https://www.phinneycenter.org/event/pna-woodshop-dedicated-to-bill-fenimore-2/2026-03-09/
+LOCATION:Phinney Center Campus: Brick (lower) Building\, 6532 Phinney Ave. N.\, Seattle\, 98103\, United States
+CATEGORIES:Services
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/10/05092551/D3A6545.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260310T090000
+DTEND;TZID=America/Los_Angeles:20260310T100000
+DTSTAMP:20260307T154422
+CREATED:20250114T171321Z
+LAST-MODIFIED:20260116T190132Z
+UID:10029862-1773133200-1773136800@www.phinneycenter.org
+SUMMARY:Tai Chi: Moving Meditation
+DESCRIPTION:Come have fun! Build strength\, balance\, and agility with the centuries-old practices of Tai Chi and Qigong. Experience deep breathing\, slow flowing movement\, and meditation to maximize longevity and improve quality of life. Suitable for all ability levels. Taught by Larry Spangler. Register: 206.297.0875.
+URL:https://www.phinneycenter.org/event/tai-chi-moving-meditation-2-2/2026-03-10/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/01141423/IMG_6390.jpeg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260310T150000
+DTEND;TZID=America/Los_Angeles:20260310T180000
+DTSTAMP:20260307T154422
+CREATED:20231103T114955Z
+LAST-MODIFIED:20260206T183048Z
+UID:10030808-1773154800-1773165600@www.phinneycenter.org
+SUMMARY:Hot Meal Program (dinner)
+DESCRIPTION:In addition to providing a meal\, the Hot Meal Program provides a safe environment to feel cared for and to feel like a part of this neighborhood. We offer a variety of hygiene products\, gently-used clothing\, physical therapy and medical services as well. Volunteer opportunities are available.
+URL:https://www.phinneycenter.org/event/hot-meal-program/2026-03-10/
+LOCATION:St John United Lutheran Church\, 5515 Phinney Ave N\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Services
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090857/IMG_8388.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260310T173000
+DTEND;TZID=America/Los_Angeles:20260310T183000
+DTSTAMP:20260307T154422
+CREATED:20250721T162321Z
+LAST-MODIFIED:20260120T004733Z
+UID:10028735-1773163800-1773167400@www.phinneycenter.org
+SUMMARY:Vital Sculpt HIIT Class with Seattle Jazzercise
+DESCRIPTION:Phinney Center\, Blue Building\, Room 7: This invigorating HIIT-style exercise class promotes strength\, vitality\, and long-term hormone health with a science-backed blend of targeted sculpting\, high-intensity cardio\, and functional movement training. This is a group fitness class. Please bring a water bottle and an optional sweat towel. All other equipment will be provided. \nVital Sculpt HIIT meets every Tuesday at 5:30 pm at the Phinney Center.
+URL:https://www.phinneycenter.org/event/vital-sculpt-hiit-class-with-seattle-jazzercise/2026-03-10/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/07/20145609/0721_VitalSculptHIIT_Carousel-_Slide-1.jpg
+ORGANIZER;CN="Seattle Jazzercise Studio":MAILTO:SeattleJazzerciseStudio@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T081500
+DTEND;TZID=America/Los_Angeles:20260311T084500
+DTSTAMP:20260307T154422
+CREATED:20250109T223426Z
+LAST-MODIFIED:20250127T173949Z
+UID:10025455-1773216900-1773218700@www.phinneycenter.org
+SUMMARY:Zumba Toning *Online*
+DESCRIPTION:Tailored for active older adults\, who want to focus on muscle conditioning and light weight activity\, Zumba Gold Toning blends low-intensity strength training with a fun party atmosphere. Dress comfortably and bring water. Adults of all ages welcome. Start anytime. Please contact arielb@phinneycenter.org for link to attend this online-only class.
+URL:https://www.phinneycenter.org/event/zumba-toning-gold-online/2026-03-11/
+LOCATION:Online / Virtual
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/01/09143313/Zumba.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T091500
+DTEND;TZID=America/Los_Angeles:20260311T101500
+DTSTAMP:20260307T154422
+CREATED:20250721T164056Z
+LAST-MODIFIED:20260121T190401Z
+UID:10029043-1773220500-1773224100@www.phinneycenter.org
+SUMMARY:Cardio Sculpt Dance Fitness Class with Seattle Jazzercise
+DESCRIPTION:Phinney Center\, Blue Building\, Room 7: Feel lighter\, stronger\, and happier after 40 minutes of high-intensity\, dance-based cardio followed by strength training and stretching. This is a group exercise class. Please bring a water bottle.  All other equipment will be provided. \n 
+URL:https://www.phinneycenter.org/event/cardio-sculpt-dance-fitness-class-with-seattle-jazzercise-4/2026-03-11/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/07/20155509/IMG_2804.jpeg
+ORGANIZER;CN="Seattle Jazzercise Studio":MAILTO:SeattleJazzerciseStudio@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T100000
+DTEND;TZID=America/Los_Angeles:20260311T110000
+DTSTAMP:20260307T154422
+CREATED:20260113T181052Z
+LAST-MODIFIED:20260113T181052Z
+UID:10029748-1773223200-1773226800@www.phinneycenter.org
+SUMMARY:Easy Exercise
+DESCRIPTION:Health benefits for all in this popular and low-key ongoing class. Gain strength and flexibility among friendly people. What a fun way to keep moving! All skill levels welcome. Taught by Gerry Joyce. Register for online: arielb@phinneycenter.org.
+URL:https://www.phinneycenter.org/event/easy-exercise-2/2026-03-11/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090928/Easy-Exercise-hybrid-group.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T110000
+DTEND;TZID=America/Los_Angeles:20260311T130000
+DTSTAMP:20260307T154422
+CREATED:20231103T115347Z
+LAST-MODIFIED:20260116T191923Z
+UID:10030136-1773226800-1773234000@www.phinneycenter.org
+SUMMARY:Hot Meal Program (lunch)
+DESCRIPTION:In addition to providing a meal\, the Hot Meal Program provides a safe environment to feel cared for and to feel like a part of this neighborhood. We offer a variety of hygiene products\, gently-used clothing\, physical therapy and medical services as well. Volunteer opportunities are available.
+URL:https://www.phinneycenter.org/event/hot-meal-program-3/2026-03-11/
+LOCATION:St John United Lutheran Church\, 5515 Phinney Ave N\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Services
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090857/IMG_8388.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T130000
+DTEND;TZID=America/Los_Angeles:20260311T140000
+DTSTAMP:20260307T154422
+CREATED:20260220T222504Z
+LAST-MODIFIED:20260220T222504Z
+UID:10030898-1773234000-1773237600@www.phinneycenter.org
+SUMMARY:Seattle Public Library Behind the Scenes
+DESCRIPTION:Jason Davis\, the Greenwood Branch Adult Librarian\, joins us to talk about all of the behind-the-scenes systems that keep Seattle’s libraries running smoothly. Come learn about all the steps that occur when you request a hold\, how interlibrary loans travel around\, how extensive the collection really is\, how books are selected for different branches\, what’s in the special collections\, and more! RSVP: 206.297.0875
+URL:https://www.phinneycenter.org/event/seattle-public-library-behind-the-scenes/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Events,GSC Featured,Senior Events
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2026/02/20142306/SPL_Downtown.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T174500
+DTEND;TZID=America/Los_Angeles:20260311T184500
+DTSTAMP:20260307T154422
+CREATED:20250721T162719Z
+LAST-MODIFIED:20260121T191341Z
+UID:10028811-1773251100-1773254700@www.phinneycenter.org
+SUMMARY:Cardio Sculpt Dance Fitness Class with Seattle Jazzercise
+DESCRIPTION:Phinney Center\, Blue Building\, Room 7: Feel lighter\, stronger\, and happier after 40 minutes of high-intensity\, dance-based cardio followed by strength training and stretching. This is a group exercise class. Please bring a water bottle. All other equipment will be provided.
+URL:https://www.phinneycenter.org/event/cardio-sculpt-dance-fitness-class-with-seattle-jazzercise/2026-03-11/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/07/20150231/From-Stage.jpg
+ORGANIZER;CN="Seattle Jazzercise Studio":MAILTO:SeattleJazzerciseStudio@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T190000
+DTEND;TZID=America/Los_Angeles:20260311T210000
+DTSTAMP:20260307T154422
+CREATED:20260116T195931Z
+LAST-MODIFIED:20260116T195931Z
+UID:10030528-1773255600-1773262800@www.phinneycenter.org
+SUMMARY:PNA Woodshop\, dedicated to Bill Fenimore
+DESCRIPTION:Did you know that there is a woodshop in your area? Whether you’re a newcomer to woodworking or an experienced woodworker\, the PNA woodshop is the ideal place to bring your creative projects to life. Whether you’re interested in crafting a bench\, flower bed\, jewelry box\, chair\, or cupboard\, the possibilities are endless. All you need to do is become a PNA member\, attend an orientation\, and complete two safety classes. Once you’ve done that\, you can reserve your shop time and get started on your project.
+URL:https://www.phinneycenter.org/event/pna-woodshop-dedicated-to-bill-fenimore-2/2026-03-11/
+LOCATION:Phinney Center Campus: Brick (lower) Building\, 6532 Phinney Ave. N.\, Seattle\, 98103\, United States
+CATEGORIES:Services
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/10/05092551/D3A6545.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260312T090000
+DTEND;TZID=America/Los_Angeles:20260312T100000
+DTSTAMP:20260307T154422
+CREATED:20250114T171321Z
+LAST-MODIFIED:20260116T190132Z
+UID:10029863-1773306000-1773309600@www.phinneycenter.org
+SUMMARY:Tai Chi: Moving Meditation
+DESCRIPTION:Come have fun! Build strength\, balance\, and agility with the centuries-old practices of Tai Chi and Qigong. Experience deep breathing\, slow flowing movement\, and meditation to maximize longevity and improve quality of life. Suitable for all ability levels. Taught by Larry Spangler. Register: 206.297.0875.
+URL:https://www.phinneycenter.org/event/tai-chi-moving-meditation-2-2/2026-03-12/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/01141423/IMG_6390.jpeg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260312T101500
+DTEND;TZID=America/Los_Angeles:20260312T111500
+DTSTAMP:20260307T154422
+CREATED:20231104T014422Z
+LAST-MODIFIED:20250630T212649Z
+UID:10028532-1773310500-1773314100@www.phinneycenter.org
+SUMMARY:Line Dancing for All Levels
+DESCRIPTION:In this easy\, upbeat class\, you’ll explore music from Classic Rock to Latin\, Contemporary and — yes! — Western with 16\, 34 and 48 count routines. It’s great for anyone who enjoys moving to music. Exercise never felt like such fun! Benefits include increased flexibility\, brain enhancement\, better balance and stronger muscles. All levels are welcome. Taught by Chris Banta. Register: 206.297.0875.
+URL:https://www.phinneycenter.org/event/line-dancing-for-all-levels/2026-03-12/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/05090755/D3A9072.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260312T103000
+DTEND;TZID=America/Los_Angeles:20260312T120000
+DTSTAMP:20260307T154422
+CREATED:20250106T182146Z
+LAST-MODIFIED:20260116T190759Z
+UID:10029958-1773311400-1773316800@www.phinneycenter.org
+SUMMARY:Needle Arts Group
+DESCRIPTION:Do you knit\, sew\, cross-stitch\, quilt\, or embroider? Rug hooking? Bargello? Any type of needle and thread/yarn work is welcome. Bring your project and enjoy some social interaction. Questions: 206.297.0875.
+URL:https://www.phinneycenter.org/event/needle-arts-group-2/2026-03-12/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Clubs & Groups
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/11/06102117/Needle_Arts.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260312T173000
+DTEND;TZID=America/Los_Angeles:20260312T183000
+DTSTAMP:20260307T154422
+CREATED:20250721T162910Z
+LAST-MODIFIED:20260121T191041Z
+UID:10028887-1773336600-1773340200@www.phinneycenter.org
+SUMMARY:Cardio Sculpt Dance Fitness Class with Seattle Jazzercise
+DESCRIPTION:Phinney Center\, Blue Building\, Room 7: Feel lighter\, stronger\, and happier after 40 minutes of high-intensity\, dance-based cardio followed by strength training and stretching. This is a group exercise class. Please bring a water bottle. All other equipment is provided.
+URL:https://www.phinneycenter.org/event/cardio-sculpt-dance-fitness-class-with-seattle-jazzercise-2/2026-03-12/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/07/20153305/IMG_0001.jpeg
+ORGANIZER;CN="Seattle Jazzercise Studio":MAILTO:SeattleJazzerciseStudio@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260312T190000
+DTEND;TZID=America/Los_Angeles:20260312T210000
+DTSTAMP:20260307T154422
+CREATED:20260130T220838Z
+LAST-MODIFIED:20260130T220838Z
+UID:10030654-1773342000-1773349200@www.phinneycenter.org
+SUMMARY:Boutique Bellydancersize Classes
+DESCRIPTION:Explore the ancient & mysterious art of belly dancing\, with Boutique Bellydancersize classes! \nSpecialized classes. Superior core workout. Strengthens & coordinates muscle groups in the trunk\, spine & arms. Improves posture & flexibility. Students will learn the basic steps\, undulations\, shimmies\, isolations\, tuxseem and more. \nAll Ages. \nGroup classes at Phinney Center. A focused gym that provides a sense of connection. Zaphara’s classes go beyond physical fitness\, including a broader sense of self care\, including sleep\, nutrition\, skin health\, stress management & socializing. \nStarts the 1st Thursday of the Month \n7:00 pm – 8:00 pm – Beginners \n7:45 pm – 9:00 pm Intermediate – Advanced \n4 weeks: $80\, Drop-ins: $27 per class \nTaught by Zaphara\, Master Bellydance Instructor & Performer \nSign up and pay online: bellydancingbyzaphara.com/classes
+URL:https://www.phinneycenter.org/event/boutique-bellydancersize-classes/2026-03-12/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2026/01/30135720/zaphara.jpg
+ORGANIZER;CN="Belly Dancing by Zaphara":MAILTO:bellydancingbyzaphara@comcast.net
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260313T081500
+DTEND;TZID=America/Los_Angeles:20260313T084500
+DTSTAMP:20260307T154422
+CREATED:20250109T223426Z
+LAST-MODIFIED:20250127T173949Z
+UID:10025456-1773389700-1773391500@www.phinneycenter.org
+SUMMARY:Zumba Toning *Online*
+DESCRIPTION:Tailored for active older adults\, who want to focus on muscle conditioning and light weight activity\, Zumba Gold Toning blends low-intensity strength training with a fun party atmosphere. Dress comfortably and bring water. Adults of all ages welcome. Start anytime. Please contact arielb@phinneycenter.org for link to attend this online-only class.
+URL:https://www.phinneycenter.org/event/zumba-toning-gold-online/2026-03-13/
+LOCATION:Online / Virtual
+CATEGORIES:Classes
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/01/09143313/Zumba.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260313T090000
+DTEND;TZID=America/Los_Angeles:20260313T160000
+DTSTAMP:20260307T154422
+CREATED:20260123T181056Z
+LAST-MODIFIED:20260123T181056Z
+UID:10030628-1773392400-1773417600@www.phinneycenter.org
+SUMMARY:AARP Tax Assistance
+DESCRIPTION:Once you have compiled all the necessary paperwork to complete your return\, call 206.297.0875 to schedule an appointment with the AARP volunteer tax preparers. While this service is free (such a bargain!)\, donations to the GSC are appreciated.
+URL:https://www.phinneycenter.org/event/aarp-tax-assistance/2026-03-13/
+LOCATION:Greenwood Senior Center\, 525 N. 85th St.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:GSC Featured,Senior Events
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2026/01/23101013/AARP-Tax-Help.jpg
+ORGANIZER;CN="Greenwood Senior Center":MAILTO:gsc@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260313T091500
+DTEND;TZID=America/Los_Angeles:20260313T101500
+DTSTAMP:20260307T154422
+CREATED:20250721T164301Z
+LAST-MODIFIED:20260121T185909Z
+UID:10029120-1773393300-1773396900@www.phinneycenter.org
+SUMMARY:Cardio Sculpt Dance Fitness Class with Seattle Jazzercise
+DESCRIPTION:Phinney Center\, Blue Building\, Room 7: Feel lighter\, stronger\, and happier after 40 minutes of high-intensity\, dance-based cardio followed by strength training and stretching. This is a group exercise class. Please bring a water bottle. All other equipment will be provided. \n 
+URL:https://www.phinneycenter.org/event/cardio-sculpt-dance-fitness-class-with-seattle-jazzercise-5/2026-03-13/
+LOCATION:Phinney Center Campus: Blue (upper) Building\, 6532 Phinney Ave. N.\, Seattle\, WA\, 98103\, United States
+CATEGORIES:Renter Event
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2025/07/20160144/IMG-7434.jpg
+ORGANIZER;CN="Seattle Jazzercise Studio":MAILTO:SeattleJazzerciseStudio@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260314T093000
+DTEND;TZID=America/Los_Angeles:20260314T113000
+DTSTAMP:20260307T154422
+CREATED:20260120T183731Z
+LAST-MODIFIED:20260120T183731Z
+UID:10030616-1773480600-1773487800@www.phinneycenter.org
+SUMMARY:Ballard Preschool Co-op Open House
+DESCRIPTION:Come discover the magic of learning at Ballard Preschool Co-op’s (BPC) Open House! We invite prospective families to tour our facilities\, meet our staff and parent community\, and learn about our engaging curriculum. Registration for the ’26-’27 school year starts on February 16th. \nRSVP here today:https://www.jovial.org/bpc/hello
+URL:https://www.phinneycenter.org/event/ballard-preschool-co-op-open-house-3/2026-03-14/
+LOCATION:Northwest Christian Church\, 7503 18th Ave NW\, Seattle\, 98117\, United States
+CATEGORIES:Co-op
+ATTACH;FMTTYPE=image/jpeg:https://media.phinneycenter.org/wp-content/uploads/2023/10/05092615/D3A5241.jpg
+END:VEVENT
+END:VCALENDAR

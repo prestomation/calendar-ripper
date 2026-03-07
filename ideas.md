@@ -93,12 +93,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Tags:** Community, Music, Arts
 - **Note:** Seattle's major event discovery platform. Uses Algolia with separate indexes for bands, venues, events, and users. The Algolia search API keys may be extractable from the page JavaScript, enabling direct queries of the events index. Could be a comprehensive aggregator source.
 
-### SeattleFoodTruck.com (Undocumented API)
-- **URL:** https://www.seattlefoodtruck.com/schedule/westlake-park
-- **Platform:** Ruby on Rails
-- **Tags:** Food
-- **Note:** Comprehensive food truck schedule covering 500+ trucks across 675+ locations. Has an undocumented API reverse-engineered by the `seattle-food-truck` Python package on PyPI (https://github.com/clintval/seattle-food-truck). Provides location discovery and schedule queries.
-
 
 ## New Tags Needed
 

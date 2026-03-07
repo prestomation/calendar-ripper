@@ -1,0 +1,481 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//My Ballard - ECPv6.15.17//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:My Ballard
+X-ORIGINAL-URL:https://myballard.com
+X-WR-CALDESC:Events for My Ballard
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20240310T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20241103T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20251115T100000
+DTEND;TZID=America/Los_Angeles:20260308T170000
+DTSTAMP:20260307T133042
+CREATED:20260115T235358Z
+LAST-MODIFIED:20260115T235358Z
+UID:257516-1763200800-1772989200@myballard.com
+SUMMARY:New Nordic: Cuisine\, Aesthetics and Place
+DESCRIPTION:Discover how a new Nordic food movement has sparked interest in local ingredients and natural materials across borders and artistic disciplines. \nNew Nordic Cuisine is a movement that started in the Nordic countries in the early 2000s and has since grown into an international phenomenon. \nWith its interpretations of wild nature\, the Nordic climate\, local foodstuffs and culinary traditions\, the movement spawned a distinctive aesthetic that was expressed in meals\, tableware and restaurant interiors. Locally-sourced natural materials\, animal skins and untreated wood\, handmade ceramics and the use of wild vegetation as raw ingredients and for decoration all featured prominently. \n“New Nordic: Cuisine\, Aesthetics and Place” shows how this food movement merged with other contemporary cultural trends. \nThrough architecture\, contemporary art\, design and crafts from the museum’s collection\, and objects loaned from various restaurants\, the exhibition examines the “new Nordic” concept as a broad aesthetic development defined by the interaction between materials\, people and landscape.
+URL:https://myballard.com/event/new-nordic-cuisine-aesthetics-and-place/
+LOCATION:National Nordic Museum\, 2655 NW Market Street\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/20251115-nordic.cuisine-026-3.jpg
+ORGANIZER;CN="National Nordic Museum":MAILTO:marketing@nordicmuseum.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260226T193000
+DTEND;TZID=America/Los_Angeles:20260321T213000
+DTSTAMP:20260307T133042
+CREATED:20260108T201133Z
+LAST-MODIFIED:20260108T201133Z
+UID:242091-1772134200-1774128600@myballard.com
+SUMMARY:Partition: An Improvised Severance Parody
+DESCRIPTION:Th\, Fri & Sat 7:30pm at West of Lenin Theatre \nWhat happens when your work self and your real self stop agreeing? \nPartition is an improvised workplace dramedy inspired by the eerie tone of Severance. Each performance follows characters living divided lives\, one version of themselves at work and another outside of it. As those identities begin to blur\, the results are funny\, unsettling\, and deeply human. \nThis is not a mystery to be solved. It is an experience to inhabit. Expect uneasy laughter\, unexpected connections\, and moments that linger long after the show ends. \nLeave your memories at the door. Pick them up on your way out.
+URL:https://myballard.com/event/partition-an-improvised-severance-parody/
+LOCATION:West of Lenin\, 203 N 36th St #204\, Seattle\, WA\, 98103\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Seattle-Mag-1.jpg
+ORGANIZER;CN="Jet City Improv":MAILTO:reservations@jetcityimprov.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T100000
+DTEND;TZID=America/Los_Angeles:20260307T170000
+DTSTAMP:20260307T133042
+CREATED:20260216T214656Z
+LAST-MODIFIED:20260216T214656Z
+UID:260928-1772877600-1772902800@myballard.com
+SUMMARY:The Phinery Grand Opening
+DESCRIPTION:Seattle-based interior design studio and home store The Phinery is opening a new Design Studio & Home Store in Ballard (former Morgan’s Kitchen & Bath on 15th Ave NW)\, with a Grand Opening on Saturday\, March 7\, 2026. The nearly 10\,000-square-foot\, newly restored building supports the business’s continued growth\, with space for an expanded design studio and curated home store.
+URL:https://myballard.com/event/the-phinery-grand-opening/
+LOCATION:The Phinery\, 8055 15th Ave NW\, Seattle\, WA\, 98117\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/ThePhineryExterior-1.jpg
+ORGANIZER;CN="The Phinery":MAILTO:hello@thephinery.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T150000
+DTEND;TZID=America/Los_Angeles:20260307T173000
+DTSTAMP:20260307T133042
+CREATED:20260201T222956Z
+LAST-MODIFIED:20260201T222956Z
+UID:259459-1772895600-1772904600@myballard.com
+SUMMARY:Crochet Class: Book Cover Granny Squares
+DESCRIPTION:While this class is beginner-friendly\, knowing the basics like a slip knot\, single crochet\, and double crochet will be necessary for this project. If you would like to join and don’t have these skills yet check out my beginner crochet class at Swoon City or find some good tutorials on YouTube. I taught myself to crochet before the Internet existed and have all the faith you can learn too! \nWe will make a classic granny square in this class\, but there are many variations of granny squares. Granny squares can create bags\, blankets\, sweaters\, and more! We will focus on making granny squares that resemble book covers. You can use the cover colors or even replicate the parts of the cover design! \nThis class will include all the colors necessary to create your book-themed granny square\, a guide to making granny squares\, and a hook. Please provide a picture of the cover you are looking to create to info@swoon.city after booking
+URL:https://myballard.com/event/crochet-class-book-cover-granny-squares/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/crochet.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260308T140000
+DTEND;TZID=America/Los_Angeles:20260308T160000
+DTSTAMP:20260307T133042
+CREATED:20260225T172827Z
+LAST-MODIFIED:20260225T172827Z
+UID:262001-1772978400-1772985600@myballard.com
+SUMMARY:2026 Seattle Sister Cities Soup Sampling
+DESCRIPTION:Celebrate International Women’s Day at the 2nd annual Seattle Sister Cities’ Soup Sampling\, sponsored by the Seattle Sister Cities Association in partnership with the National Nordic Museum. The Soup Sampling is a community event where volunteer cooks from 11 Seattle Sister Cities share popular international soups representing four continents. Guests need to bring only a smile and an interest in tasting new recipes and learning about diverse cultures. Please register for the event before March 1st; walk-in admission will not be available. \nThis is a cultural event that includes five soup tastings per entry. Donations of $10 per person are encouraged and benefit the nonprofit Seattle Sister Cities Association to support cultural\, educational\, and humanitarian programs. (When reserving tickets\, your donation will result in 1 admission ticket. Use the quantity selector to reserve tickets for additional attendees). From Seattle’s 20 sister cities\, the following will be represented at this event: Reykjavik\, Iceland; Bergen\, Norway; Pecs\, Hungary; Be’er Sheva\, Israel; Christchurch\, New Zealand; Mombasa\, Kenya; Sihanoukville\, Cambodia; Perugia\, Italy; Surabaya\, Indonesia; Hai Phong\, Vietnam; and Kobe\, Japan. \nAttendees are also encouraged to visit New Nordic: Cuisine\, Aesthetics and Place as well as other exhibits at the National Nordic Museum and will get 50% off admission on the day of this event
+URL:https://myballard.com/event/2026-seattle-sister-cities-soup-sampling/
+LOCATION:National Nordic Museum\, 2655 NW Market Street\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Soup-Sampling-Eventbrite-2026-2160-x-1080-px.jpg
+ORGANIZER;CN="Seattle Sister Cities":MAILTO:SoupEvent@SeattleSisterCities.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260314T100000
+DTEND;TZID=America/Los_Angeles:20260314T113000
+DTSTAMP:20260307T133042
+CREATED:20260201T222953Z
+LAST-MODIFIED:20260201T222953Z
+UID:259466-1773482400-1773487800@myballard.com
+SUMMARY:Kids Embroidery Class: Fruit
+DESCRIPTION:Try embroidery with this beginner workshop. Kids (10+) will learn how to embroider fruits using 3 beginner embroidery stitches. This class is great for kids looking to get started with hand embroidery. They’ll learn how to place their fabric in the hoop\, transfer the pattern\, split apart their thread\, and stitch the satin stitch\, back stitch\, and sead stitch. Each attendee will receive a full kit that includes: a wooden embroidery hoop\, fruit transfer designs\, an embroidery needle\, full skeins of embroidery thread\, cream cotton fabric\, and printed instructions.
+URL:https://myballard.com/event/kids-embroidery-class-fruit/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Kids.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260314T100000
+DTEND;TZID=America/Los_Angeles:20260314T133000
+DTSTAMP:20260307T133042
+CREATED:20260227T162002Z
+LAST-MODIFIED:20260227T162002Z
+UID:262165-1773482400-1773495000@myballard.com
+SUMMARY:The Swapanistas Present: Swap! A Women's Clothing Exchange
+DESCRIPTION:Are you ready to swap up your style? \nThen join us for Swap 2026! \nSwap is an amazing event where you let go of your gently used clothing and accessories and trade them in for items that make you feel brand new\, while having fun and supporting a good cause: proceeds and clothing donations benefit local organizations for underserved women and kids. \nWe are excited to announce that this year’s event is being hosted in partnership with the Phinney Neighborhood Association\, truly making this a community event! \n​​Come check it out\, and bring your friends! \nSwap: Saturday March 14th\, 10 AM – 1:30 PM\nItem Drop-off: Friday March 13th\, 5 PM – 8 PM \nFor tickets and more info\, please visit our website: https://www.swapanistas.org/ \nPlease email us with questions: swapanistas@gmail.com \nHope to see you there!
+URL:https://myballard.com/event/the-swapanistas-present-swap-a-womens-clothing-exchange/
+LOCATION:Phinney Neighborhood Center\, 6532 Phinney Ave N Room 7\, Seattle\, 98103\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Swap-Closet.jpeg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260314T130000
+DTEND;TZID=America/Los_Angeles:20260314T150000
+DTSTAMP:20260307T133042
+CREATED:20260201T222949Z
+LAST-MODIFIED:20260201T222949Z
+UID:259479-1773493200-1773500400@myballard.com
+SUMMARY:Art Class: Nature Journaling & basics of making botanical Inks
+DESCRIPTION:Pause and see the natural world more closely through nature journaling and botanical inks. In this gentle\, hands-on class\, you’ll learn the basics of making ink from flowers and use these plant-based pigments to start a nature journal. You’ll also learn how considerations like paper and additives can give you different and exciting colors. All materials are included and each participant will take home a small sketchbook that we make in class and a 15ml pot of handmade floral ink—an invitation to notice new growth\, returning light\, and the unfolding of spring.
+URL:https://myballard.com/event/art-class-nature-journaling-basics-of-making-botanical-inks/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Ink.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260315T143000
+DTEND;TZID=America/Los_Angeles:20260315T170000
+DTSTAMP:20260307T133042
+CREATED:20260201T222946Z
+LAST-MODIFIED:20260201T222946Z
+UID:259486-1773585000-1773594000@myballard.com
+SUMMARY:Paper Art Class: Folded Book Sculpture
+DESCRIPTION:Upgrade your bookcase with this handmade\, sustainable paper-craft. Transform a thrifted book into a folded book art sculpture with a bone folder and a customized pattern. This craft is beginner friendly and is a great conversation piece for your home. \nAll materials will be provided.
+URL:https://myballard.com/event/paper-art-class-folded-book-sculpture/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/paper.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260315T160000
+DTEND;TZID=America/Los_Angeles:20260315T210000
+DTSTAMP:20260307T133042
+CREATED:20260128T181421Z
+LAST-MODIFIED:20260128T181421Z
+UID:259074-1773590400-1773608400@myballard.com
+SUMMARY:Oscars Watch Party
+DESCRIPTION:Come celebrate the 2026 Academy Awards!\nUrban Family Brewing and Film & Froth present the 2026 Oscars Watch Party hosted at the Urban Family Taproom in Ballard. Come grab a seat and watch the show while enjoying some wonderful Seattle beer and great company!\nPrizes to be raffled off include Urban Family Brewing gift cards\, merch\, and Film & Froth merch. \nDon’t forget to enter the Film & Froth Oscars Contest (https://www.filmfroth.com/oscars) to compete for more prizes! \nKids and well behaved dogs on leashes are welcome downstairs in the taproom. The loft is 21+ and no animals are allowed. Check out Urban Family’s website for more information on their taproom! \nWe hope to see you there to celebrate another amazing year of film with fantastic beer and the great people of Urban Family Brewing!
+URL:https://myballard.com/event/oscars-watch-party/
+LOCATION:Urban Family Brewing\, 1103 NW 52nd St\, Seattle\, WA 98107\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/OscarsWatchParty2026Pic-scaled.png
+ORGANIZER;CN="Film &amp%3B Froth":MAILTO:admin@filmfroth.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260319T120000
+DTEND;TZID=America/Los_Angeles:20260319T133000
+DTSTAMP:20260307T133042
+CREATED:20260225T190753Z
+LAST-MODIFIED:20260225T190753Z
+UID:262030-1773921600-1773927000@myballard.com
+SUMMARY:Kids On The Brink: Raising Emotionally Healthy Youth
+DESCRIPTION:Kids On The Brink: Raising Emotionally Healthy Youth \nIn this event\, Donna Jackson Nakazawa will combine cutting-edge science\, real student voices\, and practical tools to help adults better support today’s youth. \nDonna will cover:\n– The latest research on female brain development\n– The unprecedented challenges facing teens today and why so many are in crisis\n– How these factors impact youth mental health\n– Why social stress\, in particular\, is the most damaging type of stress for kids\n– How regulating ourselves helps our kids regulate their emotions \nParticipants will gain:\n– Actionable strategies parents\, families\, and organizations can utilize to better support our youth\n– 12 science-based steps for talking with youth in neuroprotective ways and building healthier parent-child connection \nDonna will also share highlights from her national Post-It Note Project\, featuring insights from thousands of middle and high school students about what they wish their parents and other adults understood—and did—differently. \nThis event will be moderated by Christy Keating from The Heartful Parent Collective.
+URL:https://myballard.com/event/kids-on-the-brink-raising-emotionally-healthy-youth/
+LOCATION:Zoom
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/kids-on-the-brink-3.jpg
+ORGANIZER;CN="PNW Parent Education":MAILTO:hello@pnwparented.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260319T183000
+DTEND;TZID=America/Los_Angeles:20260319T203000
+DTSTAMP:20260307T133042
+CREATED:20260216T171444Z
+LAST-MODIFIED:20260216T171444Z
+UID:261015-1773945000-1773952200@myballard.com
+SUMMARY:Book Release Party: A Change of Pace
+DESCRIPTION:Join Swoon City & Generous Press to celebrate the launch of “A Change of Pace” by J.A. Stevens. \n📚 Copy of A Change of Pace with signed bookplate Included in the ticket price \nEvent will feature: \n📖 A reading by Generous Press Co-founders \n🍓Light bites and refreshments \n🎭 Craft your own mask \n📸 Photobooth \n👯 Have a meet-cute with other bookish folks \n👗 Regency dress is encouraged \nDescription of A Change of Pace: \nThis sapphic historical romance brings “pride without prejudice” to Regency London. \nAlthough cavalier with love\, the famously rakeish Miss Georgina Pace is deeply concerned for the well being of others. And so when she learns that dear innocent Mr. Coombes has been targeted by a corrupt gaming house\, she will stop at nothing to protect him. Miss Pace’s quest for justice leads her to the enigmatic Lady Mortimer\, who offers assistance while keeping her cards close to her chest. Will Miss Pace risk it all—including her heart? \nA Change of Pace reimagines a Regency London free of the entrenched systems of oppression we expect\, putting a speculative and hopeful lens onto the past.
+URL:https://myballard.com/event/book-release-party-a-change-of-pace/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Screenshot-2026-02-14-at-1.38.30-PM.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260320T173000
+DTEND;TZID=America/Los_Angeles:20260320T203000
+DTSTAMP:20260307T133042
+CREATED:20260201T222943Z
+LAST-MODIFIED:20260201T222943Z
+UID:259493-1774027800-1774038600@myballard.com
+SUMMARY:EMBROIDERY CLASS: Botanical Thread Painted Earrings
+DESCRIPTION:Have you ever wanted to color with thread? In this class we’ll do just that! With hands-on guidance from fiber artist and author\, Melissa Galbraith\, you’ll enjoy a 3-hour workshop learning the basics of thread painting\, stitching on tulle fabric\, and stumpwork embroidery to create a pair of botanical earrings. No matter if you’re an experienced embroiderer or new to stitching\, in this class we’ll practice stitches needed to thread paint and create 3D ginkgo earrings. All materials are included for class to create wearable 3D embroidery.
+URL:https://myballard.com/event/embroidery-class-botanical-thread-painted-earrings/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Screenshot-2026-01-30-at-9.33.39-PM.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260320T180000
+DTEND;TZID=America/Los_Angeles:20260320T210000
+DTSTAMP:20260307T133042
+CREATED:20260226T170215Z
+LAST-MODIFIED:20260226T170215Z
+UID:262043-1774029600-1774040400@myballard.com
+SUMMARY:Rainbow Bingo
+DESCRIPTION:The hottest bingo in town returns to Ballard NW Senior Center Friday\, March 20. And this time\, we’re going disco! Doors open at 6:00 for food and beverages\, bingo starts at 7:00. Tickets: BallardSeniorCenter.org.
+URL:https://myballard.com/event/rainbow-bingo/
+LOCATION:Ballard NW Senior Center\, 5429 32nd Ave. NW\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Rainbow-Bingo-March-2026-1080x1080-Insta.FB_.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260321T160000
+DTEND;TZID=America/Los_Angeles:20260322T170000
+DTSTAMP:20260307T133042
+CREATED:20260227T161315Z
+LAST-MODIFIED:20260227T161315Z
+UID:262266-1774108800-1774198800@myballard.com
+SUMMARY:Spring Dance
+DESCRIPTION:ARC Dance presents its annual Spring Dance performances featuring early dances from the 17th and 18th century re-created by Dance Historian\, Anna Mansbridge. The program also includes excerpts from the classic “La fille mal gardée”\, a charming comedic ballet choreographed by Artistic Director Marie Chong. The complete ballet will premiere on May 30\, 2026 at Shorewood Performing Arts Center. \nThis family-friendly performance takes the audience on a beautiful progression through dance history\, from early court dances to one of the oldest story ballets still being performed today.  \nMarch 21 and 22 at 4pm\nARC Performance Space in Ballard/Crown Hill\, 9250 14th Ave NW\nTickets available at arcdance.org
+URL:https://myballard.com/event/spring-dance/
+LOCATION:ARC Dance Space\, 9250 14th Avenue NW\, Seattle\, 98117\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Spring-Dance-ARC.jpg
+ORGANIZER;CN="ARC Dance Productions":MAILTO:info@arcdance.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260321T183000
+DTEND;TZID=America/Los_Angeles:20260321T193000
+DTSTAMP:20260307T133042
+CREATED:20260227T161613Z
+LAST-MODIFIED:20260227T161613Z
+UID:262205-1774117800-1774121400@myballard.com
+SUMMARY:Impossible Loves Romance Improv Show at Swoon City
+DESCRIPTION:Welcome to a Impossible Loves\, a romance made up on the spot from your suggestions. Laugh\, care\, and swoon with your friend or foe as Impossible Loves improvises a brand new romance just for you! \nDiscover Impossible Loves\, a team of improvisers creating new worlds and new romances from your suggestions. Each one-hour improvised play opens by asking the audience about times they fell in love. From those moments\, Impossible Loves will create a brand-new romance show. Enjoy a world where anyone and anything can find a happy ending. \nThis show will take place at Swoon City.
+URL:https://myballard.com/event/impossible-loves-romance-improv-show-at-swoon-city/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Screenshot-2026-02-26-at-6.59.17-PM.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260322T103000
+DTEND;TZID=America/Los_Angeles:20260322T113000
+DTSTAMP:20260307T133042
+CREATED:20260126T170029Z
+LAST-MODIFIED:20260126T170029Z
+UID:258718-1774175400-1774179000@myballard.com
+SUMMARY:Ballard Bookworms Community Storytime
+DESCRIPTION:Calling all bookworms! Ballard Preschool Co-op (BPC) is thrilled to present its FREE monthly Ballard Bookworms story time. Join BPC’s beloved Teacher Christine for a fun and engaging story time designed to spark a love of reading and build connections within our community. \nThis month our Special Guest is Emily Weissman (known online as Urb.Em.Sketches) a local urban sketcher\, author and illustrator. Emily’s watercolor paintings celebrate beloved neighborhood places that make Seattle extraordinary. She will be reading her children’s book\, My Home is With You\, a whimsical exploration of how home is not just a place\, but found in the hearts of those we love. \nBallard Bookworms is free and open to the public\, so be sure to invite your friends & neighbors! Recommended for ages 5 and under (older siblings welcome) \nThis program is organized by the Ballard Preschool Co-op and is held in a library branch meeting room. The Seattle Public Library does not sponsor or endorse this event.
+URL:https://myballard.com/event/ballard-bookworms-community-storytime/
+LOCATION:Greenwood Public Library\, 8016 Greenwood Ave N\,\, Seattle\, 98103\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/BBW-for-Seattle-Child-Katie-at-GW-scaled.jpg
+ORGANIZER;CN="Ballard Preschool Co-op":MAILTO:bpc.allschoolchair@gmail.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260326T173000
+DTEND;TZID=America/Los_Angeles:20260326T193000
+DTSTAMP:20260307T133042
+CREATED:20260227T161608Z
+LAST-MODIFIED:20260227T161608Z
+UID:262212-1774546200-1774553400@myballard.com
+SUMMARY:Gem Painting: Dazzling Book Covers Class at Swoon City
+DESCRIPTION:In this delightful 2 hour workshop\, you’ll learn how place gem rhinestones on the cover of your favorite book to create a dazzling design sure to be the star of your shelfie. \nOne note – you will likely NOT COMPLETE a book cover in two hours but you will be able to do the lettering or other design elements. However you will take home up to gems and other supplies to finish your project at home\, if you choose. \nYou can choose a book in the store which is valued $20 or less\, or you can bring your own book\, and receive at $15 store credit. \nAfter the workshop\, you’ll have all the skills you’ll need to continue your gem painting journey. No experience necessary\, beginners welcome. \nThis class will take place at Swoon City.
+URL:https://myballard.com/event/gem-painting-dazzling-book-covers-class-at-swoon-city/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/bedazzle.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T100000
+DTEND;TZID=America/Los_Angeles:20260328T120000
+DTSTAMP:20260307T133042
+CREATED:20260227T161601Z
+LAST-MODIFIED:20260227T161601Z
+UID:262223-1774692000-1774699200@myballard.com
+SUMMARY:Print Class: Block Printing on Clothing
+DESCRIPTION:Have a stain on your favorite shirt that you need to cover up? Wanting to add a little extra flair to your favorite pair of jeans? Come learn block printing basics and print onto your clothes with Alessia! \nIn this class you will learn the basics of block printing:\n-creating a design\n-carving your block\n-inking and getting a clean print \nPlease bring your own garment(s) to print on and come prepared with an idea of what you’d like to print! The blocks we’ll be using are 4”x 6” – feel free to bring in a drawing or print-out and I’ll help you transfer it into your block. Or come with just an idea and I’ll help you translate it into something printable! \nUse our communal supplies in class\, or snag a block printing kit for 20% off if you buy it with your class ticket. \nNote: Textured fabrics like corduroy or knitted items are difficult to print on\, please bring something that’s nice and smooth (i.e. cotton t-shirt\, denim\, etc.)
+URL:https://myballard.com/event/print-class-block-printing-on-clothing/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/block-print.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T130000
+DTEND;TZID=America/Los_Angeles:20260328T150000
+DTSTAMP:20260307T133042
+CREATED:20260227T161553Z
+LAST-MODIFIED:20260227T161553Z
+UID:262232-1774702800-1774710000@myballard.com
+SUMMARY:Intermediate Crochet Class: Mushroom Chapstick Holder
+DESCRIPTION:THIS IS AN INTERMEDIATE CLASS. BASIC CROCHET KNOWLEDGE REQUIRED. \nMake a crochet mushroom chapstick holder with Alessia! Attach it to your keychain and carry your chapstick with you wherever you go. Or use it as an ornament or bag charm! \nThis is an intermediate crochet class\, intended for folks who have done some crocheting before. These tiny mushrooms require us to work on a small scale\, which can be tricky for beginner crocheters. \nIf you want to learn how to crochet\, we recommend taking one of Anna’s classes first. \nWe will be using chains and single crochet to make these mini mushrooms\, so make sure you know those stitches. We’ll be using magic circles too\, but no worries if you haven’t done that before – we can teach you! All materials will be provided.
+URL:https://myballard.com/event/intermediate-crochet-class-mushroom-chapstick-holder/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/mushroom.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T160000
+DTEND;TZID=America/Los_Angeles:20260328T210000
+DTSTAMP:20260307T133042
+CREATED:20260126T213303Z
+LAST-MODIFIED:20260126T213303Z
+UID:258809-1774713600-1774731600@myballard.com
+SUMMARY:Sunset Hill Spring Fever Market!
+DESCRIPTION:Join us for the Sunset Hill Spring Fever Market – a community celebration of art\, creativity\, and the arrival of spring at the historic Sunset Hill Community Hall! \nThe event will feature live music\, light refreshments\, and wine & beer available for purchase\, creating a lively atmosphere for artists and attendees alike.
+URL:https://myballard.com/event/sunset-hill-spring-fever-market/
+LOCATION:Sunset Hill Community Hall\, 3003 NW 66th St.\, Seattle\, WA\, 98117\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Spring-Fever-2025-poster-01.06.26-rev-scaled.jpg
+ORGANIZER;CN="Sunset Hill Community Hall":MAILTO:info@sunsethillcommunity.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T183000
+DTEND;TZID=America/Los_Angeles:20260328T203000
+DTSTAMP:20260307T133042
+CREATED:20260116T163332Z
+LAST-MODIFIED:20260116T163332Z
+UID:257593-1774722600-1774729800@myballard.com
+SUMMARY:IMPROV SHOW: Impossible Loves
+DESCRIPTION:Welcome to a Impossible Loves\, a romance made up on the spot from your suggestions. Laugh\, care\, and swoon with your friend or foe as Impossible Loves improvises a brand new romance just for you! \nDiscover Impossible Loves\, a team of improvisers creating new worlds and new romances from your suggestions. Each one-hour improvised play opens by asking the audience about times they fell in love. From those moments\, Impossible Loves will create a brand-new romance show. Enjoy a world where anyone and anything can find a happy ending.
+URL:https://myballard.com/event/improv-show-impossible-loves/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Screenshot-2026-01-09-at-4.49.47-PM.jpg
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260330T153000
+DTEND;TZID=America/Los_Angeles:20260330T163000
+DTSTAMP:20260307T133042
+CREATED:20260304T163203Z
+LAST-MODIFIED:20260304T163203Z
+UID:262692-1774884600-1774888200@myballard.com
+SUMMARY:Help Design the Alice Ball Park Sign
+DESCRIPTION:Community members are invited to help shape a new 24” x 36” interpretive sign for Alice Ball Park. The sign will share the story of Alice Ball\, the Seattle-born chemist who developed the first effective treatment for Hansen’s disease. \nTake a 5–10 minute survey:\nhttps://forms.gle/tHyaCttEonz4yxjn8 \nOr attend a public open house:\n• Greenwood Library — March 30\, 3:30 PM \nAll ages welcome.
+URL:https://myballard.com/event/help-design-the-alice-ball-park-sign/
+LOCATION:Greenwood Public Library\, 8016 Greenwood Ave N\,\, Seattle\, 98103\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/48719278746_5c0e5819b7_4k-scaled-e1696971139646-2000x800-1.jpg
+ORGANIZER;CN="Phinney Neighborhood Asscociation":MAILTO:pna@phinneycenter.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260404T100000
+DTEND;TZID=America/Los_Angeles:20260404T130000
+DTSTAMP:20260307T133042
+CREATED:20260227T161326Z
+LAST-MODIFIED:20260227T161326Z
+UID:262241-1775296800-1775307600@myballard.com
+SUMMARY:Polymer Clay Earrings Class
+DESCRIPTION:“Thanks\, I made them myself!” \nThis will be you responding to the many compliments you will get on the fun\, colorful and one of a kind earrings you will make in this workshop! Join WonderSpace Workshops for an afternoon of creativity and community and learn all of the basics of working with polymer clay. This approachable and beginner-friendly medium is very adaptable and lends itself well to so many different styles from funky\, colorful and bold to classic\, sophisticated and polished. You will leave the workshop with several pairs of completed earrings and armed with new skills to continue the crafting journey at home!
+URL:https://myballard.com/event/polymer-clay-earrings-class/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/earring.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260405T143000
+DTEND;TZID=America/Los_Angeles:20260405T163000
+DTSTAMP:20260307T133042
+CREATED:20260302T232844Z
+LAST-MODIFIED:20260302T232844Z
+UID:262439-1775399400-1775406600@myballard.com
+SUMMARY:Painting Class: Watercolor Landscapes for Beginners
+DESCRIPTION:This step-by-step\, instructor-led watercolor class is designed for beginners who want to learn how to paint beautiful landscapes with confidence. No prior experience is needed. \nYou’ll be guided through the essential techniques used in watercolor landscape painting\, including: \nBasic and graded washes\nComposition fundamentals\nLayering to create depth and atmosphere\nColor mixing for natural\, harmonious tones \nWith hands-on practice and individual guidance\, you will learn how to build a painting from start to finish and create your own completed landscape by the end of the session. \nThe class is held in a relaxed and supportive environment\, making it a comfortable and encouraging space for total beginners. \nAll materials and supplies are provided\, including a take-home watercolor kit (valued at $20) so you can continue practicing beyond the classroom. \nThis class will take place at Swoon City.
+URL:https://myballard.com/event/painting-class-watercolor-landscapes-for-beginners/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/watercolor.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260407T183000
+DTEND;TZID=America/Los_Angeles:20260407T203000
+DTSTAMP:20260307T133042
+CREATED:20260302T232855Z
+LAST-MODIFIED:20260302T232855Z
+UID:262394-1775586600-1775593800@myballard.com
+SUMMARY:Romance Writing Class
+DESCRIPTION:CLASSES WILL TAKE PLACE ON 4/7\, 4/14\, 4/21\, & 4/28 \nAre you a romance reader eager to learn how to write the genre you love? In this four-week class (eight hours of work total)\, you’ll learn the basics of plotting and writing a romance novel from scratch. No matter what romance subgenre calls your name\, you’ll learn to expand an initial idea\, center a romantic arc\, and build strong\, complementary characters. You’ll leave this collaborative\, workshop-based class with a plan for a novel (including character exercises\, a beat sheet\, and a synopsis) and at least one chapter of written prose. You’ll also get an overview of resources available to you once you finish your novel.
+URL:https://myballard.com/event/romance-writing-class/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/writing-class.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260409T183000
+DTEND;TZID=America/Los_Angeles:20260409T203000
+DTSTAMP:20260307T133042
+CREATED:20260211T165037Z
+LAST-MODIFIED:20260211T165037Z
+UID:260687-1775759400-1775766600@myballard.com
+SUMMARY:Macrame Class: Keychain Wristlet
+DESCRIPTION:In this workshop with Angie Cooper of My Moon Macrame you will be taught the basic knotting techniques used in macrame. This class is great for beginners and intermediate levels. This project is designed to be altered to cater to students at any skill level. We provide craft supplies\, video tutorials and one-on-one guidance to help you create your macrame project. \nDuring this class you will learn to macrame a lanyard keychain. Your instructor\, Angie from My Moon Macrame will teach you the knots and provide step by step instructions to help you complete your project. We provide all craft supplies\, video tutorials and one-on-one guidance. This project is designed to cater to students at any skill level. You will go home with a completed macrame lanyard keychain and all the tools you need to continue your macrame journey at home. \nSupplies: \n4mm Oeko Tex Recycled Cotton Cord\nKey Ring\nScissors\nTape
+URL:https://myballard.com/event/macrame-class-keychain-wristlet/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Screenshot-2026-02-10-at-9.28.20-PM.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260411T100000
+DTEND;TZID=America/Los_Angeles:20260411T130000
+DTSTAMP:20260307T133042
+CREATED:20260211T165026Z
+LAST-MODIFIED:20260211T165026Z
+UID:260692-1775901600-1775912400@myballard.com
+SUMMARY:Glass Class: Book Cover Coasters
+DESCRIPTION:Cozy-up with a mug of tea and your favorite book… but oh no! Where are all the coasters? Have no fear! We’ve got just the solution to protect your precious objects from destructive heat and moisture — glass book coasters. That’s right! Coasters designed by you to look just like your favorite book cover or classic novels\, so that you can enjoy your next book with some extra special\, on-theme decor. \nIn this 3-hour glass charm workshop\, you will build unique compositions using Elmer’s glue and a variety of glass dots\, stringers\, shapes\, and more. Learn the fundamentals of fusing while experimenting with a new medium and exploring the many possibilities! Cost includes all tools and supplies as well as materials for up to 2 coasters per person. Finished pieces will be ready for pick-up at the workshop location after 1 week.
+URL:https://myballard.com/event/glass-class-book-cover-coasters/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Screenshot-2026-02-10-at-9.52.32-PM.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T133000
+DTEND;TZID=America/Los_Angeles:20260418T163000
+DTSTAMP:20260307T133042
+CREATED:20260211T174513Z
+LAST-MODIFIED:20260211T174513Z
+UID:260736-1776519000-1776529800@myballard.com
+SUMMARY:Art Class: Handmade Water Marbled Paper
+DESCRIPTION:Step into the mesmerizing world of water marbling\, a centuries-old art technique where color floats\, swirls\, and dances across the surface of water before being transformed into stunning\, one-of-a-kind designs. In this immersive\, hands-on workshop\, you’ll learn how to create beautiful marbled patterns by manipulating paint on water and transferring your designs onto paper and other surfaces. You’ll experiment with color\, movement\, and tools to create unique marbled prints on paper\, fabric\, and small 3-D objects. \nThis class is designed for beginners and curious creatives alike – no prior art experience is needed. All supplies are provided\, and step-by-step guidance will ensure everyone can successfully create multiple finished pieces to take home. Along the way\, we’ll talk about troubleshooting common challenges and how to continue marbling at home with accessible materials. \nWater marbling is both meditative and playful\, inviting experimentation and embracing the unexpected. Come ready to slow down\, get a little messy\, and enjoy the process of creating something truly unique.\nThe class will cover the following:\n1. The four foundational patterns (stone\, chevron\, getgel\, and nonpareil)\n2. Tools\, materials\, and how to prepare for a water marbling session\n3. Historical grounding into this art form\n4. Water marbling examples from around the world\n5. Tips and tricks for water marbling at home
+URL:https://myballard.com/event/art-class-handmade-water-marbled-paper/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/jpeg:https://myballard.com/wp-content/uploads/Water-Marble-1.jpg
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260419T143000
+DTEND;TZID=America/Los_Angeles:20260419T170000
+DTSTAMP:20260307T133042
+CREATED:20260302T232846Z
+LAST-MODIFIED:20260302T232846Z
+UID:262432-1776609000-1776618000@myballard.com
+SUMMARY:Painting Class: Floral Painting with Acrylics
+DESCRIPTION:Let your creativity flow with instruction from local artist Brooke Westlund to create your own 16×20″ art piece. This is a fun class whether or not you haven’t painted since you were a kid or if you are an experienced artist. Brooke will lead you through the steps to create a one of a kind painting and teach you tools and tricks along the way\, you can pick your own colors and your piece will be unique to you! Class is about 2.5 hours.
+URL:https://myballard.com/event/painting-class-floral-painting-with-acrylics/
+LOCATION:Swoon City\, 1716 NW Market St\, Seattle\, WA\, 98107\, United States
+ATTACH;FMTTYPE=image/png:https://myballard.com/wp-content/uploads/Screenshot-2026-02-28-at-12.05.28-PM.png
+ORGANIZER;CN="Swoon City":MAILTO:info@swoon.city
+END:VEVENT
+END:VCALENDAR

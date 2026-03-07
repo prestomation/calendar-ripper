@@ -1,0 +1,232 @@
+{
+  "buildTime": "2026-03-07T21:31:10.983Z",
+  "totalErrors": 19,
+  "configErrors": [],
+  "sources": [
+    {
+      "source": "rainier-arts-center",
+      "calendar": "rainier-arts-center",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-downtown",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-asian-art",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "calendar": "sam-sculpture-park",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "seattle-showlists",
+      "calendar": "baba-yaga",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Unknown venue \"Slim's Last Chance\" not in VENUE_CONFIG — add it so events are routed to a calendar",
+          "context": "venue: Slim's Last Chance"
+        }
+      ]
+    },
+    {
+      "source": "tag-belltown",
+      "calendar": "tag-belltown",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-capitol-hill",
+      "calendar": "tag-capitol-hill",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-downtown",
+      "calendar": "tag-downtown",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-pioneer-square",
+      "calendar": "tag-pioneer-square",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Unknown venue \"Slim's Last Chance\" not in VENUE_CONFIG — add it so events are routed to a calendar",
+          "context": "venue: Slim's Last Chance"
+        }
+      ]
+    },
+    {
+      "source": "tag-community",
+      "calendar": "tag-community",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-museums",
+      "calendar": "tag-museums",
+      "type": "Aggregate",
+      "errorCount": 3,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 2,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Unknown venue \"Slim's Last Chance\" not in VENUE_CONFIG — add it so events are routed to a calendar",
+          "context": "venue: Slim's Last Chance"
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 4,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        },
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: SAM events page returned HTTP 403",
+          "context": ""
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "seattle-gov-special-events",
+      "friendlyName": "City of Seattle — Special Events Planning Calendar",
+      "url": "https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics",
+      "error": "Error: HTTP 403: Forbidden"
+    }
+  ],
+  "zeroEventCalendars": [
+    "naam-all-events",
+    "rainier-arts-center-rainier-arts-center",
+    "sam-sam-downtown",
+    "sam-sam-asian-art",
+    "sam-sam-sculpture-park",
+    "seattle-showlists-skylark"
+  ],
+  "expectedEmptyCalendars": [
+    "beacon-hill-council-all-events",
+    "benaroya-hall-benaroya-nordstrom",
+    "downtown-seattle-association-pioneer-park",
+    "downtown-seattle-association-occidental-square",
+    "jcccw-all-events",
+    "seattle-barkery-all-events",
+    "spl-university",
+    "external-langston"
+  ]
+}

@@ -14,6 +14,7 @@ export const VALID_TAGS = [
     "Greenwood",
     "International District",
     "Lake City",
+    "Magnolia",
     "Phinney",
     "Pike Place",
     "Pioneer Square",

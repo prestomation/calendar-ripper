@@ -1,0 +1,11 @@
+name: eastlake-community-council
+type: squarespace
+description: "Eastlake Community Council"
+url: "https://www.eastlakeseattle.org/announcements-events"
+friendlyLink: https://www.eastlakeseattle.org/announcements-events
+expectEmpty: true  # Small community council; events are intermittent
+tags: ["Community", "Eastlake"]
+calendars:
+  - name: all-events
+    friendlyname: "Eastlake Community Council"
+    timezone: America/Los_Angeles

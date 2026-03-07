@@ -443,6 +443,19 @@ events:
     url: "https://www.clubcomedyseattle.com/"
     tags: ["OpenMic", "Nightlife", "Downtown"]
 
+  # Neighborhood Community Councils
+  - name: belltown-community-council
+    friendlyname: "Belltown Community Council Monthly Meeting"
+    description: "Monthly public meeting of the Belltown Community Council. Provides a forum for residents and workers to discuss neighborhood issues and connect with city officials. Meets at 6:30 PM on the second Wednesday of each month (except August and December)."
+    schedule: "2nd Wednesday"
+    timezone: America/Los_Angeles
+    duration: PT1H30M
+    start_time: "18:30"
+    location: "Belltown, Seattle (location varies — check website)"
+    url: "https://belltown-cc.org/meetings/"
+    tags: ["Community", "Belltown"]
+    months: [1, 2, 3, 4, 5, 6, 7, 9, 10, 11]  # Every month except August and December
+
   # Seattle Critical Mass
   - name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"

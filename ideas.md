@@ -631,3 +631,39 @@ These open mics have unknown or unconfirmed schedules. Verify the specific day b
 ### Squarespace Events-to-ICS Pattern
 - **Reference:** https://github.com/hawry/events-are-square
 - **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, On the Boards, Georgetown Trailer Park Mall, and 206 Night Markets are already using it. Seattle Public Theater uses Squarespace for its site but its `/current-season` page is a regular page (not an events collection), so the SquarespaceRipper cannot be used directly — the ticketing API (Arts-People) would need to be explored instead.
+
+## Feature Ideas
+
+### Source Health Dashboard
+Build a `/health` page on the web UI showing the operational status of all calendar sources:
+- Which sources returned 0 events (and whether that's expected via `expectEmpty`)
+- Which sources had parse errors (from `build-errors.json`)
+- Historical trend tracking — did a source just break, or has it been broken for weeks?
+- Could store history by committing a rolling JSON log to the repo or a separate data branch
+- Helps maintainers quickly identify and triage broken sources without digging through CI logs
+
+### Cross-Source Event Deduplication
+The same event scraped from multiple sources (e.g., a concert listed on both a venue's site and Ticketmaster) currently appears multiple times in aggregate tag feeds. Implement fuzzy matching on title + date + venue to deduplicate:
+- Normalize event titles (strip "LIVE:", "presents:", casing differences)
+- Match events within a time window (e.g., same day, within 1 hour)
+- Match venues by alias (e.g., "Climate Pledge Arena" vs "Climate Pledge")
+- Keep the version with the most complete metadata (description, location, URL)
+- Apply deduplication at the tag aggregation stage so individual source feeds remain unchanged
+
+### RSS/Atom Feed Generation
+Generate RSS/Atom feeds alongside `.ics` files for users who prefer feed readers over calendar apps:
+- One RSS feed per source (mirrors the `.ics` output)
+- One RSS feed per tag aggregate
+- RSS is better for "discovery" (seeing new events as they're added) vs calendar's "scheduling" model
+- Each item would include event title, date, location, description, and a link to the source
+- Could generate during the same build step that produces `.ics` files
+
+### Comedy Tag & Comedy Venue Sources
+Add a `Comedy` tag to `lib/config/tags.ts` and implement rippers for Seattle comedy venues. Several are already documented in this file with confirmed Eventbrite organizer IDs:
+- Laughs Comedy Club (Eventbrite `29222289085`)
+- CSz Seattle / ComedySportz (Eventbrite `18822177366`)
+- Club Comedy Seattle (Eventbrite `18936516174`)
+- Jet City Improv (Eventbrite `66421638433`)
+- Emerald City Comedy Club (SeatEngine — needs investigation)
+- Here-After at The Crocodile (may overlap with existing `crocodile` ripper)
+This would fill a clear content gap — comedy is one of the most popular event categories with no tag or dedicated sources today.

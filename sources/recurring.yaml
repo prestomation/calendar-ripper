@@ -443,6 +443,18 @@ events:
     url: "https://www.clubcomedyseattle.com/"
     tags: ["OpenMic", "Nightlife", "Downtown"]
 
+  # Neighborhood Community Council Meetings
+  - name: downtown-seattle-community-council
+    friendlyname: "Downtown Seattle Community Council"
+    description: "Monthly meeting of the Downtown Seattle Community Council"
+    schedule: "2nd Monday"
+    timezone: America/Los_Angeles
+    duration: PT1H30M
+    start_time: "18:30"
+    location: "Downtown Seattle, WA"
+    url: "https://www.seattledcc.org/"
+    tags: ["Community", "Downtown"]
+
   # Seattle Critical Mass
   - name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"

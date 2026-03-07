@@ -1,0 +1,219 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Museum of History &amp; Industry - ECPv6.15.15//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Museum of History &amp; Industry
+X-ORIGINAL-URL:https://mohai.org
+X-WR-CALDESC:Events for Museum of History &amp; Industry
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260307T130000
+DTEND;TZID=America/Los_Angeles:20260307T150000
+DTSTAMP:20260306T225902
+CREATED:20260209T180500Z
+LAST-MODIFIED:20260209T180629Z
+UID:10005123-1772888400-1772895600@mohai.org
+SUMMARY:Kickstands Up! Gallery Tour with Dykes on Bikes
+DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in the Pacific Northwest with a gallery talk by a Monkey\, Ride Captain from Seattle Dykes on Bikes Womxn’s Motorcycle Club. Learn more about the organization’s history in the fight for LGBTQ+ rights and the bikes that hold a special place in their hearts. \nSpots are limited and are assigned on a first-come\, first-served basis. \nFor accessibility support\, please contact programs@mohai.org two weeks before the event. \nPhoto: MOHAI\, Seattle Post-Intelligencer Collection\, 2000.107.19930627.5.15\, by Gilbert W. Arias
+URL:https://mohai.org/event/kickstands-up-gallery-tour-with-dykes-on-bikes/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Hobbies,LGBTQIA+,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/02/Gallery-Talk-with-Dykes-on-Bikes_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260313T190000
+DTEND;TZID=America/Los_Angeles:20260313T210000
+DTSTAMP:20260306T225902
+CREATED:20260218T185724Z
+LAST-MODIFIED:20260219T201902Z
+UID:10005124-1773428400-1773435600@mohai.org
+SUMMARY:From Rails to Trails Film Screening
+DESCRIPTION:If you have ever ridden on the Burke-Gilman Trail\, you’ve traversed part of a vast\, 3\,700-mile network known as the Great American Rail-Trail. The ambitious project of converting the nation’s abandoned rail lines into public corridors\, supported by more than a century of advocacy\, is the subject of a recent PBS documentary\, From Rails to Trails. \nNarrated by actor Edward Norton\, the film tells the story of one of the most unlikely social movements in American history. Join MOHAI and Cascade Bicycle Club for a special showing of the film. Tyler Vasquez\, Seattle Policy and Advocacy Officer\, will serve as the event’s MC\, bringing energy while highlighting the bike lanes delivered over the past five years and sharing a vision for the future of biking across the Puget Sound. He will also engage with the audience by answering questions about Seattle’s Bicycle Network and discussing how we can carry forward the momentum built by the advocates who came before him. \nFrom 6-7pm\, celebrate and explore Riding Together: 135 Years of Cycling in Seattle\, MOHAI’s current exhibition on display through April 26.
+URL:https://mohai.org/event/from-rails-to-trails-film-screening/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Civics,History,Hobbies,Infrastructure,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/02/From-Rails-to-Trails-Film-Screening_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260318T183000
+DTEND;TZID=America/Los_Angeles:20260318T200000
+DTSTAMP:20260306T225902
+CREATED:20251206T070116Z
+LAST-MODIFIED:20251206T070500Z
+UID:10005113-1773858600-1773864000@mohai.org
+SUMMARY:History Café: Seattle Mystic Al Hubbard
+DESCRIPTION:Join Brad Holden\, author of Seattle Mystic Alfred M. Hubbard for a discussion of one of Seattle’s most mysterious figures. Hubbard first appeared in the papers in 1919 for his supposed invention of a perpetual motion machine that harnessed energy from Earth’s atmosphere. From there\, he transformed himself into a bootlegger\, radio pioneer\, top-secret spy\, and eventually “the Johnny Appleseed of LSD”. \nHistory Café is produced as a partnership between HistoryLink and MOHAI. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org two weeks before the program. \nGrab some food for thought–light food and drink will be available to purchase in the atrium. \nIf you can’t make it to the museum\, tune in live on the MOHAI YouTube channel to virtually attend this event.
+URL:https://mohai.org/event/history-cafe-seattle-mystic-al-hubbard/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Innovation,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/12/History-Cafe-Seattle-Mystic-Al-Hubbard_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260321T090000
+DTEND;TZID=America/Los_Angeles:20260321T150000
+DTSTAMP:20260306T225902
+CREATED:20251124T230809Z
+LAST-MODIFIED:20260219T174604Z
+UID:10005106-1774083600-1774105200@mohai.org
+SUMMARY:Motorcycle Riding Experience with Cascade Motorcycle Safety
+DESCRIPTION:Want to ride a motorcycle but don’t know where to start? Join Cascade Motorcycle Safety and Ride With Us for a chance to experience riding a motorcycle for free\, with professional Cascade Motorcycle Safety RiderCoaches helping you through each step. These 1-on-1\, 20-minute sessions are designed for total beginners\, with bikes and helmets provided. \nThis program is presented with the support of Cascade Motorcycle Safety. \nRide out the remainder of the day in MOHAI to see Kickstands Up! 125 Years of Motorcycling in the PNW. Program participants will receive a coupon for $5 off museum admission. \nAs of 2/18/26\, the location and time of this event has changed.
+URL:https://mohai.org/event/motorcycle-riding-experience-with-cascade-motorcycle-safety/
+LOCATION:South Seattle College North Parking Lot\, 6000 16th Ave SW\, Seattle\, WA\, 98106\, United States
+CATEGORIES:Hobbies,People & Culture,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/11/motorcycle-riding-lessons_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260324T180000
+DTEND;TZID=America/Los_Angeles:20260324T203000
+DTSTAMP:20260306T225902
+CREATED:20251220T005659Z
+LAST-MODIFIED:20251220T064030Z
+UID:10005114-1774375200-1774384200@mohai.org
+SUMMARY:MOHAI Mercantile Literary Series - Seattle's Locks and Ship Canal
+DESCRIPTION:MOHAI Mercantile is proud to host the official book launch event for Seattle’s Locks and Ship Canal with local historians David B. Williams and Jennifer Ott! \nThis portable guide from UW Press and HistoryLink is an introduction to the engineering marvel of the Ballard locks\, and a primer on the history of the ship canal. Hear from the authors about the tumultuous history of one of Seattle’s defining projects\, and the dramatic changes it brought to the city’s economy\, neighborhoods\, and natural environment. \nDoors open at 6pm for music and mingling. Food and drink available for purchase. \nConversation and Q&A begin at 7pm\, followed by a book signing with the authors. \nPreorder your copy through the MOHAI Mercantile beginning in January 2026!
+URL:https://mohai.org/event/mohai-mercantile-literary-series-seattles-locks-and-ship-canal/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Engineering,History,Infrastructure,Maritime
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/12/Locks-and-Ship-Canal_hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T140000
+DTEND;TZID=America/Los_Angeles:20260328T160000
+DTSTAMP:20260306T225902
+CREATED:20260223T220537Z
+LAST-MODIFIED:20260223T220537Z
+UID:10005125-1774706400-1774713600@mohai.org
+SUMMARY:Kickstands Up! Gallery Talk with Pacific Northwest Museum of Motorcycling
+DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in the Pacific Northwest with gallery talks by exhibit co-curators from the Pacific Northwest Museum of Motorcycling. Roll on down to MOHAI and learn more about the bikes and riders that have made history. \nSpots are limited and are assigned on a first-come\, first-served basis. \nFor accessibility support\, please contact programs@mohai.org two weeks before the event.
+URL:https://mohai.org/event/kickstands-up-gallery-talk-with-pacific-northwest-museum-of-motorcycling/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Hobbies,People & Culture,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/02/Gallery-Talk-with-PNWMoM_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T173000
+DTEND;TZID=America/Los_Angeles:20260402T183000
+DTSTAMP:20260306T225902
+CREATED:20260304T215018Z
+LAST-MODIFIED:20260304T215018Z
+UID:10005127-1775151000-1775154600@mohai.org
+SUMMARY:Living Voices: Winning Her Wings
+DESCRIPTION:They flew planes. They fought prejudice. They made history. Winning Her Wings brings to life the groundbreaking Women Airforce Service Pilots (WASPs). Follow journeys of women who faced and broke barriers together\, fighting for justice in a time of global conflict and domestic prejudice. Discover how they soared—despite the odds. \nThis new multimedia performance by Living Voices blends live theatre and archival film to honor the women who served with courage. Premiering in 2026 for Women’s History Month. This event takes place during our Free First Thursday hours. Seats are first come first served. \nLiving Voices combines live theatrical performances with archival film\, turning history into a moving personal journey. This performance will take place in the Joshua Green Foundation Theater on MOHAI’s second floor.
+URL:https://mohai.org/event/living-voices-winning-her-wings/2026-04-02/1/
+LOCATION:Joshua Green Foundation Theater\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Living-Voices-Winning-Her-Wings_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T183000
+DTEND;TZID=America/Los_Angeles:20260402T193000
+DTSTAMP:20260306T225902
+CREATED:20260304T215018Z
+LAST-MODIFIED:20260304T215018Z
+UID:10005128-1775154600-1775158200@mohai.org
+SUMMARY:Living Voices: Winning Her Wings
+DESCRIPTION:They flew planes. They fought prejudice. They made history. Winning Her Wings brings to life the groundbreaking Women Airforce Service Pilots (WASPs). Follow journeys of women who faced and broke barriers together\, fighting for justice in a time of global conflict and domestic prejudice. Discover how they soared—despite the odds. \nThis new multimedia performance by Living Voices blends live theatre and archival film to honor the women who served with courage. Premiering in 2026 for Women’s History Month. This event takes place during our Free First Thursday hours. Seats are first come first served. \nLiving Voices combines live theatrical performances with archival film\, turning history into a moving personal journey. This performance will take place in the Joshua Green Foundation Theater on MOHAI’s second floor.
+URL:https://mohai.org/event/living-voices-winning-her-wings/2026-04-02/2/
+LOCATION:Joshua Green Foundation Theater\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Living-Voices-Winning-Her-Wings_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260415T183000
+DTEND;TZID=America/Los_Angeles:20260415T200000
+DTSTAMP:20260306T225902
+CREATED:20260307T005454Z
+LAST-MODIFIED:20260307T005454Z
+UID:10005132-1776277800-1776283200@mohai.org
+SUMMARY:History Café: Preserving the Vision of Asahel Curtis
+DESCRIPTION:Join Margaret Weatherbee\, Head of Collections at the Washington State Historical Society and History Museum\, for an in-depth look at the digitization and preservation of the Asahel Curtis Collection. This collection features over 42\,000 images by photographer Asahel Curtis (1873-1941) that document the evolution of life in the Pacific Northwest in the early 20th century. \nHistory Café is produced as a partnership between HistoryLink\, The Pacific Northwest Historians Guild\, and MOHAI. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org before the program. \nGrab some food for thought–complimentary snacks and beverages will be provided. \nIf you can’t make it to the museum\, tune in live on the MOHAI YouTube channel to virtually attend this event.
+URL:https://mohai.org/event/history-cafe-preserving-the-vision-of-asahel-curtis/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Preserving-the-Vision-of-Asahel-Curtis_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T140000
+DTEND;TZID=America/Los_Angeles:20260418T160000
+DTSTAMP:20260306T225902
+CREATED:20260305T215208Z
+LAST-MODIFIED:20260305T215208Z
+UID:10005130-1776520800-1776528000@mohai.org
+SUMMARY:Meet the Cossacks: Seattle's Motorcycle Stunt and Drill Team
+DESCRIPTION:Dive into the history of the Cossacks\, Seattle’s long strolling Motorcycle Stunt and Drill Team\, with Rob Root and other members. Since 1938\, the Seattle Cossacks have captured the imagination of audiences with great pyramids and other wonders of the motorcycling world. Following the presentation\, visitors are welcome to get up close and personal for photos with the team’s vintage Harleys! \nTickets for this program are free\, but do not include access to MOHAI’s exhibitions. If you would like to see all that MOHAI has to offer during your visit\, you can purchase museum admission here. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org two weeks before the program.
+URL:https://mohai.org/event/meet-the-cossacks-seattles-motorcycle-stunt-and-drill-team/
+LOCATION:Microsoft Lakefront Pavilion\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Hobbies,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Meet-the-Cossacks_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260421T173000
+DTEND;TZID=America/Los_Angeles:20260421T200000
+DTSTAMP:20260306T225902
+CREATED:20260305T220143Z
+LAST-MODIFIED:20260305T220159Z
+UID:10005131-1776792600-1776801600@mohai.org
+SUMMARY:Paving the Way: Bicycle Infrastructure Tour
+DESCRIPTION:Join Merlin Rainwater\, creator of Seattle’s Infamous Redline Guide\, and Tom Fucoloro\, Founder and Editor of the Seattle Bike Blog and author of Biking Uphill in the Rain: The Story of Seattle from behind the Handlebars\, for a bicycle tour exploring the history of Seattle bicycle infrastructure. \nThis tour requires riding a bicycle between multiple sites in Seattle. Please bring your own bike. Helmets and lights will be required. For any accessibility support\, or general inquiries\, email programs@mohai.org.
+URL:https://mohai.org/event/paving-the-way-bicycle-infrastructure-tour/
+LOCATION:Offsite
+CATEGORIES:Civics,History,Hobbies,Infrastructure,Neighborhoods,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Bicycle-Infrastructure-Tour_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260530T130000
+DTEND;TZID=America/Los_Angeles:20260530T160000
+DTSTAMP:20260306T225902
+CREATED:20260304T222803Z
+LAST-MODIFIED:20260304T230614Z
+UID:10005129-1780146000-1780156800@mohai.org
+SUMMARY:Drawing From History: Ripples of Time
+DESCRIPTION:Lake Union is haunted by ghosts of the past\, echoing through time. In this class\, participants will explore past\, present\, and future of the Lake Union Watershed by creating quick layered gesture drawings in charcoal\, based off photos and ephemera from MOHAI’s collections. The class will culminate at the water’s edge\, creating a drawing representing visions for the future. \nDrawing From History is offered in partnership with Gage Academy of Art. \nAll art making materials will be provided. Tickets include access to MOHAI’s exhibitions. For accessibility support and general program inquiries\, email programs@mohai.org.
+URL:https://mohai.org/event/drawing-from-history-ripples-of-time/
+LOCATION:Microsoft Lakefront Pavilion\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,Entertainment,History,Neighborhoods
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Drawing-from-History-Ripples-of-Time_hero.jpg
+END:VEVENT
+END:VCALENDAR

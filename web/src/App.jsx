@@ -691,6 +691,7 @@ function App() {
             name: calendar.name,
             fullName: calendar.friendlyName,
             icsUrl: calendar.icsUrl,
+            rssUrl: calendar.rssUrl,
             tags: calendar.tags
           }))
         }))
@@ -719,6 +720,7 @@ function App() {
             name: calendar.name,
             fullName: calendar.friendlyName,
             icsUrl: calendar.icsUrl,
+            rssUrl: calendar.rssUrl,
             tags: calendar.tags,
             isRecurring: true
           }]
@@ -1524,6 +1526,17 @@ function App() {
                   >
                     📅 Google
                   </a>
+                  <a
+                    href={`tag-${selectedTag.toLowerCase()}.rss`}
+                    title="RSS Feed"
+                    className="action-link"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      trackEvent('rss', `tag-${selectedTag.toLowerCase()}.rss`)
+                    }}
+                  >
+                    RSS
+                  </a>
                 </div>
               </div>
             </div>
@@ -1641,6 +1654,19 @@ function App() {
                     >
                       📅 Google
                     </a>
+                    {singleCal.rssUrl && !singleCal.isExternal && (
+                      <a
+                        href={singleCal.rssUrl}
+                        title="RSS Feed"
+                        className="action-link"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          trackEvent('rss', singleCal.rssUrl)
+                        }}
+                      >
+                        RSS
+                      </a>
+                    )}
                   </div>
                 </div>
               ) : (
@@ -1750,6 +1776,23 @@ function App() {
                       </a>
                     </>
                   )}
+                  {!ripper.calendars[0]?.isExternal && (
+                    <a
+                      href={ripper.calendars.length === 1
+                        ? ripper.calendars[0].rssUrl
+                        : `tag-${ripper.name.toLowerCase()}.rss`}
+                      title="RSS Feed"
+                      className="action-link"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        trackEvent('rss', ripper.calendars.length === 1
+                          ? ripper.calendars[0].rssUrl
+                          : `tag-${ripper.name.toLowerCase()}.rss`)
+                      }}
+                    >
+                      RSS
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -1838,6 +1881,19 @@ function App() {
                     >
                       📅 Google
                     </a>
+                    {calendar.rssUrl && !calendar.isExternal && (
+                      <a
+                        href={calendar.rssUrl}
+                        title="RSS Feed"
+                        className="action-link"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          trackEvent('rss', calendar.rssUrl)
+                        }}
+                      >
+                        RSS
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}

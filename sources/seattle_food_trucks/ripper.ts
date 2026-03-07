@@ -164,7 +164,8 @@ export default class SeattleFoodTruckRipper implements IRipper {
         const events: RipperEvent[] = [];
         for (const ev of allPodEvents) {
             try {
-                const pod = podByName.get(ev.display_name.toLowerCase())!;
+                const pod = podByName.get(ev.display_name.toLowerCase());
+                if (!pod) continue;
                 const locData = locationDetails.get(pod.location.id);
 
                 const startDt = this.parseZonedDateTime(ev.start_time, timezone);

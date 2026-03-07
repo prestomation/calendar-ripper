@@ -1,0 +1,165 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hugo House - ECPv6.15.17//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Hugo House
+X-ORIGINAL-URL:https://hugohouse.org
+X-WR-CALDESC:Events for Hugo House
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260310T183000
+DTEND;TZID=America/Los_Angeles:20260310T203000
+DTSTAMP:20260307T150136
+CREATED:20260228T194846Z
+LAST-MODIFIED:20260306T193932Z
+UID:1534709-1773167400-1773174600@hugohouse.org
+SUMMARY:Industry Talks: Small Press Publishing with Homeward Books
+DESCRIPTION:Join us at Hugo House’s Lapis Theater for Industry Talks: Careers in the Literary Arts\, an engaging evening that explores the many professional paths within the world of writing\, publishing\, and literary production. \nThis event brings together authors\, editors\, publishers\, literary agents\, and other industry professionals for insightful conversations about their work and the evolving landscape of the literary arts. Attendees will gain exposure to the diverse opportunities available across the field—whether in creative writing\, editing\, marketing\, or event programming and learn how different roles contribute to the broader literary ecosystem. \nThe evening will feature a moderated discussion\, followed by an open Q&A session and networking opportunities\, offering a welcoming space for writers\, readers\, and anyone passionate about storytelling to connect and exchange ideas. \nWho Should Attend: \nMembers of the public interested in literature\, writing\, publishing\, and creative careers. \nEvent Schedule: \n·     6:30 PM: Hugo House Intro \n·     6:35 PM: Industry Professional Intro \n·     6:40-7:40 PM: Lecture \n·     7:45 PM: Q&A from the audience \n·     8:00 PM-8:30 PM: Signing/Merch booth/Meet and Greet/Networking \n \nAuthor J.M. Sidorova and founding editor Rachel Sobel discuss the logistics\, challenges\, and delights of running a small press\, publishing your work with big and small publishers\, and connecting with the greater books world. We’ll have a special sneak preview of the first Homeward Books title\, The Witch of Prague\, with copies available for purchase in an exclusive pre-release opportunity! \nClick here to preorder The Witch of Prague!
+URL:https://hugohouse.org/event/_2026-03-10/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T190000
+DTEND;TZID=America/Los_Angeles:20260311T210000
+DTSTAMP:20260307T150136
+CREATED:20260227T220831Z
+LAST-MODIFIED:20260228T102126Z
+UID:1534474-1773255600-1773262800@hugohouse.org
+SUMMARY:Castalia
+DESCRIPTION:Hugo House welcomes back Castalia—University of Washington MFA program's monthly reading series featuring graduate students\, faculty\, and alumni. Showcasing published and unpublished drafts of work by authors from a variety of disciplines\, professional backgrounds\, and age demographics\, Castalia offers authors a platform for community reading while putting their work in conversation with other voices\, styles\, concerns\, and identities.
+URL:https://hugohouse.org/event/castalia_2026-03-11/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260311T180000
+DTEND;TZID=America/Los_Angeles:20260311T193000
+DTSTAMP:20260307T150136
+CREATED:20260203T083121Z
+LAST-MODIFIED:20260307T094025Z
+UID:1520712-1773252000-1773257400@hugohouse.org
+SUMMARY:Write with Hugo House with Jeanine Walker
+DESCRIPTION:In this beginner-friendly writing class\, we’ll focus on generative writing through poetry prompts. The session will begin with introductions and a short warm-up\, after which we’ll read two separate poems and write in response. At times\, you'll have the opportunity to share words and ideas with other writers in small groups. You'll leave with 2-3 new drafts of poems. Designed for all writers\, this group supports poets as well those working in other genres\, as the skills practiced in poetry can be thought of as “cross-training” for memoir and fiction\, too. \nAbout Write with Hugo House \nWrite with Hugo House is a free drop-in writing circle for adults of all ages and genres of writing. Bring something you’re working on\, or just come ready to write. You will have the opportunity to share your work and get feedback—but only if you want to (no pressure). You can also use this time to increase productivity on your current work in progress\, surrounded by fellow writers.
+URL:https://hugohouse.org/event/write-with-hugo-house-with-jeanine-walker_2026-03-11/
+CATEGORIES:Writing Circle/Write-In,Community Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260315T160000
+DTEND;TZID=America/Los_Angeles:20260315T200000
+DTSTAMP:20260307T150136
+CREATED:20260219T021950Z
+LAST-MODIFIED:20260306T193930Z
+UID:1531769-1773590400-1773604800@hugohouse.org
+SUMMARY:Whose Crit Is It\, Anyway?
+DESCRIPTION:Inspired by improv shows and Dungeons & Dragons\, Whose Crit is It Anyway combines them into a performance with a cast of professional actors that will take on the characters you create. Choose their adventure and guide their actions\, and if you choose wisely\, they might even survive!  \nIf you’ve never played Dungeons & Dragons\, never fear\, we’re using a simplified ruleset\, and we’ll have D&D veterans there to guide you every step of the way. If you’re a veteran player yourself\, come experience a completely new way to play. \nIn addition to having fun\, learn valuable writing and storytelling skills through the medium of D&D: \nCollaborative Storytelling: Learn how to work together as part of a creative team and how to draw inspiration from each other \nCharacter Development: Get into the mind of your character and how they would act in various situations \nImprovisation and Creativity: Stories can change as the characters make decisions\, learn how to improvise and stay true to the story\, even in the face of the unexpected \nYour night will begin by being divided into five groups\, one for each of our actors\, plus one that will help the Dungeon Master craft the experience. You will select the abilities of the premade characters provided\, and then dive into the story. Your suggestions can guide their actions\, which you’ll watch them perform live on stage. With the input of the audience\, even our Dungeon Master has no idea where this story might end up! \nForge the Legend! Get your tickets now! \nMust be 18 years of age or older for entry.
+URL:https://hugohouse.org/event/_2026-03-15/
+CATEGORIES:Mainstage,Party/Social
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260317T180000
+DTEND;TZID=America/Los_Angeles:20260317T210000
+DTSTAMP:20260307T150136
+CREATED:20260219T025321Z
+LAST-MODIFIED:20260306T180531Z
+UID:1531784-1773770400-1773781200@hugohouse.org
+SUMMARY:Works in Progress
+DESCRIPTION:Works in Progress is Hugo House's open mic series inclusive of diverse formats and storytelling crafts. Read your work—poetry\, fiction\, essays\, memoirs\, plays\, music\, comedy\, and more—and connect with our literary community!  \nWorks in Progress is a low-pressure\, welcoming environment for readers and guests of all skill levels and literary experience. We especially encourage BIPOC\, LGBTQIA2S+\, and other marginalized voices to take the mic! \nDoors open at 6 pm PT for interested writers who want to come early\, carve out some sacred writing time\, and share ideas on craft and content. This open\, unstructured space is intended to create opportunities for folks to build community and enjoy some quality time writing their own works-in-progress!  \nOpen mic begins at 7 pm PT. \n– Reading is open to all! \n– You don’t have to read. Guests and audience members are encouraged to attend! \n– Sign-up for reading begins on-site when doors open at 6 pm and continues until the open mic begins at 7 pm. \n– Only one sign-up per person. \n– The order for the 20 reading slots will be randomly assigned. You will be notified prior to the reading of your slot. \n– Each reader has 5 minutes to read. Be mindful of your excerpt length\, and practice beforehand if you can! \nWorks in Progress is sustained through suggested donations from attendees. Please consider making a donation to Hugo House and the Works in Progress open mic program when you register. Thank you! \n \n﻿Free admission to this event is made possible with support from 4Culture.
+URL:https://hugohouse.org/event/_2026-03-17/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260318T180000
+DTEND;TZID=America/Los_Angeles:20260318T190000
+DTSTAMP:20260307T150136
+CREATED:20260227T225725Z
+LAST-MODIFIED:20260302T230326Z
+UID:1534481-1773856800-1773860400@hugohouse.org
+SUMMARY:Teaching Writing Inside of a Jail: An Info Session With Golf Pencil Group
+DESCRIPTION:Join us online with Hugo House for an informational session about Golf Pencil Group (GPG)\, an organization that offers creative writing classes for people incarcerated at the King County Jail in downtown Seattle. \nThis free online event will feature teaching artists along with the current and former Directors of the program who will offer an overview of how GPG has grown as an organization\, the impact they have made\, and where they hope to go in the future. Attendees will gain insight into the group's work serving writers behind bars will hear stories about the transformational power of the pen (or rather\, the golf pencil in this case.) Golf Pencil Group will also share opportunities on how people can become involved in this work\, whether with GPG itself or with like-minded groups. A Q&A session will follow. \nThe evening will feature a moderated discussion\, followed by an open Q&A session and networking opportunities\, offering a welcoming space for writers\, readers\, and anyone passionate about storytelling to connect and exchange ideas. \n \nWho Should Attend: \nMembers of the public interested in teaching writing\, service to others\, carceral education\, and/or finding creativity in difficult places \n \nLocation: \nOnline — Zoom \nCost — Free \nHosted by: \nGolf Pencil Group\, with support from Hugo House \nTime: 6-7 PM \n \nEvent Schedule: \n·  6:00-6:15 PM: Golf Pencil Group Intro – Welcome\, Who we are\, What we do\, and How \n·  6:15-6:30 PM: Personal Stories from teachers \n·  6:30-6:40 PM: Ways to get involved \n·  6:40-7:00 PM: Q&A from the audience \n·   7:00 PM: Event Concludes \n \nTeam Bios: \nKayla Blau (she/her) is a writer and facilitator. Her writing can be found in the South Seattle Emerald\, The Stranger\, The Seventh Wave\, and Crosscut\, among others. She loves nothing more than a hole-in-the-wall restaurant and a good book.  \nDanielle Hayden is a multi-genre writer\, teaching artist\, and the current Director of Golf Pencil Group. \nJared Leising is a poet and the author the chapbook The Widows and Orphans of Winesburg\, Ohio. He holds an MFA from the University of Houston and teaches English at Cascadia College and creative writing at the King County Jail with Golf Pencil Group. \nTasha Watson (they/she) is a queer\, nerdy\, neurodivergent writer\, professor\, and activist in the Seattle area. They love collaborative storytelling\, poetry\, live music\, and the macabre. \nJay Aquinas Thompson (they/he) is a poet\, essayist\, and memoirist\, as well as a teacher of creative writing to public school students and women surviving incarceration. They are also the author of the 2024 memoir is titled The Resurrection Appearances: Fragments of a Daybook.
+URL:https://hugohouse.org/event/_2026-03-18/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260319T180000
+DTEND;TZID=America/Los_Angeles:20260319T210000
+DTSTAMP:20260307T150136
+CREATED:20260303T234814Z
+LAST-MODIFIED:20260307T024724Z
+UID:1534354-1773943200-1773954000@hugohouse.org
+SUMMARY:Silent Reading Night
+DESCRIPTION:Silent Reading Night – March Edition \nDate: Thursday\, March 19th \nTime: 6:00 PM – 9:00 PM \nTheme: Pages Shared: A Community Book Exchange \nWe wanted to celebrate this month’s silent reading night with a community book exchange themed reading night! Feathered Pages will be tabling for this event. \nEvent Activities: \nCommunity Book Swap \nTo participate in the book swap\, let the front desk know upon arrival and receive your raffle ticket. One book = 1 ticket. Feel free to bring as many books as you would like to swap! \n\nGrab some wrapping paper from the front desk with a blank note card that answers one of these two prompts:\n“Why I loved this book…” or “describe this book in a sentence..”\nWrap up the book and tape the note card to the cover with the answered prompt.\nDrop books at categorized area on the stage\n\n\nFiction\nNonfiction\nRomance\nFantasy/Sci-Fi\nMemoir\n\nRaffle Announcement (at 8:30 PM) \nThere will be up to 5 winners! The prize is a Hugo House tote with books inside! \n \nEvent Itinerary \n6:00 PM – Mix & Mingle \n\nGrab a cup of tea and settle in.\nMeet fellow readers and share what book you’re currently enjoying.\nBYOM – Bring Your Own Mug! Hot water will be available.\n\n6:30 PM – Silent Reading Begins \n\nSettle into your cozy reading spot and dive into your book.\nEnjoy the quiet atmosphere of reading in community.\n\n7:30 PM – Reading Break \n\nChat with your neighbor! Ask them what they are reading.\nGrab a snack or drink at the bar\nCheck out Feathered Pages' book table\n\n7:40 PM – Break Ends \n\nHead back to the Lapis Theater and do more reading.\n\n8:30 PM – Social Time & Book Chats \n\nShare thoughts on your reads\, favorite passages\, or just connect with fellow book lovers.\n3 raffle winners are announced.\n\n9:00 PM – Event Concludes \n \nThis is our monthly Silent Reading Night\, each month we will have a new theme to inspire your reading. Rediscover the joy of reading in good company at the Hugo House. \nWe can’t wait to read with you!
+URL:https://hugohouse.org/event/_2026-03-19/
+CATEGORIES:Community Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260320T180000
+DTEND;TZID=America/Los_Angeles:20260320T210000
+DTSTAMP:20260307T150136
+CREATED:20260304T233736Z
+LAST-MODIFIED:20260305T102544Z
+UID:1536578-1774029600-1774040400@hugohouse.org
+SUMMARY:Washington Ensemble Theater Playwright Showcase
+DESCRIPTION:WETWorks \nA Playwright-in-Residence program \nConceived and Curated by Nelle Tankus and Anamaria Guerzon \nIn Partnership with Hugo House \nFALL 2025- SPRING 2026 | Hugo House \n  \nWETWorks is our brand new Playwright-in-Residence program\, in partnership with Hugo House. Over the next year\, WET will collaborate with three playwrights for a three-month paid residency each. They will be provided space to write and a creative team\, culminating in a final presentation at Hugo House at the end of their tenure. WETWorks provides the tangible resources\, community connections\, and creative space needed for Seattle playwrights. With this program we hope to answer a call for Seattle based playwriting opportunity\, as well as echo the Pacific Northwest lens and experience back to ourselves. \n \nPlaywright for March 20th play: Isabelle Bushue \nPlay Name: Extraordinary Outstanding Luck  \nSynopsis: A Chinese adoptee comes to terms with her childhood and explores how to live without knowing her origins. \nBuy tickets here! \n \nEvent Schedule: \nDoors Open: 6:00 PM \nEvent Start: 7:00 PM \nEvent End: 9:00 PM
+URL:https://hugohouse.org/event/_2026-03-20/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260321T180000
+DTEND;TZID=America/Los_Angeles:20260321T210000
+DTSTAMP:20260307T150136
+CREATED:20260304T233734Z
+LAST-MODIFIED:20260305T102543Z
+UID:1536596-1774116000-1774126800@hugohouse.org
+SUMMARY:Washington Ensemble Theater Playwright Showcase
+DESCRIPTION:WETWorks \nA Playwright-in-Residence program \nConceived and Curated by Nelle Tankus and Anamaria Guerzon \nIn Partnership with Hugo House \nFALL 2025- SPRING 2026 | Hugo House \n  \nWETWorks is our brand new Playwright-in-Residence program\, in partnership with Hugo House. Over the next year\, WET will collaborate with three playwrights for a three-month paid residency each. They will be provided space to write and a creative team\, culminating in a final presentation at Hugo House at the end of their tenure. WETWorks provides the tangible resources\, community connections\, and creative space needed for Seattle playwrights. With this program we hope to answer a call for Seattle based playwriting opportunity\, as well as echo the Pacific Northwest lens and experience back to ourselves. \n \nPlaywright for March 20th play: Isabelle Bushue \nPlay Name: Extraordinary Outstanding Luck \nSynopsis: A Chinese adoptee comes to terms with her childhood and explores how to live without knowing her origins. \nBuy tickets here! \n \nEvent Schedule: \nDoors Open: 6:00 PM \nEvent Start: 7:00 PM \nEvent End: 9:00 PM
+URL:https://hugohouse.org/event/washington-ensemble-theater-playwright-showcase_2026-03-21/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260326T190000
+DTEND;TZID=America/Los_Angeles:20260326T210000
+DTSTAMP:20260307T150136
+CREATED:20260228T192648Z
+LAST-MODIFIED:20260307T023532Z
+UID:1534501-1774551600-1774558800@hugohouse.org
+SUMMARY:It Goes On
+DESCRIPTION:$3 wine & poetry \nReadings by Samar Abulhassan\, Kevin Emerson\, Ramon Isao\, and Arlene Naganawa \nThursday\, March 26\, 7pm \nDoors at 6pm \nHugo House is delighted to partner with poet Jeanine Walker and mixed media artist Aaron Counts to bring It Goes On to the Hugo House stage! It Goes On features $3 glasses of wine\, $12 bottles\, and invaluable words. March 26 stars poets Samar Abulhassan and Arelene Naganawa\, and fiction writers Kevin Emerson and Ramon Isao. Come on out to our cozy cabaret-style theater to partake in the words\, wine\, and full-on spring fun.
+URL:https://hugohouse.org/event/_2026-03-26/
+CATEGORIES:Mainstage,Community Event
+END:VEVENT
+END:VCALENDAR

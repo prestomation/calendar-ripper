@@ -146,6 +146,54 @@
   - Museums
   - Community
 
+# Neighborhood Community Councils and Associations
+- name: phinney-neighborhood-association
+  friendlyname: "Phinney Neighborhood Association (PNA)"
+  description: "Phinney Neighborhood Association"
+  icsUrl: "https://www.phinneycenter.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.phinneycenter.org/events/"
+  tags:
+  - Community
+  - Phinney
+  - Greenwood
+
+- name: discover-magnolia
+  friendlyname: "Discover Magnolia"
+  description: "Discover Magnolia"
+  icsUrl: "https://discovermagnolia.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://discovermagnolia.org/events/"
+  tags:
+  - Community
+  - Magnolia
+
+- name: seed-seattle
+  friendlyname: "SEED — SouthEast Effective Development"
+  description: "SEED — SouthEast Effective Development"
+  icsUrl: "https://www.seedseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.seedseattle.org/events/"
+  expectEmpty: true  # Low event volume; arts/community events in Southeast Seattle
+  tags:
+  - Community
+  - Columbia City
+
+- name: myballard
+  friendlyname: "My Ballard"
+  description: "My Ballard"
+  icsUrl: "https://myballard.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://myballard.com/events/"
+  tags:
+  - Community
+  - Ballard
+
+- name: wallyhood
+  friendlyname: "Wallyhood — Wallingford's Neighborhood Blog"
+  description: "Wallyhood"
+  icsUrl: "https://calendar.google.com/calendar/ical/wallyhood.blog%40gmail.com/public/basic.ics"
+  infoUrl: "https://www.wallyhood.org/wallingford-events-calendar/"
+  tags:
+  - Community
+  - Wallingford
+
 # City of Seattle
 - name: seattle-gov-city-wide
   friendlyname: "City of Seattle Events"

@@ -19,6 +19,9 @@ export default class BelltownCommunityCouncilRipper implements IRipper {
         }
 
         const data = await res.json();
+        if (!data || typeof data !== 'object') {
+            throw Error('Invalid JSON response from WordPress.com API');
+        }
         const posts: any[] = data.posts || [];
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
@@ -55,8 +58,8 @@ export default class BelltownCommunityCouncilRipper implements IRipper {
             const monthNum = MONTHS[monthStr.toLowerCase()];
             if (!monthNum) continue;
 
-            const day = parseInt(dayStr);
-            const year = parseInt(yearStr);
+            const day = parseInt(dayStr, 10);
+            const year = parseInt(yearStr, 10);
 
             // Skip past meetings
             const meetingDate = LocalDate.of(year, monthNum, day);

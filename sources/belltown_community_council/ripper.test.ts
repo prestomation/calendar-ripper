@@ -56,6 +56,7 @@ describe('BelltownCommunityCouncilRipper', () => {
             const posts = loadSampleData();
             const events = ripper.parseEvents(posts, zone, BEFORE_ALL_EVENTS);
             const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+            expect(calEvents.length).toBeGreaterThan(0);
             expect(calEvents[0].duration.toMinutes()).toBe(90);
         });
 
@@ -106,6 +107,7 @@ describe('BelltownCommunityCouncilRipper', () => {
             const posts = loadSampleData();
             const events = ripper.parseEvents(posts, zone, BEFORE_ALL_EVENTS);
             const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+            expect(calEvents.length).toBeGreaterThan(0);
             expect(calEvents[0].url).toContain('belltown-cc.org');
         });
 
@@ -138,6 +140,7 @@ describe('BelltownCommunityCouncilRipper', () => {
             }];
             const events = ripper.parseEvents(posts, zone, BEFORE_ALL_EVENTS);
             const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+            expect(calEvents.length).toBeGreaterThan(0);
             expect(calEvents[0].location).toBe('Belltown, Seattle, WA');
         });
     });

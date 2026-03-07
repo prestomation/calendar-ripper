@@ -51,11 +51,13 @@ export default class Events12Ripper extends HTMLRipper {
 
                 // Find date element
                 const dateElement = article.querySelector('p.date');
+                let extraDates: { date: ZonedDateTime, duration: Duration }[] = [];
                 if (dateElement) {
-                    const parsed = this.parseEventDate(dateElement.text.trim(), date.zone());
-                    if (parsed) {
-                        eventDate = parsed.date;
-                        duration = parsed.duration;
+                    const dateResults = this.parseAllEventDates(dateElement.text.trim(), date.zone());
+                    if (dateResults.length > 0) {
+                        eventDate = dateResults[0].date;
+                        duration = dateResults[0].duration;
+                        extraDates = dateResults.slice(1);
                     }
                 }
 
@@ -90,25 +92,28 @@ export default class Events12Ripper extends HTMLRipper {
 
                 // Only create event if we have a valid date
                 if (eventDate && title) {
-                    const eventId = this.generateEventId(title, eventDate);
+                    const allDates = [{ date: eventDate, duration }, ...extraDates];
+                    for (const { date: d, duration: dur } of allDates) {
+                        const eventId = this.generateEventId(title, d);
 
-                    // Skip if we've already seen this event
-                    if (this.seenEvents.has(eventId)) {
-                        continue;
+                        // Skip if we've already seen this event
+                        if (this.seenEvents.has(eventId)) {
+                            continue;
+                        }
+                        this.seenEvents.add(eventId);
+
+                        const event: RipperCalendarEvent = {
+                            id: eventId,
+                            ripped: new Date(),
+                            date: d,
+                            duration: dur,
+                            summary: title,
+                            description: description,
+                            location: location,
+                            url: url || undefined
+                        };
+                        events.push(event);
                     }
-                    this.seenEvents.add(eventId);
-
-                    const event: RipperCalendarEvent = {
-                        id: eventId,
-                        ripped: new Date(),
-                        date: eventDate,
-                        duration: duration,
-                        summary: title,
-                        description: description,
-                        location: location,
-                        url: url || undefined
-                    };
-                    events.push(event);
                 }
 
             } catch (error) {
@@ -121,6 +126,34 @@ export default class Events12Ripper extends HTMLRipper {
         }
 
         return events;
+    }
+
+    private parseAllEventDates(dateText: string, timezone: ZoneId): { date: ZonedDateTime, duration: Duration }[] {
+        // Check for "Month Day1 & Day2, Year" pattern which indicates two separate occurrences
+        const ampersandMatch = dateText.match(
+            /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\s*&\s*(\d{1,2}),?\s+(\d{4})(.*)/
+        );
+        if (ampersandMatch) {
+            const month = ampersandMatch[1];
+            const day1 = ampersandMatch[2];
+            const day2 = ampersandMatch[3];
+            const year = ampersandMatch[4];
+            const timeSuffix = ampersandMatch[5];
+
+            const date1Text = `${month} ${day1}, ${year}${timeSuffix}`;
+            const date2Text = `${month} ${day2}, ${year}${timeSuffix}`;
+
+            const result1 = this.parseEventDate(date1Text, timezone);
+            const result2 = this.parseEventDate(date2Text, timezone);
+
+            const results: { date: ZonedDateTime, duration: Duration }[] = [];
+            if (result1) results.push(result1);
+            if (result2) results.push(result2);
+            return results;
+        }
+
+        const single = this.parseEventDate(dateText, timezone);
+        return single ? [single] : [];
     }
 
     private parseEventDate(dateText: string, timezone: ZoneId): { date: ZonedDateTime, duration: Duration } | null {

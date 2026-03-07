@@ -148,7 +148,7 @@ describe('Events12Ripper', () => {
         expect(events[0]).toHaveProperty('url', 'https://example.com/event');
     });
 
-    it('should parse ampersand date format', async () => {
+    it('should parse ampersand date format as two separate events', async () => {
         const ripper = new Events12Ripper();
         const sampleHtml = `
             <article id="118800">
@@ -162,13 +162,22 @@ describe('Events12Ripper', () => {
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
 
-        expect(events.length).toBe(1);
-        const event = events[0] as any;
-        expect(event.summary).toBe('New musicians');
-        expect(event.date.monthValue()).toBe(2);
-        expect(event.date.dayOfMonth()).toBe(21);
-        expect(event.date.hour()).toBe(20);
-        expect(event.duration.toMinutes()).toBe(120);
+        // "February 21 & 28" means two separate occurrences — both should produce events
+        expect(events.length).toBe(2);
+
+        const event1 = events[0] as any;
+        expect(event1.summary).toBe('New musicians');
+        expect(event1.date.monthValue()).toBe(2);
+        expect(event1.date.dayOfMonth()).toBe(21);
+        expect(event1.date.hour()).toBe(20);
+        expect(event1.duration.toMinutes()).toBe(120);
+
+        const event2 = events[1] as any;
+        expect(event2.summary).toBe('New musicians');
+        expect(event2.date.monthValue()).toBe(2);
+        expect(event2.date.dayOfMonth()).toBe(28);
+        expect(event2.date.hour()).toBe(20);
+        expect(event2.duration.toMinutes()).toBe(120);
     });
 
     it('should handle noon time format', async () => {

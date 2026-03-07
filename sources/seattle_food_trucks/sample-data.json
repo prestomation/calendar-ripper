@@ -1,0 +1,778 @@
+{
+  "pods_response": {
+    "pods": [
+      {
+        "name": "1201 Eastlake",
+        "id": "1201-eastlake",
+        "uid": 227,
+        "location": {
+          "id": 1147,
+          "slug": "1201-eastlake",
+          "name": "1201 Eastlake",
+          "photo": "user_uploads/locations/73c6b200-db9e-11ec-9d34-ab7cc8371c79-lakeunionsteamplantbuilding-1260x803.jpg",
+          "neighborhood": {
+            "name": "Eastlake",
+            "id": 15,
+            "slug": "eastlake"
+          }
+        }
+      },
+      {
+        "name": "1551 Eastlake",
+        "id": "1551-eastlake",
+        "uid": 108,
+        "location": {
+          "id": 546,
+          "slug": "1551-eastlake",
+          "name": "1551 Eastlake",
+          "photo": "user_uploads/locations/9cd4bd30-0632-11e9-8bf1-b1af0070f29d-8602521364_47201078a2.jpg",
+          "neighborhood": {
+            "name": "Eastlake",
+            "id": 15,
+            "slug": "eastlake"
+          }
+        }
+      },
+      {
+        "name": "Bellefield Office Park : Edifecs Building",
+        "id": "bellefield-office-park-edifecs-building",
+        "uid": 292,
+        "location": {
+          "id": 1546,
+          "slug": "bellefield-office-park-edifecs-building",
+          "name": "Bellefield Office Park : Edifecs Building",
+          "photo": "user_uploads/locations/25cc3e10-7a2b-11f0-9f9f-89bae883b0b0-edifecs-exterior-1.jpg",
+          "neighborhood": {
+            "name": "Bellevue",
+            "id": 5,
+            "slug": "bellevue"
+          }
+        }
+      },
+      {
+        "name": "Bellefield Office Park : Gateway 112",
+        "id": "bellefield-office-park-gateway-112",
+        "uid": 207,
+        "location": {
+          "id": 1037,
+          "slug": "bellefield-office-park-gateway-112",
+          "name": "Bellefield Office Park : Gateway 112",
+          "photo": "user_uploads/locations/dadf2560-cae9-11eb-b97a-ef84dbbc094f-gateway.jpg",
+          "neighborhood": {
+            "name": "Bellevue",
+            "id": 5,
+            "slug": "bellevue"
+          }
+        }
+      },
+      {
+        "name": "Bellefield Office Park : Mercer Pointe",
+        "id": "bellefield-office-park-mercer-pointe",
+        "uid": 225,
+        "location": {
+          "id": 1144,
+          "slug": "bellefield-office-park-mercer-pointe",
+          "name": "Bellefield Office Park : Mercer Pointe",
+          "photo": "user_uploads/locations/af3cb540-d2f3-11ec-953c-93d94726821d-img_5505-cropped-1-scaled.jpg",
+          "neighborhood": {
+            "name": "Bellevue",
+            "id": 5,
+            "slug": "bellevue"
+          }
+        }
+      },
+      {
+        "name": "Black Raven Brewing Company : Redmond",
+        "id": "black-raven-brewing-company",
+        "uid": 59,
+        "location": {
+          "id": 76,
+          "slug": "black-raven-brewing-company-redmond",
+          "name": "Black Raven Brewing Company : Redmond",
+          "photo": "user_uploads/locations/860fa2d0-a7cf-11e7-bcc3-6be679a631fc-blackraven.jpg",
+          "neighborhood": {
+            "name": "Breweries",
+            "id": 16,
+            "slug": "breweries"
+          }
+        }
+      },
+      {
+        "name": "Black Raven Brewing Company : Woodinville",
+        "id": "black-raven-brewing-company-woodinville",
+        "uid": 127,
+        "location": {
+          "id": 676,
+          "slug": "black-raven-brewing-company-woodinville",
+          "name": "Black Raven Brewing Company : Woodinville",
+          "photo": "user_uploads/locations/245bb220-9f50-11e9-8f7c-75b7fd5d05ac-screen-shot-2019-07-05-at-11.09.57-am.png",
+          "neighborhood": {
+            "name": "Breweries",
+            "id": 16,
+            "slug": "breweries"
+          }
+        }
+      },
+      {
+        "name": "Broadview Tap House",
+        "id": "broadview-taphouse",
+        "uid": 128,
+        "location": {
+          "id": 682,
+          "slug": "broadview-tap-house",
+          "name": "Broadview Tap House",
+          "photo": "user_uploads/locations/1519b8a0-a745-11e9-89d5-0597ce155ac7-broadview-tap-house.jpg",
+          "neighborhood": {
+            "name": "Breweries",
+            "id": 16,
+            "slug": "breweries"
+          }
+        }
+      },
+      {
+        "name": "Canyon Park",
+        "id": "canyon-park",
+        "uid": 258,
+        "location": {
+          "id": 1311,
+          "slug": "canyon-park",
+          "name": "Canyon Park",
+          "photo": "user_uploads/locations/ed948880-d67b-11ee-b56a-6743d41c9980-_g7a1730rgb.jpg",
+          "neighborhood": {
+            "name": "Bothell",
+            "id": 12,
+            "slug": "bothell"
+          }
+        }
+      },
+      {
+        "name": "Carillon Point",
+        "id": "carilion-point",
+        "uid": 291,
+        "location": {
+          "id": 1499,
+          "slug": "carillon-point",
+          "name": "Carillon Point",
+          "photo": "user_uploads/locations/f22036c0-576b-11f0-a6d9-0758e18c7d41-dji_0646.jpg",
+          "neighborhood": {
+            "name": "Kirkland",
+            "id": 17,
+            "slug": "kirkland"
+          }
+        }
+      },
+      {
+        "name": "Dexter Yard",
+        "id": "dexter-yard",
+        "uid": 253,
+        "location": {
+          "id": 1302,
+          "slug": "dexter-yard",
+          "name": "Dexter Yard",
+          "photo": "user_uploads/locations/a9648e50-679d-11ee-970a-19017ede99f0-dexter.jpg",
+          "neighborhood": {
+            "name": "South Lake Union",
+            "id": 3,
+            "slug": "south-lake-union"
+          }
+        }
+      },
+      {
+        "name": "Expedia Group Campus",
+        "id": "expedia-group-campus",
+        "uid": 221,
+        "location": {
+          "id": 1108,
+          "slug": "expedia-group-campus",
+          "name": "Expedia Group Campus",
+          "photo": "user_uploads/locations/6a6b17c0-2e53-11ed-9b0a-fde70d23e8ee-10022019_expedia04_171229.jpg",
+          "neighborhood": {
+            "name": "Ballard",
+            "id": 6,
+            "slug": "ballard"
+          }
+        }
+      },
+      {
+        "name": "FOX 13 Seattle",
+        "id": "fox-13-seattle",
+        "uid": 255,
+        "location": {
+          "id": 1253,
+          "slug": "fox-13-seattle",
+          "name": "Fox 13 Seattle",
+          "photo": "user_uploads/locations/c8d65350-ae50-11ee-96db-93398554b306-fox13.jpg",
+          "neighborhood": {
+            "name": "South Lake Union",
+            "id": 3,
+            "slug": "south-lake-union"
+          }
+        }
+      },
+      {
+        "name": "Figurehead Brewing",
+        "id": "figurehead-brewing",
+        "uid": 66,
+        "location": {
+          "id": 409,
+          "slug": "figurehead-brewing",
+          "name": "Figurehead Brewing",
+          "photo": "user_uploads/locations/a20f4d50-4fef-11e8-89cb-f9a76fd0f4c0-figureheadbrewing.jpg",
+          "neighborhood": {
+            "name": "Breweries",
+            "id": 16,
+            "slug": "breweries"
+          }
+        }
+      },
+      {
+        "name": "Fred Hutch Cancer Center",
+        "id": "fred-hutch-cancer-center",
+        "uid": 273,
+        "location": {
+          "id": 1373,
+          "slug": "fred-hutch-cancer-center",
+          "name": "Fred Hutch Cancer Center",
+          "photo": "user_uploads/locations/bbb0f310-a863-11f0-afb3-9d67ae385ef3-200511-hutch.jpg",
+          "neighborhood": {
+            "name": "South Lake Union",
+            "id": 3,
+            "slug": "south-lake-union"
+          }
+        }
+      },
+      {
+        "name": "Kaiser Permanente : Northgate Medical Center",
+        "id": "kaiser-permanente-northgate-medical-center",
+        "uid": 265,
+        "location": {
+          "id": 937,
+          "slug": "kaiser-permanente-northgate-medical-center",
+          "name": "Kaiser Permanente : Northgate Medical Center",
+          "photo": "user_uploads/locations/3edd5e30-07fd-11ef-93e6-f3908c1a1115-kaiser-permanente-northgate-clinic-02.jpg",
+          "neighborhood": {
+            "name": "Northgate",
+            "id": 30,
+            "slug": "northgate"
+          }
+        }
+      },
+      {
+        "name": "McGraw Square",
+        "id": "mcgraw-square",
+        "uid": 256,
+        "location": {
+          "id": 152,
+          "slug": "mcgraw-square",
+          "name": "McGraw Square",
+          "photo": "user_uploads/locations/4d773190-62f8-11ea-97a1-671acc6f88fc-mcgrawsquare.jpg",
+          "neighborhood": {
+            "name": "Downtown",
+            "id": 1,
+            "slug": "downtown"
+          }
+        }
+      },
+      {
+        "name": "Monte Villa",
+        "id": "monte-villa",
+        "uid": 257,
+        "location": {
+          "id": 1310,
+          "slug": "monte-villa",
+          "name": "Monte Villa",
+          "photo": "user_uploads/locations/be812070-275d-11ef-bb45-2dd1e650938f-2022-12-09-are-mvq-outdoor-amenity-2.jpg",
+          "neighborhood": {
+            "name": "Bothell",
+            "id": 12,
+            "slug": "bothell"
+          }
+        }
+      },
+      {
+        "name": "Northedge",
+        "id": "northedge",
+        "uid": 281,
+        "location": {
+          "id": 1464,
+          "slug": "northedge",
+          "name": "Northedge",
+          "photo": "user_uploads/locations/fe8862a0-5042-11f0-bd4f-a9fed9d52447-lumen-bioscience.jpg",
+          "neighborhood": {
+            "name": "Fremont",
+            "id": 7,
+            "slug": "fremont"
+          }
+        }
+      },
+      {
+        "name": "Occidental Park",
+        "id": "occidental-park",
+        "uid": 220,
+        "location": {
+          "id": 1106,
+          "slug": "occidental-park",
+          "name": "Occidental Park",
+          "photo": "user_uploads/locations/1809adf0-bcdb-11ec-8ab6-05d64e073d6c-iu-2.jpeg",
+          "neighborhood": {
+            "name": "Pioneer Square",
+            "id": 2,
+            "slug": "pioneer-square"
+          }
+        }
+      },
+      {
+        "name": "Pfizer - North Creek",
+        "id": "pfizer-north-creek",
+        "uid": 274,
+        "location": {
+          "id": 1374,
+          "slug": "pfizer-north-creek",
+          "name": "Pfizer - North Creek",
+          "photo": "user_uploads/locations/a56ed790-0e51-11f0-a416-ff1ec83554db-monte-villa-parkway-bothell-wa-98021.jpg",
+          "neighborhood": {
+            "name": "Bothell",
+            "id": 12,
+            "slug": "bothell"
+          }
+        }
+      },
+      {
+        "name": "Plaza East",
+        "id": "plaza-east",
+        "uid": 38,
+        "location": {
+          "id": 635,
+          "slug": "plaza-east",
+          "name": "Plaza East",
+          "photo": "user_uploads/locations/0ee918f0-643e-11ec-b67a-67dbec83de7b-image-2.jpg",
+          "neighborhood": {
+            "name": "Bellevue",
+            "id": 5,
+            "slug": "bellevue"
+          }
+        }
+      },
+      {
+        "name": "Ridgewood Corporate Center",
+        "id": "ridgewood-corporate",
+        "uid": 266,
+        "location": {
+          "id": 1322,
+          "slug": "ridgewood-corporate-center",
+          "name": "Ridgewood Corporate Square",
+          "photo": "user_uploads/locations/5042a940-22ac-11ef-aa3e-d1a251af1c7e-20200521-26310-1aqgvnr.jpg",
+          "neighborhood": {
+            "name": "Bellevue",
+            "id": 5,
+            "slug": "bellevue"
+          }
+        }
+      },
+      {
+        "name": "Riverview Plaza",
+        "id": "riverview-plaza",
+        "uid": 264,
+        "location": {
+          "id": 1318,
+          "slug": "riverview-plaza",
+          "name": "Riverview Plaza",
+          "photo": "user_uploads/locations/e085bdb0-00d5-11ef-875d-fd51b7e56156-riverview-plaza-.jpg",
+          "neighborhood": {
+            "name": "Tukwila",
+            "id": 47,
+            "slug": "tukwila"
+          }
+        }
+      },
+      {
+        "name": "Saleh's",
+        "id": "saleh-s",
+        "uid": 51,
+        "location": {
+          "id": 164,
+          "slug": "salehs",
+          "name": "Saleh's",
+          "photo": "user_uploads/locations/8b6dd8f0-aaa1-11ea-ad42-4b6a82ff0aef-saleh.jpg",
+          "neighborhood": {
+            "name": "Breweries",
+            "id": 16,
+            "slug": "breweries"
+          }
+        }
+      },
+      {
+        "name": "Shoreline Community College",
+        "id": "shoreline-community-college",
+        "uid": 246,
+        "location": {
+          "id": 1274,
+          "slug": "shoreline-community-college",
+          "name": "Shoreline Community College",
+          "photo": "user_uploads/locations/2eead5d0-eaac-11ed-b39c-d7f502da11df-visit-us.jpg"
+        }
+      },
+      {
+        "name": "Starbucks Center",
+        "id": "starbucks-center",
+        "uid": 30,
+        "location": {
+          "id": 40,
+          "slug": "starbucks-center",
+          "name": "Starbucks Center",
+          "photo": "user_uploads/locations/5b7e6000-cb25-11ec-8f0a-2783bd3b1c10-image001.jpg",
+          "neighborhood": {
+            "name": "SoDo",
+            "id": 4,
+            "slug": "sodo"
+          }
+        }
+      },
+      {
+        "name": "Stoke Space",
+        "id": "stoke-space",
+        "uid": 294,
+        "location": {
+          "id": 1600,
+          "slug": "stoke-space",
+          "name": "Stoke Space",
+          "photo": "user_uploads/locations/d1a6ae00-a87f-11f0-8c1c-219f6e15001b-kent-1-e1733471169825.jpg",
+          "neighborhood": {
+            "name": "Kent",
+            "id": 22,
+            "slug": "kent"
+          }
+        }
+      },
+      {
+        "name": "T-Mobile Campus : Canyon Pointe",
+        "id": "t-mobile-campus-bothell",
+        "uid": 259,
+        "location": {
+          "id": 1312,
+          "slug": "t-mobile-campus-canyon-pointe",
+          "name": "T-Mobile Campus : Canyon Pointe",
+          "photo": "user_uploads/locations/661eaee0-d59e-11ee-997b-bf131095afe0-tmobilebothell.jpeg",
+          "neighborhood": {
+            "name": "Bothell",
+            "id": 12,
+            "slug": "bothell"
+          }
+        }
+      },
+      {
+        "name": "The Eight",
+        "id": "the-eight",
+        "uid": 290,
+        "location": {
+          "id": 1495,
+          "slug": "the-eight",
+          "name": "The Eight",
+          "photo": "user_uploads/locations/334cde30-560b-11f0-990f-65b24ef8bc48-theeight.jpg",
+          "neighborhood": {
+            "name": "Bellevue",
+            "id": 5,
+            "slug": "bellevue"
+          }
+        }
+      },
+      {
+        "name": "The Polyclinic : Northgate Plaza",
+        "id": "the-polyclinic-northgate-plaza",
+        "uid": 162,
+        "location": {
+          "id": 813,
+          "slug": "the-polyclinic-northgate-plaza",
+          "name": "The Polyclinic : Northgate Plaza",
+          "photo": "user_uploads/locations/47ac70a0-bbcb-11ea-8127-fb7491c514e8-northgate-plaza-website.jpg",
+          "neighborhood": {
+            "name": "Northgate",
+            "id": 30,
+            "slug": "northgate"
+          }
+        }
+      },
+      {
+        "name": "West Lake Union Center",
+        "id": "westlake-union-center",
+        "uid": 251,
+        "location": {
+          "id": 1297,
+          "slug": "west-lake-union-center",
+          "name": "West Lake Union Center",
+          "photo": "user_uploads/locations/21f205b0-4e7a-11ee-97a4-d54d1985f81b-ep204953_-_bldg_exterior_from_rt_of_bridge_platform-(2).jpg",
+          "neighborhood": {
+            "name": "South Lake Union",
+            "id": 3,
+            "slug": "south-lake-union"
+          }
+        }
+      },
+      {
+        "name": "Westlake Center",
+        "id": "westlake-center",
+        "uid": 293,
+        "location": {
+          "id": 1092,
+          "slug": "400-pine-st-seattle-wa-98101-usa",
+          "name": "400 Pine St, Seattle, WA 98101, USA",
+          "photo": null
+        }
+      },
+      {
+        "name": "Westlake Park",
+        "id": "westlake-park",
+        "uid": 28,
+        "location": {
+          "id": 38,
+          "slug": "westlake-park",
+          "name": "Westlake Park",
+          "photo": "user_uploads/locations/63f0f040-40f1-11e7-92f4-a3028c19654b-westlake-park.jpg",
+          "neighborhood": {
+            "name": "Downtown",
+            "id": 1,
+            "slug": "downtown"
+          }
+        }
+      }
+    ]
+  },
+  "events_page1": {
+    "pagination": {
+      "page": 1,
+      "total_pages": 141,
+      "total_count": 1401
+    },
+    "events": [
+      {
+        "id": 132477,
+        "name": "California Avenue",
+        "description": null,
+        "start_time": "2026-03-06T03:00:00.000-08:00",
+        "end_time": "2026-03-06T12:00:00.000-08:00",
+        "event_id": 15997,
+        "shift": "Breakfast",
+        "display_name": "California Avenue",
+        "title": "California Avenue"
+      },
+      {
+        "id": 143215,
+        "name": "Corporate event",
+        "description": "Corporate event 90 people entry an side Amber 425-542-0086.\namber.prassad@cmheating.com",
+        "start_time": "2026-03-06T07:00:00.000-08:00",
+        "end_time": "2026-03-06T09:00:00.000-08:00",
+        "event_id": 22001,
+        "shift": "Breakfast",
+        "display_name": "Corporate event",
+        "title": "Corporate event"
+      },
+      {
+        "id": 139197,
+        "name": "Food Truck Fridays : LIVE on Fox13",
+        "description": "",
+        "start_time": "2026-03-06T09:00:00.000-08:00",
+        "end_time": "2026-03-06T13:00:00.000-08:00",
+        "event_id": 8126,
+        "shift": "Breakfast",
+        "display_name": "Food Truck Fridays : LIVE on Fox13",
+        "title": "Food Truck Fridays : LIVE on Fox13"
+      },
+      {
+        "id": 139651,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 8104,
+        "shift": "Lunch",
+        "display_name": "Starbucks Center",
+        "title": ""
+      },
+      {
+        "id": 144126,
+        "name": null,
+        "description": null,
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 22551,
+        "shift": "Lunch",
+        "display_name": "Pfizer - North Creek",
+        "title": "Pfizer - North Creek"
+      },
+      {
+        "id": 144083,
+        "name": "Blue Origin - Kent",
+        "description": null,
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 22508,
+        "shift": "Lunch",
+        "display_name": "Blue Origin - Kent",
+        "title": "Blue Origin - Kent"
+      },
+      {
+        "id": 141639,
+        "name": "Restaurant OPEN DAILY West Seattle ",
+        "description": "Hello, my name is Chef Smoke, founder of TheHomeskillit.com. I am proud to announce the opening of my new restaurant in West Seattle, located at 6045 California Ave SW.\nWe specialize in smoked meats, gourmet sandwiches, and authentic BBQ, featuring six signature sauces and a diverse menu inspired by five cuisines: French Creole, Italian, Mexican, Chinese, and American. Beyond our restaurant offerings, we provide catering and event services, bringing homestyle flavors and \u201cGrandma and Grandpa style Food Love\u201d to every occasion.\nOur menu also includes espresso, drip coffee, pastries, grab-and-go meals, snacks, and drinks, highlighted by Grandma Bea\u2019s Sweet Teas and Lemonades.\n\ud83d\udcc5 Hours of Operation\n\n  *\nMonday\u2013Friday: 11 AM \u2013 7 PM\n  *\nSaturday\u2013Sunday: 10 AM \u2013 4 PM (Brunch)\n  *\nLate Night Eats: Friday & Saturday until 11 PM\n\nWe invite you to stop in, enjoy a taste of our culinary craft, and support a local business built on passion and tradition. For more information or to place an order, contact Chef Smoke at 206-531-9182.\n\n\n",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T19:00:00.000-08:00",
+        "event_id": 20589,
+        "shift": "Lunch",
+        "display_name": "Restaurant OPEN DAILY West Seattle ",
+        "title": "Restaurant OPEN DAILY West Seattle "
+      },
+      {
+        "id": 141498,
+        "name": "Redmond eagles",
+        "description": null,
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:30:00.000-08:00",
+        "event_id": 20582,
+        "shift": "Lunch",
+        "display_name": "Redmond eagles",
+        "title": "Redmond eagles"
+      },
+      {
+        "id": 140060,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 18430,
+        "shift": "Lunch",
+        "display_name": "Westlake Center",
+        "title": ""
+      },
+      {
+        "id": 139936,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 8068,
+        "shift": "Lunch",
+        "display_name": "The Polyclinic : Northgate Plaza",
+        "title": ""
+      }
+    ]
+  },
+  "events_page2": {
+    "pagination": {
+      "page": 2,
+      "total_pages": 141,
+      "total_count": 1401
+    },
+    "events": [
+      {
+        "id": 139805,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 11371,
+        "shift": "Lunch",
+        "display_name": "Expedia Group Campus",
+        "title": ""
+      },
+      {
+        "id": 138737,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 8081,
+        "shift": "Lunch",
+        "display_name": "1201 Eastlake",
+        "title": ""
+      },
+      {
+        "id": 138651,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T11:00:00.000-08:00",
+        "end_time": "2026-03-06T14:00:00.000-08:00",
+        "event_id": 8084,
+        "shift": "Lunch",
+        "display_name": "1551 Eastlake",
+        "title": ""
+      },
+      {
+        "id": 138942,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T15:00:00.000-08:00",
+        "end_time": "2026-03-06T20:00:00.000-08:00",
+        "event_id": 8090,
+        "shift": "Dinner",
+        "display_name": "Black Raven Brewing Company : Woodinville",
+        "title": ""
+      },
+      {
+        "id": 139132,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T16:00:00.000-08:00",
+        "end_time": "2026-03-06T20:00:00.000-08:00",
+        "event_id": 8404,
+        "shift": "Dinner",
+        "display_name": "Broadview Tap House",
+        "title": ""
+      },
+      {
+        "id": 138830,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T16:00:00.000-08:00",
+        "end_time": "2026-03-06T19:00:00.000-08:00",
+        "event_id": 7716,
+        "shift": "Dinner",
+        "display_name": "Black Raven Brewing Company : Redmond",
+        "title": ""
+      },
+      {
+        "id": 147148,
+        "name": "Jin Kim",
+        "description": null,
+        "start_time": "2026-03-06T17:00:00.000-08:00",
+        "end_time": "2026-03-06T19:00:00.000-08:00",
+        "event_id": 22589,
+        "shift": "Dinner",
+        "display_name": "Jin Kim",
+        "title": "Jin Kim"
+      },
+      {
+        "id": 144114,
+        "name": "Stoup Brewing Ballard",
+        "description": null,
+        "start_time": "2026-03-06T17:00:00.000-08:00",
+        "end_time": "2026-03-06T20:00:00.000-08:00",
+        "event_id": 22539,
+        "shift": "Dinner",
+        "display_name": "Stoup Brewing Ballard",
+        "title": "Stoup Brewing Ballard"
+      },
+      {
+        "id": 139731,
+        "name": "",
+        "description": "",
+        "start_time": "2026-03-06T17:00:00.000-08:00",
+        "end_time": "2026-03-06T21:00:00.000-08:00",
+        "event_id": 8093,
+        "shift": "Dinner",
+        "display_name": "Saleh's",
+        "title": ""
+      },
+      {
+        "id": 132478,
+        "name": "California Ave",
+        "description": null,
+        "start_time": "2026-03-07T03:00:00.000-08:00",
+        "end_time": "2026-03-07T13:00:00.000-08:00",
+        "event_id": 15998,
+        "shift": "Breakfast",
+        "display_name": "California Ave",
+        "title": "California Ave"
+      }
+    ]
+  }
+}

@@ -470,4 +470,46 @@ describe('App', () => {
     Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 1024 })
     window.dispatchEvent(new Event('resize'))
   })
+
+  it('shows calendar list (not homepage) on mobile when browser back is pressed from a calendar detail', async () => {
+    // Simulate mobile viewport
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 375 })
+    window.dispatchEvent(new Event('resize'))
+
+    fetch.mockReset()
+    fetch
+      .mockResolvedValueOnce({ ok: true, json: async () => mockManifest })
+      .mockResolvedValueOnce({ ok: true, json: async () => [] })
+
+    render(<App />)
+
+    // Wait for loading to complete (mobile starts in detail/homepage view)
+    await waitFor(() => {
+      expect(screen.queryByText('Loading calendars...')).not.toBeInTheDocument()
+    })
+
+    // Simulate the state the app would be in after a user navigated to a calendar detail:
+    // the URL has view=detail and a calendarId. We test the browser back by simulating
+    // a popstate event with an empty URL (as if the user pressed back from that detail).
+    window.location.hash = '#calendar=test-ripper-calendar1&view=detail'
+    window.dispatchEvent(new Event('hashchange'))
+
+    await waitFor(() => {
+      // In calendar detail view, the sidebar (Happening Soon) is hidden
+      expect(screen.queryByText('Happening Soon')).not.toBeInTheDocument()
+    })
+
+    // Simulate browser back: URL reverts to empty, popstate fires
+    window.location.hash = ''
+    window.dispatchEvent(new PopStateEvent('popstate'))
+
+    // After browser back, mobile should show the calendar list (sidebar), not the homepage
+    await waitFor(() => {
+      expect(screen.getByText('Happening Soon')).toBeInTheDocument()
+    })
+
+    // Clean up
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 1024 })
+    window.dispatchEvent(new Event('resize'))
+  })
 })

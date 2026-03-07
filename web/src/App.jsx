@@ -376,7 +376,7 @@ function App() {
   }, [updateScrollFade, calendars, events])
 
   // URL state management — sync React state from URL hash
-  const syncStateFromURL = useCallback(() => {
+  const syncStateFromURL = useCallback((event) => {
     const params = new URLSearchParams(window.location.hash.slice(1))
     setSearchTerm(params.get('search') || '')
     setSelectedTag(params.get('tag') || '')
@@ -417,8 +417,13 @@ function App() {
     } else if (params.toString() !== '') {
       // URL has tag/search/other params but no view=detail — show sidebar
       setMobileView('list')
+    } else if (isMobile && event?.type === 'popstate') {
+      // Browser back/forward to empty URL on mobile → show calendar list, not homepage.
+      // This happens when the user presses back after navigating into a calendar detail
+      // from an unfiltered list (whose URL was also empty).
+      setMobileView('list')
     } else {
-      // Empty URL — show homepage in detail view
+      // Initial load or home-button reset → show homepage in detail view
       setMobileView('detail')
     }
   }, [calendars, isMobile])

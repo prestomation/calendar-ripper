@@ -411,6 +411,9 @@ function App() {
       setMobileView('detail')
     } else if (urlView === 'happening-soon') {
       setMobileView('detail')
+    } else if (urlTag === '__favorites__') {
+      // Favorites view shows the detail panel (events list), not the calendar sidebar
+      setMobileView('detail')
     } else if (params.toString() !== '') {
       // URL has tag/search/other params but no view=detail — show sidebar
       setMobileView('list')
@@ -504,7 +507,9 @@ function App() {
       setShowHomepage(false)
       setShowHappeningSoon(false)
       if (isMobile) setMobileView('detail')
-      updateURL(searchTerm, tag, null, undefined)
+      // Use replace to avoid hashchange re-triggering syncStateFromURL, which would
+      // override mobileView back to 'list' (since tag=__favorites__ has no view param).
+      updateURL(searchTerm, tag, null, undefined, { replace: true })
       return
     }
 

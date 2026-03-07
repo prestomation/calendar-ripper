@@ -386,4 +386,88 @@ describe('App', () => {
 
     expect(window.location.hash).toContain('view=happening-soon')
   })
+
+  it('shows detail (favorites events) view on mobile when favorites tag is clicked', async () => {
+    // Simulate mobile viewport
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 375 })
+    window.dispatchEvent(new Event('resize'))
+
+    // Set up a favorited calendar in localStorage
+    localStorage.setItem('calendar-ripper-favorites', JSON.stringify(['test-ripper-calendar1.ics']))
+
+    const user = userEvent.setup()
+
+    fetch.mockReset()
+    fetch
+      .mockResolvedValueOnce({ ok: true, json: async () => mockManifest })
+      .mockResolvedValueOnce({ ok: true, json: async () => [] })
+
+    render(<App />)
+
+    // Wait for loading to complete — on mobile, the app starts in 'detail' (homepage) view
+    await waitFor(() => {
+      expect(screen.queryByText('Loading calendars...')).not.toBeInTheDocument()
+    })
+
+    // Press the mobile back button to navigate from homepage to the list (sidebar) view
+    const backBtn = document.querySelector('.mobile-back-btn')
+    await user.click(backBtn)
+
+    // Now in 'list' view, the sidebar with the favorites tag is visible
+    await waitFor(() => {
+      expect(screen.getByText('♥ Favorites')).toBeInTheDocument()
+    })
+
+    // Click the favorites tag
+    await user.click(screen.getByText('♥ Favorites'))
+
+    // The mobile back bar title should show '♥ Favorites', confirming we switched to detail view
+    await waitFor(() => {
+      const backBar = document.querySelector('.mobile-back-bar')
+      expect(backBar).toBeInTheDocument()
+      // In detail view on mobile the sidebar (with 'Happening Soon') is hidden
+      expect(screen.queryByText('Happening Soon')).not.toBeInTheDocument()
+    })
+
+    // Clean up
+    localStorage.removeItem('calendar-ripper-favorites')
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 1024 })
+    window.dispatchEvent(new Event('resize'))
+  })
+
+  it('shows detail (favorites events) view on mobile when navigating directly to #tag=__favorites__', async () => {
+    // Simulate mobile viewport
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 375 })
+    window.dispatchEvent(new Event('resize'))
+
+    // Set up a favorited calendar in localStorage
+    localStorage.setItem('calendar-ripper-favorites', JSON.stringify(['test-ripper-calendar1.ics']))
+
+    // Simulate direct navigation to the favorites URL (e.g., browser bookmark or back/forward)
+    window.location.hash = '#tag=__favorites__'
+
+    fetch.mockReset()
+    fetch
+      .mockResolvedValueOnce({ ok: true, json: async () => mockManifest })
+      .mockResolvedValueOnce({ ok: true, json: async () => [] })
+
+    render(<App />)
+
+    // Wait for loading to complete
+    await waitFor(() => {
+      expect(screen.queryByText('Loading calendars...')).not.toBeInTheDocument()
+    })
+
+    // The sidebar (with 'Happening Soon') should NOT be visible because mobileView is 'detail'
+    expect(screen.queryByText('Happening Soon')).not.toBeInTheDocument()
+
+    // The mobile-back-bar is only rendered in detail view on mobile; it should be present
+    const backBar = document.querySelector('.mobile-back-bar')
+    expect(backBar).toBeInTheDocument()
+
+    // Clean up
+    localStorage.removeItem('calendar-ripper-favorites')
+    Object.defineProperty(window, 'innerWidth', { writable: true, configurable: true, value: 1024 })
+    window.dispatchEvent(new Event('resize'))
+  })
 })

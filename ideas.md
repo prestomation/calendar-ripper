@@ -54,10 +54,9 @@ These external calendars in `sources/external.yaml` are disabled due to endpoint
 
 ### Trumba Calendars
 
-Trumba is a calendar platform used by the City of Seattle, Seattle Public Library, and the University of Washington. All feeds follow the pattern `https://www.trumba.com/calendars/<webname>.ics`. The city-wide Seattle.gov calendar (`seattlegov-city-wide`) is already implemented. The following sub-calendars are confirmed working (HTTP 200, `BEGIN:VCALENDAR`).
+Trumba is a calendar platform used by the City of Seattle, Seattle Public Library, and the University of Washington. All feeds follow the pattern `https://www.trumba.com/calendars/<webname>.ics`. The main City of Seattle and UW calendars are already implemented. The following lower-priority UW sub-calendars are confirmed working but target primarily academic/internal audiences:
 
----
-**Other confirmed-valid UW Trumba feeds** (lower priority — primarily academic/internal audiences):
+**Confirmed-valid UW Trumba feeds** (lower priority — primarily academic/internal audiences):
 - `sea_artsci` — UW College of Arts & Sciences (lectures, prospective student sessions)
 - `sea_info` — UW Information School (program info sessions)
 - `sea_lib` — UW Libraries Seattle (exhibitions, open scholarship workshops)
@@ -79,13 +78,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Auth:** API key
 - **Tags:** Music
 - **Note:** Supports venue-based queries. Could pull events for specific Seattle venues.
-
-### Seattle Public Library (LibCal API)
-- **URL:** https://calendar.spl.org/event-calendar
-- **API:** LibCal REST API v1.1 at `https://calendar.spl.org/1.1/`
-- **Platform:** Springshare LibCal (calendar.spl.org); also uses Trumba on spl.org/event-calendar
-- **Tags:** Community, Education
-- **Note:** Free events across 27 branches — author talks, story times, classes, film screenings, concerts. LibCal has a documented REST API with structured endpoints. High event volume. **Simpler alternative:** the Trumba ICS feed (`https://www.trumba.com/calendars/kalendaro.ics`, `webName: "kalendaro"`) is confirmed working and ready to add to external.yaml — see the ICS Feeds section above.
 
 ### Do206 (Algolia Search API)
 - **URL:** https://do206.com/events

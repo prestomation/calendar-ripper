@@ -54,10 +54,9 @@ These external calendars in `sources/external.yaml` are disabled due to endpoint
 
 ### Trumba Calendars
 
-Trumba is a calendar platform used by the City of Seattle, Seattle Public Library, and the University of Washington. All feeds follow the pattern `https://www.trumba.com/calendars/<webname>.ics`. The city-wide Seattle.gov calendar (`seattlegov-city-wide`) is already implemented. The following sub-calendars are confirmed working (HTTP 200, `BEGIN:VCALENDAR`).
+Trumba is a calendar platform used by the City of Seattle, Seattle Public Library, and the University of Washington. All feeds follow the pattern `https://www.trumba.com/calendars/<webname>.ics`. The main City of Seattle and UW calendars are already implemented. The following lower-priority UW sub-calendars are confirmed working but target primarily academic/internal audiences:
 
----
-**Other confirmed-valid UW Trumba feeds** (lower priority — primarily academic/internal audiences):
+**Confirmed-valid UW Trumba feeds** (lower priority — primarily academic/internal audiences):
 - `sea_artsci` — UW College of Arts & Sciences (lectures, prospective student sessions)
 - `sea_info` — UW Information School (program info sessions)
 - `sea_lib` — UW Libraries Seattle (exhibitions, open scholarship workshops)
@@ -79,13 +78,6 @@ Trumba is a calendar platform used by the City of Seattle, Seattle Public Librar
 - **Auth:** API key
 - **Tags:** Music
 - **Note:** Supports venue-based queries. Could pull events for specific Seattle venues.
-
-### Seattle Public Library (LibCal API)
-- **URL:** https://calendar.spl.org/event-calendar
-- **API:** LibCal REST API v1.1 at `https://calendar.spl.org/1.1/`
-- **Platform:** Springshare LibCal (calendar.spl.org); also uses Trumba on spl.org/event-calendar
-- **Tags:** Community, Education
-- **Note:** Free events across 27 branches — author talks, story times, classes, film screenings, concerts. LibCal has a documented REST API with structured endpoints. High event volume. **Simpler alternative:** the Trumba ICS feed (`https://www.trumba.com/calendars/kalendaro.ics`, `webName: "kalendaro"`) is confirmed working and ready to add to external.yaml — see the ICS Feeds section above.
 
 ### Do206 (Algolia Search API)
 - **URL:** https://do206.com/events
@@ -586,13 +578,6 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 - **Tags:** Music, Food, Ballard
 - **Note:** Rebranded from Ballard SeafoodFest. Annual summer festival.
 
-#### Ballard ArtWalk
-- **Schedule:** Second Saturday of each month
-- **Location:** Ballard neighborhood businesses
-- **URL:** https://ballardalliance.com/programs/community-events/
-- **Tags:** Artwalk, Ballard
-- **Note:** Monthly event since 1997. Businesses host local artists in pop-up galleries.
-
 ## Open Mic Nights (Needs Investigation)
 
 These open mics have unknown or unconfirmed schedules. Verify the specific day before adding to `sources/recurring.yaml`.
@@ -633,14 +618,6 @@ These open mics have unknown or unconfirmed schedules. Verify the specific day b
 - **Note:** A `SquarespaceRipper` base class has been implemented in `lib/config/squarespace.ts`. Wing Luke, NAAM, JCCCW, LANGSTON, On the Boards, Georgetown Trailer Park Mall, and 206 Night Markets are already using it. Seattle Public Theater uses Squarespace for its site but its `/current-season` page is a regular page (not an events collection), so the SquarespaceRipper cannot be used directly — the ticketing API (Arts-People) would need to be explored instead.
 
 ## Feature Ideas
-
-### Source Health Dashboard
-Build a `/health` page on the web UI showing the operational status of all calendar sources:
-- Which sources returned 0 events (and whether that's expected via `expectEmpty`)
-- Which sources had parse errors (from `build-errors.json`)
-- Historical trend tracking — did a source just break, or has it been broken for weeks?
-- Could store history by committing a rolling JSON log to the repo or a separate data branch
-- Helps maintainers quickly identify and triage broken sources without digging through CI logs
 
 ### Cross-Source Event Deduplication
 The same event scraped from multiple sources (e.g., a concert listed on both a venue's site and Ticketmaster) currently appears multiple times in aggregate tag feeds. Implement fuzzy matching on title + date + venue to deduplicate:

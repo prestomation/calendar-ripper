@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-07T23:44:50.382Z",
+  "buildTime": "2026-03-07T23:59:59.057Z",
   "totalErrors": 19,
   "configErrors": [],
   "sources": [
@@ -11,8 +11,8 @@
       "errors": [
         {
           "type": "ParseError",
-          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
-          "context": ""
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
         }
       ]
     },
@@ -128,8 +128,8 @@
       "errors": [
         {
           "type": "ParseError",
-          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
-          "context": ""
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
         }
       ]
     },
@@ -164,8 +164,8 @@
       "errors": [
         {
           "type": "ParseError",
-          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
-          "context": ""
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
         },
         {
           "type": "ParseError",
@@ -182,8 +182,8 @@
       "errors": [
         {
           "type": "ParseError",
-          "reason": "Ripper crashed: Error: WP REST API error: 403 Forbidden",
-          "context": ""
+          "reason": "No Event schema.org JSON-LD found",
+          "context": "https://rainierartscenter.org/events/los-caballeros-las-prefieren-brutas/"
         },
         {
           "type": "ParseError",
@@ -213,7 +213,6 @@
   ],
   "zeroEventCalendars": [
     "naam-all-events",
-    "rainier-arts-center-rainier-arts-center",
     "sam-sam-downtown",
     "sam-sam-asian-art",
     "sam-sam-sculpture-park",

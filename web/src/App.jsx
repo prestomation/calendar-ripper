@@ -201,6 +201,7 @@ function App() {
   // When the browser fires a history navigation (back/forward), both popstate AND hashchange
   // fire (popstate first). This ref prevents the hashchange from overriding the popstate result.
   const popstateJustFiredRef = useRef(false)
+  const savedCalendarListScrollRef = useRef(0)
   const searchInputRef = useRef(null)
   
   // Track current day-group-header on mobile scroll for the back bar
@@ -476,6 +477,13 @@ function App() {
     }
   }, [calendars.length])
 
+  // Restore the saved calendar list scroll position when returning to the list on mobile
+  useEffect(() => {
+    if (isMobile && mobileView === 'list' && calendarListRef.current && savedCalendarListScrollRef.current > 0) {
+      calendarListRef.current.scrollTop = savedCalendarListScrollRef.current
+    }
+  }, [isMobile, mobileView])
+
   const updateURL = (search, tag, calendar, view, { replace = false } = {}) => {
     const params = new URLSearchParams()
     if (search) params.set('search', search)
@@ -587,7 +595,13 @@ function App() {
     setSelectedCalendar(calendarWithRipper)
     setShowHomepage(false)
     setShowHappeningSoon(false)
-    if (isMobile) setMobileView('detail')
+    if (isMobile) {
+      // Save the calendar list scroll position so we can restore it when the user goes back
+      if (calendarListRef.current) {
+        savedCalendarListScrollRef.current = calendarListRef.current.scrollTop
+      }
+      setMobileView('detail')
+    }
     // When clicking a calendar that matched by name/description, clear the search
     // so the user sees all events for the calendar they were looking for
     const isNameMatch = searchTerm && calendarNameMatches.has(`${ripperName}-${calendar.name}`)

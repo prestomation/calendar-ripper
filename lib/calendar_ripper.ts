@@ -9,6 +9,7 @@ import {
   ExternalCalendar,
   RipperCalendar,
 } from "./config/schema.js";
+import { toRSS } from "./config/rss.js";
 import { join, dirname } from "path";
 import { parse } from "yaml";
 import { fileURLToPath } from "url";
@@ -30,6 +31,8 @@ import ICAL from "ical.js";
 // Get the directory name in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+const SITE_BASE_URL = process.env.SITE_BASE_URL || "https://prestomation.github.io/calendar-ripper/";
 
 /**
  * Check if ICS content contains any events with a start date on or after today.
@@ -387,6 +390,8 @@ export const main = async () => {
       });
     }
     recurringWritePromises.push(writeFile(`output/${icsPath}`, icsString));
+    const rssPath = icsPath.replace('.ics', '.rss');
+    recurringWritePromises.push(writeFile(`output/${rssPath}`, toRSS(calendar, { baseUrl: SITE_BASE_URL })));
     recurringWritePromises.push(writeFile(
       `output/${errorsPath}`,
       JSON.stringify(calendar.errors, null, 2)
@@ -511,6 +516,8 @@ export const main = async () => {
         });
       }
       writePromises.push(writeFile(`output/${icsPath}`, icsString));
+      const rssPath = icsPath.replace('.ics', '.rss');
+      writePromises.push(writeFile(`output/${rssPath}`, toRSS(calendar, { baseUrl: SITE_BASE_URL, friendlyLink: config.config.friendlyLink })));
       writePromises.push(writeFile(
         `output/${errorsPath}`,
         JSON.stringify(calendar.errors, null, 2)
@@ -619,6 +626,8 @@ export const main = async () => {
       }
 
       aggregateWritePromises.push(writeFile(`output/${icsPath}`, icsString));
+      const rssPath = icsPath.replace('.ics', '.rss');
+      aggregateWritePromises.push(writeFile(`output/${rssPath}`, toRSS(calendar, { baseUrl: SITE_BASE_URL })));
       aggregateWritePromises.push(writeFile(
         `output/${errorsPath}`,
         JSON.stringify(calendar.errors, null, 2)
@@ -734,6 +743,7 @@ END:VCALENDAR`;
           name: calendar.name,
           friendlyName: calendar.friendlyname,
           icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
+          rssUrl: `${ripper.config.name}-${calendar.name}.rss`,
           tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
         }))
     })).filter(ripper => ripper.calendars.length > 0),
@@ -743,6 +753,7 @@ END:VCALENDAR`;
         name: calendar.name,
         friendlyName: calendar.friendlyname,
         icsUrl: `recurring-${calendar.name}.ics`,
+        rssUrl: `recurring-${calendar.name}.rss`,
         tags: calendar.tags || []
       })),
     externalCalendars: activeExternalCalendars

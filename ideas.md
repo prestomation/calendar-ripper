@@ -650,14 +650,6 @@ The same event scraped from multiple sources (e.g., a concert listed on both a v
 - Keep the version with the most complete metadata (description, location, URL)
 - Apply deduplication at the tag aggregation stage so individual source feeds remain unchanged
 
-### RSS/Atom Feed Generation
-Generate RSS/Atom feeds alongside `.ics` files for users who prefer feed readers over calendar apps:
-- One RSS feed per source (mirrors the `.ics` output)
-- One RSS feed per tag aggregate
-- RSS is better for "discovery" (seeing new events as they're added) vs calendar's "scheduling" model
-- Each item would include event title, date, location, description, and a link to the source
-- Could generate during the same build step that produces `.ics` files
-
 ### Comedy Tag & Comedy Venue Sources
 Add a `Comedy` tag to `lib/config/tags.ts` and implement rippers for Seattle comedy venues. Several are already documented in this file with confirmed Eventbrite organizer IDs:
 - Laughs Comedy Club (Eventbrite `29222289085`)

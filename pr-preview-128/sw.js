@@ -1,11 +1,11 @@
 // Service Worker for Seattle Community Calendars
 // Provides offline support via cache-first (app shell) and stale-while-revalidate (data)
 
-const APP_SHELL_CACHE = 'app-shell-vba3d05df'
+const APP_SHELL_CACHE = 'app-shell-vfd06ca96'
 const DATA_CACHE = 'data-v1'
 
 // Populated at build time by scripts/inject-sw-assets.mjs
-const APP_SHELL_URLS = ["./assets/index-CZPzNgiU.js","./assets/index-CdUKR-jR.css","./index.html","./"]
+const APP_SHELL_URLS = ["./assets/index-B6w2Fhkt.js","./assets/index-CdUKR-jR.css","./index.html","./"]
 
 const DATA_URL_PATTERNS = [
   /manifest\.json$/,

@@ -198,6 +198,9 @@ function App() {
   const tagsRef = useRef(null)
   const calendarListRef = useRef(null)
   const agendaRef = useRef(null)
+  // When the browser fires a history navigation (back/forward), both popstate AND hashchange
+  // fire (popstate first). This ref prevents the hashchange from overriding the popstate result.
+  const popstateJustFiredRef = useRef(false)
   const searchInputRef = useRef(null)
   
   // Track current day-group-header on mobile scroll for the back bar
@@ -430,13 +433,30 @@ function App() {
 
   useEffect(() => {
     syncStateFromURL()
-    // hashchange: handles direct hash edits / home button resets
-    window.addEventListener('hashchange', syncStateFromURL)
-    // popstate: handles Android back button / browser back
-    window.addEventListener('popstate', syncStateFromURL)
+
+    // popstate: handles browser back / Android hardware back.
+    // When the hash changes due to history navigation, browsers fire popstate THEN hashchange.
+    // We set a flag so the trailing hashchange doesn't re-run syncStateFromURL and undo
+    // the popstate result (e.g. resetting mobileView back to 'detail'/homepage).
+    const onPopstate = (event) => {
+      popstateJustFiredRef.current = true
+      syncStateFromURL(event)
+      // Clear the flag after hashchange has had a chance to fire (same task, next microtask).
+      setTimeout(() => { popstateJustFiredRef.current = false }, 0)
+    }
+
+    // hashchange: handles direct hash edits, home-button resets, and window.location.hash
+    // assignments from within the app. Skip if a popstate already handled this navigation.
+    const onHashchange = (event) => {
+      if (popstateJustFiredRef.current) return
+      syncStateFromURL(event)
+    }
+
+    window.addEventListener('hashchange', onHashchange)
+    window.addEventListener('popstate', onPopstate)
     return () => {
-      window.removeEventListener('hashchange', syncStateFromURL)
-      window.removeEventListener('popstate', syncStateFromURL)
+      window.removeEventListener('hashchange', onHashchange)
+      window.removeEventListener('popstate', onPopstate)
     }
   }, [syncStateFromURL])
 

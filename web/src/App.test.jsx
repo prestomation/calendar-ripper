@@ -499,9 +499,12 @@ describe('App', () => {
       expect(screen.queryByText('Happening Soon')).not.toBeInTheDocument()
     })
 
-    // Simulate browser back: URL reverts to empty, popstate fires
+    // Simulate browser back: URL reverts to empty.
+    // Real browsers fire popstate THEN hashchange for history navigations that change the hash.
+    // The hashchange must NOT override the popstate result (resetting to homepage).
     window.location.hash = ''
     window.dispatchEvent(new PopStateEvent('popstate'))
+    window.dispatchEvent(new Event('hashchange'))  // browsers fire this right after popstate
 
     // After browser back, mobile should show the calendar list (sidebar), not the homepage
     await waitFor(() => {

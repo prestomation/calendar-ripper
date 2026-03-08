@@ -619,6 +619,8 @@ function App() {
       setMobileView('detail')
     } else if (urlView === 'happening-soon') {
       setMobileView('detail')
+    } else if (urlView === 'health') {
+      setMobileView('detail')
     } else if (urlTag === '__favorites__') {
       // Favorites view shows the detail panel (events list), not the calendar sidebar
       setMobileView('detail')

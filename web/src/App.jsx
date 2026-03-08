@@ -198,6 +198,10 @@ function App() {
   const tagsRef = useRef(null)
   const calendarListRef = useRef(null)
   const agendaRef = useRef(null)
+  // When the browser fires a history navigation (back/forward), both popstate AND hashchange
+  // fire (popstate first). This ref prevents the hashchange from overriding the popstate result.
+  const popstateJustFiredRef = useRef(false)
+  const savedCalendarListScrollRef = useRef(0)
   const searchInputRef = useRef(null)
   
   // Track current day-group-header on mobile scroll for the back bar
@@ -376,7 +380,7 @@ function App() {
   }, [updateScrollFade, calendars, events])
 
   // URL state management — sync React state from URL hash
-  const syncStateFromURL = useCallback(() => {
+  const syncStateFromURL = useCallback((event) => {
     const params = new URLSearchParams(window.location.hash.slice(1))
     setSearchTerm(params.get('search') || '')
     setSelectedTag(params.get('tag') || '')
@@ -411,24 +415,49 @@ function App() {
       setMobileView('detail')
     } else if (urlView === 'happening-soon') {
       setMobileView('detail')
+    } else if (urlTag === '__favorites__') {
+      // Favorites view shows the detail panel (events list), not the calendar sidebar
+      setMobileView('detail')
     } else if (params.toString() !== '') {
       // URL has tag/search/other params but no view=detail — show sidebar
       setMobileView('list')
+    } else if (isMobile && event?.type === 'popstate') {
+      // Browser back/forward to empty URL on mobile → show calendar list, not homepage.
+      // This happens when the user presses back after navigating into a calendar detail
+      // from an unfiltered list (whose URL was also empty).
+      setMobileView('list')
     } else {
-      // Empty URL — show homepage in detail view
+      // Initial load or home-button reset → show homepage in detail view
       setMobileView('detail')
     }
   }, [calendars, isMobile])
 
   useEffect(() => {
     syncStateFromURL()
-    // hashchange: handles direct hash edits / home button resets
-    window.addEventListener('hashchange', syncStateFromURL)
-    // popstate: handles Android back button / browser back
-    window.addEventListener('popstate', syncStateFromURL)
+
+    // popstate: handles browser back / Android hardware back.
+    // When the hash changes due to history navigation, browsers fire popstate THEN hashchange.
+    // We set a flag so the trailing hashchange doesn't re-run syncStateFromURL and undo
+    // the popstate result (e.g. resetting mobileView back to 'detail'/homepage).
+    const onPopstate = (event) => {
+      popstateJustFiredRef.current = true
+      syncStateFromURL(event)
+      // Clear the flag after hashchange has had a chance to fire (same task, next microtask).
+      setTimeout(() => { popstateJustFiredRef.current = false }, 0)
+    }
+
+    // hashchange: handles direct hash edits, home-button resets, and window.location.hash
+    // assignments from within the app. Skip if a popstate already handled this navigation.
+    const onHashchange = (event) => {
+      if (popstateJustFiredRef.current) return
+      syncStateFromURL(event)
+    }
+
+    window.addEventListener('hashchange', onHashchange)
+    window.addEventListener('popstate', onPopstate)
     return () => {
-      window.removeEventListener('hashchange', syncStateFromURL)
-      window.removeEventListener('popstate', syncStateFromURL)
+      window.removeEventListener('hashchange', onHashchange)
+      window.removeEventListener('popstate', onPopstate)
     }
   }, [syncStateFromURL])
 
@@ -447,6 +476,13 @@ function App() {
       }
     }
   }, [calendars.length])
+
+  // Restore the saved calendar list scroll position when returning to the list on mobile
+  useEffect(() => {
+    if (isMobile && mobileView === 'list' && calendarListRef.current && savedCalendarListScrollRef.current > 0) {
+      calendarListRef.current.scrollTop = savedCalendarListScrollRef.current
+    }
+  }, [isMobile, mobileView])
 
   const updateURL = (search, tag, calendar, view, { replace = false } = {}) => {
     const params = new URLSearchParams()
@@ -504,7 +540,9 @@ function App() {
       setShowHomepage(false)
       setShowHappeningSoon(false)
       if (isMobile) setMobileView('detail')
-      updateURL(searchTerm, tag, null, undefined)
+      // Use replace to avoid hashchange re-triggering syncStateFromURL, which would
+      // override mobileView back to 'list' (since tag=__favorites__ has no view param).
+      updateURL(searchTerm, tag, null, undefined, { replace: true })
       return
     }
 
@@ -557,7 +595,13 @@ function App() {
     setSelectedCalendar(calendarWithRipper)
     setShowHomepage(false)
     setShowHappeningSoon(false)
-    if (isMobile) setMobileView('detail')
+    if (isMobile) {
+      // Save the calendar list scroll position so we can restore it when the user goes back
+      if (calendarListRef.current) {
+        savedCalendarListScrollRef.current = calendarListRef.current.scrollTop
+      }
+      setMobileView('detail')
+    }
     // When clicking a calendar that matched by name/description, clear the search
     // so the user sees all events for the calendar they were looking for
     const isNameMatch = searchTerm && calendarNameMatches.has(`${ripperName}-${calendar.name}`)

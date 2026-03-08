@@ -586,13 +586,6 @@ These are fixed-schedule events that can be added to `sources/recurring.yaml` wi
 - **Tags:** Music, Food, Ballard
 - **Note:** Rebranded from Ballard SeafoodFest. Annual summer festival.
 
-#### Ballard ArtWalk
-- **Schedule:** Second Saturday of each month
-- **Location:** Ballard neighborhood businesses
-- **URL:** https://ballardalliance.com/programs/community-events/
-- **Tags:** Artwalk, Ballard
-- **Note:** Monthly event since 1997. Businesses host local artists in pop-up galleries.
-
 ## Open Mic Nights (Needs Investigation)
 
 These open mics have unknown or unconfirmed schedules. Verify the specific day before adding to `sources/recurring.yaml`.

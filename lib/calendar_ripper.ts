@@ -876,6 +876,12 @@ END:VCALENDAR`;
     externalCalendarFailures,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    eventCounts: eventCounts.map(c => ({
+      name: c.name,
+      type: c.type,
+      events: c.events,
+      expectEmpty: c.expectEmpty || false,
+    })),
   };
   await writeFile(
     "output/build-errors.json",

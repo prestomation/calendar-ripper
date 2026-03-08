@@ -51,6 +51,198 @@ function EventDescription({ text }) {
   return <div className="event-details">{text}</div>
 }
 
+function HealthDashboard({ buildErrors, calendars }) {
+  const [expandedSource, setExpandedSource] = useState(null)
+
+  if (!buildErrors) {
+    return (
+      <div className="health-dashboard">
+        <h1>Source Health Dashboard</h1>
+        <p className="health-unavailable">Build errors data is not available. The health dashboard requires a successful build to generate data.</p>
+      </div>
+    )
+  }
+
+  const eventCountMap = {}
+  if (buildErrors.eventCounts) {
+    buildErrors.eventCounts.forEach(c => { eventCountMap[c.name] = c })
+  }
+
+  const errorMap = {}
+  if (buildErrors.sources) {
+    buildErrors.sources.forEach(s => {
+      const key = `${s.source}-${s.calendar}`
+      errorMap[key] = s
+    })
+  }
+
+  const zeroSet = new Set(buildErrors.zeroEventCalendars || [])
+  const expectedEmptySet = new Set(buildErrors.expectedEmptyCalendars || [])
+
+  // Build a unified source list from eventCounts (most complete) or fallback to calendars
+  const sources = buildErrors.eventCounts
+    ? buildErrors.eventCounts.map(c => {
+        const errorKey = Object.keys(errorMap).find(k => k.endsWith(`-${c.name}`) || k === c.name)
+        const errorEntry = errorKey ? errorMap[errorKey] : null
+        let status = 'ok'
+        if (errorEntry && errorEntry.errorCount > 0) status = 'error'
+        else if (c.events === 0 && !c.expectEmpty) status = 'warning'
+        else if (c.events === 0 && c.expectEmpty) status = 'expected-empty'
+        return {
+          name: c.name,
+          type: c.type,
+          events: c.events,
+          errors: errorEntry?.errorCount || 0,
+          errorDetails: errorEntry?.errors || [],
+          status,
+          expectEmpty: c.expectEmpty,
+        }
+      })
+    : [] // No eventCounts available in older builds
+
+  // Sort: errors first, then warnings, then expected-empty, then ok
+  const statusOrder = { error: 0, warning: 1, 'expected-empty': 2, ok: 3 }
+  sources.sort((a, b) => statusOrder[a.status] - statusOrder[b.status])
+
+  const healthyCount = sources.filter(s => s.status === 'ok').length
+  const errorCount = sources.filter(s => s.status === 'error').length
+  const warningCount = sources.filter(s => s.status === 'warning').length
+  const expectedEmptyCount = sources.filter(s => s.status === 'expected-empty').length
+  const totalEvents = sources.reduce((sum, s) => sum + s.events, 0)
+
+  const configErrors = buildErrors.configErrors || []
+  const externalFailures = buildErrors.externalCalendarFailures || []
+
+  const statusIcon = (status) => {
+    if (status === 'ok') return <span className="health-status-dot health-status-ok" title="Healthy" />
+    if (status === 'error') return <span className="health-status-dot health-status-error" title="Has errors" />
+    if (status === 'warning') return <span className="health-status-dot health-status-warning" title="Zero events (unexpected)" />
+    if (status === 'expected-empty') return <span className="health-status-dot health-status-expected-empty" title="Zero events (expected)" />
+    return null
+  }
+
+  return (
+    <div className="health-dashboard">
+      <h1>Source Health Dashboard</h1>
+      <p className="health-subtitle">
+        Last built: {new Date(buildErrors.buildTime).toLocaleString()}
+      </p>
+
+      <div className="health-summary">
+        <div className="health-card">
+          <div className="health-card-value">{sources.length}</div>
+          <div className="health-card-label">Total Sources</div>
+        </div>
+        <div className="health-card health-card--ok">
+          <div className="health-card-value">{healthyCount}</div>
+          <div className="health-card-label">Healthy</div>
+        </div>
+        <div className="health-card health-card--error">
+          <div className="health-card-value">{errorCount}</div>
+          <div className="health-card-label">With Errors</div>
+        </div>
+        <div className="health-card health-card--warning">
+          <div className="health-card-value">{warningCount}</div>
+          <div className="health-card-label">Zero Events</div>
+        </div>
+        {expectedEmptyCount > 0 && (
+          <div className="health-card">
+            <div className="health-card-value">{expectedEmptyCount}</div>
+            <div className="health-card-label">Expected Empty</div>
+          </div>
+        )}
+        <div className="health-card">
+          <div className="health-card-value">{totalEvents}</div>
+          <div className="health-card-label">Total Events</div>
+        </div>
+      </div>
+
+      {configErrors.length > 0 && (
+        <div className="health-section">
+          <h2>Configuration Errors ({configErrors.length})</h2>
+          <div className="health-error-list">
+            {configErrors.map((err, i) => (
+              <div key={i} className="health-error-item">
+                <span className="health-error-type">{err.type}</span>
+                <span className="health-error-reason">{err.reason || err.error}</span>
+                {err.path && <span className="health-error-path">{err.path}</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {externalFailures.length > 0 && (
+        <div className="health-section">
+          <h2>External Calendar Failures ({externalFailures.length})</h2>
+          <div className="health-error-list">
+            {externalFailures.map((f, i) => (
+              <div key={i} className="health-error-item">
+                <span className="health-error-type">{f.friendlyName || f.name}</span>
+                <span className="health-error-reason">{f.error}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {sources.length > 0 && (
+        <div className="health-section">
+          <h2>Source Status</h2>
+          <div className="health-table-wrapper">
+            <table className="health-table">
+              <thead>
+                <tr>
+                  <th>Status</th>
+                  <th>Source</th>
+                  <th>Type</th>
+                  <th>Events</th>
+                  <th>Errors</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sources.map(source => (
+                  <tr
+                    key={source.name}
+                    className={`health-row health-row--${source.status} ${source.errorDetails.length > 0 ? 'health-row--expandable' : ''}`}
+                    onClick={() => source.errorDetails.length > 0 && setExpandedSource(expandedSource === source.name ? null : source.name)}
+                  >
+                    <td>{statusIcon(source.status)}</td>
+                    <td className="health-source-name">
+                      {source.name}
+                      {source.errorDetails.length > 0 && (
+                        <span className="health-expand-icon">{expandedSource === source.name ? '▼' : '▶'}</span>
+                      )}
+                      {expandedSource === source.name && (
+                        <div className="health-error-details" onClick={e => e.stopPropagation()}>
+                          {source.errorDetails.map((err, i) => (
+                            <div key={i} className="health-error-detail">
+                              <span className="health-error-type">{err.type}</span>
+                              <span className="health-error-reason">{err.reason}</span>
+                              {err.context && <span className="health-error-context">{err.context}</span>}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </td>
+                    <td>{source.type}</td>
+                    <td>{source.events}{source.expectEmpty && source.events === 0 ? ' (expected)' : ''}</td>
+                    <td>{source.errors > 0 ? source.errors : ''}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {buildErrors.totalErrors > 0 && (
+        <p className="health-total-errors">Total parse errors across all sources: {buildErrors.totalErrors}</p>
+      )}
+    </div>
+  )
+}
+
 function App() {
   const [calendars, setCalendars] = useState([])
   const [manifest, setManifest] = useState(null)
@@ -59,6 +251,8 @@ function App() {
   const [selectedCalendar, setSelectedCalendar] = useState(null)
   const [showHomepage, setShowHomepage] = useState(true)
   const [showHappeningSoon, setShowHappeningSoon] = useState(false)
+  const [showHealthDashboard, setShowHealthDashboard] = useState(false)
+  const [buildErrors, setBuildErrors] = useState(null)
   const [events, setEvents] = useState([])
   const [eventsIndex, setEventsIndex] = useState([])
   const [loading, setLoading] = useState(true)
@@ -387,7 +581,14 @@ function App() {
     const calendarId = params.get('calendar')
     const urlView = params.get('view')
     const urlTag = params.get('tag') || ''
-    if (urlTag === '__favorites__') {
+    if (urlView === 'health') {
+      setShowHealthDashboard(true)
+      setShowHomepage(false)
+      setShowHappeningSoon(false)
+      setSelectedCalendar(null)
+      if (isMobile) setMobileView('detail')
+    } else if (urlTag === '__favorites__') {
+      setShowHealthDashboard(false)
       setSelectedCalendar(null)
       setShowHomepage(false)
       setShowHappeningSoon(false)
@@ -395,6 +596,7 @@ function App() {
     } else if (urlView === 'happening-soon') {
       setShowHappeningSoon(true)
       setShowHomepage(false)
+      setShowHealthDashboard(false)
       setSelectedCalendar(null)
       if (isMobile) setMobileView('detail')
     } else if (calendarId && calendars.length > 0) {
@@ -403,12 +605,14 @@ function App() {
         setSelectedCalendar(calendar)
         setShowHomepage(false)
         setShowHappeningSoon(false)
+        setShowHealthDashboard(false)
       }
     } else if (!calendarId) {
       // No calendar in URL — reset to homepage
       setSelectedCalendar(null)
       setShowHomepage(true)
       setShowHappeningSoon(false)
+      setShowHealthDashboard(false)
     }
     // Sync mobile view from URL
     if (urlView === 'detail') {
@@ -491,6 +695,7 @@ function App() {
     if (calendar) params.set('calendar', `${calendar.ripperName}-${calendar.name}`)
     if (view === 'detail') params.set('view', 'detail')
     if (view === 'happening-soon') params.set('view', 'happening-soon')
+    if (view === 'health') params.set('view', 'health')
     const hash = params.toString()
     if (replace) {
       history.replaceState(null, '', hash ? '#' + hash : window.location.pathname)
@@ -539,6 +744,7 @@ function App() {
       setSelectedCalendar(null)
       setShowHomepage(false)
       setShowHappeningSoon(false)
+      setShowHealthDashboard(false)
       if (isMobile) setMobileView('detail')
       // Use replace to avoid hashchange re-triggering syncStateFromURL, which would
       // override mobileView back to 'list' (since tag=__favorites__ has no view param).
@@ -586,6 +792,7 @@ function App() {
     setSelectedCalendar(tagCalendar)
     setShowHomepage(false)
     setShowHappeningSoon(false)
+    setShowHealthDashboard(false)
     if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, tagCalendar, isMobile ? 'detail' : undefined)
   }
@@ -595,6 +802,7 @@ function App() {
     setSelectedCalendar(calendarWithRipper)
     setShowHomepage(false)
     setShowHappeningSoon(false)
+    setShowHealthDashboard(false)
     if (isMobile) {
       // Save the calendar list scroll position so we can restore it when the user goes back
       if (calendarListRef.current) {
@@ -613,6 +821,7 @@ function App() {
   const handleHappeningSoon = () => {
     setShowHappeningSoon(true)
     setShowHomepage(false)
+    setShowHealthDashboard(false)
     setSelectedCalendar(null)
     if (isMobile) setMobileView('detail')
     updateURL(searchTerm, selectedTag, null, 'happening-soon')
@@ -781,6 +990,16 @@ function App() {
           }
         } catch (e) {
           console.warn('Events index not available, event search disabled')
+        }
+
+        // Load build errors for health dashboard
+        try {
+          const errorsResponse = await fetch('./build-errors.json')
+          if (errorsResponse.ok) {
+            setBuildErrors(await errorsResponse.json())
+          }
+        } catch (e) {
+          console.warn('Build errors not available, health dashboard will show limited data')
         }
       } catch (error) {
         console.error('Failed to load calendars:', error)
@@ -1342,6 +1561,7 @@ function App() {
               setSelectedCalendar(null)
               setShowHomepage(true)
               setShowHappeningSoon(false)
+              setShowHealthDashboard(false)
               setMobileView(isMobile ? 'detail' : 'list')
               window.location.hash = ''
             }}
@@ -2311,6 +2531,8 @@ function App() {
               </div>
             )}
           </div>
+        ) : showHealthDashboard ? (
+          <HealthDashboard buildErrors={buildErrors} calendars={calendars} />
         ) : showHomepage ? (
           <div className="homepage">
             <h1>Seattle Community Calendars</h1>
@@ -2560,6 +2782,21 @@ function App() {
               {manifest && (
                 <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
               )}
+              {' • '}
+              <a
+                href="#view=health"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setShowHealthDashboard(true)
+                  setShowHomepage(false)
+                  setShowHappeningSoon(false)
+                  setSelectedCalendar(null)
+                  if (isMobile) setMobileView('detail')
+                  updateURL('', '', null, 'health')
+                }}
+              >
+                Source Health
+              </a>
             </p>
           </div>
         </footer>

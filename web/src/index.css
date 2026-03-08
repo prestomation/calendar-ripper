@@ -1995,3 +1995,253 @@ body {
     bottom: 16px;
   }
 }
+
+/* Health Dashboard */
+.health-dashboard {
+  padding: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.health-dashboard h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 4px 0;
+}
+
+.health-subtitle {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0 0 20px 0;
+}
+
+.health-unavailable {
+  color: var(--text-secondary);
+  margin-top: 16px;
+}
+
+.health-summary {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.health-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.health-card--ok {
+  border-color: #28a745;
+  background: rgba(40, 167, 69, 0.08);
+}
+
+.health-card--error {
+  border-color: var(--color-error);
+  background: rgba(220, 53, 69, 0.08);
+}
+
+.health-card--warning {
+  border-color: #ffc107;
+  background: rgba(255, 193, 7, 0.08);
+}
+
+.health-card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.health-card-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.health-section {
+  margin-bottom: 24px;
+}
+
+.health-section h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0 0 8px 0;
+}
+
+.health-error-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.health-error-item {
+  background: var(--bg-muted);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.health-error-type {
+  font-weight: 600;
+  color: var(--color-error);
+  font-size: 12px;
+}
+
+.health-error-reason {
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+.health-error-path {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.health-table-wrapper {
+  overflow-x: auto;
+}
+
+.health-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.health-table th {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border-color-strong);
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.health-table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.health-row--expandable {
+  cursor: pointer;
+}
+
+.health-row--expandable:hover {
+  background: var(--hover-overlay);
+}
+
+.health-row--error td {
+  background: rgba(220, 53, 69, 0.04);
+}
+
+.health-row--warning td {
+  background: rgba(255, 193, 7, 0.04);
+}
+
+.health-status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.health-status-ok {
+  background: #28a745;
+}
+
+.health-status-error {
+  background: var(--color-error);
+}
+
+.health-status-warning {
+  background: #ffc107;
+}
+
+.health-status-expected-empty {
+  background: var(--text-muted);
+}
+
+.health-source-name {
+  position: relative;
+}
+
+.health-expand-icon {
+  font-size: 10px;
+  margin-left: 6px;
+  color: var(--text-muted);
+}
+
+.health-error-details {
+  margin-top: 8px;
+  padding: 8px;
+  background: var(--bg-muted);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.health-error-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 12px;
+}
+
+.health-error-context {
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.health-total-errors {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+@media (max-width: 767px) {
+  .health-dashboard {
+    padding: 16px;
+  }
+
+  .health-summary {
+    gap: 8px;
+  }
+
+  .health-card {
+    min-width: 80px;
+    padding: 8px 12px;
+    flex: 1;
+  }
+
+  .health-card-value {
+    font-size: 22px;
+  }
+
+  .health-table {
+    font-size: 12px;
+  }
+
+  .health-table th,
+  .health-table td {
+    padding: 6px 8px;
+  }
+}

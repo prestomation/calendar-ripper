@@ -627,14 +627,6 @@ These open mics have unknown or unconfirmed schedules. Verify the specific day b
 
 ## Feature Ideas
 
-### Source Health Dashboard
-Build a `/health` page on the web UI showing the operational status of all calendar sources:
-- Which sources returned 0 events (and whether that's expected via `expectEmpty`)
-- Which sources had parse errors (from `build-errors.json`)
-- Historical trend tracking — did a source just break, or has it been broken for weeks?
-- Could store history by committing a rolling JSON log to the repo or a separate data branch
-- Helps maintainers quickly identify and triage broken sources without digging through CI logs
-
 ### Cross-Source Event Deduplication
 The same event scraped from multiple sources (e.g., a concert listed on both a venue's site and Ticketmaster) currently appears multiple times in aggregate tag feeds. Implement fuzzy matching on title + date + venue to deduplicate:
 - Normalize event titles (strip "LIVE:", "presents:", casing differences)

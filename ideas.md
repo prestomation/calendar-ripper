@@ -636,3 +636,89 @@ Add a `Comedy` tag to `lib/config/tags.ts` and implement rippers for Seattle com
 - Emerald City Comedy Club (SeatEngine — needs investigation)
 - Here-After at The Crocodile (may overlap with existing `crocodile` ripper)
 This would fill a clear content gap — comedy is one of the most popular event categories with no tag or dedicated sources today.
+
+### Seattle Center Festal — Recurring Cultural Festivals
+Seattle Center Festal is a series of 25 free cultural festivals running February through November, celebrating diverse communities. Since individual festivals have fixed annual dates and no ICS feed is available, add all 25 as recurring entries in `sources/recurring.yaml`. This would provide excellent multicultural event coverage with no scraping required.
+
+2026 schedule includes:
+- Tet in Seattle (Feb), Irish Festival (Mar), French Fest (Mar), Cherry Blossom & Japanese Cultural Festival (Apr), AANHPI Heritage Month (May), A Glimpse of China (May), Spirit of Africa (May), Pagdiriwang Philippine Festival (Jun), Indigenous People Festival (Jun), Seattle Iranian Festival (Jun), Polish Festival (Jul), Seattle Arab Festival (Jul), A Day in Punjab (Aug), Tibet Fest (Aug), BrasilFest (Aug), Festival Sundiata / Black Arts Fest (Aug), Live Aloha Hawaiian Cultural Festival (Sep), Sea Mar Fiestas Patrias (Sep), Italian Festival (Sep), CroatiaFest (Oct), Turkfest (Oct), Dia de Muertos Festival (Oct-Nov), Diwali: Lights of India (Nov), Seattle Hmong New Year (Nov)
+
+Tags: Community, Arts. Needs confirmation of exact dates each year — check https://www.seattlecenter.com/events/featured-events/festal annually.
+
+### Columbia City Night Market — Monthly Recurring
+The Columbia City Night Market is held every third Saturday, 6-10 PM, year-round on 37th Ave S. Organized by Peace Peloton, it features 60+ local vendors, food trucks, live music, and a beer garden. Prioritizes Black-owned businesses.
+
+Add as a recurring entry in `sources/recurring.yaml` with schedule `"every third Saturday"`. Alternatively, check their Humanitix page (https://events.humanitix.com/columbia-city-night-market-2026-t5pj22g9) for a structured event feed.
+- **Tags:** Community, Food, Columbia City
+- **Note:** This is distinct from the disabled `seattle_night_market` (206 Night Markets). Running 5+ years, very consistent schedule.
+
+### Local Sports Teams — New Content Category
+Seattle-area minor league and amateur sports teams are not currently covered and would add a popular content category. None have ICS feeds, so most would be recurring entries or require custom rippers.
+
+#### DubSea Fish Sticks (Summer Collegiate Baseball)
+- **URL:** https://gofishsticks.com/
+- **Location:** Mel Olson Stadium ("The Fryer"), Steve Cox Memorial Park, White Center
+- **Season:** June–August (27 home games in 2026)
+- **Tags:** Sports, White Center
+- **Note:** Reigning Pacific International League champions. Very community-oriented. Tickets via Humanitix. Could scrape schedule from their website or add home game dates as recurring entries each season.
+
+#### Ballard FC (USL League Two Soccer)
+- **URL:** https://www.goballardfc.com/schedule/
+- **Location:** Memorial Stadium, Seattle Center
+- **Season:** May–July (~12 home games)
+- **Tags:** Sports, Ballard
+- **Note:** Community-owned USL2 club with strong local following. Schedule page may be scrapable. Tickets via their website.
+
+#### West Seattle Junction FC (USL League Two Soccer)
+- **URL:** https://www.wsjunctionfc.club/
+- **Location:** Nino Cantu Southwest Athletic Complex
+- **Season:** May–July
+- **Tags:** Sports, West Seattle
+- **Note:** West Seattle's community soccer club. Tickets via vivenu. Low event volume — use `expectEmpty: true`.
+
+### MOHAI (Museum of History & Industry) — ICS Feed
+- **URL:** https://mohai.org/events/
+- **Platform:** WordPress with The Events Calendar (Tribe Events)
+- **Tags:** Museums, Community
+- **Note:** MOHAI's events page offers iCalendar export links. Try the Tribe Events ICS endpoint: `https://mohai.org/events/?ical=1` or `https://mohai.org/events/list/?ical=1`. If the ICS feed works, add to `sources/external.yaml`. This is a major Seattle museum on South Lake Union with regular public programs, film screenings, and community events. Also participates in Free First Thursday.
+
+### Brewery Event Calendars — Expanded Coverage
+Several breweries not currently covered have active event calendars (trivia nights, live music, food trucks, community events). These could expand the Beer tag significantly.
+
+#### Elliott Bay Brewing
+- **URL:** https://elliottbaybrewing.com/events/
+- **Platform:** WordPress (investigate Tribe Events ICS endpoint)
+- **Tags:** Beer, Community
+- **Note:** Multiple pub locations across Seattle. Weekly recurring events plus seasonal celebrations. Try `https://elliottbaybrewing.com/events/?ical=1`.
+
+#### Ounces Taproom & Beer Garden
+- **URL:** https://www.ounceswestseattle.com/events
+- **Platform:** Squarespace
+- **Tags:** Beer, West Seattle
+- **Note:** West Seattle taproom with trivia, themed parties, family-friendly activities. Try SquarespaceRipper.
+
+### Cycling Events — Everyday Rides Seattle
+- **URL:** https://everydayrides.com/calendar
+- **Platform:** Custom web app
+- **Tags:** Cycling, Community
+- **Note:** Seattle's community cycling calendar with dozens of weekly group rides, social rides, and bike events. No ICS feed detected — would need a custom ripper or API investigation. Very high event volume. The `Cycling` tag already exists but has limited coverage. This could be a transformative source for cycling content.
+
+### New Tags Proposals (Additional)
+
+Beyond the tags already proposed (Comedy, Books, Gaming, Outdoors), consider:
+- **`Family`** — for family-friendly events (ParentMap calendar, children's theater, museum programs, zoo events). Many sources already have family events but there's no way to filter for them.
+- **`Cultural`** — for cultural festivals and heritage events (Seattle Center Festal, cultural centers like FilCom, CIDBIA, El Centro de la Raza). The `Community` tag is overloaded.
+- **`Dance`** — for dance performances and social dance events (Spectrum Dance already exists as a source, Whim W'Him proposed). Distinct from Music.
+- **`Film`** — for film screenings and festivals (SIFF already exists as a source, Majestic Bay exists). Distinct from Movies tag which is more about regular movie showtimes.
+- **`Soccer`** — or rename `Sports` subcategories if local soccer teams are added (Ballard FC, Junction FC, Sounders, Reign). Sports is broad; community soccer has a distinct audience.
+
+### FIFA World Cup 2026 — Seattle Host City
+Seattle is a host city for the 2026 FIFA World Cup with matches at Lumen Field in June-July 2026. This is a once-in-a-generation event. The existing `lumen_field` ripper may capture ticketed events, but dedicated coverage would ensure World Cup matches, fan festivals, and related city events are prominently featured.
+- **Investigation:** Check if the `lumen_field` Ticketmaster ripper captures World Cup matches. If not, add specific match dates as recurring entries. Also look for official FIFA/Seattle World Cup fan festival calendars.
+- **Tags:** Sports, Downtown
+
+### Seattle Beer Week — Annual Event
+- **URL:** https://www.seattlebeerweek.com/events
+- **Schedule:** May 7-16, 2026 (annual, ~10 days)
+- **Tags:** Beer, Community
+- **Note:** Already have a `seattle_beer_week` source directory. Verify it's working and covers the full event list. The website lists dozens of events across the city during the festival. If the existing ripper is functional, no action needed.

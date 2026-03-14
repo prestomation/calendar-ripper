@@ -1845,17 +1845,19 @@ body {
 }
 
 .auth-login-btn {
-  background: none;
-  border: 1px solid var(--border-color);
+  background: var(--color-primary);
+  border: none;
   border-radius: 6px;
-  padding: 4px 12px;
-  color: var(--text-primary);
+  padding: 6px 16px;
+  color: #fff;
   cursor: pointer;
   font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .auth-login-btn:hover {
-  background: var(--hover-overlay);
+  background: var(--color-primary-dark);
 }
 
 .auth-user-dropdown {

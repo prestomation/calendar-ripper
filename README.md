@@ -33,6 +33,17 @@ Calendars are regenerated daily, so your subscriptions stay up to date automatic
 
 In addition to individual source calendars, there are aggregate tag calendars that combine events from every source sharing a tag. For example, subscribing to the "Music" tag calendar gives you events from all music-related sources in a single feed.
 
+## Sign In & Personal Favorites Feed
+
+You can favorite any calendar by clicking the ♡ heart button next to it. Favorites are shown together in a dedicated view so you can browse events across all your chosen calendars in one place.
+
+**Sign in with Google** (button in the top-right corner of the site) to unlock two additional benefits:
+
+- **Sync across devices** — your favorites are saved to your account and available on any browser or device
+- **Personal ICS subscription link** — after signing in, a unique private URL appears in the Favorites view. Add it to Google Calendar, Apple Calendar, or Outlook to subscribe to all your favorited calendars in a single feed that updates automatically as you add or remove favorites
+
+Your personal feed URL is secret — anyone with the link can subscribe to your favorites, so keep it private.
+
 ## Add Individual Events to Google Calendar
 
 When browsing upcoming events in the web interface, each event has a 📅 button that lets you add that specific event to your calendar. Clicking it gives you two options:

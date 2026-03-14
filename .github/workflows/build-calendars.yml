@@ -23,10 +23,6 @@ jobs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
       zero-event-calendars: ${{ steps.generate-calendars.outputs.ZERO_EVENT_CALENDARS }}
 
-    permissions:
-      id-token: write   # Required for OIDC authentication with AWS
-      contents: read
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4

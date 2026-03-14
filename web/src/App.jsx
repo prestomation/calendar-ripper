@@ -51,6 +51,131 @@ function EventDescription({ text }) {
   return <div className="event-details">{text}</div>
 }
 
+function stripHtml(html) {
+  if (!html) return ''
+  return html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ')
+}
+
+function formatICSDate(date) {
+  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
+}
+
+function generateICS({ title, startDate, endDate, description, location, url }) {
+  const start = formatICSDate(startDate)
+  const end = formatICSDate(endDate || new Date(startDate.getTime() + 3600000))
+  const plainDesc = stripHtml(description)
+  const fullDesc = [plainDesc, url].filter(Boolean).join('\n\n')
+  // Fold long lines per RFC 5545 (max 75 octets per line)
+  const foldLine = (key, value) => {
+    if (!value) return ''
+    const line = `${key}:${value.replace(/\r?\n/g, '\\n')}`
+    const folded = []
+    for (let i = 0; i < line.length; i += 73) {
+      folded.push((i > 0 ? ' ' : '') + line.slice(i, i + 73))
+    }
+    return folded.join('\r\n')
+  }
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Calendar Ripper//EN',
+    'BEGIN:VEVENT',
+    `DTSTART:${start}`,
+    `DTEND:${end}`,
+    foldLine('SUMMARY', title),
+    foldLine('DESCRIPTION', fullDesc),
+    foldLine('LOCATION', location),
+    url ? foldLine('URL', url) : '',
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ].filter(Boolean)
+  return lines.join('\r\n')
+}
+
+function buildGoogleCalendarUrl({ title, startDate, endDate, description, location, url }) {
+  const fmt = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')
+  const start = fmt(startDate)
+  const end = fmt(endDate || new Date(startDate.getTime() + 3600000))
+  const plainDesc = stripHtml(description)
+  const desc = [plainDesc, url].filter(Boolean).join('\n\n').slice(0, 1000)
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: title || '',
+    dates: `${start}/${end}`,
+  })
+  if (desc) params.set('details', desc)
+  if (location) params.set('location', location)
+  return `https://calendar.google.com/calendar/render?${params.toString()}`
+}
+
+function AddToCalendar({ title, startDate, endDate, description, location, url }) {
+  const [open, setOpen] = useState(false)
+  const wrapRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return
+    const onClickOutside = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false)
+    }
+    const onEsc = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onClickOutside)
+    document.addEventListener('keydown', onEsc)
+    return () => {
+      document.removeEventListener('mousedown', onClickOutside)
+      document.removeEventListener('keydown', onEsc)
+    }
+  }, [open])
+
+  const handleDownloadICS = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    const ics = generateICS({ title, startDate, endDate, description, location, url })
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' })
+    const href = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = href
+    a.download = (title || 'event').replace(/[^a-z0-9]+/gi, '-').slice(0, 50) + '.ics'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(href)
+    setOpen(false)
+  }
+
+  const handleGoogleCalendar = (e) => {
+    e.stopPropagation()
+    setOpen(false)
+  }
+
+  return (
+    <span className="add-to-cal-wrap" ref={wrapRef}>
+      <button
+        className="add-to-cal-btn"
+        title="Add to calendar"
+        onClick={(e) => { e.stopPropagation(); setOpen(!open) }}
+      >
+        📅
+      </button>
+      {open && (
+        <div className="add-to-cal-dropdown">
+          <button className="add-to-cal-option" onClick={handleDownloadICS}>
+            Download .ics
+          </button>
+          <a
+            className="add-to-cal-option"
+            href={buildGoogleCalendarUrl({ title, startDate, endDate, description, location, url })}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleGoogleCalendar}
+          >
+            Google Calendar
+          </a>
+        </div>
+      )}
+    </span>
+  )
+}
+
 function HealthDashboard({ buildErrors, calendars }) {
   const [expandedSource, setExpandedSource] = useState(null)
 
@@ -2347,6 +2472,14 @@ function App() {
                             🔗
                           </a>
                         )}
+                        <AddToCalendar
+                          title={event.summary}
+                          startDate={event.parsedDate}
+                          endDate={event.parsedEndDate}
+                          description={event.description}
+                          location={event.location}
+                          url={event.url}
+                        />
                         <span
                           className="event-source clickable"
                           title={`From ${calendarNameByIcsUrl[event.icsUrl] || event.icsUrl}`}
@@ -2489,6 +2622,14 @@ function App() {
                             🔗
                           </a>
                         )}
+                        <AddToCalendar
+                          title={event.summary}
+                          startDate={event.parsedDate}
+                          endDate={event.parsedEndDate}
+                          description={event.description}
+                          location={event.location}
+                          url={event.url}
+                        />
                         <span
                           className="event-source clickable"
                           title={`From ${calendarNameByIcsUrl[event.icsUrl] || event.icsUrl}`}
@@ -2738,6 +2879,14 @@ function App() {
                                 🔗
                               </a>
                             )}
+                            <AddToCalendar
+                              title={event.title}
+                              startDate={event.startDate}
+                              endDate={event.endDate}
+                              description={event.description}
+                              location={event.location}
+                              url={event.url}
+                            />
                           </div>
                           <EventDescription text={event.description} />
                           {event.location && (

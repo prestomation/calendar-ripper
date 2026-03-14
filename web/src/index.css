@@ -965,7 +965,7 @@ body {
 
 .mobile-ics-dropdown {
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 0;
   z-index: 10;
   background: var(--bg-surface);
@@ -974,6 +974,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   min-width: 200px;
   padding: 4px 0;
+  margin-bottom: 4px;
   display: flex;
   flex-direction: column;
 }

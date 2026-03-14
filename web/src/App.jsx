@@ -2681,6 +2681,16 @@ function App() {
             <h1>Seattle Community Calendars</h1>
             <p>Browse and subscribe to event calendars from venues, neighborhoods, and organizations across Seattle. Search and filter here, or add any calendar to your favorite app using the ICS links to keep events synced automatically.</p>
 
+            {!authUser && API_URL && (
+              <div className="homepage-signin-cta">
+                <div className="homepage-signin-cta-text">
+                  <strong>Sign in to sync your favorites</strong>
+                  <span>Save calendars across devices and get a personal ICS link that combines all your favorites into one feed.</span>
+                </div>
+                <button className="auth-login-btn" onClick={handleLogin}>Sign in with Google</button>
+              </div>
+            )}
+
             {favorites.length > 0 ? (
               <button
                 className="homepage-favorites-cta"
@@ -2715,7 +2725,9 @@ function App() {
               <li><strong>Search:</strong> Use the search bar to find calendars by name, or search across all event titles, descriptions, and locations</li>
               <li><strong>Filter by Tags:</strong> Click on tags to filter calendars by category</li>
               <li><strong>Favorites:</strong> Click the ♡ heart icon on any calendar to save it, then use the <strong>♥ Favorites</strong> tag to see only events from your saved calendars</li>
-              <li><strong>Subscribe:</strong> Use the 📥 ICS link to add a calendar to your app, 📅 to add it to Google Calendar, or 📋 to copy the link.</li>
+              <li><strong>Subscribe:</strong> Use the 📥 ICS link to add a calendar to your app, 📅 to add it to Google Calendar, or 🔗 to copy the link</li>
+              <li><strong>Add a single event:</strong> Click the 📅 button on any event to add just that event to Google Calendar or download it as an .ics file</li>
+              <li><strong>RSS:</strong> Every calendar and tag has an RSS feed — look for the <strong>RSS</strong> link next to each calendar to follow events in your RSS reader</li>
             </ul>
 
             <h2>Tags</h2>

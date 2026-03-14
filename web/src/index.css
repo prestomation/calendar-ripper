@@ -1707,6 +1707,41 @@ body {
   flex-shrink: 0;
 }
 
+.homepage-signin-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-primary-subtle);
+  border: 1px solid var(--border-primary-subtle);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.homepage-signin-cta-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+}
+
+.homepage-signin-cta-text strong {
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.homepage-signin-cta-text span {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .homepage-signin-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .homepage h1 {
   color: var(--text-heading);
   margin-bottom: 16px;

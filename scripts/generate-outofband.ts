@@ -1,0 +1,143 @@
+/**
+ * generate-outofband.ts
+ *
+ * Runs rippers for sources marked `proxy: "outofband"` — those that 403 from
+ * GitHub Actions IPs but work fine from a residential/home IP.
+ *
+ * Output:
+ *   output/<source>-<calendar>.ics  — calendar files
+ *   outofband-report.json            — per-source counts/errors
+ *
+ * Then uploads everything to s3://calendar-ripper-outofband-220483515252/latest/
+ * using ambient AWS credentials (default profile).
+ *
+ * Run via: npm run generate-outofband
+ */
+
+import { RipperLoader } from "../lib/config/loader.js";
+import { toICS } from "../lib/config/schema.js";
+import { mkdir, writeFile, readdir } from "fs/promises";
+import { createReadStream } from "fs";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { join } from "path";
+
+const BUCKET = process.env.OUTOFBAND_BUCKET ?? "calendar-ripper-outofband-220483515252";
+const REGION = "us-west-2";
+const PREFIX = "latest/";
+
+async function main() {
+    const loader = new RipperLoader("sources/");
+    const [configs, loadErrors] = await loader.loadConfigs();
+
+    const outofbandConfigs = configs.filter(c => !c.config.disabled && c.config.proxy === "outofband");
+    console.log(`Found ${outofbandConfigs.length} outofband sources`);
+
+    if (outofbandConfigs.length === 0) {
+        console.log("Nothing to do.");
+        process.exit(0);
+    }
+
+    await mkdir("output", { recursive: true });
+
+    interface SourceReport {
+        source: string;
+        calendars: Array<{
+            name: string;
+            events: number;
+            errors: string[];
+        }>;
+    }
+
+    const report: {
+        buildTime: string;
+        sources: SourceReport[];
+        totalErrors: number;
+    } = {
+        buildTime: new Date().toISOString(),
+        sources: [],
+        totalErrors: 0,
+    };
+
+    const writtenFiles: string[] = [];
+
+    for (const config of outofbandConfigs) {
+        console.log(`Ripping ${config.config.name}...`);
+        let calendars;
+        try {
+            calendars = await config.ripperImpl.rip(config);
+        } catch (err) {
+            console.error(`Ripper ${config.config.name} threw:`, err);
+            calendars = config.config.calendars.map(cal => ({
+                name: cal.name,
+                friendlyname: cal.friendlyname,
+                events: [],
+                errors: [{ type: "ParseError" as const, reason: `Ripper crashed: ${err}`, context: "" }],
+                tags: cal.tags || [],
+            }));
+        }
+
+        const sourceReport: SourceReport = { source: config.config.name, calendars: [] };
+
+        for (const calendar of calendars) {
+            const filename = `${config.config.name}-${calendar.name}.ics`;
+            const outPath = join("output", filename);
+            const icsString = await toICS(calendar);
+            await writeFile(outPath, icsString);
+            writtenFiles.push(outPath);
+
+            const errorMessages = calendar.errors.map(e => e.reason);
+            report.totalErrors += calendar.errors.length;
+
+            sourceReport.calendars.push({
+                name: calendar.name,
+                events: calendar.events.length,
+                errors: errorMessages,
+            });
+
+            console.log(`  ${calendar.name}: ${calendar.events.length} events, ${calendar.errors.length} errors`);
+        }
+
+        report.sources.push(sourceReport);
+    }
+
+    // Write report locally
+    const reportPath = "outofband-report.json";
+    await writeFile(reportPath, JSON.stringify(report, null, 2));
+    console.log(`\nReport written to ${reportPath}`);
+
+    // Upload to S3
+    console.log(`\nUploading to s3://${BUCKET}/${PREFIX}...`);
+    const s3 = new S3Client({ region: REGION });
+
+    // Upload all .ics files
+    for (const filePath of writtenFiles) {
+        const key = PREFIX + filePath.replace(/^output\//, "");
+        console.log(`  Uploading ${key}`);
+        await s3.send(new PutObjectCommand({
+            Bucket: BUCKET,
+            Key: key,
+            Body: createReadStream(filePath),
+            ContentType: "text/calendar",
+        }));
+    }
+
+    // Upload the report
+    console.log(`  Uploading ${PREFIX}outofband-report.json`);
+    await s3.send(new PutObjectCommand({
+        Bucket: BUCKET,
+        Key: `${PREFIX}outofband-report.json`,
+        Body: JSON.stringify(report, null, 2),
+        ContentType: "application/json",
+    }));
+
+    console.log(`\nDone. ${writtenFiles.length} calendar(s) uploaded. ${report.totalErrors} total error(s).`);
+
+    if (report.totalErrors > 0) {
+        console.warn(`Warning: ${report.totalErrors} error(s) occurred during ripping.`);
+    }
+}
+
+main().catch(err => {
+    console.error("Fatal error:", err);
+    process.exitCode = 1;
+});

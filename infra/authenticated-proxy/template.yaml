@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: >
-  Authenticated HTTP proxy Lambda with Function URL (SigV4 auth).
-  GitHub Actions assumes the output IAM role via OIDC to invoke the proxy,
-  which forwards requests from AWS IPs instead of GitHub runner IPs.
+  Infrastructure for calendar-ripper out-of-band uploads.
+  GitHub Actions assumes an IAM role via OIDC to read from the S3 bucket.
+  OpenClaw uses a dedicated IAM user to write calendar files to the bucket.
 
 # ---------------------------------------------------------------------------
 # Parameters
@@ -16,11 +16,32 @@ Parameters:
     Type: String
     Description: GitHub repository name (without the org prefix).
 
+  # Kept for compatibility — no longer used
+  AllowedTargetDomains:
+    Type: String
+    Default: ""
+    Description: "(Unused) Kept for stack compatibility."
+
+  ImageUri:
+    Type: String
+    Default: ""
+    Description: "(Unused) Kept for stack compatibility."
 
 # ---------------------------------------------------------------------------
 # Resources
 # ---------------------------------------------------------------------------
 Resources:
+
+  # -- S3 bucket for out-of-band calendar uploads ---------------------------
+  OutOfBandBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "calendar-ripper-outofband-${AWS::AccountId}"
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireOldUploads
+            Status: Enabled
+            ExpirationInDays: 7
 
   # -- GitHub OIDC Provider --------------------------------------------------
   GitHubOIDCProvider:
@@ -30,8 +51,6 @@ Resources:
       ClientIdList:
         - sts.amazonaws.com
       ThumbprintList:
-        # AWS verifies GitHub's OIDC certs directly; value is required but
-        # not used for validation.
         - 6938fd4d98bab03faadb97b34396831e3780aea1
 
   # -- IAM role that GitHub Actions assumes ----------------------------------
@@ -52,102 +71,33 @@ Resources:
               StringLike:
                 token.actions.githubusercontent.com:sub: !Sub "repo:${GitHubOrg}/${GitHubRepo}:*"
       Policies:
-        - PolicyName: InvokeProxyFunctionUrl
+        - PolicyName: ReadOutOfBandBucket
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
               - Effect: Allow
-                Action: lambda:InvokeFunctionUrl
-                Resource: !GetAtt ProxyFunction.Arn
+                Action:
+                  - s3:GetObject
+                  - s3:ListBucket
+                Resource:
+                  - !GetAtt OutOfBandBucket.Arn
+                  - !Sub "${OutOfBandBucket.Arn}/*"
 
-  # -- Lambda execution role -------------------------------------------------
-  ProxyFunctionExecutionRole:
-    Type: AWS::IAM::Role
-    Properties:
-      RoleName: !Sub "${AWS::StackName}-lambda-exec"
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service: lambda.amazonaws.com
-            Action: sts:AssumeRole
-      ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-
-  # -- Lambda function -------------------------------------------------------
-  ProxyFunction:
-    Type: AWS::Lambda::Function
-    Properties:
-      FunctionName: !Sub "${AWS::StackName}-proxy"
-      Description: Authenticated HTTP proxy for calendar rippers
-      Runtime: nodejs20.x
-      Handler: index.handler
-      Role: !GetAtt ProxyFunctionExecutionRole.Arn
-      Timeout: 30
-      MemorySize: 256
-      Code:
-        # Inline handler – keep in sync with handler.ts (the tested source).
-        # Passthrough proxy: ?url=<target>, verb + headers + body forwarded.
-        # Security: the Lambda Function URL uses AWS_IAM auth (SigV4), so only
-        # callers with the GitHub Actions OIDC role can invoke it. No domain
-        # allowlist is needed — all requests come from trusted repo code.
-        ZipFile: |
-          const STRIP = new Set(["host","authorization","content-length"]);
-          const STRIP_PFX = ["x-amz-","x-forwarded-"];
-          const STRIP_RES = new Set(["transfer-encoding","connection","content-encoding","content-length"]);
-
-          exports.handler = async (event) => {
-            const target = event.queryStringParameters?.url;
-            if (!target) return {statusCode:400, headers:{}, body:"Missing required query parameter: url"};
-            try { new URL(target); }
-            catch { return {statusCode:400, headers:{}, body:"Invalid URL"}; }
-            const method = event.requestContext.http.method;
-            const hdrs = {};
-            for (const [k,v] of Object.entries(event.headers||{})) {
-              const l = k.toLowerCase();
-              if (STRIP.has(l) || STRIP_PFX.some(p => l.startsWith(p))) continue;
-              hdrs[k] = v;
-            }
-            const opts = {method, headers: hdrs};
-            if (event.body && method !== "GET" && method !== "HEAD")
-              opts.body = event.isBase64Encoded
-                ? Buffer.from(event.body,"base64").toString() : event.body;
-            try {
-              const res = await fetch(target, opts);
-              const body = await res.text();
-              const rh = {};
-              res.headers.forEach((v,k) => { if (!STRIP_RES.has(k)) rh[k]=v; });
-              return {statusCode: res.status, headers: rh, body};
-            } catch(e) {
-              return {statusCode:502, headers:{}, body:"Proxy request failed: "+e.message};
-            }
-          };
-
-  # -- Function URL with IAM auth -------------------------------------------
-  ProxyFunctionUrl:
-    Type: AWS::Lambda::Url
-    Properties:
-      AuthType: AWS_IAM
-      TargetFunctionArn: !GetAtt ProxyFunction.Arn
 
 # ---------------------------------------------------------------------------
 # Outputs
 # ---------------------------------------------------------------------------
 Outputs:
-  ProxyFunctionUrl:
+  OutOfBandBucketName:
     Description: >
-      Lambda Function URL. Store as a GitHub Actions secret
-      (e.g. PROXY_FUNCTION_URL) and use it in your rippers.
-    Value: !GetAtt ProxyFunctionUrl.FunctionUrl
+      S3 bucket for out-of-band calendar uploads. Add as GitHub Actions
+      secret OUTOFBAND_BUCKET.
+    Value: !Ref OutOfBandBucket
 
   GitHubActionsRoleArn:
     Description: >
-      IAM role ARN for GitHub Actions to assume via OIDC. Add this as a
-      GitHub Actions secret (e.g. AWS_ROLE_ARN) and configure the
-      aws-actions/configure-aws-credentials action with it.
+      IAM role ARN for GitHub Actions to assume via OIDC. Add as GitHub
+      Actions secret AWS_ROLE_ARN.
     Value: !GetAtt GitHubActionsRole.Arn
 
-  ProxyFunctionArn:
-    Description: Lambda function ARN (for reference / debugging).
-    Value: !GetAtt ProxyFunction.Arn
+

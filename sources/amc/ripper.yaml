@@ -1,5 +1,5 @@
 name: amc
-proxy: true
+proxy: "outofband"
 description: "AMC Theatres movie showtimes in the Seattle area"
 url: "https://graph.amctheatres.com/graphql"
 friendlyLink: https://www.amctheatres.com

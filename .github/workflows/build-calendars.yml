@@ -43,11 +43,11 @@ jobs:
       run: npm run test:all
 
     - name: Configure AWS credentials
-      if: ${{ secrets.AWS_ROLE_ARN != '' }}
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
         aws-region: us-west-2
+      continue-on-error: true  # Gracefully skip if secrets aren't configured
 
     - name: Generate calendars
       id: generate-calendars

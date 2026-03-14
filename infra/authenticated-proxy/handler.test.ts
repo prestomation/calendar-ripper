@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import {
     handler,
-    isDomainAllowed,
     filterRequestHeaders,
     filterResponseHeaders,
     LambdaFunctionUrlEvent,
@@ -29,34 +28,6 @@ function fakeResponse(body: string, init: { status: number; statusText?: string;
         headers: init.headers,
     });
 }
-
-// ---- isDomainAllowed ------------------------------------------------------
-
-describe("isDomainAllowed", () => {
-    it("allows any domain when the allowlist is empty", () => {
-        expect(isDomainAllowed("evil.com", [])).toBe(true);
-    });
-
-    it("allows an exact domain match", () => {
-        expect(isDomainAllowed("www.axs.com", ["www.axs.com"])).toBe(true);
-    });
-
-    it("allows a subdomain of an allowed domain", () => {
-        expect(isDomainAllowed("api.example.com", ["example.com"])).toBe(true);
-    });
-
-    it("rejects a domain not in the allowlist", () => {
-        expect(isDomainAllowed("evil.com", ["example.com", "axs.com"])).toBe(false);
-    });
-
-    it("rejects a domain that only shares a suffix (notaxs.com vs axs.com)", () => {
-        expect(isDomainAllowed("notaxs.com", ["axs.com"])).toBe(false);
-    });
-
-    it("handles deeply nested subdomains", () => {
-        expect(isDomainAllowed("a.b.c.example.com", ["example.com"])).toBe(true);
-    });
-});
 
 // ---- filterRequestHeaders -------------------------------------------------
 
@@ -133,7 +104,6 @@ describe("filterResponseHeaders", () => {
 describe("handler", () => {
     beforeEach(() => {
         vi.resetAllMocks();
-        process.env.ALLOWED_DOMAINS = "";
     });
 
     // -- Input validation ---------------------------------------------------
@@ -148,32 +118,6 @@ describe("handler", () => {
         const result = await handler(makeEvent({ url: "not-a-url" }));
         expect(result.statusCode).toBe(400);
         expect(result.body).toBe("Invalid URL");
-    });
-
-    // -- Domain allowlist ---------------------------------------------------
-
-    it("returns 403 when target domain is not allowed", async () => {
-        process.env.ALLOWED_DOMAINS = "www.axs.com,graph.amctheatres.com";
-        const result = await handler(makeEvent({ url: "https://evil.com/steal" }));
-        expect(result.statusCode).toBe(403);
-        expect(result.body).toContain("Domain not allowed: evil.com");
-    });
-
-    it("allows a subdomain of an allowed domain", async () => {
-        process.env.ALLOWED_DOMAINS = "amctheatres.com";
-        mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
-
-        const result = await handler(makeEvent({ url: "https://graph.amctheatres.com/graphql" }));
-        expect(result.statusCode).toBe(200);
-        expect(mockFetch).toHaveBeenCalledOnce();
-    });
-
-    it("allows any domain when ALLOWED_DOMAINS is empty", async () => {
-        process.env.ALLOWED_DOMAINS = "";
-        mockFetch.mockResolvedValueOnce(fakeResponse("ok", { status: 200 }));
-
-        const result = await handler(makeEvent({ url: "https://anything.example.org/" }));
-        expect(result.statusCode).toBe(200);
     });
 
     // -- GET passthrough ----------------------------------------------------

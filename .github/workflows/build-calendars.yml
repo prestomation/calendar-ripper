@@ -23,6 +23,10 @@ jobs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
       zero-event-calendars: ${{ steps.generate-calendars.outputs.ZERO_EVENT_CALENDARS }}
 
+    permissions:
+      id-token: write   # Required for OIDC authentication with AWS
+      contents: read
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -38,12 +42,20 @@ jobs:
     - name: Run unit tests
       run: npm run test:all
 
+    - name: Configure AWS credentials
+      if: ${{ secrets.AWS_ROLE_ARN != '' }}
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+        aws-region: us-west-2
+
     - name: Generate calendars
       id: generate-calendars
       env:
         TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
         DICE_API_KEY: ${{ secrets.DICE_API_KEY }}
+        PROXY_URL: ${{ secrets.PROXY_URL }}
       run: |
         npm run generate-calendars
         cat errorCount.txt

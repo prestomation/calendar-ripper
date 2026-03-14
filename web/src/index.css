@@ -951,6 +951,52 @@ body {
   background: var(--bg-muted);
 }
 
+/* Mobile ICS subscribe button (replaces ics-group + Google on mobile) */
+.mobile-ics-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mobile-ics-btn {
+  cursor: pointer;
+  border: none;
+}
+
+.mobile-ics-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 10;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color-strong);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  padding: 4px 0;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-ics-option {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.mobile-ics-option:hover {
+  background: var(--bg-muted);
+}
+
 .event-details {
   font-size: 14px;
   color: var(--text-secondary);
@@ -1387,6 +1433,11 @@ body {
 
   .app--mobile .homepage {
     padding: 20px 16px;
+  }
+
+  /* Hide Google Calendar link on mobile — webcal://calendar.google.com doesn't work */
+  .app--mobile .google-cal-link {
+    display: none;
   }
 
   /* Larger touch targets for action buttons */

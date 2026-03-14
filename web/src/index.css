@@ -1389,6 +1389,11 @@ body {
     padding: 20px 16px;
   }
 
+  /* Hide webcal/ICS subscribe buttons on mobile — webcal:// protocol is unreliable */
+  .app--mobile .ics-group {
+    display: none;
+  }
+
   /* Larger touch targets for action buttons */
   .app--mobile .action-link {
     padding: 8px 12px;

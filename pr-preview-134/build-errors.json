@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-14T15:30:42.546Z",
+  "buildTime": "2026-03-14T15:37:02.244Z",
   "totalErrors": 22,
   "configErrors": [],
   "sources": [
@@ -509,7 +509,7 @@
     {
       "name": "bbyc-ballard-all-events",
       "type": "Ripper",
-      "events": 17,
+      "events": 18,
       "expectEmpty": false
     },
     {
@@ -623,7 +623,7 @@
     {
       "name": "fremont-brewing-all-events",
       "type": "Ripper",
-      "events": 39,
+      "events": 40,
       "expectEmpty": false
     },
     {
@@ -1253,7 +1253,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 484,
+      "events": 485,
       "expectEmpty": false
     },
     {
@@ -1289,7 +1289,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 174,
+      "events": 175,
       "expectEmpty": false
     },
     {
@@ -1403,7 +1403,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 496,
+      "events": 498,
       "expectEmpty": false
     },
     {

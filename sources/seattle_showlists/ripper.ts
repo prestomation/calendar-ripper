@@ -39,6 +39,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Chop Suey":            { address: "1325 E Madison St, Seattle, WA 98122", skip: true },
 
     // --- INCLUDE: per-venue calendars ---
+    "KEXP Studio":          { address: "472 1st Ave N, Seattle, WA 98109" },
     "Baba Yaga":            { address: "124 S Washington St, Seattle, WA 98104" },
     "Bad Bar":              { address: "819 5th Ave N, Seattle, WA 98109" },
     "Barboza":              { address: "925 E Pike St, Seattle, WA 98122" },
@@ -52,6 +53,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Darrell's Tavern":     { address: "18041 Aurora Ave N, Shoreline, WA 98133" },
     "Hotel Crocodile":      { address: "2505 1st Ave, Seattle, WA 98121" },
     "Nectar Lounge":        { address: "412 N 36th St, Seattle, WA 98103" },
+    "Slim's Last Chance":   { address: "5606 1st Ave S, Seattle, WA 98108" },
     "Skylark":              { address: "3803 Delridge Way SW, Seattle, WA 98106" },
     "The Rabbit Box":       { address: "94 Pike St, Seattle, WA 98101" },
     "The Royal Room":       { address: "5000 Rainier Ave S, Seattle, WA 98118" },

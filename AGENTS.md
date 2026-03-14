@@ -336,3 +336,76 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-pr
 - **`zeroEventCalendars`** — calendar names that produced 0 events **unexpectedly** (may indicate a problem)
 - **`expectedEmptyCalendars`** — calendar names with `expectEmpty: true` that produced 0 events (not a problem)
 - **`fatal`** — present only when the build crashed entirely; contains the fatal error message
+
+## Troubleshooting Production Errors
+
+### Finding the Error Report
+
+The production `build-errors.json` is deployed with the site at:
+
+```
+https://prestomation.github.io/calendar-ripper/build-errors.json
+```
+
+For PR previews, use:
+```
+https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-preview-{PR_NUMBER}/build-errors.json
+```
+
+### Common Error Patterns and Fixes
+
+#### HTTP 403 Forbidden from Rippers
+
+**Symptom:** `Ripper crashed: Error: ... returned HTTP 403` in `sources[].errors`
+
+**Cause:** The upstream website is blocking requests from GitHub Actions runner IPs.
+
+**Fix:**
+1. Add `proxy: true` to the ripper's `ripper.yaml`
+2. If the ripper uses direct `fetch()` calls (custom `IRipper` implementations), refactor to use the proxy-aware fetch:
+   ```typescript
+   import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+
+   export default class MyRipper implements IRipper {
+       private fetchFn: FetchFn = fetch;
+
+       public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+           this.fetchFn = getFetchForConfig(ripper.config);
+           // Use this.fetchFn() instead of fetch() for all requests
+       }
+   }
+   ```
+3. Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers already handle proxy automatically — just add `proxy: true` to the YAML.
+
+#### HTTP 403 from External Calendars
+
+**Symptom:** Entry in `externalCalendarFailures` with `HTTP 403`
+
+**Cause:** The ICS feed URL is blocked or has been removed. External calendars do not currently support the proxy.
+
+**Fix:** Verify the URL is still valid by testing from multiple sources. If the feed has been removed or permanently blocked, consider removing the entry from `sources/external.yaml` or finding an alternative URL.
+
+#### Unknown Venue Errors (seattle-showlists)
+
+**Symptom:** `Unknown venue "X" not in VENUE_CONFIG — add it so events are routed to a calendar`
+
+**Fix:**
+1. Add the venue to `VENUE_CONFIG` in `sources/seattle_showlists/ripper.ts` with its address
+2. Add a calendar entry in `sources/seattle_showlists/ripper.yaml` with the correct neighborhood tag
+3. Use `expectEmpty: true` for small or intermittent venues
+
+#### Zero-Event Calendars
+
+**Symptom:** Calendar name appears in `zeroEventCalendars`
+
+**Investigation:**
+1. Check if the upstream source simply has no upcoming events (legitimate — add `expectEmpty: true`)
+2. Check if the URL is still valid and returning data
+3. Check if the data format has changed (may need ripper updates)
+4. If it's a small venue with intermittent programming, add `expectEmpty: true`
+
+#### Aggregate Tag Errors
+
+**Symptom:** Errors in `tag-*` aggregate calendars
+
+**Cause:** These are always downstream from ripper errors. Fix the underlying ripper and the tag errors resolve automatically.

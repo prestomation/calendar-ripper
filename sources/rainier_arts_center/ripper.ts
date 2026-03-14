@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
 
@@ -13,14 +14,18 @@ const REST_API_URL =
     "https://rainierartscenter.org/wp-json/wp/v2/mec-events?per_page=30&_fields=id,link&status=publish";
 
 export default class RainierArtsCenterRipper implements IRipper {
+    private fetchFn: FetchFn = fetch;
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
+
         const calendars: { [key: string]: { events: RipperEvent[]; friendlyName: string; tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
         // 1. Retrieve event page URLs from the WP REST API
-        const res = await fetch(REST_API_URL);
+        const res = await this.fetchFn(REST_API_URL);
         if (!res.ok) {
             throw new Error(`WP REST API error: ${res.status} ${res.statusText}`);
         }
@@ -49,7 +54,7 @@ export default class RainierArtsCenterRipper implements IRipper {
 
     private async fetchAndParseEvent(url: string, today: LocalDate): Promise<RipperEvent[]> {
         try {
-            const res = await fetch(url);
+            const res = await this.fetchFn(url);
             if (!res.ok) {
                 return [{
                     type: "ParseError" as const,

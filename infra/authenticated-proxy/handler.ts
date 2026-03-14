@@ -2,6 +2,9 @@
  * Lambda handler for the authenticated HTTP proxy.
  *
  * Deployed behind a Lambda Function URL with AWS_IAM auth (SigV4).
+ * Only callers with the GitHub Actions OIDC role can invoke this function,
+ * so no domain allowlist is needed — all requests come from trusted repo code.
+ *
  * The proxy is transparent: callers make the same request they would make
  * to the upstream, but send it to the proxy with `?url=<target>`.
  *
@@ -10,9 +13,6 @@
  *   - Headers:      passed through (minus AWS / infra headers)
  *   - Body:         passed through as-is
  *   - Response:     upstream status, headers, and body returned directly
- *
- * Environment variables:
- *   ALLOWED_DOMAINS – comma-separated domain allowlist (empty = allow all)
  */
 
 // Headers injected by Lambda Function URL / SigV4 that must not be forwarded.
@@ -51,19 +51,6 @@ interface LambdaResponse {
     body: string;
 }
 
-function parseAllowedDomains(): string[] {
-    return (process.env.ALLOWED_DOMAINS || "")
-        .split(",")
-        .map((d) => d.trim())
-        .filter(Boolean);
-}
-
-export function isDomainAllowed(hostname: string, allowedDomains: string[]): boolean {
-    if (allowedDomains.length === 0) return true;
-    return allowedDomains.some(
-        (d) => hostname === d || hostname.endsWith("." + d),
-    );
-}
 
 export function filterRequestHeaders(headers: Record<string, string>): Record<string, string> {
     const filtered: Record<string, string> = {};
@@ -87,23 +74,16 @@ export function filterResponseHeaders(headers: Headers): Record<string, string> 
 }
 
 export async function handler(event: LambdaFunctionUrlEvent): Promise<LambdaResponse> {
-    const allowedDomains = parseAllowedDomains();
-
     // Target URL from query parameter
     const targetUrl = event.queryStringParameters?.url;
     if (!targetUrl) {
         return { statusCode: 400, headers: {}, body: "Missing required query parameter: url" };
     }
 
-    let hostname: string;
     try {
-        hostname = new URL(targetUrl).hostname;
+        new URL(targetUrl);
     } catch {
         return { statusCode: 400, headers: {}, body: "Invalid URL" };
-    }
-
-    if (!isDomainAllowed(hostname, allowedDomains)) {
-        return { statusCode: 403, headers: {}, body: `Domain not allowed: ${hostname}` };
     }
 
     const method = event.requestContext.http.method;

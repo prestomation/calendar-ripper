@@ -25,7 +25,7 @@ The proxy:
 - Passes through the HTTP verb, body, and application headers
 - Strips AWS infrastructure headers (`authorization`, `x-amz-*`, `x-forwarded-*`, `host`, `content-length`)
 - Returns the upstream status code, headers, and body directly
-- Validates the target domain against a configurable allowlist
+- Secured by AWS_IAM auth (SigV4) — only the GitHub Actions OIDC role can invoke it
 
 ## Resources Created
 
@@ -46,7 +46,6 @@ aws cloudformation deploy \
   --parameter-overrides \
     GitHubOrg=prestomation \
     GitHubRepo=calendar-ripper \
-    AllowedTargetDomains="www.axs.com,graph.amctheatres.com" \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 

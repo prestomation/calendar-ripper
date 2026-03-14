@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -185,7 +186,11 @@ export function articleToEvent(article: ParsedArticle, timezone: ZoneRegion): Ri
 }
 
 export default class SAMRipper implements IRipper {
+    private fetchFn: FetchFn = fetch;
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
+
         const calendars: { [key: string]: { events: RipperEvent[]; friendlyName: string; tags: string[] } } = {};
         for (const c of ripper.config.calendars) {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
@@ -312,7 +317,7 @@ export default class SAMRipper implements IRipper {
     }
 
     private async fetchPage(url: string): Promise<string> {
-        const res = await fetch(url);
+        const res = await this.fetchFn(url);
         if (!res.ok) {
             throw new Error(`SAM events page returned HTTP ${res.status}`);
         }

@@ -38,12 +38,20 @@ jobs:
     - name: Run unit tests
       run: npm run test:all
 
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+        aws-region: us-west-2
+      continue-on-error: true  # Gracefully skip if secrets aren't configured
+
     - name: Generate calendars
       id: generate-calendars
       env:
         TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
         DICE_API_KEY: ${{ secrets.DICE_API_KEY }}
+        PROXY_URL: ${{ secrets.PROXY_URL }}
       run: |
         npm run generate-calendars
         cat errorCount.txt

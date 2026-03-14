@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/build-calendars.yml
+    permissions:
+      id-token: write    # OIDC token for AWS proxy authentication
+      contents: read
     secrets: inherit
 
   check-errors:

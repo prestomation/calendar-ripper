@@ -16,13 +16,6 @@ Parameters:
     Type: String
     Description: GitHub repository name (without the org prefix).
 
-  AllowedTargetDomains:
-    Type: CommaDelimitedList
-    Description: >
-      Comma-separated list of domains the proxy is allowed to fetch
-      (e.g. "www.axs.com,graph.amctheatres.com").
-      Leave empty to allow all domains (not recommended for production).
-    Default: ""
 
 # ---------------------------------------------------------------------------
 # Resources
@@ -93,15 +86,13 @@ Resources:
       Role: !GetAtt ProxyFunctionExecutionRole.Arn
       Timeout: 30
       MemorySize: 256
-      Environment:
-        Variables:
-          ALLOWED_DOMAINS: !Join [",", !Ref AllowedTargetDomains]
       Code:
         # Inline handler – keep in sync with handler.ts (the tested source).
         # Passthrough proxy: ?url=<target>, verb + headers + body forwarded.
+        # Security: the Lambda Function URL uses AWS_IAM auth (SigV4), so only
+        # callers with the GitHub Actions OIDC role can invoke it. No domain
+        # allowlist is needed — all requests come from trusted repo code.
         ZipFile: |
-          const allowed = (process.env.ALLOWED_DOMAINS || "")
-            .split(",").map(d => d.trim()).filter(Boolean);
           const STRIP = new Set(["host","authorization","content-length"]);
           const STRIP_PFX = ["x-amz-","x-forwarded-"];
           const STRIP_RES = new Set(["transfer-encoding","connection","content-encoding","content-length"]);
@@ -109,12 +100,8 @@ Resources:
           exports.handler = async (event) => {
             const target = event.queryStringParameters?.url;
             if (!target) return {statusCode:400, headers:{}, body:"Missing required query parameter: url"};
-            let hostname;
-            try { hostname = new URL(target).hostname; }
+            try { new URL(target); }
             catch { return {statusCode:400, headers:{}, body:"Invalid URL"}; }
-            if (allowed.length > 0 &&
-                !allowed.some(d => hostname === d || hostname.endsWith("."+d)))
-              return {statusCode:403, headers:{}, body:"Domain not allowed: "+hostname};
             const method = event.requestContext.http.method;
             const hdrs = {};
             for (const [k,v] of Object.entries(event.headers||{})) {

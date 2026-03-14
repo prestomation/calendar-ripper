@@ -216,6 +216,7 @@ function HealthDashboard({ buildErrors, calendars }) {
         if (errorEntry && errorEntry.errorCount > 0) status = 'error'
         else if (c.events === 0 && !c.expectEmpty) status = 'warning'
         else if (c.events === 0 && c.expectEmpty) status = 'expected-empty'
+        else if (c.events > 0 && c.expectEmpty) status = 'unexpected-non-empty'
         return {
           name: c.name,
           type: c.type,
@@ -228,14 +229,15 @@ function HealthDashboard({ buildErrors, calendars }) {
       })
     : [] // No eventCounts available in older builds
 
-  // Sort: errors first, then warnings, then expected-empty, then ok
-  const statusOrder = { error: 0, warning: 1, 'expected-empty': 2, ok: 3 }
+  // Sort: errors first, then warnings, then unexpected-non-empty, then expected-empty, then ok
+  const statusOrder = { error: 0, warning: 1, 'unexpected-non-empty': 2, 'expected-empty': 3, ok: 4 }
   sources.sort((a, b) => statusOrder[a.status] - statusOrder[b.status])
 
   const healthyCount = sources.filter(s => s.status === 'ok').length
   const errorCount = sources.filter(s => s.status === 'error').length
   const warningCount = sources.filter(s => s.status === 'warning').length
   const expectedEmptyCount = sources.filter(s => s.status === 'expected-empty').length
+  const unexpectedNonEmptyCount = sources.filter(s => s.status === 'unexpected-non-empty').length
   const totalEvents = sources.reduce((sum, s) => sum + s.events, 0)
 
   const configErrors = buildErrors.configErrors || []
@@ -246,6 +248,7 @@ function HealthDashboard({ buildErrors, calendars }) {
     if (status === 'error') return <span className="health-status-dot health-status-error" title="Has errors" />
     if (status === 'warning') return <span className="health-status-dot health-status-warning" title="Zero events (unexpected)" />
     if (status === 'expected-empty') return <span className="health-status-dot health-status-expected-empty" title="Zero events (expected)" />
+    if (status === 'unexpected-non-empty') return <span className="health-status-dot health-status-unexpected-non-empty" title="Has events but marked expectEmpty" />
     return null
   }
 
@@ -277,6 +280,12 @@ function HealthDashboard({ buildErrors, calendars }) {
           <div className="health-card">
             <div className="health-card-value">{expectedEmptyCount}</div>
             <div className="health-card-label">Expected Empty</div>
+          </div>
+        )}
+        {unexpectedNonEmptyCount > 0 && (
+          <div className="health-card health-card--info">
+            <div className="health-card-value">{unexpectedNonEmptyCount}</div>
+            <div className="health-card-label">Expected Empty w/ Events</div>
           </div>
         )}
         <div className="health-card">
@@ -354,7 +363,7 @@ function HealthDashboard({ buildErrors, calendars }) {
                       )}
                     </td>
                     <td>{source.type}</td>
-                    <td>{source.events}{source.expectEmpty && source.events === 0 ? ' (expected)' : ''}</td>
+                    <td>{source.events}{source.expectEmpty && source.events === 0 ? ' (expected)' : ''}{source.expectEmpty && source.events > 0 ? ' (remove expectEmpty)' : ''}</td>
                     <td>{source.errors > 0 ? source.errors : ''}</td>
                   </tr>
                 ))}

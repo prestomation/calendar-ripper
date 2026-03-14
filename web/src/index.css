@@ -2196,6 +2196,11 @@ body {
   background: rgba(255, 193, 7, 0.08);
 }
 
+.health-card--info {
+  border-color: #17a2b8;
+  background: rgba(23, 162, 184, 0.08);
+}
+
 .health-card-value {
   font-size: 28px;
   font-weight: 700;
@@ -2317,6 +2322,10 @@ body {
 
 .health-status-expected-empty {
   background: var(--text-muted);
+}
+
+.health-status-unexpected-non-empty {
+  background: #17a2b8;
 }
 
 .health-source-name {

@@ -1389,8 +1389,8 @@ body {
     padding: 20px 16px;
   }
 
-  /* Hide webcal/ICS subscribe buttons on mobile — webcal:// protocol is unreliable */
-  .app--mobile .ics-group {
+  /* Hide Google Calendar link on mobile — webcal://calendar.google.com doesn't work */
+  .app--mobile .google-cal-link {
     display: none;
   }
 

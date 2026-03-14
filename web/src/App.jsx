@@ -1909,7 +1909,7 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Add tag calendar to Google Calendar"
-                    className="action-link"
+                    className="action-link google-cal-link"
                     onClick={(e) => {
                       e.stopPropagation()
                       trackEvent('google-calendar', `tag-${selectedTag.toLowerCase()}.ics`)
@@ -2040,7 +2040,7 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Add to Google Calendar"
-                      className="action-link"
+                      className="action-link google-cal-link"
                       onClick={() => trackEvent('google-calendar', singleCal.icsUrl)}
                     >
                       📅 Google
@@ -2124,7 +2124,7 @@ function App() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Add to Google Calendar"
-                        className="action-link"
+                        className="action-link google-cal-link"
                         onClick={() => trackEvent('google-calendar', ripper.calendars[0].icsUrl)}
                       >
                         📅 Google
@@ -2160,7 +2160,7 @@ function App() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Add all calendars to Google Calendar"
-                        className="action-link"
+                        className="action-link google-cal-link"
                         onClick={() => trackEvent('google-calendar', `tag-${ripper.name.toLowerCase()}.ics`)}
                       >
                         📅 Google
@@ -2267,7 +2267,7 @@ function App() {
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Add to Google Calendar"
-                      className="action-link"
+                      className="action-link google-cal-link"
                       onClick={() => trackEvent('google-calendar', calendar.icsUrl)}
                     >
                       📅 Google

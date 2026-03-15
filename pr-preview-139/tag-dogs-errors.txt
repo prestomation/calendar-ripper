@@ -1,7 +1,7 @@
 [
   {
     "type": "ParseError",
-    "reason": "No JSON-LD script tag found",
-    "context": "HTML document"
+    "reason": "Ripper crashed: SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+    "context": ""
   }
 ]

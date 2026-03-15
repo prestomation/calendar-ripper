@@ -1,18 +1,18 @@
 {
-  "buildTime": "2026-03-15T00:21:55.480Z",
+  "buildTime": "2026-03-15T00:38:34.073Z",
   "totalErrors": 5,
   "configErrors": [],
   "sources": [
     {
-      "source": "dogwoodplaypark",
-      "calendar": "events",
+      "source": "seattle-barkery",
+      "calendar": "all-events",
       "type": "Ripper",
       "errorCount": 1,
       "errors": [
         {
           "type": "ParseError",
-          "reason": "No JSON-LD script tag found",
-          "context": "HTML document"
+          "reason": "Ripper crashed: SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+          "context": ""
         }
       ]
     },
@@ -63,8 +63,8 @@
       "errors": [
         {
           "type": "ParseError",
-          "reason": "No JSON-LD script tag found",
-          "context": "HTML document"
+          "reason": "Ripper crashed: SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+          "context": ""
         }
       ]
     }
@@ -415,7 +415,7 @@
     {
       "name": "dogwoodplaypark-events",
       "type": "Ripper",
-      "events": 12,
+      "events": 11,
       "expectEmpty": false
     },
     {
@@ -469,7 +469,7 @@
     {
       "name": "fremont-brewing-all-events",
       "type": "Ripper",
-      "events": 39,
+      "events": 40,
       "expectEmpty": false
     },
     {
@@ -607,7 +607,7 @@
     {
       "name": "seatoday-seatoday-arts",
       "type": "Ripper",
-      "events": 114,
+      "events": 113,
       "expectEmpty": true
     },
     {
@@ -625,7 +625,7 @@
     {
       "name": "seatoday-seatoday-learning",
       "type": "Ripper",
-      "events": 95,
+      "events": 96,
       "expectEmpty": true
     },
     {
@@ -1123,7 +1123,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 173,
+      "events": 174,
       "expectEmpty": false
     },
     {
@@ -1219,7 +1219,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2555,
+      "events": 2554,
       "expectEmpty": false
     },
     {
@@ -1237,7 +1237,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 492,
+      "events": 493,
       "expectEmpty": false
     },
     {
@@ -1261,7 +1261,7 @@
     {
       "name": "tag-dogs",
       "type": "Aggregate",
-      "events": 12,
+      "events": 11,
       "expectEmpty": false
     },
     {
@@ -1279,7 +1279,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 483,
+      "events": 484,
       "expectEmpty": false
     },
     {
@@ -1297,7 +1297,7 @@
     {
       "name": "tag-art",
       "type": "Aggregate",
-      "events": 121,
+      "events": 120,
       "expectEmpty": false
     },
     {

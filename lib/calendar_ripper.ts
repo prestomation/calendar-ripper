@@ -24,7 +24,7 @@ import {
 } from "./tag_aggregator.js";
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { LocalDate } from "@js-joda/core";
-import { validateTags } from "./config/tags.js";
+import { validateTags, TAG_CATEGORIES } from "./config/tags.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
 
@@ -711,6 +711,12 @@ END:VCALENDAR`;
   const { invalid: invalidTags } = validateTags(Array.from(allTags));
   if (invalidTags.length > 0) {
     throw new Error(`Build failed: invalid tag(s) not in VALID_TAGS: ${invalidTags.join(', ')}. Add them to lib/config/tags.ts or fix the typo.`);
+  }
+
+  const categorizedTags = new Set<string>(Object.values(TAG_CATEGORIES).flat());
+  const uncategorizedTags = Array.from(allTags).filter(tag => !categorizedTags.has(tag));
+  if (uncategorizedTags.length > 0) {
+    throw new Error(`Build failed: tag(s) are valid but not assigned to any display category: ${uncategorizedTags.join(', ')}. Add them to a category in TAG_CATEGORIES in lib/config/tags.ts.`);
   }
 
   // Log calendars excluded from manifest due to no future events

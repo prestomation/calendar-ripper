@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { SquarespaceRipper, SquarespaceEvent } from './squarespace.js';
 import { Duration, ZoneId, ZonedDateTime } from '@js-joda/core';
-import { RipperCalendarEvent } from './schema.js';
+import { RipperCalendar, RipperCalendarEvent, RipperConfig } from './schema.js';
 import '@js-joda/timezone';
 
 // Access the protected mapEvent method via a test subclass
@@ -9,6 +9,32 @@ class TestSquarespaceRipper extends SquarespaceRipper {
     public testMapEvent(sqEvent: SquarespaceEvent, timezone: ZoneId, baseUrl: URL) {
         return this.mapEvent(sqEvent, timezone, baseUrl);
     }
+}
+
+// Override fetchUpcomingEvents to simulate a network failure without real network calls
+class NetworkErrorSquarespaceRipper extends SquarespaceRipper {
+    protected async fetchUpcomingEvents(_baseUrl: URL): Promise<SquarespaceEvent[]> {
+        throw new Error('network unavailable');
+    }
+}
+
+function makeMinimalRipperConfig(): { config: RipperConfig, ripperImpl: SquarespaceRipper } {
+    const config = {
+        name: 'test-squarespace',
+        description: 'Test Squarespace',
+        url: new URL('https://example.com/events'),
+        friendlyLink: 'https://example.com/events',
+        disabled: false,
+        proxy: false,
+        calendars: [{
+            name: 'test-cal',
+            friendlyname: 'Test Calendar',
+            timezone: ZoneId.of('America/Los_Angeles'),
+            config: {},
+            expectEmpty: false,
+        }],
+    } as unknown as RipperConfig;
+    return { config, ripperImpl: new NetworkErrorSquarespaceRipper() };
 }
 
 const timezone = ZoneId.of('America/Los_Angeles');
@@ -204,6 +230,21 @@ describe('SquarespaceRipper', () => {
             expect(eventPST.date.toEpochSecond()).toBe(eventUTC.date.toEpochSecond());
             expect(eventPST.date.zone().id()).toBe('America/Los_Angeles');
             expect(eventUTC.date.zone().id()).toBe('UTC');
+        });
+    });
+
+    describe('rip() error handling', () => {
+        test('returns error calendar on network failure, does not throw', async () => {
+            const { config, ripperImpl } = makeMinimalRipperConfig();
+            const calendars: RipperCalendar[] = await ripperImpl.rip({ config, ripperImpl });
+
+            expect(Array.isArray(calendars)).toBe(true);
+            expect(calendars.length).toBeGreaterThan(0);
+            expect(calendars[0].name).toBeDefined();
+            expect(Array.isArray(calendars[0].events)).toBe(true);
+            expect(Array.isArray(calendars[0].errors)).toBe(true);
+            expect(calendars[0].errors.length).toBeGreaterThan(0);
+            expect(calendars[0].errors[0].reason).toContain('network unavailable');
         });
     });
 });

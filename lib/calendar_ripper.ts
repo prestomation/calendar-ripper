@@ -1,5 +1,5 @@
 import { RipperLoader } from "./config/loader.js";
-import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
+import { writeFile, mkdir, readFile, appendFile, readdir } from "fs/promises";
 import {
   RipperConfig,
   RipperError,
@@ -727,6 +727,64 @@ END:VCALENDAR`;
     allCalendarIcsUrls.push(`external-${cal.name}.ics`);
   }
 
+  // --- Out-of-band calendars: register downloaded ICS files into manifest ---
+  // These were pre-built by a separate job and downloaded from S3 by download-outofband.ts.
+  // We need to: (1) detect which outofband ICS files exist, (2) check them for future events,
+  // (3) add them to allCalendarIcsUrls + calendarsWithFutureEvents so they appear in the manifest.
+  interface OutOfBandManifestEntry {
+    ripperName: string;
+    friendlyName: string | undefined;
+    description: string;
+    friendlyLink: string;
+    tags: string[];
+    calendars: Array<{
+      name: string;
+      friendlyName: string;
+      icsUrl: string;
+      rssUrl: string;
+      tags: string[];
+    }>;
+  }
+  const outofbandManifestEntries: OutOfBandManifestEntry[] = [];
+
+  for (const config of configs.filter(c => !c.config.disabled && c.config.proxy === "outofband")) {
+    const calendarEntries: OutOfBandManifestEntry["calendars"] = [];
+    for (const calConfig of config.config.calendars) {
+      const icsFilename = `${config.config.name}-${calConfig.name}.ics`;
+      const icsPath = join("output", icsFilename);
+      allCalendarIcsUrls.push(icsFilename);
+      try {
+        const icsContent = await readFile(icsPath, "utf-8");
+        const hasFuture = hasFutureEventsInICS(icsContent);
+        if (hasFuture) {
+          calendarsWithFutureEvents.add(icsFilename);
+          calendarEntries.push({
+            name: calConfig.name,
+            friendlyName: calConfig.friendlyname,
+            icsUrl: icsFilename,
+            rssUrl: icsFilename.replace(".ics", ".rss"),
+            tags: [...new Set([...(config.config.tags || []), ...(calConfig.tags || [])])]
+          });
+          console.log(`[outofband] Registered ${icsFilename} with future events`);
+        } else {
+          console.log(`[outofband] Skipping ${icsFilename} — no future events`);
+        }
+      } catch (err: any) {
+        console.warn(`[outofband] Warning: could not read/parse ${icsPath}: ${err?.message ?? err} — skipping`);
+      }
+    }
+    if (calendarEntries.length > 0) {
+      outofbandManifestEntries.push({
+        ripperName: config.config.name,
+        friendlyName: config.config.friendlyname,
+        description: config.config.description ?? "",
+        friendlyLink: config.config.friendlyLink ?? "",
+        tags: config.config.tags || [],
+        calendars: calendarEntries,
+      });
+    }
+  }
+
   const excludedFromManifest = allCalendarIcsUrls.filter(url => !calendarsWithFutureEvents.has(url));
   if (excludedFromManifest.length > 0) {
     console.log(`\nExcluding ${excludedFromManifest.length} calendar(s) with no future events from manifest: ${excludedFromManifest.join(', ')}`);
@@ -735,21 +793,30 @@ END:VCALENDAR`;
   // Generate JSON manifest for React app, filtering out calendars with no future events
   const manifest = {
     lastUpdated: new Date().toISOString(),
-    rippers: configs.filter(ripper => !ripper.config.disabled && ripper.config.proxy !== "outofband").map(ripper => ({
-      name: ripper.config.name,
-      friendlyName: ripper.config.friendlyname,
-      description: ripper.config.description,
-      friendlyLink: ripper.config.friendlyLink,
-      calendars: ripper.config.calendars
-        .filter(calendar => calendarsWithFutureEvents.has(`${ripper.config.name}-${calendar.name}.ics`))
-        .map(calendar => ({
-          name: calendar.name,
-          friendlyName: calendar.friendlyname,
-          icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
-          rssUrl: `${ripper.config.name}-${calendar.name}.rss`,
-          tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
-        }))
-    })).filter(ripper => ripper.calendars.length > 0),
+    rippers: [
+      ...configs.filter(ripper => !ripper.config.disabled && ripper.config.proxy !== "outofband").map(ripper => ({
+        name: ripper.config.name,
+        friendlyName: ripper.config.friendlyname,
+        description: ripper.config.description,
+        friendlyLink: ripper.config.friendlyLink,
+        calendars: ripper.config.calendars
+          .filter(calendar => calendarsWithFutureEvents.has(`${ripper.config.name}-${calendar.name}.ics`))
+          .map(calendar => ({
+            name: calendar.name,
+            friendlyName: calendar.friendlyname,
+            icsUrl: `${ripper.config.name}-${calendar.name}.ics`,
+            rssUrl: `${ripper.config.name}-${calendar.name}.rss`,
+            tags: [...new Set([...(ripper.config.tags || []), ...(calendar.tags || [])])]
+          }))
+      })).filter(ripper => ripper.calendars.length > 0),
+      ...outofbandManifestEntries.map(entry => ({
+        name: entry.ripperName,
+        friendlyName: entry.friendlyName,
+        description: entry.description,
+        friendlyLink: entry.friendlyLink,
+        calendars: entry.calendars,
+      })),
+    ],
     recurringCalendars: recurringCalendars
       .filter(calendar => calendarsWithFutureEvents.has(`recurring-${calendar.name}.ics`))
       .map(calendar => ({

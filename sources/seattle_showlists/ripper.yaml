@@ -9,7 +9,6 @@ calendars:
     friendlyname: "Baba Yaga"
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
-    expectEmpty: true
     config:
       venue: "Baba Yaga"
   - name: central-saloon
@@ -109,6 +108,13 @@ calendars:
       venue: "Slim's Last Chance"
 
   # --- Fremont ---
+  - name: add-a-ball
+    friendlyname: "Add-A-Ball"
+    timezone: America/Los_Angeles
+    tags: ["Fremont"]
+    expectEmpty: true  # Small bar/arcade; may not always have listed shows
+    config:
+      venue: "Add-A-Ball"
   - name: nectar-lounge
     friendlyname: "Nectar Lounge"
     timezone: America/Los_Angeles

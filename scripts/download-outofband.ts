@@ -68,6 +68,7 @@ async function main() {
 
             if (filename === "outofband-report.json") {
                 reportJson = JSON.parse(body.toString("utf-8"));
+                await writeFile("outofband-report.json", body);
                 console.log(`[download-outofband] Downloaded report (${reportJson.sources?.length ?? 0} source(s))`);
             } else {
                 const localPath = join("output", filename);

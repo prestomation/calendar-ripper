@@ -47,7 +47,7 @@ jobs:
 
     - name: Download out-of-band calendars
       env:
-        OUTOFBAND_BUCKET: ${{ secrets.OUTOFBAND_BUCKET }}
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
       run: npm run download-outofband
 
     - name: Generate calendars

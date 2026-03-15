@@ -160,9 +160,9 @@ describe('Tag Aggregator', () => {
       // Act
       const aggregateCalendars = await createAggregateCalendars([sampleCalendar1, sampleCalendar2], taggedExternalCalendars);
       
-      // Assert
-      expect(aggregateCalendars).toHaveLength(2);
-      
+      // Assert - 2 regular tags + 1 "All" tag
+      expect(aggregateCalendars).toHaveLength(3);
+
       const musicCalendar = aggregateCalendars.find(c => c.name === 'tag-music');
       expect(musicCalendar).toBeDefined();
       expect(musicCalendar?.events).toHaveLength(1);
@@ -201,6 +201,83 @@ describe('Tag Aggregator', () => {
       expect(event.sourceCalendar).toBe('Calendar 1');
     });
     
+    it('should always create an All aggregate with events from every calendar', async () => {
+      // Arrange
+      sampleCalendar1.tags = ["Music"];
+      sampleCalendar2.tags = ["Activism"];
+      const taggedExternalCalendars: TaggedExternalCalendar[] = [];
+
+      // Act
+      const aggregateCalendars = await createAggregateCalendars(
+        [sampleCalendar1, sampleCalendar2],
+        taggedExternalCalendars
+      );
+
+      // Assert
+      const allCalendar = aggregateCalendars.find(c => c.name === 'tag-all');
+      expect(allCalendar).toBeDefined();
+      expect(allCalendar?.friendlyname).toBe('All Events');
+      expect(allCalendar?.events).toHaveLength(2);
+      expect(allCalendar?.events.map(e => e.summary)).toContain('Test Event 1');
+      expect(allCalendar?.events.map(e => e.summary)).toContain('Test Event 2');
+    });
+
+    it('should create All aggregate even when no sources have the All tag', async () => {
+      // Arrange - no source has "All" tag
+      sampleCalendar1.tags = ["Music"];
+      const taggedExternalCalendars: TaggedExternalCalendar[] = [];
+
+      // Act
+      const aggregateCalendars = await createAggregateCalendars(
+        [sampleCalendar1],
+        taggedExternalCalendars
+      );
+
+      // Assert
+      const allCalendar = aggregateCalendars.find(c => c.name === 'tag-all');
+      expect(allCalendar).toBeDefined();
+      expect(allCalendar?.events).toHaveLength(1);
+    });
+
+    it('should include external calendar events in All aggregate', async () => {
+      // Arrange
+      sampleCalendar1.tags = ["Music"];
+      const taggedExternalCalendars: TaggedExternalCalendar[] = [
+        { calendar: sampleExternalCalendar1, tags: ['Music'] }
+      ];
+
+      // Create a simple ICS string for the external calendar
+      const now = new Date();
+      const futureDate = new Date(now);
+      futureDate.setDate(now.getDate() + 7);
+      const dtStart = futureDate.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+BEGIN:VEVENT
+UID:ext-test-1
+SUMMARY:External Event
+DTSTART:${dtStart}
+DTEND:${dtStart}
+END:VEVENT
+END:VCALENDAR`;
+
+      const prefetchedIcsData = new Map<string, string>();
+      prefetchedIcsData.set(sampleExternalCalendar1.icsUrl, icsData);
+
+      // Act
+      const aggregateCalendars = await createAggregateCalendars(
+        [sampleCalendar1],
+        taggedExternalCalendars,
+        prefetchedIcsData
+      );
+
+      // Assert
+      const allCalendar = aggregateCalendars.find(c => c.name === 'tag-all');
+      expect(allCalendar).toBeDefined();
+      // Should have ripper event + external event
+      expect(allCalendar!.events.length).toBeGreaterThanOrEqual(2);
+    });
+
     it('should sort events by date', async () => {
       // Arrange
       const laterEvent = {
@@ -231,10 +308,10 @@ describe('Tag Aggregator', () => {
       // Act
       const aggregateCalendars = await createAggregateCalendars([calendar1, calendar2], taggedExternalCalendars);
       
-      // Assert
-      expect(aggregateCalendars).toHaveLength(1);
-      
-      const musicCalendar = aggregateCalendars[0];
+      // Assert - 1 Music tag + 1 All tag
+      expect(aggregateCalendars).toHaveLength(2);
+
+      const musicCalendar = aggregateCalendars.find(c => c.name === 'tag-music')!;
       expect(musicCalendar.events).toHaveLength(2);
       expect(musicCalendar.events[0].date).toEqual(earlierEvent.date);
       expect(musicCalendar.events[1].date).toEqual(laterEvent.date);

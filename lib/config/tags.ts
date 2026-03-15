@@ -51,7 +51,10 @@ export const VALID_TAGS = [
     // Community/Social
     "Activism",
     "Community",
-    "Volunteer"
+    "Volunteer",
+
+    // Special
+    "All"
 ] as const;
 
 export type ValidTag = typeof VALID_TAGS[number];

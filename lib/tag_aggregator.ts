@@ -196,7 +196,11 @@ export async function createAggregateCalendars(
   // Cache parsed events to avoid re-parsing the same external calendar for multiple tags
   const parsedEventsCache = new Map<string, RipperCalendarEvent[]>();
 
-  for (const tag of allTags) {
+  // Include "All" as a special tag that aggregates every calendar
+  const tagsWithAll = [...allTags.filter(t => t !== 'All'), 'All'];
+
+  for (const tag of tagsWithAll) {
+    const isAllTag = tag === 'All';
     console.log(`Creating aggregate calendar for tag: ${tag}`);
     // Create a new calendar for this tag
     const aggregateCalendar: RipperCalendar = {
@@ -207,9 +211,9 @@ export async function createAggregateCalendars(
       tags: [tag]
     };
 
-    // Add events from regular calendars with this tag
+    // Add events from regular calendars with this tag (All includes every calendar)
     for (const tc of taggedCalendars) {
-      if (tc.tags.includes(tag)) {
+      if (isAllTag || tc.tags.includes(tag)) {
         console.log(`  - Adding events from calendar: ${tc.friendlyname}`);
         // Tag each event with its source calendar for identification in aggregated feeds
         const eventsWithSource = tc.events.map(event => {
@@ -228,9 +232,9 @@ export async function createAggregateCalendars(
       }
     }
 
-    // Add events from external calendars with this tag
+    // Add events from external calendars with this tag (All includes every calendar)
     for (const tec of taggedExternalCalendars) {
-      if (tec.tags.includes(tag)) {
+      if (isAllTag || tec.tags.includes(tag)) {
         try {
           let externalEvents: RipperCalendarEvent[];
 

@@ -21,6 +21,7 @@ export const VALID_TAGS = [
     "QueenAnne",
     "Seward Park",
     "Shoreline",
+    "South Lake Union",
     "University District",
     "Wallingford",
     "West Seattle",

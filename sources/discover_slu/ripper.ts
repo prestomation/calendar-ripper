@@ -53,20 +53,13 @@ export function parseEventsFromHtml(
 ): RipperEvent[] {
     const events: RipperEvent[] = [];
 
-    // Track the current year from day headings
+    // Extract the year from day headings (e.g. "Sunday March 15, 2026").
+    // Use the last heading's year as the default for cards where we can't
+    // walk up to a specific heading.
     let currentYear = defaultYear;
-
-    // The HTML has day sections with h2.event-day headings followed by event cards.
-    // We need to iterate through all children to track the current day heading.
-    const dayHeadings = html.querySelectorAll("h2.event-day");
-    const headingYears = new Map<string, number>();
-    for (const heading of dayHeadings) {
-        const text = heading.textContent.trim();
-        const year = parseEventDayYear(text);
-        if (year) {
-            headingYears.set(text, year);
-            currentYear = year;
-        }
+    for (const heading of html.querySelectorAll("h2.event-day")) {
+        const year = parseEventDayYear(heading.textContent.trim());
+        if (year) currentYear = year;
     }
 
     const eventCards = html.querySelectorAll(".feature.full");
@@ -82,7 +75,9 @@ export function parseEventsFromHtml(
             const eventUrl = href.startsWith("http") ? href : `${BASE_URL}${href}`;
 
             // Use the URL slug as a stable ID
-            const slug = href.replace(/.*\/events\//, "").replace(/\/$/, "");
+            const slug = href.includes("/events/")
+                ? href.replace(/.*\/events\//, "").replace(/\/$/, "")
+                : href.replace(/^.*\//, "").replace(/\/$/, "") || title.toLowerCase().replace(/\s+/g, "-");
             const eventId = `discover-slu-${slug}`;
 
             if (seenEvents.has(eventId)) continue;
@@ -248,7 +243,7 @@ export default class DiscoverSLURipper implements IRipper {
                 }
 
                 const weekHtml = parse(data.events_html);
-                const events = parseEventsFromHtml(weekHtml, this.seenEvents, defaultYear);
+                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year());
                 allEvents.push(...events);
 
                 // Use the returned start_date for the next request (it may skip ahead if no events)
@@ -271,6 +266,9 @@ export default class DiscoverSLURipper implements IRipper {
         }
 
         const cal = ripper.config.calendars[0];
+        if (!cal) {
+            throw new Error("No calendars configured for discover-slu ripper");
+        }
         return [{
             name: cal.name,
             friendlyname: cal.friendlyname,

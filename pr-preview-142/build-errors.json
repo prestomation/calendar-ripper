@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-15T17:29:13.683Z",
+  "buildTime": "2026-03-15T18:03:04.548Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
@@ -276,7 +276,7 @@
     {
       "name": "bbyc-ballard-all-events",
       "type": "Ripper",
-      "events": 17,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -480,13 +480,13 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 51,
+      "events": 49,
       "expectEmpty": false
     },
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 21,
+      "events": 20,
       "expectEmpty": false
     },
     {
@@ -1014,7 +1014,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 464,
+      "events": 463,
       "expectEmpty": false
     },
     {
@@ -1134,7 +1134,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 135,
+      "events": 132,
       "expectEmpty": false
     },
     {
@@ -1146,7 +1146,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2544,
+      "events": 2542,
       "expectEmpty": false
     },
     {
@@ -1164,7 +1164,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 487,
+      "events": 486,
       "expectEmpty": false
     },
     {
@@ -1206,7 +1206,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 483,
+      "events": 480,
       "expectEmpty": false
     },
     {
@@ -1278,7 +1278,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7044,
+      "events": 7040,
       "expectEmpty": false
     },
     {

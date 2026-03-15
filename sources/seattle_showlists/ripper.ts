@@ -52,6 +52,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Conor Byrne Pub":      { address: "5140 Ballard Ave NW, Seattle, WA 98107" },
     "Darrell's Tavern":     { address: "18041 Aurora Ave N, Shoreline, WA 98133" },
     "Hotel Crocodile":      { address: "2505 1st Ave, Seattle, WA 98121" },
+    "Add-A-Ball":           { address: "314 N 36th St, Seattle, WA 98103" },
     "Nectar Lounge":        { address: "412 N 36th St, Seattle, WA 98103" },
     "Slim's Last Chance":   { address: "5606 1st Ave S, Seattle, WA 98108" },
     "Skylark":              { address: "3803 Delridge Way SW, Seattle, WA 98106" },

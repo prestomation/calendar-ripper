@@ -181,6 +181,7 @@
   description: "My Ballard"
   icsUrl: "https://myballard.com/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://myballard.com/events/"
+  disabled: true  # 403 Forbidden as of 2026-03-15 — site blocks automated fetches
   tags:
   - Community
   - Ballard
@@ -225,6 +226,7 @@
   description: "City of Seattle Special Events Planning Calendar"
   icsUrl: "https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics"
   infoUrl: "https://www.seattle.gov/special-events/plan-an-event/calendar"
+  disabled: true  # 403 Forbidden as of 2026-03-15 — site blocks automated fetches
   tags:
   - Community
 

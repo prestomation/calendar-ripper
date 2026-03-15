@@ -713,7 +713,7 @@ END:VCALENDAR`;
     throw new Error(`Build failed: invalid tag(s) not in VALID_TAGS: ${invalidTags.join(', ')}. Add them to lib/config/tags.ts or fix the typo.`);
   }
 
-  const categorizedTags = new Set(Object.values(TAG_CATEGORIES).flat());
+  const categorizedTags = new Set<string>(Object.values(TAG_CATEGORIES).flat());
   const uncategorizedTags = Array.from(allTags).filter(tag => !categorizedTags.has(tag));
   if (uncategorizedTags.length > 0) {
     throw new Error(`Build failed: tag(s) are valid but not assigned to any display category: ${uncategorizedTags.join(', ')}. Add them to a category in TAG_CATEGORIES in lib/config/tags.ts.`);

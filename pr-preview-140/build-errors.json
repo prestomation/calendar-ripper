@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-15T01:36:55.846Z",
+  "buildTime": "2026-03-15T01:40:53.956Z",
   "totalErrors": 3,
   "configErrors": [],
   "sources": [
@@ -389,7 +389,7 @@
     {
       "name": "dogwoodplaypark-events",
       "type": "Ripper",
-      "events": 11,
+      "events": 12,
       "expectEmpty": false
     },
     {
@@ -443,7 +443,7 @@
     {
       "name": "fremont-brewing-all-events",
       "type": "Ripper",
-      "events": 40,
+      "events": 39,
       "expectEmpty": false
     },
     {
@@ -533,7 +533,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 50,
+      "events": 51,
       "expectEmpty": false
     },
     {
@@ -1097,7 +1097,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 174,
+      "events": 173,
       "expectEmpty": false
     },
     {
@@ -1181,7 +1181,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 135,
+      "events": 136,
       "expectEmpty": false
     },
     {
@@ -1193,7 +1193,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2553,
+      "events": 2554,
       "expectEmpty": false
     },
     {
@@ -1211,7 +1211,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 493,
+      "events": 492,
       "expectEmpty": false
     },
     {
@@ -1235,7 +1235,7 @@
     {
       "name": "tag-dogs",
       "type": "Aggregate",
-      "events": 11,
+      "events": 12,
       "expectEmpty": false
     },
     {
@@ -1253,7 +1253,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 483,
+      "events": 484,
       "expectEmpty": false
     },
     {

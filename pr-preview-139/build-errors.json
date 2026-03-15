@@ -1,8 +1,21 @@
 {
-  "buildTime": "2026-03-15T00:07:09.959Z",
-  "totalErrors": 3,
+  "buildTime": "2026-03-15T00:21:55.480Z",
+  "totalErrors": 5,
   "configErrors": [],
   "sources": [
+    {
+      "source": "dogwoodplaypark",
+      "calendar": "events",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No JSON-LD script tag found",
+          "context": "HTML document"
+        }
+      ]
+    },
     {
       "source": "seattle-showlists",
       "calendar": "baba-yaga",
@@ -39,6 +52,19 @@
           "type": "ParseError",
           "reason": "Unknown venue \"Add-A-Ball\" not in VENUE_CONFIG — add it so events are routed to a calendar",
           "context": "venue: Add-A-Ball"
+        }
+      ]
+    },
+    {
+      "source": "tag-dogs",
+      "calendar": "tag-dogs",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "No JSON-LD script tag found",
+          "context": "HTML document"
         }
       ]
     }
@@ -443,7 +469,7 @@
     {
       "name": "fremont-brewing-all-events",
       "type": "Ripper",
-      "events": 40,
+      "events": 39,
       "expectEmpty": false
     },
     {
@@ -533,7 +559,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 50,
+      "events": 51,
       "expectEmpty": false
     },
     {
@@ -1097,7 +1123,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 174,
+      "events": 173,
       "expectEmpty": false
     },
     {
@@ -1181,7 +1207,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 135,
+      "events": 136,
       "expectEmpty": false
     },
     {
@@ -1193,7 +1219,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2554,
+      "events": 2555,
       "expectEmpty": false
     },
     {
@@ -1211,7 +1237,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 493,
+      "events": 492,
       "expectEmpty": false
     },
     {
@@ -1253,7 +1279,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 482,
+      "events": 483,
       "expectEmpty": false
     },
     {

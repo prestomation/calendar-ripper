@@ -1,0 +1,17 @@
+[
+  {
+    "type": "ParseError",
+    "reason": "Could not parse date from \"April 5\" for \"Easter Cruises\"",
+    "context": "discover-slu-easter-2026"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Could not parse date from \"April 24-25\" for \"Terpsichore's Landing 2026\"",
+    "context": "discover-slu-terpsichore-2026"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Could not parse date from \"May 9-10\" for \"Mother's Day Cruises\"",
+    "context": "discover-slu-mothers-day-cruises-2026"
+  }
+]

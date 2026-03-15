@@ -104,7 +104,6 @@ async function main() {
             writtenFiles.push(outPath);
 
             const errorMessages = calendar.errors.map(e => e.reason);
-            report.totalErrors += calendar.errors.length;
 
             // Check for future events by reading the written ICS file
             let hasFuture = false;
@@ -113,6 +112,13 @@ async function main() {
                 hasFuture = hasFutureEventsInICS(icsContent);
             } catch {
                 // If we can't read it back, assume no future events
+            }
+
+            // Only count errors for calendars with future events — calendars
+            // with no future events are already excluded from the manifest and
+            // are expected to be intermittently empty.
+            if (hasFuture) {
+                report.totalErrors += calendar.errors.length;
             }
 
             const calConfig = config.config.calendars.find(c => c.name === calendar.name);

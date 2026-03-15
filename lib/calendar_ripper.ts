@@ -399,10 +399,13 @@ export const main = async () => {
   }
   await Promise.all(recurringWritePromises);
 
-  // Separate enabled from disabled configs
-  const enabledConfigs = configs.filter(c => !c.config.disabled);
+  // Separate enabled from disabled/outofband configs
+  const enabledConfigs = configs.filter(c => !c.config.disabled && c.config.proxy !== "outofband");
   for (const config of configs.filter(c => c.config.disabled)) {
     console.log(`Skipping disabled ripper: ${config.config.name}`);
+  }
+  for (const config of configs.filter(c => !c.config.disabled && c.config.proxy === "outofband")) {
+    console.log(`Skipping out-of-band ripper: ${config.config.name}`);
   }
 
   // Propagate ripper tags to their calendars before parallel execution
@@ -712,7 +715,7 @@ END:VCALENDAR`;
 
   // Log calendars excluded from manifest due to no future events
   const allCalendarIcsUrls: string[] = [];
-  for (const ripper of configs.filter(r => !r.config.disabled)) {
+  for (const ripper of configs.filter(r => !r.config.disabled && r.config.proxy !== "outofband")) {
     for (const cal of ripper.config.calendars) {
       allCalendarIcsUrls.push(`${ripper.config.name}-${cal.name}.ics`);
     }
@@ -732,7 +735,7 @@ END:VCALENDAR`;
   // Generate JSON manifest for React app, filtering out calendars with no future events
   const manifest = {
     lastUpdated: new Date().toISOString(),
-    rippers: configs.filter(ripper => !ripper.config.disabled).map(ripper => ({
+    rippers: configs.filter(ripper => !ripper.config.disabled && ripper.config.proxy !== "outofband").map(ripper => ({
       name: ripper.config.name,
       friendlyName: ripper.config.friendlyname,
       description: ripper.config.description,
@@ -860,7 +863,18 @@ END:VCALENDAR`;
   }
 
   await writeFile("output/events-index.json", eventsIndexJson);
-  await writeFile("errorCount.txt", totalErrorCount.toString());
+
+  // Merge outofband error count if download-outofband.ts wrote it separately
+  let finalErrorCount = totalErrorCount;
+  try {
+    const outofbandErrorsStr = await readFile("outofband-error-count.txt", "utf-8");
+    const outofbandErrors = parseInt(outofbandErrorsStr.trim(), 10) || 0;
+    finalErrorCount += outofbandErrors;
+    console.log(`Merged ${outofbandErrors} out-of-band error(s) into total (total: ${finalErrorCount})`);
+  } catch {
+    // file doesn't exist — no outofband errors to merge
+  }
+  await writeFile("errorCount.txt", finalErrorCount.toString());
 
   // Print event count summary
   const zeroEventCalendars = eventCounts.filter(c => c.events === 0 && !c.expectEmpty);

@@ -14,35 +14,38 @@
     "web:build": "cd web && vite build && cd .. && node scripts/inject-sw-assets.mjs",
     "web:preview": "cd web && vite preview",
     "build": "npm run generate-calendars && npm run web:build",
-    "check-missing-urls": "node --loader ts-node/esm scripts/check-missing-urls.ts"
+    "check-missing-urls": "node --loader ts-node/esm scripts/check-missing-urls.ts",
+    "generate-outofband": "node --loader ts-node/esm scripts/generate-outofband.ts",
+    "download-outofband": "node --loader ts-node/esm scripts/download-outofband.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1009.0",
     "@js-joda/core": "^5.5.3",
     "@js-joda/locale_en-us": "^4.11.0",
     "@js-joda/timezone": "^2.18.0",
+    "dompurify": "^2.5.8",
+    "fuse.js": "^7.0.0",
     "html-entities": "^2.6.0",
     "ical.js": "^1.5.0",
     "ics": "^3.1.0",
     "node-html-parser": "^6.1.5",
-    "yaml": "^2.2.2",
-    "zod": "^3.21.4",
-    "dompurify": "^2.5.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "fuse.js": "^7.0.0"
+    "yaml": "^2.2.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4",
-    "vitest": "^4.0.18",
-    "c8": "^7.14.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
+    "c8": "^7.14.0",
+    "jsdom": "^22.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
     "vite": "^5.0.8",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/user-event": "^14.4.3",
-    "jsdom": "^22.1.0"
+    "vitest": "^4.0.18"
   }
 }

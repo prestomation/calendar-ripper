@@ -40,7 +40,7 @@ export const configSchema = z.object({
     url: z.string().transform(u => new URL(u)),
     friendlyLink: z.string(),
     disabled: z.boolean().default(false),
-    proxy: z.union([z.enum(["lambda", "nodriver"]), z.boolean()])
+    proxy: z.union([z.enum(["lambda", "nodriver", "outofband"]), z.boolean()])
         .default(false)
         .transform(v => {
             if (v === true) return "nodriver" as const;

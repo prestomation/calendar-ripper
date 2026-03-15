@@ -45,6 +45,11 @@ jobs:
         aws-region: us-west-2
       continue-on-error: true  # Gracefully skip if secrets aren't configured
 
+    - name: Download out-of-band calendars
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: npm run download-outofband
+
     - name: Generate calendars
       id: generate-calendars
       env:

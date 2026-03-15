@@ -12,7 +12,7 @@
  *   const res = await fetchFn(url, init);
  */
 
-export type ProxyType = "lambda" | "nodriver" | false;
+export type ProxyType = "lambda" | "nodriver" | "outofband" | false;
 
 export type FetchFn = (url: string | URL, init?: RequestInit) => Promise<Response>;
 
@@ -80,5 +80,6 @@ export function getFetchForConfig(config: { proxy?: ProxyType }): FetchFn {
 
     if (resolved === "nodriver") return nodriverFetch;
     if (resolved === "lambda") return proxyFetch;
+    // "outofband" sources run on a home server; treat as direct fetch
     return (url: string | URL, init?: RequestInit) => fetch(url, init);
 }

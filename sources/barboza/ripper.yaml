@@ -1,6 +1,6 @@
 name: barboza
 type: axs
-proxy: true
+proxy: "outofband" # AXS returns 403 from GitHub runner IPs
 friendlyname: "Barboza"
 description: "Intimate Capitol Hill music venue located below Neumos"
 url: "https://www.axs.com/venues/124813/barboza-seattle-tickets"

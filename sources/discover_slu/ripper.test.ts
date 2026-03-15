@@ -187,6 +187,82 @@ describe('Discover SLU Ripper', () => {
         expect(events.length).toBe(0);
     });
 
+    test('parses date-only format without time (e.g. "April 5")', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/easter-2026/">Easter Cruises</a></h3>
+                    <p class="feature__location">@ Waterways Cruises</p>
+                    <p>Celebrate Easter on the water with a special brunch cruise.</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/easter-2026/">
+                        <span class="feature__tag">April 5</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe('Easter Cruises');
+        expect(validEvents[0].date.monthValue()).toBe(4);
+        expect(validEvents[0].date.dayOfMonth()).toBe(5);
+        expect(validEvents[0].date.hour()).toBe(10); // default time
+    });
+
+    test('parses date range format (e.g. "April 24-25"), uses first day', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/terpsichore-2026/">Terpsichore's Landing 2026</a></h3>
+                    <p class="feature__location">@ MOHAI</p>
+                    <p>A two-day dance festival on the shores of Lake Union.</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/terpsichore-2026/">
+                        <span class="feature__tag">April 24-25</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe("Terpsichore's Landing 2026");
+        expect(validEvents[0].date.monthValue()).toBe(4);
+        expect(validEvents[0].date.dayOfMonth()).toBe(24);
+        expect(validEvents[0].date.hour()).toBe(10); // default time
+    });
+
+    test('parses another date range format (e.g. "May 9-10")', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/mothers-day-cruises/">Mother's Day Cruises</a></h3>
+                    <p class="feature__location">@ Waterways Cruises</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/mothers-day-cruises/">
+                        <span class="feature__tag">May 9-10</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe("Mother's Day Cruises");
+        expect(validEvents[0].date.monthValue()).toBe(5);
+        expect(validEvents[0].date.dayOfMonth()).toBe(9);
+    });
+
     test('handles malformed event cards gracefully', () => {
         const html = parse(`
             <div class="feature full">

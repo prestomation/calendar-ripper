@@ -7,32 +7,46 @@ import '@js-joda/timezone';
 const BASE_URL = "https://www.discoverslu.com";
 const AJAX_URL = "https://www.discoverslu.com/wp-admin/admin-ajax.php";
 
+const MONTH_MAP: Record<string, number> = {
+    january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
+    july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
+};
+
 /**
- * Parse a date string like "March 15, 10:00 am" from the feature__tag span.
- * Returns month, day, hour, minute.
+ * Parse a date string from the feature__tag span.
+ * Handles several formats found on discoverslu.com:
+ *   "March 15, 10:00 am"   — date with time
+ *   "April 5"              — date without time
+ *   "April 24-25"          — date range (uses first day)
+ *   "May 9-10"             — date range (uses first day)
  */
 function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number } | null {
-    const match = tagText.trim().match(
-        /^(\w+)\s+(\d{1,2}),\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i
-    );
-    if (!match) return null;
+    const text = tagText.trim();
 
-    const monthName = match[1].toLowerCase();
-    const monthMap: Record<string, number> = {
-        january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
-        july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
-    };
-    const month = monthMap[monthName];
-    if (!month) return null;
+    // Format: "Month Day, H:MM am/pm"
+    const withTime = text.match(/^(\w+)\s+(\d{1,2}),\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+    if (withTime) {
+        const month = MONTH_MAP[withTime[1].toLowerCase()];
+        if (!month) return null;
+        const day = parseInt(withTime[2]);
+        let hour = parseInt(withTime[3]);
+        const minute = parseInt(withTime[4]);
+        const ampm = withTime[5].toLowerCase();
+        if (ampm === "pm" && hour !== 12) hour += 12;
+        if (ampm === "am" && hour === 12) hour = 0;
+        return { month, day, hour, minute };
+    }
 
-    const day = parseInt(match[2]);
-    let hour = parseInt(match[3]);
-    const minute = parseInt(match[4]);
-    const ampm = match[5].toLowerCase();
-    if (ampm === "pm" && hour !== 12) hour += 12;
-    if (ampm === "am" && hour === 12) hour = 0;
+    // Format: "Month Day-Day" (date range, use first day) or "Month Day" (no time)
+    const dateOnly = text.match(/^(\w+)\s+(\d{1,2})(?:\s*-\s*\d{1,2})?$/i);
+    if (dateOnly) {
+        const month = MONTH_MAP[dateOnly[1].toLowerCase()];
+        if (!month) return null;
+        const day = parseInt(dateOnly[2]);
+        return { month, day, hour: 10, minute: 0 }; // default to 10 AM
+    }
 
-    return { month, day, hour, minute };
+    return null;
 }
 
 /**

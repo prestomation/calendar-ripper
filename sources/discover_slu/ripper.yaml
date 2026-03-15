@@ -1,0 +1,10 @@
+name: discover-slu
+description: "Discover South Lake Union"
+url: "https://www.discoverslu.com/calendar/"
+friendlyLink: https://www.discoverslu.com/calendar/
+tags: ["Community", "South Lake Union"]
+lookahead: P1M
+calendars:
+  - name: discover-slu
+    friendlyname: "Discover South Lake Union Events"
+    timezone: America/Los_Angeles

@@ -405,7 +405,7 @@ export const main = async () => {
     console.log(`Skipping disabled ripper: ${config.config.name}`);
   }
   for (const config of configs.filter(c => !c.config.disabled && c.config.proxy === "outofband")) {
-    console.log(`Skipping outofband ripper (runs on home server): ${config.config.name}`);
+    console.log(`Skipping out-of-band ripper: ${config.config.name}`);
   }
 
   // Propagate ripper tags to their calendars before parallel execution
@@ -863,7 +863,18 @@ END:VCALENDAR`;
   }
 
   await writeFile("output/events-index.json", eventsIndexJson);
-  await writeFile("errorCount.txt", totalErrorCount.toString());
+
+  // Merge outofband error count if download-outofband.ts wrote it separately
+  let finalErrorCount = totalErrorCount;
+  try {
+    const outofbandErrorsStr = await readFile("outofband-error-count.txt", "utf-8");
+    const outofbandErrors = parseInt(outofbandErrorsStr.trim(), 10) || 0;
+    finalErrorCount += outofbandErrors;
+    console.log(`Merged ${outofbandErrors} out-of-band error(s) into total (total: ${finalErrorCount})`);
+  } catch {
+    // file doesn't exist — no outofband errors to merge
+  }
+  await writeFile("errorCount.txt", finalErrorCount.toString());
 
   // Print event count summary
   const zeroEventCalendars = eventCounts.filter(c => c.events === 0 && !c.expectEmpty);

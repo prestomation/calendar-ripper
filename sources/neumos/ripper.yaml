@@ -1,6 +1,6 @@
 name: neumos
 type: axs
-proxy: "outofband"
+proxy: "outofband" # AXS returns 403 from GitHub runner IPs
 description: "Neumos"
 url: "https://www.axs.com/venues/102495/neumos-seattle-tickets"
 friendlyLink: https://www.neumos.com/events

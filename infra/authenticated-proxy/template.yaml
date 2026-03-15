@@ -2,7 +2,6 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: >
   Infrastructure for calendar-ripper out-of-band uploads.
   GitHub Actions assumes an IAM role via OIDC to read from the S3 bucket.
-  OpenClaw uses a dedicated IAM user to write calendar files to the bucket.
 
 # ---------------------------------------------------------------------------
 # Parameters
@@ -37,11 +36,6 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "calendar-ripper-outofband-${AWS::AccountId}"
-      LifecycleConfiguration:
-        Rules:
-          - Id: ExpireOldUploads
-            Status: Enabled
-            ExpirationInDays: 7
 
   # -- GitHub OIDC Provider --------------------------------------------------
   GitHubOIDCProvider:

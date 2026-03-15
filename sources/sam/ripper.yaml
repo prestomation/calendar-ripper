@@ -1,5 +1,5 @@
 name: sam
-proxy: "outofband"
+proxy: "outofband" # Seattle Art Museum returns 403 from GitHub runner IPs
 friendlyname: "Seattle Art Museum"
 description: "Seattle Art Museum"
 url: "https://www.seattleartmuseum.org/whats-on/events"

@@ -2,7 +2,7 @@
  * download-outofband.ts
  *
  * Downloads pre-built out-of-band calendar files from S3 into output/.
- * Merges outofband-report.json error count into errorCount.txt.
+ * Writes outofband-report.json error count to outofband-error-count.txt.
  *
  * Graceful: if the bucket is empty, unreachable, or credentials aren't
  * configured, it logs a warning and exits 0.
@@ -79,18 +79,10 @@ async function main() {
         }
     }
 
-    // Merge outofband error count into errorCount.txt
+    // Write outofband error count to a separate file to avoid race condition with calendar_ripper.ts
     if (reportJson && typeof reportJson.totalErrors === "number" && reportJson.totalErrors > 0) {
-        let existingCount = 0;
-        try {
-            const existing = await readFile("errorCount.txt", "utf-8");
-            existingCount = parseInt(existing.trim(), 10) || 0;
-        } catch {
-            // file doesn't exist yet — fine
-        }
-        const newCount = existingCount + reportJson.totalErrors;
-        await writeFile("errorCount.txt", String(newCount));
-        console.log(`[download-outofband] Merged ${reportJson.totalErrors} outofband error(s) into errorCount.txt (total: ${newCount})`);
+        await writeFile("outofband-error-count.txt", String(reportJson.totalErrors));
+        console.log(`[download-outofband] Wrote ${reportJson.totalErrors} outofband error(s) to outofband-error-count.txt`);
     }
 
     console.log("[download-outofband] Done.");

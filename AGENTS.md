@@ -409,3 +409,13 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-pr
 **Symptom:** Errors in `tag-*` aggregate calendars
 
 **Cause:** These are always downstream from ripper errors. Fix the underlying ripper and the tag errors resolve automatically.
+
+## Documentation Convention
+
+Feature designs, architecture write-ups, and build/site decisions should be written to the **`docs/`** directory in the repo root. This keeps them versioned alongside the code for posterity.
+
+Examples:
+- `docs/design-offline-mode.md` — offline mode design
+- `docs/outofband.md` — out-of-band calendar source architecture
+
+When designing a new feature or documenting a non-obvious architectural decision, create a `docs/<feature>.md` file as part of the same PR.

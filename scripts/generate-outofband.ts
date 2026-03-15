@@ -16,7 +16,8 @@
 
 import { RipperLoader } from "../lib/config/loader.js";
 import { toICS } from "../lib/config/schema.js";
-import { mkdir, writeFile, readdir } from "fs/promises";
+import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
+import { mkdir, writeFile, readFile } from "fs/promises";
 import { createReadStream } from "fs";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { join } from "path";
@@ -39,13 +40,23 @@ async function main() {
 
     await mkdir("output", { recursive: true });
 
+    interface CalendarReport {
+        name: string;
+        friendlyName: string;
+        icsFile: string;          // filename within latest/ prefix (e.g. "neumos-neumos.ics")
+        events: number;
+        hasFutureEvents: boolean;
+        errors: string[];
+        tags: string[];
+    }
+
     interface SourceReport {
         source: string;
-        calendars: Array<{
-            name: string;
-            events: number;
-            errors: string[];
-        }>;
+        friendlyName: string;
+        description: string;
+        friendlyLink: string;
+        tags: string[];
+        calendars: CalendarReport[];
     }
 
     const report: {
@@ -76,7 +87,14 @@ async function main() {
             }));
         }
 
-        const sourceReport: SourceReport = { source: config.config.name, calendars: [] };
+        const sourceReport: SourceReport = {
+            source: config.config.name,
+            friendlyName: config.config.friendlyname ?? config.config.name,
+            description: config.config.description ?? "",
+            friendlyLink: config.config.friendlyLink ?? "",
+            tags: config.config.tags ?? [],
+            calendars: [],
+        };
 
         for (const calendar of calendars) {
             const filename = `${config.config.name}-${calendar.name}.ics`;
@@ -88,13 +106,29 @@ async function main() {
             const errorMessages = calendar.errors.map(e => e.reason);
             report.totalErrors += calendar.errors.length;
 
+            // Check for future events by reading the written ICS file
+            let hasFuture = false;
+            try {
+                const icsContent = await readFile(outPath, "utf-8");
+                hasFuture = hasFutureEventsInICS(icsContent);
+            } catch {
+                // If we can't read it back, assume no future events
+            }
+
+            const calConfig = config.config.calendars.find(c => c.name === calendar.name);
+            const calTags = [...new Set([...(config.config.tags ?? []), ...(calConfig?.tags ?? [])])];
+
             sourceReport.calendars.push({
                 name: calendar.name,
+                friendlyName: calConfig?.friendlyname ?? calendar.name,
+                icsFile: filename,
                 events: calendar.events.length,
+                hasFutureEvents: hasFuture,
                 errors: errorMessages,
+                tags: calTags,
             });
 
-            console.log(`  ${calendar.name}: ${calendar.events.length} events, ${calendar.errors.length} errors`);
+            console.log(`  ${calendar.name}: ${calendar.events.length} events, ${calendar.errors.length} errors, hasFutureEvents=${hasFuture}`);
         }
 
         report.sources.push(sourceReport);

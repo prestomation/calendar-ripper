@@ -52,7 +52,7 @@ const MAX_PAGES = 10;
  * ripper.yaml with the events page URL.
  */
 export class SquarespaceRipper implements IRipper {
-    private fetchFn: FetchFn = (url, init) => fetch(url, init);
+    protected fetchFn: FetchFn = (url, init) => fetch(url, init);
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);

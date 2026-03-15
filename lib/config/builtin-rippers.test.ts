@@ -45,10 +45,12 @@ describe('built-in rippers: missing environment variables', () => {
         }
     });
 
-    for (const type of BUILTIN_RIPPER_TYPES) {
-        // Squarespace makes real network calls and times out locally; only run in CI
-        const testFn = type === 'squarespace' ? it.runIf(process.env.GITHUB_ACTIONS) : it;
-        testFn(`${type} ripper does not throw from rip() when env vars are missing`, async () => {
+    // Squarespace has no API key requirement so it doesn't belong in this suite —
+    // its network-error handling is covered in squarespace.test.ts instead.
+    const RIPPERS_WITH_ENV_VARS = BUILTIN_RIPPER_TYPES.filter(t => t !== 'squarespace');
+
+    for (const type of RIPPERS_WITH_ENV_VARS) {
+        it(`${type} ripper does not throw from rip() when env vars are missing`, async () => {
             const ripper = makeMinimalRipper(type);
             const calendars = await ripper.ripperImpl.rip(ripper);
 

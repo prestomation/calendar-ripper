@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import DOMPurify from 'dompurify'
 import Fuse from 'fuse.js'
+import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 
 const FUSE_THRESHOLD = 0.2
 import ICAL from 'ical.js'
@@ -24,12 +25,6 @@ function useBreakpoint() {
   return 'desktop'
 }
 
-const TAG_CATEGORIES = {
-  'Neighborhoods': ['Downtown', 'QueenAnne', 'CapitolHill'],
-  'Activities': ['Music', 'Movies', 'Beer', 'Arts', 'Art', 'Dogs'],
-  'Markets': ['FarmersMarket', 'MakersMarket'],
-  'Community': ['Activism', 'Community', 'Volunteer'],
-}
 
 function formatTagLabel(tag) {
   return tag.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
@@ -1486,11 +1481,7 @@ function App() {
       const matching = categoryTags.filter(t => tagSet.has(t))
       if (matching.length > 0) {
         groups.push({ category, tags: matching })
-        matching.forEach(t => tagSet.delete(t))
       }
-    }
-    if (tagSet.size > 0) {
-      groups.push({ category: 'Other', tags: Array.from(tagSet).sort() })
     }
     return groups
   }, [allTags])

@@ -1,101 +1,8 @@
 {
-  "buildTime": "2026-03-15T22:51:16.360Z",
-  "totalErrors": 12,
+  "buildTime": "2026-03-15T22:53:39.880Z",
+  "totalErrors": 0,
   "configErrors": [],
-  "sources": [
-    {
-      "source": "discover-slu",
-      "calendar": "discover-slu",
-      "type": "Ripper",
-      "errorCount": 3,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 5\" for \"Easter Cruises\"",
-          "context": "discover-slu-easter-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 24-25\" for \"Terpsichore's Landing 2026\"",
-          "context": "discover-slu-terpsichore-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 9-10\" for \"Mother's Day Cruises\"",
-          "context": "discover-slu-mothers-day-cruises-2026"
-        }
-      ]
-    },
-    {
-      "source": "tag-community",
-      "calendar": "tag-community",
-      "type": "Aggregate",
-      "errorCount": 3,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 5\" for \"Easter Cruises\"",
-          "context": "discover-slu-easter-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 24-25\" for \"Terpsichore's Landing 2026\"",
-          "context": "discover-slu-terpsichore-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 9-10\" for \"Mother's Day Cruises\"",
-          "context": "discover-slu-mothers-day-cruises-2026"
-        }
-      ]
-    },
-    {
-      "source": "tag-south-lake-union",
-      "calendar": "tag-south-lake-union",
-      "type": "Aggregate",
-      "errorCount": 3,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 5\" for \"Easter Cruises\"",
-          "context": "discover-slu-easter-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 24-25\" for \"Terpsichore's Landing 2026\"",
-          "context": "discover-slu-terpsichore-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 9-10\" for \"Mother's Day Cruises\"",
-          "context": "discover-slu-mothers-day-cruises-2026"
-        }
-      ]
-    },
-    {
-      "source": "tag-all",
-      "calendar": "tag-all",
-      "type": "Aggregate",
-      "errorCount": 3,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 5\" for \"Easter Cruises\"",
-          "context": "discover-slu-easter-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"April 24-25\" for \"Terpsichore's Landing 2026\"",
-          "context": "discover-slu-terpsichore-2026"
-        },
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 9-10\" for \"Mother's Day Cruises\"",
-          "context": "discover-slu-mothers-day-cruises-2026"
-        }
-      ]
-    }
-  ],
+  "sources": [],
   "externalCalendarFailures": [],
   "zeroEventCalendars": [],
   "expectedEmptyCalendars": [
@@ -429,7 +336,7 @@
     {
       "name": "discover-slu-discover-slu",
       "type": "Ripper",
-      "events": 36,
+      "events": 39,
       "expectEmpty": false
     },
     {
@@ -1215,7 +1122,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1897,
+      "events": 1900,
       "expectEmpty": false
     },
     {
@@ -1287,7 +1194,7 @@
     {
       "name": "tag-south-lake-union",
       "type": "Aggregate",
-      "events": 70,
+      "events": 73,
       "expectEmpty": false
     },
     {
@@ -1383,7 +1290,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7072,
+      "events": 7075,
       "expectEmpty": false
     },
     {

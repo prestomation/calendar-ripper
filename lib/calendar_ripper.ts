@@ -1,5 +1,5 @@
 import { RipperLoader } from "./config/loader.js";
-import { writeFile, mkdir, readFile, appendFile, readdir } from "fs/promises";
+import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
 import {
   RipperConfig,
   RipperError,
@@ -727,13 +727,12 @@ END:VCALENDAR`;
     allCalendarIcsUrls.push(`external-${cal.name}.ics`);
   }
 
-  // --- Out-of-band calendars: register downloaded ICS files into manifest ---
-  // These were pre-built by a separate job and downloaded from S3 by download-outofband.ts.
-  // We need to: (1) detect which outofband ICS files exist, (2) check them for future events,
-  // (3) add them to allCalendarIcsUrls + calendarsWithFutureEvents so they appear in the manifest.
+  // --- Out-of-band calendars: read the report produced by generate-outofband.ts ---
+  // The report (downloaded from S3 by download-outofband.ts) is the single source of truth:
+  // it already knows which calendars have future events, error counts, and all metadata.
   interface OutOfBandManifestEntry {
     ripperName: string;
-    friendlyName: string | undefined;
+    friendlyName: string;
     description: string;
     friendlyLink: string;
     tags: string[];
@@ -747,42 +746,63 @@ END:VCALENDAR`;
   }
   const outofbandManifestEntries: OutOfBandManifestEntry[] = [];
 
-  for (const config of configs.filter(c => !c.config.disabled && c.config.proxy === "outofband")) {
-    const calendarEntries: OutOfBandManifestEntry["calendars"] = [];
-    for (const calConfig of config.config.calendars) {
-      const icsFilename = `${config.config.name}-${calConfig.name}.ics`;
-      const icsPath = join("output", icsFilename);
-      allCalendarIcsUrls.push(icsFilename);
-      try {
-        const icsContent = await readFile(icsPath, "utf-8");
-        const hasFuture = hasFutureEventsInICS(icsContent);
-        if (hasFuture) {
-          calendarsWithFutureEvents.add(icsFilename);
+  try {
+    const reportRaw = await readFile("outofband-report.json", "utf-8");
+    const outofbandReport = JSON.parse(reportRaw) as {
+      buildTime: string;
+      totalErrors: number;
+      sources: Array<{
+        source: string;
+        friendlyName: string;
+        description: string;
+        friendlyLink: string;
+        tags: string[];
+        calendars: Array<{
+          name: string;
+          friendlyName: string;
+          icsFile: string;
+          events: number;
+          hasFutureEvents: boolean;
+          errors: string[];
+          tags: string[];
+        }>;
+      }>;
+    };
+
+    console.log(`[outofband] Report from ${outofbandReport.buildTime}: ${outofbandReport.sources.length} source(s), ${outofbandReport.totalErrors} error(s)`);
+
+    for (const source of outofbandReport.sources) {
+      const calendarEntries: OutOfBandManifestEntry["calendars"] = [];
+      for (const cal of source.calendars) {
+        allCalendarIcsUrls.push(cal.icsFile);
+        if (cal.hasFutureEvents) {
+          calendarsWithFutureEvents.add(cal.icsFile);
           calendarEntries.push({
-            name: calConfig.name,
-            friendlyName: calConfig.friendlyname,
-            icsUrl: icsFilename,
-            rssUrl: icsFilename.replace(".ics", ".rss"),
-            tags: [...new Set([...(config.config.tags || []), ...(calConfig.tags || [])])]
+            name: cal.name,
+            friendlyName: cal.friendlyName,
+            icsUrl: cal.icsFile,
+            rssUrl: cal.icsFile.replace(".ics", ".rss"),
+            tags: cal.tags,
           });
-          console.log(`[outofband] Registered ${icsFilename} with future events`);
+          console.log(`[outofband] Registered ${cal.icsFile} (${cal.events} events)`);
         } else {
-          console.log(`[outofband] Skipping ${icsFilename} — no future events`);
+          console.log(`[outofband] Skipping ${cal.icsFile} — no future events (${cal.errors.length} error(s))`);
         }
-      } catch (err: any) {
-        console.warn(`[outofband] Warning: could not read/parse ${icsPath}: ${err?.message ?? err} — skipping`);
+      }
+      if (calendarEntries.length > 0) {
+        outofbandManifestEntries.push({
+          ripperName: source.source,
+          friendlyName: source.friendlyName,
+          description: source.description,
+          friendlyLink: source.friendlyLink,
+          tags: source.tags,
+          calendars: calendarEntries,
+        });
       }
     }
-    if (calendarEntries.length > 0) {
-      outofbandManifestEntries.push({
-        ripperName: config.config.name,
-        friendlyName: config.config.friendlyname,
-        description: config.config.description ?? "",
-        friendlyLink: config.config.friendlyLink ?? "",
-        tags: config.config.tags || [],
-        calendars: calendarEntries,
-      });
-    }
+  } catch (err: any) {
+    // Report not present (e.g. S3 not configured, first run) — skip gracefully
+    console.warn(`[outofband] Warning: could not read outofband-report.json: ${err?.message ?? err} — skipping out-of-band calendars`);
   }
 
   const excludedFromManifest = allCalendarIcsUrls.filter(url => !calendarsWithFutureEvents.has(url));
@@ -931,15 +951,17 @@ END:VCALENDAR`;
 
   await writeFile("output/events-index.json", eventsIndexJson);
 
-  // Merge outofband error count if download-outofband.ts wrote it separately
+  // Merge outofband error count from the report (read earlier during manifest generation)
   let finalErrorCount = totalErrorCount;
   try {
-    const outofbandErrorsStr = await readFile("outofband-error-count.txt", "utf-8");
-    const outofbandErrors = parseInt(outofbandErrorsStr.trim(), 10) || 0;
-    finalErrorCount += outofbandErrors;
-    console.log(`Merged ${outofbandErrors} out-of-band error(s) into total (total: ${finalErrorCount})`);
+    const reportRaw = await readFile("outofband-report.json", "utf-8");
+    const outofbandReport = JSON.parse(reportRaw) as { totalErrors: number };
+    if (typeof outofbandReport.totalErrors === "number" && outofbandReport.totalErrors > 0) {
+      finalErrorCount += outofbandReport.totalErrors;
+      console.log(`Merged ${outofbandReport.totalErrors} out-of-band error(s) into total (total: ${finalErrorCount})`);
+    }
   } catch {
-    // file doesn't exist — no outofband errors to merge
+    // report not present — no outofband errors to merge
   }
   await writeFile("errorCount.txt", finalErrorCount.toString());
 

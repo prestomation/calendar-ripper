@@ -952,13 +952,33 @@ END:VCALENDAR`;
   await writeFile("output/events-index.json", eventsIndexJson);
 
   // Merge outofband error count from the report (read earlier during manifest generation)
+  // Only count errors from calendars with hasFutureEvents: true — stale calendars
+  // (no future events) are excluded from the manifest and their errors are not actionable.
   let finalErrorCount = totalErrorCount;
   try {
     const reportRaw = await readFile("outofband-report.json", "utf-8");
-    const outofbandReport = JSON.parse(reportRaw) as { totalErrors: number };
-    if (typeof outofbandReport.totalErrors === "number" && outofbandReport.totalErrors > 0) {
-      finalErrorCount += outofbandReport.totalErrors;
-      console.log(`Merged ${outofbandReport.totalErrors} out-of-band error(s) into total (total: ${finalErrorCount})`);
+    const outofbandReport = JSON.parse(reportRaw) as {
+      totalErrors: number;
+      sources: Array<{
+        calendars: Array<{
+          hasFutureEvents: boolean;
+          errors: string[];
+        }>;
+      }>;
+    };
+    let activeOutofbandErrors = 0;
+    for (const source of outofbandReport.sources) {
+      for (const cal of source.calendars) {
+        if (cal.hasFutureEvents) {
+          activeOutofbandErrors += cal.errors.length;
+        }
+      }
+    }
+    if (activeOutofbandErrors > 0) {
+      finalErrorCount += activeOutofbandErrors;
+      console.log(`Merged ${activeOutofbandErrors} out-of-band error(s) into total (total: ${finalErrorCount})`);
+    } else if (outofbandReport.totalErrors > 0) {
+      console.log(`Skipped ${outofbandReport.totalErrors} out-of-band error(s) from calendars without future events`);
     }
   } catch {
     // report not present — no outofband errors to merge

@@ -391,7 +391,7 @@ function App() {
   const [mobileView, setMobileView] = useState('detail')
   const [tagsCollapsed, setTagsCollapsed] = useState(false)
   const [isOffline, setIsOffline] = useState(typeof navigator !== 'undefined' ? !navigator.onLine : false)
-  const [dataUpdateAvailable, setDataUpdateAvailable] = useState(false)
+  const [dataRefreshed, setDataRefreshed] = useState(false)
   const [favorites, setFavorites] = useState(() => {
     try {
       const stored = localStorage.getItem('calendar-ripper-favorites')
@@ -489,19 +489,26 @@ function App() {
     }
   }, [])
 
-  // Listen for service worker data update messages
+  // Listen for service worker data update messages and reload in-memory data
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return
 
     const handler = (event) => {
       if (event.data?.type === 'DATA_UPDATED') {
-        setDataUpdateAvailable(true)
+        loadCalendars().then(() => setDataRefreshed(true))
       }
     }
 
     navigator.serviceWorker.addEventListener('message', handler)
     return () => navigator.serviceWorker.removeEventListener('message', handler)
-  }, [])
+  }, [loadCalendars])
+
+  // Auto-dismiss the "data refreshed" toast after 4 seconds
+  useEffect(() => {
+    if (!dataRefreshed) return
+    const timer = setTimeout(() => setDataRefreshed(false), 4000)
+    return () => clearTimeout(timer)
+  }, [dataRefreshed])
 
   const [currentDayHeader, setCurrentDayHeader] = useState(null)
 
@@ -1058,88 +1065,88 @@ function App() {
   }
 
   // Load calendar metadata from JSON manifest
-  useEffect(() => {
-    const loadCalendars = async () => {
+  const loadCalendars = useCallback(async () => {
+    try {
+      const response = await fetch('./manifest.json')
+      const manifestData = await response.json()
+      setManifest(manifestData)
+
+      const ripperGroups = manifestData.rippers.map(ripper => ({
+        name: ripper.name,
+        friendlyName: ripper.friendlyName,
+        description: ripper.description,
+        friendlyLink: ripper.friendlyLink,
+        calendars: ripper.calendars.map(calendar => ({
+          name: calendar.name,
+          fullName: calendar.friendlyName,
+          icsUrl: calendar.icsUrl,
+          rssUrl: calendar.rssUrl,
+          tags: calendar.tags
+        }))
+      }))
+
+      // Add external calendars as individual groups
+      const externalGroups = (manifestData.externalCalendars || []).map(calendar => ({
+        name: calendar.name,
+        description: calendar.description,
+        friendlyLink: calendar.infoUrl,
+        calendars: [{
+          name: calendar.name,
+          fullName: calendar.friendlyName,
+          icsUrl: calendar.icsUrl, // Local file for viewing
+          originalIcsUrl: calendar.originalIcsUrl, // Original URL for subscription
+          tags: calendar.tags,
+          isExternal: true
+        }]
+      }))
+
+      // Add recurring calendars as individual groups
+      const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
+        name: calendar.name,
+        description: null,
+        friendlyLink: null,
+        calendars: [{
+          name: calendar.name,
+          fullName: calendar.friendlyName,
+          icsUrl: calendar.icsUrl,
+          rssUrl: calendar.rssUrl,
+          tags: calendar.tags,
+          isRecurring: true
+        }]
+      }))
+
+      setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
+
+      // Load events index for full-text event search
       try {
-        const response = await fetch('./manifest.json')
-        const manifestData = await response.json()
-        setManifest(manifestData)
-        
-        const ripperGroups = manifestData.rippers.map(ripper => ({
-          name: ripper.name,
-          friendlyName: ripper.friendlyName,
-          description: ripper.description,
-          friendlyLink: ripper.friendlyLink,
-          calendars: ripper.calendars.map(calendar => ({
-            name: calendar.name,
-            fullName: calendar.friendlyName,
-            icsUrl: calendar.icsUrl,
-            rssUrl: calendar.rssUrl,
-            tags: calendar.tags
-          }))
-        }))
-        
-        // Add external calendars as individual groups
-        const externalGroups = (manifestData.externalCalendars || []).map(calendar => ({
-          name: calendar.name,
-          description: calendar.description,
-          friendlyLink: calendar.infoUrl,
-          calendars: [{
-            name: calendar.name,
-            fullName: calendar.friendlyName,
-            icsUrl: calendar.icsUrl, // Local file for viewing
-            originalIcsUrl: calendar.originalIcsUrl, // Original URL for subscription
-            tags: calendar.tags,
-            isExternal: true
-          }]
-        }))
-
-        // Add recurring calendars as individual groups
-        const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
-          name: calendar.name,
-          description: null,
-          friendlyLink: null,
-          calendars: [{
-            name: calendar.name,
-            fullName: calendar.friendlyName,
-            icsUrl: calendar.icsUrl,
-            rssUrl: calendar.rssUrl,
-            tags: calendar.tags,
-            isRecurring: true
-          }]
-        }))
-        
-        setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
-
-        // Load events index for full-text event search
-        try {
-          const eventsResponse = await fetch('./events-index.json')
-          if (eventsResponse.ok) {
-            const eventsData = await eventsResponse.json()
-            setEventsIndex(eventsData)
-          }
-        } catch (e) {
-          console.warn('Events index not available, event search disabled')
+        const eventsResponse = await fetch('./events-index.json')
+        if (eventsResponse.ok) {
+          const eventsData = await eventsResponse.json()
+          setEventsIndex(eventsData)
         }
-
-        // Load build errors for health dashboard
-        try {
-          const errorsResponse = await fetch('./build-errors.json')
-          if (errorsResponse.ok) {
-            setBuildErrors(await errorsResponse.json())
-          }
-        } catch (e) {
-          console.warn('Build errors not available, health dashboard will show limited data')
-        }
-      } catch (error) {
-        console.error('Failed to load calendars:', error)
-      } finally {
-        setLoading(false)
+      } catch (e) {
+        console.warn('Events index not available, event search disabled')
       }
-    }
 
-    loadCalendars()
+      // Load build errors for health dashboard
+      try {
+        const errorsResponse = await fetch('./build-errors.json')
+        if (errorsResponse.ok) {
+          setBuildErrors(await errorsResponse.json())
+        }
+      } catch (e) {
+        console.warn('Build errors not available, health dashboard will show limited data')
+      }
+    } catch (error) {
+      console.error('Failed to load calendars:', error)
+    } finally {
+      setLoading(false)
+    }
   }, [])
+
+  useEffect(() => {
+    loadCalendars()
+  }, [loadCalendars])
 
   // Fuzzy search setup — calendar names
   const fuse = useMemo(() => {
@@ -1742,10 +1749,9 @@ function App() {
           Offline — showing cached events
         </div>
       )}
-      {dataUpdateAvailable && (
+      {dataRefreshed && (
         <div className="update-toast" role="status">
-          <span>New event data available</span>
-          <button onClick={() => window.location.reload()}>Refresh</button>
+          New events loaded
         </div>
       )}
       {/* On mobile, only show sidebar when in 'list' view */}

@@ -994,6 +994,7 @@ END:VCALENDAR`;
   // Print event count summary
   const zeroEventCalendars = eventCounts.filter(c => c.events === 0 && !c.expectEmpty);
   const expectedEmptyCalendars = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
+  const unexpectedNonEmptyCalendars = eventCounts.filter(c => c.events > 0 && c.expectEmpty);
   await writeFile("zeroEventCalendars.txt", zeroEventCalendars.map(c => c.name).join("\n"));
 
   // Write consolidated build errors JSON for programmatic access
@@ -1005,6 +1006,7 @@ END:VCALENDAR`;
     externalCalendarFailures,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,
@@ -1029,6 +1031,9 @@ END:VCALENDAR`;
   if (expectedEmptyCalendars.length > 0) {
     console.log(`  ℹ ${expectedEmptyCalendars.length} calendar(s) with 0 events (expected): ${expectedEmptyCalendars.map(c => c.name).join(", ")}`);
   }
+  if (unexpectedNonEmptyCalendars.length > 0) {
+    console.log(`  ℹ ${unexpectedNonEmptyCalendars.length} calendar(s) marked expectEmpty but have events: ${unexpectedNonEmptyCalendars.map(c => `${c.name} (${c.events})`).join(", ")}`);
+  }
   console.log("===========================\n");
 
   // Write GitHub Actions step summary if running in CI
@@ -1048,6 +1053,10 @@ END:VCALENDAR`;
     if (expectedEmptyCalendars.length > 0) {
       summaryLines.push("");
       summaryLines.push(`> ℹ️ **${expectedEmptyCalendars.length} calendar(s) with 0 events (expected):** ${expectedEmptyCalendars.map(c => c.name).join(", ")}`);
+    }
+    if (unexpectedNonEmptyCalendars.length > 0) {
+      summaryLines.push("");
+      summaryLines.push(`> ℹ️ **${unexpectedNonEmptyCalendars.length} calendar(s) marked expectEmpty but have events:** ${unexpectedNonEmptyCalendars.map(c => `${c.name} (${c.events})`).join(", ")}`);
     }
     await appendFile(process.env.GITHUB_STEP_SUMMARY, summaryLines.join("\n") + "\n");
   }

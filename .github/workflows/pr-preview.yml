@@ -97,6 +97,11 @@ jobs:
               // File unavailable or parse failed — skip detailed breakdown
             }
 
+            const unexpectedNonEmpty = buildErrors.unexpectedNonEmptyCalendars || [];
+            const unexpectedNonEmptySection = unexpectedNonEmpty.length > 0
+              ? `\n\n<details>\n<summary>ℹ️ ${unexpectedNonEmpty.length} calendar(s) marked expectEmpty but have events</summary>\n\n${unexpectedNonEmpty.map(c => `- \`${c.name}\`: ${c.events} events — consider removing expectEmpty`).join('\n')}\n\n</details>`
+              : '';
+
             let errorSection = '';
             if (parseInt(errorCount) > 0) {
               const lines = [];
@@ -142,6 +147,7 @@ jobs:
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               errorSection,
               zeroEventSection,
+              unexpectedNonEmptySection,
               '',
               '> 🔗 Preview powered by htmlpreview.github.io'
             ].join('\n');

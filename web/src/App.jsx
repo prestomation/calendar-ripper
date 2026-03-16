@@ -477,6 +477,86 @@ function App() {
       .catch(() => {})
   }, [authUser])
 
+  // Load calendar metadata from JSON manifest
+  const loadCalendars = useCallback(async () => {
+    try {
+      const response = await fetch('./manifest.json')
+      const manifestData = await response.json()
+      setManifest(manifestData)
+
+      const ripperGroups = manifestData.rippers.map(ripper => ({
+        name: ripper.name,
+        friendlyName: ripper.friendlyName,
+        description: ripper.description,
+        friendlyLink: ripper.friendlyLink,
+        calendars: ripper.calendars.map(calendar => ({
+          name: calendar.name,
+          fullName: calendar.friendlyName,
+          icsUrl: calendar.icsUrl,
+          rssUrl: calendar.rssUrl,
+          tags: calendar.tags
+        }))
+      }))
+
+      // Add external calendars as individual groups
+      const externalGroups = (manifestData.externalCalendars || []).map(calendar => ({
+        name: calendar.name,
+        description: calendar.description,
+        friendlyLink: calendar.infoUrl,
+        calendars: [{
+          name: calendar.name,
+          fullName: calendar.friendlyName,
+          icsUrl: calendar.icsUrl, // Local file for viewing
+          originalIcsUrl: calendar.originalIcsUrl, // Original URL for subscription
+          tags: calendar.tags,
+          isExternal: true
+        }]
+      }))
+
+      // Add recurring calendars as individual groups
+      const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
+        name: calendar.name,
+        description: null,
+        friendlyLink: null,
+        calendars: [{
+          name: calendar.name,
+          fullName: calendar.friendlyName,
+          icsUrl: calendar.icsUrl,
+          rssUrl: calendar.rssUrl,
+          tags: calendar.tags,
+          isRecurring: true
+        }]
+      }))
+
+      setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
+
+      // Load events index for full-text event search
+      try {
+        const eventsResponse = await fetch('./events-index.json')
+        if (eventsResponse.ok) {
+          const eventsData = await eventsResponse.json()
+          setEventsIndex(eventsData)
+        }
+      } catch (e) {
+        console.warn('Events index not available, event search disabled')
+      }
+
+      // Load build errors for health dashboard
+      try {
+        const errorsResponse = await fetch('./build-errors.json')
+        if (errorsResponse.ok) {
+          setBuildErrors(await errorsResponse.json())
+        }
+      } catch (e) {
+        console.warn('Build errors not available, health dashboard will show limited data')
+      }
+    } catch (error) {
+      console.error('Failed to load calendars:', error)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+
   // Offline detection
   useEffect(() => {
     const goOffline = () => setIsOffline(true)
@@ -1063,86 +1143,6 @@ function App() {
       return 'Recurring event'
     }
   }
-
-  // Load calendar metadata from JSON manifest
-  const loadCalendars = useCallback(async () => {
-    try {
-      const response = await fetch('./manifest.json')
-      const manifestData = await response.json()
-      setManifest(manifestData)
-
-      const ripperGroups = manifestData.rippers.map(ripper => ({
-        name: ripper.name,
-        friendlyName: ripper.friendlyName,
-        description: ripper.description,
-        friendlyLink: ripper.friendlyLink,
-        calendars: ripper.calendars.map(calendar => ({
-          name: calendar.name,
-          fullName: calendar.friendlyName,
-          icsUrl: calendar.icsUrl,
-          rssUrl: calendar.rssUrl,
-          tags: calendar.tags
-        }))
-      }))
-
-      // Add external calendars as individual groups
-      const externalGroups = (manifestData.externalCalendars || []).map(calendar => ({
-        name: calendar.name,
-        description: calendar.description,
-        friendlyLink: calendar.infoUrl,
-        calendars: [{
-          name: calendar.name,
-          fullName: calendar.friendlyName,
-          icsUrl: calendar.icsUrl, // Local file for viewing
-          originalIcsUrl: calendar.originalIcsUrl, // Original URL for subscription
-          tags: calendar.tags,
-          isExternal: true
-        }]
-      }))
-
-      // Add recurring calendars as individual groups
-      const recurringGroups = (manifestData.recurringCalendars || []).map(calendar => ({
-        name: calendar.name,
-        description: null,
-        friendlyLink: null,
-        calendars: [{
-          name: calendar.name,
-          fullName: calendar.friendlyName,
-          icsUrl: calendar.icsUrl,
-          rssUrl: calendar.rssUrl,
-          tags: calendar.tags,
-          isRecurring: true
-        }]
-      }))
-
-      setCalendars([...ripperGroups, ...externalGroups, ...recurringGroups])
-
-      // Load events index for full-text event search
-      try {
-        const eventsResponse = await fetch('./events-index.json')
-        if (eventsResponse.ok) {
-          const eventsData = await eventsResponse.json()
-          setEventsIndex(eventsData)
-        }
-      } catch (e) {
-        console.warn('Events index not available, event search disabled')
-      }
-
-      // Load build errors for health dashboard
-      try {
-        const errorsResponse = await fetch('./build-errors.json')
-        if (errorsResponse.ok) {
-          setBuildErrors(await errorsResponse.json())
-        }
-      } catch (e) {
-        console.warn('Build errors not available, health dashboard will show limited data')
-      }
-    } catch (error) {
-      console.error('Failed to load calendars:', error)
-    } finally {
-      setLoading(false)
-    }
-  }, [])
 
   useEffect(() => {
     loadCalendars()

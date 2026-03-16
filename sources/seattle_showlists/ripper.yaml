@@ -45,7 +45,6 @@ calendars:
     friendlyname: "Hotel Crocodile"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
-    expectEmpty: true
     config:
       venue: "Hotel Crocodile"
 
@@ -134,7 +133,6 @@ calendars:
     friendlyname: "Bad Bar"
     timezone: America/Los_Angeles
     tags: ["QueenAnne"]
-    expectEmpty: true
     config:
       venue: "Bad Bar"
 
@@ -160,7 +158,6 @@ calendars:
     friendlyname: "Skylark"
     timezone: America/Los_Angeles
     tags: ["West Seattle"]
-    expectEmpty: true
     config:
       venue: "Skylark"
 

@@ -3,7 +3,7 @@ import DOMPurify from 'dompurify'
 import Fuse from 'fuse.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 
-const FUSE_THRESHOLD = 0.2
+const FUSE_THRESHOLD = 0.1
 import ICAL from 'ical.js'
 
 // Mobile: single-view nav. Tablet: compact sidebar. Desktop: full sidebar.
@@ -410,6 +410,15 @@ function App() {
 
   const favoritesSet = useMemo(() => new Set(favorites), [favorites])
 
+  // Search filters state
+  const [searchFilters, setSearchFilters] = useState(() => {
+    try {
+      const stored = localStorage.getItem('calendar-ripper-search-filters')
+      return stored ? JSON.parse(stored) : []
+    } catch { return [] }
+  })
+  const [newFilterInput, setNewFilterInput] = useState('')
+
   // Auth state
   const [authUser, setAuthUser] = useState(null)
   const [authLoading, setAuthLoading] = useState(true)
@@ -433,6 +442,39 @@ function App() {
         }).catch(() => {})
       }
 
+      return next
+    })
+  }, [authUser])
+
+  const addSearchFilter = useCallback((filter) => {
+    const trimmed = filter.trim()
+    if (!trimmed) return
+    setSearchFilters(prev => {
+      if (prev.some(f => f.toLowerCase() === trimmed.toLowerCase())) return prev
+      const next = [...prev, trimmed]
+      try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(next)) } catch {}
+      if (API_URL && authUser) {
+        fetch(`${API_URL}/search-filters`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filter: trimmed }),
+        }).catch(() => {})
+      }
+      return next
+    })
+  }, [authUser])
+
+  const removeSearchFilter = useCallback((filter) => {
+    setSearchFilters(prev => {
+      const next = prev.filter(f => f.toLowerCase() !== filter.toLowerCase())
+      try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(next)) } catch {}
+      if (API_URL && authUser) {
+        fetch(`${API_URL}/search-filters/${encodeURIComponent(filter)}`, {
+          method: 'DELETE',
+          credentials: 'include',
+        }).catch(() => {})
+      }
       return next
     })
   }, [authUser])
@@ -481,6 +523,25 @@ function App() {
           // Server is source of truth
           setFavorites(data.favorites)
           try { localStorage.setItem('calendar-ripper-favorites', JSON.stringify(data.favorites)) } catch {}
+        }
+      })
+      .catch(() => {})
+
+    // Sync search filters
+    fetch(`${API_URL}/search-filters`, { credentials: 'include' })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (!data) return
+        if (data.searchFilters.length === 0 && searchFilters.length > 0) {
+          fetch(`${API_URL}/search-filters`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ searchFilters }),
+          })
+        } else {
+          setSearchFilters(data.searchFilters)
+          try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(data.searchFilters)) } catch {}
         }
       })
       .catch(() => {})
@@ -1339,9 +1400,26 @@ function App() {
     return groups
   }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet])
 
+  // Compute summaries matching search filters (for favorites view)
+  const searchFilterMatchSummaries = useMemo(() => {
+    if (!searchFilters.length || !eventsIndex.length) return new Set()
+    const fuse = new Fuse(eventsIndex, {
+      keys: ['summary', 'description', 'location'],
+      threshold: FUSE_THRESHOLD,
+    })
+    const matches = new Set()
+    for (const filter of searchFilters) {
+      for (const result of fuse.search(filter)) {
+        matches.add(result.item.summary + '|' + result.item.date)
+      }
+    }
+    return matches
+  }, [searchFilters, eventsIndex])
+
   // Compute events for the favorites view
   const favoritesEvents = useMemo(() => {
-    if (!eventsIndex.length || !favorites.length || selectedTag !== '__favorites__') return []
+    if (!eventsIndex.length || selectedTag !== '__favorites__') return []
+    if (!favorites.length && !searchFilters.length) return []
 
     const now = new Date()
     const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
@@ -1364,7 +1442,9 @@ function App() {
       })
       .filter(event => {
         if (!event) return false
-        if (!favoritesSet.has(event.icsUrl)) return false
+        const isFavorited = favoritesSet.has(event.icsUrl)
+        const isSearchMatch = searchFilterMatchSummaries.has(event.summary + '|' + event.date)
+        if (!isFavorited && !isSearchMatch) return false
         if (event.parsedDate >= sixMonthsFromNow) return false
         if (event.parsedDate < todayStart) return false
         const effectiveEnd = event.parsedEndDate || event.parsedDate
@@ -1419,7 +1499,7 @@ function App() {
     }
 
     return groups
-  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm])
+  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries])
 
   // Track which calendars matched by name/description (not just event content)
   const calendarNameMatches = useMemo(() => {
@@ -2652,9 +2732,13 @@ function App() {
                 <p>
                   {(() => {
                     const totalEvents = favoritesEvents.reduce((sum, g) => sum + g.events.length, 0)
+                    const parts = []
+                    if (favorites.length > 0) parts.push(`${favorites.length} favorited calendar${favorites.length !== 1 ? 's' : ''}`)
+                    if (searchFilters.length > 0) parts.push(`${searchFilters.length} search filter${searchFilters.length !== 1 ? 's' : ''}`)
+                    const source = parts.join(' and ') || 'your favorites'
                     return totalEvents > 0
-                      ? `${totalEvents} event${totalEvents !== 1 ? 's' : ''} from ${favorites.length} favorited calendar${favorites.length !== 1 ? 's' : ''}`
-                      : `Events from ${favorites.length} favorited calendar${favorites.length !== 1 ? 's' : ''}`
+                      ? `${totalEvents} event${totalEvents !== 1 ? 's' : ''} from ${source}`
+                      : `Events from ${source}`
                   })()}
                 </p>
               </div>
@@ -2685,6 +2769,46 @@ function App() {
                 <button className="auth-login-btn" onClick={handleLogin}>Sign in</button>
               </div>
             )}
+
+            <div className="search-filters-section">
+              <div className="search-filters-header">
+                <strong>Search Filters</strong>
+                <span className="search-filters-hint">Events matching these terms are included in your feed</span>
+              </div>
+              {searchFilters.length > 0 && (
+                <div className="search-filters-chips">
+                  {searchFilters.map(filter => (
+                    <span key={filter} className="search-filter-chip">
+                      {filter}
+                      <button
+                        className="search-filter-chip-remove"
+                        onClick={() => removeSearchFilter(filter)}
+                        title="Remove filter"
+                      >
+                        x
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+              <form className="search-filters-add" onSubmit={(e) => {
+                e.preventDefault()
+                addSearchFilter(newFilterInput)
+                setNewFilterInput('')
+              }}>
+                <input
+                  type="text"
+                  className="search-filter-input"
+                  placeholder="e.g. jazz, trivia night, farmers market..."
+                  value={newFilterInput}
+                  onChange={(e) => setNewFilterInput(e.target.value)}
+                  maxLength={200}
+                />
+                <button type="submit" className="search-filter-add-btn" disabled={!newFilterInput.trim()}>
+                  Add
+                </button>
+              </form>
+            </div>
 
             {searchTerm && (
               <div className="search-filter-banner">

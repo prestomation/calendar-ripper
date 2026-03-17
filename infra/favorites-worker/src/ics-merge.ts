@@ -1,4 +1,4 @@
-export function mergeIcsFiles(icsContents: string[]): string {
+export function mergeIcsFiles(icsContents: string[], extraVEventBlocks: string[] = []): string {
   const seenUids = new Set<string>()
   const eventBlocks: string[] = []
 
@@ -33,6 +33,17 @@ export function mergeIcsFiles(icsContents: string[]): string {
 
       eventBlocks.push(`BEGIN:VEVENT${enrichedBlock}END:VEVENT`)
     }
+  }
+
+  // Add extra VEVENT blocks (from search filter matches), deduplicating by UID
+  for (const vEventBlock of extraVEventBlocks) {
+    const uidMatch = vEventBlock.match(/^UID:(.+)$/m)
+    const uid = uidMatch ? uidMatch[1].trim() : null
+
+    if (uid && seenUids.has(uid)) continue
+    if (uid) seenUids.add(uid)
+
+    eventBlocks.push(vEventBlock)
   }
 
   const lines = [

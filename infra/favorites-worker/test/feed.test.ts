@@ -122,4 +122,100 @@ describe('Feed endpoint', () => {
       globalThis.fetch = originalFetch
     }
   })
+
+  it('returns empty ICS when user has no favorites and no search filters', async () => {
+    env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      icsUrls: [],
+      searchFilters: [],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+
+    const res = await app.request('/feed/valid-token.ics', {}, env)
+    expect(res.status).toBe(200)
+    const body = await res.text()
+    expect(body).toContain('BEGIN:VCALENDAR')
+    expect(body).not.toContain('BEGIN:VEVENT')
+  })
+
+  it('fetches events-index and tag-all.ics when user has search filters', async () => {
+    env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      icsUrls: [],
+      searchFilters: ['Jazz'],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+
+    const EVENTS_INDEX = JSON.stringify([
+      { icsUrl: 'venue-a.ics', summary: 'Jazz Night', description: 'Live jazz', location: '123 Main', date: '2026-03-20T19:00' },
+      { icsUrl: 'venue-b.ics', summary: 'Rock Concert', description: 'Live rock', location: '456 Oak', date: '2026-03-21T20:00' },
+    ])
+
+    const ALL_ICS = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nX-WR-CALNAME:All Events\r\nBEGIN:VEVENT\r\nUID:jazz-1\r\nDTSTART:20260320T190000Z\r\nSUMMARY:Jazz Night\r\nEND:VEVENT\r\nBEGIN:VEVENT\r\nUID:rock-1\r\nDTSTART:20260321T200000Z\r\nSUMMARY:Rock Concert\r\nEND:VEVENT\r\nEND:VCALENDAR`
+
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      const urlStr = typeof url === 'string' ? url : url instanceof URL ? url.toString() : url.url
+      if (urlStr.includes('events-index.json')) {
+        return new Response(EVENTS_INDEX, { status: 200, headers: { 'Content-Type': 'application/json' } })
+      }
+      if (urlStr.includes('tag-all.ics')) {
+        return new Response(ALL_ICS, { status: 200 })
+      }
+      return new Response('Not found', { status: 404 })
+    }) as typeof fetch
+
+    try {
+      const res = await app.request('/feed/valid-token.ics', {}, env)
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      expect(body).toContain('Jazz Night')
+      expect(body).not.toContain('Rock Concert')
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
+
+  it('deduplicates events from favorites and search filters', async () => {
+    env.FEED_TOKENS._store.set('valid-token', JSON.stringify({ userId: 'user:google:123' }))
+    env.FAVORITES._store.set('user:google:123', JSON.stringify({
+      icsUrls: ['venue-a.ics'],
+      searchFilters: ['Jazz'],
+      updatedAt: '2026-01-01T00:00:00Z',
+    }))
+
+    const VENUE_ICS = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nX-WR-CALNAME:Venue A\r\nBEGIN:VEVENT\r\nUID:jazz-1\r\nDTSTART:20260320T190000Z\r\nSUMMARY:Jazz Night\r\nEND:VEVENT\r\nEND:VCALENDAR`
+
+    const EVENTS_INDEX = JSON.stringify([
+      { icsUrl: 'venue-a.ics', summary: 'Jazz Night', description: 'Live jazz', location: '123 Main', date: '2026-03-20T19:00' },
+    ])
+
+    const ALL_ICS = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nX-WR-CALNAME:All Events\r\nBEGIN:VEVENT\r\nUID:jazz-1\r\nDTSTART:20260320T190000Z\r\nSUMMARY:Jazz Night\r\nEND:VEVENT\r\nEND:VCALENDAR`
+
+    const originalFetch = globalThis.fetch
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      const urlStr = typeof url === 'string' ? url : url instanceof URL ? url.toString() : url.url
+      if (urlStr.includes('venue-a.ics') && !urlStr.includes('tag-all')) {
+        return new Response(VENUE_ICS, { status: 200 })
+      }
+      if (urlStr.includes('events-index.json')) {
+        return new Response(EVENTS_INDEX, { status: 200, headers: { 'Content-Type': 'application/json' } })
+      }
+      if (urlStr.includes('tag-all.ics')) {
+        return new Response(ALL_ICS, { status: 200 })
+      }
+      return new Response('Not found', { status: 404 })
+    }) as typeof fetch
+
+    try {
+      const res = await app.request('/feed/valid-token.ics', {}, env)
+      expect(res.status).toBe(200)
+      const body = await res.text()
+      // Should have Jazz Night exactly once (deduped by UID)
+      const matches = body.match(/UID:jazz-1/g)
+      expect(matches?.length).toBe(1)
+    } finally {
+      globalThis.fetch = originalFetch
+    }
+  })
 })

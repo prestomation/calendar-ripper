@@ -19,9 +19,13 @@ function isValidFilter(filter: string): boolean {
 async function getFavorites(kv: KVNamespace, userId: string): Promise<FavoritesRecord> {
   const raw = await kv.get(userId)
   if (!raw) return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
-  const record = JSON.parse(raw) as FavoritesRecord
-  if (!record.searchFilters) record.searchFilters = []
-  return record
+  try {
+    const record = JSON.parse(raw) as FavoritesRecord
+    if (!record.searchFilters) record.searchFilters = []
+    return record
+  } catch {
+    return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+  }
 }
 
 searchFiltersRoutes.get('/', async (c) => {
@@ -36,7 +40,12 @@ searchFiltersRoutes.put('/', async (c) => {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const body = await c.req.json() as { searchFilters: string[] }
+  let body: { searchFilters: string[] }
+  try {
+    body = await c.req.json() as { searchFilters: string[] }
+  } catch {
+    return c.json({ error: 'Invalid JSON body' }, 400)
+  }
   if (!Array.isArray(body.searchFilters)) {
     return c.json({ error: 'searchFilters must be an array' }, 400)
   }
@@ -68,7 +77,12 @@ searchFiltersRoutes.post('/', async (c) => {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const body = await c.req.json() as { filter: string }
+  let body: { filter: string }
+  try {
+    body = await c.req.json() as { filter: string }
+  } catch {
+    return c.json({ error: 'Invalid JSON body' }, 400)
+  }
   if (!isValidFilter(body.filter)) {
     return c.json({ error: 'Invalid search filter' }, 400)
   }

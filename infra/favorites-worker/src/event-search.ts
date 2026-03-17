@@ -10,39 +10,46 @@ interface CachedResource<T> {
 
 const CACHE_TTL_MS = 60 * 60 * 1000 // 1 hour
 
-let eventsIndexCache: CachedResource<EventsIndexEntry[]> | null = null
-let allIcsCache: CachedResource<string> | null = null
+const eventsIndexCache = new Map<string, CachedResource<EventsIndexEntry[]>>()
+const allIcsCache = new Map<string, CachedResource<string>>()
 
 export async function fetchEventsIndex(baseUrl: string): Promise<EventsIndexEntry[]> {
   const now = Date.now()
-  if (eventsIndexCache && (now - eventsIndexCache.fetchedAt) < CACHE_TTL_MS) {
-    return eventsIndexCache.data
+  const cached = eventsIndexCache.get(baseUrl)
+  if (cached && (now - cached.fetchedAt) < CACHE_TTL_MS) {
+    return cached.data
   }
 
   const res = await fetch(`${baseUrl}/events-index.json`)
   if (!res.ok) throw new Error(`Failed to fetch events-index.json: HTTP ${res.status}`)
-  const data = await res.json() as EventsIndexEntry[]
-  eventsIndexCache = { data, fetchedAt: now }
+  let data: EventsIndexEntry[]
+  try {
+    data = await res.json() as EventsIndexEntry[]
+  } catch {
+    throw new Error('Failed to parse events-index.json: invalid JSON')
+  }
+  eventsIndexCache.set(baseUrl, { data, fetchedAt: now })
   return data
 }
 
 export async function fetchAllIcs(baseUrl: string): Promise<string> {
   const now = Date.now()
-  if (allIcsCache && (now - allIcsCache.fetchedAt) < CACHE_TTL_MS) {
-    return allIcsCache.data
+  const cached = allIcsCache.get(baseUrl)
+  if (cached && (now - cached.fetchedAt) < CACHE_TTL_MS) {
+    return cached.data
   }
 
   const res = await fetch(`${baseUrl}/tag-all.ics`)
   if (!res.ok) throw new Error(`Failed to fetch tag-all.ics: HTTP ${res.status}`)
   const data = await res.text()
-  allIcsCache = { data, fetchedAt: now }
+  allIcsCache.set(baseUrl, { data, fetchedAt: now })
   return data
 }
 
 // Exported for testing
 export function _clearCaches() {
-  eventsIndexCache = null
-  allIcsCache = null
+  eventsIndexCache.clear()
+  allIcsCache.clear()
 }
 
 export function searchEventsIndex(
@@ -58,7 +65,7 @@ export function searchEventsIndex(
   for (const filter of searchFilters) {
     const results = fuse.search(filter)
     for (const result of results) {
-      // Use summary+date as a composite key to identify events in ICS
+      // Use summary to identify matching events in ICS
       matchingSummaries.add(result.item.summary)
     }
   }

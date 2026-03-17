@@ -59,8 +59,8 @@ describe('RainierArtsCenterRipper', () => {
             const events = ripper.parseEventPage(html, url, BEFORE_EVENT);
 
             const event = events[0] as RipperCalendarEvent;
-            // "8:00 pm - 9:30 pm" → hour 20, minute 0
-            expect(event.date.hour()).toBe(20);
+            // ISO datetime "2026-04-04T13:00:00-07:00" → hour 13, minute 0
+            expect(event.date.hour()).toBe(13);
             expect(event.date.minute()).toBe(0);
         });
 
@@ -71,7 +71,7 @@ describe('RainierArtsCenterRipper', () => {
             const events = ripper.parseEventPage(html, url, BEFORE_EVENT);
 
             const event = events[0] as RipperCalendarEvent;
-            // "8:00 pm - 9:30 pm" → 90 minutes
+            // ISO datetime endDate - startDate: 14:30 - 13:00 = 90 minutes
             expect(event.duration.toMinutes()).toBe(90);
         });
 
@@ -117,6 +117,85 @@ describe('RainierArtsCenterRipper', () => {
             const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/past-show/', BEFORE_EVENT);
 
             expect(events).toHaveLength(0);
+        });
+
+        it('parses ISO datetime startDate with endDate for duration', () => {
+            const ripper = new RainierArtsCenterRipper();
+            const html = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-05-10T19:00:00-07:00",
+                    "endDate": "2026-05-10T21:30:00-07:00",
+                    "name": "ISO Datetime Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/iso-test/",
+                    "location": {"@type": "Place", "name": "Auditorium", "address": ""}
+                }
+                </script>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/iso-test/', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.date.hour()).toBe(19);
+            expect(event.date.minute()).toBe(0);
+            expect(event.duration.toMinutes()).toBe(150);
+        });
+
+        it('correctly converts timezone offset to venue local time', () => {
+            const ripper = new RainierArtsCenterRipper();
+            // UTC offset -05:00 does not match LA timezone (PDT=-07, PST=-08).
+            // 19:00 at UTC-5 = 00:00 UTC next day = 17:00 PDT (UTC-7) on the same day.
+            const html = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-07-15T19:00:00-05:00",
+                    "endDate": "2026-07-15T21:00:00-05:00",
+                    "name": "East Coast Offset Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/tz-test/",
+                    "location": {"@type": "Place", "name": "", "address": ""}
+                }
+                </script>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/tz-test/', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            const event = events[0] as RipperCalendarEvent;
+            // 19:00 UTC-5 = 17:00 PDT (UTC-7), not 19:00
+            expect(event.date.hour()).toBe(17);
+            expect(event.date.minute()).toBe(0);
+            expect(event.duration.toMinutes()).toBe(120);
+        });
+
+        it('falls back to MEC HTML time for date-only startDate', () => {
+            const ripper = new RainierArtsCenterRipper();
+            const html = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-06-15",
+                    "endDate": "2026-06-15",
+                    "name": "Date Only Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/date-only/",
+                    "location": {"@type": "Place", "name": "", "address": ""}
+                }
+                </script>
+                <div class="mec-single-event-time"><abbr class="mec-events-abbr">7:00 pm - 9:00 pm</abbr></div>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/date-only/', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            const event = events[0] as RipperCalendarEvent;
+            expect(event.date.hour()).toBe(19);
+            expect(event.date.minute()).toBe(0);
+            expect(event.duration.toMinutes()).toBe(120);
         });
 
         it('returns ParseError when no JSON-LD Event found', () => {

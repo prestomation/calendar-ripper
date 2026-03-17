@@ -17,8 +17,10 @@ const MONTH_MAP: Record<string, number> = {
  * Handles several formats found on discoverslu.com:
  *   "March 15, 10:00 am"   — date with time
  *   "April 5"              — date without time
- *   "April 24-25"          — date range (uses first day)
- *   "May 9-10"             — date range (uses first day)
+ *   "April 24-25"          — same-month date range (uses first day)
+ *   "May 9-10"             — same-month date range (uses first day)
+ *   "March 30 - April 3"   — cross-month date range (uses first day)
+ *   "March 30 - April 3, 2026" — cross-month range with year (uses first day)
  */
 function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number } | null {
     const text = tagText.trim();
@@ -37,8 +39,17 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         return { month, day, hour, minute };
     }
 
-    // Format: "Month Day-Day" (date range, use first day) or "Month Day" (no time)
-    const dateOnly = text.match(/^(\w+)\s+(\d{1,2})(?:\s*-\s*\d{1,2})?$/i);
+    // Format: "Month Day - Month Day[, Year]" (cross-month range, use first day)
+    const crossMonth = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\w+\s+\d{1,2}(?:,\s*\d{4})?$/i);
+    if (crossMonth) {
+        const month = MONTH_MAP[crossMonth[1].toLowerCase()];
+        if (!month) return null;
+        const day = parseInt(crossMonth[2]);
+        return { month, day, hour: 10, minute: 0 }; // default to 10 AM
+    }
+
+    // Format: "Month Day-Day[, Year]" (same-month range, use first day) or "Month Day" (no time)
+    const dateOnly = text.match(/^(\w+)\s+(\d{1,2})(?:\s*-\s*\d{1,2})?(?:,\s*\d{4})?$/i);
     if (dateOnly) {
         const month = MONTH_MAP[dateOnly[1].toLowerCase()];
         if (!month) return null;

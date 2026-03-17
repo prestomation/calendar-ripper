@@ -1,61 +1,8 @@
 {
-  "buildTime": "2026-03-17T04:31:06.709Z",
-  "totalErrors": 4,
+  "buildTime": "2026-03-17T05:00:22.507Z",
+  "totalErrors": 0,
   "configErrors": [],
-  "sources": [
-    {
-      "source": "eastlake-community-council",
-      "calendar": "all-events",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Failed to fetch events from Squarespace: TypeError: fetch failed",
-          "context": "https://www.eastlakeseattle.org/announcements-events"
-        }
-      ]
-    },
-    {
-      "source": "tag-community",
-      "calendar": "tag-community",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Failed to fetch events from Squarespace: TypeError: fetch failed",
-          "context": "https://www.eastlakeseattle.org/announcements-events"
-        }
-      ]
-    },
-    {
-      "source": "tag-eastlake",
-      "calendar": "tag-eastlake",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Failed to fetch events from Squarespace: TypeError: fetch failed",
-          "context": "https://www.eastlakeseattle.org/announcements-events"
-        }
-      ]
-    },
-    {
-      "source": "tag-all",
-      "calendar": "tag-all",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Failed to fetch events from Squarespace: TypeError: fetch failed",
-          "context": "https://www.eastlakeseattle.org/announcements-events"
-        }
-      ]
-    }
-  ],
+  "sources": [],
   "externalCalendarFailures": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -73,10 +20,12 @@
     "spl-university",
     "external-langston"
   ],
-  "expectedEmptyCalendars": [
-    "eastlake-community-council-all-events"
-  ],
+  "expectedEmptyCalendars": [],
   "unexpectedNonEmptyCalendars": [
+    {
+      "name": "eastlake-community-council-all-events",
+      "events": 1
+    },
     {
       "name": "seattle-showlists-central-saloon",
       "events": 11
@@ -119,7 +68,7 @@
     },
     {
       "name": "tag-eastlake",
-      "events": 22
+      "events": 23
     },
     {
       "name": "tag-shoreline",
@@ -482,7 +431,7 @@
     {
       "name": "eastlake-community-council-all-events",
       "type": "Ripper",
-      "events": 0,
+      "events": 1,
       "expectEmpty": true
     },
     {
@@ -1244,7 +1193,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1915,
+      "events": 1916,
       "expectEmpty": false
     },
     {
@@ -1328,7 +1277,7 @@
     {
       "name": "tag-eastlake",
       "type": "Aggregate",
-      "events": 22,
+      "events": 23,
       "expectEmpty": true
     },
     {
@@ -1412,7 +1361,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7114,
+      "events": 7115,
       "expectEmpty": false
     },
     {

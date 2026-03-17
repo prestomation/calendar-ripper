@@ -116,7 +116,7 @@ export default class RainierArtsCenterRipper implements IRipper {
             }];
         }
 
-        // --- Date ---
+        // --- Date & Time ---
         const startDateStr = eventData['startDate'] as string | undefined;
         if (!startDateStr) {
             return [{
@@ -126,41 +126,69 @@ export default class RainierArtsCenterRipper implements IRipper {
             }];
         }
 
-        let startDate: LocalDate;
-        try {
-            startDate = LocalDate.parse(startDateStr); // "2026-04-04"
-        } catch (e) {
-            return [{
-                type: "ParseError" as const,
-                reason: `Could not parse date "${startDateStr}": ${e}`,
-                context: url,
-            }];
-        }
-
-        // Skip past events
-        if (startDate.isBefore(today)) {
-            return [];
-        }
-
-        // --- Time ---
-        // The page has two <abbr class="mec-events-abbr"> elements: one for the date label
-        // and one for the time range. Use the parent div to target the time element specifically.
-        const timeEl = html.querySelector('div.mec-single-event-time abbr.mec-events-abbr');
-        const timeText = timeEl?.textContent?.trim() || '';
-        const { hour, minute, durationMinutes } = this.parseTime(timeText);
-
         let eventDate: ZonedDateTime;
-        try {
+        let durationMinutes: number;
+        const endDateStr = eventData['endDate'] as string | undefined;
+
+        // ISO datetime format: "2026-04-04T13:00:00-07:00"
+        const isoMatch = startDateStr.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+        if (isoMatch) {
+            const [, y, m, d, h, min] = isoMatch;
+            const startDate = LocalDate.of(parseInt(y), parseInt(m), parseInt(d));
+
+            if (startDate.isBefore(today)) {
+                return [];
+            }
+
             eventDate = ZonedDateTime.of(
-                LocalDateTime.of(startDate.year(), startDate.monthValue(), startDate.dayOfMonth(), hour, minute),
+                LocalDateTime.of(parseInt(y), parseInt(m), parseInt(d), parseInt(h), parseInt(min)),
                 TIMEZONE
             );
-        } catch (e) {
-            return [{
-                type: "ParseError" as const,
-                reason: `Invalid datetime for event at ${url}: ${e}`,
-                context: startDateStr,
-            }];
+
+            // Compute duration from endDate if available
+            if (endDateStr) {
+                const startMs = new Date(startDateStr).getTime();
+                const endMs = new Date(endDateStr).getTime();
+                const diff = Math.round((endMs - startMs) / 60000);
+                durationMinutes = diff > 0 ? diff : 120;
+            } else {
+                durationMinutes = 120;
+            }
+        } else {
+            // Date-only format: "2026-04-04"
+            let startDate: LocalDate;
+            try {
+                startDate = LocalDate.parse(startDateStr);
+            } catch (e) {
+                return [{
+                    type: "ParseError" as const,
+                    reason: `Could not parse date "${startDateStr}": ${e}`,
+                    context: url,
+                }];
+            }
+
+            if (startDate.isBefore(today)) {
+                return [];
+            }
+
+            // Fall back to MEC HTML time elements
+            const timeEl = html.querySelector('div.mec-single-event-time abbr.mec-events-abbr');
+            const timeText = timeEl?.textContent?.trim() || '';
+            const parsed = this.parseTime(timeText);
+
+            try {
+                eventDate = ZonedDateTime.of(
+                    LocalDateTime.of(startDate.year(), startDate.monthValue(), startDate.dayOfMonth(), parsed.hour, parsed.minute),
+                    TIMEZONE
+                );
+            } catch (e) {
+                return [{
+                    type: "ParseError" as const,
+                    reason: `Invalid datetime for event at ${url}: ${e}`,
+                    context: startDateStr,
+                }];
+            }
+            durationMinutes = parsed.durationMinutes;
         }
 
         // --- Title ---

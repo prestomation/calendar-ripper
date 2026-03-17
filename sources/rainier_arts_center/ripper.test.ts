@@ -144,6 +144,34 @@ describe('RainierArtsCenterRipper', () => {
             expect(event.duration.toMinutes()).toBe(150);
         });
 
+        it('correctly converts timezone offset to venue local time', () => {
+            const ripper = new RainierArtsCenterRipper();
+            // UTC offset -05:00 does not match LA timezone (PDT=-07, PST=-08).
+            // 19:00 at UTC-5 = 00:00 UTC next day = 17:00 PDT (UTC-7) on the same day.
+            const html = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-07-15T19:00:00-05:00",
+                    "endDate": "2026-07-15T21:00:00-05:00",
+                    "name": "East Coast Offset Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/tz-test/",
+                    "location": {"@type": "Place", "name": "", "address": ""}
+                }
+                </script>
+                </body></html>`;
+            const events = ripper.parseEventPage(html, 'https://rainierartscenter.org/events/tz-test/', BEFORE_EVENT);
+
+            expect(events).toHaveLength(1);
+            const event = events[0] as RipperCalendarEvent;
+            // 19:00 UTC-5 = 17:00 PDT (UTC-7), not 19:00
+            expect(event.date.hour()).toBe(17);
+            expect(event.date.minute()).toBe(0);
+            expect(event.duration.toMinutes()).toBe(120);
+        });
+
         it('falls back to MEC HTML time for date-only startDate', () => {
             const ripper = new RainierArtsCenterRipper();
             const html = `<html><body>

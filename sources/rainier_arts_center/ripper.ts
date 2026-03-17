@@ -1,4 +1,4 @@
-import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
+import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId, OffsetDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
@@ -131,28 +131,31 @@ export default class RainierArtsCenterRipper implements IRipper {
         const endDateStr = eventData['endDate'] as string | undefined;
 
         // ISO datetime format: "2026-04-04T13:00:00-07:00"
-        const isoMatch = startDateStr.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
-        if (isoMatch) {
-            const [, y, m, d, h, min] = isoMatch;
-            const startDate = LocalDate.of(parseInt(y), parseInt(m), parseInt(d));
+        if (startDateStr.includes('T')) {
+            try {
+                // Parse with offset preserved, then convert to venue timezone
+                const startOdt = OffsetDateTime.parse(startDateStr);
+                eventDate = startOdt.atZoneSameInstant(TIMEZONE);
 
-            if (startDate.isBefore(today)) {
-                return [];
-            }
+                if (eventDate.toLocalDate().isBefore(today)) {
+                    return [];
+                }
 
-            eventDate = ZonedDateTime.of(
-                LocalDateTime.of(parseInt(y), parseInt(m), parseInt(d), parseInt(h), parseInt(min)),
-                TIMEZONE
-            );
-
-            // Compute duration from endDate if available
-            if (endDateStr) {
-                const startMs = new Date(startDateStr).getTime();
-                const endMs = new Date(endDateStr).getTime();
-                const diff = Math.round((endMs - startMs) / 60000);
-                durationMinutes = diff > 0 ? diff : 120;
-            } else {
-                durationMinutes = 120;
+                // Compute duration from endDate if available
+                if (endDateStr && endDateStr.includes('T')) {
+                    const endOdt = OffsetDateTime.parse(endDateStr);
+                    const endZdt = endOdt.atZoneSameInstant(TIMEZONE);
+                    const diff = Duration.between(eventDate, endZdt).toMinutes();
+                    durationMinutes = diff > 0 ? diff : 120;
+                } else {
+                    durationMinutes = 120;
+                }
+            } catch (e) {
+                return [{
+                    type: "ParseError" as const,
+                    reason: `Could not parse ISO datetime "${startDateStr}": ${e}`,
+                    context: url,
+                }];
             }
         } else {
             // Date-only format: "2026-04-04"

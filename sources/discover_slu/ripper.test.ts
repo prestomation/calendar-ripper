@@ -263,6 +263,80 @@ describe('Discover SLU Ripper', () => {
         expect(validEvents[0].date.dayOfMonth()).toBe(9);
     });
 
+    test('parses cross-month date range (e.g. "March 30 - April 3"), uses first day', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/egg-hunt/">The Market Hall Egg Hunt</a></h3>
+                    <p class="feature__location">@ Market Hall</p>
+                    <p>Annual egg hunt event.</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/egg-hunt/">
+                        <span class="feature__tag">March 30 - April 3</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe('The Market Hall Egg Hunt');
+        expect(validEvents[0].date.monthValue()).toBe(3);
+        expect(validEvents[0].date.dayOfMonth()).toBe(30);
+        expect(validEvents[0].date.hour()).toBe(10); // default time
+    });
+
+    test('parses cross-month date range with year (e.g. "March 30 - April 3, 2026")', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/spring-fest/">Spring Fest</a></h3>
+                    <p class="feature__location">@ SLU Park</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/spring-fest/">
+                        <span class="feature__tag">March 30 - April 3, 2026</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe('Spring Fest');
+        expect(validEvents[0].date.monthValue()).toBe(3);
+        expect(validEvents[0].date.dayOfMonth()).toBe(30);
+    });
+
+    test('parses same-month date range with year (e.g. "March 30-31, 2026")', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/weekend-market/">Weekend Market</a></h3>
+                    <p class="feature__location">@ SLU Saturday Market</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/weekend-market/">
+                        <span class="feature__tag">March 30-31, 2026</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe('Weekend Market');
+        expect(validEvents[0].date.monthValue()).toBe(3);
+        expect(validEvents[0].date.dayOfMonth()).toBe(30);
+    });
+
     test('handles malformed event cards gracefully', () => {
         const html = parse(`
             <div class="feature full">

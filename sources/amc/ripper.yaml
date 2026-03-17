@@ -1,5 +1,6 @@
 name: amc
 proxy: "outofband" # AMC GraphQL returns 403 from GitHub runner IPs
+needsBrowser: true # AMC requires headless Chrome to bypass Cloudflare JS challenges
 description: "AMC Theatres movie showtimes in the Seattle area"
 url: "https://graph.amctheatres.com/graphql"
 friendlyLink: https://www.amctheatres.com

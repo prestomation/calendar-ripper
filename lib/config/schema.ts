@@ -47,6 +47,7 @@ export const configSchema = z.object({
             if (v === false) return false as const;
             return v;
         }),
+    needsBrowser: z.boolean().default(false),
     expectEmpty: z.boolean().default(false),
     type: z.enum(BUILTIN_RIPPER_TYPES).optional(),
     tags: z.array(z.string()).optional(),

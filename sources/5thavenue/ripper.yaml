@@ -1,6 +1,7 @@
 name: 5thavenue
 type: axs
 proxy: "outofband" # AXS returns 403 from GitHub runner IPs
+needsBrowser: true # AXS requires headless Chrome to bypass Cloudflare JS challenges
 friendlyname: "The 5th Avenue Theatre"
 description: "Historic Seattle theatre presenting Broadway musicals, concerts, and special events"
 url: "https://www.axs.com/venues/133070/5th-avenue-theatre-seattle-tickets"

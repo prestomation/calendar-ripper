@@ -1,6 +1,7 @@
 name: clockout-lounge
 type: axs
 proxy: "outofband" # AXS returns 403 from GitHub runner IPs
+needsBrowser: true # AXS requires headless Chrome to bypass Cloudflare JS challenges
 friendlyname: "Clock-Out Lounge"
 description: "Beacon Hill bar and music venue with live shows, comedy, and community events"
 url: "https://www.axs.com/venues/128701/clock-out-lounge-seattle-tickets"

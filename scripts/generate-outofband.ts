@@ -17,6 +17,7 @@
 import { RipperLoader } from "../lib/config/loader.js";
 import { toICS } from "../lib/config/schema.js";
 import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
+import { nodriverFetch } from "../lib/config/proxy-fetch.js";
 import { mkdir, writeFile, readFile } from "fs/promises";
 import { createReadStream } from "fs";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
@@ -71,8 +72,26 @@ async function main() {
 
     const writtenFiles: string[] = [];
 
+    // Set NODRIVER_PROXY_URL=http://localhost:9222 before running to enable
+    // browser fetching for needsBrowser sources.
+    const nodriverUrl = process.env.NODRIVER_PROXY_URL;
+    if (nodriverUrl) {
+        console.log(`Nodriver proxy enabled at ${nodriverUrl}`);
+    }
+
     for (const config of outofbandConfigs) {
         console.log(`Ripping ${config.config.name}...`);
+
+        // For needsBrowser sources, temporarily override global fetch so that
+        // rippers (including built-in ones like AXS) route through the
+        // headless-Chrome nodriver proxy sidecar.
+        const useNodriver = config.config.needsBrowser && nodriverUrl;
+        const originalFetch = globalThis.fetch;
+        if (useNodriver) {
+            console.log(`  Using nodriver proxy for ${config.config.name}`);
+            globalThis.fetch = nodriverFetch as typeof globalThis.fetch;
+        }
+
         let calendars;
         try {
             calendars = await config.ripperImpl.rip(config);
@@ -85,6 +104,10 @@ async function main() {
                 errors: [{ type: "ParseError" as const, reason: `Ripper crashed: ${err}`, context: "" }],
                 tags: cal.tags || [],
             }));
+        } finally {
+            if (useNodriver) {
+                globalThis.fetch = originalFetch;
+            }
         }
 
         const sourceReport: SourceReport = {

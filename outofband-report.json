@@ -1,0 +1,32 @@
+{
+  "buildTime": "2026-03-17T06:05:19.777Z",
+  "sources": [
+    {
+      "source": "neumos",
+      "friendlyName": "neumos",
+      "description": "Neumos",
+      "friendlyLink": "https://www.neumos.com/events",
+      "tags": [
+        "Music",
+        "Capitol Hill"
+      ],
+      "calendars": [
+        {
+          "name": "neumos",
+          "friendlyName": "Neumos",
+          "icsFile": "neumos-neumos.ics",
+          "events": 0,
+          "hasFutureEvents": false,
+          "errors": [
+            "Failed to fetch AXS events for venue 102495: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/102495/neumos-seattle-tickets"
+          ],
+          "tags": [
+            "Music",
+            "Capitol Hill"
+          ]
+        }
+      ]
+    }
+  ],
+  "totalErrors": 0
+}

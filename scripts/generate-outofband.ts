@@ -27,11 +27,25 @@ const BUCKET = process.env.OUTOFBAND_BUCKET ?? "calendar-ripper-outofband-220483
 const REGION = "us-west-2";
 const PREFIX = "latest/";
 
+const SOURCE_TIMEOUT_MS = 60_000; // 60s per-source timeout for nodriver fetches
+
 async function main() {
+    // Parse --sources flag for filtering (e.g. --sources neumos,barboza)
+    const sourcesArgIdx = process.argv.indexOf("--sources");
+    const sourceFilter = sourcesArgIdx !== -1 && process.argv[sourcesArgIdx + 1]
+        ? new Set(process.argv[sourcesArgIdx + 1].split(",").map(s => s.trim()))
+        : null;
+
     const loader = new RipperLoader("sources/");
     const [configs, loadErrors] = await loader.loadConfigs();
 
-    const outofbandConfigs = configs.filter(c => !c.config.disabled && c.config.proxy === "outofband");
+    let outofbandConfigs = configs.filter(c => !c.config.disabled && c.config.proxy === "outofband");
+
+    if (sourceFilter) {
+        outofbandConfigs = outofbandConfigs.filter(c => sourceFilter.has(c.config.name));
+        console.log(`Filtered to sources: ${[...sourceFilter].join(", ")}`);
+    }
+
     console.log(`Found ${outofbandConfigs.length} outofband sources`);
 
     if (outofbandConfigs.length === 0) {
@@ -94,7 +108,15 @@ async function main() {
 
         let calendars;
         try {
-            calendars = await config.ripperImpl.rip(config);
+            if (useNodriver) {
+                // Apply per-source timeout to avoid OOM from long-running nodriver fetches
+                const timeout = new Promise<never>((_, reject) =>
+                    setTimeout(() => reject(new Error(`Source ${config.config.name} timed out after ${SOURCE_TIMEOUT_MS / 1000}s`)), SOURCE_TIMEOUT_MS)
+                );
+                calendars = await Promise.race([config.ripperImpl.rip(config), timeout]);
+            } else {
+                calendars = await config.ripperImpl.rip(config);
+            }
         } catch (err) {
             console.error(`Ripper ${config.config.name} threw:`, err);
             calendars = config.config.calendars.map(cal => ({

@@ -109,12 +109,21 @@ export class AXSRipper implements IRipper {
     }
 
     private async fetchPage(url: string, useProxy: string | false): Promise<string> {
-        // When proxy is enabled, use fetch through the proxy instead of curl.
-        // The proxy runs from AWS IPs which aren't blocked by Cloudflare.
-        // For "nodriver" proxy, NODRIVER_PROXY_URL provides a real browser
-        // fingerprint so Cloudflare is bypassed without curl.
-        if (useProxy === "nodriver" && process.env.NODRIVER_PROXY_URL) {
-            return this.fetchPageViaProxy(url);
+        // When NODRIVER_PROXY_URL is set, use globalThis.fetch directly so that
+        // the fetch override in generate-outofband.ts takes effect naturally,
+        // just like every other ripper.
+        if (process.env.NODRIVER_PROXY_URL) {
+            const res = await globalThis.fetch(url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                    'Accept': 'text/html,application/xhtml+xml',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                },
+            });
+            if (!res.ok) {
+                throw new Error(`AXS fetch error: HTTP ${res.status} for ${url}`);
+            }
+            return res.text();
         }
         if (useProxy && process.env.PROXY_URL) {
             return this.fetchPageViaProxy(url);

@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import app from '../src/index.js'
+import { _clearCaches } from '../src/event-search.js'
 
 function createMockKV() {
   const store = new Map<string, string>()
@@ -31,6 +32,7 @@ describe('Feed endpoint', () => {
 
   beforeEach(() => {
     env = createEnv()
+    _clearCaches()
   })
 
   it('returns 404 for unknown token', async () => {

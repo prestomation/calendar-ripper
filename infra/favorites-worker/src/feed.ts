@@ -24,15 +24,16 @@ feedRoutes.get('/:filename', async (c) => {
   let favorites: FavoritesRecord
   if (favRaw) {
     try {
-      favorites = JSON.parse(favRaw)
+      const parsed = JSON.parse(favRaw)
+      favorites = { ...parsed, searchFilters: parsed.searchFilters || [] }
     } catch {
-      favorites = { icsUrls: [], updatedAt: new Date().toISOString() }
+      favorites = { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
     }
   } else {
-    favorites = { icsUrls: [], updatedAt: new Date().toISOString() }
+    favorites = { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
   }
 
-  const searchFilters = favorites.searchFilters || []
+  const searchFilters = favorites.searchFilters
   const hasIcsFavorites = favorites.icsUrls.length > 0
   const hasSearchFilters = searchFilters.length > 0
 

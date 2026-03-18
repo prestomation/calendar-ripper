@@ -23,7 +23,7 @@ export interface UserRecord {
 
 export interface FavoritesRecord {
   icsUrls: string[]
-  searchFilters?: string[]
+  searchFilters: string[]
   updatedAt: string
 }
 

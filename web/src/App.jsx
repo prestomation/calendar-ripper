@@ -451,6 +451,7 @@ function App() {
     if (!trimmed) return
     setSearchFilters(prev => {
       if (prev.some(f => f.toLowerCase() === trimmed.toLowerCase())) return prev
+      if (prev.length >= 25) return prev
       const next = [...prev, trimmed]
       try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(next)) } catch {}
       if (API_URL && authUser) {

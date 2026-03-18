@@ -1,31 +1,14 @@
 import { Hono } from 'hono'
-import type { Env, FavoritesRecord } from './types.js'
-import { extractUserId } from './auth-middleware.js'
+import type { Env } from './types.js'
+import { requireAuth, getFavorites } from './favorites-helpers.js'
 
 export const searchFiltersRoutes = new Hono<{ Bindings: Env }>()
-
-async function requireAuth(c: any): Promise<string | null> {
-  const userId = await extractUserId(c.req.header('Cookie'), c.env.JWT_SECRET)
-  return userId || null
-}
 
 const MAX_SEARCH_FILTERS = 25
 const MAX_FILTER_LENGTH = 200
 
-function isValidFilter(filter: string): boolean {
-  return typeof filter === 'string' && filter.trim().length > 0 && filter.length <= MAX_FILTER_LENGTH
-}
-
-async function getFavorites(kv: KVNamespace, userId: string): Promise<FavoritesRecord> {
-  const raw = await kv.get(userId)
-  if (!raw) return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
-  try {
-    const record = JSON.parse(raw) as FavoritesRecord
-    if (!record.searchFilters) record.searchFilters = []
-    return record
-  } catch {
-    return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
-  }
+function isValidFilter(filter: unknown): filter is string {
+  return typeof filter === 'string' && filter.trim().length > 0 && filter.length <= MAX_FILTER_LENGTH && !filter.includes('/')
 }
 
 searchFiltersRoutes.get('/', async (c) => {
@@ -89,13 +72,13 @@ searchFiltersRoutes.post('/', async (c) => {
 
   const filter = body.filter.trim()
   const record = await getFavorites(c.env.FAVORITES, userId)
-  if ((record.searchFilters?.length ?? 0) >= MAX_SEARCH_FILTERS) {
+  if (record.searchFilters.length >= MAX_SEARCH_FILTERS) {
     return c.json({ error: 'Maximum search filters limit reached' }, 400)
   }
 
-  const exists = record.searchFilters!.some(f => f.toLowerCase() === filter.toLowerCase())
+  const exists = record.searchFilters.some(f => f.toLowerCase() === filter.toLowerCase())
   if (!exists) {
-    record.searchFilters!.push(filter)
+    record.searchFilters.push(filter)
     record.updatedAt = new Date().toISOString()
     await c.env.FAVORITES.put(userId, JSON.stringify(record))
   }
@@ -110,7 +93,7 @@ searchFiltersRoutes.delete('/:filter', async (c) => {
   const filter = decodeURIComponent(c.req.param('filter'))
   const record = await getFavorites(c.env.FAVORITES, userId)
 
-  record.searchFilters = (record.searchFilters || []).filter(
+  record.searchFilters = record.searchFilters.filter(
     f => f.toLowerCase() !== filter.toLowerCase()
   )
   record.updatedAt = new Date().toISOString()

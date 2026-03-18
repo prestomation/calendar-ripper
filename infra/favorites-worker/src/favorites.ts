@@ -1,34 +1,14 @@
 import { Hono } from 'hono'
-import type { Env, FavoritesRecord } from './types.js'
-import { extractUserId } from './auth-middleware.js'
+import type { Env } from './types.js'
+import { requireAuth, getFavorites } from './favorites-helpers.js'
 
 export const favoritesRoutes = new Hono<{ Bindings: Env }>()
-
-async function requireAuth(c: any): Promise<string | null> {
-  const userId = await extractUserId(c.req.header('Cookie'), c.env.JWT_SECRET)
-  if (!userId) {
-    return null
-  }
-  return userId
-}
 
 const MAX_FAVORITES = 1000
 const MAX_URL_LENGTH = 2048
 
 function isValidIcsUrl(url: string): boolean {
   return typeof url === 'string' && url.length <= MAX_URL_LENGTH && url.endsWith('.ics') && !url.includes('://') && !url.includes('..')
-}
-
-async function getFavorites(kv: KVNamespace, userId: string): Promise<FavoritesRecord> {
-  const raw = await kv.get(userId)
-  if (!raw) return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
-  try {
-    const record = JSON.parse(raw) as FavoritesRecord
-    if (!record.searchFilters) record.searchFilters = []
-    return record
-  } catch {
-    return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
-  }
 }
 
 favoritesRoutes.get('/', async (c) => {

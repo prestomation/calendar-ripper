@@ -1,28 +1,14 @@
 import { Hono } from 'hono'
-import type { Env, FavoritesRecord } from './types.js'
-import { extractUserId } from './auth-middleware.js'
+import type { Env } from './types.js'
+import { requireAuth, getFavorites } from './favorites-helpers.js'
 
 export const favoritesRoutes = new Hono<{ Bindings: Env }>()
-
-async function requireAuth(c: any): Promise<string | null> {
-  const userId = await extractUserId(c.req.header('Cookie'), c.env.JWT_SECRET)
-  if (!userId) {
-    return null
-  }
-  return userId
-}
 
 const MAX_FAVORITES = 1000
 const MAX_URL_LENGTH = 2048
 
 function isValidIcsUrl(url: string): boolean {
   return typeof url === 'string' && url.length <= MAX_URL_LENGTH && url.endsWith('.ics') && !url.includes('://') && !url.includes('..')
-}
-
-async function getFavorites(kv: KVNamespace, userId: string): Promise<FavoritesRecord> {
-  const raw = await kv.get(userId)
-  if (!raw) return { icsUrls: [], updatedAt: new Date().toISOString() }
-  return JSON.parse(raw) as FavoritesRecord
 }
 
 favoritesRoutes.get('/', async (c) => {
@@ -37,7 +23,12 @@ favoritesRoutes.put('/', async (c) => {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const body = await c.req.json() as { favorites: string[] }
+  let body: { favorites: string[] }
+  try {
+    body = await c.req.json() as { favorites: string[] }
+  } catch {
+    return c.json({ error: 'Invalid JSON body' }, 400)
+  }
   if (!Array.isArray(body.favorites)) {
     return c.json({ error: 'favorites must be an array' }, 400)
   }
@@ -50,10 +41,9 @@ favoritesRoutes.put('/', async (c) => {
     }
   }
 
-  const record: FavoritesRecord = {
-    icsUrls: body.favorites,
-    updatedAt: new Date().toISOString(),
-  }
+  const record = await getFavorites(c.env.FAVORITES, userId)
+  record.icsUrls = body.favorites
+  record.updatedAt = new Date().toISOString()
   await c.env.FAVORITES.put(userId, JSON.stringify(record))
   return c.json({ favorites: record.icsUrls, updatedAt: record.updatedAt })
 })

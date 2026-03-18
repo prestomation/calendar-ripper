@@ -23,7 +23,16 @@ export interface UserRecord {
 
 export interface FavoritesRecord {
   icsUrls: string[]
+  searchFilters: string[]
   updatedAt: string
+}
+
+export interface EventsIndexEntry {
+  icsUrl: string
+  summary: string
+  description?: string
+  location?: string
+  date: string
 }
 
 export interface FeedTokenRecord {

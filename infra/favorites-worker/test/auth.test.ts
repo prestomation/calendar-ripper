@@ -53,7 +53,7 @@ describe('Auth endpoints', () => {
   })
 
   it('GET /auth/login includes return_to in state when valid', async () => {
-    const returnTo = encodeURIComponent('https://htmlpreview.github.io/?https://github.com/prestomation/calendar-ripper/blob/pr-previews/pr-preview-106/index.html')
+    const returnTo = encodeURIComponent('https://prestomation.github.io/calendar-ripper/preview/106/')
     const res = await app.request(
       `/auth/login?provider=google&return_to=${returnTo}`,
       { method: 'GET' },
@@ -63,7 +63,7 @@ describe('Auth endpoints', () => {
     const location = res.headers.get('Location')!
     const stateMatch = location.match(/state=([^&]+)/)
     const state = JSON.parse(decodeURIComponent(stateMatch![1]))
-    expect(state.returnTo).toContain('htmlpreview.github.io')
+    expect(state.returnTo).toContain('prestomation.github.io/calendar-ripper/preview/')
   })
 
   it('GET /auth/callback rejects missing CSRF nonce', async () => {

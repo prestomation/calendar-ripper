@@ -37,6 +37,22 @@ jobs:
           path: gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
+        continue-on-error: true
+        id: checkout-ghpages
+
+      - name: Create gh-pages branch if needed
+        if: steps.checkout-ghpages.outcome == 'failure'
+        run: |
+          mkdir gh-pages && cd gh-pages
+          git init
+          git checkout --orphan gh-pages
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          touch .nojekyll
+          git add .nojekyll
+          git commit -m "Initialize gh-pages"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push -u origin gh-pages
 
       - name: Deploy preview to gh-pages
         run: |

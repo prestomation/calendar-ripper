@@ -15,7 +15,6 @@ calendars:
     friendlyname: "Central Saloon"
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
-    expectEmpty: true
     config:
       venue: "Central Saloon"
 
@@ -30,7 +29,6 @@ calendars:
     friendlyname: "Vermillion"
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
-    expectEmpty: true
     config:
       venue: "Vermillion"
 
@@ -69,7 +67,6 @@ calendars:
     friendlyname: "Black & Tan Hall"
     timezone: America/Los_Angeles
     tags: ["Columbia City"]
-    expectEmpty: true
     config:
       venue: "Black &amp; Tan Hall"  # server sends HTML entity in venue name
   - name: the-royal-room
@@ -84,7 +81,6 @@ calendars:
     friendlyname: "The Rabbit Box"
     timezone: America/Los_Angeles
     tags: ["Downtown"]
-    expectEmpty: true
     config:
       venue: "The Rabbit Box"
 
@@ -93,7 +89,6 @@ calendars:
     friendlyname: "Black Lodge"
     timezone: America/Los_Angeles
     tags: ["Eastlake"]
-    expectEmpty: true
     config:
       venue: "Black Lodge"
 
@@ -102,7 +97,6 @@ calendars:
     friendlyname: "Slim's Last Chance"
     timezone: America/Los_Angeles
     tags: ["Georgetown"]
-    expectEmpty: true
     config:
       venue: "Slim's Last Chance"
 
@@ -111,7 +105,6 @@ calendars:
     friendlyname: "Add-A-Ball"
     timezone: America/Los_Angeles
     tags: ["Fremont"]
-    expectEmpty: true  # Small bar/arcade; may not always have listed shows
     config:
       venue: "Add-A-Ball"
   - name: nectar-lounge
@@ -126,7 +119,6 @@ calendars:
     friendlyname: "KEXP Studio"
     timezone: America/Los_Angeles
     tags: ["QueenAnne"]
-    expectEmpty: true
     config:
       venue: "KEXP Studio"
   - name: bad-bar
@@ -141,7 +133,6 @@ calendars:
     friendlyname: "Darrell's Tavern"
     timezone: America/Los_Angeles
     tags: ["Shoreline"]
-    expectEmpty: true
     config:
       venue: "Darrell's Tavern"
 
@@ -166,6 +157,5 @@ calendars:
     friendlyname: "Tim's Tavern"
     timezone: America/Los_Angeles
     tags: ["White Center"]
-    expectEmpty: true
     config:
       venue: "Tim's Tavern"

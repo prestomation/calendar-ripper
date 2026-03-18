@@ -74,7 +74,6 @@
   description: "Chuck's Hop Shop Seward Park location events - craft beer, food trucks, and community events"
   icsUrl: "https://calendar.google.com/calendar/ical/c_4abs9f65281tp530jsbhkb3vjg%40group.calendar.google.com/public/basic.ics"
   infoUrl: "https://www.chuckshopshop.com/sewardpark"
-  expectEmpty: true  # Small venue; Google Calendar may have no upcoming events
   tags:
   - Beer
   - Seward Park
@@ -173,7 +172,6 @@
   description: "SEED — SouthEast Effective Development"
   icsUrl: "https://www.seedseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://www.seedseattle.org/events/"
-  expectEmpty: true  # Low event volume; arts/community events in Southeast Seattle
   tags:
   - Community
   - Columbia City

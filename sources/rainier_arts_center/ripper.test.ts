@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import RainierArtsCenterRipper from './ripper.js';
-import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
+import { RipperCalendarEvent, RipperError, Ripper } from '../../lib/config/schema.js';
 import { LocalDate } from '@js-joda/core';
 import '@js-joda/timezone';
 import fs from 'fs';
@@ -315,6 +315,190 @@ describe('RainierArtsCenterRipper', () => {
             expect(result.hour).toBe(23);
             expect(result.minute).toBe(0);
             expect(result.durationMinutes).toBe(120);
+        });
+    });
+
+    describe('fetchAndParseEvent retry logic', () => {
+        beforeEach(() => {
+            vi.useFakeTimers();
+        });
+
+        afterEach(() => {
+            vi.useRealTimers();
+        });
+
+        it('retries on HTTP 429 and succeeds on subsequent attempt', async () => {
+            const ripper = new RainierArtsCenterRipper() as any;
+            const today = LocalDate.of(2026, 1, 1);
+
+            const successHtml = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-06-15T19:00:00-07:00",
+                    "endDate": "2026-06-15T21:00:00-07:00",
+                    "name": "Retry Success Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/retry-test/",
+                    "location": {"@type": "Place", "name": "Auditorium", "address": ""}
+                }
+                </script>
+                </body></html>`;
+
+            let callCount = 0;
+            ripper.fetchFn = vi.fn().mockImplementation(async () => {
+                callCount++;
+                if (callCount === 1) {
+                    return { ok: false, status: 429, statusText: 'Too Many Requests' };
+                }
+                return { ok: true, text: async () => successHtml };
+            });
+
+            const promise = ripper.fetchAndParseEvent('https://rainierartscenter.org/events/retry-test/', today);
+            // Advance timers for the retry delay
+            await vi.runAllTimersAsync();
+            const events = await promise;
+
+            expect(callCount).toBe(2);
+            expect(events).toHaveLength(1);
+            expect('date' in events[0]).toBe(true);
+            expect((events[0] as RipperCalendarEvent).summary).toBe('Retry Success Event');
+        });
+
+        it('retries on HTTP 503 and succeeds on subsequent attempt', async () => {
+            const ripper = new RainierArtsCenterRipper() as any;
+            const today = LocalDate.of(2026, 1, 1);
+
+            const successHtml = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-07-01T19:00:00-07:00",
+                    "endDate": "2026-07-01T21:00:00-07:00",
+                    "name": "503 Retry Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/503-test/",
+                    "location": {"@type": "Place", "name": "", "address": ""}
+                }
+                </script>
+                </body></html>`;
+
+            let callCount = 0;
+            ripper.fetchFn = vi.fn().mockImplementation(async () => {
+                callCount++;
+                if (callCount <= 2) {
+                    return { ok: false, status: 503, statusText: 'Service Unavailable' };
+                }
+                return { ok: true, text: async () => successHtml };
+            });
+
+            const promise = ripper.fetchAndParseEvent('https://rainierartscenter.org/events/503-test/', today);
+            await vi.runAllTimersAsync();
+            const events = await promise;
+
+            expect(callCount).toBe(3);
+            expect(events).toHaveLength(1);
+            expect((events[0] as RipperCalendarEvent).summary).toBe('503 Retry Event');
+        });
+
+        it('retries on network error (TypeError) and succeeds', async () => {
+            const ripper = new RainierArtsCenterRipper() as any;
+            const today = LocalDate.of(2026, 1, 1);
+
+            const successHtml = `<html><body>
+                <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org",
+                    "@type": "Event",
+                    "startDate": "2026-07-10T19:00:00-07:00",
+                    "endDate": "2026-07-10T21:00:00-07:00",
+                    "name": "Network Retry Event",
+                    "description": "Test",
+                    "url": "https://rainierartscenter.org/events/net-test/",
+                    "location": {"@type": "Place", "name": "", "address": ""}
+                }
+                </script>
+                </body></html>`;
+
+            let callCount = 0;
+            ripper.fetchFn = vi.fn().mockImplementation(async () => {
+                callCount++;
+                if (callCount === 1) {
+                    throw new TypeError('fetch failed');
+                }
+                return { ok: true, text: async () => successHtml };
+            });
+
+            const promise = ripper.fetchAndParseEvent('https://rainierartscenter.org/events/net-test/', today);
+            await vi.runAllTimersAsync();
+            const events = await promise;
+
+            expect(callCount).toBe(2);
+            expect(events).toHaveLength(1);
+            expect((events[0] as RipperCalendarEvent).summary).toBe('Network Retry Event');
+        });
+
+        it('records ParseError after all 3 retries exhausted on 429', async () => {
+            const ripper = new RainierArtsCenterRipper() as any;
+            const today = LocalDate.of(2026, 1, 1);
+
+            let callCount = 0;
+            ripper.fetchFn = vi.fn().mockImplementation(async () => {
+                callCount++;
+                return { ok: false, status: 429, statusText: 'Too Many Requests' };
+            });
+
+            const promise = ripper.fetchAndParseEvent('https://rainierartscenter.org/events/exhaust-test/', today);
+            await vi.runAllTimersAsync();
+            const events = await promise;
+
+            // 1 initial attempt + 3 retries = 4 total calls
+            expect(callCount).toBe(4);
+            expect(events).toHaveLength(1);
+            expect('type' in events[0]).toBe(true);
+            expect((events[0] as RipperError).type).toBe('ParseError');
+            expect((events[0] as RipperError).reason).toContain('after 3 retries');
+        });
+
+        it('does NOT retry on HTTP 404 (non-transient 4xx)', async () => {
+            const ripper = new RainierArtsCenterRipper() as any;
+            const today = LocalDate.of(2026, 1, 1);
+
+            let callCount = 0;
+            ripper.fetchFn = vi.fn().mockImplementation(async () => {
+                callCount++;
+                return { ok: false, status: 404, statusText: 'Not Found' };
+            });
+
+            const promise = ripper.fetchAndParseEvent('https://rainierartscenter.org/events/missing/', today);
+            await vi.runAllTimersAsync();
+            const events = await promise;
+
+            // Should only try once — no retries for 404
+            expect(callCount).toBe(1);
+            expect(events).toHaveLength(1);
+            expect((events[0] as RipperError).type).toBe('ParseError');
+            expect((events[0] as RipperError).reason).toContain('HTTP 404');
+        });
+
+        it('does NOT retry on HTTP 403 (non-transient 4xx)', async () => {
+            const ripper = new RainierArtsCenterRipper() as any;
+            const today = LocalDate.of(2026, 1, 1);
+
+            let callCount = 0;
+            ripper.fetchFn = vi.fn().mockImplementation(async () => {
+                callCount++;
+                return { ok: false, status: 403, statusText: 'Forbidden' };
+            });
+
+            const promise = ripper.fetchAndParseEvent('https://rainierartscenter.org/events/forbidden/', today);
+            await vi.runAllTimersAsync();
+            const events = await promise;
+
+            expect(callCount).toBe(1);
+            expect((events[0] as RipperError).reason).toContain('HTTP 403');
         });
     });
 

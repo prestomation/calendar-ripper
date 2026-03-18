@@ -13,6 +13,28 @@ const TIMEZONE = ZoneId.of("America/Los_Angeles");
 const REST_API_URL =
     "https://rainierartscenter.org/wp-json/wp/v2/mec-events?per_page=30&_fields=id,link&status=publish";
 
+const MAX_RETRIES = 3;
+const RETRY_BASE_DELAY_MS = 1000;
+
+/** Returns true for errors that are worth retrying (network errors, 429, 5xx). */
+function isTransient(error: unknown): boolean {
+    if (error instanceof TransientHttpError) return true;
+    // Network/connection errors (TypeError from fetch, etc.)
+    if (error instanceof TypeError) return true;
+    return false;
+}
+
+class TransientHttpError extends Error {
+    constructor(public readonly status: number, message: string) {
+        super(message);
+        this.name = 'TransientHttpError';
+    }
+}
+
+function sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default class RainierArtsCenterRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
@@ -53,23 +75,52 @@ export default class RainierArtsCenterRipper implements IRipper {
     }
 
     private async fetchAndParseEvent(url: string, today: LocalDate): Promise<RipperEvent[]> {
-        try {
-            const res = await this.fetchFn(url);
-            if (!res.ok) {
+        let lastError: unknown = new Error("unknown error");
+
+        for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+            if (attempt > 0) {
+                const delayMs = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+                await sleep(delayMs);
+            }
+
+            try {
+                const res = await this.fetchFn(url);
+
+                if (!res.ok) {
+                    // Retry on 429 (rate limit) or any 5xx (server error)
+                    if (res.status === 429 || res.status >= 500) {
+                        lastError = new TransientHttpError(res.status, `HTTP ${res.status} fetching ${url}`);
+                        continue;
+                    }
+                    // Non-retryable HTTP error (4xx other than 429)
+                    return [{
+                        type: "ParseError" as const,
+                        reason: `HTTP ${res.status} fetching ${url}`,
+                        context: url,
+                    }];
+                }
+
+                return this.parseEventPage(await res.text(), url, today);
+            } catch (error) {
+                if (isTransient(error)) {
+                    lastError = error;
+                    continue;
+                }
+                // Non-retryable error
                 return [{
                     type: "ParseError" as const,
-                    reason: `HTTP ${res.status} fetching ${url}`,
+                    reason: `Failed to fetch event page ${url}: ${error}`,
                     context: url,
                 }];
             }
-            return this.parseEventPage(await res.text(), url, today);
-        } catch (error) {
-            return [{
-                type: "ParseError" as const,
-                reason: `Failed to fetch event page ${url}: ${error}`,
-                context: url,
-            }];
         }
+
+        // All retries exhausted
+        return [{
+            type: "ParseError" as const,
+            reason: `Failed to fetch event page ${url} after ${MAX_RETRIES} retries: ${lastError}`,
+            context: url,
+        }];
     }
 
     /**

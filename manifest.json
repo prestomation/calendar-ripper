@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-18T15:37:43.018Z",
+  "lastUpdated": "2026-03-18T23:52:50.264Z",
   "rippers": [
     {
       "name": "19hz",
@@ -408,6 +408,25 @@
             "Museums",
             "Arts",
             "Community"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "naam",
+      "description": "Northwest African American Museum events calendar",
+      "friendlyLink": "https://www.naamnw.org/events",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Northwest African American Museum",
+          "icsUrl": "naam-all-events.ics",
+          "rssUrl": "naam-all-events.rss",
+          "tags": [
+            "Museums",
+            "Arts",
+            "Community",
+            "Central District"
           ]
         }
       ]

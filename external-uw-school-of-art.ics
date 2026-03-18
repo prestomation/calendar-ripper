@@ -1,5 +1,5 @@
 BEGIN:VCALENDAR
-PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25515//EN
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25518//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 X-WR-CALNAME:College of Arts and Sciences|School of Art + Art History + 
@@ -116,6 +116,48 @@ CATEGORIES:Jacob Lawrence Gallery
 UID:http://uid.trumba.com/event/188680536
 X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
  nt%26eventid%3d188680536
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Explore the College of Arts &amp\; Sciences: UW&#39\;s Admitted 
+ Student Day
+DTSTART;TZID=America/Los_Angeles:20260404T103000
+DTEND;TZID=America/Los_Angeles:20260404T140000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://artsci.washington.edu/admittedstudentday#asd
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:<a href="mailto:asinfo@uw.edu" target="_blank" rel="noopener">asinfo@
+ uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions\,Special Events
+DTSTAMP:20260318T163725Z
+DESCRIPTION:Event interval: Single day event<br>Accessibility Contact: a
+ sinfo@uw.edu<br>Event Types: Information Sessions\,Special Events<br>Lin
+ k: https://artsci.washington.edu/admittedstudentday#asd<br><br>10:30 AM 
+ and 12:00 PM |&#160\;<a href="https://artsci.washington.edu/admittedstud
+ entday#collegedge" target="_blank" rel="noopener">Arrive Early and Start
+  Strong with College Edge - College of Arts &amp\; Sciences Information 
+ Session</a><br>10:30 - 12:30 PM |&#160\;<a href="https://artsci.washingt
+ on.edu/admittedstudentday#naturalsciences" target="_blank" rel="noopener
+ ">Open House: Natural Sciences Majors in Action</a><br>11:30 - 1:30 PM |
+ &#160\;<a href="https://artsci.washington.edu/admittedstudentday#socials
+ ciences" target="_blank" rel="noopener">Open House: Understanding and Ch
+ anging the World through the Social Sciences</a><br>12:30 - 2:00 PM |&#1
+ 60\;<a href="https://artsci.washington.edu/admittedstudentday#arts" targ
+ et="_blank" rel="noopener">Open House: Your Creative Future at the UW\, 
+ Meet the Arts Programs&#160\;</a><br>12:30 - 2:00 PM |&#160\;<a href="ht
+ tps://artsci.washington.edu/admittedstudentday#humanities" target="_blan
+ k" rel="noopener">Open House | Meet the Humanities: Languages\, Study Ab
+ road\, Creative Writing &amp\; More</a><br><br>Learn more about <a href=
+ "https://www.washington.edu/newhuskies/admitted-student-day/" target="_b
+ lank" rel="noopener">UW Admitted Student Day</a>.
+CATEGORIES:School of Art + Art History + Design
+UID:http://uid.trumba.com/event/198960768
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d198960768
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Info Session (In-Person)

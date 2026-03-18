@@ -1,5 +1,5 @@
 BEGIN:VCALENDAR
-PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25515//EN
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25518//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 X-WR-CALNAME:WorkSource North Seattle
@@ -2310,7 +2310,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
  :Sign Up Required
 X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
  ch Activity";ID=28631;TYPE=Boolean:Yes
-DTSTAMP:20260123T163320Z
+DTSTAMP:20260318T124819Z
 DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
  irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
  onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
@@ -2919,7 +2919,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
  :Sign Up Required
 X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
  ch Activity";ID=28631;TYPE=Boolean:Yes
-DTSTAMP:20260317T101620Z
+DTSTAMP:20260318T163201Z
 DESCRIPTION:Contact Name: Virtual Services Team<br>Contact Email: ESDGPV
  irtualServices@esd.wa.gov<br>Workshop Language Option: English<br>Additi
  onal Information: <p>Please go to <a href="http://www.worksourcewa.com" 
@@ -3518,6 +3518,55 @@ X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
  tid%3d198646813
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Resume Basics (In Person)
+LOCATION:WorkSource North Seattle Computer Lab
+DTSTART;TZID=America/Los_Angeles:20260410T130000
+DTEND;TZID=America/Los_Angeles:20260410T150000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Room";ID=28326;TYPE=SingleLine:North Seattle 
+ WorkSource Computer Lab
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.<br><br>Because this workshop is being held in our co
+ mputer lab\, you can absolutely work on your resume while we move throug
+ h the workshop!
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260318T152333Z
+DESCRIPTION:Room: North Seattle WorkSource Computer Lab<br>Workshop Lang
+ uage Option: English<br>Additional Information: Please go to <a href="ht
+ tp://www.worksourcewa.com" target="_blank">WorkSourceWA.com</a> and crea
+ te your account prior to attending this workshop.\n\nBecause this worksh
+ op is being held in our computer lab\, you can absolutely work on your r
+ esume while we move through the workshop!<br>Approved Unemployment Insur
+ ance (UI) Job Search Activity: Yes<br><br>Craft Your Story. Customize Yo
+ ur Success. &#160\;<br>Your r&#233\;sum&#233\; doesn&#8217\;t need to be
+  complicated to be effective&#8212\;it just needs to tell the right stor
+ y. In this workshop\, you&#8217\;ll learn how to build a clear\, profess
+ ional r&#233\;sum&#233\; from the ground up and make simple\, strategic 
+ customizations that help you stand out to employers.<br><br>Whether you&
+ #8217\;re creating your first r&#233\;sum&#233\; or refreshing an old on
+ e\, this workshop will give you practical tools you can use immediately.
+  We&#8217\;ll walk through what hiring managers look for\, how to highli
+ ght your strengths\, and how small tweaks can make a big impact. You&#82
+ 17\;ll leave with a better understanding of your own experience\, and th
+ e confidence to tailor your r&#233\;sum&#233\; for any opportunity.<br><
+ br>If you&#8217\;re ready to take the next step in your career with a r&
+ #233\;sum&#233\; that truly represents you\, this workshop is the perfec
+ t place to start. Reserve your spot and start shaping your success.<br><
+ br>&#160\;
+CATEGORIES:WorkSource North Seattle
+UID:http://uid.trumba.com/event/198957364
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d198957364
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:ONLINE Strategies for Success: Community Engagement (N. Seattle)
 LOCATION:Zoom Online Meeting: Register for the workshop and the instruct
  or will email meeting links to you.
@@ -3720,6 +3769,56 @@ X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
  id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
  -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
  tid%3d198814144
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Mature Workers Workshop (In-Person)
+LOCATION:WorkSource North Seattle<br>Opportunity Center<br>9600 College 
+ Way N<br>Seattle\, WA 98103
+DTSTART;TZID=America/Los_Angeles:20260414T140000
+DTEND;TZID=America/Los_Angeles:20260414T153000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Frank 
+ Chafe
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:frank.chafe@esd.wa.gov" target="_blank" rel="noopener">frank.chafe
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.<br><br><br>&#160\;<p>If you need an accommodation to
+  participate in this training\, please contact the workshop facilitator.
+  <strong>Please provide your name\, accommodation request\, and your tow
+ n/city of residence. Please make your</strong> accommodation request as 
+ early as possible so arrangements can be made.</p>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260318T152220Z
+DESCRIPTION:Contact Name: Frank Chafe<br>Contact Email: frank.chafe@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: P
+ lease go to <a href="http://www.worksourcewa.com" target="_blank">WorkSo
+ urceWA.com</a> and create your account prior to attending this workshop.
+ \n\n\n&nbsp\;<p>If you need an accommodation to participate in this trai
+ ning\, please contact the workshop facilitator. <strong>Please provide y
+ our name\, accommodation request\, and your town/city of residence. Plea
+ se make your</strong> accommodation request as early as possible so arra
+ ngements can be made.</p><br>Event Registration: Sign Up Required<br>App
+ roved Unemployment Insurance (UI) Job Search Activity: Yes<br><br><p><st
+ rong>This highly interactive in-person workshop for seasoned workers ove
+ r 45 years of age will discuss ways to compete in today&#8217\;s job mar
+ ket\, tips for age-proofing your resume\, and practicing challenging int
+ erview questions.&#160\;<br><br>You are encouraged to bring your resume.
+ </strong></p>
+CATEGORIES:WorkSource North Seattle
+UID:http://uid.trumba.com/event/198957362
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d198957362
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:ESD SEAP -Self Employment Assistance Orientation (Virtual) North
@@ -4426,6 +4525,55 @@ X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
  tid%3d198646888
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Resume Basics (In Person)
+LOCATION:WorkSource North Seattle Computer Lab
+DTSTART;TZID=America/Los_Angeles:20260424T130000
+DTEND;TZID=America/Los_Angeles:20260424T150000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Room";ID=28326;TYPE=SingleLine:North Seattle 
+ WorkSource Computer Lab
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.<br><br>Because this workshop is being held in our co
+ mputer lab\, you can absolutely work on your resume while we move throug
+ h the workshop!
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260318T152411Z
+DESCRIPTION:Room: North Seattle WorkSource Computer Lab<br>Workshop Lang
+ uage Option: English<br>Additional Information: Please go to <a href="ht
+ tp://www.worksourcewa.com" target="_blank">WorkSourceWA.com</a> and crea
+ te your account prior to attending this workshop.\n\nBecause this worksh
+ op is being held in our computer lab\, you can absolutely work on your r
+ esume while we move through the workshop!<br>Approved Unemployment Insur
+ ance (UI) Job Search Activity: Yes<br><br>Craft Your Story. Customize Yo
+ ur Success. &#160\;<br>Your r&#233\;sum&#233\; doesn&#8217\;t need to be
+  complicated to be effective&#8212\;it just needs to tell the right stor
+ y. In this workshop\, you&#8217\;ll learn how to build a clear\, profess
+ ional r&#233\;sum&#233\; from the ground up and make simple\, strategic 
+ customizations that help you stand out to employers.<br><br>Whether you&
+ #8217\;re creating your first r&#233\;sum&#233\; or refreshing an old on
+ e\, this workshop will give you practical tools you can use immediately.
+  We&#8217\;ll walk through what hiring managers look for\, how to highli
+ ght your strengths\, and how small tweaks can make a big impact. You&#82
+ 17\;ll leave with a better understanding of your own experience\, and th
+ e confidence to tailor your r&#233\;sum&#233\; for any opportunity.<br><
+ br>If you&#8217\;re ready to take the next step in your career with a r&
+ #233\;sum&#233\; that truly represents you\, this workshop is the perfec
+ t place to start. Reserve your spot and start shaping your success.<br><
+ br>&#160\;
+CATEGORIES:WorkSource North Seattle
+UID:http://uid.trumba.com/event/198957366
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d198957366
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:ONLINE Strategies for Success: Work Concepts I (N. Seattle)
 LOCATION:Zoom Online Meeting: Register for the workshop and the instruct
  or will email meeting links to you.
@@ -4628,6 +4776,50 @@ X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
  id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
  -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
  tid%3d198814146
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:(IN-PERSON) AI Powered Job Tools
+LOCATION:This is an in-person workshop being held at WorkSource North Se
+ attle.
+DTSTART;TZID=America/Los_Angeles:20260428T140000
+DTEND;TZID=America/Los_Angeles:20260428T160000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:www.worksourcewa.com
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Other Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Name";ID=28322;TYPE=SingleLine:Frank 
+ Chafe
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=28324;TYPE=Email:<a href="m
+ ailto:frank.chafe@esd.wa.gov" target="_blank" rel="noopener">frank.chafe
+ @esd.wa.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Workshop Language Option";ID=28327;TYPE=Custo
+ mAsset:English
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=28328;TYPE=MultiLi
+ ne:Please go to <a href="http://www.worksourcewa.com" target="_blank" re
+ l="noopener">WorkSourceWA.com</a> and create your account prior to atten
+ ding this workshop.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Registration";ID=28348;TYPE=CustomAsset
+ :Sign Up Required
+X-TRUMBA-CUSTOMFIELD;NAME="Approved Unemployment Insurance (UI) Job Sear
+ ch Activity";ID=28631;TYPE=Boolean:Yes
+DTSTAMP:20260318T151228Z
+DESCRIPTION:Contact Name: Frank Chafe<br>Contact Email: frank.chafe@esd.
+ wa.gov<br>Workshop Language Option: English<br>Additional Information: P
+ lease go to <a href="http://www.worksourcewa.com" target="_blank">WorkSo
+ urceWA.com</a> and create your account prior to attending this workshop.
+ <br>Event Registration: Sign Up Required<br>Approved Unemployment Insura
+ nce (UI) Job Search Activity: Yes<br>Link: www.worksourcewa.com<br><br>T
+ his workshop is designed for individuals who already have a foundational
+  understanding of resumes\, Interviewing and basic internet navigation. 
+ If you&#39\;re ready to elevate your job search using the power of AI to
+ ols and strategies\, this session will help you take the next step with 
+ confidence<br><br>We will be covering:<br>Resume Generation and Developm
+ ent<br>Interview Tools courtesy of AI&#160\;
+CATEGORIES:WorkSource North Seattle
+UID:http://uid.trumba.com/event/198957345
+X-TRUMBA-LINK:https://seeker.worksourcewa.com/microsite/Content.aspx?app
+ id=WAWORKSHOPS&pagetype=simple&seo=workshops-calendar&webname=worksource
+ -seattle-king&area=Seattle-King%20County&trumbaEmbed=view%3devent%26even
+ tid%3d198957345
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:ESD SEAP -Self Employment Assistance Orientation (Virtual) North

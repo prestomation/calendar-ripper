@@ -20,54 +20,68 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    concurrency:
+      group: gh-pages-deploy
+      cancel-in-progress: false
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: pr-preview-${{ github.event.number }}
+          path: /tmp/preview-content
 
-      - name: Deploy to preview branch
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+        continue-on-error: true
+        id: checkout-ghpages
+
+      - name: Create gh-pages branch if needed
+        if: steps.checkout-ghpages.outcome == 'failure'
         run: |
-          # Move artifact to temp location so it survives branch checkout
-          cp artifact.tar /tmp/artifact.tar
+          mkdir gh-pages && cd gh-pages
+          git init
+          git checkout --orphan gh-pages
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          touch .nojekyll
+          git add .nojekyll
+          git commit -m "Initialize gh-pages"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push -u origin gh-pages
 
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+      - name: Deploy preview to gh-pages
+        run: |
+          cd gh-pages
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
 
-          # Fetch and checkout existing preview branch, or create an orphan if it doesn't exist
-          if git fetch origin pr-previews 2>/dev/null; then
-            git checkout pr-previews
-          else
-            git checkout --orphan pr-previews
-            git rm -rf . 2>/dev/null || true
-          fi
+          # Remove old preview for this PR if it exists
+          rm -rf preview/${{ github.event.number }}
+          mkdir -p preview/${{ github.event.number }}
 
-          # Remove old preview for THIS PR if exists, then add the new one
-          rm -rf pr-preview-${{ github.event.number }}
-          mkdir -p pr-preview-${{ github.event.number }}
-          tar -xf /tmp/artifact.tar -C pr-preview-${{ github.event.number }}
+          # Copy new preview content
+          cp -r /tmp/preview-content/* preview/${{ github.event.number }}/
 
-          git add pr-preview-${{ github.event.number }}
+          git add -A
           git commit -m "Update PR #${{ github.event.number }} preview" || exit 0
-          git push origin pr-previews --force
 
-      - name: Extract build errors
-        run: |
-          mkdir -p /tmp/build-errors
-          tar -xf /tmp/artifact.tar -C /tmp/build-errors 2>/dev/null || true
-          if [ ! -f /tmp/build-errors/build-errors.json ]; then
-            printf '{"totalErrors":0,"configErrors":[],"sources":[],"externalCalendarFailures":[]}' > /tmp/build-errors/build-errors.json
-          fi
+          # Retry push with rebase in case gh-pages advanced
+          for i in 1 2 3 4; do
+            git pull --rebase origin gh-pages && git push && break
+            echo "Push attempt $i failed, retrying in ${i}s..."
+            sleep "$i"
+          done
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7
         with:
           script: |
+            const fs = require('fs');
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -80,7 +94,7 @@ jobs:
 
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
-            const previewUrl = `http://htmlpreview.github.io/?https://github.com/${{ github.repository }}/blob/pr-previews/pr-preview-${{ github.event.number }}/index.html`;
+            const previewUrl = `https://prestomation.github.io/calendar-ripper/preview/${{ github.event.number }}/`;
 
             const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
             const zeroEventCalendars = zeroEventCalendarsRaw.trim().split('\n').filter(Boolean);
@@ -89,10 +103,9 @@ jobs:
               : '\n\n✅ All calendars have events';
 
             // Read build-errors.json for detailed error breakdown
-            const fs = require('fs');
             let buildErrors = { configErrors: [], sources: [], externalCalendarFailures: [] };
             try {
-              buildErrors = JSON.parse(fs.readFileSync('/tmp/build-errors/build-errors.json', 'utf8'));
+              buildErrors = JSON.parse(fs.readFileSync('/tmp/preview-content/build-errors.json', 'utf8'));
             } catch (e) {
               // File unavailable or parse failed — skip detailed breakdown
             }
@@ -149,7 +162,7 @@ jobs:
               zeroEventSection,
               unexpectedNonEmptySection,
               '',
-              '> 🔗 Preview powered by htmlpreview.github.io'
+              '> 🔗 Preview deployed to GitHub Pages — sign-in works in previews'
             ].join('\n');
 
             if (botComment) {

@@ -285,15 +285,15 @@ Every build writes `output/build-errors.json` with a consolidated report of all 
 
 ### Accessing from a PR preview
 
-PR previews are deployed to the `pr-previews` branch. Given a PR number, fetch the errors file at:
+PR previews are deployed to the `gh-pages` branch under `/preview/{PR_NUMBER}/`. Given a PR number, fetch the errors file at:
 
 ```
-https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-preview-{PR_NUMBER}/build-errors.json
+https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/{PR_NUMBER}/build-errors.json
 ```
 
 For example, PR #42:
 ```
-https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-preview-42/build-errors.json
+https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/42/build-errors.json
 ```
 
 ### Schema
@@ -349,7 +349,7 @@ https://prestomation.github.io/calendar-ripper/build-errors.json
 
 For PR previews, use:
 ```
-https://raw.githubusercontent.com/prestomation/calendar-ripper/pr-previews/pr-preview-{PR_NUMBER}/build-errors.json
+https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/{PR_NUMBER}/build-errors.json
 ```
 
 ### Common Error Patterns and Fixes

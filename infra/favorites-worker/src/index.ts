@@ -12,7 +12,6 @@ app.use('*', cors({
   origin: (origin) => {
     if (!origin) return ''
     if (origin === 'https://prestomation.github.io') return origin
-    if (origin === 'https://htmlpreview.github.io') return origin
     if (origin.startsWith('http://localhost')) return origin
     if (origin.startsWith('http://127.0.0.1')) return origin
     return ''

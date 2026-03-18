@@ -1,0 +1,39 @@
+name: Cleanup PR Preview
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: gh-pages-deploy
+      cancel-in-progress: false
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+        id: checkout
+
+      - name: Remove preview
+        if: steps.checkout.outcome == 'success'
+        run: |
+          if [ -d preview/${{ github.event.number }} ]; then
+            git config user.email "action@github.com"
+            git config user.name "GitHub Action"
+            git rm -rf preview/${{ github.event.number }}
+            git commit -m "Remove PR #${{ github.event.number }} preview"
+
+            # Retry push with rebase in case gh-pages advanced
+            for i in 1 2 3 4; do
+              git pull --rebase origin gh-pages && git push && break
+              echo "Push attempt $i failed, retrying in ${i}s..."
+              sleep "$i"
+            done
+          fi

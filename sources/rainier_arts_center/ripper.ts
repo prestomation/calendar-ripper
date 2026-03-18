@@ -75,7 +75,7 @@ export default class RainierArtsCenterRipper implements IRipper {
     }
 
     private async fetchAndParseEvent(url: string, today: LocalDate): Promise<RipperEvent[]> {
-        let lastError: unknown;
+        let lastError: unknown = new Error("unknown error");
 
         for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
             if (attempt > 0) {

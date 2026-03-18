@@ -53,8 +53,13 @@ jobs:
 
           git add -A
           git commit -m "Update PR #${{ github.event.number }} preview" || exit 0
-          git pull --rebase origin gh-pages
-          git push
+
+          # Retry push with rebase in case gh-pages advanced
+          for i in 1 2 3 4; do
+            git pull --rebase origin gh-pages && git push && break
+            echo "Push attempt $i failed, retrying in ${i}s..."
+            sleep "$i"
+          done
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7

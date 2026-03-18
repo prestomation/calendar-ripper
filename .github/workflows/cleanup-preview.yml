@@ -29,6 +29,11 @@ jobs:
             git config user.name "GitHub Action"
             git rm -rf preview/${{ github.event.number }}
             git commit -m "Remove PR #${{ github.event.number }} preview"
-            git pull --rebase origin gh-pages
-            git push
+
+            # Retry push with rebase in case gh-pages advanced
+            for i in 1 2 3 4; do
+              git pull --rebase origin gh-pages && git push && break
+              echo "Push attempt $i failed, retrying in ${i}s..."
+              sleep "$i"
+            done
           fi

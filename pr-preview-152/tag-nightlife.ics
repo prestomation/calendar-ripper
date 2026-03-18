@@ -6,43 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Nightlife Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:LOJlmJTy5ekS2Llt-qSUz
-SUMMARY:Kiss Me\, I'm Irish: Seattle St. Patrick's Day Bar Crawl (2 Days)
-DTSTAMP:20260317T215820Z
-DTSTART;TZID=America/Los_Angeles:20260318T193000
-DESCRIPTION:Barcrawlerz is taking over Seattle this St. Patrick's Weekend!\
-	n\nBarcrawlerz is a Seattle Bar Crawl like no other. Kiss Me\, I’m Irish f
-	eatures The Best Drink Specials and The Best Bars in Town.\n\nThis is a TW
-	O DAY EVENT!\n\n🍀 Saturday\, March 14th: 2PM-2AM \\(Registration at SPIN: 
-	2PM-8PM\\)\n\n🍀 Tuesday\, March 17th: 6PM-2AM \\(Registration at Villa Esc
-	ondida: 6PM-11PM\\)\n\nPARTICIPATING BARS:\n\nSPIN \\(REGISTRATION - SAT\,
-	 3/14\\) VILLA ESCONDIDA \\(REGISTRATION - TUE 3/17\\) BLARNEY STONE IMPER
-	IAL KITCHEN & BAR KELLS IRISH BAR JUPITER BAR PIKE PLACE BAR & GRILL SHAWN
-	 O'DONNELL'S\n\nHere is how it works:\n\n1\\) Pre-Purchase Your Bar Crawl 
-	Wristband.\n\n2\\) Check in at SPIN \\(1511 6th Ave\\) on Saturday\, 3/14 
-	& at VILLA ESCONDIDA \\(2203 1st Ave\\) on Tuesday\, 3/14 to get your wris
-	tband and map with participating bars\, their location\, and their drink s
-	pecials. \\(Registration on Saturday\, 3/14 from 2PM-8PM & Tuesday\, 3/17 
-	from 6PM-11PM\\) \\*WRISTBAND MUST BE PICKED UP DURING THESE TIMES\\*\n\n3
-	\\) Your wristband gets you into any of the participating bars with no cov
-	er\, plus gets you drink specials all night. \\*\\(Unless otherwise indica
-	ted by the maps\\)\\*\n\n4\\) Have Fun!\n\nFor questions\, email info@barc
-	rawlerz.com or call \\(310\\) 273-8772 Ext. 5\n\nhttps://seatoday.6amcity.
-	com/events/#/details/kiss-me-i-m-irish-seattle-st-patrick-s-day-bar-crawl-
-	2-days/18305241/2026-03-17T00\n\nFrom SEAtoday - Nightlife
-URL:https://seatoday.6amcity.com/events/#/details/kiss-me-i-m-irish-seattle
-	-st-patrick-s-day-bar-crawl-2-days/18305241/2026-03-17T00
-LOCATION:SPIN Seattle\, 1511 6th Avenue\, Seattle\, WA
-X-CALRIPPER-SOURCE:seatoday-nightlife
-CATEGORIES:SEAtoday - Nightlife
-TRANSP:TRANSPARENT
-DURATION:PT8H
-END:VEVENT
-BEGIN:VEVENT
-UID:0a72uK2iKPmP8JgJzRUa3
+UID:GcVy2hzO51qMvp3VvWuJH
 SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
-DTSTAMP:20260317T215820Z
-DTSTART:20260319T023000Z
+DTSTAMP:20260318T063034Z
+DTSTART;TZID=America/Los_Angeles:20260318T193000
 DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
 	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
 	e — Cheap Laughs Open Mic
@@ -55,9 +22,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:QryZjEBl-K3ssMUBeW02E
+UID:ZDZsWGny5UkGa03hIzQc0
 SUMMARY:Comic Resistance Agency Pizzeria mic
-DTSTAMP:20260317T215820Z
+DTSTAMP:20260318T063034Z
 DTSTART:20260331T020000Z
 DESCRIPTION:A comedy game using slides\, prompts\, and audience voting.\n\n
 	Improvised stand-up open mic. No prepared material.\n\nFREE to watch or pe
@@ -71,5 +38,23 @@ X-CALRIPPER-SOURCE:seatoday-nightlife
 CATEGORIES:SEAtoday - Nightlife
 TRANSP:TRANSPARENT
 DURATION:PT1H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:FZbbCYnS0eF6Vj5KFk1Gq
+SUMMARY:Dum Top Trivia
+DTSTAMP:20260318T063034Z
+DTSTART:20260401T020000Z
+DESCRIPTION:Every tuesday @ 7 Pm - with incredible host jeremy behrens! Tes
+	t your knowledge\, learn something new and hang with us on this fine tuesd
+	ay you dum dums! Doors @ 6PM Team Check-Ins @ 6:30PM Trivia begins @ 7PM\n
+	\nhttps://seatoday.6amcity.com/events/#/details/dum-top-trivia/17209285/20
+	26-03-31T00\n\nFrom SEAtoday - Nightlife
+URL:https://seatoday.6amcity.com/events/#/details/dum-top-trivia/17209285/2
+	026-03-31T00
+LOCATION:The Cuff Complex\, 1533 13th Ave\, Seattle\, WA
+X-CALRIPPER-SOURCE:seatoday-nightlife
+CATEGORIES:SEAtoday - Nightlife
+TRANSP:TRANSPARENT
+DURATION:PT2H
 END:VEVENT
 END:VCALENDAR

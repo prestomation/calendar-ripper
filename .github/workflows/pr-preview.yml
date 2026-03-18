@@ -53,6 +53,7 @@ jobs:
 
           git add -A
           git commit -m "Update PR #${{ github.event.number }} preview" || exit 0
+          git pull --rebase origin gh-pages
           git push
 
       - name: Comment PR with preview link

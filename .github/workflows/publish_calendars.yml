@@ -95,4 +95,5 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git commit -m "Deploy site from ${{ github.sha }}" || exit 0
+          git pull --rebase origin gh-pages
           git push

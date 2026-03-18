@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-18T23:45:29.834Z",
+  "buildTime": "2026-03-18T23:50:15.644Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
@@ -282,7 +282,7 @@
     {
       "name": "bbyc-ballard-all-events",
       "type": "Ripper",
-      "events": 39,
+      "events": 40,
       "expectEmpty": false
     },
     {
@@ -426,7 +426,7 @@
     {
       "name": "hidden-hall-events",
       "type": "Ripper",
-      "events": 69,
+      "events": 70,
       "expectEmpty": false
     },
     {
@@ -504,7 +504,7 @@
     {
       "name": "perihelion-all-events",
       "type": "Ripper",
-      "events": 6,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -1026,7 +1026,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 504,
+      "events": 505,
       "expectEmpty": false
     },
     {
@@ -1062,7 +1062,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 196,
+      "events": 197,
       "expectEmpty": false
     },
     {
@@ -1158,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2575,
+      "events": 2576,
       "expectEmpty": false
     },
     {
@@ -1176,13 +1176,13 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 505,
+      "events": 507,
       "expectEmpty": false
     },
     {
       "name": "tag-beacon-hill",
       "type": "Aggregate",
-      "events": 55,
+      "events": 56,
       "expectEmpty": false
     },
     {
@@ -1296,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7188,
+      "events": 7191,
       "expectEmpty": false
     },
     {

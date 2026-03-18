@@ -13,12 +13,24 @@ feedRoutes.get('/:filename', async (c) => {
   const tokenRaw = await c.env.FEED_TOKENS.get(token)
   if (!tokenRaw) return c.text('Not found', 404)
 
-  const tokenRecord = JSON.parse(tokenRaw) as FeedTokenRecord
+  let tokenRecord: FeedTokenRecord
+  try {
+    tokenRecord = JSON.parse(tokenRaw) as FeedTokenRecord
+  } catch {
+    return c.text('Not found', 404)
+  }
 
   const favRaw = await c.env.FAVORITES.get(tokenRecord.userId)
-  const favorites: FavoritesRecord = favRaw
-    ? JSON.parse(favRaw)
-    : { icsUrls: [], updatedAt: new Date().toISOString() }
+  let favorites: FavoritesRecord
+  if (favRaw) {
+    try {
+      favorites = JSON.parse(favRaw)
+    } catch {
+      favorites = { icsUrls: [], updatedAt: new Date().toISOString() }
+    }
+  } else {
+    favorites = { icsUrls: [], updatedAt: new Date().toISOString() }
+  }
 
   const searchFilters = favorites.searchFilters || []
   const hasIcsFavorites = favorites.icsUrls.length > 0

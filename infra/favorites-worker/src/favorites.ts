@@ -21,8 +21,14 @@ function isValidIcsUrl(url: string): boolean {
 
 async function getFavorites(kv: KVNamespace, userId: string): Promise<FavoritesRecord> {
   const raw = await kv.get(userId)
-  if (!raw) return { icsUrls: [], updatedAt: new Date().toISOString() }
-  return JSON.parse(raw) as FavoritesRecord
+  if (!raw) return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+  try {
+    const record = JSON.parse(raw) as FavoritesRecord
+    if (!record.searchFilters) record.searchFilters = []
+    return record
+  } catch {
+    return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+  }
 }
 
 favoritesRoutes.get('/', async (c) => {
@@ -37,7 +43,12 @@ favoritesRoutes.put('/', async (c) => {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
 
-  const body = await c.req.json() as { favorites: string[] }
+  let body: { favorites: string[] }
+  try {
+    body = await c.req.json() as { favorites: string[] }
+  } catch {
+    return c.json({ error: 'Invalid JSON body' }, 400)
+  }
   if (!Array.isArray(body.favorites)) {
     return c.json({ error: 'favorites must be an array' }, 400)
   }
@@ -50,10 +61,9 @@ favoritesRoutes.put('/', async (c) => {
     }
   }
 
-  const record: FavoritesRecord = {
-    icsUrls: body.favorites,
-    updatedAt: new Date().toISOString(),
-  }
+  const record = await getFavorites(c.env.FAVORITES, userId)
+  record.icsUrls = body.favorites
+  record.updatedAt = new Date().toISOString()
   await c.env.FAVORITES.put(userId, JSON.stringify(record))
   return c.json({ favorites: record.icsUrls, updatedAt: record.updatedAt })
 })

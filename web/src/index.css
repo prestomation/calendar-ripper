@@ -2114,6 +2114,46 @@ body {
   padding: 4px 10px;
   font-size: 0.85rem;
   color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.search-filter-chip:hover {
+  border-color: var(--text-secondary);
+}
+
+.search-filter-chip-active {
+  background: var(--accent-color, #4a90d9);
+  border-color: var(--accent-color, #4a90d9);
+  color: #fff;
+}
+
+.search-filter-chip-active .search-filter-chip-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.search-filter-chip-active .search-filter-chip-remove {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-filter-chip-active .search-filter-chip-remove:hover {
+  color: #fff;
+}
+
+.search-filter-chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .search-filter-chip-remove {
@@ -2166,6 +2206,75 @@ body {
 .search-filter-add-btn:disabled {
   opacity: 0.5;
   cursor: default;
+}
+
+/* Live preview when typing a filter */
+.search-filter-preview {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+
+.search-filter-preview-count {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.search-filter-preview-list {
+  margin: 4px 0 0;
+  padding-left: 16px;
+  color: var(--text-primary);
+}
+
+.search-filter-preview-list li {
+  padding: 1px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-filter-preview-more {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* View mode switcher */
+.favorites-view-switcher {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+.favorites-view-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.favorites-view-btn:hover {
+  background: var(--bg-muted);
+  color: var(--text-primary);
+}
+
+.favorites-view-btn-active {
+  background: var(--accent-color, #4a90d9);
+  border-color: var(--accent-color, #4a90d9);
+  color: #fff;
+}
+
+.favorites-view-btn-active:hover {
+  background: var(--accent-color, #4a90d9);
+  color: #fff;
 }
 
 /* Offline banner */

@@ -418,6 +418,8 @@ function App() {
     } catch { return [] }
   })
   const [newFilterInput, setNewFilterInput] = useState('')
+  // View mode for favorites: 'all' | 'calendars' | 'search' | filter string
+  const [favoritesViewMode, setFavoritesViewMode] = useState('all')
 
   // Auth state
   const [authUser, setAuthUser] = useState(null)
@@ -1417,6 +1419,50 @@ function App() {
     return matches
   }, [searchFilters, eventsIndex])
 
+  // Per-filter match counts and match sets for view mode filtering
+  const perFilterMatches = useMemo(() => {
+    if (!eventsIndex.length) return new Map()
+    const fuse = new Fuse(eventsIndex, {
+      keys: ['summary', 'description', 'location'],
+      threshold: FUSE_THRESHOLD,
+    })
+    const result = new Map()
+    for (const filter of searchFilters) {
+      const matches = new Set()
+      for (const r of fuse.search(filter)) {
+        matches.add(r.item.summary + '|' + r.item.date)
+      }
+      result.set(filter, matches)
+    }
+    return result
+  }, [searchFilters, eventsIndex])
+
+  // Live preview: match count for the text currently being typed in the input
+  const livePreviewMatches = useMemo(() => {
+    const trimmed = newFilterInput.trim()
+    if (!trimmed || !eventsIndex.length) return null
+    const fuse = new Fuse(eventsIndex, {
+      keys: ['summary', 'description', 'location'],
+      threshold: FUSE_THRESHOLD,
+    })
+    const results = fuse.search(trimmed)
+    return {
+      count: results.length,
+      samples: results.slice(0, 5).map(r => r.item),
+    }
+  }, [newFilterInput, eventsIndex])
+
+  // Reset view mode when switching away from favorites or when filters change
+  useEffect(() => {
+    if (selectedTag !== '__favorites__') return
+    if (favoritesViewMode !== 'all' && favoritesViewMode !== 'calendars' && favoritesViewMode !== 'search') {
+      // It's a specific filter — check if it still exists
+      if (!searchFilters.includes(favoritesViewMode)) {
+        setFavoritesViewMode('all')
+      }
+    }
+  }, [searchFilters, selectedTag, favoritesViewMode])
+
   // Compute events for the favorites view
   const favoritesEvents = useMemo(() => {
     if (!eventsIndex.length || selectedTag !== '__favorites__') return []
@@ -1443,13 +1489,26 @@ function App() {
       })
       .filter(event => {
         if (!event) return false
-        const isFavorited = favoritesSet.has(event.icsUrl)
-        const isSearchMatch = searchFilterMatchSummaries.has(event.summary + '|' + event.date)
-        if (!isFavorited && !isSearchMatch) return false
         if (event.parsedDate >= sixMonthsFromNow) return false
         if (event.parsedDate < todayStart) return false
         const effectiveEnd = event.parsedEndDate || event.parsedDate
         if (effectiveEnd <= now) return false
+
+        const isFavorited = favoritesSet.has(event.icsUrl)
+        const isSearchMatch = searchFilterMatchSummaries.has(event.summary + '|' + event.date)
+        const eventKey = event.summary + '|' + event.date
+
+        if (favoritesViewMode === 'calendars') {
+          return isFavorited
+        } else if (favoritesViewMode === 'search') {
+          return isSearchMatch
+        } else if (favoritesViewMode !== 'all') {
+          // Specific filter selected
+          const filterMatches = perFilterMatches.get(favoritesViewMode)
+          return filterMatches ? filterMatches.has(eventKey) : false
+        }
+        // 'all' mode
+        if (!isFavorited && !isSearchMatch) return false
         return true
       })
 
@@ -1500,7 +1559,7 @@ function App() {
     }
 
     return groups
-  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries])
+  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches])
 
   // Track which calendars matched by name/description (not just event content)
   const calendarNameMatches = useMemo(() => {
@@ -2778,18 +2837,28 @@ function App() {
               </div>
               {searchFilters.length > 0 && (
                 <div className="search-filters-chips">
-                  {searchFilters.map(filter => (
-                    <span key={filter} className="search-filter-chip">
-                      {filter}
-                      <button
-                        className="search-filter-chip-remove"
-                        onClick={() => removeSearchFilter(filter)}
-                        title="Remove filter"
+                  {searchFilters.map(filter => {
+                    const matchCount = perFilterMatches.get(filter)?.size || 0
+                    const isActive = favoritesViewMode === filter
+                    return (
+                      <span
+                        key={filter}
+                        className={`search-filter-chip${isActive ? ' search-filter-chip-active' : ''}`}
+                        onClick={() => setFavoritesViewMode(isActive ? 'all' : filter)}
+                        title={isActive ? 'Click to show all' : `Click to show only "${filter}" matches`}
                       >
-                        x
-                      </button>
-                    </span>
-                  ))}
+                        {filter}
+                        <span className="search-filter-chip-count">{matchCount}</span>
+                        <button
+                          className="search-filter-chip-remove"
+                          onClick={(e) => { e.stopPropagation(); removeSearchFilter(filter) }}
+                          title="Remove filter"
+                        >
+                          x
+                        </button>
+                      </span>
+                    )
+                  })}
                 </div>
               )}
               <form className="search-filters-add" onSubmit={(e) => {
@@ -2809,6 +2878,40 @@ function App() {
                   Add
                 </button>
               </form>
+              {livePreviewMatches && (
+                <div className="search-filter-preview">
+                  <span className="search-filter-preview-count">
+                    {livePreviewMatches.count} event{livePreviewMatches.count !== 1 ? 's' : ''} match "{newFilterInput.trim()}"
+                  </span>
+                  {livePreviewMatches.samples.length > 0 && (
+                    <ul className="search-filter-preview-list">
+                      {livePreviewMatches.samples.map((evt, i) => (
+                        <li key={i}>{evt.summary}</li>
+                      ))}
+                      {livePreviewMatches.count > 5 && (
+                        <li className="search-filter-preview-more">+{livePreviewMatches.count - 5} more</li>
+                      )}
+                    </ul>
+                  )}
+                </div>
+              )}
+              {(favorites.length > 0 && searchFilters.length > 0) && (
+                <div className="favorites-view-switcher">
+                  {[
+                    { key: 'all', label: 'All' },
+                    { key: 'calendars', label: 'Calendars Only' },
+                    { key: 'search', label: 'Search Only' },
+                  ].map(({ key, label }) => (
+                    <button
+                      key={key}
+                      className={`favorites-view-btn${favoritesViewMode === key ? ' favorites-view-btn-active' : ''}`}
+                      onClick={() => setFavoritesViewMode(key)}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {searchTerm && (

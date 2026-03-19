@@ -6,57 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:OpenMic Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:nic4Hi7cmctp3Q6zU3dra
-SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260318T235231Z
-DTSTART;TZID=America/Los_Angeles:20260318T193000
-DESCRIPTION:Weekly open mic with full backline provided and 16-track record
-	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
-	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
-URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
-LOCATION:3803 Delridge Way SW\, Seattle
-X-CALRIPPER-SOURCE:skylark-cafe-open-mic
-CATEGORIES:Skylark Cafe — Wednesday Open Mic
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT3H30M
-END:VEVENT
-BEGIN:VEVENT
-UID:5sKSz_8A4UCD23e_S3VcL
-SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
-DTSTAMP:20260318T235231Z
-DTSTART;TZID=America/Los_Angeles:20260318T193000
-DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
-	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
-	e — Cheap Laughs Open Mic
-URL:https://www.clubcomedyseattle.com/
-LOCATION:Club Comedy Seattle\, Downtown Seattle
-X-CALRIPPER-SOURCE:club-comedy-cheap-laughs
-CATEGORIES:Club Comedy Seattle — Cheap Laughs Open Mic
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:qYaizD7FiAcJ5JAdKgk3B
-SUMMARY:Hopvine Pub — Wednesday Open Mic
-DTSTAMP:20260318T235231Z
-DTSTART;TZID=America/Los_Angeles:20260318T210000
-DESCRIPTION:Casual singer/songwriter-focused open mic hosted by Eric Miller
-	. All welcome.\n\nhttps://www.hopvinepub.com/\n\nFrom Hopvine Pub — Wednes
-	day Open Mic
-URL:https://www.hopvinepub.com/
-LOCATION:507 15th Avenue E\, Seattle
-X-CALRIPPER-SOURCE:hopvine-pub-open-mic
-CATEGORIES:Hopvine Pub — Wednesday Open Mic
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:mitzxEqxbLJV94NRiWEZc
+UID:16R9fBrJfwuH9knMrGEpA
 SUMMARY:Couth Buzzard Books — Thursday Open Mic
-DTSTAMP:20260318T235231Z
+DTSTAMP:20260319T022244Z
 DTSTART;TZID=America/Los_Angeles:20260319T190000
 DESCRIPTION:Acoustic\, no-PA listening environment at an independent bookst
 	ore/café. All art forms welcome: music\, poetry\, dance\, comedy\, and sto
@@ -71,9 +23,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TH
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:HF--7zexsD-8xGRWOIhfi
+UID:64ahxMuOiaGff4X8-MLLk
 SUMMARY:Conor Byrne Pub — Sunday Open Mic
-DTSTAMP:20260318T235231Z
+DTSTAMP:20260319T022244Z
 DTSTART;TZID=America/Los_Angeles:20260322T193000
 DESCRIPTION:Weekly open mic at one of Seattle's most storied venues. Free t
 	o sign up\, first come first served.\n\nhttps://www.conorbyrnepub.com/\n\n
@@ -87,9 +39,9 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:xUGyNYO7dw_qxTZxqUSah
+UID:qvmOHr4T5fCcG172_1IyH
 SUMMARY:Nectar Lounge — Mo Jam Mondays
-DTSTAMP:20260318T235231Z
+DTSTAMP:20260319T022244Z
 DTSTART;TZID=America/Los_Angeles:20260323T193000
 DESCRIPTION:Weekly music jam and open mic at Nectar Lounge.\n\nhttps://nect
 	arlounge.com/\n\nFrom Nectar Lounge — Mo Jam Mondays
@@ -102,9 +54,57 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT4H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:jpjcK8TOK2g1LgQ96MxgG
+UID:ml9JTl_fDg94Bjd7NHE2I
+SUMMARY:Skylark Cafe — Wednesday Open Mic
+DTSTAMP:20260319T022244Z
+DTSTART;TZID=America/Los_Angeles:20260325T193000
+DESCRIPTION:Weekly open mic with full backline provided and 16-track record
+	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
+	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
+URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
+LOCATION:3803 Delridge Way SW\, Seattle
+X-CALRIPPER-SOURCE:skylark-cafe-open-mic
+CATEGORIES:Skylark Cafe — Wednesday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT3H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:X97po9Awejuo4Nx_GM1fA
+SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
+DTSTAMP:20260319T022244Z
+DTSTART;TZID=America/Los_Angeles:20260325T193000
+DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
+	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
+	e — Cheap Laughs Open Mic
+URL:https://www.clubcomedyseattle.com/
+LOCATION:Club Comedy Seattle\, Downtown Seattle
+X-CALRIPPER-SOURCE:club-comedy-cheap-laughs
+CATEGORIES:Club Comedy Seattle — Cheap Laughs Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:qSwdREXgM6ziqeBO7y-TU
+SUMMARY:Hopvine Pub — Wednesday Open Mic
+DTSTAMP:20260319T022244Z
+DTSTART;TZID=America/Los_Angeles:20260325T210000
+DESCRIPTION:Casual singer/songwriter-focused open mic hosted by Eric Miller
+	. All welcome.\n\nhttps://www.hopvinepub.com/\n\nFrom Hopvine Pub — Wednes
+	day Open Mic
+URL:https://www.hopvinepub.com/
+LOCATION:507 15th Avenue E\, Seattle
+X-CALRIPPER-SOURCE:hopvine-pub-open-mic
+CATEGORIES:Hopvine Pub — Wednesday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:6W3M5DA3lGu6TDaxVYZVh
 SUMMARY:Fremont Abbey Open Mic
-DTSTAMP:20260318T235231Z
+DTSTAMP:20260319T022244Z
 DTSTART;TZID=America/Los_Angeles:20260407T200000
 DESCRIPTION:All art forms welcome at this community arts space. Twice-month
 	ly open mic on the 1st and 3rd Tuesdays.\n\nhttps://www.fremontabbey.org/\

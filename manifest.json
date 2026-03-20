@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-20T02:08:55.909Z",
+  "lastUpdated": "2026-03-20T16:53:56.602Z",
   "rippers": [
     {
       "name": "19hz",
@@ -179,6 +179,21 @@
           "tags": [
             "Dogs"
           ]
+        }
+      ]
+    },
+    {
+      "name": "downtown-seattle-association",
+      "friendlyName": "Downtown Seattle Association",
+      "description": "Downtown Seattle Association Events Calendar",
+      "friendlyLink": "https://downtownseattle.org",
+      "calendars": [
+        {
+          "name": "occidental-square",
+          "friendlyName": "Occidental Square Events",
+          "icsUrl": "downtown-seattle-association-occidental-square.ics",
+          "rssUrl": "downtown-seattle-association-occidental-square.rss",
+          "tags": []
         }
       ]
     },

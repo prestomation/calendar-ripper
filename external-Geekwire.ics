@@ -40,7 +40,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260317
 DTEND;VALUE=DATE:20260320
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260108T201524Z
 LAST-MODIFIED:20260108T201524Z
 UID:10003141-1773705600-1773964799@www.geekwire.com
@@ -53,7 +53,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260319T170000
 DTEND;TZID=America/Los_Angeles:20260319T193000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260305T184329Z
 LAST-MODIFIED:20260305T184329Z
 UID:10003235-1773939600-1773948600@www.geekwire.com
@@ -68,7 +68,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260320T090000
 DTEND;TZID=America/Los_Angeles:20260320T100000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203433Z
 LAST-MODIFIED:20260312T203433Z
 UID:10003249-1773997200-1774000800@www.geekwire.com
@@ -83,7 +83,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260320T130000
 DTEND;TZID=America/Los_Angeles:20260320T163000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203205Z
 LAST-MODIFIED:20260312T203205Z
 UID:10003250-1774011600-1774024200@www.geekwire.com
@@ -96,9 +96,26 @@ ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/2.p
 ORGANIZER;CN="B.E.L.L.E Community":MAILTO:info@belle.community
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260320T130000
+DTEND;TZID=America/Los_Angeles:20260320T170000
+DTSTAMP:20260319T190814
+CREATED:20260319T175057Z
+LAST-MODIFIED:20260319T175057Z
+UID:10003257-1774011600-1774026000@www.geekwire.com
+SUMMARY:Spring Equinox 2026
+DESCRIPTION:Breakthroughs happen at inflection points. If you’re re-evaluating your career or your impact\, Spring Equinox 2026 is designed to help you navigate what’s next. \n​This half-day event focuses on the mechanics of building a life and economy designed to endure and thrive. \n​THE SCIENCE: Gaya Herrington (Harvard) and Dr. Tim Lomas (Harvard & Global Flourishing Program) on the frameworks of flourishing and economic wellbeing. \nTHE TOOLS: ​Chris Emura (AI2) and Natalie Naruns (ex-Google) on leveraging AI to build what you want to see in the world. \nTHE COMMUNITY: Circle conversations during both segments provide an opportunity to synthesize insights with purpose-driven peers. \n​Breakthroughs don’t occur in isolation. Leave the darkness of winter and step into the light of spring with a purpose-driven community!
+URL:https://www.geekwire.com/calendar-event/spring-equinox-2026/
+LOCATION:The Collective\, 400 Dexter Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Artificial Intelligence,Civics,Educational events
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/RePurpose-Spring-Equinox-2026-Landscape-1.png
+ORGANIZER;CN="Ikigai Lab":MAILTO:info@ikigailab.co
+GEO:47.6221728;-122.3419734
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=The Collective 400 Dexter Ave N Seattle WA 98109 United States;X-APPLE-RADIUS=500;X-TITLE=400 Dexter Ave N:geo:-122.3419734,47.6221728
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260324T133000
 DTEND;TZID=America/Los_Angeles:20260324T183000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20251219T204247Z
 LAST-MODIFIED:20260318T180439Z
 UID:10003125-1774359000-1774377000@www.geekwire.com
@@ -114,7 +131,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260325T090000
 DTEND;TZID=America/Los_Angeles:20260325T170000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260305T224406Z
 LAST-MODIFIED:20260305T224406Z
 UID:10003244-1774429200-1774458000@www.geekwire.com
@@ -129,7 +146,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/New_York:20260325T100000
 DTEND;TZID=America/New_York:20260325T170000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203157Z
 LAST-MODIFIED:20260312T203157Z
 UID:10003251-1774432800-1774458000@www.geekwire.com
@@ -144,7 +161,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260326
 DTEND;VALUE=DATE:20260330
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260127T172315Z
 LAST-MODIFIED:20260127T172315Z
 UID:10003172-1774483200-1774828799@www.geekwire.com
@@ -155,9 +172,23 @@ LOCATION:Art Love Salon\, 110 Union Street\, 5th Floor\, Seattle\, WA\, 98101\, 
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/ElectricSEA-v7_eventbrite-1100x1410-1.png
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260327T180000
+DTEND;TZID=America/Los_Angeles:20260327T210000
+DTSTAMP:20260319T190814
+CREATED:20260319T175039Z
+LAST-MODIFIED:20260319T175039Z
+UID:10003260-1774634400-1774645200@www.geekwire.com
+SUMMARY:Turn Daily Workflows into AI Agents — A No-Code Workshop with MuleRun
+DESCRIPTION:Premium Small-Group Online Workshop\nBuild real AI Agents from real industry workflows. \n​This premium small-group\, hands-on online workshop is designed for experienced professionals who want to turn real-world workflows into working AI Agents using MuleRun’s agent-building platform. \n​Unlike general AI introductions\, this session is execution-focused. \n​You will work on your own workflow or recurring industry use case — and leave with a functional AI Agent prototype. \n​🎁 Awards & Incentives\n​🥇 1st Prize: $200\n🥈 2nd Prize: $150\n🥉 3rd Prize: $100 \n🎟️ All participants receive $20 MuleRun Plus subscription credit \n​Awards are evaluated based on:\n• Clarity of problem definition\n• Practical execution\n• Strength of workflow logic\n• Real-world usability \n​⚠️ No coding background required. \n​🔥 What Makes This Workshop Different\n​• Premium small-group format (limited seats for meaningful interaction)\n• Bring a real workflow → leave with a working AI Agent\n• No-code building experience\n• Live guidance and real-time feedback\n• Clear path to publish and iterate \n​This is not a webinar.\nThis is structured\, hands-on building. \n​🧠 By the End of the Session\, You Will\n​• Build a functional AI Agent based on your own workflow\n• Structure agent logic around decisions\, actions\, and outcomes\n• Test and refine your Agent\n• Publish your Agent to the MuleRun Agent Store \n​⚙️ Workshop Structure (3 Hours)\n​🧭 30-minute framework walkthrough\nCore concepts\, workflow-to-agent thinking\, and setup best practices \n​🛠️ 2 hours of hands-on building\nParticipants build their own agents with live guidance \n​🎤 30-minute demo & judging session\nParticipants present their agents and receive feedback \n​👤 Who Should Join\n​This workshop is best suited for: \n​• Industry professionals with 5+ years of experience\n• Founders and operators\n• Consultants and domain experts\n• Corporate leaders exploring AI integration\n• Builders looking to prototype practical tools \n​Participants are strongly encouraged to come with a specific workflow or use case in mind. \n​⚠️ This is not a general AI introduction session. \n​About MuleRun\n​MuleRun is one of the world’s largest AI agent platforms and agent stores\, serving millions of users globally. \n​On MuleRun\, users can: \n​Discover and use AI agents built by others across a wide range of use cases \n​Build their own AI agents using MuleRun’s agent tools \n​Publish agents to the MuleRun Agent Store\, making them available to other users \n​Generate revenue when others use or subscribe to their agents \n​MuleRun provides an open platform where ideas can be quickly turned into usable\, shareable\, and monetizable AI agents. （Learn more at: mulerun.com） \n_________\nAbout B.E.L.L.E\nWe are B.E.L.L.E (Boundless; Entrepreneurship; Liberty; Liaison; Empowerment)\, a community of entrepreneurs dedicated to breaking boundaries and building futures. \nOur Impact: We’ve connected over 25\,000 people\, supported more than 600 startups\, and collectively they raised $1 billion in funding!
+URL:https://www.geekwire.com/calendar-event/turn-daily-workflows-into-ai-agents-a-no-code-workshop-with-mulerun/
+CATEGORIES:Artificial Intelligence,Developer,Educational events,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Image_20260317110213.png
+ORGANIZER;CN="B.E.L.L.E Community":MAILTO:info@belle.community
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260328T090000
 DTEND;TZID=America/Los_Angeles:20260328T180000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203444Z
 LAST-MODIFIED:20260312T203444Z
 UID:10003248-1774688400-1774720800@www.geekwire.com
@@ -172,7 +203,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260328T120000
 DTEND;TZID=America/Los_Angeles:20260328T150000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203507Z
 LAST-MODIFIED:20260312T203507Z
 UID:10003246-1774699200-1774710000@www.geekwire.com
@@ -186,7 +217,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260401T080000
 DTEND;TZID=America/Los_Angeles:20260401T170000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20251118T020742Z
 LAST-MODIFIED:20251118T020742Z
 UID:10003089-1775030400-1775062800@www.geekwire.com
@@ -201,7 +232,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260404T090000
 DTEND;TZID=America/Los_Angeles:20260404T180000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260123T172859Z
 LAST-MODIFIED:20260216T025803Z
 UID:10003165-1775293200-1775325600@www.geekwire.com
@@ -217,7 +248,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T170000
 DTEND;TZID=America/Los_Angeles:20260408T180000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203459Z
 LAST-MODIFIED:20260312T203459Z
 UID:10003247-1775667600-1775671200@www.geekwire.com
@@ -232,7 +263,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260409T083000
 DTEND;TZID=America/Los_Angeles:20260409T170000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260303T164945Z
 LAST-MODIFIED:20260303T164945Z
 UID:10003233-1775723400-1775754000@www.geekwire.com
@@ -245,7 +276,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T113000
 DTEND;TZID=America/Los_Angeles:20260410T130000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20251024T200341Z
 LAST-MODIFIED:20251024T200341Z
 UID:10003060-1775820600-1775826000@www.geekwire.com
@@ -258,7 +289,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260415
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260224T175403Z
 LAST-MODIFIED:20260224T175403Z
 UID:10003219-1776038400-1776211199@www.geekwire.com
@@ -271,7 +302,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260413T100000
 DTEND;TZID=America/Los_Angeles:20260413T150000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260305T184218Z
 LAST-MODIFIED:20260305T184218Z
 UID:10003241-1776074400-1776092400@www.geekwire.com
@@ -285,7 +316,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T090000
 DTEND;TZID=America/Los_Angeles:20260414T150000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260224T205544Z
 LAST-MODIFIED:20260224T205544Z
 UID:10003220-1776157200-1776178800@www.geekwire.com
@@ -297,7 +328,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T120000
 DTEND;TZID=America/Los_Angeles:20260414T130000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260305T184226Z
 LAST-MODIFIED:20260305T184226Z
 UID:10003240-1776168000-1776171600@www.geekwire.com
@@ -312,7 +343,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T100000
 DTEND;TZID=America/Los_Angeles:20260418T160000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260218T173229Z
 LAST-MODIFIED:20260218T173229Z
 UID:10003204-1776506400-1776528000@www.geekwire.com
@@ -327,7 +358,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260424T193000
 DTEND;TZID=America/Los_Angeles:20260424T213000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260312T203517Z
 LAST-MODIFIED:20260312T203517Z
 UID:10003245-1777059000-1777066200@www.geekwire.com
@@ -342,9 +373,23 @@ GEO:47.608106;-122.337005
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=S. Mark Taper Foundation Auditorium – Benaroya Hall 200 University St Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=200 University St:geo:-122.337005,47.608106
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260429T170000
+DTEND;TZID=America/Los_Angeles:20260624T183000
+DTSTAMP:20260319T190814
+CREATED:20260319T175109Z
+LAST-MODIFIED:20260319T175109Z
+UID:10003254-1777482000-1782325800@www.geekwire.com
+SUMMARY:TiE Entrepreneur Institute 2026
+DESCRIPTION:TiE Entrepreneur Institute 2026 – Registrations Open! \nHave a startup idea but unsure how to turn it into a real company? \nTiE Seattle’s Entrepreneur Institute is designed to help aspiring and early-stage founders learn the fundamentals of building and scaling a startup—from idea validation and fundraising to go-to-market\, sales strategy\, and building strong teams. \nApr 29 – Jun 24\, 2026 | 5:00 PM (Virtual Sessions) \nLearn directly from successful founders\, seasoned executives\, and industry experts through practical\, interactive sessions. \nBonus for TiE Members:\n• 50% discount on the program\n• Access to the TiE global network\n• 1:1 mentorship from experienced entrepreneurs \nWhether you’re exploring an idea or already building\, this program will give you the frameworks\, insights\, and connections to move forward with confidence. \n👉 Register here:\nhttps://events.tie.org/TiEEntrepreneurInstitute2026#/ \nFeel free to share with founders and aspiring entrepreneurs in your network!
+URL:https://www.geekwire.com/calendar-event/tie-entrepreneur-institute-2026/
+LOCATION:Zoom
+CATEGORIES:Educational events,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/image-11.png
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260507T090000
 DTEND;TZID=America/Los_Angeles:20260507T170000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260212T202340Z
 LAST-MODIFIED:20260212T202340Z
 UID:10003194-1778144400-1778173200@www.geekwire.com
@@ -361,7 +406,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260508T113000
 DTEND;TZID=America/Los_Angeles:20260508T130000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20251024T200349Z
 LAST-MODIFIED:20251226T215413Z
 UID:10003061-1778239800-1778245200@www.geekwire.com
@@ -376,7 +421,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260516
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260218T172109Z
 LAST-MODIFIED:20260218T172109Z
 UID:10003207-1778630400-1778889599@www.geekwire.com
@@ -388,7 +433,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T080000
 DTEND;TZID=America/Los_Angeles:20260515T170000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260305T184134Z
 LAST-MODIFIED:20260305T184134Z
 UID:10003242-1778832000-1778864400@www.geekwire.com
@@ -405,7 +450,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T103000
 DTEND;TZID=America/Los_Angeles:20260515T130000
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260204T183704Z
 LAST-MODIFIED:20260204T183704Z
 UID:10003188-1778841000-1778850000@www.geekwire.com
@@ -420,7 +465,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260523
-DTSTAMP:20260318T192226
+DTSTAMP:20260319T190814
 CREATED:20260108T201444Z
 LAST-MODIFIED:20260108T201500Z
 UID:10003142-1779235200-1779494399@www.geekwire.com
@@ -429,51 +474,5 @@ DESCRIPTION:Continuing from the outstanding success of IEEE AIIoT 2025\, we are 
 URL:https://www.geekwire.com/calendar-event/7th-annual-world-allot-congress/
 LOCATION:Seattle Convention Center\, 705 Pike Street\, Seattle\, Washington\, 98101\, United States
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-162917.png
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260531
-DTEND;VALUE=DATE:20260603
-DTSTAMP:20260318T192226
-CREATED:20260108T201427Z
-LAST-MODIFIED:20260108T201427Z
-UID:10003143-1780185600-1780444799@www.geekwire.com
-SUMMARY:2026 AST Surgical Technology Conference
-DESCRIPTION:Join us Sunday\, May 31 – Tuesday\, June 2\, 2026\, In Seattle\, Washington! Seattle offers iconic landmarks like the Space Needle\, a world-class coffee culture\, and a thriving tech scene. From exploring Pike Place Market to hiking in nearby national parks\, Seattle is a city that blends urban energy with outdoor adventure. Whether you’re a foodie\, artist\, entrepreneur\, or explorer\, Seattle welcomes you with open arms and endless possibilities. AST offers an event focused on education\, innovation\, and networking opportunities. It’s not just a professional gathering; it’s an opportunity to explore the unique charm and culture that Seattle has to offer. More information coming soon.
-URL:https://www.geekwire.com/calendar-event/2026-ast-surgical-technology-conference/
-LOCATION:Summit at the Seattle Convention Center\, 900 Pine Street\, Seattle\, 98101\, United States
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-163118.png
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260601
-DTEND;VALUE=DATE:20260603
-DTSTAMP:20260318T192226
-CREATED:20260108T201730Z
-LAST-MODIFIED:20260108T201730Z
-UID:10003138-1780272000-1780444799@www.geekwire.com
-SUMMARY:CascadiaJS 2026
-DESCRIPTION:A Web + AI conference for the Pacific Northwest \nCascadiaJS is a community-driven conference for developers in the PNW and beyond. You’ll hear from 30+ speakers\, connect with 500+ fellow devs\, and explore the latest in web and AI technologies with some of the top companies in the industry.
-URL:https://www.geekwire.com/calendar-event/cascadiajs-2026/
-LOCATION:Town Hall Seattle\, 1119 8th Avenue\, Seattle\, WA\, 98101\, United States
-CATEGORIES:Conferences
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/hero-mushroom.png
-ORGANIZER;CN="Carter Rabasa":MAILTO:carter.rabasa@gmail.com
-GEO:47.609019;-122.329901
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Town Hall Seattle 1119 8th Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1119 8th Avenue:geo:-122.329901,47.609019
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260603T083000
-DTEND;TZID=America/Los_Angeles:20260603T163000
-DTSTAMP:20260318T192226
-CREATED:20260313T161348Z
-LAST-MODIFIED:20260313T161348Z
-UID:10003253-1780475400-1780504200@www.geekwire.com
-SUMMARY:Seattle Investor Summit+Showcase
-DESCRIPTION:​Where capital\, innovation\, and leadership converge. \n​Overview: Get ready to connect\, invest\, and discover what’s next. The Seattle Investor Summit + Showcase returns in 2026\, convening leading venture capitalists\, corporate innovators\, and high-growth startups from across the Pacific Northwest and beyond. \n​This one-day event is designed to \n​Create meaningful connections between startups and potential investors and/or customers. \n​Showcase the breadth of Washington’s startup ecosystem (AI\, Cloud\, Space\, Defense\, Ag\, and more) \n​Help investors tap into the exceptional opportunities offered by Washington to build and scale a company \n​ What to Expect: \n​✔ Strategic Startup Showcases\n✔ Top VCs + Corporate Investors\n✔ Emerging Innovation Across Key Sectors\n✔ Networking\, Panels\, and 1:1 Meeting Opportunities \n​Agenda\n8:00 AM – Check-in table opens\, lite breakfast ready\n9:00 AM – Keynote\n10:00 AM – Networking break\n10:30 AM – Pitch tracks: Applied AI & Cloud Infrastructure\, Climate & Energy Tech\, Defense & Space\n12:00 PM – Networking lunch\n1:15 PM – Panel with local VCs\n2:00 PM – Keynote – Jaime Teevan\, Chief Scientist\, Microsoft\n2:45 PM – Networking break\n3:15 PM – Pitch tracks (same as above)\n4:30 PM – Reception\, Hosted by Orrick\n6:30 PM – End \n​Don’t miss your chance to be part of this high-value summit at the intersection of innovation and investment.
-URL:https://www.geekwire.com/calendar-event/seattle-investor-summitshowcase/
-LOCATION:Microsoft Building #92\, 15010 Northeast 36th St\, Redmond\, 98052\, United States
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Screenshot-2026-03-13-091121.png
-ORGANIZER;CN="Technology Alliance":MAILTO:events@technology-alliance.com
-GEO:47.6423109;-122.1368406
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Microsoft Building #92 15010 Northeast 36th St Redmond 98052 United States;X-APPLE-RADIUS=500;X-TITLE=15010 Northeast 36th St:geo:-122.1368406,47.6423109
 END:VEVENT
 END:VCALENDAR

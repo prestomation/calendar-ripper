@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-19T02:23:03.927Z",
+  "lastUpdated": "2026-03-20T02:08:55.909Z",
   "rippers": [
     {
       "name": "19hz",
@@ -178,6 +178,23 @@
           "rssUrl": "dogwoodplaypark-events.rss",
           "tags": [
             "Dogs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "eastlake-community-council",
+      "description": "Eastlake Community Council",
+      "friendlyLink": "https://www.eastlakeseattle.org/announcements-events",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Eastlake Community Council",
+          "icsUrl": "eastlake-community-council-all-events.ics",
+          "rssUrl": "eastlake-community-council-all-events.rss",
+          "tags": [
+            "Community",
+            "Eastlake"
           ]
         }
       ]
@@ -751,6 +768,16 @@
           "friendlyName": "Belltown Yacht Club",
           "icsUrl": "seattle-showlists-belltown-yacht-club.ics",
           "rssUrl": "seattle-showlists-belltown-yacht-club.rss",
+          "tags": [
+            "Music",
+            "Belltown"
+          ]
+        },
+        {
+          "name": "hotel-crocodile",
+          "friendlyName": "Hotel Crocodile",
+          "icsUrl": "seattle-showlists-hotel-crocodile.ics",
+          "rssUrl": "seattle-showlists-hotel-crocodile.rss",
           "tags": [
             "Music",
             "Belltown"

@@ -6,9 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Eastlake Community Council
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:UGyRHH8Tjzqx6MZHPtKC9
+UID:Krvui-bkXhSh5iFqtxwxN
 SUMMARY:Eastlake News Spring 2026
-DTSTAMP:20260319T022236Z
+DTSTAMP:20260320T020829Z
 DTSTART:20260303T200000Z
 DESCRIPTION:https://www.eastlakeseattle.org/announcements-events/eastlake-n
 	ews-spring-2026
@@ -16,5 +16,44 @@ URL:https://www.eastlakeseattle.org/announcements-events/eastlake-news-spri
 	ng-2026
 TRANSP:TRANSPARENT
 DURATION:PT1751H
+END:VEVENT
+BEGIN:VEVENT
+UID:fNAD5dFsGDxXv7Xdv1s86
+SUMMARY:Rewild Eastlake Event
+DTSTAMP:20260320T020829Z
+DTSTART:20260321T160000Z
+DESCRIPTION:https://www.eastlakeseattle.org/announcements-events/rewild-eas
+	tlake-event
+URL:https://www.eastlakeseattle.org/announcements-events/rewild-eastlake-ev
+	ent
+LOCATION:2255 Minor Avenue East\, Seattle\, WA\, 98102
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:LojiNO2M6_GkNWdFCD2Sg
+SUMMARY:Let's Discuss Bike Racks
+DTSTAMP:20260320T020829Z
+DTSTART:20260327T014500Z
+DESCRIPTION:https://www.eastlakeseattle.org/announcements-events/lets-discu
+	ss-bike-racks
+URL:https://www.eastlakeseattle.org/announcements-events/lets-discuss-bike-
+	racks
+LOCATION:Pocock Rowing Club\, 3320 Fuhrman Avenue East\, Seattle\, WA\, 981
+	02
+TRANSP:TRANSPARENT
+DURATION:PT1H15M
+END:VEVENT
+BEGIN:VEVENT
+UID:vAKl5HHJDJI2SIQWVfC17
+SUMMARY:Pitch Perfect
+DTSTAMP:20260320T020829Z
+DTSTART:20260409T013000Z
+DESCRIPTION:https://www.eastlakeseattle.org/announcements-events/pitch-perf
+	ect
+URL:https://www.eastlakeseattle.org/announcements-events/pitch-perfect
+LOCATION:Pecado Bueno\, 2356 Eastlake Avenue East\, Seattle\, WA\, 98102
+TRANSP:TRANSPARENT
+DURATION:PT2H30M
 END:VEVENT
 END:VCALENDAR

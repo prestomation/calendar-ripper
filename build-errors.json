@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-19T02:23:04.057Z",
+  "buildTime": "2026-03-20T02:08:56.035Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
@@ -12,8 +12,8 @@
     "downtown-seattle-association-occidental-square",
     "jcccw-all-events",
     "lucky-envelope-all-events",
+    "reubens-brews-downtown",
     "seattle-barkery-all-events",
-    "seattle-showlists-hotel-crocodile",
     "seattle-showlists-bad-bar",
     "seattle-showlists-skylark",
     "spl-university",
@@ -23,7 +23,7 @@
   "unexpectedNonEmptyCalendars": [
     {
       "name": "eastlake-community-council-all-events",
-      "events": 1
+      "events": 4
     }
   ],
   "eventCounts": [
@@ -270,7 +270,7 @@
     {
       "name": "19hz-all-events",
       "type": "Ripper",
-      "events": 344,
+      "events": 343,
       "expectEmpty": false
     },
     {
@@ -282,7 +282,7 @@
     {
       "name": "bbyc-ballard-all-events",
       "type": "Ripper",
-      "events": 40,
+      "events": 38,
       "expectEmpty": false
     },
     {
@@ -312,19 +312,19 @@
     {
       "name": "burke-museum-burke-museum",
       "type": "Ripper",
-      "events": 9,
+      "events": 11,
       "expectEmpty": false
     },
     {
       "name": "chop-suey-all-events",
       "type": "Ripper",
-      "events": 99,
+      "events": 101,
       "expectEmpty": false
     },
     {
       "name": "climate-pledge-arena-climate-pledge-arena",
       "type": "Ripper",
-      "events": 100,
+      "events": 109,
       "expectEmpty": false
     },
     {
@@ -342,7 +342,7 @@
     {
       "name": "discover-slu-discover-slu",
       "type": "Ripper",
-      "events": 44,
+      "events": 53,
       "expectEmpty": false
     },
     {
@@ -366,49 +366,49 @@
     {
       "name": "eastlake-community-council-all-events",
       "type": "Ripper",
-      "events": 1,
+      "events": 4,
       "expectEmpty": true
     },
     {
       "name": "el-corazon-el-corazon",
       "type": "Ripper",
-      "events": 42,
+      "events": 41,
       "expectEmpty": false
     },
     {
       "name": "el-corazon-the-funhouse",
       "type": "Ripper",
-      "events": 52,
+      "events": 53,
       "expectEmpty": false
     },
     {
       "name": "elliott-bay-elliott-bay",
       "type": "Ripper",
-      "events": 28,
+      "events": 31,
       "expectEmpty": false
     },
     {
       "name": "events12-seattle-events",
       "type": "Ripper",
-      "events": 100,
+      "events": 99,
       "expectEmpty": false
     },
     {
       "name": "fremont-arts-council-all-events",
       "type": "Ripper",
-      "events": 11,
+      "events": 10,
       "expectEmpty": false
     },
     {
       "name": "fremont-brewing-all-events",
       "type": "Ripper",
-      "events": 36,
+      "events": 35,
       "expectEmpty": false
     },
     {
       "name": "fremont-brewing-columbia-city-all-events",
       "type": "Ripper",
-      "events": 13,
+      "events": 12,
       "expectEmpty": false
     },
     {
@@ -444,13 +444,13 @@
     {
       "name": "lumen-field-lumen-field",
       "type": "Ripper",
-      "events": 34,
+      "events": 35,
       "expectEmpty": false
     },
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 105,
+      "events": 99,
       "expectEmpty": false
     },
     {
@@ -498,13 +498,13 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 42,
+      "events": 54,
       "expectEmpty": false
     },
     {
       "name": "perihelion-all-events",
       "type": "Ripper",
-      "events": 7,
+      "events": 6,
       "expectEmpty": false
     },
     {
@@ -522,13 +522,13 @@
     {
       "name": "reubens-brews-ballard",
       "type": "Ripper",
-      "events": 5,
+      "events": 4,
       "expectEmpty": false
     },
     {
       "name": "reubens-brews-downtown",
       "type": "Ripper",
-      "events": 1,
+      "events": 0,
       "expectEmpty": false
     },
     {
@@ -540,7 +540,7 @@
     {
       "name": "seatoday-seatoday-arts",
       "type": "Ripper",
-      "events": 133,
+      "events": 135,
       "expectEmpty": false
     },
     {
@@ -552,7 +552,7 @@
     {
       "name": "seatoday-seatoday-sports",
       "type": "Ripper",
-      "events": 60,
+      "events": 58,
       "expectEmpty": false
     },
     {
@@ -564,7 +564,7 @@
     {
       "name": "seatoday-seatoday-community",
       "type": "Ripper",
-      "events": 156,
+      "events": 161,
       "expectEmpty": false
     },
     {
@@ -600,7 +600,7 @@
     {
       "name": "seattle-food-trucks-seattle-food-trucks",
       "type": "Ripper",
-      "events": 305,
+      "events": 299,
       "expectEmpty": false
     },
     {
@@ -612,7 +612,7 @@
     {
       "name": "seattle-showlists-baba-yaga",
       "type": "Ripper",
-      "events": 56,
+      "events": 55,
       "expectEmpty": false
     },
     {
@@ -624,7 +624,7 @@
     {
       "name": "seattle-showlists-barboza",
       "type": "Ripper",
-      "events": 61,
+      "events": 62,
       "expectEmpty": false
     },
     {
@@ -636,19 +636,19 @@
     {
       "name": "seattle-showlists-belltown-yacht-club",
       "type": "Ripper",
-      "events": 18,
+      "events": 17,
       "expectEmpty": false
     },
     {
       "name": "seattle-showlists-hotel-crocodile",
       "type": "Ripper",
-      "events": 0,
+      "events": 1,
       "expectEmpty": false
     },
     {
       "name": "seattle-showlists-conor-byrne-pub",
       "type": "Ripper",
-      "events": 61,
+      "events": 60,
       "expectEmpty": false
     },
     {
@@ -666,19 +666,19 @@
     {
       "name": "seattle-showlists-the-royal-room",
       "type": "Ripper",
-      "events": 28,
+      "events": 29,
       "expectEmpty": false
     },
     {
       "name": "seattle-showlists-the-rabbit-box",
       "type": "Ripper",
-      "events": 32,
+      "events": 34,
       "expectEmpty": false
     },
     {
       "name": "seattle-showlists-black-lodge",
       "type": "Ripper",
-      "events": 20,
+      "events": 19,
       "expectEmpty": false
     },
     {
@@ -690,7 +690,7 @@
     {
       "name": "seattle-showlists-add-a-ball",
       "type": "Ripper",
-      "events": 20,
+      "events": 21,
       "expectEmpty": false
     },
     {
@@ -714,13 +714,13 @@
     {
       "name": "seattle-showlists-darrells-tavern",
       "type": "Ripper",
-      "events": 6,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "seattle-showlists-blue-moon-tavern",
       "type": "Ripper",
-      "events": 15,
+      "events": 14,
       "expectEmpty": false
     },
     {
@@ -732,7 +732,7 @@
     {
       "name": "seattle-showlists-tims-tavern",
       "type": "Ripper",
-      "events": 17,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -744,13 +744,13 @@
     {
       "name": "showbox-presents-the-showbox",
       "type": "Ripper",
-      "events": 69,
+      "events": 70,
       "expectEmpty": false
     },
     {
       "name": "showbox-presents-showbox-sodo",
       "type": "Ripper",
-      "events": 55,
+      "events": 56,
       "expectEmpty": false
     },
     {
@@ -762,13 +762,13 @@
     {
       "name": "siff-downtown",
       "type": "Ripper",
-      "events": 17,
+      "events": 15,
       "expectEmpty": false
     },
     {
       "name": "siff-uptown",
       "type": "Ripper",
-      "events": 92,
+      "events": 86,
       "expectEmpty": false
     },
     {
@@ -780,37 +780,37 @@
     {
       "name": "spl-central-library",
       "type": "Ripper",
-      "events": 26,
+      "events": 29,
       "expectEmpty": false
     },
     {
       "name": "spl-ballard",
       "type": "Ripper",
-      "events": 8,
+      "events": 6,
       "expectEmpty": false
     },
     {
       "name": "spl-beacon-hill",
       "type": "Ripper",
-      "events": 9,
+      "events": 8,
       "expectEmpty": false
     },
     {
       "name": "spl-broadview",
       "type": "Ripper",
-      "events": 16,
+      "events": 19,
       "expectEmpty": false
     },
     {
       "name": "spl-capitol-hill",
       "type": "Ripper",
-      "events": 6,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "spl-columbia",
       "type": "Ripper",
-      "events": 8,
+      "events": 9,
       "expectEmpty": false
     },
     {
@@ -828,49 +828,49 @@
     {
       "name": "spl-fremont",
       "type": "Ripper",
-      "events": 2,
+      "events": 1,
       "expectEmpty": false
     },
     {
       "name": "spl-green-lake",
       "type": "Ripper",
-      "events": 1,
+      "events": 2,
       "expectEmpty": false
     },
     {
       "name": "spl-greenwood",
       "type": "Ripper",
-      "events": 12,
+      "events": 11,
       "expectEmpty": false
     },
     {
       "name": "spl-high-point",
       "type": "Ripper",
-      "events": 10,
+      "events": 9,
       "expectEmpty": false
     },
     {
       "name": "spl-international-district",
       "type": "Ripper",
-      "events": 4,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "spl-lake-city",
       "type": "Ripper",
-      "events": 13,
+      "events": 15,
       "expectEmpty": false
     },
     {
       "name": "spl-magnolia",
       "type": "Ripper",
-      "events": 6,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "spl-newholly",
       "type": "Ripper",
-      "events": 7,
+      "events": 8,
       "expectEmpty": false
     },
     {
@@ -882,13 +882,13 @@
     {
       "name": "spl-northgate",
       "type": "Ripper",
-      "events": 10,
+      "events": 8,
       "expectEmpty": false
     },
     {
       "name": "spl-queen-anne",
       "type": "Ripper",
-      "events": 4,
+      "events": 5,
       "expectEmpty": false
     },
     {
@@ -924,13 +924,13 @@
     {
       "name": "spl-online",
       "type": "Ripper",
-      "events": 5,
+      "events": 3,
       "expectEmpty": false
     },
     {
       "name": "stg-stg-paramount",
       "type": "Ripper",
-      "events": 127,
+      "events": 129,
       "expectEmpty": false
     },
     {
@@ -942,13 +942,13 @@
     {
       "name": "stg-stg-neptune",
       "type": "Ripper",
-      "events": 120,
+      "events": 122,
       "expectEmpty": false
     },
     {
       "name": "stoup-brewing-ballard",
       "type": "Ripper",
-      "events": 63,
+      "events": 64,
       "expectEmpty": false
     },
     {
@@ -966,7 +966,7 @@
     {
       "name": "substation-substation",
       "type": "Ripper",
-      "events": 66,
+      "events": 67,
       "expectEmpty": false
     },
     {
@@ -978,19 +978,19 @@
     {
       "name": "t-mobile-park-t-mobile-park",
       "type": "Ripper",
-      "events": 329,
+      "events": 337,
       "expectEmpty": false
     },
     {
       "name": "taproot-taproot",
       "type": "Ripper",
-      "events": 115,
+      "events": 116,
       "expectEmpty": false
     },
     {
       "name": "tractor-tavern-tractor-tavern",
       "type": "Ripper",
-      "events": 76,
+      "events": 75,
       "expectEmpty": false
     },
     {
@@ -1026,7 +1026,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 502,
+      "events": 491,
       "expectEmpty": false
     },
     {
@@ -1038,7 +1038,7 @@
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 483,
+      "events": 488,
       "expectEmpty": false
     },
     {
@@ -1050,19 +1050,19 @@
     {
       "name": "tag-international-district",
       "type": "Aggregate",
-      "events": 6,
+      "events": 7,
       "expectEmpty": false
     },
     {
       "name": "tag-downtown",
       "type": "Aggregate",
-      "events": 256,
+      "events": 260,
       "expectEmpty": false
     },
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 197,
+      "events": 195,
       "expectEmpty": false
     },
     {
@@ -1074,7 +1074,7 @@
     {
       "name": "tag-lake-city",
       "type": "Aggregate",
-      "events": 15,
+      "events": 17,
       "expectEmpty": false
     },
     {
@@ -1098,13 +1098,13 @@
     {
       "name": "tag-pioneer-square",
       "type": "Aggregate",
-      "events": 69,
+      "events": 68,
       "expectEmpty": false
     },
     {
       "name": "tag-university-district",
       "type": "Aggregate",
-      "events": 887,
+      "events": 881,
       "expectEmpty": false
     },
     {
@@ -1128,7 +1128,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1930,
+      "events": 1935,
       "expectEmpty": false
     },
     {
@@ -1140,13 +1140,13 @@
     {
       "name": "tag-food",
       "type": "Aggregate",
-      "events": 346,
+      "events": 340,
       "expectEmpty": false
     },
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 155,
+      "events": 169,
       "expectEmpty": false
     },
     {
@@ -1158,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2644,
+      "events": 2648,
       "expectEmpty": false
     },
     {
@@ -1176,31 +1176,31 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 505,
+      "events": 499,
       "expectEmpty": false
     },
     {
       "name": "tag-beacon-hill",
       "type": "Aggregate",
-      "events": 56,
+      "events": 54,
       "expectEmpty": false
     },
     {
       "name": "tag-queenanne",
       "type": "Aggregate",
-      "events": 290,
+      "events": 294,
       "expectEmpty": false
     },
     {
       "name": "tag-sports",
       "type": "Aggregate",
-      "events": 523,
+      "events": 539,
       "expectEmpty": false
     },
     {
       "name": "tag-south-lake-union",
       "type": "Aggregate",
-      "events": 75,
+      "events": 84,
       "expectEmpty": false
     },
     {
@@ -1212,73 +1212,73 @@
     {
       "name": "tag-eastlake",
       "type": "Aggregate",
-      "events": 21,
+      "events": 23,
       "expectEmpty": false
     },
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1066,
+      "events": 1064,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 498,
+      "events": 511,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1041,
+      "events": 1045,
       "expectEmpty": false
     },
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 438,
+      "events": 421,
       "expectEmpty": false
     },
     {
       "name": "tag-art",
       "type": "Aggregate",
-      "events": 140,
+      "events": 142,
       "expectEmpty": false
     },
     {
       "name": "tag-activism",
       "type": "Aggregate",
-      "events": 301,
+      "events": 306,
       "expectEmpty": false
     },
     {
       "name": "tag-volunteer",
       "type": "Aggregate",
-      "events": 186,
+      "events": 191,
       "expectEmpty": false
     },
     {
       "name": "tag-theatre",
       "type": "Aggregate",
-      "events": 534,
+      "events": 539,
       "expectEmpty": false
     },
     {
       "name": "tag-columbia-city",
       "type": "Aggregate",
-      "events": 45,
+      "events": 46,
       "expectEmpty": false
     },
     {
       "name": "tag-shoreline",
       "type": "Aggregate",
-      "events": 6,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "tag-white-center",
       "type": "Aggregate",
-      "events": 17,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -1296,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7245,
+      "events": 7269,
       "expectEmpty": false
     },
     {
@@ -1374,7 +1374,7 @@
     {
       "name": "external-the-beacon-cinema",
       "type": "External",
-      "events": 50,
+      "events": 48,
       "expectEmpty": false
     },
     {
@@ -1386,7 +1386,7 @@
     {
       "name": "external-grand-illusion-cinema",
       "type": "External",
-      "events": 25,
+      "events": 19,
       "expectEmpty": false
     },
     {
@@ -1464,7 +1464,7 @@
     {
       "name": "external-worksource-north-seattle",
       "type": "External",
-      "events": 74,
+      "events": 71,
       "expectEmpty": false
     },
     {

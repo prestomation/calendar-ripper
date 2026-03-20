@@ -1,5 +1,5 @@
 BEGIN:VCALENDAR
-PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25518//EN
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25519//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 X-WR-CALNAME:Arts and Culture
@@ -620,6 +620,44 @@ CATEGORIES:Arts and Culture
 UID:http://uid.trumba.com/event/197952447
 X-TRUMBA-LINK:https://www.seattle.gov/arts/experience/arts-events?trumba
  Embed=view%3devent%26eventid%3d197952447
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:smART Ventures Draft Review Session
+LOCATION:Virtual
+DTSTART;TZID=America/Los_Angeles:20260326T123000
+DTEND;TZID=America/Los_Angeles:20260326T131500
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://www.seattle.gov/arts/programs/grants/smart-ventures-grant
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Arts and Cultur
+ al Affairs Submission Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Arts\,
+ Training-Classes/Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:City
+ wide\,Online Event
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:smART Ventu
+ res Team
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:smartventures@seattle.gov" target="_blank" rel="noopener">smartven
+ tures@seattle.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:Yes
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgB602xTzfbMm4k8VNI5X6ju.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgB602xTzfbMm4k8VNI5X6ju.jpg">ww
+ w.trumba.com&#8230\;</a>
+DTSTAMP:20260319T120936Z
+DESCRIPTION:<strong>Must attend a smART Ventures info session first</str
+ ong><br><br>Attend this group session and bring 2-3 questions you may ha
+ ve regarding your application to share.<br><br>Sessions are available th
+ e 1st and 3rd Fridays of each month (excluding City Holidays).<br><br>Re
+ gister here and you will receive a Teams Link in your confirmation email
+ .
+CATEGORIES:Arts and Culture
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgB602xTzfbMm4k8VNI5X6ju.jpg
+UID:http://uid.trumba.com/event/199025141
+X-TRUMBA-LINK:https://www.seattle.gov/arts/experience/arts-events?trumba
+ Embed=view%3devent%26eventid%3d199025141
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:The Creative Advantage Office Hours
@@ -21468,43 +21506,5 @@ CATEGORIES:Arts and Culture
 UID:http://uid.trumba.com/event/184450402
 X-TRUMBA-LINK:https://www.seattle.gov/arts/experience/arts-events?trumba
  Embed=view%3devent%26eventid%3d184450402
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Creative Placemaking Committee (CPC)
-LOCATION:Online
-DTSTART;TZID=America/Los_Angeles:20330118T160000
-DTEND;TZID=America/Los_Angeles:20330118T170000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Arts and Cultur
- al Affairs Submission Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Arts\,
- Boards &amp\; Commissions\,Community
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Onli
- ne Event
-X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
- Line:Seattle Office of Arts &amp\; Culture
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Allie Lee
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-733-
- 9378
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:allie.lee@seattle.gov" target="_blank" rel="noopener">allie.lee@se
- attle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Site Contact Details";ID=10951;TYPE=MultiLine
- :Virtual Meeting Info:<p><a href="https://zoom.us/j/99107848941?pwd=NWpq
- Sy9jaXRuNk9YeTh0Q3RVM0VUQT09" target="_blank" rel="noopener">https://zoo
- m.us/j/99107848941?pwd=NWpqSy9jaXRuNk9YeTh0Q3RVM0VUQT09</a></p><p>Meetin
- g ID: 991 0784 8941<br>Passcode: 032127</p><p>Dial by your location<br>+
- 1 253 215 8782 US (Tacoma)<br>+1 669 900 6833 US (San Jose)</p><p>Meetin
- g ID: 991 0784 8941</p><p>Passcode: 032127</p><p>&#160\;</p><p>Find your
-  local number: <a href="https://zoom.us/u/abn6PH97K2" target="_blank" re
- l="noopener">https://zoom.us/u/abn6PH97K2</a></p>
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
-X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
-DTSTAMP:20250820T125551Z
-CATEGORIES:Arts and Culture
-UID:http://uid.trumba.com/event/174974684
-X-TRUMBA-LINK:https://www.seattle.gov/arts/experience/arts-events?trumba
- Embed=view%3devent%26eventid%3d174974684
 END:VEVENT
 END:VCALENDAR

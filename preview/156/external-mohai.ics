@@ -1,0 +1,289 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Museum of History &amp; Industry - ECPv6.15.17.1//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Museum of History &amp; Industry
+X-ORIGINAL-URL:https://mohai.org
+X-WR-CALDESC:Events for Museum of History &amp; Industry
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260324T180000
+DTEND;TZID=America/Los_Angeles:20260324T203000
+DTSTAMP:20260321T151813
+CREATED:20251220T005659Z
+LAST-MODIFIED:20251220T064030Z
+UID:10005114-1774375200-1774384200@mohai.org
+SUMMARY:MOHAI Mercantile Literary Series - Seattle's Locks and Ship Canal
+DESCRIPTION:MOHAI Mercantile is proud to host the official book launch event for Seattle’s Locks and Ship Canal with local historians David B. Williams and Jennifer Ott! \nThis portable guide from UW Press and HistoryLink is an introduction to the engineering marvel of the Ballard locks\, and a primer on the history of the ship canal. Hear from the authors about the tumultuous history of one of Seattle’s defining projects\, and the dramatic changes it brought to the city’s economy\, neighborhoods\, and natural environment. \nDoors open at 6pm for music and mingling. Food and drink available for purchase. \nConversation and Q&A begin at 7pm\, followed by a book signing with the authors. \nPreorder your copy through the MOHAI Mercantile beginning in January 2026!
+URL:https://mohai.org/event/mohai-mercantile-literary-series-seattles-locks-and-ship-canal/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Engineering,History,Infrastructure,Maritime
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2025/12/Locks-and-Ship-Canal_hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T140000
+DTEND;TZID=America/Los_Angeles:20260328T160000
+DTSTAMP:20260321T151813
+CREATED:20260223T220537Z
+LAST-MODIFIED:20260223T220537Z
+UID:10005125-1774706400-1774713600@mohai.org
+SUMMARY:Kickstands Up! Gallery Talk with Pacific Northwest Museum of Motorcycling
+DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in the Pacific Northwest with gallery talks by exhibit co-curators from the Pacific Northwest Museum of Motorcycling. Roll on down to MOHAI and learn more about the bikes and riders that have made history. \nSpots are limited and are assigned on a first-come\, first-served basis. \nFor accessibility support\, please contact programs@mohai.org two weeks before the event.
+URL:https://mohai.org/event/kickstands-up-gallery-talk-with-pacific-northwest-museum-of-motorcycling/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Hobbies,People & Culture,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/02/Gallery-Talk-with-PNWMoM_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T170000
+DTEND;TZID=America/Los_Angeles:20260402T200000
+DTSTAMP:20260321T151813
+CREATED:20230209T080000Z
+LAST-MODIFIED:20260313T184012Z
+UID:10004169-1775149200-1775160000@mohai.org
+SUMMARY:First Thursday - April
+DESCRIPTION:Visit MOHAI on the First Thursday of every month for free admission to the museum’s permanent exhibits between 5—8 pm. \nFree admission includes access to all of MOHAI’s award winning exhibits\, including our temporary displays Riding Together: 135 Years of Cycling in Seattle\, TADAIMA: I’m Home and special exhibit Kickstands Up! 125 Years of Motorcycling in the PNW. Advance online tickets are not required\, but may be reserved below. \nFree admission also includes access to two special presentations of Living Voices in the Joshua Green Theater at 5:30 and 6:30pm. Seats are first-come first-served.
+URL:https://mohai.org/event/first-thursday-april/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Entertainment
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2024/10/first_thursday_mar_hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T173000
+DTEND;TZID=America/Los_Angeles:20260402T183000
+DTSTAMP:20260321T151813
+CREATED:20260304T215018Z
+LAST-MODIFIED:20260304T215018Z
+UID:10005127-1775151000-1775154600@mohai.org
+SUMMARY:Living Voices: Winning Her Wings
+DESCRIPTION:They flew planes. They fought prejudice. They made history. Winning Her Wings brings to life the groundbreaking Women Airforce Service Pilots (WASPs). Follow journeys of women who faced and broke barriers together\, fighting for justice in a time of global conflict and domestic prejudice. Discover how they soared—despite the odds. \nThis new multimedia performance by Living Voices blends live theatre and archival film to honor the women who served with courage. Premiering in 2026 for Women’s History Month. This event takes place during our Free First Thursday hours. Seats are first come first served. \nLiving Voices combines live theatrical performances with archival film\, turning history into a moving personal journey. This performance will take place in the Joshua Green Foundation Theater on MOHAI’s second floor.
+URL:https://mohai.org/event/living-voices-winning-her-wings/2026-04-02/1/
+LOCATION:Joshua Green Foundation Theater\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Living-Voices-Winning-Her-Wings_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T183000
+DTEND;TZID=America/Los_Angeles:20260402T193000
+DTSTAMP:20260321T151813
+CREATED:20260304T215018Z
+LAST-MODIFIED:20260304T215018Z
+UID:10005128-1775154600-1775158200@mohai.org
+SUMMARY:Living Voices: Winning Her Wings
+DESCRIPTION:They flew planes. They fought prejudice. They made history. Winning Her Wings brings to life the groundbreaking Women Airforce Service Pilots (WASPs). Follow journeys of women who faced and broke barriers together\, fighting for justice in a time of global conflict and domestic prejudice. Discover how they soared—despite the odds. \nThis new multimedia performance by Living Voices blends live theatre and archival film to honor the women who served with courage. Premiering in 2026 for Women’s History Month. This event takes place during our Free First Thursday hours. Seats are first come first served. \nLiving Voices combines live theatrical performances with archival film\, turning history into a moving personal journey. This performance will take place in the Joshua Green Foundation Theater on MOHAI’s second floor.
+URL:https://mohai.org/event/living-voices-winning-her-wings/2026-04-02/2/
+LOCATION:Joshua Green Foundation Theater\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Living-Voices-Winning-Her-Wings_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260415T183000
+DTEND;TZID=America/Los_Angeles:20260415T200000
+DTSTAMP:20260321T151813
+CREATED:20260307T005454Z
+LAST-MODIFIED:20260307T005454Z
+UID:10005132-1776277800-1776283200@mohai.org
+SUMMARY:History Café: Preserving the Vision of Asahel Curtis
+DESCRIPTION:Join Margaret Weatherbee\, Head of Collections at the Washington State Historical Society and History Museum\, for an in-depth look at the digitization and preservation of the Asahel Curtis Collection. This collection features over 42\,000 images by photographer Asahel Curtis (1873-1941) that document the evolution of life in the Pacific Northwest in the early 20th century. \nHistory Café is produced as a partnership between HistoryLink\, The Pacific Northwest Historians Guild\, and MOHAI. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org before the program. \nGrab some food for thought–complimentary snacks and beverages will be provided. \nIf you can’t make it to the museum\, tune in live on the MOHAI YouTube channel to virtually attend this event.
+URL:https://mohai.org/event/history-cafe-preserving-the-vision-of-asahel-curtis/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Preserving-the-Vision-of-Asahel-Curtis_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T140000
+DTEND;TZID=America/Los_Angeles:20260418T160000
+DTSTAMP:20260321T151813
+CREATED:20260305T215208Z
+LAST-MODIFIED:20260308T011217Z
+UID:10005130-1776520800-1776528000@mohai.org
+SUMMARY:Meet the Cossacks: Seattle's Motorcycle Stunt and Drill Team
+DESCRIPTION:Dive into the history of the Cossacks\, Seattle’s long strolling Motorcycle Stunt and Drill Team\, with Rob Root and other members. Since 1938\, the Seattle Cossacks have captured the imagination of audiences with great pyramids and other wonders of the motorcycling world. Following the presentation\, visitors are welcome to get up close and personal for photos with the team’s vintage Harleys! \nTickets for this program are free\, but do not include access to MOHAI’s exhibitions. If you would like to see all that MOHAI has to offer during your visit\, you can purchase museum admission here. \nFor more accessibility support\, email programs@mohai.org two weeks before the program.
+URL:https://mohai.org/event/meet-the-cossacks-seattles-motorcycle-stunt-and-drill-team/
+LOCATION:Microsoft Lakefront Pavilion\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Hobbies,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Meet-the-Cossacks_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260421T173000
+DTEND;TZID=America/Los_Angeles:20260421T200000
+DTSTAMP:20260321T151813
+CREATED:20260305T220143Z
+LAST-MODIFIED:20260309T200043Z
+UID:10005131-1776792600-1776801600@mohai.org
+SUMMARY:Paving the Way: Bicycle Infrastructure Tour
+DESCRIPTION:Join Merlin Rainwater\, creator of Seattle’s Infamous Redline Guide\, and Tom Fucoloro\, Founder and Editor of the Seattle Bike Blog and author of Biking Uphill in the Rain: The Story of Seattle from behind the Handlebars\, for a bicycle tour exploring the history of Seattle bicycle infrastructure. \nThis tour requires riding a bicycle between multiple sites in Seattle\, totaling close to 10 miles and starting in the Central District. Please bring your own bike. Helmets and lights will be required. For any accessibility support\, or general inquiries\, email programs@mohai.org.
+URL:https://mohai.org/event/paving-the-way-bicycle-infrastructure-tour/
+LOCATION:Offsite
+CATEGORIES:Civics,History,Hobbies,Infrastructure,Neighborhoods,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Bicycle-Infrastructure-Tour_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260425T100000
+DTEND;TZID=America/Los_Angeles:20260425T170000
+DTSTAMP:20260321T151813
+CREATED:20260310T204620Z
+LAST-MODIFIED:20260310T204620Z
+UID:10005126-1777111200-1777136400@mohai.org
+SUMMARY:Kickstands Up! All Motorcycle Club Day
+DESCRIPTION:Inviting all motorcycle clubs to roll on down to MOHAI! Indicate your Motorcycle Cub membership and receive $5 off admission all day\, and explore Kickstands Up: 125 Years of Motorcycling in the Pacific Northwest with gallery talks by exhibit co-curators from the Pacific Northwest Museum of Motorcycling from 2-4pm. \nSpots are limited and are assigned on a first-come\, first-served basis. \nFor accessibility support\, please contact programs@mohai.org two weeks before the event.
+URL:https://mohai.org/event/kickstands-up-all-motorcycle-club-day/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:History,Hobbies,People & Culture,Sports
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/All-Club-Day-and-Gallery-Talk_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260509T090000
+DTEND;TZID=America/Los_Angeles:20260509T110000
+DTSTAMP:20260321T151813
+CREATED:20240918T070000Z
+LAST-MODIFIED:20260309T201035Z
+UID:10004007-1778317200-1778324400@mohai.org
+SUMMARY:Sensory Friendly Morning
+DESCRIPTION:This event welcomes adults and families who may benefit from a low-sensory environment to explore the museum. During this event\, the museum will be closed to the general public and the lights and sounds in the gallery will be lowered. A sensory map and information about what to expect during your visit to MOHAI will be provided via email following registration. Spots are limited so register early! \nHoras más tranquilas\nFecha/hora: sábado 9 de mayo\, de 9:00 a. m. a 11:00 a. m.\nCosto: gratuito con inscripción previa \nEste evento da la bienvenida a adultos y familias que puedan beneficiarse de un entorno con bajo nivel sensorial para explorar el museo. Durante el evento\, el museo permanecerá cerrado al público en general\, y se bajarán las luces y los sonidos de la galería. Tras la inscripción\, se enviará por correo electrónico un mapa sensorial e información sobre lo que puede esperar durante su visita al Museum of History & Industry (MOHAI\, Museo de Historia e Industria). Los cupos son limitados\, así que inscríbase pronto.
+URL:https://mohai.org/event/sensory-friendly-morning/
+LOCATION:MOHAI\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Civics
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2024/10/Sensory-Friendly-Morning_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260516T110000
+DTEND;TZID=America/Los_Angeles:20260516T120000
+DTSTAMP:20260321T151813
+CREATED:20260310T225440Z
+LAST-MODIFIED:20260311T181107Z
+UID:10005134-1778929200-1778932800@mohai.org
+SUMMARY:Behind the Seams: Roaring '20s
+DESCRIPTION:Behind the Seams is back\, with a closer look at the artifacts than ever before! One hundred years later\, women’s fashions of the 1920s continue to shock and to dazzle. Hemlines rose up to the knee and eveningwear were built to move\, shake\, and sparkle. Join Curator of Collections\, Clara Berg for a historical overview and then an intimate viewing of the most stunning 1920s dresses from the museum collection. \nA member pre-sale for this event will begin on March 11 and run until March 23. Secure your spot early by becoming a MOHAI member today! \nFor accessibility support\, contact programs@mohai.org two weeks before the program.
+URL:https://mohai.org/event/behind-the-seams-roaring-20s/
+LOCATION:Norcliffe Conference Room\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,Fashion,History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Behind-the-Seams-Roaring-20s_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260516T130000
+DTEND;TZID=America/Los_Angeles:20260516T140000
+DTSTAMP:20260321T151813
+CREATED:20260310T231213Z
+LAST-MODIFIED:20260311T181115Z
+UID:10005135-1778936400-1778940000@mohai.org
+SUMMARY:Behind the Seams: Roaring '20s
+DESCRIPTION:Behind the Seams is back\, with a closer look at the artifacts than ever before! One hundred years later\, women’s fashions of the 1920s continue to shock and to dazzle. Hemlines rose up to the knee and eveningwear were built to move\, shake\, and sparkle. Join Curator of Collections\, Clara Berg for a historical overview and then an intimate viewing of the most stunning 1920s dresses from the museum collection. \nA member pre-sale for this event will begin on March 11 and run until March 23. Secure your spot early by becoming a MOHAI member today! \nFor accessibility support\, contact programs@mohai.org two weeks before the program.
+URL:https://mohai.org/event/behind-the-seams-roaring-20s-2/
+LOCATION:Norcliffe Conference Room\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,Fashion,History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Behind-the-Seams-Roaring-20s_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260516T140000
+DTEND;TZID=America/Los_Angeles:20260516T150000
+DTSTAMP:20260321T151813
+CREATED:20260310T231414Z
+LAST-MODIFIED:20260311T181126Z
+UID:10005137-1778940000-1778943600@mohai.org
+SUMMARY:Behind the Seams: Roaring '20s
+DESCRIPTION:Behind the Seams is back\, with a closer look at the artifacts than ever before! One hundred years later\, women’s fashions of the 1920s continue to shock and to dazzle. Hemlines rose up to the knee and eveningwear were built to move\, shake\, and sparkle. Join Curator of Collections\, Clara Berg for a historical overview and then an intimate viewing of the most stunning 1920s dresses from the museum collection. \nA member pre-sale for this event will begin on March 11 and run until March 23. Secure your spot early by becoming a MOHAI member today! \nFor accessibility support\, contact programs@mohai.org two weeks before the program.
+URL:https://mohai.org/event/behind-the-seams-roaring-20s-3/
+LOCATION:Norcliffe Conference Room\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,Fashion,History,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Behind-the-Seams-Roaring-20s_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260520T183000
+DTEND;TZID=America/Los_Angeles:20260520T200000
+DTSTAMP:20260321T151813
+CREATED:20260307T183223Z
+LAST-MODIFIED:20260316T021516Z
+UID:10005133-1779301800-1779307200@mohai.org
+SUMMARY:History Café: Field Notes Podcast
+DESCRIPTION:Join HistoryLink’s Tony Williams for a live recording of the Field Notes podcast featuring UW Architecture Professor Vikram Prakash. We’re digging into the intersection of deep time and urban design to discover how Seattle’s geological past continues to shape its future. \nHistory Café is produced as a partnership between HistoryLink\, The Pacific Northwest Historians Guild\, and MOHAI. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org before the program. \nGrab some food for thought–complimentary snacks and beverages will be provided. \nIf you can’t make it to the museum\, tune in live on the MOHAI YouTube channel to virtually attend this event.
+URL:https://mohai.org/event/history-cafe-field-notes-podcast/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Environment,History,Infrastructure,Neighborhoods
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Field-Notes-Podcast_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260530T130000
+DTEND;TZID=America/Los_Angeles:20260530T160000
+DTSTAMP:20260321T151813
+CREATED:20260304T222803Z
+LAST-MODIFIED:20260304T230614Z
+UID:10005129-1780146000-1780156800@mohai.org
+SUMMARY:Drawing From History: Ripples of Time
+DESCRIPTION:Lake Union is haunted by ghosts of the past\, echoing through time. In this class\, participants will explore past\, present\, and future of the Lake Union Watershed by creating quick layered gesture drawings in charcoal\, based off photos and ephemera from MOHAI’s collections. The class will culminate at the water’s edge\, creating a drawing representing visions for the future. \nDrawing From History is offered in partnership with Gage Academy of Art. \nAll art making materials will be provided. Tickets include access to MOHAI’s exhibitions. For accessibility support and general program inquiries\, email programs@mohai.org.
+URL:https://mohai.org/event/drawing-from-history-ripples-of-time/
+LOCATION:Microsoft Lakefront Pavilion\, MOHAI - 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:Art,Entertainment,History,Neighborhoods
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Drawing-from-History-Ripples-of-Time_hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260612T180000
+DTEND;TZID=America/Los_Angeles:20260612T200000
+DTSTAMP:20260321T151813
+CREATED:20260319T210702Z
+LAST-MODIFIED:20260319T210702Z
+UID:10005139-1781287200-1781294400@mohai.org
+SUMMARY:Unpaving SODO Walking Tour
+DESCRIPTION:What does SODO mean to you? Industrial space\, maybe sports\, perhaps a no-man’s land between Pioneer Square’s nightlife and the cities further south. How do we even define this territory south of downtown where the Duwamish watershed meets the Puget Sound? A liminal space that began with the natural foundation of tidal flats and the flow of a river. An urban landscape that has been literally built on the dreams of manifest destiny. It has been occupied and enjoyed by the commercial minded and marginalized alike – those pushing boundaries and those enforcing them. \nJoin Invisible Histories on a 1-mile immersive guided walking tour of the cityscape you pass daily but never truly see. Storytelling\, history and theatrical elements will enliven these spaces known as SODO. Guests will uniquely experience the past\, from the untold stories of Seattle’s evolving landscapes and industries\, to the hidden histories of the depression era Hooverville\, all the way to the energetic underground club scene of the 1990s. Explore the layers beneath the pavement while we bring history to life like never before! \nThis tour requires walking between multiple sites in SODO. For any accessibility support\, or general inquiries\, email programs@mohai.org.
+URL:https://mohai.org/event/unpaving-sodo-walking-tour/
+LOCATION:Offsite
+CATEGORIES:Environment,History,Neighborhoods,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/Unpaving-SODO-Walking-Tour_Hero.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260617T183000
+DTEND;TZID=America/Los_Angeles:20260617T200000
+DTSTAMP:20260321T151813
+CREATED:20260317T172352Z
+LAST-MODIFIED:20260317T172352Z
+UID:10005138-1781721000-1781726400@mohai.org
+SUMMARY:History Café: Shelf Life Community Story Project
+DESCRIPTION:The Shelf Life Community Story Project records oral histories with current and former residents of Seattle’s Central District neighborhood. Join contributors for a talk about their new book\, Limitless: Stories from the Neighborhood that Shaped Seattle\, the culmination of a multi-year oral history project in Seattle’s historically redlined Central District neighborhood. Stories of innovation\, interdependence\, self-determination\, creativity\, and resistance are illustrated by seven artists with roots in the CD. \nHistory Café is produced as a partnership between HistoryLink\, The Pacific Northwest Historians Guild\, and MOHAI. \nASL Interpretation and CART captioning are available during the program. In addition\, a limited number of Assistive Listening Devices are available upon request. For more accessibility support\, email programs@mohai.org before the program. \nGrab some food for thought–complimentary snacks and beverages will be provided. \nIf you can’t make it to the museum\, tune in live on the MOHAI YouTube channel to virtually attend this event.
+URL:https://mohai.org/event/history-cafe-shelf-life-community-story-project/
+LOCATION:Faye G. Allen Grand Atrium\, MOHAI 860 Terry Ave N\, Seattle\, WA\, 98109\, United States
+CATEGORIES:BIPOC,History,Neighborhoods,People & Culture
+ATTACH;FMTTYPE=image/jpeg:https://mohai.org/wp-content/uploads/2026/03/shelf-life-community-story-project_hero.jpg
+END:VEVENT
+END:VCALENDAR

@@ -1934,7 +1934,7 @@ function App() {
           </button>
         </div>
         <div className="auth-section">
-          {authLoading ? null : authUser ? (
+          {authLoading ? <div className="auth-loading-spinner" aria-label="Loading…" /> : authUser ? (
             <div className="auth-user-dropdown">
               <button className="auth-user-btn" title={authUser.email}>
                 <img src={authUser.picture} alt="" className="auth-avatar" />

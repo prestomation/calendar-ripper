@@ -97,8 +97,13 @@ jobs:
           git commit -m "Deploy site from ${{ github.sha }}" || exit 0
 
           # Retry push with rebase in case gh-pages advanced
+          PUSHED=false
           for i in 1 2 3 4; do
-            git pull --rebase origin gh-pages && git push && break
+            if git pull --rebase origin gh-pages && git push; then
+              PUSHED=true
+              break
+            fi
             echo "Push attempt $i failed, retrying in ${i}s..."
             sleep "$i"
           done
+          $PUSHED || { echo "ERROR: failed to push to gh-pages after 4 attempts"; exit 1; }

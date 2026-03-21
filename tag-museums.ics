@@ -6,9 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Museums Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:xgIWu2uQ5y1SBnzsViGLW
+UID:jgmF9BzitHgmpviSzeTrj
 SUMMARY:Free Educator Day at MOPOP
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART;TZID=America/Los_Angeles:20260402T100000
 DESCRIPTION:https://www.mopop.org/events/free-educator-day-yellow-brick-roa
 	d-film-festival\n\nFrom Museum of Pop Culture
@@ -21,9 +21,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:QU0BCVrlEiElta9iz8qyJ
+UID:laQkf-q7SnHqvqxmzERQD
 SUMMARY:Follow the Yellow Brick Road: An Oz Film Festival
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260117T180000Z
 DESCRIPTION:https://www.mopop.org/events/follow-the-yellow-brick-road-an-oz
 	-film-festival\n\nFrom Museum of Pop Culture
@@ -36,9 +36,9 @@ TRANSP:TRANSPARENT
 DURATION:PT31H
 END:VEVENT
 BEGIN:VEVENT
-UID:3wd-mn2LnzSdEY6T6fstG
+UID:nZGsKhagtuAU6aTvXnZ4c
 SUMMARY:Here Now Art-making and Discussion Class (Spring I)
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260225T220000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/here-now-art-making-and-d
 	iscussion-class-spring-i-2026\n\nFrom Frye Art Museum
@@ -52,9 +52,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:FRceQh6XFS6LBMlG_xLaB
+UID:eWKJ8So9shyKj8vthf3fc
 SUMMARY:Here Now Art-making and Discussion Class (Spring I)
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260225T220000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/here-now-art-making-and-d
 	iscussion-class-spring-i-2026\n\nFrom Frye Art Museum
@@ -68,9 +68,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:BsSedbS2PCYpDBRsCfml8
+UID:83WM0lKHyvNiFrahU262q
 SUMMARY:Call for STEM Art for Science After Dark
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260301T080000Z
 DESCRIPTION:PacSci invites local artists to submit work for a STEM Artwalk 
 	featured during our May 6 Science After Dark\, our 21+ after-hours events.
@@ -84,24 +84,9 @@ TRANSP:TRANSPARENT
 DURATION:PT694H59M
 END:VEVENT
 BEGIN:VEVENT
-UID:kGBZoI5YUjUrQloVkhIED
-SUMMARY:Laser Stranger Things
-DTSTAMP:20260321T020252Z
-DTSTART:20260315T023000Z
-DESCRIPTION:Relive the hit television show through its iconic soundtrack in
-	 the Laser Dome every Saturday at 7:30 p.m.\n\nhttps://pacificsciencecente
-	r.org/shows/laser-stranger-things/\n\nFrom Laser Dome Shows
-URL:https://pacificsciencecenter.org/shows/laser-stranger-things/
-LOCATION:Laser Dome\, Pacific Science Center
-X-CALRIPPER-SOURCE:laser-dome
-CATEGORIES:Laser Dome Shows
-TRANSP:TRANSPARENT
-DURATION:PT1H
-END:VEVENT
-BEGIN:VEVENT
-UID:KHXDXgp6MoLKBbrz3pCHu
+UID:UZOh93i4qq4hRVAm_0Fo3
 SUMMARY:Trees Experience Alcove
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260317T170000Z
 DESCRIPTION:Activities for Kids & Families\nLearn about the diversity and s
 	ignificance of trees with our hands-on activities.\n\nhttps://www.burkemus
@@ -114,9 +99,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8H5IAJn0uhV6qrO1Dlhp2
+UID:JeuQVCksmelHHpnBwNRVa
 SUMMARY:Space: The New Frontier
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260318T173000Z
 DESCRIPTION:NASA and international space agencies push the boundaries of sp
 	ace exploration\, expanding scientific and engineering limits to enhance l
@@ -130,9 +115,24 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:5DbAK6xTJ4RYLDLg2nxTh
+UID:cB-RZcogTbpKOryyNbeAA
+SUMMARY:T. Rex 2D
+DTSTAMP:20260321T224053Z
+DTSTART:20260318T200000Z
+DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
+	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
+	ificsciencecenter.org/shows/t-rex-2d/\n\nFrom IMAX Shows
+URL:https://pacificsciencecenter.org/shows/t-rex-2d/
+LOCATION:PACCAR IMAX Theater\, Pacific Science Center
+X-CALRIPPER-SOURCE:imax
+CATEGORIES:IMAX Shows
+TRANSP:TRANSPARENT
+DURATION:PT1H
+END:VEVENT
+BEGIN:VEVENT
+UID:R9LkM3Ww70VPerKdrY2Di
 SUMMARY:Blue Whales: Return of the Giants
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260318T211000Z
 DESCRIPTION:Award-winning actor\, Andy Serkis\, narrates this stunning IMAX
 	 film that brings the world’s largest animal to the world’s largest screen
@@ -146,9 +146,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:wjkHeisY45OmLtt0q1lcO
+UID:xhCroCokiqd4eJmgkYj_J
 SUMMARY:Oceans: Our Blue Planet
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260319T173000Z
 DESCRIPTION:From BBC Earth and OceanX Media\, this documentary takes us on 
 	a global odyssey to discover the largest and least explored habitat on Ear
@@ -161,9 +161,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Vn2QsMFA_O0Gt1s93-dTf
+UID:V2JZe9frmQtJV0txVfTt7
 SUMMARY:A Beautiful Planet
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260319T184500Z
 DESCRIPTION:Astronauts aboard the International Space Station capture breat
 	htaking footage of the natural wonders of Earth.\n\nhttps://pacificscience
@@ -176,9 +176,24 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:YjlI658WicGEbqXUgAQEI
+UID:pEV4uwXBY7MtQDkV4_saY
+SUMMARY:T. Rex 2D
+DTSTAMP:20260321T224053Z
+DTSTART:20260319T200000Z
+DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
+	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
+	ificsciencecenter.org/shows/t-rex-2d/\n\nFrom IMAX Shows
+URL:https://pacificsciencecenter.org/shows/t-rex-2d/
+LOCATION:PACCAR IMAX Theater\, Pacific Science Center
+X-CALRIPPER-SOURCE:imax
+CATEGORIES:IMAX Shows
+TRANSP:TRANSPARENT
+DURATION:PT1H
+END:VEVENT
+BEGIN:VEVENT
+UID:-jM32H-PFJqGel-w4O5ub
 SUMMARY:Blue Whales: Return of the Giants
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260319T211000Z
 DESCRIPTION:Award-winning actor\, Andy Serkis\, narrates this stunning IMAX
 	 film that brings the world’s largest animal to the world’s largest screen
@@ -192,9 +207,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:asg3hfy9NiYkMeQju-A9-
+UID:zTYCto3egjWLbAO-GQ6Yb
 SUMMARY:Blue Whales: Return of the Giants
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260319T233000Z
 DESCRIPTION:Award-winning actor\, Andy Serkis\, narrates this stunning IMAX
 	 film that brings the world’s largest animal to the world’s largest screen
@@ -208,9 +223,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:7rNFBTc_NBruME4dvgSf6
+UID:QP7Hq6vx7JlBM8p-hg6wP
 SUMMARY:Laser Billie Eilish
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260320T023000Z
 DESCRIPTION:Celebrate Billie Eilish’s Grammy-nominated catalog every Thursd
 	ay at 7:30 p.m. in the Laser Dome.\n\nhttps://pacificsciencecenter.org/sho
@@ -223,9 +238,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:vOXWjJigT45zN8SoQQGc0
+UID:6be0J9dd929ow4H1s6zR1
 SUMMARY:Laser Rihanna
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260320T040000Z
 DESCRIPTION:Celebrate 10 years of Anti and all the chart-topping hits by Ri
 	hanna every Thursday at 9 p.m. in the Laser Dome.\n\nhttps://pacificscienc
@@ -238,9 +253,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:2kZNOz3AddFr7cFteT3Jd
+UID:m8G3lHLbFkglZu4fUikK9
 SUMMARY:Flight of the Butterflies
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260320T173000Z
 DESCRIPTION:Be captivated by the true and compelling story of an intrepid s
 	cientist’s 40-year search to find the monarch butterfly’s secret hideaway.
@@ -254,9 +269,24 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:h6d70j1U_gogpu4tN5mDy
+UID:eP71mkcoFbs2lvKLuyVy1
+SUMMARY:T. Rex 2D
+DTSTAMP:20260321T224053Z
+DTSTART:20260320T200000Z
+DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
+	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
+	ificsciencecenter.org/shows/t-rex-2d/\n\nFrom IMAX Shows
+URL:https://pacificsciencecenter.org/shows/t-rex-2d/
+LOCATION:PACCAR IMAX Theater\, Pacific Science Center
+X-CALRIPPER-SOURCE:imax
+CATEGORIES:IMAX Shows
+TRANSP:TRANSPARENT
+DURATION:PT1H
+END:VEVENT
+BEGIN:VEVENT
+UID:rcZbtTwGHwIOR-Pn8fwSF
 SUMMARY:Blue Whales: Return of the Giants
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260320T211000Z
 DESCRIPTION:Award-winning actor\, Andy Serkis\, narrates this stunning IMAX
 	 film that brings the world’s largest animal to the world’s largest screen
@@ -270,9 +300,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:1egDQSvKKu9J330fbcZ-n
+UID:BvrBxisBUHPYWoThxqCRP
 SUMMARY:Project Hail Mary
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260320T233000Z
 DESCRIPTION:From deep space to the biggest screen. Experience Project Hail 
 	Mary on the most immersive IMAX experience in the Pacific Northwest.\n\nht
@@ -285,9 +315,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:8qZDdmfhX7d6FiTXCODIv
+UID:JqilTUrS8-jGGj3mFlUeY
 SUMMARY:Laser Nirvana
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T023000Z
 DESCRIPTION:Experience Washington’s biggest and influential grunge band\, N
 	irvana\, every Friday at 7:30 p.m. only in the Laser Dome.\n\nhttps://paci
@@ -300,9 +330,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:7OvCEIYkf8wZDehcKP7LL
+UID:VLqVZpLyrq3dXgapK_8HA
 SUMMARY:Project Hail Mary
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T023000Z
 DESCRIPTION:From deep space to the biggest screen. Experience Project Hail 
 	Mary on the most immersive IMAX experience in the Pacific Northwest.\n\nht
@@ -315,9 +345,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:HAw8_VD8bqez0b19EfuOu
+UID:8xKYrhK7sa54iApigsErQ
 SUMMARY:Laser Daft Punk
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T040000Z
 DESCRIPTION:Join us Fridays at 9 p.m. for Laser Daft Punk! Hear one of the 
 	most influential acts in dance music in our Laser Dome.\n\nhttps://pacific
@@ -330,9 +360,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:XaLGLlvPgSe3bIiZtYG7U
+UID:CHlMh5rRUg5yV0yn-I2SJ
 SUMMARY:Laser Tyler\, The Creator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T053000Z
 DESCRIPTION:From Goblin to IGOR\, experience the only laser show dedicated 
 	to Tyler\, the Creator’s discography every Friday at 10:30 p.m.\n\nhttps:/
@@ -345,35 +375,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Su0u-pEDwGY4eguvTdG9v
-SUMMARY:Motorcycle Riding Experience with Cascade Motorcycle Safety
-DTSTAMP:20260321T020252Z
-DTSTART:20260321T090000Z
-DESCRIPTION:Want to ride a motorcycle but don’t know where to start? Join C
-	ascade Motorcycle Safety and Ride With Us for a chance to experience ridin
-	g a motorcycle for free\\\, with professional Cascade Motorcycle Safety Ri
-	derCoaches helping you through each step. These 1-on-1\\\, 20-minute sessi
-	ons are designed for total beginners\\\, with bikes and helmets provided. 
-	\\nThis program is presented with the support of Cascade Motorcycle Safety
-	. \\nRide out the remainder of the day in MOHAI to see Kickstands Up! 125 
-	Years of Motorcycling in the PNW. Program participants will receive a coup
-	on for $5 off museum admission. \\nAs of 2/18/26\\\, the location and time
-	 of this event has changed.\n\nhttps://mohai.org/event/motorcycle-riding-e
-	xperience-with-cascade-motorcycle-safety/\n\nFrom MOHAI - Museum of Histor
-	y & Industry
-URL:https://mohai.org/event/motorcycle-riding-experience-with-cascade-motor
-	cycle-safety/
-LOCATION:South Seattle College North Parking Lot\\\, 6000 16th Ave SW\\\, S
-	eattle\\\, WA\\\, 98106\\\, United States
-X-CALRIPPER-SOURCE:mohai
-CATEGORIES:MOHAI - Museum of History & Industry
-TRANSP:TRANSPARENT
-DURATION:PT6H
-END:VEVENT
-BEGIN:VEVENT
-UID:hx9EP913XeaYuThGbdO4H
+UID:haqI_5CrpAa8VrPnugKwd
 SUMMARY:BrainFest with Allen Institute
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T170000Z
 DESCRIPTION:Explore hands-on activities\, meet scientists and collaborators
 	\, learn about cutting-edge neuroscience research\, and even touch a real 
@@ -387,9 +391,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:_XsvPEwUz3k0St2rGmc07
+UID:mIYYaGOJUjfBxe3Pv1jfo
 SUMMARY:Blue Whales: Return of the Giants
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T200000Z
 DESCRIPTION:Award-winning actor\, Andy Serkis\, narrates this stunning IMAX
 	 film that brings the world’s largest animal to the world’s largest screen
@@ -403,9 +407,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:31u8lfmhxK7gb5bYueqmK
+UID:9SSr9htRGoxAmAsLB6kDC
 SUMMARY:Deep Sky
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260321T233000Z
 DESCRIPTION:Deep Sky brings the awe-inspiring images captured by NASA’s JWS
 	T to IMAX® — taking audiences on a journey to the beginning of time and sp
@@ -419,9 +423,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:OiGGscbsLMGYQaZQaI5wZ
+UID:LC_qMjNIujHgUj6z3p-rm
 SUMMARY:2026 Annual Dinner &amp\; Auction
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T000000Z
 DESCRIPTION:Wing Luke Museum brings you this year’s dinner and auction them
 	e\, “New Roots”\, and returns to the Sheraton Grand Seattle.\n\nhttps://ww
@@ -435,9 +439,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:1YK_GC4hvveDXUWOwAhsl
+UID:NKkGC5DuzWFnOtfr04nL-
 SUMMARY:Project Hail Mary
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T011500Z
 DESCRIPTION:From deep space to the biggest screen. Experience Project Hail 
 	Mary on the most immersive IMAX experience in the Pacific Northwest.\n\nht
@@ -450,9 +454,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:irfAKWsALYWZqYeJLIiPa
+UID:Wo6xL_aylk_Sn60UklTIp
 SUMMARY:Laser Stranger Things
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T023000Z
 DESCRIPTION:Relive the hit television show through its iconic soundtrack in
 	 the Laser Dome every Saturday at 7:30 p.m.\n\nhttps://pacificsciencecente
@@ -465,9 +469,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:YgwjBp1Fw_Qyv0bswJ8Zg
+UID:OLj4YFWY6Uhg5tc3FFVHR
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T040000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9 p.m.\n\nhttps://pacificsciencecenter.org/shows/la
@@ -480,9 +484,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:TpZ8JaYW9s33kCThQvBuQ
+UID:ySFLkPAz9kBDxuMmI-0LZ
 SUMMARY:Project Hail Mary
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T041500Z
 DESCRIPTION:From deep space to the biggest screen. Experience Project Hail 
 	Mary on the most immersive IMAX experience in the Pacific Northwest.\n\nht
@@ -495,9 +499,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:LTNOQE5jMMI6IP5Oo4B0-
+UID:6Z5rcDOQA9Hbt3pnHmKsJ
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T053000Z
 DESCRIPTION:Relive the Super Bowl Halftime show and Album of the Year winne
 	r with a laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\
@@ -511,9 +515,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Dpq_0BMVRqw7mDqj9EG3Q
+UID:7yCBLtSIMsZLljRUiXijF
 SUMMARY:Space: The New Frontier
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T173000Z
 DESCRIPTION:NASA and international space agencies push the boundaries of sp
 	ace exploration\, expanding scientific and engineering limits to enhance l
@@ -527,9 +531,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:x6AUKnwEFXfEdgoBCqz9i
+UID:4KrpDc02bUGXUAWNbXKHJ
 SUMMARY:Wild Rescue 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T184500Z
 DESCRIPTION:Based on the work at the Santa Barbara Wildlife Care Network\, 
 	Wild Rescue follows the teams who rescue and rehabilitate injured wild ani
@@ -543,9 +547,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:VlpT-uF5_FDQvHBqZ5phU
+UID:KEnKmpH3Oo9S2E0dYnwyZ
 SUMMARY:T. Rex 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T200000Z
 DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
 	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
@@ -558,9 +562,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:3fuOc-E51AvECW5I5WAIZ
+UID:nIzaTf5aPqnuLdRXukTFl
 SUMMARY:Blue Whales: Return of the Giants
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T211000Z
 DESCRIPTION:Award-winning actor\, Andy Serkis\, narrates this stunning IMAX
 	 film that brings the world’s largest animal to the world’s largest screen
@@ -574,9 +578,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:qSj6JQz6ezyd2Dm0eGb15
+UID:Zh4EJn8uVLPcffPbrfwo2
 SUMMARY:Deep Sky
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T222000Z
 DESCRIPTION:Deep Sky brings the awe-inspiring images captured by NASA’s JWS
 	T to IMAX® — taking audiences on a journey to the beginning of time and sp
@@ -590,9 +594,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:XOx98qKajJxwRiREOA-q0
+UID:mg8CRzu3K9nMcb7KQTMGf
 SUMMARY:Project Hail Mary
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260322T233000Z
 DESCRIPTION:From deep space to the biggest screen. Experience Project Hail 
 	Mary on the most immersive IMAX experience in the Pacific Northwest.\n\nht
@@ -605,9 +609,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:wOaaMht-GSoRTjuUj7-oI
+UID:emE2pX84YWlEhYlukreSm
 SUMMARY:Laser K-Pop
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260323T023000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -620,9 +624,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:HR1daOg1d-whlmetvf6Sm
+UID:lIN-ok2Vdz3h5VNVD2FJH
 SUMMARY:Project Hail Mary
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260323T023000Z
 DESCRIPTION:From deep space to the biggest screen. Experience Project Hail 
 	Mary on the most immersive IMAX experience in the Pacific Northwest.\n\nht
@@ -635,9 +639,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:tLHZSKs-4Bwm8A9Pqk__M
+UID:sKqGFn5bUNhvC7OMX3Q0d
 SUMMARY:Laser Radiohead
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260323T040000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -650,9 +654,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:vIrrmVmaYUX39DNFh2mbg
+UID:vIkgX9juOX6XWVrSoMm4k
 SUMMARY:MOHAI Mercantile Literary Series - Seattle's Locks and Ship Canal
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260324T180000Z
 DESCRIPTION:MOHAI Mercantile is proud to host the official book launch even
 	t for Seattle’s Locks and Ship Canal with local historians David B. Willia
@@ -677,9 +681,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IXStmFH84YjIgxbzkrWbM
+UID:8keATLfo0SyUP1o9ApqIL
 SUMMARY:A Beautiful Planet
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260325T173000Z
 DESCRIPTION:Astronauts aboard the International Space Station capture breat
 	htaking footage of the natural wonders of Earth.\n\nhttps://pacificscience
@@ -692,9 +696,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:lflST7pw6UfVeP7p8y6iv
+UID:jo9gTBxqSZ-5q5DBoUV8W
 SUMMARY:Deep Sky
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260325T184500Z
 DESCRIPTION:Deep Sky brings the awe-inspiring images captured by NASA’s JWS
 	T to IMAX® — taking audiences on a journey to the beginning of time and sp
@@ -708,9 +712,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:PIfBinJi30wBAKmaFp9uv
+UID:ITM4UFJDTfNyko9L8e1Cs
 SUMMARY:T. Rex 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260325T200000Z
 DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
 	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
@@ -723,9 +727,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:v-kCLaQqwUJx_0laB2v6d
+UID:txxGuIHJxlJkEtU_e3pTE
 SUMMARY:Deep Sky
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260325T222000Z
 DESCRIPTION:Deep Sky brings the awe-inspiring images captured by NASA’s JWS
 	T to IMAX® — taking audiences on a journey to the beginning of time and sp
@@ -739,9 +743,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:M2vTW8HQqo3sCIjAk-TUZ
+UID:y2Is3hmhrehIk3CzzEJyI
 SUMMARY:Flight of the Butterflies
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260326T173000Z
 DESCRIPTION:Be captivated by the true and compelling story of an intrepid s
 	cientist’s 40-year search to find the monarch butterfly’s secret hideaway.
@@ -755,9 +759,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:r8WDm0iSHXsTIxWlwDNEd
+UID:sdYiQRSxO-EL8_dahl6Mh
 SUMMARY:Flight of the Butterflies
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260326T184500Z
 DESCRIPTION:Be captivated by the true and compelling story of an intrepid s
 	cientist’s 40-year search to find the monarch butterfly’s secret hideaway.
@@ -771,9 +775,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:pk4RuKpGXVAXcOLfswYcE
+UID:LQLecNXMbSHhn04ONYHbk
 SUMMARY:T. Rex 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260326T200000Z
 DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
 	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
@@ -786,9 +790,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:pJob68bkrtEY6wAIpIhai
+UID:PZQxNAKEw1BIyvgdKv6xe
 SUMMARY:Deep Sky
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260326T222000Z
 DESCRIPTION:Deep Sky brings the awe-inspiring images captured by NASA’s JWS
 	T to IMAX® — taking audiences on a journey to the beginning of time and sp
@@ -802,9 +806,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:uCH7v3z28DK9VfKNuAx4i
+UID:gqqPii6oOg5tJ_6yL135G
 SUMMARY:Cinema Divina Film Screening & Contemplative Gazing
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260327T010000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/cinema-divina-film-screen
 	ing-contemplative-gazing\n\nFrom Frye Art Museum
@@ -818,9 +822,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:5vK1zAz_iEIb7y5e2r-kk
+UID:3OxgS2RedQlMsiMBSrY5x
 SUMMARY:Laser Billie Eilish
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260327T023000Z
 DESCRIPTION:Celebrate Billie Eilish’s Grammy-nominated catalog every Thursd
 	ay at 7:30 p.m. in the Laser Dome.\n\nhttps://pacificsciencecenter.org/sho
@@ -833,9 +837,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:F37K3V0YY2ushVqXQrTr4
+UID:K_ZqwI4tsPahyQy9Z07yt
 SUMMARY:Laser Rihanna
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260327T040000Z
 DESCRIPTION:Celebrate 10 years of Anti and all the chart-topping hits by Ri
 	hanna every Thursday at 9 p.m. in the Laser Dome.\n\nhttps://pacificscienc
@@ -848,9 +852,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:6zoGpArFQZ7-Ek3_u7XIf
+UID:w-nFRO6yasCQSaOqDt4zf
 SUMMARY:Space: The New Frontier
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260327T173000Z
 DESCRIPTION:NASA and international space agencies push the boundaries of sp
 	ace exploration\, expanding scientific and engineering limits to enhance l
@@ -864,9 +868,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:C07wQWvevNY_4pcnbaz8Q
+UID:ZNAGlzmQ9pAeN1ME_wWCn
 SUMMARY:Wild Rescue 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260327T184500Z
 DESCRIPTION:Based on the work at the Santa Barbara Wildlife Care Network\, 
 	Wild Rescue follows the teams who rescue and rehabilitate injured wild ani
@@ -880,24 +884,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:VkhCUWAGraFSkRRvRjYgp
-SUMMARY:T. Rex 2D
-DTSTAMP:20260321T020252Z
-DTSTART:20260327T200000Z
-DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
-	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
-	ificsciencecenter.org/shows/t-rex-2d/\n\nFrom IMAX Shows
-URL:https://pacificsciencecenter.org/shows/t-rex-2d/
-LOCATION:PACCAR IMAX Theater\, Pacific Science Center
-X-CALRIPPER-SOURCE:imax
-CATEGORIES:IMAX Shows
-TRANSP:TRANSPARENT
-DURATION:PT1H
-END:VEVENT
-BEGIN:VEVENT
-UID:-K2H3M41dsSdK6T7IUXvM
+UID:S0-nfKLXcBR-eb35tD5gJ
 SUMMARY:Deep Sky
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260327T222000Z
 DESCRIPTION:Deep Sky brings the awe-inspiring images captured by NASA’s JWS
 	T to IMAX® — taking audiences on a journey to the beginning of time and sp
@@ -911,9 +900,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:aQ1YtRLIfcSbWp2bwC8ny
+UID:25E7T88JwnHtKGj-t0oje
 SUMMARY:Laser Nirvana
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T023000Z
 DESCRIPTION:Experience Washington’s biggest and influential grunge band\, N
 	irvana\, every Friday at 7:30 p.m. only in the Laser Dome.\n\nhttps://paci
@@ -926,9 +915,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:l5ebzPCA-RBsvSCn72c15
+UID:XpEHQRHfPXkVDBxExlxMz
 SUMMARY:Laser Daft Punk
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T040000Z
 DESCRIPTION:Join us Fridays at 9 p.m. for Laser Daft Punk! Hear one of the 
 	most influential acts in dance music in our Laser Dome.\n\nhttps://pacific
@@ -941,9 +930,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:taHVftb0Ishfq0_EZEfE0
+UID:iX9ZNkcYUoqn3cYNRpmD1
 SUMMARY:Laser Tyler\, The Creator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T053000Z
 DESCRIPTION:From Goblin to IGOR\, experience the only laser show dedicated 
 	to Tyler\, the Creator’s discography every Friday at 10:30 p.m.\n\nhttps:/
@@ -956,10 +945,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:r3fAJ7SQr-n2_8Kw4Ghl4
+UID:ZoEw-fqJ_R9wHIS8B57V1
 SUMMARY:Kickstands Up! Gallery Talk with Pacific Northwest Museum of Motorc
 	ycling
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T140000Z
 DESCRIPTION:Dive deeper into Kickstands Up: 125 Years of Motorcycling in th
 	e Pacific Northwest with gallery talks by exhibit co-curators from the Pac
@@ -980,9 +969,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8pLolpHyHn8cGRLz20VtI
+UID:lptbzjwKqSe8HErFhtzEv
 SUMMARY:Judkins Park Station Grand Opening 
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T170000Z
 DESCRIPTION:https://www.naamnw.org/events/judkins-park-station-grand-openin
 	g\n\nFrom Northwest African American Museum
@@ -995,9 +984,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:U6Qa5ESN70p5UNa9BNwYr
+UID:5wxdkPHUbCHvlmTC6nJ_a
 SUMMARY:Space: The New Frontier
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T173000Z
 DESCRIPTION:NASA and international space agencies push the boundaries of sp
 	ace exploration\, expanding scientific and engineering limits to enhance l
@@ -1011,9 +1000,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:QJNycIK70-yP2TpulceXn
+UID:6IwN2i2hDVFdeHndGyCYo
 SUMMARY:Wild Rescue 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260328T184500Z
 DESCRIPTION:Based on the work at the Santa Barbara Wildlife Care Network\, 
 	Wild Rescue follows the teams who rescue and rehabilitate injured wild ani
@@ -1027,24 +1016,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:DsjHbW3J-FwC-qztjdl6B
-SUMMARY:T. Rex 2D
-DTSTAMP:20260321T020252Z
-DTSTART:20260328T200000Z
-DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
-	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
-	ificsciencecenter.org/shows/t-rex-2d/\n\nFrom IMAX Shows
-URL:https://pacificsciencecenter.org/shows/t-rex-2d/
-LOCATION:PACCAR IMAX Theater\, Pacific Science Center
-X-CALRIPPER-SOURCE:imax
-CATEGORIES:IMAX Shows
-TRANSP:TRANSPARENT
-DURATION:PT1H
-END:VEVENT
-BEGIN:VEVENT
-UID:3x7vvw4CeiFeGi4hMdm_t
+UID:aBcA_-ONOWsoFN8RZVnGA
 SUMMARY:Laser Stranger Things
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T023000Z
 DESCRIPTION:Relive the hit television show through its iconic soundtrack in
 	 the Laser Dome every Saturday at 7:30 p.m.\n\nhttps://pacificsciencecente
@@ -1057,9 +1031,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:BoB3F7wZp7HbQURDRIjad
+UID:vmX1PWZ4yrcSsLImcf2Wc
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T040000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9 p.m.\n\nhttps://pacificsciencecenter.org/shows/la
@@ -1072,9 +1046,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:K56pDK4_DPEuzTOMDgxAO
+UID:LP92ht9r2ZQPvl_mUPc4S
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T053000Z
 DESCRIPTION:Relive the Super Bowl Halftime show and Album of the Year winne
 	r with a laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\
@@ -1088,9 +1062,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:XEvmRDyC-Zs1krIUvjOV6
+UID:N55GQgttgWnx9lAggAd_Q
 SUMMARY:Member Mornings: Jurassic Park Movie Matinee
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T170000Z
 DESCRIPTION:Join us for a screening of Jurassic Park\, featured in MOPOP's 
 	latest Guest Curator Exhibition\, Eco-Blockbusters: Environmentalism in Ci
@@ -1105,9 +1079,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:SU_g_n3B3njyklY7uGt6Y
+UID:WdJ9zwO-FEsR_jSZUVoR7
 SUMMARY:Space: The New Frontier
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T173000Z
 DESCRIPTION:NASA and international space agencies push the boundaries of sp
 	ace exploration\, expanding scientific and engineering limits to enhance l
@@ -1121,9 +1095,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:53bZ42Z2A8tMXhS8IPv69
+UID:fb8ya4CdNsGGjn1yIp-UJ
 SUMMARY:Wild Rescue 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T184500Z
 DESCRIPTION:Based on the work at the Santa Barbara Wildlife Care Network\, 
 	Wild Rescue follows the teams who rescue and rehabilitate injured wild ani
@@ -1137,24 +1111,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:UIaWkBOesfvLZmxvtRs3t
-SUMMARY:T. Rex 2D
-DTSTAMP:20260321T020252Z
-DTSTART:20260329T200000Z
-DESCRIPTION:Experience the ultimate G.O.A.T. — Greatest of All Tyrants — as
-	 it roars to life on the giant screen in the film\, T. rex.\n\nhttps://pac
-	ificsciencecenter.org/shows/t-rex-2d/\n\nFrom IMAX Shows
-URL:https://pacificsciencecenter.org/shows/t-rex-2d/
-LOCATION:PACCAR IMAX Theater\, Pacific Science Center
-X-CALRIPPER-SOURCE:imax
-CATEGORIES:IMAX Shows
-TRANSP:TRANSPARENT
-DURATION:PT1H
-END:VEVENT
-BEGIN:VEVENT
-UID:eQw82Np3f2fM3hbeKKMqN
+UID:UHp9uqb0JKxoQR_CfLCFL
 SUMMARY:2026 SHISHIMAI LION DANCE BLESSING
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260329T210000Z
 DESCRIPTION:Join members of the neighborhood Choeizan Enkyoji Nichiren Budd
 	hist Temple on Sunday\, March 29\, from 2pm as they bring the shishimai bl
@@ -1168,9 +1127,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:_L4pxo8Y1tE-8DNb-lX2r
+UID:K-gqC5xjjYw_uEqTPuNsv
 SUMMARY:Laser K-Pop
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260330T023000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -1183,9 +1142,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:EFvDbOeJ-_YP_KIxSBOQU
+UID:Nxog98LbuGGmJzBPEdzxL
 SUMMARY:Laser Radiohead
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260330T040000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -1198,9 +1157,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Rjoi5wd7Rd2GILPocajcl
+UID:4-ujJTzrrwJUDJ6r2Qli4
 SUMMARY:Small Frye: Story Time + Art
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260401T171500Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/small-frye-april-2026\n\n
 	From Frye Art Museum
@@ -1213,9 +1172,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:u6BMEaOhac3wg2C2FShQd
+UID:4ERcN8PWSXyHbB_GFOb2k
 SUMMARY:The Super Mario Galaxy Movie
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260401T233000Z
 DESCRIPTION:Mario ventures into space\, exploring cosmic worlds and tacklin
 	g galactic challenges far from the familiar Mushroom Kingdom.\n\nhttps://p
@@ -1228,9 +1187,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:L9FE_IBxOUbTO5470agSt
+UID:k3P7R2Bwv41VU0DO_Uymc
 SUMMARY:The Super Mario Galaxy Movie
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T020000Z
 DESCRIPTION:Mario ventures into space\, exploring cosmic worlds and tacklin
 	g galactic challenges far from the familiar Mushroom Kingdom.\n\nhttps://p
@@ -1243,9 +1202,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:bobgKEm6MV3KTN8W4NlHA
+UID:S-xthIX9ugxhl-t_QrtuZ
 SUMMARY:Live at the Laser Dome: KEXP DJ in Residence
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T023000Z
 DESCRIPTION:PacSci and KEXP’s Live at the Laser Dome: KEXP DJ in Residence 
 	is excited to welcome Eastern Echoes’ Diana Ratsamee this spring!\n\nhttps
@@ -1259,9 +1218,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:ggzLRUy8-nK96jw2mxEJG
+UID:kY2MuGPAh86GrZTkGZ6bc
 SUMMARY:Free First Thursday at Seattle Area Museums
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T170000Z
 DESCRIPTION:Free admission at participating Seattle area museums on the fir
 	st Thursday of every month. Includes SAM (10am–8pm)\, Seattle Asian Art Mu
@@ -1278,9 +1237,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1TH
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:dNF71uDTapNtR764tS7D7
+UID:mH4xytzIgrJJ8O9SNuOF1
 SUMMARY:Free First Thursday
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T170000Z
 DESCRIPTION:FREE ADMISSION\nAdmission is FREE and the museum is open until 
 	8 p.m. on the first Thursday of every month.\n\nhttps://www.burkemuseum.or
@@ -1293,9 +1252,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:HpE6VTUHSpCBVuHzgrjju
+UID:FkIq_y8xgX1kbZWY0ZfBW
 SUMMARY:First Thursday - April
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T170000Z
 DESCRIPTION:Visit MOHAI on the First Thursday of every month for free admis
 	sion to the museum’s permanent exhibits between 5—8 pm. \\nFree admission 
@@ -1316,9 +1275,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:GeVaO0jUQbrJP3sJ6X-L1
+UID:BCvup5TOq9iwY09uuRxjq
 SUMMARY:Living Voices: Winning Her Wings
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T173000Z
 DESCRIPTION:They flew planes. They fought prejudice. They made history. Win
 	ning Her Wings brings to life the groundbreaking Women Airforce Service Pi
@@ -1342,9 +1301,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:AvcOgp9yUnQ3HZcTdTVHl
+UID:OMt40L3AaTTBO1hd_M6q1
 SUMMARY:Living Voices: Winning Her Wings
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T183000Z
 DESCRIPTION:They flew planes. They fought prejudice. They made history. Win
 	ning Her Wings brings to life the groundbreaking Women Airforce Service Pi
@@ -1368,9 +1327,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:EzwxiiMYyOgObNArNoXNk
+UID:gDoIAt0Ve0wGIw0yQKUo6
 SUMMARY:The Super Mario Galaxy Movie
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260402T233000Z
 DESCRIPTION:Mario ventures into space\, exploring cosmic worlds and tacklin
 	g galactic challenges far from the familiar Mushroom Kingdom.\n\nhttps://p
@@ -1383,9 +1342,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:kF6GQiPXHHNe7iqC83bqV
+UID:AAJiLbXyrySljXA_1ZwYo
 SUMMARY:The Super Mario Galaxy Movie
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260403T020000Z
 DESCRIPTION:Mario ventures into space\, exploring cosmic worlds and tacklin
 	g galactic challenges far from the familiar Mushroom Kingdom.\n\nhttps://p
@@ -1398,9 +1357,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Jvt78WDxf0Jf82vmu60W_
+UID:_RxMSe0loXfkUz3JuP5ZB
 SUMMARY:Laser Anime Soundtracks
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260403T023000Z
 DESCRIPTION:To celebrate SakuraCon\, our laserists are performing hits from
 	 your favorite Studio Ghibli movies and Anime shows for one night only!\n\
@@ -1414,9 +1373,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Iar7nXb21opkIY-yB1-oK
+UID:D1Yf52GouiiGT2iRhv-8B
 SUMMARY:Coffee & Creativity
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260403T180000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/coffee-creativity-april-2
 	026\n\nFrom Frye Art Museum
@@ -1429,9 +1388,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WaVx6PkZAFc6x4d3wcv0U
+UID:JwbptOZbMdphW1yZ0-wF_
 SUMMARY:The Super Mario Galaxy Movie
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260403T233000Z
 DESCRIPTION:Mario ventures into space\, exploring cosmic worlds and tacklin
 	g galactic challenges far from the familiar Mushroom Kingdom.\n\nhttps://p
@@ -1444,9 +1403,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:w9O5128i-J9VXmR-Y9YKt
+UID:Pg2hL-yA-1o4vdDCnJam1
 SUMMARY:The Super Mario Galaxy Movie
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260404T020000Z
 DESCRIPTION:Mario ventures into space\, exploring cosmic worlds and tacklin
 	g galactic challenges far from the familiar Mushroom Kingdom.\n\nhttps://p
@@ -1459,9 +1418,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:gIl_Wnhhne45O-tDQQHXS
+UID:YAZraLoL2wbqNMUiYT5Fs
 SUMMARY:Laser Nirvana
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260404T023000Z
 DESCRIPTION:Experience Washington’s biggest and influential grunge band\, N
 	irvana\, every Friday at 7:30 p.m. only in the Laser Dome.\n\nhttps://paci
@@ -1474,9 +1433,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:xle3WZAJ-eipaDWgVBNi4
+UID:4NFvuFYeaMVyQKdPjg1So
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260404T040000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9 p.m.\n\nhttps://pacificsciencecenter.org/shows/la
@@ -1489,9 +1448,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:o1tBUmHn1u-Msn4CcWR75
+UID:LCXRoskkWiuwnoWAEQoS1
 SUMMARY:Laser Tyler\, The Creator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260404T053000Z
 DESCRIPTION:From Goblin to IGOR\, experience the only laser show dedicated 
 	to Tyler\, the Creator’s discography every Friday at 10:30 p.m.\n\nhttps:/
@@ -1504,9 +1463,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:ASBPWO-99rh-hSAGWQmfN
+UID:yASp3NsvaFHOt3BtlJ16T
 SUMMARY:Space: The New Frontier
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260404T173000Z
 DESCRIPTION:NASA and international space agencies push the boundaries of sp
 	ace exploration\, expanding scientific and engineering limits to enhance l
@@ -1520,9 +1479,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:_I-lzBIQh-cr2XUQybPpD
+UID:PUk_74TRIXAh_sCw671KG
 SUMMARY:Wild Rescue 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260404T184500Z
 DESCRIPTION:Based on the work at the Santa Barbara Wildlife Care Network\, 
 	Wild Rescue follows the teams who rescue and rehabilitate injured wild ani
@@ -1536,9 +1495,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:1bWTqbG3tBl0GplqrV7OF
+UID:2AHY-LuYQRpaI8LREPdeV
 SUMMARY:Laser Daft Punk
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260405T023000Z
 DESCRIPTION:Join us Fridays at 9 p.m. for Laser Daft Punk! Hear one of the 
 	most influential acts in dance music in our Laser Dome.\n\nhttps://pacific
@@ -1551,9 +1510,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:98YU1HR2bolR41LrXEdsD
+UID:aNrZqve4EodMybsG4Ar4f
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260405T053000Z
 DESCRIPTION:Relive the Super Bowl Halftime show and Album of the Year winne
 	r with a laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\
@@ -1567,9 +1526,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:g5hKT4SLFVo07-yVwfbg8
+UID:iIRIekOhxySjhwxL3bApl
 SUMMARY:Wild Rescue 2D
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260405T184500Z
 DESCRIPTION:Based on the work at the Santa Barbara Wildlife Care Network\, 
 	Wild Rescue follows the teams who rescue and rehabilitate injured wild ani
@@ -1583,9 +1542,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:v93N2cLNnRmUuqyWKTURM
+UID:f269VOMW10gD5mprcK8l_
 SUMMARY:Laser K-Pop
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260406T023000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -1598,9 +1557,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:P235HXVKEdbXPsRuosABv
+UID:PlNA7cakuPNxXGN12sOLM
 SUMMARY:Laser Radiohead
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260406T040000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -1613,9 +1572,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:-AV4I_6NBkbdfqrx71-Fr
+UID:pQxGyLFVDVCXJUfWCxdHO
 SUMMARY:MOPOP Residency: Teen Filmmakers
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260409T170000Z
 DESCRIPTION:https://www.mopop.org/events/mopop-residency-teen-filmmakers\n\
 	nFrom Museum of Pop Culture
@@ -1627,9 +1586,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:xJ1Rg0LDQk6gZK-nWJUSy
+UID:jKcvHJn4t6dhy6-0eM7Tp
 SUMMARY:Laser Nirvana
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260411T023000Z
 DESCRIPTION:Experience Washington’s biggest and influential grunge band\, N
 	irvana\, every Friday at 7:30 p.m. only in the Laser Dome.\n\nhttps://paci
@@ -1642,9 +1601,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:usN_nm6zzMAxUiBpcbII0
+UID:6exM2vr_ouzDUA5tDylWj
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260411T040000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9 p.m.\n\nhttps://pacificsciencecenter.org/shows/la
@@ -1657,9 +1616,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:m5f5aw-dDOLpLkoWS8A6Z
+UID:nIOb9prlSEdvwsgeFYCvL
 SUMMARY:Laser Tyler\, The Creator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260411T053000Z
 DESCRIPTION:From Goblin to IGOR\, experience the only laser show dedicated 
 	to Tyler\, the Creator’s discography every Friday at 10:30 p.m.\n\nhttps:/
@@ -1672,9 +1631,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:-mLcl8r4QnwPqt8C3SUGj
+UID:ljJt5RXIF5wI--6vJxxhp
 SUMMARY:Burke-ology
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260412T000000Z
 DESCRIPTION:Fundraising event\nJoin us for our annual spring fundraiser.\n\
 	nhttps://www.burkemuseum.org/calendar/burke-ology\n\nFrom Burke Museum Eve
@@ -1687,9 +1646,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:R-LnlhRKNj-OKl5CdVSxK
+UID:G9Q_mInwzf6ylCwjIpoCw
 SUMMARY:Laser Daft Punk
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260412T023000Z
 DESCRIPTION:Join us Fridays at 9 p.m. for Laser Daft Punk! Hear one of the 
 	most influential acts in dance music in our Laser Dome.\n\nhttps://pacific
@@ -1702,9 +1661,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:GVZXnt65BK1pLvmX9s6Zy
+UID:JSNvYFVDXkKAwlPs610QK
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260412T053000Z
 DESCRIPTION:Relive the Super Bowl Halftime show and Album of the Year winne
 	r with a laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\
@@ -1718,9 +1677,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:YmY7gY6u0ve4V8Z_M1gOe
+UID:E4a5gBFJ-uzEMVZpTNWce
 SUMMARY:Laser K-Pop
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260413T023000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -1733,9 +1692,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:EEaxQao3xaZJQJbxh1SaN
+UID:jGpgSAGz90jnqrPn7hB--
 SUMMARY:Laser Radiohead
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260413T040000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -1748,9 +1707,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:It0C7pfgKLCWEQvEeKcNY
+UID:5X78z4gKpqrnhyAV7JyIK
 SUMMARY:NW Film Camp
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260413T170000Z
 DESCRIPTION:https://www.mopop.org/events/nw-film-camp\n\nFrom Museum of Pop
 	 Culture
@@ -1762,9 +1721,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:egx963ZorNYh5uJiRcP7S
+UID:GdFnnyAWkEdjunro4g6hZ
 SUMMARY:Homeschool Days
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260415T170000Z
 DESCRIPTION:Once a month\, homeschool families are invited to enjoy a day o
 	f discovery at Pacific Science Center with special discounted pricing.\n\n
@@ -1778,9 +1737,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:vPrqCCbvIBYn1TPkqatOn
+UID:EAGsvVW7cvrKtx2Mxy6_Z
 SUMMARY:History Café: Preserving the Vision of Asahel Curtis
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260415T183000Z
 DESCRIPTION:Join Margaret Weatherbee\\\, Head of Collections at the Washing
 	ton State Historical Society and History Museum\\\, for an in-depth look a
@@ -1807,9 +1766,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:LMlBNF5AAvJKpkwQKNb4D
+UID:u3PPEn9XPdW3sn9Wpaue2
 SUMMARY:MOPOP Residency: Kid Creators
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260417T170000Z
 DESCRIPTION:https://www.mopop.org/events/mopop-residency-kid-creators\n\nFr
 	om Museum of Pop Culture
@@ -1821,9 +1780,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:zWSDb_6itwv6tSXKd1cVj
+UID:HFYLhlce-3P95yE0bNwSX
 SUMMARY:Laser Nirvana
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260418T023000Z
 DESCRIPTION:Experience Washington’s biggest and influential grunge band\, N
 	irvana\, every Friday at 7:30 p.m. only in the Laser Dome.\n\nhttps://paci
@@ -1836,9 +1795,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Y5gO-7Uk9hs04F6zJh6Vu
+UID:c__9s5KVnejaZ9Wu9B3SL
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260418T040000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9 p.m.\n\nhttps://pacificsciencecenter.org/shows/la
@@ -1851,9 +1810,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:OkykBXZ853ZYF2Q68b-Xu
+UID:huGfV9iQym-eC7CfIpVQ6
 SUMMARY:Laser Tyler\, The Creator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260418T053000Z
 DESCRIPTION:From Goblin to IGOR\, experience the only laser show dedicated 
 	to Tyler\, the Creator’s discography every Friday at 10:30 p.m.\n\nhttps:/
@@ -1866,9 +1825,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:LhQ5iIflkjut94ZOp6b_U
+UID:J-lHXx_bomjclayatJm2L
 SUMMARY:Meet the Cossacks: Seattle's Motorcycle Stunt and Drill Team
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260418T140000Z
 DESCRIPTION:Dive into the history of the Cossacks\\\, Seattle’s long stroll
 	ing Motorcycle Stunt and Drill Team\\\, with Rob Root and other members. S
@@ -1892,9 +1851,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZsUlum69g611xnFHV4nQk
+UID:QUPsxyYYVxQMSD3LKTmqj
 SUMMARY:Polar Science Day
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260418T170000Z
 DESCRIPTION:Join PacSci on Saturday\, April 18\, for a day dedicated to exp
 	loring the exciting world of polar science.\n\nhttps://pacificsciencecente
@@ -1908,9 +1867,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZIbb5DbVQXaaSgfRWCq5F
+UID:eb3ehBmIIx4JMb4q2O_YJ
 SUMMARY:Laser Daft Punk
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260419T023000Z
 DESCRIPTION:Join us Fridays at 9 p.m. for Laser Daft Punk! Hear one of the 
 	most influential acts in dance music in our Laser Dome.\n\nhttps://pacific
@@ -1923,9 +1882,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:tEQ2jnYh08__zAseJ639n
+UID:_Si6Ryj9SVZ1YJrMV1UxP
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260419T053000Z
 DESCRIPTION:Relive the Super Bowl Halftime show and Album of the Year winne
 	r with a laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\
@@ -1939,9 +1898,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:1FVI7HuiirG2j9_WPh7eo
+UID:qUe825SUx-YLnDvOTyEzo
 SUMMARY:Laser K-Pop
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260420T023000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -1954,9 +1913,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:GtVOKTUh_o7x3SDhdioH_
+UID:IpJjXD_d5q1UTfigjWc60
 SUMMARY:Laser Radiohead
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260420T040000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -1969,9 +1928,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:tuss2_1BYp-6B__tsXK3f
+UID:V2oWkcHrf0330RzUn27VS
 SUMMARY:Microfossil Finds from Hell Creek and Beyond — Webinar
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260420T170000Z
 DESCRIPTION:Register your class\nLearn how paleontologists piece together t
 	iny clues about past ecosystems.\n\nhttps://www.burkemuseum.org/calendar/m
@@ -1985,9 +1944,9 @@ TRANSP:TRANSPARENT
 DURATION:PT45M
 END:VEVENT
 BEGIN:VEVENT
-UID:sxVw4MtwaCTJBAqryaMyv
+UID:CWqFlIl0FsW9aVHG_mK6M
 SUMMARY:Laser 420
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260421T023000Z
 DESCRIPTION:Celebrate 420 in style with a takeover in the Laser Dome\, incl
 	uding Wu-Tang Clan\, Childish Gambino\, Mac Miller\, and more.\n\nhttps://
@@ -2001,9 +1960,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:oWV6jtwD3KdsX-qNFiCuN
+UID:J9pDVUagV6bgPuy-pH4F9
 SUMMARY:Paving the Way: Bicycle Infrastructure Tour
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260421T173000Z
 DESCRIPTION:Join Merlin Rainwater\\\, creator of Seattle’s Infamous Redline
 	 Guide\\\, and Tom Fucoloro\\\, Founder and Editor of the Seattle Bike Blo
@@ -2023,9 +1982,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:JR53m00iFFILgCoMZ6AxH
+UID:itgL3Wvc9xaeEYSLzGhTe
 SUMMARY:Michael
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260423T020000Z
 DESCRIPTION:Michael is the cinematic portrayal of the life and legacy of on
 	e of the most influential artists the world has ever known.\n\nhttps://pac
@@ -2038,9 +1997,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:HaZIFm793Gsz-pc9_xBQN
+UID:5sW3OKE_2b7TYwmJKLC02
 SUMMARY:Michael
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260424T020000Z
 DESCRIPTION:Michael is the cinematic portrayal of the life and legacy of on
 	e of the most influential artists the world has ever known.\n\nhttps://pac
@@ -2053,9 +2012,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:RjaT01_Ki4jLK2aAtTi4a
+UID:-vovm-oimG7inuupL-D5q
 SUMMARY:Michael
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260424T233000Z
 DESCRIPTION:Michael is the cinematic portrayal of the life and legacy of on
 	e of the most influential artists the world has ever known.\n\nhttps://pac
@@ -2068,9 +2027,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:m3dFEGd8n1dkKN8X9wZI7
+UID:FBTM1DhFX6AVHCQveD1cS
 SUMMARY:Dino Lecture | A New History of a Lost World
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T010000Z
 DESCRIPTION:FREE EVENT\nJoin Dr. Steve Brusatte as he discusses the rise an
 	d fall of dinosaurs.\n\nhttps://www.burkemuseum.org/calendar/dino-lecture-
@@ -2084,9 +2043,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:hCCQ81-BLJxa_axA7AkIG
+UID:Uitto-6OH6hiWrL0F8B0M
 SUMMARY:Michael
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T021500Z
 DESCRIPTION:Michael is the cinematic portrayal of the life and legacy of on
 	e of the most influential artists the world has ever known.\n\nhttps://pac
@@ -2099,9 +2058,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:mtnsR4wdxRrzqsXDAxaQk
+UID:Us1xY4Z2wOrG40ahZT5Nx
 SUMMARY:Laser Nirvana
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T023000Z
 DESCRIPTION:Experience Washington’s biggest and influential grunge band\, N
 	irvana\, every Friday at 7:30 p.m. only in the Laser Dome.\n\nhttps://paci
@@ -2114,9 +2073,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:5rsgj-SINfdM39e1eHa_q
+UID:OGvQhx_LAxFrpKYWgCAT6
 SUMMARY:Laser Pink Floyd: Dark Side of the Moon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T040000Z
 DESCRIPTION:Experience a laser show classic: Pink Floyd’s Dark Side of the 
 	Moon every Saturday at 9 p.m.\n\nhttps://pacificsciencecenter.org/shows/la
@@ -2129,9 +2088,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:1UluxqezvGDQbn8LSjrzg
+UID:DBWxbne7jQvKbOJX4NTXm
 SUMMARY:Laser Tyler\, The Creator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T053000Z
 DESCRIPTION:From Goblin to IGOR\, experience the only laser show dedicated 
 	to Tyler\, the Creator’s discography every Friday at 10:30 p.m.\n\nhttps:/
@@ -2144,9 +2103,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:3f8_bZBUSPQH9wUr6mPHi
+UID:cOxp8fTwyhjUNlEwBYsc6
 SUMMARY:Kickstands Up! All Motorcycle Club Day
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T100000Z
 DESCRIPTION:Inviting all motorcycle clubs to roll on down to MOHAI! Indicat
 	e your Motorcycle Cub membership and receive $5 off admission all day\\\, 
@@ -2166,9 +2125,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:zFiItPow38sotzBbVIoKY
+UID:INZMOMliUWJzijLF8s-Rb
 SUMMARY:Michael
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260425T233000Z
 DESCRIPTION:Michael is the cinematic portrayal of the life and legacy of on
 	e of the most influential artists the world has ever known.\n\nhttps://pac
@@ -2181,9 +2140,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:MM1IjqoX__UXDxchK5hiJ
+UID:bOlYxTtJI7Jq_3_-6wBCT
 SUMMARY:Michael
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260426T021500Z
 DESCRIPTION:Michael is the cinematic portrayal of the life and legacy of on
 	e of the most influential artists the world has ever known.\n\nhttps://pac
@@ -2196,9 +2155,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:u-bcaVjgBkdtKZUqy0b91
+UID:haT8szoA4ckNsBjRfRrMb
 SUMMARY:Laser Daft Punk
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260426T023000Z
 DESCRIPTION:Join us Fridays at 9 p.m. for Laser Daft Punk! Hear one of the 
 	most influential acts in dance music in our Laser Dome.\n\nhttps://pacific
@@ -2211,9 +2170,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Xm43B_nLovSzzueS1lskb
+UID:pyE0TpXtrDPgkdZ36g5WS
 SUMMARY:Laser Bad Bunny
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260426T053000Z
 DESCRIPTION:Relive the Super Bowl Halftime show and Album of the Year winne
 	r with a laser show dedicated to Bad Bunny every Saturday at 10:30 p.m.\n\
@@ -2227,9 +2186,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:yjGJ-TTCzEGnbDZkouq8M
+UID:mVlcAsjPRvPhHFBqxcJlc
 SUMMARY:Dino Fest 2026
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260426T170000Z
 DESCRIPTION:Fossil fun for everyone!\nDig into paleontology at the Burke’s 
 	annual festival of fossils!\n\nhttps://www.burkemuseum.org/calendar/dino-f
@@ -2242,9 +2201,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:F4Lyv_dObCgbjeBz8e_kj
+UID:wgpIf0QD2ysz-BZy_ap92
 SUMMARY:Laser K-Pop
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260427T023000Z
 DESCRIPTION:Feel the beat of K-pop in a whole new way! PacSci’s Laser Show 
 	lights up the dome with dazzling visuals every Sunday at 7:30 p.m.\n\nhttp
@@ -2257,9 +2216,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:vjZWLqHa-orixTgwwO9lR
+UID:2CEErODCP1smrwMoMUbfQ
 SUMMARY:Laser Radiohead
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260427T040000Z
 DESCRIPTION:Experience Radiohead’s best of playlist spanning from their 30-
 	year career every Sunday at 9 p.m.\n\nhttps://pacificsciencecenter.org/sho
@@ -2272,9 +2231,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:2XJR1Dp0IHxbAmB7EaV8F
+UID:E5X-lfc7L4znvxb1vJslJ
 SUMMARY:Happy Hour
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260430T170000Z
 DESCRIPTION:https://www.mopop.org/events/happy-hour\n\nFrom Museum of Pop C
 	ulture
@@ -2286,9 +2245,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:MifW2QEjLd-k1MpQ6FGLZ
+UID:spcvoQNxSt3tLelj_f-bX
 SUMMARY:Brunch
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260430T170000Z
 DESCRIPTION:https://www.mopop.org/events/brunch\n\nFrom Museum of Pop Cultu
 	re
@@ -2300,9 +2259,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:oXa445yN9oYlAIk2AehB-
+UID:oJRZZkQgMEx65iC_oM7am
 SUMMARY:Fire Humanities | Panel Discussion and Storytelling
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260501T013000Z
 DESCRIPTION:Panel discussion\nWhat does it mean to live well as wildfire an
 	d smoke season becomes more a part of life?\n\nhttps://www.burkemuseum.org
@@ -2317,10 +2276,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4qAfBTYTTUCVgPYvo7tZz
+UID:drBWKcEtUlgxf74oG2kQt
 SUMMARY:How to Tell a Seabird's Tale: The Role of the Writer and Scientific
 	 Illustrator
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260507T013000Z
 DESCRIPTION:Panel event\nJoin three Pacific Northwest artists — two writers
 	 and one illustrator — to learn how they distill their research on our loc
@@ -2336,9 +2295,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:vhHTYEW7x1_Q66HYEJfHD
+UID:v3jc_orC74wAu41gMt_T-
 SUMMARY:Free First Thursday
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260507T170000Z
 DESCRIPTION:FREE ADMISSION\nAdmission is FREE and the museum is open until 
 	8 p.m. on the first Thursday of every month.\n\nhttps://www.burkemuseum.or
@@ -2351,9 +2310,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:LEA-Ir2RJUppJzr8GWAw-
+UID:OuWsRxdz9n3sZrejcA9Ie
 SUMMARY:Sensory Friendly Morning
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260509T090000Z
 DESCRIPTION:This event welcomes adults and families who may benefit from a 
 	low-sensory environment to explore the museum. During this event\\\, the m
@@ -2380,9 +2339,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZdZxX1Jb65S2-XmIgMxTn
+UID:vqfoLsY8y3Uik8PLkSJM4
 SUMMARY:Art Workshop: Botanical Sketch Journaling
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260509T210000Z
 DESCRIPTION:art workshop\nStep into the lush environment of the UW Biology 
 	Greenhouse and discover the art of botanical sketch journaling.\n\nhttps:/
@@ -2397,9 +2356,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4FfnacB3mUW6J5mCXC17J
+UID:_HKpGe32VjxKP8CzPncLR
 SUMMARY:Author Talk: Street Trees of Seattle
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260515T010000Z
 DESCRIPTION:Book Event\nJoin author Taha Ebrahimi for a book event for Stre
 	et Trees of Seattle: An Illustrated Walking Guide.\n\nhttps://www.burkemus
@@ -2413,9 +2372,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_f0s1BqG2JREMPRl7USzT
+UID:L-1ikfC5smYjrvDzcVL0w
 SUMMARY:PacSci Ignite Luncheon
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260515T070000Z
 DESCRIPTION:Join us to raise funds that will provide our critical thinkers 
 	of tomorrow with hands-on science experiences today.\n\nhttps://pacificsci
@@ -2429,9 +2388,9 @@ TRANSP:TRANSPARENT
 DURATION:PT24H
 END:VEVENT
 BEGIN:VEVENT
-UID:wrAbmfttr0B6J8CCO2M89
+UID:1h2rYE5Kb1P0pdaaC5S9f
 SUMMARY:Behind the Seams: Roaring '20s
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260516T110000Z
 DESCRIPTION:Behind the Seams is back\\\, with a closer look at the artifact
 	s than ever before! One hundred years later\\\, women’s fashions of the 19
@@ -2453,9 +2412,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:cptautVHINHmPFiqrYiQe
+UID:nlFxs0avQ5dg39XP5XZOt
 SUMMARY:Behind the Seams: Roaring '20s
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260516T130000Z
 DESCRIPTION:Behind the Seams is back\\\, with a closer look at the artifact
 	s than ever before! One hundred years later\\\, women’s fashions of the 19
@@ -2477,9 +2436,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:t-fh714d0RzLVNiEyx5KC
+UID:PP9m_Zo7RvrlQaMMv93DM
 SUMMARY:Behind the Seams: Roaring '20s
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260516T140000Z
 DESCRIPTION:Behind the Seams is back\\\, with a closer look at the artifact
 	s than ever before! One hundred years later\\\, women’s fashions of the 19
@@ -2501,9 +2460,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:2nevCUFPZ_6_1c7xzuDsl
+UID:Y24eD7O_LotHVPrfjSQeT
 SUMMARY:Teacher Professional Development: Pop Culture & Activism
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260516T170000Z
 DESCRIPTION:From musicians who use songs as a call to action to photographe
 	rs who use images as protest\, pop culture plays a critical role in activi
@@ -2518,9 +2477,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Y8u5w8lF7gC7zhwX93KY3
+UID:esl_wY4TClCjhFHfzs_v0
 SUMMARY:Sensory-Friendly Days
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260520T170000Z
 DESCRIPTION:https://www.mopop.org/events/sensory-friendly-days\n\nFrom Muse
 	um of Pop Culture
@@ -2532,9 +2491,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:PM6UVq0TCUUeW6EgKlr6D
+UID:vJjc0t-9s8l1Qqz_qQCjZ
 SUMMARY:History Café: Field Notes Podcast
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260520T183000Z
 DESCRIPTION:Join HistoryLink’s Tony Williams for a live recording of the Fi
 	eld Notes podcast featuring UW Architecture Professor Vikram Prakash. We’r
@@ -2558,9 +2517,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:7GZPQg-bsWe91-1lPf4zW
+UID:QOBr23yzn2VIkBEl_BgXn
 SUMMARY:Drawing From History: Ripples of Time
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260530T130000Z
 DESCRIPTION:Lake Union is haunted by ghosts of the past\\\, echoing through
 	 time. In this class\\\, participants will explore past\\\, present\\\, an
@@ -2582,9 +2541,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:tTfnvEjx5q3xuu1PSKqDT
+UID:-ddbTTUjmACbM5MHRj-iG
 SUMMARY:Willy Wonka Supper Fan Club
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260608T170000Z
 DESCRIPTION:https://www.mopop.org/events/supper-fan-club-willy-wonka\n\nFro
 	m Museum of Pop Culture
@@ -2596,9 +2555,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:VdopglhQuEdaAxQ_BKqKi
+UID:iufgm9NYaBOpx8pgMQoFD
 SUMMARY:Unpaving SODO Walking Tour
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260612T180000Z
 DESCRIPTION:What does SODO mean to you? Industrial space\\\, maybe sports\\
 	\, perhaps a no-man’s land between Pioneer Square’s nightlife and the citi
@@ -2627,9 +2586,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:072OLUcolA6JSym14Z7Ss
+UID:gem4eJuyyjrEHnRo8nSHL
 SUMMARY:History Café: Shelf Life Community Story Project
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260617T183000Z
 DESCRIPTION:The Shelf Life Community Story Project records oral histories w
 	ith current and former residents of Seattle’s Central District neighborhoo
@@ -2658,9 +2617,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:s3mkXLV6_SKmLYgKdZuFV
+UID:jevcvAtFJPqpUJbIn-TSR
 SUMMARY:Rock ‘n’ Rolling! Camp
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260713T170000Z
 DESCRIPTION:https://www.mopop.org/events/rock-n-rolling-camp\n\nFrom Museum
 	 of Pop Culture
@@ -2672,9 +2631,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:jBBzkIIKE498QsIUguCsm
+UID:SvhblOwptBKOWhHDXCve5
 SUMMARY:Exploring Lego Stop Motion
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260720T170000Z
 DESCRIPTION:https://www.mopop.org/events/exploring-lego-stop-motion-camp\n\
 	nFrom Museum of Pop Culture
@@ -2686,9 +2645,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:wfzHfWptISglnmidArQvq
+UID:2sZUfa2oaEUJULXCwMvyd
 SUMMARY:Exploring Fantasy Game Development
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260720T170000Z
 DESCRIPTION:https://www.mopop.org/events/exploring-fantasy-game-development
 	-camp\n\nFrom Museum of Pop Culture
@@ -2700,9 +2659,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:HPe5ZpOvFIlb5Vy9NbvRB
+UID:I1U9TCZn3m_mqIIc7eRm_
 SUMMARY:The Art of Drag Camp
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260727T170000Z
 DESCRIPTION:https://www.mopop.org/events/the-art-of-drag-camp\n\nFrom Museu
 	m of Pop Culture
@@ -2714,9 +2673,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:QlfAQ0621npWER0Gd3vwZ
+UID:MOwYSpiLzZBD7MEjepoC4
 SUMMARY:Exploring Sci-Fi Game Development
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260803T170000Z
 DESCRIPTION:https://www.mopop.org/events/exploring-sci-fi-game-development\
 	n\nFrom Museum of Pop Culture
@@ -2728,9 +2687,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:XjEROcBWzcDJBN7_5BuZA
+UID:vF1CWlOj8wScDwAV-Uxx8
 SUMMARY:Star Trek Supper Fan Club
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20260905T170000Z
 DESCRIPTION:https://www.mopop.org/events/supper-fan-club-star-trek\n\nFrom 
 	Museum of Pop Culture
@@ -2742,9 +2701,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:LARirCm1rgRIW1ddpDpSz
+UID:GekZCWcpU1h-sknYrLlv_
 SUMMARY:Icons of Pop Culture Gala
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20261022T170000Z
 DESCRIPTION:https://www.mopop.org/events/icons-of-pop-culture-gala\n\nFrom 
 	Museum of Pop Culture
@@ -2756,9 +2715,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Cmpifhr6b_m8qMj_mtDjV
+UID:bFQFXYaXx0eahIkAbkEoE
 SUMMARY:Halo Supper Fan Club
-DTSTAMP:20260321T020252Z
+DTSTAMP:20260321T224053Z
 DTSTART:20261209T180000Z
 DESCRIPTION:https://www.mopop.org/events/supper-fan-club-halo\n\nFrom Museu
 	m of Pop Culture

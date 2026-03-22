@@ -15,11 +15,12 @@ const MONTH_MAP: Record<string, number> = {
 /**
  * Parse a date string from the feature__tag span.
  * Handles several formats found on discoverslu.com:
- *   "March 15, 10:00 am"   — date with time
- *   "April 5"              — date without time
- *   "April 24-25"          — same-month date range (uses first day)
- *   "May 9-10"             — same-month date range (uses first day)
- *   "March 30 - April 3"   — cross-month date range (uses first day)
+ *   "March 15, 10:00 am"      — date with time
+ *   "April 5"                  — date without time
+ *   "April 24-25"              — same-month date range (uses first day)
+ *   "May 9-10"                 — same-month date range (uses first day)
+ *   "May 16-17, 12:30 pm"      — same-month date range with time (uses first day + time)
+ *   "March 30 - April 3"       — cross-month date range (uses first day)
  *   "March 30 - April 3, 2026" — cross-month range with year (uses first day)
  */
 function parseFeatureTag(tagText: string): { month: number; day: number; hour: number; minute: number } | null {
@@ -34,6 +35,20 @@ function parseFeatureTag(tagText: string): { month: number; day: number; hour: n
         let hour = parseInt(withTime[3]);
         const minute = parseInt(withTime[4]);
         const ampm = withTime[5].toLowerCase();
+        if (ampm === "pm" && hour !== 12) hour += 12;
+        if (ampm === "am" && hour === 12) hour = 0;
+        return { month, day, hour, minute };
+    }
+
+    // Format: "Month Day-Day, H:MM am/pm" (same-month range with time, use first day + time)
+    const rangeWithTime = text.match(/^(\w+)\s+(\d{1,2})\s*-\s*\d{1,2},\s*(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+    if (rangeWithTime) {
+        const month = MONTH_MAP[rangeWithTime[1].toLowerCase()];
+        if (!month) return null;
+        const day = parseInt(rangeWithTime[2]);
+        let hour = parseInt(rangeWithTime[3]);
+        const minute = parseInt(rangeWithTime[4]);
+        const ampm = rangeWithTime[5].toLowerCase();
         if (ampm === "pm" && hour !== 12) hour += 12;
         if (ampm === "am" && hour === 12) hour = 0;
         return { month, day, hour, minute };

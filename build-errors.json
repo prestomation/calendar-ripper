@@ -1,61 +1,8 @@
 {
-  "buildTime": "2026-03-22T02:23:10.552Z",
-  "totalErrors": 4,
+  "buildTime": "2026-03-22T03:50:47.448Z",
+  "totalErrors": 0,
   "configErrors": [],
-  "sources": [
-    {
-      "source": "discover-slu",
-      "calendar": "discover-slu",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 16-17, 12:30 pm\" for \"Khanomm House Pop-Up\"",
-          "context": "discover-slu-khanomm"
-        }
-      ]
-    },
-    {
-      "source": "tag-community",
-      "calendar": "tag-community",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 16-17, 12:30 pm\" for \"Khanomm House Pop-Up\"",
-          "context": "discover-slu-khanomm"
-        }
-      ]
-    },
-    {
-      "source": "tag-south-lake-union",
-      "calendar": "tag-south-lake-union",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 16-17, 12:30 pm\" for \"Khanomm House Pop-Up\"",
-          "context": "discover-slu-khanomm"
-        }
-      ]
-    },
-    {
-      "source": "tag-all",
-      "calendar": "tag-all",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Could not parse date from \"May 16-17, 12:30 pm\" for \"Khanomm House Pop-Up\"",
-          "context": "discover-slu-khanomm"
-        }
-      ]
-    }
-  ],
+  "sources": [],
   "externalCalendarFailures": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -389,7 +336,7 @@
     {
       "name": "discover-slu-discover-slu",
       "type": "Ripper",
-      "events": 55,
+      "events": 56,
       "expectEmpty": false
     },
     {
@@ -1175,7 +1122,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1962,
+      "events": 1963,
       "expectEmpty": false
     },
     {
@@ -1247,7 +1194,7 @@
     {
       "name": "tag-south-lake-union",
       "type": "Aggregate",
-      "events": 84,
+      "events": 85,
       "expectEmpty": false
     },
     {
@@ -1343,7 +1290,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7180,
+      "events": 7181,
       "expectEmpty": false
     },
     {

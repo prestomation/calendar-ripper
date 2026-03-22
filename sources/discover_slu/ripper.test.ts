@@ -337,6 +337,32 @@ describe('Discover SLU Ripper', () => {
         expect(validEvents[0].date.dayOfMonth()).toBe(30);
     });
 
+    test('parses same-month date range with time (e.g. "May 16-17, 12:30 pm"), uses first day + time', () => {
+        const html = parse(`
+            <div class="feature full">
+                <div class="text">
+                    <h3><a href="https://www.discoverslu.com/events/khanomm-house-pop-up/">Khanomm House Pop-Up</a></h3>
+                    <p class="feature__location">@ SLU</p>
+                </div>
+                <div class="feature__image">
+                    <a href="https://www.discoverslu.com/events/khanomm-house-pop-up/">
+                        <span class="feature__tag">May 16-17, 12:30 pm</span>
+                    </a>
+                </div>
+            </div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].summary).toBe('Khanomm House Pop-Up');
+        expect(validEvents[0].date.monthValue()).toBe(5);
+        expect(validEvents[0].date.dayOfMonth()).toBe(16);
+        expect(validEvents[0].date.hour()).toBe(12);
+        expect(validEvents[0].date.minute()).toBe(30);
+    });
+
     test('handles malformed event cards gracefully', () => {
         const html = parse(`
             <div class="feature full">

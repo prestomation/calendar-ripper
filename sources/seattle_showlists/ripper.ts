@@ -37,6 +37,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "Tractor Tavern":       { address: "5213 Ballard Ave NW, Seattle, WA 98107", skip: true },
     "Substation":           { address: "645 NW 45th St, Seattle, WA 98107", skip: true },
     "Chop Suey":            { address: "1325 E Madison St, Seattle, WA 98122", skip: true },
+    "Hidden Hall":          { address: "400 N 35th St, Seattle, WA 98103", skip: true },
 
     // --- INCLUDE: per-venue calendars ---
     "KEXP Studio":          { address: "472 1st Ave N, Seattle, WA 98109" },
@@ -60,6 +61,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "The Royal Room":       { address: "5000 Rainier Ave S, Seattle, WA 98118" },
     "Tim's Tavern":         { address: "9655 16th Ave SW, Seattle, WA 98106" },
     "Vermillion":           { address: "1508 11th Ave, Seattle, WA 98122" },
+    "Woodland Theater":     { address: "608 NW 65th St, Seattle, WA 98117" },
 };
 
 export default class SeattleShowlistsRipper implements IRipper {

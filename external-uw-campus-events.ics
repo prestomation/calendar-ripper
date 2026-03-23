@@ -539,6 +539,45 @@ X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d173939754
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Web Accessibility/Usability Meet-up
+LOCATION:Zoom (see Zoom link)
+DTSTART;TZID=America/Los_Angeles:20260324T110000
+DTEND;TZID=America/Los_Angeles:20260324T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Online Meeting Link";ID=54756;TYPE=Url:https:
+ //washington.zoom.us/my/hadirangin
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:ats-events@uw.edu
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Inform
+ ation Sessions
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Acces
+ sible Technology Services: \nhttps://www.washington.edu/accesstech/
+DTSTAMP:20260323T082039Z
+DESCRIPTION:Event interval: Single day event\nOnline Meeting Link: https
+ ://washington.zoom.us/my/hadirangin\nAccessibility Contact: ats-events@u
+ w.edu\nEvent Types: Information Sessions\nEvent sponsors: <a href="https
+ ://www.washington.edu/accesstech/" target="_blank">Accessible Technology
+  Services</a>\n\nThese monthly meetups provide an opportunity for UW web
+  developers and designers to discuss accessibility and usability issues 
+ in a relaxed\, casual setting\, and provide friendly feedback on one ano
+ ther’s web projects. We encourage you to bring your accessibility questi
+ ons or just join us to see what others are working on.\n\nThe University
+  of Washington is committed to providing access\, equal opportunity and 
+ reasonable accommodation in its services\, programs\, activities\, educa
+ tion and employment for individuals with disabilities. To request disabi
+ lity accommodation contact the Disability Services Office at least ten d
+ ays in advance at: 206.543.6450/V\, 206.685.7264 (FAX)\, or e-mail at ds
+ o@uw.edu
+CATEGORIES:UW Seattle Campus Events
+UID:http://uid.trumba.com/event/199326583
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d199326583
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Teaching Technologies Office Hours
 LOCATION:On Zoom
 DTSTART;TZID=America/Los_Angeles:20260324T140000
@@ -28278,54 +28317,5 @@ IMAGE;VALUE=URI:https://www.trumba.com/i/DgB3JIHKa7PxGBKwlOLRmFHj.png
 UID:http://uid.trumba.com/event/177683667
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d177683667
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:UW Surplus Online Store
-LOCATION:Plant Services Building (PSB)
-DTSTART;TZID=America/Los_Angeles:20260624T100000
-DTEND;TZID=America/Los_Angeles:20260624T160000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:www.uwsurplus.com
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
- gle day event
-X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Pl
- ant Services Building (PSB)
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:surplus@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
- l Events
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
- mba.com/i/DgC3X0uYFbXRrdx9VlsgQlOB.jpg
-X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:https://www.faceb
- ook.com/uwsurplus
-X-TRUMBA-CUSTOMFIELD;NAME="Twitter";ID=30203;TYPE=SingleLine:https://twi
- tter.com/UWSurplus
-DTSTAMP:20260317T115341Z
-DESCRIPTION:Event interval: Single day event\nCampus location: Plant Ser
- vices Building (PSB)\nAccessibility Contact: surplus@uw.edu\nEvent Types
- : Special Events\nFacebook: https://www.facebook.com/uwsurplus\nTwitter:
-  https://twitter.com/UWSurplus\nLink: www.uwsurplus.com\n\nIf you can't 
- make it for the Tuesday Public Store: \nhttps://facilities.uw.edu/uw-sur
- plus/store\, UW Surplus has you covered! Our online storefront: \nhttps:
- //facilities.uw.edu/uw-surplus/store/online-storefront features selected
-  items added at 10:00 a.m. every Wednesday. Simply purchase online and p
- ick up within a week - it couldn't be easier!\n\nWhile the best selectio
- n will remain available on Tuesdays\, we're trying to empower more peopl
- e to shop sustainably for furniture\, office essentials\, and more.\n\nU
- W Surplus takes all unwanted items from all UW departments and medical f
- acilities. Our objective is to reuse\, repurpose\, or recycle as many it
- ems as possible to lessen the University’s climate impact on both purcha
- sing and disposal. Items are resold through a retail store and online au
- ctions. We receive new inventory every day\, so our stock is always chan
- ging. If you'd like to get a preview of new items\, you can sign up for 
- our newsletter: \nhttps://facilities.uw.edu/uw-surplus/newsletter-signup
- .
-CATEGORIES:UW Seattle Campus Events
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgC3X0uYFbXRrdx9VlsgQlOB.jpg
-UID:http://uid.trumba.com/event/175581631
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d175581631
 END:VEVENT
 END:VCALENDAR

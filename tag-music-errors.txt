@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "type": "ParseError",
+    "reason": "Unknown venue \"Hidden Hall\" not in VENUE_CONFIG — add it so events are routed to a calendar",
+    "context": "venue: Hidden Hall"
+  },
+  {
+    "type": "ParseError",
+    "reason": "Unknown venue \"Woodland Theater\" not in VENUE_CONFIG — add it so events are routed to a calendar",
+    "context": "venue: Woodland Theater"
+  }
+]

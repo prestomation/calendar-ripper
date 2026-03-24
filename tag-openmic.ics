@@ -6,24 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:OpenMic Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:tLZIFyl5GY5D46YInGHEG
-SUMMARY:Nectar Lounge — Mo Jam Mondays
-DTSTAMP:20260323T153912Z
-DTSTART;TZID=America/Los_Angeles:20260323T193000
-DESCRIPTION:Weekly music jam and open mic at Nectar Lounge.\n\nhttps://nect
-	arlounge.com/\n\nFrom Nectar Lounge — Mo Jam Mondays
-URL:https://nectarlounge.com/
-LOCATION:412 N 36th St\, Seattle
-X-CALRIPPER-SOURCE:nectar-lounge-mo-jam
-CATEGORIES:Nectar Lounge — Mo Jam Mondays
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=MO
-DURATION:PT4H30M
-END:VEVENT
-BEGIN:VEVENT
-UID:DCOakQWibMVSXKEW_s7K2
+UID:XM1fLGAuYGtWiRisKzr6N
 SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260323T153912Z
+DTSTAMP:20260324T020900Z
 DTSTART;TZID=America/Los_Angeles:20260325T193000
 DESCRIPTION:Weekly open mic with full backline provided and 16-track record
 	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
@@ -37,9 +22,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:2ADVwlAVWMGeNSERBih-5
+UID:Myb8cM68DhORy9LV4f78u
 SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
-DTSTAMP:20260323T153912Z
+DTSTAMP:20260324T020900Z
 DTSTART;TZID=America/Los_Angeles:20260325T193000
 DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
 	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
@@ -53,9 +38,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:2HXi-V4YPFO1Q0HMvTXYA
+UID:tdInxy6DBI46xFezsXAMZ
 SUMMARY:Hopvine Pub — Wednesday Open Mic
-DTSTAMP:20260323T153912Z
+DTSTAMP:20260324T020900Z
 DTSTART;TZID=America/Los_Angeles:20260325T210000
 DESCRIPTION:Casual singer/songwriter-focused open mic hosted by Eric Miller
 	. All welcome.\n\nhttps://www.hopvinepub.com/\n\nFrom Hopvine Pub — Wednes
@@ -69,9 +54,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:6_YpJ-z070BZo5uYvJiEp
+UID:0mY0AGO1HvXfIDieS8aDw
 SUMMARY:Couth Buzzard Books — Thursday Open Mic
-DTSTAMP:20260323T153912Z
+DTSTAMP:20260324T020900Z
 DTSTART;TZID=America/Los_Angeles:20260326T190000
 DESCRIPTION:Acoustic\, no-PA listening environment at an independent bookst
 	ore/café. All art forms welcome: music\, poetry\, dance\, comedy\, and sto
@@ -86,9 +71,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TH
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Oi3hdi6ymtSWxGr197fbh
+UID:fwiLx-TTeBZcZX_qb7H1a
 SUMMARY:Conor Byrne Pub — Sunday Open Mic
-DTSTAMP:20260323T153912Z
+DTSTAMP:20260324T020900Z
 DTSTART;TZID=America/Los_Angeles:20260329T193000
 DESCRIPTION:Weekly open mic at one of Seattle's most storied venues. Free t
 	o sign up\, first come first served.\n\nhttps://www.conorbyrnepub.com/\n\n
@@ -102,9 +87,24 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:-Nt0pa5_9Rc28_Ef7T0q4
+UID:rQuGKGbx-V0S3xwK15cwC
+SUMMARY:Nectar Lounge — Mo Jam Mondays
+DTSTAMP:20260324T020900Z
+DTSTART;TZID=America/Los_Angeles:20260330T193000
+DESCRIPTION:Weekly music jam and open mic at Nectar Lounge.\n\nhttps://nect
+	arlounge.com/\n\nFrom Nectar Lounge — Mo Jam Mondays
+URL:https://nectarlounge.com/
+LOCATION:412 N 36th St\, Seattle
+X-CALRIPPER-SOURCE:nectar-lounge-mo-jam
+CATEGORIES:Nectar Lounge — Mo Jam Mondays
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT4H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:gp2tcXSiJr8ffv_uISdZZ
 SUMMARY:Fremont Abbey Open Mic
-DTSTAMP:20260323T153912Z
+DTSTAMP:20260324T020900Z
 DTSTART;TZID=America/Los_Angeles:20260407T200000
 DESCRIPTION:All art forms welcome at this community arts space. Twice-month
 	ly open mic on the 1st and 3rd Tuesdays.\n\nhttps://www.fremontabbey.org/\

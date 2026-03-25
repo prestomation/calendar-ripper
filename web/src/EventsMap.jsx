@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -95,7 +94,7 @@ export function EventsMap({
         {/* Geo filter circles */}
         {geoFilters.map((filter, i) => (
           <Circle
-            key={`geo-filter-${i}`}
+            key={`geo-filter-${filter.lat}-${filter.lng}-${filter.radiusKm}`}
             center={[filter.lat, filter.lng]}
             radius={filter.radiusKm * 1000}
             pathOptions={{

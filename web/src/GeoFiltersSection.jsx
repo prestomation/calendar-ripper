@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const RADIUS_OPTIONS = [1, 2, 5, 10, 20]
 const DEFAULT_RADIUS = 2
@@ -72,7 +72,16 @@ function AddressAutocomplete({ onSelect }) {
         const res = await fetch(`${PHOTON_URL}?${params}`)
         if (res.ok) {
           const data = await res.json()
-          setSuggestions(data.features || [])
+          // Validate response shape before using it
+          const features = Array.isArray(data?.features) ? data.features.filter(
+            f => f && typeof f === 'object' &&
+              f.geometry && typeof f.geometry === 'object' &&
+              Array.isArray(f.geometry.coordinates) && f.geometry.coordinates.length >= 2 &&
+              typeof f.geometry.coordinates[0] === 'number' &&
+              typeof f.geometry.coordinates[1] === 'number' &&
+              f.properties && typeof f.properties === 'object'
+          ) : []
+          setSuggestions(features)
           setShowDropdown(true)
         }
       } catch {
@@ -113,9 +122,10 @@ function AddressAutocomplete({ onSelect }) {
             const display = [p.name, p.street, p.city, p.state, p.country]
               .filter(Boolean)
               .join(', ')
+            const [lng, lat] = feat.geometry.coordinates
             return (
               <li
-                key={i}
+                key={`${lat}-${lng}-${i}`}
                 className="address-dropdown-item"
                 onMouseDown={() => handleSelect(feat)}
               >
@@ -293,7 +303,7 @@ export function GeoFiltersSection({ authUser, geoFilters, onAdd, onDelete, onEdi
       {geoFilters.length > 0 && (
         <div className="geo-filters-chips">
           {geoFilters.map((filter, index) => (
-            <span key={index}>
+            <span key={`${filter.lat}-${filter.lng}-${filter.radiusKm}-${index}`}>
               <GeoFilterChip
                 filter={filter}
                 index={index}

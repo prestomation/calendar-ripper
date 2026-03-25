@@ -511,7 +511,7 @@ function App() {
       }
       return next
     })
-  }, [authUser])
+  }, [API_URL, authUser])
 
   const deleteGeoFilter = useCallback((index) => {
     setGeoFilters(prev => {
@@ -525,7 +525,7 @@ function App() {
       }
       return next
     })
-  }, [authUser])
+  }, [API_URL, authUser])
 
   const editGeoFilter = useCallback((index, filter) => {
     setGeoFilters(prev => {
@@ -541,7 +541,7 @@ function App() {
       }
       return next
     })
-  }, [authUser])
+  }, [API_URL, authUser])
 
   // Check auth on mount
   useEffect(() => {

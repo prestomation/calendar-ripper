@@ -518,9 +518,13 @@ function App() {
       const next = prev.filter((_, i) => i !== index)
       try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
       if (API_URL && authUser) {
-        fetch(`${API_URL}/geo-filters/${index}`, {
-          method: 'DELETE',
+        // Send full updated array (not index) to avoid race conditions when
+        // local and server state are out of sync
+        fetch(`${API_URL}/geo-filters`, {
+          method: 'PUT',
           credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(next),
         }).catch(() => {})
       }
       return next

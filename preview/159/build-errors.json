@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-25T06:46:51.801Z",
+  "buildTime": "2026-03-25T06:50:18.218Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
@@ -493,7 +493,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 50,
+      "events": 49,
       "expectEmpty": false
     },
     {
@@ -1141,7 +1141,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 161,
+      "events": 160,
       "expectEmpty": false
     },
     {
@@ -1219,7 +1219,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 528,
+      "events": 527,
       "expectEmpty": false
     },
     {
@@ -1291,7 +1291,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7436,
+      "events": 7435,
       "expectEmpty": false
     },
     {

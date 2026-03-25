@@ -6,10 +6,21 @@ METHOD:PUBLISH
 X-WR-CALNAME:Hotel Crocodile
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:P25f7OPnseozdvbdH7Z0h
+UID:nPvuqWfS9pWD1IvOF7wZz
 SUMMARY:A Night of Latin Music &amp\; Art IV
-DTSTAMP:20260324T020855Z
+DTSTAMP:20260325T021324Z
 DTSTART:20260411T030000Z
+DESCRIPTION:https://seattle.showlists.net
+URL:https://seattle.showlists.net/
+LOCATION:Hotel Crocodile\, 2505 1st Ave\, Seattle\, WA 98121
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:EsX1i3dZs0A3UGzzWwbeg
+SUMMARY:Hotel Crocodile Presents: The Terror/Cactus Lobby Session
+DTSTAMP:20260325T021324Z
+DTSTART:20260422T030000Z
 DESCRIPTION:https://seattle.showlists.net
 URL:https://seattle.showlists.net/
 LOCATION:Hotel Crocodile\, 2505 1st Ave\, Seattle\, WA 98121

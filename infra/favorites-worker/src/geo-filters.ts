@@ -21,11 +21,20 @@ function isValidGeoFilter(f: unknown): f is GeoFilter {
   return true
 }
 
-/** Strip control characters and HTML-unsafe characters from a label string. */
+/** Sanitize a label string for safe storage.
+ * - Strips Unicode control characters (U+0000–U+001F, U+007F–U+009F)
+ * - Escapes HTML entities (<, >, &, ", ') to prevent stored XSS if the
+ *   label is ever rendered in an HTML context without additional escaping
+ */
 function sanitizeLabel(label: string): string {
-  // Remove control characters (U+0000–U+001F, U+007F–U+009F) to prevent
-  // injection of control sequences into stored data.
-  return label.replace(/[\u0000-\u001F\u007F-\u009F]/g, '').trim()
+  return label
+    .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .trim()
 }
 
 geoFiltersRoutes.get('/', async (c) => {

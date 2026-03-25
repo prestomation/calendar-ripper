@@ -26,9 +26,26 @@ export function normalizeLocationKey(location: string): string {
 export async function loadGeoCache(filePath: string): Promise<GeoCache> {
   try {
     const raw = await readFile(filePath, 'utf-8');
-    return JSON.parse(raw) as GeoCache;
+    const parsed = JSON.parse(raw);
+    // Validate the basic shape before trusting it; fall back to empty cache on corruption.
+    if (
+      typeof parsed === 'object' &&
+      parsed !== null &&
+      typeof parsed.version === 'number' &&
+      typeof parsed.entries === 'object' &&
+      parsed.entries !== null
+    ) {
+      return parsed as GeoCache;
+    }
+    console.warn(`geo-cache.json has unexpected shape, starting with empty cache`);
+    return { version: 1, entries: {} };
   } catch (err: any) {
     if (err?.code === 'ENOENT') {
+      return { version: 1, entries: {} };
+    }
+    if (err instanceof SyntaxError) {
+      // Corrupted JSON (e.g. incomplete write on previous crash) — start fresh
+      console.warn(`geo-cache.json is not valid JSON, starting with empty cache: ${err.message}`);
       return { version: 1, entries: {} };
     }
     throw err;

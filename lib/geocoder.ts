@@ -71,17 +71,17 @@ async function fetchFromNominatim(location: string): Promise<GeoCoords | null> {
   try {
     await prevTail
 
-    // Rate limit: enforce 1 req/sec (measured from when the previous call actually fired).
-    // We use a single Date.now() snapshot to both compute the delay and record the slot
-    // time, so there is no second-call gap that could let a subsequent queued caller
-    // undercount elapsed time.
+    // Rate limit: enforce 1 req/sec.
+    // Because fetchFromNominatim calls are serialized by nominatimQueueTail, only one
+    // call can reach this point at a time, so reading and writing lastNominatimCallTime
+    // here is race-free. We delay first, then record the timestamp so it always reflects
+    // when the request actually fired rather than when we started waiting.
     const now = Date.now()
     const elapsed = now - lastNominatimCallTime
-    const delay = lastNominatimCallTime > 0 ? Math.max(0, 1000 - elapsed) : 0
-    lastNominatimCallTime = now + delay   // reserve the slot before any await
-    if (delay > 0) {
-      await new Promise(resolve => setTimeout(resolve, delay))
+    if (lastNominatimCallTime > 0 && elapsed < 1000) {
+      await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
     }
+    lastNominatimCallTime = Date.now()
 
     const encoded = encodeURIComponent(location);
     const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;

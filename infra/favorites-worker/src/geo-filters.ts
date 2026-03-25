@@ -6,6 +6,7 @@ export const geoFiltersRoutes = new Hono<{ Bindings: Env }>()
 
 const MAX_GEO_FILTERS = 10
 const MAX_RADIUS_KM = 100
+const MAX_LABEL_LENGTH = 100
 
 function isValidGeoFilter(f: unknown): f is GeoFilter {
   if (typeof f !== 'object' || f === null) return false
@@ -13,7 +14,10 @@ function isValidGeoFilter(f: unknown): f is GeoFilter {
   if (typeof obj.lat !== 'number' || obj.lat < -90 || obj.lat > 90) return false
   if (typeof obj.lng !== 'number' || obj.lng < -180 || obj.lng > 180) return false
   if (typeof obj.radiusKm !== 'number' || obj.radiusKm <= 0 || obj.radiusKm > MAX_RADIUS_KM) return false
-  if (obj.label !== undefined && typeof obj.label !== 'string') return false
+  if (obj.label !== undefined) {
+    if (typeof obj.label !== 'string') return false
+    if (obj.label.length > MAX_LABEL_LENGTH) return false
+  }
   return true
 }
 

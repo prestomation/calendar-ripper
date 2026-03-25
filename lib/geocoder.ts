@@ -144,7 +144,7 @@ export async function resolveEventCoords(
       ...cache,
       entries: { ...cache.entries, [key]: newEntry },
     };
-    return { coords, geocodeSource: 'cached', cache: updatedCache };
+    return { coords, geocodeSource: 'ripper', cache: updatedCache };
   } else {
     const newEntry: GeoCacheEntry = {
       unresolvable: true,

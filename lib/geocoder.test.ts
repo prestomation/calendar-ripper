@@ -130,7 +130,7 @@ describe('resolveEventCoords', () => {
 
     const result = await resolveEventCoords(cache, 'New Venue, Seattle', 'test-source');
     expect(result.coords).toEqual({ lat: 47.6200, lng: -122.3500 });
-    expect(result.geocodeSource).toBe('cached');
+    expect(result.geocodeSource).toBe('ripper'); // fresh Nominatim result, not a cache hit
     expect(result.error).toBeUndefined();
 
     // Returns a new cache object (not the same reference)

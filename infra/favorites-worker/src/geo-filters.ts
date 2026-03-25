@@ -21,6 +21,13 @@ function isValidGeoFilter(f: unknown): f is GeoFilter {
   return true
 }
 
+/** Strip control characters and HTML-unsafe characters from a label string. */
+function sanitizeLabel(label: string): string {
+  // Remove control characters (U+0000–U+001F, U+007F–U+009F) to prevent
+  // injection of control sequences into stored data.
+  return label.replace(/[\u0000-\u001F\u007F-\u009F]/g, '').trim()
+}
+
 geoFiltersRoutes.get('/', async (c) => {
   const userId = await requireAuth(c)
   if (!userId) return c.json({ error: 'Unauthorized' }, 401)
@@ -53,7 +60,7 @@ geoFiltersRoutes.post('/', async (c) => {
     lat: body.lat,
     lng: body.lng,
     radiusKm: body.radiusKm,
-    ...(body.label !== undefined ? { label: body.label } : {}),
+    ...(body.label !== undefined ? { label: sanitizeLabel(body.label) } : {}),
   }
 
   record.geoFilters.push(filter)
@@ -92,7 +99,7 @@ geoFiltersRoutes.put('/', async (c) => {
     lat: f.lat,
     lng: f.lng,
     radiusKm: f.radiusKm,
-    ...(f.label !== undefined ? { label: f.label } : {}),
+    ...(f.label !== undefined ? { label: sanitizeLabel(f.label) } : {}),
   }))
 
   const record = await getFavorites(c.env.FAVORITES, userId)

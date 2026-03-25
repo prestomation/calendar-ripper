@@ -1,9 +1,69 @@
 {
-  "buildTime": "2026-03-25T06:08:54.688Z",
-  "totalErrors": 0,
+  "buildTime": "2026-03-25T06:16:27.712Z",
+  "totalErrors": 4,
   "configErrors": [],
-  "sources": [],
-  "externalCalendarFailures": [],
+  "sources": [
+    {
+      "source": "frye-art-museum",
+      "calendar": "frye-art-museum",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Error fetching event /node/3252: TypeError: fetch failed",
+          "context": "Mindfulness Meditation"
+        }
+      ]
+    },
+    {
+      "source": "tag-museums",
+      "calendar": "tag-museums",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Error fetching event /node/3252: TypeError: fetch failed",
+          "context": "Mindfulness Meditation"
+        }
+      ]
+    },
+    {
+      "source": "tag-arts",
+      "calendar": "tag-arts",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Error fetching event /node/3252: TypeError: fetch failed",
+          "context": "Mindfulness Meditation"
+        }
+      ]
+    },
+    {
+      "source": "tag-all",
+      "calendar": "tag-all",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Error fetching event /node/3252: TypeError: fetch failed",
+          "context": "Mindfulness Meditation"
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "united-indians-daybreak-star",
+      "friendlyName": "United Indians / Daybreak Star",
+      "url": "https://unitedindians.org/?post_type=tribe_events&ical=1",
+      "error": "TypeError: fetch failed"
+    }
+  ],
   "geocodeErrors": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -1099,7 +1159,7 @@
     {
       "name": "tag-university-district",
       "type": "Aggregate",
-      "events": 881,
+      "events": 882,
       "expectEmpty": false
     },
     {
@@ -1123,7 +1183,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1962,
+      "events": 1933,
       "expectEmpty": false
     },
     {
@@ -1153,7 +1213,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2614,
+      "events": 2615,
       "expectEmpty": false
     },
     {
@@ -1213,7 +1273,7 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1052,
+      "events": 1023,
       "expectEmpty": false
     },
     {
@@ -1291,7 +1351,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7434,
+      "events": 7405,
       "expectEmpty": false
     },
     {
@@ -1496,12 +1556,6 @@
       "name": "external-langston",
       "type": "External",
       "events": 0,
-      "expectEmpty": false
-    },
-    {
-      "name": "external-united-indians-daybreak-star",
-      "type": "External",
-      "events": 30,
       "expectEmpty": false
     }
   ]

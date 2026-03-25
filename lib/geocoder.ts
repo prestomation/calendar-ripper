@@ -57,15 +57,21 @@ let lastNominatimCallTime = 0
 // request and racing on the cache write.
 const inFlight = new Map<string, Promise<GeoCoords | null>>()
 
-export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
-  const key = normalizeLocationKey(location)
+// Serializes all Nominatim HTTP calls so that concurrent requests for *different*
+// locations cannot race on lastNominatimCallTime or violate the 1 req/sec policy.
+// Each caller waits for the previous caller's slot to release before proceeding.
+let nominatimQueueTail: Promise<void> = Promise.resolve()
 
-  // Deduplicate concurrent calls for the same location
-  const existing = inFlight.get(key)
-  if (existing) return existing
+async function fetchFromNominatim(location: string): Promise<GeoCoords | null> {
+  // Acquire a slot in the serial queue.
+  const prevTail = nominatimQueueTail
+  let releaseSlot!: () => void
+  nominatimQueueTail = new Promise<void>(resolve => { releaseSlot = resolve })
 
-  const promise = (async () => {
-    // Rate limit: enforce 1 req/sec before making the Nominatim call
+  try {
+    await prevTail
+
+    // Rate limit: enforce 1 req/sec (measured from when the previous call actually fired)
     const now = Date.now()
     const elapsed = now - lastNominatimCallTime
     if (elapsed < 1000 && lastNominatimCallTime > 0) {
@@ -101,7 +107,19 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
     } catch {
       return null;
     }
-  })()
+  } finally {
+    releaseSlot()
+  }
+}
+
+export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
+  const key = normalizeLocationKey(location)
+
+  // Deduplicate concurrent calls for the same location
+  const existing = inFlight.get(key)
+  if (existing) return existing
+
+  const promise = fetchFromNominatim(location)
 
   inFlight.set(key, promise)
   try {

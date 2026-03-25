@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "postinstall": "cd web && npm install",
     "test": "c8 vitest run",
     "test:watch": "vitest",
     "test:web": "cd web && npx vitest run",

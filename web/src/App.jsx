@@ -2,6 +2,8 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import DOMPurify from 'dompurify'
 import Fuse from 'fuse.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
+import { GeoFiltersSection } from './GeoFiltersSection.jsx'
+import { EventsMap } from './EventsMap.jsx'
 
 const FUSE_THRESHOLD = 0.1
 import ICAL from 'ical.js'
@@ -421,6 +423,17 @@ function App() {
   // View mode for favorites: 'all' | 'calendars' | 'search' | filter string
   const [favoritesViewMode, setFavoritesViewMode] = useState('all')
 
+  // Geo filters state
+  const [geoFilters, setGeoFilters] = useState(() => {
+    try {
+      const stored = localStorage.getItem('calendar-ripper-geo-filters')
+      return stored ? JSON.parse(stored) : []
+    } catch { return [] }
+  })
+
+  // Map view toggle (for events panel)
+  const [showMapView, setShowMapView] = useState(false)
+
   // Auth state
   const [authUser, setAuthUser] = useState(null)
   const [authLoading, setAuthLoading] = useState(true)
@@ -481,6 +494,58 @@ function App() {
       return next
     })
   }, [authUser])
+
+  // Geo filter CRUD
+  const addGeoFilter = useCallback((filter) => {
+    setGeoFilters(prev => {
+      if (prev.length >= 10) return prev
+      const next = [...prev, filter]
+      try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
+      if (API_URL && authUser) {
+        fetch(`${API_URL}/geo-filters`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(filter),
+        }).catch(() => {})
+      }
+      return next
+    })
+  }, [API_URL, authUser])
+
+  const deleteGeoFilter = useCallback((index) => {
+    setGeoFilters(prev => {
+      const next = prev.filter((_, i) => i !== index)
+      try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
+      if (API_URL && authUser) {
+        // Send full updated array (not index) to avoid race conditions when
+        // local and server state are out of sync
+        fetch(`${API_URL}/geo-filters`, {
+          method: 'PUT',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(next),
+        }).catch(() => {})
+      }
+      return next
+    })
+  }, [API_URL, authUser])
+
+  const editGeoFilter = useCallback((index, filter) => {
+    setGeoFilters(prev => {
+      const next = prev.map((f, i) => i === index ? filter : f)
+      try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(next)) } catch {}
+      if (API_URL && authUser) {
+        fetch(`${API_URL}/geo-filters`, {
+          method: 'PUT',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(next),
+        }).catch(() => {})
+      }
+      return next
+    })
+  }, [API_URL, authUser])
 
   // Check auth on mount
   useEffect(() => {
@@ -545,6 +610,26 @@ function App() {
         } else {
           setSearchFilters(data.searchFilters)
           try { localStorage.setItem('calendar-ripper-search-filters', JSON.stringify(data.searchFilters)) } catch {}
+        }
+      })
+      .catch(() => {})
+
+    // Sync geo filters
+    fetch(`${API_URL}/geo-filters`, { credentials: 'include' })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (!data) return
+        const serverFilters = data.geoFilters || []
+        if (serverFilters.length === 0 && geoFilters.length > 0) {
+          fetch(`${API_URL}/geo-filters`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(geoFilters),
+          })
+        } else {
+          setGeoFilters(serverFilters)
+          try { localStorage.setItem('calendar-ripper-geo-filters', JSON.stringify(serverFilters)) } catch {}
         }
       })
       .catch(() => {})
@@ -2618,6 +2703,13 @@ function App() {
               <div className="agenda-header">
                 <div className="agenda-title-container">
                   <h1>Happening Soon</h1>
+                  <button
+                    className={`map-toggle-btn${showMapView ? ' active' : ''}`}
+                    onClick={() => setShowMapView(v => !v)}
+                    title={showMapView ? 'Show list view' : 'Show map view'}
+                  >
+                    {showMapView ? '📋 List' : '🗺️ Map'}
+                  </button>
                 </div>
                 <p>
                   {(() => {
@@ -2683,7 +2775,16 @@ function App() {
               </div>
             )}
 
-            {happeningSoonEvents.length > 0 ? (
+            {showMapView ? (
+              <EventsMap
+                eventsIndex={eventsIndex}
+                geoFilters={geoFilters}
+                calendarFilter={null}
+                calendarTagsByIcsUrl={calendarTagsByIcsUrl}
+                selectedTag={selectedTag}
+                calendarNameByIcsUrl={calendarNameByIcsUrl}
+              />
+            ) : happeningSoonEvents.length > 0 ? (
               happeningSoonEvents.map(group => (
                 <div key={group.label} className="day-group">
                   <div className="day-group-header">
@@ -2914,6 +3015,15 @@ function App() {
               )}
             </div>
 
+            <GeoFiltersSection
+              authUser={authUser}
+              geoFilters={geoFilters}
+              onAdd={addGeoFilter}
+              onDelete={deleteGeoFilter}
+              onEdit={editGeoFilter}
+              isMobile={isMobile}
+            />
+
             {searchTerm && (
               <div className="search-filter-banner">
                 Showing events matching "{searchTerm}"
@@ -3097,6 +3207,13 @@ function App() {
             <div className="agenda-header">
               <div className="agenda-title-container">
                 <h1>{selectedCalendar.fullName}</h1>
+                <button
+                  className={`map-toggle-btn${showMapView ? ' active' : ''}`}
+                  onClick={() => setShowMapView(v => !v)}
+                  title={showMapView ? 'Show list view' : 'Show map view'}
+                >
+                  {showMapView ? '📋 List' : '🗺️ Map'}
+                </button>
                 {(() => {
                   const ripper = calendars.find(r => r.name === selectedCalendar.ripperName)
                   return ripper?.friendlyLink ? (
@@ -3146,7 +3263,16 @@ function App() {
               </div>
             )}
 
-            {eventsLoading ? (
+            {showMapView ? (
+              <EventsMap
+                eventsIndex={eventsIndex}
+                geoFilters={geoFilters}
+                calendarFilter={selectedCalendar.icsUrl}
+                calendarTagsByIcsUrl={calendarTagsByIcsUrl}
+                selectedTag={selectedTag}
+                calendarNameByIcsUrl={calendarNameByIcsUrl}
+              />
+            ) : eventsLoading ? (
               <div className="loading-spinner">
                 <div className="spinner"></div>
                 <p>Loading events...</p>

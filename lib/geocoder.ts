@@ -139,6 +139,16 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
 type ResolveResult = { coords: GeoCoords | null; geocodeSource: 'ripper' | 'cached' | 'none'; error?: GeocodeError }
 const resolveInFlight = new Map<string, Promise<ResolveResult>>()
 
+// Serializes onCacheUpdated (file-write) callbacks so concurrent geocode completions
+// for different locations cannot race on the same cache file.
+let cacheWriteQueueTail: Promise<void> = Promise.resolve()
+
+function enqueueCacheWrite(onCacheUpdated: () => Promise<void>): void {
+  cacheWriteQueueTail = cacheWriteQueueTail.then(onCacheUpdated).catch(() => {
+    // Swallow write errors here; the cache file is best-effort persistence
+  })
+}
+
 export async function resolveEventCoords(
   cache: GeoCache,
   location: string | undefined,
@@ -178,7 +188,7 @@ export async function resolveEventCoords(
         geocodedAt: new Date().toISOString().slice(0, 10),
         source: 'nominatim',
       };
-      await onCacheUpdated?.();
+      if (onCacheUpdated) enqueueCacheWrite(onCacheUpdated);
       return { coords, geocodeSource: 'cached' as const };
     } else {
       // Mark as unresolvable
@@ -187,7 +197,7 @@ export async function resolveEventCoords(
         geocodedAt: new Date().toISOString().slice(0, 10),
         source: 'nominatim',
       };
-      await onCacheUpdated?.();
+      if (onCacheUpdated) enqueueCacheWrite(onCacheUpdated);
       const error: GeocodeError = {
         type: 'GeocodeError',
         location,

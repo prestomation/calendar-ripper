@@ -11,9 +11,9 @@ const MAX_LABEL_LENGTH = 100
 function isValidGeoFilter(f: unknown): f is GeoFilter {
   if (typeof f !== 'object' || f === null) return false
   const obj = f as Record<string, unknown>
-  if (typeof obj.lat !== 'number' || obj.lat < -90 || obj.lat > 90) return false
-  if (typeof obj.lng !== 'number' || obj.lng < -180 || obj.lng > 180) return false
-  if (typeof obj.radiusKm !== 'number' || obj.radiusKm <= 0 || obj.radiusKm > MAX_RADIUS_KM) return false
+  if (typeof obj.lat !== 'number' || !isFinite(obj.lat) || obj.lat < -90 || obj.lat > 90) return false
+  if (typeof obj.lng !== 'number' || !isFinite(obj.lng) || obj.lng < -180 || obj.lng > 180) return false
+  if (typeof obj.radiusKm !== 'number' || !isFinite(obj.radiusKm) || obj.radiusKm <= 0 || obj.radiusKm > MAX_RADIUS_KM) return false
   if (obj.label !== undefined) {
     if (typeof obj.label !== 'string') return false
     if (obj.label.length > MAX_LABEL_LENGTH) return false

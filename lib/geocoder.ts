@@ -52,42 +52,62 @@ export function lookupGeoCache(cache: GeoCache, location: string): GeoCoords | n
 
 let lastNominatimCallTime = 0
 
+// In-flight deduplication: if two concurrent calls arrive for the same location key,
+// the second waits for the first's promise rather than making a duplicate Nominatim
+// request and racing on the cache write.
+const inFlight = new Map<string, Promise<GeoCoords | null>>()
+
 export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
-  // Rate limit: enforce 1 req/sec before making the Nominatim call
-  const now = Date.now()
-  const elapsed = now - lastNominatimCallTime
-  if (elapsed < 1000 && lastNominatimCallTime > 0) {
-    await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
-  }
-  lastNominatimCallTime = Date.now()
+  const key = normalizeLocationKey(location)
 
-  const encoded = encodeURIComponent(location);
-  const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
+  // Deduplicate concurrent calls for the same location
+  const existing = inFlight.get(key)
+  if (existing) return existing
 
+  const promise = (async () => {
+    // Rate limit: enforce 1 req/sec before making the Nominatim call
+    const now = Date.now()
+    const elapsed = now - lastNominatimCallTime
+    if (elapsed < 1000 && lastNominatimCallTime > 0) {
+      await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
+    }
+    lastNominatimCallTime = Date.now()
+
+    const encoded = encodeURIComponent(location);
+    const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
+
+    try {
+      const res = await fetch(url, {
+        headers: {
+          'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
+        },
+      });
+
+      if (!res.ok) {
+        return null;
+      }
+
+      const data = await res.json() as Array<{ lat: string; lon: string }>;
+      if (!Array.isArray(data) || data.length === 0) {
+        return null;
+      }
+
+      const first = data[0];
+      const lat = parseFloat(first.lat);
+      const lng = parseFloat(first.lon);
+      if (isNaN(lat) || isNaN(lng)) return null;
+
+      return { lat, lng };
+    } catch {
+      return null;
+    }
+  })()
+
+  inFlight.set(key, promise)
   try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
-      },
-    });
-
-    if (!res.ok) {
-      return null;
-    }
-
-    const data = await res.json() as Array<{ lat: string; lon: string }>;
-    if (!Array.isArray(data) || data.length === 0) {
-      return null;
-    }
-
-    const first = data[0];
-    const lat = parseFloat(first.lat);
-    const lng = parseFloat(first.lon);
-    if (isNaN(lat) || isNaN(lng)) return null;
-
-    return { lat, lng };
-  } catch {
-    return null;
+    return await promise
+  } finally {
+    inFlight.delete(key)
   }
 }
 

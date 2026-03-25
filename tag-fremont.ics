@@ -6,57 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Fremont Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:1wjsmc-mdup_g_ZMwmCwk
-SUMMARY:Textile Tuesday
-DTSTAMP:20260325T070936Z
-DTSTART;TZID=America/Los_Angeles:20260329T100000
-DESCRIPTION:https://fremontartscouncil.org/calendar/textile-tuesday-4\n\nFr
-	om Fremont Arts Council
-URL:https://fremontartscouncil.org/calendar/textile-tuesday-4
-X-CALRIPPER-SOURCE:all-events
-CATEGORIES:Fremont Arts Council
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:5lO7DSHnGemdZfx8VlhzH
-SUMMARY:SCOTT LAW & FRIENDS feat Andy Coe\, Keith Lowe\, Chelsea Luker\, D\
-	\'Vonne Lewis plus Jay Cobb
-DTSTAMP:20260325T070936Z
-DTSTART;TZID=America/Los_Angeles:20260330T193000
-DESCRIPTION:https://www.tixr.com/groups/hiddenhall/events/scott-law-friends
-	-feat-andy-coe-keith-lowe-chelsea-luker-d-vonne-lewis-plus-jay-cobb-176752
-	\n\nFrom Hidden Hall
-URL:https://www.tixr.com/groups/hiddenhall/events/scott-law-friends-feat-an
-	dy-coe-keith-lowe-chelsea-luker-d-vonne-lewis-plus-jay-cobb-176752
-LOCATION:Hidden Hall\, 400 N 35th St\, Seattle\, WA
-X-CALRIPPER-SOURCE:events
-CATEGORIES:Hidden Hall
-TRANSP:TRANSPARENT
-DURATION:PT7H
-END:VEVENT
-BEGIN:VEVENT
-UID:q0W9zYvBBBW71UBqt6YrV
-SUMMARY:Family Story Time
-DTSTAMP:20260325T070936Z
-DTSTART;TZID=America/Los_Angeles:20260403T180000
-DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
-	es\, songs\, and fun learning activities. \n\nhttps://www.spl.org/event-ca
-	lendar?trumbaEmbed=view%3devent%26eventid%3d195956518\n\nFrom SPL - Fremon
-	t Branch
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d195956518
-LOCATION:Fremont Branch
-X-CALRIPPER-SOURCE:fremont
-CATEGORIES:SPL - Fremont Branch
-TRANSP:TRANSPARENT
-DURATION:PT30M
-END:VEVENT
-BEGIN:VEVENT
-UID:vUecIwGtf4MTjNrWsWg2w
+UID:WLJFp0rIKulzsrjrkZMFO
 SUMMARY:Smash That!                            
-DTSTAMP:20260325T070936Z
-DTSTART;TZID=America/Los_Angeles:20260407T200000
+DTSTAMP:20260325T193725Z
+DTSTART;TZID=America/Los_Angeles:20260329T100000
 DESCRIPTION:https://www.fremontbrewing.com/fremont-ubg-events/md38slnjeh4sw
 	p4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h49-lx5dh\n\nFrom Fremont Brewing - Fre
 	mont
@@ -69,10 +22,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:-cLW5Vu84OCCMWD7rvVqO
+UID:piWFCtRoMB03jk-1_qkBZ
 SUMMARY:Open Workshop
-DTSTAMP:20260325T070936Z
-DTSTART:20260326T010000Z
+DTSTAMP:20260325T193725Z
+DTSTART;TZID=America/Los_Angeles:20260330T193000
 DESCRIPTION:https://fremontartscouncil.org/calendar/gala-art-tba-3\n\nFrom 
 	Fremont Arts Council
 URL:https://fremontartscouncil.org/calendar/gala-art-tba-3
@@ -82,10 +35,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:P7ktGnRz_Rp5X0PO2WqqS
+UID:Utl2phCnWZiX_W2pRB_qn
 SUMMARY:SESSA with William Alexander
-DTSTAMP:20260325T070936Z
-DTSTART:20260326T020000Z
+DTSTAMP:20260325T193725Z
+DTSTART;TZID=America/Los_Angeles:20260403T180000
 DESCRIPTION:$18.5\n\nhttps://www.tixr.com/groups/hiddenhall/events/sessa-wi
 	th-william-alexander-162232\n\nFrom Hidden Hall
 URL:https://www.tixr.com/groups/hiddenhall/events/sessa-with-william-alexan
@@ -97,10 +50,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:r6z9Rr2Lvz38MgurzoIaG
-SUMMARY:KVS TABLA with Special Guests
-DTSTAMP:20260325T070936Z
-DTSTART:20260326T030000Z
+UID:lJcEZku0I-nWrpKWdpVwr
+SUMMARY:KVS TABLA: The KVS Experience
+DTSTAMP:20260325T193725Z
+DTSTART;TZID=America/Los_Angeles:20260407T200000
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
 LOCATION:Nectar Lounge\, 412 N 36th St\, Seattle\, WA 98103
@@ -110,9 +63,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:a387NDucQ7JLxS3Kk206_
+UID:hCuTtw_JChTuztxvIyUdE
 SUMMARY:Smash That!                             
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260326T200000Z
 DESCRIPTION:https://www.fremontbrewing.com/fremont-ubg-events/md38slnjeh4sw
 	p4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h49-lx5dh-3dsbh\n\nFrom Fremont Brewing
@@ -126,9 +79,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:aW_1jvzYRXkw2DwKl6Mpu
+UID:OGmQv-Jz8cwRUJ_2a3CbA
 SUMMARY:Gala Art: Surrealist Props &amp\; Small Works Wrap Up
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260327T010000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/gala-art-tba-4\n\nFrom 
 	Fremont Arts Council
@@ -139,9 +92,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:u9qTHIarhgOjr1gw-7RRO
+UID:33QapNhDPlxOYHKiGMB8N
 SUMMARY:CHAMPAGNE BUBBLEBATH (album release)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260327T020000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/champagne-
 	bubblebath-album-release--165468\n\nFrom Hidden Hall
@@ -154,10 +107,10 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:cekfbLooDbC70h7cw4gXV
+UID:WyiJVap9cljttEDikjy7_
 SUMMARY:CAREFUL WHAT YOU WISH FOR: A circus-burlesque parody of modern dati
 	ng\, fairytales\, and the questionable wishes we make along the way...
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260327T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -168,9 +121,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XSCdgWf7Iaf_WMFZxvt-y
+UID:pgr_COANBLgB7lwGRbHR7
 SUMMARY:Smash That!                              
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260327T200000Z
 DESCRIPTION:https://www.fremontbrewing.com/fremont-ubg-events/md38slnjeh4sw
 	p4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h49-lx5dh-3dsbh-bdxja\n\nFrom Fremont B
@@ -184,9 +137,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:aKbJ8OwsupR5EfgIeyTK5
+UID:wgODZ0V5Af_DF1muhiNN7
 SUMMARY:TOM HAMILTON BAND with Swindler
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260328T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/tom-hamilt
 	on-band-with-swindler-165021\n\nFrom Hidden Hall
@@ -199,9 +152,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:6yqgu-BKJ32d4CxEMfJt4
+UID:uh1mypRjYJxXwswCOtBDK
 SUMMARY:SUX\, Fan Club\, The Maya Experience
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260328T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -212,9 +165,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:F6i_oqKIK3Tg_tpzbcoj4
+UID:qNIHY0e9P1qmVgbiq5SK8
 SUMMARY:MALCOLM BROWN with Ellie Wild b2b Christine Michelle\, Jason Brown
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260328T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -225,9 +178,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:LbuFZe4WiqoZVlC6bWfmf
+UID:K2ImvuUDz_NNat8fsXQOk
 SUMMARY:THE BARR BROTHERS with guest Georgia Harmer
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260328T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -238,9 +191,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:uZ5N2aZh2fWgcBejFUePW
+UID:4C4RCF1uqG6aWTC9ZAMLt
 SUMMARY:Smash That!                               
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260328T200000Z
 DESCRIPTION:https://www.fremontbrewing.com/fremont-ubg-events/md38slnjeh4sw
 	p4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h49-lx5dh-3dsbh-bdxja-c3yka\n\nFrom Fre
@@ -254,10 +207,10 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:6N7--jSMQGCDDqeuoJfvz
+UID:oXX4G0J9mOJ5rnBWvgbR0
 SUMMARY:CAREFUL WHAT YOU WISH FOR: A circus-burlesque parody of modern dati
 	ng\, fairytales\, and the questionable wishes we make along the way...
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260329T023000Z
 DESCRIPTION:$50\n\nhttps://www.tixr.com/groups/hiddenhall/events/careful-wh
 	at-you-wish-for-a-circus-burlesque-parody-of-modern-dating-fairytales-and-
@@ -272,9 +225,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:Cw3NcNo5s34vgQ_Zed07b
+UID:HjtEL3EpgHTBuvieNra0K
 SUMMARY:Art Gecko\, Titanic 2\, True Friend
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260329T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -285,9 +238,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7G-iIZP4uO4L_k0q90jLN
+UID:6D4NHPlwJMTzyg6Jxi_3i
 SUMMARY:SKERIK LARGE BAND XXL (2 sets)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260329T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -298,9 +251,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ULn4Py0TdBg2WS0xMd9jF
+UID:q9d9brAsh1wWHkLAh4kWA
 SUMMARY:Fremont Sunday Market
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260329T170000Z
 DESCRIPTION:Year-round outdoor Sunday market in Fremont with 150+ vendors i
 	ncluding vintage goods\, crafts\, food\, and local farm produce.\n\nhttp:/
@@ -314,9 +267,9 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:FF86BFIHklrvgaHJRX4nG
+UID:BayAzd4kiDnru4GfPu5jg
 SUMMARY:Smash That!                                
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260329T200000Z
 DESCRIPTION:https://www.fremontbrewing.com/fremont-ubg-events/md38slnjeh4sw
 	p4-cm3a3-ye6we-zehdl-9yhfp-rmar2-83h49-lx5dh-3dsbh-bdxja-c3yka-3pant\n\nFr
@@ -330,9 +283,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:4axtsxzPnVxRA_u2V6SSn
+UID:jqDsVIpCgmc4Odq45lyvz
 SUMMARY:Lew Sid w/ Vic Daggs II\, Campana
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260330T023000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/lew-sid-w-
 	vic-daggs-ii-campana-165464\n\nFrom Hidden Hall
@@ -345,9 +298,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:iYpOsWLBvEUj9UQIyDCiI
+UID:UggLTSj5Ure0Mr5E8K9v3
 SUMMARY:CEZA
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260330T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -358,9 +311,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:QWKmNa64gJ6tjCej-Ed0o
+UID:exKdqcMSVGDkWcg1Q99NT
 SUMMARY:Nectar Lounge — Mo Jam Mondays
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260331T023000Z
 DESCRIPTION:Weekly music jam and open mic at Nectar Lounge.\n\nhttps://nect
 	arlounge.com/\n\nFrom Nectar Lounge — Mo Jam Mondays
@@ -373,9 +326,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT4H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:k8vhZdfy20_m5tkhOawFI
+UID:Ct7C-qYmwNJi1Oqse2mWj
 SUMMARY:Mo Jam Mondays
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260331T023000Z
 DESCRIPTION:https://www.tixr.com/groups/hiddenhall/events/mo-jam-mondays-17
 	9865\n\nFrom Hidden Hall
@@ -387,9 +340,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:mOjY6ZWm_arc2dNoYlX6I
+UID:KFmEaEcdWjaHdOeCRwG25
 SUMMARY:Chrissy Chlapecka w/ Slajer
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260331T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -400,9 +353,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:iQIMGYGkql5a6-KZgeq1H
+UID:QV3wKwJ3f1oT-rh_zwb1K
 SUMMARY:Colorful Conversations
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260401T010000Z
 DESCRIPTION:A space for adults to color\, create\, and connect with each ot
 	her.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26even
@@ -416,9 +369,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:EzG3IEbPiPHHMTt-sGnrf
+UID:DOn1ZO7WjjoIcH1Wk1dTd
 SUMMARY:Pity Party (Girls Club) w/ Buddha Trixie
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260401T020000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/pity-party
 	-girls-club-w-buddha-trixie-168487\n\nFrom Hidden Hall
@@ -431,9 +384,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:VoWCNg2yOfV3Om6u6pN4b
+UID:gdZMuZTdEFN7jdNJrAsmB
 SUMMARY:Family Story Time
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260401T171500Z
 DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities. \n\nhttps://www.spl.org/event-ca
@@ -448,9 +401,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:rn7IefyOh8V6cP_qKCAz8
+UID:S99BRmxIBH8cwdv66myyD
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260402T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/western-we
 	dnesdays-country-dance-night-173559\n\nFrom Hidden Hall
@@ -463,9 +416,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:l4kunICzvfQ4DlFD1f_qY
+UID:cTkshR7gOFlnY2-h3qVyo
 SUMMARY:KASH'D OUT with Beach Fly
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260402T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -476,9 +429,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:q4kId_twGdGavkdW5SicP
+UID:IrmdrrH67prdrIWOdN0y1
 SUMMARY:Hockey Teeth w/ Wiseacre\, Poached
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260403T023000Z
 DESCRIPTION:$36\n\nhttps://www.tixr.com/groups/hiddenhall/events/hockey-tee
 	th-w-wiseacre-poached-175327\n\nFrom Hidden Hall
@@ -491,9 +444,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:HvCyt5e7NTbKf1UIo5B8h
+UID:CrGHJsITHXsUImbrMA0wE
 SUMMARY:Actress\, The Dumes\, Dining Dead
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260403T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -504,9 +457,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:MeJiog3twCpaAW5YqwBAO
+UID:03sh8ApngS8xXSK-sOkV8
 SUMMARY:YELLOW DAYS with guest Rue Jacobs
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260403T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -517,9 +470,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:fYSXL36FsjemfsWHkPfUJ
+UID:pANtAJj6mmoa_CHteyJPc
 SUMMARY:Fremont First Friday Art Walk
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260404T010000Z
 DESCRIPTION:Monthly art walk in the Fremont neighborhood\n\nhttp://www.frem
 	ontfirstfriday.com/\n\nFrom Fremont First Friday Art Walk
@@ -532,9 +485,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:THpP-I7_05pN6O8Hn84Vl
+UID:Wi3HIA5mlLFwMRWnuFWGr
 SUMMARY:PARLOR GREENS with guests Annie J (full band)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260404T030000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/parlor-gre
 	ens-with-guests-annie-j-full-band--161566\n\nFrom Hidden Hall
@@ -547,9 +500,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:82nt7IYxs9904xZP2nrPL
-SUMMARY:Dog Daughter\, Laminate\, Bad Optics
-DTSTAMP:20260325T070936Z
+UID:qGZIV0adqhN16slSmwUFv
+SUMMARY:Bad Optics\, Slipping\, Dog Daughter\, Laminate
+DTSTAMP:20260325T193725Z
 DTSTART:20260404T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -560,9 +513,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:vNJiF8uWLEG2t8PMh0yfg
+UID:cIVNIkxfS1mz_uhuEL0Q9
 SUMMARY:PREMO RICE with Jesse Desean\, D. Mikey & DJ Indica Jones
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260404T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -573,9 +526,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:sT53FkSlN5IVrb-cQHNZQ
+UID:laE_ot8SGm8bhqDMt-1V-
 SUMMARY:UNREAL. An Immersive Evening of Oddities
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260405T000000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/unreal-an-immersive-eve
 	ning-of-oddities\n\nFrom Fremont Arts Council
@@ -587,9 +540,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aUM8HIYbMuyDMQcJDFh4J
+UID:nCb0a264gusmhHgErIHl4
 SUMMARY:DES ROCS with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260405T020000Z
 DESCRIPTION:$29.5\n\nhttps://www.tixr.com/groups/hiddenhall/events/des-rocs
 	-with-special-guests-166809\n\nFrom Hidden Hall
@@ -602,9 +555,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:YFsBo8Yq134ifmcyHzzoK
+UID:s-TQKzLKljbVMF4-MbXN6
 SUMMARY:Swanderer\, Understater\, Diirt
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260405T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -615,9 +568,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7sNgxgx_VundashMIuPJn
+UID:r2GqplOW65yZoerexxEtR
 SUMMARY:YONDER MOUNTAIN STRING BAND
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260405T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -628,9 +581,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Z2yXP-hVFRniB4W-YlHEL
+UID:w4OJZltduoL1IPLmzR8sa
 SUMMARY:Mo' Jam Mondays
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260407T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -641,9 +594,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:X8G6TDyXuMuqH6vy3sDrm
+UID:2zh1i8NSY3jLM1s-bJT7K
 SUMMARY:REFLECT - Deep House & Melodic Techno
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260408T020000Z
 DESCRIPTION:$14\n\nhttps://www.tixr.com/groups/hiddenhall/events/reflect-de
 	ep-house-melodic-techno-178924\n\nFrom Hidden Hall
@@ -656,9 +609,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:uNZpgsKiA9DB1j6jxoMk9
+UID:8mwjGPExiHYaoOp9Togxp
 SUMMARY:Fremont Abbey Open Mic
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260408T030000Z
 DESCRIPTION:All art forms welcome at this community arts space. Twice-month
 	ly open mic on the 1st and 3rd Tuesdays.\n\nhttps://www.fremontabbey.org/\
@@ -672,9 +625,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1TU,3TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:m_9T-wuOon5kkSFrkUWyX
+UID:9xFgDTBx5fgF-cjIQE0py
 SUMMARY:Demo Series: Intro to Paper Mache &amp\; Open Studio
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260410T010000Z
 DESCRIPTION:We’ll start the evening with a paper mache paste making demo\, 
 	then demonstrate some of our applications for using it to make giant puppe
@@ -690,9 +643,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:rlpZlHMR0yYUyFvPAagws
+UID:dFD194oHDHXb7zjcNXek-
 SUMMARY:SATSANG (solo) with guest Joey Harkum (solo)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260410T023000Z
 DESCRIPTION:$75\n\nhttps://www.tixr.com/groups/hiddenhall/events/satsang-so
 	lo-with-guest-joey-harkum-solo--165365\n\nFrom Hidden Hall
@@ -705,9 +658,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:pvbuajpwmSg1B2Jn9Vb44
+UID:7s1iyusbS2pSeSVhEVRtg
 SUMMARY:A Flock of the 80s w/ Bands Don't Cry
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260410T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -718,9 +671,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ta6aSZbQKzIlPhOd_ajrh
+UID:ImlWS54IlNypVvMizoCCG
 SUMMARY:TAUK with The Jauntee
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260411T030000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/tauk-with-
 	the-jauntee-169047\n\nFrom Hidden Hall
@@ -733,9 +686,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:CC8OZPULEC-WCsP94NHS_
+UID:yoVqj-xb6XY0ANg3WZaLP
 SUMMARY:QUEEN MOTHER with Madman Across The Water
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260411T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -746,9 +699,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:h_CWscauMdxL5RbLUq5Sq
+UID:jdXT-hEG_putDFQw856A2
 SUMMARY:CYTRUS x BOOT JUICE
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260412T030000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/cytrus-x-b
 	oot-juice-171126\n\nFrom Hidden Hall
@@ -761,9 +714,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:5qWxeTX5eya5sPIslPVmp
+UID:TirgCrsiXYXLL41vxzS-G
 SUMMARY:Denim Denim\, Pitchfork\, Shit Tomato\, Bluebell House
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260412T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -774,9 +727,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:w6BIDqWmMrI4843xlffnR
+UID:OhAaxnmZpfTAOqCZqKrYM
 SUMMARY:Dylan Reese x Adam Yokum w/ Emanuel Brown\, Sean Patek
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260413T020000Z
 DESCRIPTION:$17\n\nhttps://www.tixr.com/groups/hiddenhall/events/dylan-rees
 	e-x-adam-yokum-w-emanuel-brown-sean-patek-173712\n\nFrom Hidden Hall
@@ -789,9 +742,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:KWScCM2jAPYJ0k-2M1Gbq
+UID:01wgJixLzTyBE9ULZUhMZ
 SUMMARY:DAMAG3 w/ Amber Ryan and Connor Cristi
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260413T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -802,9 +755,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3MfeLCmOfcwxfThMydODF
+UID:_2U254h3BJPvmDi10lf_l
 SUMMARY:Mo' Jam Mondays
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260414T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -815,9 +768,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ETArFAgLA6dpit_G_ZVma
+UID:G8psL2CZ-YaUiMjpiol_8
 SUMMARY:MFG aka Maxwell Friedman Group with McTuff \\'The V3\\'
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260416T023000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/mfg-aka-ma
 	xwell-friedman-group-with-mctuff-the-v3--178876\n\nFrom Hidden Hall
@@ -830,9 +783,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:1ohmEZ0K3jo6XFBotQvmj
+UID:oySjhT5MAdFzTz1qTdWA1
 SUMMARY:DUB FX with Prezence & 33
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260416T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -843,9 +796,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:huqmCUhvuqb_KdNJmIkFx
+UID:wcF2Jpw1OGOShDn0gL0eN
 SUMMARY:Demo Series: Intro to Float Builds &amp\; Open Studio
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260417T010000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/demo-series\n\nFrom Fre
 	mont Arts Council
@@ -856,9 +809,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:nnq2aymJf4yzF96sPWN0c
+UID:7zY7gE68uBSYCpuVEHxhI
 SUMMARY:Blackheart Honeymoon w/ OK Tiger\, Marco Marco
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260417T023000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/blackheart
 	-honeymoon-w-ok-tiger-marco-marco-177577\n\nFrom Hidden Hall
@@ -871,9 +824,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:VD9zv14e5OhtTuYnCxC6s
+UID:n6zP31pUcOcE9nNNgJXd3
 SUMMARY:Babes in Canyon w/ Small Paul\, Juliet Daniel
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260418T020000Z
 DESCRIPTION:$18\n\nhttps://www.tixr.com/groups/hiddenhall/events/babes-in-c
 	anyon-w-small-paul-juliet-daniel-172486\n\nFrom Hidden Hall
@@ -886,9 +839,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:mBAbJmTiHTUEhSeEGymag
+UID:2Ak6Cr_8tNrDdtntxW4cD
 SUMMARY:Mid Pak\, Bendre The Giant\, Super Mother
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260418T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -899,10 +852,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:cb1jPY_xDAaMeG9lSOCVx
+UID:2_-rUgaMp6u3JRH1CXzQf
 SUMMARY:DEVIN THE DUDE with Jarv Dee & The Blakhouse Band\, plus Nobi & DJ 
 	Indica Jones
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260418T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -913,9 +866,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:g7pprLm_LD6MUFp3vljjp
+UID:ZwCeNFyPxgNZQaNbqmxAP
 SUMMARY:Darkswoon\, Seaside Tryst\, Mutual Shock
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -926,9 +879,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XeoK191PG2qOSd5mQN3Mq
+UID:mZHJWq7UFVbnNXl1LBeT-
 SUMMARY:"SAPPHIC PROM"
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -939,9 +892,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:94_l1Rjc44IUcDXbfbIoS
+UID:SpBsQB4t3OKI7g5wHrefj
 SUMMARY:SOUR TIMES - a tribute to Portishead
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -952,10 +905,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:GSMlZj5lOpzEV8_0_UyUU
+UID:dfJtiGrDuXv-TEIQ6qDBt
 SUMMARY:Lagos Island Seattle with Flygerian Jeff (Bay Area)\, VIBESBYMARCEL
 	\, DJ Nayiram
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260419T040000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/lagos-isla
 	nd-seattle-with-flygerian-jeff-bay-area-vibesbymarcel-dj-nayiram-178806\n\
@@ -969,9 +922,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:oOYVln_WroMLb-M6x5BhC
+UID:a9mEfe846ekbaXuHYBcBl
 SUMMARY:COLD COMFORT w/ Waltzerr\, All Star Opera
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260420T023000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/cold-comfo
 	rt-w-waltzerr-all-star-opera-179901\n\nFrom Hidden Hall
@@ -984,9 +937,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:ZzwrHgSk4ODGMVk8kbpVo
+UID:ljr--MPC-B3QyDg_f6pSv
 SUMMARY:10 FT GANJA PLANT with Double Tiger
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260420T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -997,9 +950,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XcZ4rHbIzKvHnSkRJpZBj
+UID:0Un7wkVfvgH9fUtX6biAA
 SUMMARY:Mo Jam Mondays
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260421T023000Z
 DESCRIPTION:https://www.tixr.com/groups/hiddenhall/events/mo-jam-mondays-18
 	1464\n\nFrom Hidden Hall
@@ -1011,9 +964,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:JAlVQNJs7wZXc1wdcTmAs
+UID:3ysbDYg_z7rT5zGCDCJcM
 SUMMARY:JUSTB - SNOW ANGEL TOUR IN N.A
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260421T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1024,10 +977,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:e3jiqUDbGLd8OtUQ_1Otb
+UID:Jiq7f7F8pAJ1T5C-KjWL7
 SUMMARY:PNW Bluegrass Getdown feat Hemlock Revival\, Si Tu Savais (plays Gr
 	isman) and The Weather Pennies
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260423T020000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/pnw-bluegr
 	ass-getdown-feat-hemlock-revival-si-tu-savais-plays-grisman-and-the-weathe
@@ -1042,9 +995,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ny9cz6MdipeHs6OOBQKG3
+UID:5L4cVquct39dExRjdvEcp
 SUMMARY:WISHING WELL w/ Larches\, Divorce Care (solo)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260424T023000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/wishing-we
 	ll-w-larches-divorce-care-solo--179900\n\nFrom Hidden Hall
@@ -1057,9 +1010,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:sU5uIKn0new4U0WLGE09h
+UID:hhkhb5AMy1E2cqPMSBpCY
 SUMMARY:Exiter\, Apples with Moya\, Plash
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260425T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1070,9 +1023,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:dWdHH6XWY3nFfbxb3DO_1
+UID:JdVkKgjrVJL8nxNLH9oeR
 SUMMARY:SUBDOCTA with Luzcid & Pressha
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260425T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1083,10 +1036,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gJwy1aajOtIN3Sr7Icz76
+UID:vE__scvPmg8g_8wwM4htq
 SUMMARY:"I WANT IT THAT WAY: 90s/2000s Dance Party" feat #ALL4DORAS and DJ 
 	Dance Dance
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260425T040000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/-i-want-it
 	-that-way-90s-2000s-dance-party-feat-all4doras-and-dj-dance-dance-176753\n
@@ -1100,9 +1053,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:c5E6UUj_QyMbkjixalF4W
+UID:5mYdS63xKkLHNNnbTDiCl
 SUMMARY:Earth Day Event with Squid Wizard and Kingtide Tattoos
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260425T180000Z
 DESCRIPTION:https://www.fremontbrewing.com/fremont-ubg-events/earth-day-eve
 	nt-with-squid-wizard-and-kingtide-tattoos\n\nFrom Fremont Brewing - Fremon
@@ -1116,9 +1069,9 @@ TRANSP:TRANSPARENT
 DURATION:PT10H
 END:VEVENT
 BEGIN:VEVENT
-UID:isYaL1o_5r8oqoqVDT6vw
+UID:SfxW8jDb1yrx9sQe0jEuH
 SUMMARY:SHAYFER JAMES with Maiah Wynne
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260426T000000Z
 DESCRIPTION:$23.5\n\nhttps://www.tixr.com/groups/hiddenhall/events/shayfer-
 	james-with-maiah-wynne-171614\n\nFrom Hidden Hall
@@ -1131,9 +1084,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:DdAkBvtH22HGD9LKBot5M
+UID:lVXwIKtaDzcwkh6z83Jj_
 SUMMARY:SHABAZZ PALACES plus Stas THEE Boss and JusMoni
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260426T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1144,9 +1097,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:22DsFfmWUhhBFQIsHwTwm
+UID:38Bg6czEmG5YUTwRudzVF
 SUMMARY:WHERE\\'S THE LOVE: An R&B Experience
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260426T050000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/where-s-th
 	e-love-an-r-b-experience-181038\n\nFrom Hidden Hall
@@ -1159,9 +1112,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:nDrs1Jz5UUANhWmRp32Lu
+UID:v9LhD3sbO3BWfIUhYKnHS
 SUMMARY:EL TEN ELEVEN with Intestinehead (mem of Sego)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260430T020000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/el-ten-ele
 	ven-with-intestinehead-mem-of-sego--174618\n\nFrom Hidden Hall
@@ -1174,9 +1127,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:QmqrYEROEmR1Xh3TBOcBi
+UID:D0EVyhViw0omwnf56Xc79
 SUMMARY:LAS CAFETERAS with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260430T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1187,9 +1140,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Dm5lSzgeplY8_94uaUvCV
+UID:Ed7iizzcLJMKHWeGSqzfg
 SUMMARY:VANILLA ABSTRACT w/ Geneva\, Yellow Crane
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260501T023000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/vanilla-ab
 	stract-w-geneva-yellow-crane-181085\n\nFrom Hidden Hall
@@ -1202,9 +1155,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:YImFoz6mZMEa0KTJExNIx
+UID:owJCkdPPA0jTX_HPgsfjQ
 SUMMARY:Tavana w/ Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260501T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1215,9 +1168,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:QvV7rbcoV4ofoD0jEsZ2n
+UID:9WDygRDjO_O7ehzbWbJhh
 SUMMARY:Lipphead (Blockhead + Eliot Lipp)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260502T030000Z
 DESCRIPTION:$18\n\nhttps://www.tixr.com/groups/hiddenhall/events/lipphead-b
 	lockhead-eliot-lipp--170507\n\nFrom Hidden Hall
@@ -1230,9 +1183,22 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:B5UU237fuM-wWHv-bD2t0
+UID:dHoeZtK6Sy52OhfHSdR1_
+SUMMARY:Lake Drive\, Diva Bleach\, Chlorine\, Zailee Haze
+DTSTAMP:20260325T193725Z
+DTSTART:20260502T030000Z
+DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
+URL:https://seattle.showlists.net/
+LOCATION:Add-A-Ball\, 314 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:add-a-ball
+CATEGORIES:Add-A-Ball
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:WL5mB9tKRoMHiLMyR4HQh
 SUMMARY:HIT EXPLOSION "Super Freaky!"
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260502T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1243,9 +1209,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:dtBQdrsezG4GRUd52pvNh
+UID:6J7g25DSl2soi20TH3yRr
 SUMMARY:May Day
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260502T200000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/may-day-2\n\nFrom Fremo
 	nt Arts Council
@@ -1256,9 +1222,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:C1D7LLOUe8MeAAZl4t-mQ
+UID:zcuX_cZ2ij9F17n-bUc1h
 SUMMARY:Never Ending Fall with Capital Soiree
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260503T020000Z
 DESCRIPTION:$22\n\nhttps://www.tixr.com/groups/hiddenhall/events/never-endi
 	ng-fall-with-capital-soiree-168275\n\nFrom Hidden Hall
@@ -1271,9 +1237,22 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:VjsBrqcVEVBnYIskCN6hp
+UID:h83xsK0amXzRThoEtctno
+SUMMARY:The Goodbye Look Presents Bobbyy Granfelt\,
+DTSTAMP:20260325T193725Z
+DTSTART:20260503T030000Z
+DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
+URL:https://seattle.showlists.net/
+LOCATION:Add-A-Ball\, 314 N 36th St\, Seattle\, WA 98103
+X-CALRIPPER-SOURCE:add-a-ball
+CATEGORIES:Add-A-Ball
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:2U6sd_3PdC-ClxtE_1Tmd
 SUMMARY:ATLUS with DJ Indica Jones
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260503T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1284,9 +1263,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:L7GXAyePSlomHPOEAzQnN
+UID:LihnFw4APR0HIuYuj0IZA
 SUMMARY:The High Seagrass w/ The Pickpockets and Hemlock Revival
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260504T020000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/the-high-s
 	eagrass-w-the-pickpockets-and-hemlock-revival-176969\n\nFrom Hidden Hall
@@ -1299,9 +1278,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:0usTbcYCALxJK6A5xi6WC
+UID:6W1hUiDOgPfJ_RQL1CaYb
 SUMMARY:PUULUUP
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260504T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1312,9 +1291,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:vQOPiagEnzkG8y89QNADG
+UID:JQLK5dD0a_yqONq35ZGn0
 SUMMARY:REVENGE OF THE NERDLESQUE
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260505T023000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/revenge-of
 	-the-nerdlesque-182254\n\nFrom Hidden Hall
@@ -1327,9 +1306,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:8fh4-_yMy9WWB2HZyIjcg
+UID:s89BkkVCWDQgGiujvKWOB
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260507T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/western-we
 	dnesdays-country-dance-night-180019\n\nFrom Hidden Hall
@@ -1342,9 +1321,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:ucQonXnL4E6DQxzv4pTd9
+UID:u2_IpuNlGtprMfL1RguP8
 SUMMARY:NORTHWEST @ NECTAR!
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260507T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1355,9 +1334,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:95gS3Do1GtbYcwsMhxveD
+UID:LQmoMGWXYqGF4H-ZNEs6i
 SUMMARY:FAMILY MYSTIC with Eclectrick plus late night set Cedric Swan
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260508T020000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/family-mys
 	tic-with-eclectrick-plus-late-night-set-cedric-swan-175324\n\nFrom Hidden 
@@ -1371,9 +1350,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:gDdJ94jEauDEmXTimjSG7
+UID:xgcQuN23gN12DS-sYRijM
 SUMMARY:Catapult Stevens\, Will Roesner\, Carson Daniel\, Combing
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260508T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1384,9 +1363,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:WFZPnRrRRtnIXKooC5n6m
+UID:eiM9YI0JDycztsiBDVzLN
 SUMMARY:ford. plus OLAN
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260508T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1397,9 +1376,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:UApoHJUVLFs3AMrsAYohj
+UID:HbFRAfSAG9SkTX27zfnGX
 SUMMARY:CLUB K-POP (K-POP Hits & K-EDM All Night Long!)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260509T040000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/club-k-pop
 	-k-pop-hits-k-edm-all-night-long--180893\n\nFrom Hidden Hall
@@ -1412,10 +1391,10 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:-qz629sjKmd8E_rkNfYvm
+UID:OlClKhG239gmy1peHdg--
 SUMMARY:THUNDERSMACK feat Michael Wilbur (Moon Hooch) & Leo P (Too Many Zoo
 	z)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260510T030000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/thundersma
 	ck-feat-michael-wilbur-moon-hooch-leo-p-too-many-zooz--179391\n\nFrom Hidd
@@ -1429,9 +1408,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:4vIVflq2V69lK45QHl0bL
+UID:IAz2S0Q2Ws0OKho8JtysG
 SUMMARY:The Apricots\, Wiseacre\, Night Heron
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260510T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1442,10 +1421,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:cc7tO8o4_Z3nxUasdTu5B
+UID:p2SBrvVL-yGmRRMBmMR32
 SUMMARY:MIGUEL MIGS with Lisa Shaw plus WonderTwins (Julie Herrera x MZ Art
 	iz)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260510T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1456,10 +1435,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:rnwSD8-sbNjA-n2bC3Ktw
+UID:dDBvHkXGuPqWSyKCf1Ehf
 SUMMARY:MOVING IN SLOW *EP Release Show* w/ Young-Chhaylee\, Aimee Lefkowic
 	z
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260511T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/moving-in-
 	slow-ep-release-show-w-young-chhaylee-aimee-lefkowicz-181117\n\nFrom Hidde
@@ -1473,9 +1452,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:MkcUrU1mMGwEVfHLB4uRO
+UID:JLxvLefVr4q_YRBFTRcqk
 SUMMARY:GZA featuring Phunky Nomads\, plus Greg Cypher\, DJ Indica Jones
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260514T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1486,9 +1465,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ptTEqQ4lkRXMVglfXe2gy
+UID:w8Q1mKokX9MtIOayXVYB_
 SUMMARY:CAMAIRA METZ w/ Jamn\, Gray Hurley
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260515T020000Z
 DESCRIPTION:$12\n\nhttps://www.tixr.com/groups/hiddenhall/events/camaira-me
 	tz-w-jamn-gray-hurley-179898\n\nFrom Hidden Hall
@@ -1501,9 +1480,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:SiBrKD0MEPgRLmMLZP_jh
+UID:JGaRFx9YOSq0vyGDuFXcV
 SUMMARY:Nogu Svelo! plus Biblioteka
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260515T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1514,9 +1493,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:lhsB6CSZMuykgdUFy1TMZ
+UID:FlYddRow0NFfyhE6yyxbw
 SUMMARY:SIDEBOOB \\'90s Prom! (lead by Shook Twins & Megan Letts)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260516T020000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/sideboob-9
 	0s-prom-lead-by-shook-twins-megan-letts--173003\n\nFrom Hidden Hall
@@ -1529,9 +1508,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:_EnfWd5Y1F6bwRnsKfO2J
+UID:ciOBvpa1U6m2yy4RusZs1
 SUMMARY:COM TRUISE with Manatee Commune
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260516T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1542,9 +1521,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ID1Or89Brute2Wf82hReQ
+UID:lHyOUxQzxjPc7SY9Ez0tS
 SUMMARY:SAM LACHOW w/ Swavy
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260517T030000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/sam-lachow
 	-w-swavy-180242\n\nFrom Hidden Hall
@@ -1556,9 +1535,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:5I-n0VjurgeKjnPiuS6NA
+UID:BKJbtaUh7ZdiNMVflxy9c
 SUMMARY:Bering Sea\, SPARES\, Snailbones
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260517T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1569,9 +1548,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zUQJpZnbFDZHFyifgLf2f
+UID:mZ39pF6hcGXSaiROShlrW
 SUMMARY:GRAPEVINE GROOVE: AN EARLY EVENING MOTOWN-INSPIRED PARTY
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260517T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1582,9 +1561,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:iQr8zzWXXCk8bGmQ9n0fu
+UID:m2iMmr6k823idxUJRX8Ya
 SUMMARY:MINA - Flow State Tour
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260517T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1595,9 +1574,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zw3kN5xqeNqQbHLaxReg2
+UID:PBdbZlsQcYS5CzN8Z03W_
 SUMMARY:JOEL ASTLEY with The Stacy Jones Band
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260518T020000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/joel-astle
 	y-with-the-stacy-jones-band-182411\n\nFrom Hidden Hall
@@ -1610,9 +1589,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:U7ElTRFIBXrtt5_qPfSJH
+UID:RjgWJh8HM1CPfEfO1fMUk
 SUMMARY:LA SANTA CECILIA with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260518T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1623,9 +1602,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:MeUfkMkOphcorakUDjVXf
+UID:e8IR5pQRx1MHj4hDcJKk3
 SUMMARY:Vinyl Williams *Star Harmony Tour* with HOTT MT\, Frond
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260522T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/vinyl-will
 	iams-star-harmony-tour-with-hott-mt-frond-175555\n\nFrom Hidden Hall
@@ -1638,9 +1617,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:zaHvvjqxW0YomN8PDqq3i
+UID:jToVeN-zOCG2BFoPaOVop
 SUMMARY:THEO CROKER with Afrocop
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260522T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1651,10 +1630,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:izS7Tnp-ec3l4EQ1n5rIc
+UID:YP5ztb4YCHiq_GXmNTTdg
 SUMMARY:THE GOLDEN ROAD ft. special guest Bella Rayne! Celebrating Bob Weir
 	 (\\'67-73)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260523T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/the-golden
 	-road-ft-special-guest-bella-rayne-celebrating-bob-weir-67-73--175911\n\nF
@@ -1668,9 +1647,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:xQ3TkFO-_VJY6X8HiHEgY
+UID:DKM0-Eqv1nRcuSFyMrx7a
 SUMMARY:Scott Yoder\, Alicia Amiri\, Chris Costolupes
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260523T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1681,9 +1660,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:iga2TPuXCMQLJDk6TStgn
+UID:Kbpz_gJpFgDuGXqe29sfh
 SUMMARY:FAREED HAQUE TRIO feat MIKE CLARK\, PETER WASHINGTON
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260523T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1694,9 +1673,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Vz5BvHbCHyamPzhxNp9bw
+UID:elXJL35SdDQ7rfnaWV5U3
 SUMMARY:BowieVision with Jealous Dogs (Bowie / Pretenders Tributes)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260524T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/bowievisio
 	n-with-jealous-dogs-bowie-pretenders-tributes--172498\n\nFrom Hidden Hall
@@ -1709,9 +1688,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:rT1acD_pNF4SuOjbkZlbc
+UID:6SabomEgmlXhHBHnxnWcO
 SUMMARY:RANDOM RAB + ARDALAN plus Michael Manahan\, Jamie Schwabl
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260524T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1722,9 +1701,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ag4ydvl3qS9KJMqtp-kOz
+UID:ykLuSPOAxkgx1cV_TwENe
 SUMMARY:DOCTORFUNK (2 sets)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260525T020000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/doctorfunk
 	-2-sets--161569\n\nFrom Hidden Hall
@@ -1736,9 +1715,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ze6JX3ryMaVzPgTgbPWbC
+UID:MMMFlE_tzP7U6UdB5VQ4S
 SUMMARY:MoonCats w/ Cody Bartels + Special Guest
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260526T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/mooncats-w
 	-cody-bartels-special-guest-181880\n\nFrom Hidden Hall
@@ -1751,9 +1730,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:hAOFlSw7rO5VEJhlKHURQ
+UID:Jm1xrsSZgpEqwYQ_H9lsk
 SUMMARY:YELLOWMAN with The Highlife Band and DJ Kid Hops (KEXP)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260529T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1764,9 +1743,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:tMMGUv5JfHtlkdqmMOtb2
+UID:ooJZTrZ-sZ9WrcuG_kHxX
 SUMMARY:THE LOVECATS & COOOL BABIES
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260530T030000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/the-loveca
 	ts-coool-babies-176972\n\nFrom Hidden Hall
@@ -1779,9 +1758,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:8NkPBOBJNNMEQN6R-j8SG
+UID:p5aVLyWOMMuO_Oo_mJI8c
 SUMMARY:Fell Off\, Odd Blossom\, Sun Spots
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260530T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1792,9 +1771,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:0ezCw8IPWZPCJShRiZf_2
+UID:ZfKNzIwcPmG7ehn-BlVrQ
 SUMMARY:GOOPSTEPPA with Rob Noble & Korra The Kid
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260531T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/goopsteppa
 	-with-rob-noble-korra-the-kid-177066\n\nFrom Hidden Hall
@@ -1807,9 +1786,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:HivHzKkMGCg-l61iwBI2r
+UID:YUktqA8xTkGunKc6Qozec
 SUMMARY:VICTORIAN FEVER DREAM: A circusy fundraiser party
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260531T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1820,22 +1799,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:8S13dW8nui-pHBRnPvR6a
-SUMMARY:Blackwater Railroad Co.\, PAMPA
-DTSTAMP:20260325T070936Z
-DTSTART:20260601T030000Z
-DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
-URL:https://seattle.showlists.net/
-LOCATION:Add-A-Ball\, 314 N 36th St\, Seattle\, WA 98103
-X-CALRIPPER-SOURCE:add-a-ball
-CATEGORIES:Add-A-Ball
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:9qf0QyHzIYSO2-j1ypB7G
+UID:kSTjoBLTMpxu6BaeaNN5i
 SUMMARY:Duman'lı Gece
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260601T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1846,10 +1812,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aWU2UAuI6SzvYtQlqILYH
+UID:MdN6FRjHX319hHyluwFFB
 SUMMARY:MICKEY AVALON - 20th anniversary\, plus Ayo Dot & The Uppercuts\, R
 	yan Van Hygan\, MC Type & DJ Indica Jones
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260606T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1860,10 +1826,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:_0GK_PZuyHgP6VpUJfn21
+UID:-mX0-aZvACVdwA1aiQgiT
 SUMMARY:CØNTRA & ABSTRAKT SONANCE with Lotus Drops\, Christine Michelle\, E
 	lement 83 & Mira Wanna
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260607T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1874,12 +1840,12 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:b9j1E4YC_XQx8RXsLOIkJ
+UID:h51rz1FQJZskcnGxHcbJU
 SUMMARY:Elevated Frequencies presents: TRANSCEND + ROOTS REVIVAL TOUR featu
 	ring CØNTRA &amp\; ABSTRAKT SONANCE with direct support by Lotus Drops\, C
 	hristine Michelle Element 83 &amp\; Mira Wanna featuring CØNTRA\, ABSTRAKT
 	 SONANCE\, Lotus Drops\, Christine Michelle\, Element 83\, Mira Wanna
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260607T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1890,9 +1856,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:imtkprTvmK9xi2lMjBujX
+UID:QZWNHcuMuqgJ4qdf0sFZX
 SUMMARY:DAKOTA POORMAN with The Olson Bros Band
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260608T020000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/dakota-poo
 	rman-with-the-olson-bros-band-178635\n\nFrom Hidden Hall
@@ -1905,9 +1871,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:u4ppZvlgghBShVF5Cjwq3
+UID:fkuOtJD00YMl0bkACi08h
 SUMMARY:DB STEWART w/ XOË\, Tomboy\, Shade Apollo
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260612T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/db-stewart
 	-w-xo-tomboy-shade-apollo-182600\n\nFrom Hidden Hall
@@ -1920,9 +1886,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:vxMHET72WpV6449zt_XBn
+UID:vClrEbsgtwMgA9p7dXVpm
 SUMMARY:ANDY COE BAND (2 nights!)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260613T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/andy-coe-b
 	and-2-nights--179394\n\nFrom Hidden Hall
@@ -1935,9 +1901,9 @@ TRANSP:TRANSPARENT
 DURATION:PT27H55M
 END:VEVENT
 BEGIN:VEVENT
-UID:3vRR5kuS07jDlFzbswEuj
+UID:dIaCAlK_YwU94J7Uct3a7
 SUMMARY:Whalien\, Montlake Traffic
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260613T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1948,9 +1914,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:1IJh9CuAlAukEBUqSRjNd
+UID:ZTeSuNhcgBpDwc3nrEp-p
 SUMMARY:MACHINEDRUM_-_BL0000MS_TOUR
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260613T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -1961,9 +1927,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:BiXPXOP-d1Qvp0LDzsVpg
+UID:KO-1IrzBAcA04Nn3TocHi
 SUMMARY:ANDY COE BAND (2 nights!)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260614T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/andy-coe-b
 	and-2-nights--179418\n\nFrom Hidden Hall
@@ -1976,9 +1942,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H55M
 END:VEVENT
 BEGIN:VEVENT
-UID:6TyVG8w_EK7QMHgsM2hw9
+UID:8q2DNwlPygfpbLuss53PG
 SUMMARY:Beverly Crusher\, Cosmic Kitten\, Killbuzz
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260614T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -1989,9 +1955,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:tsxXzssAxY8lDEWSawtvh
+UID:Dh0pL0U0koswTD2QPlHGu
 SUMMARY:Nite Wave's 15th Anniversary Show
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260614T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -2002,10 +1968,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:M-NVnVbnocKXWpWR1_X-I
+UID:f-bpw9lqR-QRjGSJ0HaYG
 SUMMARY:BIG KITTY (2 sets) feat Ben Bloom\, Andy Coe\, Jason Gray\, Grant S
 	chroff
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260619T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/big-kitty-
 	2-sets-feat-ben-bloom-andy-coe-jason-gray-grant-schroff-181294\n\nFrom Hid
@@ -2019,9 +1985,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:Gt-H1vSGGu0u0HEnPnSnI
+UID:2KHkEJbyR-JLwiGxn3xmJ
 SUMMARY:Great Comet\, Moving In Slow\, Tinsley
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260619T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -2032,9 +1998,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:UeOioZ7-IwUAE0QmhDpLM
+UID:UiAmcz0JdBDW4d0axQO35
 SUMMARY:ANDRE NICKATINA with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260620T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Nectar Lounge
 URL:https://seattle.showlists.net/
@@ -2045,9 +2011,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:u9C76TwaDTO_3ztidsLtU
+UID:HJ27BynLuIML02Li6lj4v
 SUMMARY:Solstice Parade
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260620T200000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/solstice-parade\n\nFrom
 	 Fremont Arts Council
@@ -2058,9 +2024,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:cwRtcV3aeyy6crDScOFkT
+UID:elJRv0avH3voOVt277uAf
 SUMMARY:Jupe Jupe\, Swanderer\, Dream Commander
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260621T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Add-A-Ball
 URL:https://seattle.showlists.net/
@@ -2071,9 +2037,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3Lgrx8ycd8uoJd-j2LmWg
+UID:QsRJhYddjTmTkfIWq6vxZ
 SUMMARY:DIZGO with guests The Whags
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260626T030000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/dizgo-with
 	-guests-the-whags-179416\n\nFrom Hidden Hall
@@ -2086,9 +2052,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:N45H0RVTb645SnnjjIaV7
+UID:62x2CrPnUTZta2pQUCQPv
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260702T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/western-we
 	dnesdays-country-dance-night-182259\n\nFrom Hidden Hall
@@ -2101,9 +2067,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:eI5r6DkKL0p6_hWR8rnmw
+UID:O2B1pTWWNv-YtYceXxEmr
 SUMMARY:EMM x TezaTalks
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260707T020000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/emm-x-teza
 	talks-158386\n\nFrom Hidden Hall
@@ -2115,9 +2081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:iodW5Vh0n4xBE0Y8NdVfP
+UID:AR_ywyOxc-WjrxC92z4UH
 SUMMARY:Ill.GATES & SFAM plus Pressha
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260711T030000Z
 DESCRIPTION:$20\n\nhttps://www.tixr.com/groups/hiddenhall/events/ill-gates-
 	sfam-plus-pressha-175914\n\nFrom Hidden Hall
@@ -2130,9 +2096,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:HGkA1qBU4FscxXmADdcv1
+UID:gIedOTN5zqaNk3JFLfnid
 SUMMARY:CHRIS CORNELL TRIBUTE 2026 featuring: OUTSHINED and Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260712T023000Z
 DESCRIPTION:$15\n\nhttps://www.tixr.com/groups/hiddenhall/events/chris-corn
 	ell-tribute-2026-featuring-outshined-and-special-guests-179152\n\nFrom Hid
@@ -2146,9 +2112,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:4-BfD49ZFTkcvZfaXdTYY
+UID:qEH1OzbeP2UsWLcKSXbf0
 SUMMARY:OMAR Live in Seattle with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260718T050000Z
 DESCRIPTION:$17.5\n\nhttps://www.tixr.com/groups/hiddenhall/events/omar-liv
 	e-in-seattle-with-special-guests-182414\n\nFrom Hidden Hall
@@ -2161,9 +2127,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:zL4wcX0-pzZkoBhG_lZ8l
+UID:ZOYYGMgo2rDSTwxPwEthL
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260806T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/western-we
 	dnesdays-country-dance-night-182260\n\nFrom Hidden Hall
@@ -2176,9 +2142,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:pmNEKjibD2cL2F0D3aP5Y
+UID:F6y1Mq3EYF4nUJ7M6JXbn
 SUMMARY:PLAYLUNCH with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260807T020000Z
 DESCRIPTION:$19.99\n\nhttps://www.tixr.com/groups/hiddenhall/events/playlun
 	ch-with-special-guests-178084\n\nFrom Hidden Hall
@@ -2191,9 +2157,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:W-9ch2nHUDfMlTE3IwFoH
+UID:-BxXcH9o2bsLwBd4Vbs18
 SUMMARY:JERRY\\'S MIDDLE FINGER (2 sets)
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260808T030000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/jerry-s-mi
 	ddle-finger-2-sets--180461\n\nFrom Hidden Hall
@@ -2206,9 +2172,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:LCTuY66AKnkhGiUTRFM5h
+UID:B9pkMQCa68xBkdW54hEDz
 SUMMARY:KBONG & Johnny Cosmic with Special Guests
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260816T030000Z
 DESCRIPTION:$25\n\nhttps://www.tixr.com/groups/hiddenhall/events/kbong-john
 	ny-cosmic-with-special-guests-176739\n\nFrom Hidden Hall
@@ -2221,9 +2187,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:QHpn8Uzw8CTCd1y3TEVNV
+UID:MGVmVli7S77qJwsRY6U2E
 SUMMARY:WESTERN WEDNESDAYS: Country Dance Night
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260903T020000Z
 DESCRIPTION:$10\n\nhttps://www.tixr.com/groups/hiddenhall/events/western-we
 	dnesdays-country-dance-night-182261\n\nFrom Hidden Hall
@@ -2236,9 +2202,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:noWew7iB-oWpHtWRRxo1d
+UID:pNkJlCpfteEcQAiU92sEb
 SUMMARY:Luminata
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20260920T003000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/luminata-2\n\nFrom Frem
 	ont Arts Council
@@ -2249,9 +2215,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:FIHZIvVNQLWQU6LC02NJ3
+UID:52Um535AgaNziAis7-0PE
 SUMMARY:Trolloween
-DTSTAMP:20260325T070936Z
+DTSTAMP:20260325T193725Z
 DTSTART:20261101T020000Z
 DESCRIPTION:https://fremontartscouncil.org/calendar/trolloween\n\nFrom Frem
 	ont Arts Council

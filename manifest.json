@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-25T07:10:01.723Z",
+  "lastUpdated": "2026-03-25T19:37:51.045Z",
   "rippers": [
     {
       "name": "19hz",
@@ -360,6 +360,23 @@
       ]
     },
     {
+      "name": "lucky-envelope",
+      "description": "Asian American-owned Ballard brewery known for culturally inspired beers, seasonal celebrations, and community events",
+      "friendlyLink": "https://www.luckyenvelopebrewing.com/events",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Lucky Envelope Brewing",
+          "icsUrl": "lucky-envelope-all-events.ics",
+          "rssUrl": "lucky-envelope-all-events.rss",
+          "tags": [
+            "Beer",
+            "Ballard"
+          ]
+        }
+      ]
+    },
+    {
       "name": "lumen-field",
       "description": "Seattle's major outdoor stadium, home of the Seahawks and Sounders FC",
       "friendlyLink": "https://www.lumenfield.com",
@@ -442,22 +459,6 @@
             "Arts",
             "Community",
             "Central District"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "NWMetalCalendar",
-      "description": "NW Metal Calendar",
-      "friendlyLink": "https://www.nocleansinging.com",
-      "calendars": [
-        {
-          "name": "NWMetal",
-          "friendlyName": "NW Metal Calendar",
-          "icsUrl": "NWMetalCalendar-NWMetal.ics",
-          "rssUrl": "NWMetalCalendar-NWMetal.rss",
-          "tags": [
-            "Music"
           ]
         }
       ]

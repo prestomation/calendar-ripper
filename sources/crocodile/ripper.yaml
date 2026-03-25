@@ -6,6 +6,10 @@ description: "Legendary Seattle live music venue in Belltown, with the intimate 
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.thecrocodile.com
 tags: ["Music", "Belltown"]
+geo:
+  lat: 47.6146
+  lng: -122.3474
+  label: "The Crocodile, 2505 1st Ave, Seattle, WA 98121"
 calendars:
   - name: crocodile-main
     friendlyname: "The Crocodile"

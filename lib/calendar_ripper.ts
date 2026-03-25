@@ -3,12 +3,14 @@ import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
 import {
   RipperConfig,
   RipperError,
+  GeocodeError,
   toICS,
   externalConfigSchema,
   ExternalConfig,
   ExternalCalendar,
   RipperCalendar,
 } from "./config/schema.js";
+import { loadGeoCache, saveGeoCache, resolveEventCoords } from "./geocoder.js";
 import { toRSS } from "./config/rss.js";
 import { join, dirname } from "path";
 import { parse } from "yaml";
@@ -319,6 +321,10 @@ export const main = async () => {
       // Don't fail the program, just continue without recurring events
     }
   }
+
+  // Load geo-cache for geocoding event locations
+  let geoCache = await loadGeoCache('geo-cache.json');
+  const geocodeErrors: GeocodeError[] = [];
 
   try {
     // Create the output directory
@@ -893,6 +899,9 @@ END:VCALENDAR`;
     date: string;
     endDate?: string;
     url?: string;
+    lat?: number;
+    lng?: number;
+    geocodeSource?: 'ripper' | 'cached' | 'none';
   }> = [];
 
   for (const calendar of allCalendars) {
@@ -903,7 +912,29 @@ END:VCALENDAR`;
     // Skip calendars excluded from manifest (no future events)
     if (!calendarsWithFutureEvents.has(icsUrl)) continue;
 
+    const sourceName = calendar.parent?.name ?? calendar.name;
+
     for (const event of calendar.events) {
+      let lat: number | undefined;
+      let lng: number | undefined;
+      let geocodeSource: 'ripper' | 'cached' | 'none' | undefined;
+
+      if (calendar.parent?.geo) {
+        // Use ripper-level coords — no geocoding needed
+        lat = calendar.parent.geo.lat;
+        lng = calendar.parent.geo.lng;
+        geocodeSource = 'ripper';
+      } else {
+        const result = await resolveEventCoords(geoCache, event.location, sourceName);
+        geoCache = result.cache;
+        if (result.coords) {
+          lat = result.coords.lat;
+          lng = result.coords.lng;
+        }
+        geocodeSource = result.geocodeSource;
+        if (result.error) geocodeErrors.push(result.error);
+      }
+
       eventsIndex.push({
         icsUrl,
         summary: event.summary,
@@ -912,6 +943,9 @@ END:VCALENDAR`;
         date: event.date.toString(),
         endDate: event.date.plus(event.duration).toString(),
         url: event.url,
+        ...(lat !== undefined ? { lat } : {}),
+        ...(lng !== undefined ? { lng } : {}),
+        ...(geocodeSource !== undefined ? { geocodeSource } : {}),
       });
     }
   }
@@ -928,6 +962,17 @@ END:VCALENDAR`;
       try {
         const externalEvents = parseExternalCalendarEvents(cachedIcs);
         for (const event of externalEvents) {
+          const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
+          geoCache = result.cache;
+
+          let lat: number | undefined;
+          let lng: number | undefined;
+          if (result.coords) {
+            lat = result.coords.lat;
+            lng = result.coords.lng;
+          }
+          if (result.error) geocodeErrors.push(result.error);
+
           eventsIndex.push({
             icsUrl,
             summary: event.summary,
@@ -936,6 +981,9 @@ END:VCALENDAR`;
             date: event.date.toString(),
             endDate: event.date.plus(event.duration).toString(),
             url: event.url,
+            ...(lat !== undefined ? { lat } : {}),
+            ...(lng !== undefined ? { lng } : {}),
+            ...(result.geocodeSource !== undefined ? { geocodeSource: result.geocodeSource } : {}),
           });
         }
       } catch (error) {
@@ -943,6 +991,9 @@ END:VCALENDAR`;
       }
     }
   }
+
+  // Save updated geo-cache
+  await saveGeoCache(geoCache, 'geo-cache.json');
 
   const eventsIndexJson = JSON.stringify(eventsIndex);
   const eventsIndexSizeKB = (Buffer.byteLength(eventsIndexJson, "utf8") / 1024).toFixed(1);
@@ -997,6 +1048,8 @@ END:VCALENDAR`;
   const unexpectedNonEmptyCalendars = eventCounts.filter(c => c.events > 0 && c.expectEmpty);
   await writeFile("zeroEventCalendars.txt", zeroEventCalendars.map(c => c.name).join("\n"));
 
+  totalErrorCount += geocodeErrors.length;
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -1004,6 +1057,7 @@ END:VCALENDAR`;
     configErrors: configErrors.map(e => ({ ...e })),
     sources: buildErrors,
     externalCalendarFailures,
+    geocodeErrors: geocodeErrors,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),

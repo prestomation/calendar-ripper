@@ -4,6 +4,10 @@ description: "Science museum at Seattle Center with interactive exhibits, laser 
 url: "https://pacificsciencecenter.org/wp-json/wp/v2/event"
 friendlyLink: https://pacificsciencecenter.org/events/
 tags: ["Education", "Museums"]
+geo:
+  lat: 47.6218
+  lng: -122.3519
+  label: "Pacific Science Center, 200 2nd Ave N, Seattle, WA 98109"
 calendars:
   - name: special-events
     friendlyname: "Pacific Science Center Special Events"

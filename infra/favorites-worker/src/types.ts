@@ -21,9 +21,17 @@ export interface UserRecord {
   lastLoginAt: string
 }
 
+export interface GeoFilter {
+  lat: number
+  lng: number
+  radiusKm: number
+  label?: string
+}
+
 export interface FavoritesRecord {
   icsUrls: string[]
   searchFilters: string[]
+  geoFilters: GeoFilter[]
   updatedAt: string
 }
 
@@ -33,6 +41,11 @@ export interface EventsIndexEntry {
   description?: string
   location?: string
   date: string
+  endDate?: string
+  url?: string
+  lat?: number
+  lng?: number
+  geocodeSource?: 'ripper' | 'cached' | 'none'
 }
 
 export interface FeedTokenRecord {

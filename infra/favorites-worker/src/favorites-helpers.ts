@@ -12,12 +12,13 @@ export async function requireAuth(c: any): Promise<string | null> {
 // per-user concurrency; Durable Objects would be needed for true atomicity.
 export async function getFavorites(kv: KVNamespace, userId: string): Promise<FavoritesRecord> {
   const raw = await kv.get(userId)
-  if (!raw) return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+  if (!raw) return { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
   try {
     const record = JSON.parse(raw) as FavoritesRecord
     if (!record.searchFilters) record.searchFilters = []
+    if (!record.geoFilters) record.geoFilters = []
     return record
   } catch {
-    return { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+    return { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
   }
 }

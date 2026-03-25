@@ -38,6 +38,24 @@ function GeoFilterChip({ filter, index, onEdit, onDelete }) {
 /**
  * Address autocomplete using the Photon geocoding API.
  */
+// Rate limit: max requests per window
+const RATE_LIMIT_MAX = 10
+const RATE_LIMIT_WINDOW_MS = 60000 // 1 minute
+const MIN_QUERY_LENGTH = 3
+let _rateLimitCount = 0
+let _rateLimitReset = Date.now() + RATE_LIMIT_WINDOW_MS
+
+function checkRateLimit() {
+  const now = Date.now()
+  if (now > _rateLimitReset) {
+    _rateLimitCount = 0
+    _rateLimitReset = now + RATE_LIMIT_WINDOW_MS
+  }
+  if (_rateLimitCount >= RATE_LIMIT_MAX) return false
+  _rateLimitCount++
+  return true
+}
+
 function AddressAutocomplete({ onSelect }) {
   const [query, setQuery] = useState('')
   const [suggestions, setSuggestions] = useState([])
@@ -66,6 +84,8 @@ function AddressAutocomplete({ onSelect }) {
       return
     }
     debounceRef.current = setTimeout(async () => {
+      if (val.trim().length < MIN_QUERY_LENGTH) return
+      if (!checkRateLimit()) return
       setLoading(true)
       try {
         const params = new URLSearchParams({ q: val, limit: 5, bbox: PHOTON_BBOX })

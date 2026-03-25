@@ -91,6 +91,7 @@ async function fetchFromNominatim(location: string): Promise<GeoCoords | null> {
         headers: {
           'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
         },
+        signal: AbortSignal.timeout(10_000), // 10-second timeout to prevent indefinite hangs
       });
 
       if (!res.ok) {

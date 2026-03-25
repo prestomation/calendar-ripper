@@ -410,6 +410,33 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 
 **Cause:** These are always downstream from ripper errors. Fix the underlying ripper and the tag errors resolve automatically.
 
+## Favorites Filter Parity Rule
+
+The personal ICS feed is assembled **server-side** in the Cloudflare Worker (`infra/favorites-worker/src/feed.ts`). The web UI performs the **same filtering client-side** using `events-index.json` — for live preview, the "Happening Soon" view, attribution chips, and the events map.
+
+**These two implementations must stay in sync.** Any change to filtering logic must be applied to both:
+
+| Concern | Server (Worker) | Client (Web UI) |
+|---|---|---|
+| Search filters | Fuse.js in `event-search.ts` | Fuse.js in `App.jsx` (`searchFilterMatchSummaries`) |
+| Geo filters | Haversine in `feed.ts` | Haversine in `App.jsx` (`geoFilterMatchMap`) |
+| Deduplication | UID-based in `ics-merge.ts` | UID-based in display logic |
+
+### Keeping them in sync
+
+- The Fuse.js threshold, keys, and matching logic must be identical between `event-search.ts` and `App.jsx`
+- The haversine formula must be identical between `feed.ts` and `App.jsx`
+- When changing either implementation, always update the other in the same PR
+
+### Tests for alignment
+
+`web/src/App.test.jsx` (or a dedicated `web/src/filter-parity.test.jsx`) must include tests that:
+1. Run the same filter input through both the client-side and server-side logic using shared fixtures
+2. Assert that the resulting matched event sets are identical
+3. Cover: search filter matches, geo filter matches, multi-match events, edge cases (no location, null coords)
+
+These tests are the contract that prevents silent divergence.
+
 ## Documentation Convention
 
 Feature designs, architecture write-ups, and build/site decisions should be written to the **`docs/`** directory in the repo root. This keeps them versioned alongside the code for posterity.

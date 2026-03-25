@@ -27,6 +27,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Restore geo-cache
+      uses: actions/cache/restore@v4
+      with:
+        path: geo-cache.json
+        key: geo-cache-${{ runner.os }}-${{ hashFiles('geo-cache.json') }}
+        restore-keys: |
+          geo-cache-${{ runner.os }}-
+
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
       with:
@@ -69,6 +77,13 @@ jobs:
           echo ""
           echo "${delimiter}"
         } >> "$GITHUB_OUTPUT"
+
+    - name: Save geo-cache
+      if: always()
+      uses: actions/cache/save@v4
+      with:
+        path: geo-cache.json
+        key: geo-cache-${{ runner.os }}-${{ hashFiles('geo-cache.json') }}
 
     - name: Build web interface
       run: npm run web:build

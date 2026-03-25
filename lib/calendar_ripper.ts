@@ -904,9 +904,6 @@ END:VCALENDAR`;
     geocodeSource?: 'ripper' | 'cached' | 'none';
   }> = [];
 
-  // Track last Nominatim call time for rate limiting (1 req/sec)
-  let lastGeocodeTime = 0;
-
   for (const calendar of allCalendars) {
     const icsUrl = calendar.parent
       ? `${calendar.parent.name}-${calendar.name}.ics`
@@ -928,17 +925,7 @@ END:VCALENDAR`;
         lng = calendar.parent.geo.lng;
         geocodeSource = 'ripper';
       } else {
-        // Rate-limit Nominatim calls to 1 req/sec
-        const now = Date.now();
-        const elapsed = now - lastGeocodeTime;
-        if (elapsed < 1000 && lastGeocodeTime > 0) {
-          await new Promise(resolve => setTimeout(resolve, 1000 - elapsed));
-        }
-        const wasInCache = event.location
-          ? (geoCache.entries[event.location.trim().toLowerCase()] !== undefined)
-          : true;
         const result = await resolveEventCoords(geoCache, event.location, sourceName);
-        if (!wasInCache) lastGeocodeTime = Date.now();
         if (result.coords) {
           lat = result.coords.lat;
           lng = result.coords.lng;
@@ -974,17 +961,7 @@ END:VCALENDAR`;
       try {
         const externalEvents = parseExternalCalendarEvents(cachedIcs);
         for (const event of externalEvents) {
-          // Rate-limit Nominatim calls to 1 req/sec
-          const now = Date.now();
-          const elapsed = now - lastGeocodeTime;
-          if (elapsed < 1000 && lastGeocodeTime > 0) {
-            await new Promise(resolve => setTimeout(resolve, 1000 - elapsed));
-          }
-          const wasInCache = event.location
-            ? (geoCache.entries[event.location.trim().toLowerCase()] !== undefined)
-            : true;
           const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
-          if (!wasInCache) lastGeocodeTime = Date.now();
 
           let lat: number | undefined;
           let lng: number | undefined;

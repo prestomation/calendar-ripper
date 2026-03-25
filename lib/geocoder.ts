@@ -50,7 +50,17 @@ export function lookupGeoCache(cache: GeoCache, location: string): GeoCoords | n
   return null;
 }
 
+let lastNominatimCallTime = 0
+
 export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
+  // Rate limit: enforce 1 req/sec before making the Nominatim call
+  const now = Date.now()
+  const elapsed = now - lastNominatimCallTime
+  if (elapsed < 1000 && lastNominatimCallTime > 0) {
+    await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
+  }
+  lastNominatimCallTime = Date.now()
+
   const encoded = encodeURIComponent(location);
   const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
 

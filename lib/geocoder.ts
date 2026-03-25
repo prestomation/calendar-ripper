@@ -56,13 +56,18 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
 let lastNominatimCallTime = 0
 
 export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
-  // Rate limit: enforce 1 req/sec before making the Nominatim call
+  // Rate limit: enforce 1 req/sec before making the Nominatim call.
+  // Capture a single timestamp snapshot, compute the required delay, then
+  // record (now + delay) as the next allowed call time before awaiting — this
+  // means lastNominatimCallTime always reflects the scheduled fire time, not
+  // the time we started waiting, and never requires a second Date.now() call.
   const now = Date.now()
   const elapsed = now - lastNominatimCallTime
-  if (lastNominatimCallTime > 0 && elapsed < 1000) {
-    await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
+  const delay = lastNominatimCallTime > 0 ? Math.max(0, 1000 - elapsed) : 0
+  lastNominatimCallTime = now + delay
+  if (delay > 0) {
+    await new Promise(resolve => setTimeout(resolve, delay))
   }
-  lastNominatimCallTime = Date.now()
 
   const encoded = encodeURIComponent(location);
   const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;

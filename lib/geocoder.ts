@@ -72,12 +72,18 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
   const encoded = encodeURIComponent(location);
   const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
 
+  // Build a 10-second abort signal. Guard the AbortSignal.timeout() call in case
+  // the runtime environment doesn't support it (graceful degradation).
+  const signal = typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function'
+    ? AbortSignal.timeout(10_000)
+    : undefined
+
   try {
     const res = await fetch(url, {
       headers: {
         'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
       },
-      signal: AbortSignal.timeout(10_000), // 10-second timeout to prevent indefinite hangs
+      ...(signal ? { signal } : {}),
     });
 
     if (!res.ok) {

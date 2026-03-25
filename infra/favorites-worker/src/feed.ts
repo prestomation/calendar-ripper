@@ -20,7 +20,9 @@ function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): nu
 function eventMatchesGeoFilters(event: EventsIndexEntry, geoFilters: GeoFilter[]): boolean {
   if (geoFilters.length === 0) return true
   if (event.lat == null || event.lng == null) return true // no coords = pass through (don't exclude due to geocoding failures)
-  return geoFilters.some(f => haversineKm(f.lat, f.lng, event.lat!, event.lng!) <= f.radiusKm)
+  const eventLat = event.lat
+  const eventLng = event.lng
+  return geoFilters.some(f => haversineKm(f.lat, f.lng, eventLat, eventLng) <= f.radiusKm)
 }
 
 export const feedRoutes = new Hono<{ Bindings: Env }>()

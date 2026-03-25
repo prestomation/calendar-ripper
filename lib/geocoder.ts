@@ -39,7 +39,7 @@ export async function saveGeoCache(cache: GeoCache, filePath: string): Promise<v
   await writeFile(filePath, JSON.stringify(cache, null, 2), 'utf-8');
 }
 
-export function lookupGeoCache(cache: GeoCache, location: string): GeoCoords | null {
+export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): GeoCoords | null {
   const key = normalizeLocationKey(location);
   const entry = cache.entries[key];
   if (!entry) return null;
@@ -50,169 +50,117 @@ export function lookupGeoCache(cache: GeoCache, location: string): GeoCoords | n
   return null;
 }
 
+// Rate limit: enforce 1 req/sec for Nominatim calls. The geocoding loop in
+// calendar_ripper.ts is sequential (each resolveEventCoords call is awaited),
+// so this single variable is sufficient with no concurrency hazard.
 let lastNominatimCallTime = 0
 
-// In-flight deduplication: if two concurrent calls arrive for the same location key,
-// the second waits for the first's promise rather than making a duplicate Nominatim
-// request and racing on the cache write.
-const inFlight = new Map<string, Promise<GeoCoords | null>>()
+export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
+  // Rate limit: enforce 1 req/sec before making the Nominatim call
+  const now = Date.now()
+  const elapsed = now - lastNominatimCallTime
+  if (lastNominatimCallTime > 0 && elapsed < 1000) {
+    await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
+  }
+  lastNominatimCallTime = Date.now()
 
-// Serializes all Nominatim HTTP calls so that concurrent requests for *different*
-// locations cannot race on lastNominatimCallTime or violate the 1 req/sec policy.
-// Each caller waits for the previous caller's slot to release before proceeding.
-let nominatimQueueTail: Promise<void> = Promise.resolve()
-
-async function fetchFromNominatim(location: string): Promise<GeoCoords | null> {
-  // Acquire a slot in the serial queue.
-  const prevTail = nominatimQueueTail
-  let releaseSlot!: () => void
-  nominatimQueueTail = new Promise<void>(resolve => { releaseSlot = resolve })
+  const encoded = encodeURIComponent(location);
+  const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
 
   try {
-    await prevTail
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
+      },
+      signal: AbortSignal.timeout(10_000), // 10-second timeout to prevent indefinite hangs
+    });
 
-    // Rate limit: enforce 1 req/sec.
-    // Because fetchFromNominatim calls are serialized by nominatimQueueTail, only one
-    // call can reach this point at a time, so reading and writing lastNominatimCallTime
-    // here is race-free. We delay first, then record the timestamp so it always reflects
-    // when the request actually fired rather than when we started waiting.
-    const now = Date.now()
-    const elapsed = now - lastNominatimCallTime
-    if (lastNominatimCallTime > 0 && elapsed < 1000) {
-      await new Promise(resolve => setTimeout(resolve, 1000 - elapsed))
-    }
-    lastNominatimCallTime = Date.now()
-
-    const encoded = encodeURIComponent(location);
-    const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
-
-    try {
-      const res = await fetch(url, {
-        headers: {
-          'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
-        },
-        signal: AbortSignal.timeout(10_000), // 10-second timeout to prevent indefinite hangs
-      });
-
-      if (!res.ok) {
-        return null;
-      }
-
-      const data = await res.json() as Array<{ lat: string; lon: string }>;
-      if (!Array.isArray(data) || data.length === 0) {
-        return null;
-      }
-
-      const first = data[0];
-      const lat = parseFloat(first.lat);
-      const lng = parseFloat(first.lon);
-      if (isNaN(lat) || isNaN(lng)) return null;
-
-      return { lat, lng };
-    } catch {
+    if (!res.ok) {
       return null;
     }
-  } finally {
-    releaseSlot()
+
+    const data = await res.json() as Array<{ lat: string; lon: string }>;
+    if (!Array.isArray(data) || data.length === 0) {
+      return null;
+    }
+
+    const first = data[0];
+    const lat = parseFloat(first.lat);
+    const lng = parseFloat(first.lon);
+    if (isNaN(lat) || isNaN(lng)) return null;
+
+    return { lat, lng };
+  } catch {
+    return null;
   }
 }
 
-export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
-  const key = normalizeLocationKey(location)
-
-  // Deduplicate concurrent calls for the same location
-  const existing = inFlight.get(key)
-  if (existing) return existing
-
-  const promise = fetchFromNominatim(location)
-
-  inFlight.set(key, promise)
-  try {
-    return await promise
-  } finally {
-    inFlight.delete(key)
-  }
+export interface ResolveEventCoordsResult {
+  coords: GeoCoords | null;
+  geocodeSource: 'ripper' | 'cached' | 'none';
+  error?: GeocodeError;
+  /** Updated cache — new object if a new entry was added, same reference if unchanged. */
+  cache: GeoCache;
 }
 
-// In-flight deduplication for resolveEventCoords: if concurrent callers request the
-// same location key simultaneously, only one geocode call is made and one cache write
-// occurs. All concurrent callers for the same key share the same resolution promise.
-type ResolveResult = { coords: GeoCoords | null; geocodeSource: 'ripper' | 'cached' | 'none'; error?: GeocodeError }
-const resolveInFlight = new Map<string, Promise<ResolveResult>>()
-
-// Serializes onCacheUpdated (file-write) callbacks so concurrent geocode completions
-// for different locations cannot race on the same cache file.
-let cacheWriteQueueTail: Promise<void> = Promise.resolve()
-
-function enqueueCacheWrite(onCacheUpdated: () => Promise<void>): void {
-  cacheWriteQueueTail = cacheWriteQueueTail.then(onCacheUpdated).catch(() => {
-    // Swallow write errors here; the cache file is best-effort persistence
-  })
-}
-
+/**
+ * Pure-function geocode resolver. Takes an immutable cache snapshot and returns
+ * a new cache object (with the new entry merged in) alongside the result.
+ * No shared mutable state is modified — the caller is responsible for storing
+ * the returned cache and persisting it to disk.
+ */
 export async function resolveEventCoords(
-  cache: GeoCache,
+  cache: Readonly<GeoCache>,
   location: string | undefined,
   sourceName: string,
-  onCacheUpdated?: () => Promise<void>
-): Promise<ResolveResult> {
+): Promise<ResolveEventCoordsResult> {
   if (!location || location.trim() === '') {
-    return { coords: null, geocodeSource: 'none' };
+    return { coords: null, geocodeSource: 'none', cache };
   }
 
   const cached = lookupGeoCache(cache, location);
   if (cached !== null) {
-    return { coords: cached, geocodeSource: 'cached' };
+    return { coords: cached, geocodeSource: 'cached', cache };
   }
 
   const key = normalizeLocationKey(location);
-  // Check if unresolvable in cache
+  // Already known unresolvable — no network call needed
   const entry = cache.entries[key];
   if (entry?.unresolvable) {
-    return { coords: null, geocodeSource: 'none' };
+    return { coords: null, geocodeSource: 'none', cache };
   }
 
-  // Deduplicate concurrent resolves for the same location key: if another async
-  // call is already geocoding this key, wait for its result rather than making a
-  // second Nominatim request and racing on the cache write.
-  const existingResolve = resolveInFlight.get(key)
-  if (existingResolve) return existingResolve
+  // Cache miss — call Nominatim
+  const coords = await geocodeLocation(location);
 
-  const promise: Promise<ResolveResult> = (async () => {
-    // Cache miss — call Nominatim
-    const coords = await geocodeLocation(location);
-
-    if (coords !== null) {
-      cache.entries[key] = {
-        lat: coords.lat,
-        lng: coords.lng,
-        geocodedAt: new Date().toISOString().slice(0, 10),
-        source: 'nominatim',
-      };
-      if (onCacheUpdated) enqueueCacheWrite(onCacheUpdated);
-      return { coords, geocodeSource: 'cached' as const };
-    } else {
-      // Mark as unresolvable
-      cache.entries[key] = {
-        unresolvable: true,
-        geocodedAt: new Date().toISOString().slice(0, 10),
-        source: 'nominatim',
-      };
-      if (onCacheUpdated) enqueueCacheWrite(onCacheUpdated);
-      const error: GeocodeError = {
-        type: 'GeocodeError',
-        location,
-        source: sourceName,
-        reason: 'Nominatim returned no results',
-      };
-      return { coords: null, geocodeSource: 'none' as const, error };
-    }
-  })()
-
-  resolveInFlight.set(key, promise)
-  try {
-    return await promise
-  } finally {
-    resolveInFlight.delete(key)
+  if (coords !== null) {
+    const newEntry: GeoCacheEntry = {
+      lat: coords.lat,
+      lng: coords.lng,
+      geocodedAt: new Date().toISOString().slice(0, 10),
+      source: 'nominatim',
+    };
+    const updatedCache: GeoCache = {
+      ...cache,
+      entries: { ...cache.entries, [key]: newEntry },
+    };
+    return { coords, geocodeSource: 'cached', cache: updatedCache };
+  } else {
+    const newEntry: GeoCacheEntry = {
+      unresolvable: true,
+      geocodedAt: new Date().toISOString().slice(0, 10),
+      source: 'nominatim',
+    };
+    const updatedCache: GeoCache = {
+      ...cache,
+      entries: { ...cache.entries, [key]: newEntry },
+    };
+    const error: GeocodeError = {
+      type: 'GeocodeError',
+      location,
+      source: sourceName,
+      reason: 'Nominatim returned no results',
+    };
+    return { coords: null, geocodeSource: 'none', error, cache: updatedCache };
   }
 }

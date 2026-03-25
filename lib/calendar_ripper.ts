@@ -323,7 +323,7 @@ export const main = async () => {
   }
 
   // Load geo-cache for geocoding event locations
-  const geoCache = await loadGeoCache('geo-cache.json');
+  let geoCache = await loadGeoCache('geo-cache.json');
   const geocodeErrors: GeocodeError[] = [];
 
   try {
@@ -925,8 +925,8 @@ END:VCALENDAR`;
         lng = calendar.parent.geo.lng;
         geocodeSource = 'ripper';
       } else {
-        const result = await resolveEventCoords(geoCache, event.location, sourceName,
-          () => saveGeoCache(geoCache, 'geo-cache.json'));
+        const result = await resolveEventCoords(geoCache, event.location, sourceName);
+        geoCache = result.cache;
         if (result.coords) {
           lat = result.coords.lat;
           lng = result.coords.lng;
@@ -962,8 +962,8 @@ END:VCALENDAR`;
       try {
         const externalEvents = parseExternalCalendarEvents(cachedIcs);
         for (const event of externalEvents) {
-          const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`,
-            () => saveGeoCache(geoCache, 'geo-cache.json'));
+          const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
+          geoCache = result.cache;
 
           let lat: number | undefined;
           let lng: number | undefined;

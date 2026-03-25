@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   normalizeLocationKey,
   lookupGeoCache,
@@ -92,29 +92,37 @@ describe('resolveEventCoords', () => {
 
   it('returns none for undefined location', async () => {
     const result = await resolveEventCoords(cache, undefined, 'test-source');
-    expect(result).toEqual({ coords: null, geocodeSource: 'none' });
+    expect(result.coords).toBeNull();
+    expect(result.geocodeSource).toBe('none');
+    expect(result.cache).toBe(cache); // same reference — no change
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
   it('returns none for empty location', async () => {
     const result = await resolveEventCoords(cache, '   ', 'test-source');
-    expect(result).toEqual({ coords: null, geocodeSource: 'none' });
+    expect(result.coords).toBeNull();
+    expect(result.geocodeSource).toBe('none');
+    expect(result.cache).toBe(cache); // same reference — no change
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
   it('returns cached coords without network call on hit', async () => {
     const result = await resolveEventCoords(cache, 'The Crocodile, 2505 1st Ave', 'test-source');
-    expect(result).toEqual({ coords: { lat: 47.6146, lng: -122.3474 }, geocodeSource: 'cached' });
+    expect(result.coords).toEqual({ lat: 47.6146, lng: -122.3474 });
+    expect(result.geocodeSource).toBe('cached');
+    expect(result.cache).toBe(cache); // same reference — cache hit, no mutation
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
   it('returns none without network call for unresolvable cache entry', async () => {
     const result = await resolveEventCoords(cache, 'totally unresolvable place', 'test-source');
-    expect(result).toEqual({ coords: null, geocodeSource: 'none' });
+    expect(result.coords).toBeNull();
+    expect(result.geocodeSource).toBe('none');
+    expect(result.cache).toBe(cache); // same reference — no change
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
-  it('calls geocodeLocation on cache miss and caches result', async () => {
+  it('calls geocodeLocation on cache miss and returns updated cache', async () => {
     mockFetch.mockResolvedValue({
       ok: true,
       json: async () => [{ lat: '47.6200', lon: '-122.3500' }],
@@ -125,11 +133,17 @@ describe('resolveEventCoords', () => {
     expect(result.geocodeSource).toBe('cached');
     expect(result.error).toBeUndefined();
 
-    // Should have been cached
+    // Returns a new cache object (not the same reference)
+    expect(result.cache).not.toBe(cache);
+
+    // Original cache is unmodified
+    expect(cache.entries['new venue, seattle']).toBeUndefined();
+
+    // New cache contains the entry
     const key = 'new venue, seattle';
-    expect(cache.entries[key]).toBeDefined();
-    expect(cache.entries[key].lat).toBe(47.6200);
-    expect(cache.entries[key].source).toBe('nominatim');
+    expect(result.cache.entries[key]).toBeDefined();
+    expect(result.cache.entries[key].lat).toBe(47.6200);
+    expect(result.cache.entries[key].source).toBe('nominatim');
   });
 
   it('marks as unresolvable and returns error when geocodeLocation fails', async () => {
@@ -146,7 +160,11 @@ describe('resolveEventCoords', () => {
     expect(result.error?.location).toBe('Nowhere Land');
     expect(result.error?.source).toBe('my-source');
 
-    // Should be marked unresolvable
-    expect(cache.entries['nowhere land'].unresolvable).toBe(true);
+    // Returns a new cache object with the unresolvable entry
+    expect(result.cache).not.toBe(cache);
+    expect(result.cache.entries['nowhere land'].unresolvable).toBe(true);
+
+    // Original cache is unmodified
+    expect(cache.entries['nowhere land']).toBeUndefined();
   });
 });

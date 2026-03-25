@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-25T19:37:53.522Z",
-  "totalErrors": 4,
+  "buildTime": "2026-03-25T21:27:15.443Z",
+  "totalErrors": 3,
   "configErrors": [],
   "sources": [
     {
@@ -44,14 +44,7 @@
     }
   ],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "74347 testimonials-widget type-testimonials-widget status-publish category-esf-vendors\" style=\"\">",
-      "source": "urbancraftuprising",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
@@ -486,7 +479,7 @@
     {
       "name": "lumen-field-lumen-field",
       "type": "Ripper",
-      "events": 40,
+      "events": 39,
       "expectEmpty": false
     },
     {
@@ -540,7 +533,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 49,
+      "events": 50,
       "expectEmpty": false
     },
     {
@@ -786,13 +779,13 @@
     {
       "name": "showbox-presents-the-showbox",
       "type": "Ripper",
-      "events": 68,
+      "events": 69,
       "expectEmpty": false
     },
     {
       "name": "showbox-presents-showbox-sodo",
       "type": "Ripper",
-      "events": 60,
+      "events": 59,
       "expectEmpty": false
     },
     {
@@ -990,19 +983,19 @@
     {
       "name": "stoup-brewing-ballard",
       "type": "Ripper",
-      "events": 63,
+      "events": 64,
       "expectEmpty": false
     },
     {
       "name": "stoup-brewing-capitol-hill",
       "type": "Ripper",
-      "events": 118,
+      "events": 116,
       "expectEmpty": false
     },
     {
       "name": "stoup-brewing-kenmore",
       "type": "Ripper",
-      "events": 18,
+      "events": 19,
       "expectEmpty": false
     },
     {
@@ -1014,7 +1007,7 @@
     {
       "name": "sunset-tavern-sunset-tavern",
       "type": "Ripper",
-      "events": 63,
+      "events": 64,
       "expectEmpty": false
     },
     {
@@ -1068,7 +1061,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 490,
+      "events": 492,
       "expectEmpty": false
     },
     {
@@ -1080,7 +1073,7 @@
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 480,
+      "events": 478,
       "expectEmpty": false
     },
     {
@@ -1170,7 +1163,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1960,
+      "events": 1964,
       "expectEmpty": false
     },
     {
@@ -1188,7 +1181,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 160,
+      "events": 161,
       "expectEmpty": false
     },
     {
@@ -1200,7 +1193,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2549,
+      "events": 2550,
       "expectEmpty": false
     },
     {
@@ -1236,7 +1229,7 @@
     {
       "name": "tag-sports",
       "type": "Aggregate",
-      "events": 550,
+      "events": 549,
       "expectEmpty": false
     },
     {
@@ -1266,7 +1259,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 522,
+      "events": 526,
       "expectEmpty": false
     },
     {
@@ -1338,7 +1331,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7356,
+      "events": 7361,
       "expectEmpty": false
     },
     {
@@ -1506,7 +1499,7 @@
     {
       "name": "external-worksource-north-seattle",
       "type": "External",
-      "events": 86,
+      "events": 89,
       "expectEmpty": false
     },
     {

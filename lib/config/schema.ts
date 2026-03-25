@@ -33,6 +33,12 @@ export const externalConfigSchema = z.array(externalCalendarSchema);
 export const BUILTIN_RIPPER_TYPES = ["squarespace", "ticketmaster", "axs", "eventbrite", "dice"] as const;
 export type BuiltinRipperType = typeof BUILTIN_RIPPER_TYPES[number];
 
+export const geoSchema = z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+    label: z.string().optional(),
+}).strict();
+
 export const configSchema = z.object({
     name: z.string(),
     friendlyname: z.string().optional(),
@@ -61,12 +67,13 @@ export const configSchema = z.object({
         }
         catch (e) { return false; }
     }, { message: "Must parse as valid ISO-8601 period. e.g. P1M" }).transform(p => Period.parse(p)).optional(),
+    geo: geoSchema.optional(),
 }).strict();
 
 
 export type RipperConfig = z.infer<typeof configSchema>;
 
-export type RipperError = FileParseError | InvalidDateError | ImportError | ParseError;
+export type RipperError = FileParseError | InvalidDateError | ImportError | ParseError | GeocodeError;
 type ErrorBase = { type: string, reason: string; };
 
 export type FileParseError = ErrorBase & {
@@ -87,6 +94,13 @@ export type ImportError = ErrorBase & {
 
 export type InvalidDateError = ErrorBase & {
     type: "InvalidDateError",
+};
+
+export type GeocodeError = ErrorBase & {
+    type: "GeocodeError";
+    location: string;
+    source: string;
+    reason: string;
 };
 
 

@@ -5,6 +5,10 @@ description: "Home of the Seattle Symphony, with the main S. Mark Taper Auditori
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.seattlesymphony.org/benaroyahall
 tags: ["Music", "Downtown"]
+geo:
+  lat: 47.6075
+  lng: -122.3363
+  label: "Benaroya Hall, 200 University St, Seattle, WA 98101"
 calendars:
   - name: benaroya-taper
     friendlyname: "Benaroya Hall - S. Mark Taper Auditorium"

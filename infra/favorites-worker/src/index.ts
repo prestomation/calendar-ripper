@@ -4,6 +4,7 @@ import type { Env } from './types.js'
 import { authRoutes } from './auth.js'
 import { favoritesRoutes } from './favorites.js'
 import { searchFiltersRoutes } from './search-filters.js'
+import { geoFiltersRoutes } from './geo-filters.js'
 import { feedRoutes } from './feed.js'
 
 const app = new Hono<{ Bindings: Env }>()
@@ -23,6 +24,7 @@ app.get('/health', (c) => c.json({ ok: true }))
 app.route('/auth', authRoutes)
 app.route('/favorites', favoritesRoutes)
 app.route('/search-filters', searchFiltersRoutes)
+app.route('/geo-filters', geoFiltersRoutes)
 app.route('/feed', feedRoutes)
 
 export default app

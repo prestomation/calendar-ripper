@@ -3,6 +3,10 @@ description: "Pike Place Market Events"
 url: "https://www.pikeplacemarket.org/events/"
 friendlyLink: "https://www.pikeplacemarket.org/events/"
 tags: ["Community", "Pike Place"]
+geo:
+  lat: 47.6091
+  lng: -122.3416
+  label: "Pike Place Market, 85 Pike St, Seattle, WA 98101"
 calendars:
   - name: events
     friendlyname: "Pike Place Market Events"

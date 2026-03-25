@@ -5,6 +5,10 @@ description: "Seattle Art Museum"
 url: "https://www.seattleartmuseum.org/whats-on/events"
 friendlyLink: https://www.seattleartmuseum.org/whats-on/events
 tags: ["Arts", "Museums"]
+geo:
+  lat: 47.6074
+  lng: -122.3386
+  label: "Seattle Art Museum, 1300 1st Ave, Seattle, WA 98101"
 calendars:
   - name: sam-downtown
     friendlyname: "Seattle Art Museum - Downtown"

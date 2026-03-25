@@ -1,0 +1,132 @@
+import { readFile, writeFile } from 'fs/promises';
+import type { GeocodeError } from './config/schema.js';
+
+export interface GeoCoords {
+  lat: number;
+  lng: number;
+}
+
+export interface GeoCacheEntry {
+  lat?: number;
+  lng?: number;
+  unresolvable?: boolean;
+  geocodedAt: string;
+  source: 'nominatim' | 'manual';
+}
+
+export interface GeoCache {
+  version: number;
+  entries: Record<string, GeoCacheEntry>;
+}
+
+export function normalizeLocationKey(location: string): string {
+  return location.trim().toLowerCase();
+}
+
+export async function loadGeoCache(filePath: string): Promise<GeoCache> {
+  try {
+    const raw = await readFile(filePath, 'utf-8');
+    return JSON.parse(raw) as GeoCache;
+  } catch (err: any) {
+    if (err?.code === 'ENOENT') {
+      return { version: 1, entries: {} };
+    }
+    throw err;
+  }
+}
+
+export async function saveGeoCache(cache: GeoCache, filePath: string): Promise<void> {
+  await writeFile(filePath, JSON.stringify(cache, null, 2), 'utf-8');
+}
+
+export function lookupGeoCache(cache: GeoCache, location: string): GeoCoords | null {
+  const key = normalizeLocationKey(location);
+  const entry = cache.entries[key];
+  if (!entry) return null;
+  if (entry.unresolvable) return null;
+  if (entry.lat !== undefined && entry.lng !== undefined) {
+    return { lat: entry.lat, lng: entry.lng };
+  }
+  return null;
+}
+
+export async function geocodeLocation(location: string): Promise<GeoCoords | null> {
+  const encoded = encodeURIComponent(location);
+  const url = `https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us&viewbox=-122.6,47.3,-121.9,47.8&bounded=1`;
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
+      },
+    });
+
+    if (!res.ok) {
+      return null;
+    }
+
+    const data = await res.json() as Array<{ lat: string; lon: string }>;
+    if (!Array.isArray(data) || data.length === 0) {
+      return null;
+    }
+
+    const first = data[0];
+    const lat = parseFloat(first.lat);
+    const lng = parseFloat(first.lon);
+    if (isNaN(lat) || isNaN(lng)) return null;
+
+    return { lat, lng };
+  } catch {
+    return null;
+  }
+}
+
+export async function resolveEventCoords(
+  cache: GeoCache,
+  location: string | undefined,
+  sourceName: string
+): Promise<{ coords: GeoCoords | null; geocodeSource: 'ripper' | 'cached' | 'none'; error?: GeocodeError }> {
+  if (!location || location.trim() === '') {
+    return { coords: null, geocodeSource: 'none' };
+  }
+
+  const cached = lookupGeoCache(cache, location);
+  if (cached !== null) {
+    return { coords: cached, geocodeSource: 'cached' };
+  }
+
+  const key = normalizeLocationKey(location);
+  // Check if unresolvable in cache
+  const entry = cache.entries[key];
+  if (entry?.unresolvable) {
+    return { coords: null, geocodeSource: 'none' };
+  }
+
+  // Cache miss — call Nominatim
+  // NOTE: caller is responsible for rate limiting
+  const coords = await geocodeLocation(location);
+
+  if (coords !== null) {
+    cache.entries[key] = {
+      lat: coords.lat,
+      lng: coords.lng,
+      geocodedAt: new Date().toISOString().slice(0, 10),
+      source: 'nominatim',
+    };
+    return { coords, geocodeSource: 'cached' };
+  } else {
+    // Mark as unresolvable
+    cache.entries[key] = {
+      unresolvable: true,
+      geocodedAt: new Date().toISOString().slice(0, 10),
+      source: 'nominatim',
+    };
+    const error: GeocodeError = {
+      type: 'GeocodeError',
+      location,
+      source: sourceName,
+      reason: 'Nominatim returned no results',
+    };
+    return { coords: null, geocodeSource: 'none', error };
+  }
+}

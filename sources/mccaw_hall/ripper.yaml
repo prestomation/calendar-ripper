@@ -4,6 +4,10 @@ description: "Performing arts venue at Seattle Center, home to Pacific Northwest
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.mccawhall.com
 tags: ["Arts"]
+geo:
+  lat: 47.6237
+  lng: -122.3527
+  label: "McCaw Hall, 321 Mercer St, Seattle, WA 98109"
 calendars:
   - name: mccaw-hall
     friendlyname: "McCaw Hall"

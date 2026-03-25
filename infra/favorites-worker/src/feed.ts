@@ -1,7 +1,23 @@
 import { Hono } from 'hono'
-import type { Env, FeedTokenRecord, FavoritesRecord } from './types.js'
+import type { Env, FeedTokenRecord, FavoritesRecord, EventsIndexEntry, GeoFilter } from './types.js'
 import { mergeIcsFiles } from './ics-merge.js'
 import { fetchEventsIndex, fetchAllIcs, searchEventsIndex, extractMatchingVEvents } from './event-search.js'
+
+function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371
+  const dLat = (lat2 - lat1) * Math.PI / 180
+  const dLng = (lng2 - lng1) * Math.PI / 180
+  const a = Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng / 2) ** 2
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+}
+
+function eventMatchesGeoFilters(event: EventsIndexEntry, geoFilters: GeoFilter[]): boolean {
+  if (geoFilters.length === 0) return true
+  if (event.lat == null || event.lng == null) return true // no coords = pass through
+  return geoFilters.some(f => haversineKm(f.lat, f.lng, event.lat!, event.lng!) <= f.radiusKm)
+}
 
 export const feedRoutes = new Hono<{ Bindings: Env }>()
 
@@ -25,19 +41,21 @@ feedRoutes.get('/:filename', async (c) => {
   if (favRaw) {
     try {
       const parsed = JSON.parse(favRaw)
-      favorites = { ...parsed, searchFilters: parsed.searchFilters || [] }
+      favorites = { ...parsed, searchFilters: parsed.searchFilters || [], geoFilters: parsed.geoFilters || [] }
     } catch {
-      favorites = { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+      favorites = { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
     }
   } else {
-    favorites = { icsUrls: [], searchFilters: [], updatedAt: new Date().toISOString() }
+    favorites = { icsUrls: [], searchFilters: [], geoFilters: [], updatedAt: new Date().toISOString() }
   }
 
   const searchFilters = favorites.searchFilters
+  const geoFilters = favorites.geoFilters
   const hasIcsFavorites = favorites.icsUrls.length > 0
   const hasSearchFilters = searchFilters.length > 0
+  const hasGeoFilters = geoFilters.length > 0
 
-  if (!hasIcsFavorites && !hasSearchFilters) {
+  if (!hasIcsFavorites && !hasSearchFilters && !hasGeoFilters) {
     const emptyIcs = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
@@ -76,16 +94,24 @@ feedRoutes.get('/:filename', async (c) => {
     await Promise.all(fetches)
   }
 
-  // Search for events matching search filters
+  // Search for events matching search filters and/or geo filters
   let searchMatchedVEvents: string[] = []
-  if (hasSearchFilters) {
+  if (hasSearchFilters || hasGeoFilters) {
     try {
       const [eventsIndex, allIcs] = await Promise.all([
         fetchEventsIndex(baseUrl),
         fetchAllIcs(baseUrl),
       ])
-      const matchingSummaries = searchEventsIndex(eventsIndex, searchFilters)
-      searchMatchedVEvents = extractMatchingVEvents(allIcs, matchingSummaries)
+      // Apply geo filter first, then text search
+      const geoFilteredIndex = eventsIndex.filter(e => eventMatchesGeoFilters(e, geoFilters))
+      let matchingKeys: Set<string>
+      if (hasSearchFilters) {
+        matchingKeys = searchEventsIndex(geoFilteredIndex, searchFilters)
+      } else {
+        // Geo-only: include all geo-matched events
+        matchingKeys = new Set(geoFilteredIndex.map(e => e.summary + '|' + e.date))
+      }
+      searchMatchedVEvents = extractMatchingVEvents(allIcs, matchingKeys)
     } catch {
       // If search data fetch fails, continue with just favorites
     }

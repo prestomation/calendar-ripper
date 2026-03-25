@@ -50,9 +50,14 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
   return null;
 }
 
-// Rate limit: enforce 1 req/sec for Nominatim calls. The geocoding loop in
-// calendar_ripper.ts is sequential (each resolveEventCoords call is awaited),
-// so this single variable is sufficient with no concurrency hazard.
+// Rate limit state for Nominatim API (1 req/sec required by usage policy).
+//
+// Safety note: geocodeLocation is called only from resolveEventCoords, which is
+// called sequentially in calendar_ripper.ts — each call is `await`ed before the
+// next begins (no Promise.all or concurrent fan-out). This makes lastNominatimCallTime
+// effectively single-threaded: only one call can be in-flight at a time, so reads
+// and writes to this variable are race-free. If the calling code is ever parallelized,
+// this variable must be replaced with a proper serialization queue.
 let lastNominatimCallTime = 0
 
 export async function geocodeLocation(location: string): Promise<GeoCoords | null> {

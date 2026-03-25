@@ -142,7 +142,8 @@ const resolveInFlight = new Map<string, Promise<ResolveResult>>()
 export async function resolveEventCoords(
   cache: GeoCache,
   location: string | undefined,
-  sourceName: string
+  sourceName: string,
+  onCacheUpdated?: () => Promise<void>
 ): Promise<ResolveResult> {
   if (!location || location.trim() === '') {
     return { coords: null, geocodeSource: 'none' };
@@ -177,6 +178,7 @@ export async function resolveEventCoords(
         geocodedAt: new Date().toISOString().slice(0, 10),
         source: 'nominatim',
       };
+      await onCacheUpdated?.();
       return { coords, geocodeSource: 'cached' as const };
     } else {
       // Mark as unresolvable
@@ -185,6 +187,7 @@ export async function resolveEventCoords(
         geocodedAt: new Date().toISOString().slice(0, 10),
         source: 'nominatim',
       };
+      await onCacheUpdated?.();
       const error: GeocodeError = {
         type: 'GeocodeError',
         location,

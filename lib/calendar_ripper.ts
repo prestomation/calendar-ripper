@@ -925,7 +925,8 @@ END:VCALENDAR`;
         lng = calendar.parent.geo.lng;
         geocodeSource = 'ripper';
       } else {
-        const result = await resolveEventCoords(geoCache, event.location, sourceName);
+        const result = await resolveEventCoords(geoCache, event.location, sourceName,
+          () => saveGeoCache(geoCache, 'geo-cache.json'));
         if (result.coords) {
           lat = result.coords.lat;
           lng = result.coords.lng;
@@ -961,7 +962,8 @@ END:VCALENDAR`;
       try {
         const externalEvents = parseExternalCalendarEvents(cachedIcs);
         for (const event of externalEvents) {
-          const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
+          const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`,
+            () => saveGeoCache(geoCache, 'geo-cache.json'));
 
           let lat: number | undefined;
           let lng: number | undefined;

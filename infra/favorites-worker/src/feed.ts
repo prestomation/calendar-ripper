@@ -15,7 +15,7 @@ function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): nu
 
 function eventMatchesGeoFilters(event: EventsIndexEntry, geoFilters: GeoFilter[]): boolean {
   if (geoFilters.length === 0) return true
-  if (event.lat == null || event.lng == null) return true // no coords = pass through
+  if (event.lat == null || event.lng == null) return false // no coords = exclude from geo-filtered results
   return geoFilters.some(f => haversineKm(f.lat, f.lng, event.lat!, event.lng!) <= f.radiusKm)
 }
 

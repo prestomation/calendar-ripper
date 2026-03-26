@@ -1,5 +1,5 @@
-import { useMemo } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
+import { useMemo, useEffect } from 'react'
+import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -20,6 +20,39 @@ L.Icon.Default.mergeOptions({
 
 const SEATTLE_CENTER = [47.6062, -122.3321]
 const DEFAULT_ZOOM = 12
+
+function createClusterIcon(cluster) {
+  const count = cluster.getChildCount()
+  let size, colorClass
+  if (count < 10) { size = 36; colorClass = 'cluster-small' }
+  else if (count < 50) { size = 44; colorClass = 'cluster-medium' }
+  else { size = 52; colorClass = 'cluster-large' }
+  return L.divIcon({
+    html: `<div class="cluster-icon ${colorClass}"><span>${count}</span></div>`,
+    className: '',
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+  })
+}
+
+function FitBounds({ events, geoFilters }) {
+  const map = useMap()
+  useEffect(() => {
+    const points = []
+    for (const e of events) {
+      if (e.lat && e.lng) points.push([e.lat, e.lng])
+    }
+    for (const gf of geoFilters) {
+      const kmToDeg = gf.radiusKm / 111
+      points.push([gf.lat + kmToDeg, gf.lng + kmToDeg])
+      points.push([gf.lat - kmToDeg, gf.lng - kmToDeg])
+    }
+    if (points.length > 0) {
+      map.fitBounds(points, { padding: [40, 40], maxZoom: 15 })
+    }
+  }, [events, geoFilters, map])
+  return null
+}
 
 function formatEventDate(dateStr) {
   if (!dateStr) return ''
@@ -116,8 +149,16 @@ export function EventsMap({
           </Circle>
         ))}
 
+        <FitBounds events={eventsWithDates} geoFilters={geoFilters} />
+
         {/* Event markers */}
-        <MarkerClusterGroup chunkedLoading>
+        <MarkerClusterGroup
+          chunkedLoading
+          iconCreateFunction={createClusterIcon}
+          showCoverageOnHover={true}
+          maxClusterRadius={45}
+          spiderfyOnMaxZoom={true}
+        >
           {eventsWithDates.map((event, i) => (
             <Marker key={`event-${i}-${event.summary}`} position={[event.lat, event.lng]}>
               <Popup>

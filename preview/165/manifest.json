@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-26T12:18:55.707Z",
+  "lastUpdated": "2026-03-26T12:21:24.300Z",
   "rippers": [
     {
       "name": "19hz",
@@ -459,6 +459,22 @@
             "Arts",
             "Community",
             "Central District"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NWMetalCalendar",
+      "description": "NW Metal Calendar",
+      "friendlyLink": "https://www.nocleansinging.com",
+      "calendars": [
+        {
+          "name": "NWMetal",
+          "friendlyName": "NW Metal Calendar",
+          "icsUrl": "NWMetalCalendar-NWMetal.ics",
+          "rssUrl": "NWMetalCalendar-NWMetal.rss",
+          "tags": [
+            "Music"
           ]
         }
       ]
@@ -1507,23 +1523,6 @@
             "Arts",
             "Community",
             "International District"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "NWMetalCalendar",
-      "friendlyName": "NWMetalCalendar",
-      "description": "NW Metal Calendar",
-      "friendlyLink": "https://www.nocleansinging.com",
-      "calendars": [
-        {
-          "name": "NWMetal",
-          "friendlyName": "NW Metal Calendar",
-          "icsUrl": "NWMetalCalendar-NWMetal.ics",
-          "rssUrl": "NWMetalCalendar-NWMetal.rss",
-          "tags": [
-            "Music"
           ]
         }
       ]

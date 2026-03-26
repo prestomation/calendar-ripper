@@ -1,10 +1,35 @@
 {
-  "buildTime": "2026-03-26T12:18:55.869Z",
-  "totalErrors": 0,
+  "buildTime": "2026-03-26T12:21:28.997Z",
+  "totalErrors": 4,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [],
+  "geocodeErrors": [
+    {
+      "type": "GeocodeError",
+      "location": "Neumos & Barboza",
+      "source": "NWMetalCalendar",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "The Shakedown (Bellingham)",
+      "source": "NWMetalCalendar",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "The Paramount Theatre",
+      "source": "NWMetalCalendar",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Rickshaw Theatre (Vancouver BC)",
+      "source": "NWMetalCalendar",
+      "reason": "Nominatim returned no results"
+    }
+  ],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
@@ -466,6 +491,12 @@
       "expectEmpty": false
     },
     {
+      "name": "NWMetalCalendar-NWMetal",
+      "type": "Ripper",
+      "events": 85,
+      "expectEmpty": false
+    },
+    {
       "name": "on-the-boards-all-events",
       "type": "Ripper",
       "events": 3,
@@ -486,7 +517,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 44,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -1134,7 +1165,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 154,
+      "events": 155,
       "expectEmpty": false
     },
     {
@@ -1146,7 +1177,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2612,
+      "events": 2697,
       "expectEmpty": false
     },
     {
@@ -1212,7 +1243,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 513,
+      "events": 514,
       "expectEmpty": false
     },
     {
@@ -1284,7 +1315,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7408,
+      "events": 7494,
       "expectEmpty": false
     },
     {

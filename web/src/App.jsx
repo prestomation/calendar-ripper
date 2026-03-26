@@ -436,6 +436,7 @@ function App() {
 
   // Map view toggle (for events panel)
   const [showMapView, setShowMapView] = useState(false)
+  const [showFavoritesMap, setShowFavoritesMap] = useState(false)
 
   // Auth state
   const [authUser, setAuthUser] = useState(null)
@@ -3096,7 +3097,25 @@ function App() {
                     </button>
                   )
                 })}
+                <button
+                  className={`map-toggle-btn${showFavoritesMap ? ' active' : ''}`}
+                  onClick={() => setShowFavoritesMap(v => !v)}
+                  title={showFavoritesMap ? 'Hide map' : 'Show map'}
+                >
+                  🗺️ Map
+                </button>
               </div>
+            )}
+
+            {showFavoritesMap && (
+              <EventsMap
+                eventsIndex={favoritesEvents}
+                geoFilters={geoFilters}
+                eventAttributions={eventAttributions}
+                calendarNameByIcsUrl={calendarNameByIcsUrl}
+                selectedTag={selectedTag}
+                calendarTagsByIcsUrl={calendarTagsByIcsUrl}
+              />
             )}
 
             {favoritesEvents.length > 0 ? (

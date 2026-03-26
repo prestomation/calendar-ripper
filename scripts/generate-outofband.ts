@@ -21,7 +21,7 @@ import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.
 import { nodriverFetch } from "../lib/config/proxy-fetch.js";
 import { mkdir, writeFile, readFile } from "fs/promises";
 import { createReadStream } from "fs";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 import { join } from "path";
 
 const BUCKET = process.env.OUTOFBAND_BUCKET ?? "calendar-ripper-outofband-220483515252";
@@ -55,6 +55,24 @@ async function main() {
     }
 
     await mkdir("output", { recursive: true });
+
+    // Download the latest geo-cache from S3 before processing so we start with
+    // the most up-to-date resolved locations (main build may have added entries
+    // since the last outofband run).
+    const s3 = new S3Client({ region: REGION });
+    try {
+        const response = await s3.send(new GetObjectCommand({
+            Bucket: BUCKET,
+            Key: `${PREFIX}geo-cache.json`,
+        }));
+        const body = await response.Body?.transformToString();
+        if (body) {
+            await writeFile("geo-cache.json", body, "utf-8");
+            console.log("Downloaded geo-cache from S3");
+        }
+    } catch {
+        console.log("S3 geo-cache not available, using local file");
+    }
 
     // Load the shared geo-cache so outofband sources benefit from previously
     // resolved locations and contribute new lookups back to the cache.
@@ -221,7 +239,6 @@ async function main() {
 
     // Upload to S3
     console.log(`\nUploading to s3://${BUCKET}/${PREFIX}...`);
-    const s3 = new S3Client({ region: REGION });
 
     // Upload all .ics files
     for (const filePath of writtenFiles) {

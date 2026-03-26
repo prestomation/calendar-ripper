@@ -27,33 +27,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Restore geo-cache (GH Actions cache)
-      id: restore-geo-cache
-      uses: actions/cache/restore@v4
-      with:
-        path: geo-cache.json
-        key: geo-cache-${{ runner.os }}-${{ hashFiles('geo-cache.json') }}
-        restore-keys: |
-          geo-cache-${{ runner.os }}-
-
-    - name: Configure AWS credentials (for geo-cache S3 fallback)
-      if: steps.restore-geo-cache.outputs.cache-hit != 'true'
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-        aws-region: us-west-2
-      continue-on-error: true
-
-    - name: Restore geo-cache (S3 fallback)
-      if: steps.restore-geo-cache.outputs.cache-hit != 'true'
-      env:
-        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
-      run: |
-        aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" geo-cache.json \
-          && echo "Restored geo-cache from S3" \
-          || echo "S3 geo-cache not available, starting fresh"
-      continue-on-error: true
-
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
       with:
@@ -71,6 +44,15 @@ jobs:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
         aws-region: us-west-2
       continue-on-error: true  # Gracefully skip if secrets aren't configured
+
+    - name: Download geo-cache from S3
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: |
+        aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" geo-cache.json \
+          && echo "geo-cache restored from S3 ($(jq '.entries | length' geo-cache.json) entries)" \
+          || echo "S3 geo-cache not available, using committed baseline"
+      continue-on-error: true
 
     - name: Download out-of-band calendars
       env:
@@ -97,12 +79,15 @@ jobs:
           echo "${delimiter}"
         } >> "$GITHUB_OUTPUT"
 
-    - name: Save geo-cache
+    - name: Upload geo-cache to S3
       if: always()
-      uses: actions/cache/save@v4
-      with:
-        path: geo-cache.json
-        key: geo-cache-${{ runner.os }}-${{ hashFiles('geo-cache.json') }}
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: |
+        aws s3 cp geo-cache.json "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" \
+          && echo "geo-cache uploaded to S3 ($(jq '.entries | length' geo-cache.json) entries)" \
+          || echo "S3 upload failed (credentials not configured?)"
+      continue-on-error: true
 
     - name: Build web interface
       run: npm run web:build

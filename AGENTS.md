@@ -289,11 +289,12 @@ Don't mention APIs, scraping methods, or other implementation details.
 - **Per-event geocoding** — For sources with variable event locations (e.g., community calendars), each `event.location` string is looked up via Nominatim and cached here. Cache entries include `lat`, `lng`, `geocodedAt`, and `source: "nominatim"`. Unresolvable locations are stored with `unresolvable: true` so they are not retried.
 - **Out-of-band** — `scripts/generate-outofband.ts` loads and saves `geo-cache.json` the same way as the main build, and also uploads it to S3 (`latest/geo-cache.json`) so the main GH Actions build can fall back to it if the GH Actions cache is cold.
 
-### GH Actions cache strategy
+### Cache strategy (S3 as source of truth)
 
-1. **GH Actions cache** (primary) — restored and saved on every build. 7-day TTL.
-2. **S3 fallback** (secondary) — downloaded from `$OUTOFBAND_BUCKET/latest/geo-cache.json` only when the GH Actions cache misses.
-3. **Committed file** (baseline) — the version committed to the repo is the starting point for a cold start with no cache available.
+S3 is the single live store for `geo-cache.json`. The build and outofband scripts both download from S3 at start and upload back on completion.
+
+1. **S3** (`$OUTOFBAND_BUCKET/latest/geo-cache.json`) — primary, always used. Both the main build (`build-calendars.yml`) and `generate-outofband.ts` download the latest cache before running and upload the updated cache when done.
+2. **Committed file** — cold-start baseline only. Used when S3 is unreachable or credentials aren't configured (e.g. fork PRs). Never written to automatically — only updated via manual PR.
 
 ### Manually fixing or adding entries
 

@@ -1,53 +1,10 @@
 {
-  "buildTime": "2026-03-26T12:08:37.232Z",
-  "totalErrors": 7,
+  "buildTime": "2026-03-26T12:11:24.724Z",
+  "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "Central Library, Piso 8 - Sala de reuniones",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Central Library, &#193;rea para ni&#241;os",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Green Lake Branch, Meeting Room",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Magnolia Branch, Meeting Room",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "South Park Branch, Meeting Room",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "29457 testimonials-widget type-testimonials-widget status-publish category-esf-vendors\" style=\"\">",
-      "source": "urbancraftuprising",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Jack Sprat\\, 2808 Calder Ave NE on\\, NE Turing St\\, Redmond\\, WA 9",
-      "source": "external-the-urbanist",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",

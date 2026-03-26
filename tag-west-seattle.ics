@@ -6,10 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:West Seattle Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:u9wekZi7JKBUzCb2FTkBi
+UID:MYcsV4BCnjqmItiPq-1xX
 SUMMARY:Trivia Night @ Alki   
-DTSTAMP:20260325T212650Z
-DTSTART;TZID=America/Los_Angeles:20260325T193000
+DTSTAMP:20260326T011003Z
+DTSTART;TZID=America/Los_Angeles:20260329T100000
 DESCRIPTION:Teams up to 6 people welcome and free to play with prizes for t
 	he top 2 teams.\n\nhttps://www.futureprimitivebeer.com/events/2025/10/29/t
 	rivia-night-alki-cclnt-gjeww-acte8-bm2nl-hla7k-3bbhh-wapjx\n\nFrom Future 
@@ -23,10 +23,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:TINACzUVDL3pmFwjPM_Fk
+UID:Av6jRR2vgNVcT9P373Bmz
 SUMMARY:Trivia Night @ Alki   
-DTSTAMP:20260325T212650Z
-DTSTART;TZID=America/Los_Angeles:20260329T100000
+DTSTAMP:20260326T011003Z
+DTSTART;TZID=America/Los_Angeles:20260401T193000
 DESCRIPTION:Teams up to 6 people welcome and free to play with prizes for t
 	he top 2 teams.\n\nhttps://www.futureprimitivebeer.com/events/2025/10/29/t
 	rivia-night-alki-cclnt-gjeww-acte8-bm2nl-hla7k-3bbhh-wapjx-3t5we\n\nFrom F
@@ -40,9 +40,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:7bmHr1c5dF1CwAAN8vqHs
+UID:Lcjbt9q0VhTxTQrVvmL-t
 SUMMARY:Trivia Night @ Alki   
-DTSTAMP:20260325T212650Z
+DTSTAMP:20260326T011003Z
 DTSTART;TZID=America/Los_Angeles:20260409T180000
 DESCRIPTION:Teams up to 6 people welcome and free to play with prizes for t
 	he top 2 teams.\n\nhttps://www.futureprimitivebeer.com/events/2025/10/29/t
@@ -57,25 +57,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:pn1i0rEbVkQqqphE5J_9y
-SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260325T212650Z
-DTSTART:20260326T023000Z
-DESCRIPTION:Weekly open mic with full backline provided and 16-track record
-	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
-	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
-URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
-LOCATION:3803 Delridge Way SW\, Seattle
-X-CALRIPPER-SOURCE:skylark-cafe-open-mic
-CATEGORIES:Skylark Cafe — Wednesday Open Mic
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT3H30M
-END:VEVENT
-BEGIN:VEVENT
-UID:uSErRAkSVw-6eedQFETRK
+UID:J-iX6enDv56H0Tpae_Kln
 SUMMARY:Preschool Story Time
-DTSTAMP:20260325T212650Z
+DTSTAMP:20260326T011003Z
 DTSTART:20260326T173000Z
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
@@ -90,9 +74,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:ybUpKYzLG891dUywRked1
+UID:hikDCNBHTdj-kTJUPLJyl
 SUMMARY:West Seattle Farmers Market
-DTSTAMP:20260325T212650Z
+DTSTAMP:20260326T011003Z
 DTSTART:20260329T170000Z
 DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
 	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
@@ -106,9 +90,25 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:VN52WK_XtDlaTOSLrbqEE
+UID:iZiPWc9fKmQT34AEOvg1P
+SUMMARY:Skylark Cafe — Wednesday Open Mic
+DTSTAMP:20260326T011003Z
+DTSTART:20260402T023000Z
+DESCRIPTION:Weekly open mic with full backline provided and 16-track record
+	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
+	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
+URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
+LOCATION:3803 Delridge Way SW\, Seattle
+X-CALRIPPER-SOURCE:skylark-cafe-open-mic
+CATEGORIES:Skylark Cafe — Wednesday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT3H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:11twf24hvalffxUKa2G6z
 SUMMARY:Preschool Story Time
-DTSTAMP:20260325T212650Z
+DTSTAMP:20260326T011003Z
 DTSTART:20260402T173000Z
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
@@ -123,9 +123,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:I_dzoxCMkRztqsbU2-vvq
+UID:UkIksbI_3_AxxpcwvuMOh
 SUMMARY:West Seattle Art Walk
-DTSTAMP:20260325T212650Z
+DTSTAMP:20260326T011003Z
 DTSTART:20260410T010000Z
 DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
 	om West Seattle Art Walk

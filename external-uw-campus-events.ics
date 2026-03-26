@@ -1,5 +1,5 @@
 BEGIN:VCALENDAR
-PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25519//EN
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25525//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 X-WR-CALNAME:UW Seattle Campus Events
@@ -235,132 +235,6 @@ CATEGORIES:Dates of Instruction
 UID:http://uid.trumba.com/event/177511988
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d177511988
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:UW Surplus Online Store
-LOCATION:Plant Services Building (PSB)
-DTSTART;TZID=America/Los_Angeles:20260325T100000
-DTEND;TZID=America/Los_Angeles:20260325T160000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:www.uwsurplus.com
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
- gle day event
-X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Pl
- ant Services Building (PSB)
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:surplus@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
- l Events
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
- mba.com/i/DgC3X0uYFbXRrdx9VlsgQlOB.jpg
-X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:https://www.faceb
- ook.com/uwsurplus
-X-TRUMBA-CUSTOMFIELD;NAME="Twitter";ID=30203;TYPE=SingleLine:https://twi
- tter.com/UWSurplus
-DTSTAMP:20240331T054418Z
-DESCRIPTION:Event interval: Single day event\nCampus location: Plant Ser
- vices Building (PSB)\nAccessibility Contact: surplus@uw.edu\nEvent Types
- : Special Events\nFacebook: https://www.facebook.com/uwsurplus\nTwitter:
-  https://twitter.com/UWSurplus\nLink: www.uwsurplus.com\n\nIf you can't 
- make it for the Tuesday Public Store: \nhttps://facilities.uw.edu/uw-sur
- plus/store\, UW Surplus has you covered! Our online storefront: \nhttps:
- //facilities.uw.edu/uw-surplus/store/online-storefront features selected
-  items added at 10:00 a.m. every Wednesday. Simply purchase online and p
- ick up within a week - it couldn't be easier!\n\nWhile the best selectio
- n will remain available on Tuesdays\, we're trying to empower more peopl
- e to shop sustainably for furniture\, office essentials\, and more.\n\nU
- W Surplus takes all unwanted items from all UW departments and medical f
- acilities. Our objective is to reuse\, repurpose\, or recycle as many it
- ems as possible to lessen the University’s climate impact on both purcha
- sing and disposal. Items are resold through a retail store and online au
- ctions. We receive new inventory every day\, so our stock is always chan
- ging. If you'd like to get a preview of new items\, you can sign up for 
- our newsletter: \nhttps://facilities.uw.edu/uw-surplus/newsletter-signup
- .
-CATEGORIES:UW Seattle Campus Events
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgC3X0uYFbXRrdx9VlsgQlOB.jpg
-UID:http://uid.trumba.com/event/173941154
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d173941154
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Teaching Technologies Office Hours
-LOCATION:On Zoom
-DTSTART;TZID=America/Los_Angeles:20260325T140000
-DTEND;TZID=America/Los_Angeles:20260325T150000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
- oing event
-X-TRUMBA-CUSTOMFIELD;NAME="Online Meeting Link";ID=54756;TYPE=Url:https:
- //washington.zoom.us/j/95563909728
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:jkulstad@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Worksh
- ops
-X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Le
- arning Technologies
-DTSTAMP:20250520T114938Z
-DESCRIPTION:Event interval: Ongoing event\nOnline Meeting Link: https://
- washington.zoom.us/j/95563909728\nAccessibility Contact: jkulstad@uw.edu
- \nEvent Types: Workshops\nEvent sponsors: UW Learning Technologies\n&nbs
- p\;\n\nBring your questions about using Canvas\, Panopto\, and Zoom to t
- each at UW and get answers to your technical and pedagogical questions v
- ia Zoom.
-CATEGORIES:UW Seattle Campus Events
-UID:http://uid.trumba.com/event/183381411
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d183381411
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:HPC Office Hours - Virtual
-DTSTART;TZID=America/Los_Angeles:20260325T140000
-DTEND;TZID=America/Los_Angeles:20260325T150000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:https://washington.zoom.us/meeting/register/tJMpce6vrz8sEtR5miKvhsQi
- XANt6lBORFTu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
- gle day event
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:finchkn@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
- ics\,Information Sessions
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
- mba.com/i/DgAtECjopFx-gA80d3Tnbb2k.jpg
-X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UWIT 
- Research Computing: \nhttps://it.uw.edu/guides/research/\neScience Insti
- tute: \nhttps://escience.washington.edu/
-DTSTAMP:20260130T155748Z
-DESCRIPTION:Event interval: Single day event\nAccessibility Contact: fin
- chkn@uw.edu\nEvent Types: Academics\,Information Sessions\nEvent sponsor
- s: <a href="https://it.uw.edu/guides/research/" target="_blank">UWIT Res
- earch Computing</a><br /><a href="https://escience.washington.edu/" targ
- et="_blank">eScience Institute</a>\nLink: https://washington.zoom.us/mee
- ting/register/tJMpce6vrz8sEtR5miKvhsQiXANt6lBORFTu\n\nNeed support with 
- your High Performance Computing (HPC) project? Attend HPC office hours a
- nd have your questions about the University of Washington's Supercompute
- r Hyak and GPU system Tillicum answered by an HPC expert. Attendees need
-  only register once and can attend any of the occurrences with the Zoom 
- link that will arrive via email. Click here to Register for Zoom Office 
- Hours.: \nhttps://washington.zoom.us/meeting/register/tJMpce6vrz8sEtR5mi
- KvhsQiXANt6lBORFTu\n\nWe can help with: \n	 - HPC access for your resear
- ch	\n - Building software containers for your research	\n - Installing s
- oftware packages on our systems	\n - Optimizing your workflows 	\n - Mas
- tering the job scheduler\, Slurm	\n - Using GPUs	\n - Python and Jupyter
-  environments	\n - ...and more\nSelf help and more information: Be sure 
- to checkout our documentation: https://hyak.uw.edu/docs with includes st
- ep-by-step guides and tutorials\, and our training video library: https:
- //hyak.uw.edu/learn.
-CATEGORIES:UW Seattle Campus Events
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgAtECjopFx-gA80d3Tnbb2k.jpg
-UID:http://uid.trumba.com/event/181783474
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d181783474
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:CANCELLED - Botanical Fiber Art Workshop: Upcycle Your Tote Bag 
@@ -6356,7 +6230,8 @@ X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d192808613
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Sand Point Open Studios
+SUMMARY:Sand Point Open Studios + Rebecca Shippee's "Bare Assets" Openin
+ g
 LOCATION:7527 63rd Ave NE Seattle\, WA 98115
 DTSTART;TZID=America/Los_Angeles:20260410T170000
 DTEND;TZID=America/Los_Angeles:20260410T190000
@@ -6369,24 +6244,32 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:galenic@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
  l Events
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
+ mba.com/i/DgAo3bH4qd0-jRpHcWKcKAHW.jpg
 X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Paint
  ing + Drawing + Printmaking Program\, Division of Art
-DTSTAMP:20260220T144321Z
+DTSTAMP:20260325T151126Z
 DESCRIPTION:Event interval: Single day event\nAccessibility Contact: gal
  enic@uw.edu\nEvent Types: Special Events\nEvent sponsors: Painting + Dra
  wing + Printmaking Program\, Division of Art\n\nPlease join us for this 
  unique opportunity to visit the private studios of the Painting + Drawin
  g MFA students and Division of Art faculty at the School's Sand Point fa
- cilities. We will also be celebrating the opening of Rebecca Shippee: \n
- https://www.rebeccashippee.net/’s show in the Sand Point Gallery. \n\nEv
- eryone is welcome! Students\, alumni and the general public are invited 
- for an evening of conversation\, interaction\, and art. RSVP is encourge
- d but not required. \n\nThe Sand Point Studios + Gallery is located on t
- he second floor of Building 5\, Bay C at 7527 63rd Ave NE\, Seattle\, WA
-  98115: \nhttp://maps.google.com/?q=47.684016\,-122.261917(Exhibit+Recep
- tion+-+Human%2c+Being). Please use the entrance on the east side of the 
- building on 63rd Ave. An elevator is available for wheelchair access.
+ cilities.\n\nWe will also be celebrating the opening of Rebecca Shippee:
+  \nhttps://www.rebeccashippee.net/’s show "Bare Assets" in the Sand Poin
+ t Gallery. As part of her full-time teaching position in the Painting + 
+ Drawing + Printmaking program\, Shippee's solo exhibition will feature o
+ ne 45-foot oil painting. This work was made specifically for the archite
+ cture of the gallery\; the three structural steel pillars in the space w
+ ill serve as supports for the piece. \n\nStudents\, alumni and the gener
+ al public are invited for an evening of conversation\, interaction\, and
+  art. RSVP is encourged but not required. Everyone is welcome!\n\nThe Sa
+ nd Point Studios + Gallery is located on the second floor of Building 5
+ \, Bay C at 7527 63rd Ave NE\, Seattle\, WA 98115: \nhttp://maps.google.c
+ om/?q=47.684016\,-122.261917(Exhibit+Reception+-+Human%2c+Being). Please
+  use the entrance on the east side of the building on 63rd Ave. An eleva
+ tor is available for wheelchair access.
 CATEGORIES:UW Seattle Campus Events
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgAo3bH4qd0-jRpHcWKcKAHW.jpg
 UID:http://uid.trumba.com/event/197278349
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d197278349
@@ -13947,7 +13830,7 @@ X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Annual UW Global "Community Celebration"
-LOCATION:UW Club\, 4020 E. Stevens Way NE\, Seattle
+LOCATION:UW Club\, 4020  E. Stevens Way NE\, Seattle
 DTSTART;TZID=America/Los_Angeles:20260505T150000
 DTEND;TZID=America/Los_Angeles:20260505T170000
 X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
@@ -13959,34 +13842,31 @@ X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:UW Club
 X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:Maddie MacMath
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
- ics\,Meetings
+ ics\,Information Sessions\,Meetings
 X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
- mba.com/i/DgA0uRDQmiKM6B3IWQT6rSN7.jpg
-X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Gl
- obal
+ mba.com/i/DgBrXOrpA9xm2gpeA52V%2AXJ8.jpg
 X-TRUMBA-CUSTOMFIELD;NAME="Target Audience";ID=42285;TYPE=SingleLine:UW 
  faculty
-DTSTAMP:20260320T161029Z
+DTSTAMP:20260325T150756Z
 DESCRIPTION:Event interval: Single day event\nCampus room: UW Club\nAcce
- ssibility Contact: Maddie MacMath\nEvent Types: Academics\,Meetings\nEve
- nt sponsors: UW Global\nTarget Audience: UW faculty\n\nAn annual gatheri
- ng of UW faculty\, staff\, and friends to announce the winner of the Exc
- ellence in Global Engagement Award\, recognize the nominees\, and celebr
- ate the work of globally-engaged faculty and staff at the UW. \n\nThis i
- s a welcoming and conversational space to meet colleagues\, share food a
- nd drink\, and connect around the many ways global perspectives show up 
- in our teaching\, research\, and engagement. Whether your work involves 
- international research\, global learning\, study abroad\, visiting schol
- ars\, or exploring global issues locally\, this is a place to get to kno
- w one another\, exchange ideas\, and build community.\n\nLight food/snac
- ks and beverages will be provided. Please RSVP by April 21 to help us pl
- an\, but you are welcome to stop by even if you decide at the last minut
- e.
+ ssibility Contact: Maddie MacMath\nEvent Types: Academics\,Information S
+ essions\,Meetings\nTarget Audience: UW faculty\n\nAn annual gathering of
+  UW faculty\, staff\, and friends to announce the winner of the Excellen
+ ce in Global Engagement Award\, recognize the nominees\, and celebrate t
+ he work of globally-engaged faculty and staff at the UW. \n\nThis is a w
+ elcoming and conversational space to meet colleagues\, share food and dr
+ ink\, and connect around the many ways global perspectives show up in ou
+ r teaching\, research\, and engagement. Whether your work involves inter
+ national research\, global learning\, study abroad\, visiting scholars\,
+  or exploring global issues locally\, this is a place to get to know one
+  another\, exchange ideas\, and build community.\n\nLight food/snacks an
+ d beverages will be provided. Please RSVP by April 21 to help us plan\, 
+ but you are welcome to stop by even if you decide at the last minute.
 CATEGORIES:UW Seattle Campus Events
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgA0uRDQmiKM6B3IWQT6rSN7.jpg
-UID:http://uid.trumba.com/event/196811465
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgBrXOrpA9xm2gpeA52V%2AXJ8.jpg
+UID:http://uid.trumba.com/event/199505916
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d196811465
+ ent%26eventid%3d199505916
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Capturing Grace
@@ -25604,6 +25484,46 @@ X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d181783485
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:GWSS Graduation Celebration
+LOCATION:Student Union Building (HUB)
+DTSTART;TZID=America/Los_Angeles:20260610T170000
+DTEND;TZID=America/Los_Angeles:20260610T190000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:St
+ udent Union Building (HUB)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Lyceum
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:gwss@uw.edu
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Ceremo
+ nies\,Special Events\,Student Activities
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
+ mba.com/i/DgCchiv9sPEY2%2AUa2BQfPsTf.jpg
+DTSTAMP:20260325T143336Z
+DESCRIPTION:Event interval: Single day event\nCampus location: Student U
+ nion Building (HUB)\nCampus room: Lyceum\nAccessibility Contact: gwss@uw
+ .edu\nEvent Types: Ceremonies\,Special Events\,Student Activities\n\nThe
+  University of Washington Department of Gender\, Women & Sexuality Studi
+ es invites you to join us to celebrate our graduates of the 2025-2026 sc
+ hool year! We will honor the accomplishments of our wonderful graduates 
+ with presentations by students and faculty.  \n \n----------------------
+ ----------------------------------------------------------\n\nThe Univer
+ sity of Washington is committed to providing access\, equal opportunity 
+ and reasonable accommodation in its services\, programs\, activities\, e
+ ducation and employment for individuals with disabilities. To request di
+ sability accommodation contact the Disability Services Office at least t
+ en days in advance at: 206.543.6450/V\, 206.543.6452/TTY\, 206.685.7264 
+ (FAX)\, or e-mail at dso@u.washington.edu
+CATEGORIES:UW Seattle Campus Events
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgCchiv9sPEY2%2AUa2BQfPsTf.jpg
+UID:http://uid.trumba.com/event/199502399
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d199502399
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Botanical Fiber Art Workshop: Cactus Embroidery Basics (in-perso
  n)
 LOCATION:Center for Urban Horticulture Complex (CUH)
@@ -28348,6 +28268,36 @@ X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d175832448
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Teaching Technologies Office Hours
+LOCATION:On Zoom
+DTSTART;TZID=America/Los_Angeles:20260625T140000
+DTEND;TZID=America/Los_Angeles:20260625T150000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Online Meeting Link";ID=54756;TYPE=Url:https:
+ //washington.zoom.us/j/95563909728
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:jkulstad@uw.edu
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Worksh
+ ops
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Le
+ arning Technologies
+DTSTAMP:20250520T114938Z
+DESCRIPTION:Event interval: Ongoing event\nOnline Meeting Link: https://
+ washington.zoom.us/j/95563909728\nAccessibility Contact: jkulstad@uw.edu
+ \nEvent Types: Workshops\nEvent sponsors: UW Learning Technologies\n&nbs
+ p\;\n\nBring your questions about using Canvas\, Panopto\, and Zoom to t
+ each at UW and get answers to your technical and pedagogical questions v
+ ia Zoom.
+CATEGORIES:UW Seattle Campus Events
+UID:http://uid.trumba.com/event/183381477
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d183381477
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:HPC Office Hours - In-person
 LOCATION:Physics-Astronomy Tower (PAT)
 DTSTART;TZID=America/Los_Angeles:20260625T140000
@@ -28393,5 +28343,37 @@ IMAGE;VALUE=URI:https://www.trumba.com/i/DgAwHywhju1UTFfCcZ4JzIq8.jpg
 UID:http://uid.trumba.com/event/189395480
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d189395480
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Daily 15 Minute Movement Break - Yoga and Fitness
+DTSTART;TZID=America/Los_Angeles:20260626T110000
+DTEND;TZID=America/Los_Angeles:20260626T111500
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://wholeu.admin.washington.edu/uwnetid/twuext/EventDetail.aspx?
+ regid=&eventid=1160&eventsessionid=
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:murphyh4@uw.edu
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
+ ecified
+DTSTAMP:20260315T022739Z
+DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: murphy
+ h4@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washin
+ gton.edu/uwnetid/twuext/EventDetail.aspx?regid=&eventid=1160&eventsessio
+ nid=\n\nThese mini movement sessions are great for re-energizing your da
+ y. Sessions are open to all levels and will include a mix of strength tr
+ aining\, yoga\, and cardio.\n\nJoin daily or when you can:\n	 - Mondays 
+ - 15-minute fitness and strength break	\n - Tuesdays - 15-minute yoga br
+ eak	\n - Wednesday - Thursday - 15-minute fitness and strength break 	\n
+  - Fridays - 15-minute guided dance break\nJoin in to start your work st
+ rong! No equipment needed. You may want a towel or yoga mat for laying o
+ n the floor.\n\nLearn more and register on The Whole U website.
+CATEGORIES:UW Seattle Campus Events
+UID:http://uid.trumba.com/event/175832449
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d175832449
 END:VEVENT
 END:VCALENDAR

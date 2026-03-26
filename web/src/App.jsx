@@ -1590,12 +1590,12 @@ function App() {
         }
       }
     }
-  }, [searchFilters, selectedTag, favoritesViewMode, geoFilters])
+  }, [searchFilters, selectedTag, geoFilters])
 
   // Compute events for the favorites view
   const favoritesEvents = useMemo(() => {
     if (!eventsIndex.length || selectedTag !== '__favorites__') return []
-    if (!favorites.length && !searchFilters.length) return []
+    if (!favorites.length && !searchFilters.length && !geoFilters.length) return []
 
     const now = new Date()
     const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())

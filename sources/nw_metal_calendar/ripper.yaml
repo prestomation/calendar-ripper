@@ -2,6 +2,7 @@ name: NWMetalCalendar
 description: NW Metal Calendar
 url: https://www.nocleansinging.com/nw-metal-calendar/
 friendlyLink: https://www.nocleansinging.com
+proxy: "outofband" # nocleansinging.com returns 403 from GitHub runner IPs
 tags: ["Music"]
 calendars:
   - name: NWMetal

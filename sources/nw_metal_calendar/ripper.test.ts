@@ -59,6 +59,18 @@ const expectedEvents = [
         "location": "Showbox"
     },
     {
+        "summary": "[NWMetal] Death To All, Cryptopsy",
+        "date": `${currentYear}-06-15T19:00-07:00[America/Los_Angeles]`,
+        "duration": "PT4H",
+        "location": "The Crocodile"
+    },
+    {
+        "summary": "[NWMetal] Death To All, Cryptopsy",
+        "date": `${currentYear}-06-16T19:00-07:00[America/Los_Angeles]`,
+        "duration": "PT4H",
+        "location": "The Crocodile"
+    },
+    {
         "summary": "[NWMetal] Exhumed, Skeletal Remains, Morbikon",
         "date": `${currentYear}-06-16T19:00-07:00[America/Los_Angeles]`,
         "duration": "PT4H",

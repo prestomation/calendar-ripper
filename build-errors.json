@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-26T01:10:55.389Z",
-  "totalErrors": 19,
+  "buildTime": "2026-03-26T02:28:08.433Z",
+  "totalErrors": 4,
   "configErrors": [],
   "sources": [
     {
@@ -47,98 +47,8 @@
   "geocodeErrors": [
     {
       "type": "GeocodeError",
-      "location": "The Mortuary",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Captain Black's",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Culture Yard",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Virtual Meeting, South Lake Union, Seattle, WA",
-      "source": "discover-slu",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Blakely Hall and Village Green Park, 2550 NE Park Dr, Issaquah, WA",
+      "location": "Book-It Repertory Theatre, 305 Harrison Street, Seattle, WA",
       "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Catbird, 2326 Northeast University Village Street, Suite 7, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": " ISSAQUAH COMMONS, 705-975 NW Gilman Blvd, Issaquah, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "SCERA, 625 S. 4th Street, Renton, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Leo K. Theater, 155 Mercer St., Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Chamber Office, 3100 S 176th St, SeaTac, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "High School Trail, Southeast Evans Street, Issaquah, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "blosm studio wedgwood, 8050 35th Ave NE, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Magnuson Park Building 30Lower Conference Room, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "The Fauntleroy Schoolhouse, 9131 California Avenue SW, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "74345 testimonials-widget type-testimonials-widget status-publish category-esf-vendors\" style=\"\">",
-      "source": "urbancraftuprising",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "UW Club\\, 4020  E. Stevens Way NE\\, Seattle",
-      "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
     }
   ],
@@ -582,7 +492,7 @@
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 88,
+      "events": 85,
       "expectEmpty": false
     },
     {
@@ -630,7 +540,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 44,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -672,7 +582,7 @@
     {
       "name": "seatoday-seatoday-arts",
       "type": "Ripper",
-      "events": 153,
+      "events": 154,
       "expectEmpty": false
     },
     {
@@ -690,7 +600,7 @@
     {
       "name": "seatoday-seatoday-learning",
       "type": "Ripper",
-      "events": 80,
+      "events": 81,
       "expectEmpty": false
     },
     {
@@ -1158,7 +1068,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 489,
+      "events": 486,
       "expectEmpty": false
     },
     {
@@ -1278,7 +1188,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 154,
+      "events": 155,
       "expectEmpty": false
     },
     {
@@ -1290,7 +1200,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2615,
+      "events": 2616,
       "expectEmpty": false
     },
     {
@@ -1356,25 +1266,25 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 515,
+      "events": 517,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1030,
+      "events": 1032,
       "expectEmpty": false
     },
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 395,
+      "events": 392,
       "expectEmpty": false
     },
     {
       "name": "tag-art",
       "type": "Aggregate",
-      "events": 160,
+      "events": 161,
       "expectEmpty": false
     },
     {

@@ -108,6 +108,14 @@ jobs:
           echo "GitHub Pages not configured or not accessible, skipping URL check"
         fi
 
+    - name: Upload geo-cache artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: geo-cache
+        path: geo-cache.json
+        retention-days: 90
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:

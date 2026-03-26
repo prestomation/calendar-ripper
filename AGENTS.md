@@ -279,6 +279,49 @@ The `description` field in `ripper.yaml` is used as the `<h2>` section heading o
 
 Don't mention APIs, scraping methods, or other implementation details.
 
+## Geo-Cache (`geo-cache.json`)
+
+`geo-cache.json` is committed to the repository and stores resolved geographic coordinates for event locations. It is the source of truth for geocoding and is used by both the main calendar build and the out-of-band ripper.
+
+### How it works
+
+- **Venue-level coords** — Sources with a fixed address set `geo: { lat, lng }` in `ripper.yaml`. These are applied to all events for that source without any network call.
+- **Per-event geocoding** — For sources with variable event locations (e.g., community calendars), each `event.location` string is looked up via Nominatim and cached here. Cache entries include `lat`, `lng`, `geocodedAt`, and `source: "nominatim"`. Unresolvable locations are stored with `unresolvable: true` so they are not retried.
+- **Out-of-band** — `scripts/generate-outofband.ts` loads and saves `geo-cache.json` the same way as the main build, and also uploads it to S3 (`latest/geo-cache.json`) so the main GH Actions build can fall back to it if the GH Actions cache is cold.
+
+### GH Actions cache strategy
+
+1. **GH Actions cache** (primary) — restored and saved on every build. 7-day TTL.
+2. **S3 fallback** (secondary) — downloaded from `$OUTOFBAND_BUCKET/latest/geo-cache.json` only when the GH Actions cache misses.
+3. **Committed file** (baseline) — the version committed to the repo is the starting point for a cold start with no cache available.
+
+### Manually fixing or adding entries
+
+To fix a bad geocode result or manually add a location, edit `geo-cache.json` directly:
+
+```json
+{
+  "version": 1,
+  "entries": {
+    "123 main st, seattle, wa": {
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "geocodedAt": "2026-03-26",
+      "source": "nominatim"
+    },
+    "some unresolvable place": {
+      "unresolvable": true,
+      "geocodedAt": "2026-03-26",
+      "source": "nominatim"
+    }
+  }
+}
+```
+
+Keys are the **lowercased, trimmed** location string (matching what `normalizeLocationKey()` in `lib/geocoder.ts` produces). After editing, commit the file and open a PR — the change will take effect on the next build.
+
+To mark a previously-unresolvable location as now-valid, simply delete its entry so it will be re-tried, or set the correct `lat`/`lng` and remove `unresolvable`.
+
 ## Build Errors JSON
 
 Every build writes `output/build-errors.json` with a consolidated report of all errors that occurred during calendar generation. This file is deployed alongside the website artifacts, so it can be read programmatically after a PR preview without needing access to the build logs.

@@ -30,7 +30,11 @@ export abstract class HTMLRipper implements IRipper {
         for (const day of daysToRip) {
             const urlTemplate = urlParser.getTemplate();
             const url = urlTemplate.getURL(day);
-            const res = await fetchFn(url);
+            const res = await fetchFn(url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                },
+            });
             if (!res.ok) {
                 throw Error(`${res.status} ${res.statusText}`)
             }

@@ -1,8 +1,61 @@
 {
-  "buildTime": "2026-03-26T22:11:26.764Z",
-  "totalErrors": 484,
+  "buildTime": "2026-03-26T23:20:53.906Z",
+  "totalErrors": 488,
   "configErrors": [],
-  "sources": [],
+  "sources": [
+    {
+      "source": "chop-suey",
+      "calendar": "all-events",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 520 ",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-capitol-hill",
+      "calendar": "tag-capitol-hill",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 520 ",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 520 ",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-all",
+      "calendar": "tag-all",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 520 ",
+          "context": ""
+        }
+      ]
+    }
+  ],
   "externalCalendarFailures": [],
   "geocodeErrors": [
     {
@@ -1669,7 +1722,7 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
+      "location": "Rotating Location",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
@@ -1681,7 +1734,7 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Rotating Location",
+      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
@@ -1699,13 +1752,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Jack Sprat\\, 2808 Calder Ave NE on\\, NE Turing St\\, Redmond\\, WA 9",
+      "location": "Judkins Park Station\\, I-90\\, Seattle\\, WA 98144\\, USA",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Judkins Park Station\\, I-90\\, Seattle\\, WA 98144\\, USA",
+      "location": "Jack Sprat\\, 2808 Calder Ave NE on\\, NE Turing St\\, Redmond\\, WA 9",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
@@ -2041,19 +2094,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
+      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "2100 block of N 45th Street\\, Seattle\\, WA",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
+      "location": "Russell's Tavern\\, 4111 Stone Way N\\, Seattle\\, WA 98103",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2065,7 +2112,19 @@
     },
     {
       "type": "GeocodeError",
+      "location": "2100 block of N 45th Street\\, Seattle\\, WA",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "Wallingford United Methodist Church\\, 2115 N 42nd St\\, Seattle\\, W",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2077,19 +2136,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
       "location": "Meridian Playground\\, 4800 Meridian Ave N\\, Seattle\\, WA 98103\\, U",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Russell's Tavern\\, 4111 Stone Way N\\, Seattle\\, WA 98103",
+      "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2479,19 +2532,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "On Zoom",
-      "source": "external-uw-campus-events",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Physics-Astronomy Tower (PAT)",
-      "source": "external-uw-campus-events",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
       "location": "Webinar",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "On Zoom",
       "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
     },
@@ -2564,6 +2611,12 @@
     {
       "type": "GeocodeError",
       "location": "University of Washington Club (Faculty Center) (FAC)",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Physics-Astronomy Tower (PAT)",
       "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
     },
@@ -2914,6 +2967,7 @@
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
     "benaroya-hall-benaroya-nordstrom",
+    "chop-suey-all-events",
     "downtown-seattle-association-pioneer-park",
     "jcccw-all-events",
     "reubens-brews-downtown",
@@ -3217,7 +3271,7 @@
     {
       "name": "chop-suey-all-events",
       "type": "Ripper",
-      "events": 97,
+      "events": 0,
       "expectEmpty": false
     },
     {
@@ -3349,7 +3403,7 @@
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 85,
+      "events": 82,
       "expectEmpty": false
     },
     {
@@ -3847,19 +3901,19 @@
     {
       "name": "stoup-brewing-ballard",
       "type": "Ripper",
-      "events": 64,
+      "events": 53,
       "expectEmpty": false
     },
     {
       "name": "stoup-brewing-capitol-hill",
       "type": "Ripper",
-      "events": 116,
+      "events": 130,
       "expectEmpty": false
     },
     {
       "name": "stoup-brewing-kenmore",
       "type": "Ripper",
-      "events": 19,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -3925,7 +3979,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 482,
+      "events": 468,
       "expectEmpty": false
     },
     {
@@ -3937,7 +3991,7 @@
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 473,
+      "events": 390,
       "expectEmpty": false
     },
     {
@@ -4057,7 +4111,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2704,
+      "events": 2607,
       "expectEmpty": false
     },
     {
@@ -4135,7 +4189,7 @@
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 413,
+      "events": 410,
       "expectEmpty": false
     },
     {
@@ -4195,7 +4249,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7514,
+      "events": 7414,
       "expectEmpty": false
     },
     {

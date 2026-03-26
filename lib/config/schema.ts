@@ -116,6 +116,8 @@ export interface RipperCalendarEvent {
     url?: string;
     image?: string;  // URL to the event image
     rrule?: string;  // RFC 5545 RRULE for recurring events
+    lat?: number;    // Latitude (resolved via geocoder or source-level geo)
+    lng?: number;    // Longitude (resolved via geocoder or source-level geo)
     sourceCalendar?: string;      // Source calendar friendly name (set during aggregation)
     sourceCalendarName?: string;  // Source calendar slug (set during aggregation)
 };

@@ -291,10 +291,11 @@ Don't mention APIs, scraping methods, or other implementation details.
 
 ### Cache strategy (S3 as source of truth)
 
-S3 is the single live store for `geo-cache.json`. The build and outofband scripts both download from S3 at start and upload back on completion.
+S3 is the live store for `geo-cache.json`. The build and outofband scripts both download from S3 at start and upload back on completion. The committed file is an empty baseline — **never commit a populated cache to the repo**.
 
-1. **S3** (`$OUTOFBAND_BUCKET/latest/geo-cache.json`) — primary, always used. Both the main build (`build-calendars.yml`) and `generate-outofband.ts` download the latest cache before running and upload the updated cache when done.
-2. **Committed file** — cold-start baseline only. Used when S3 is unreachable or credentials aren't configured (e.g. fork PRs). Never written to automatically — only updated via manual PR.
+1. **S3** (`$OUTOFBAND_BUCKET/latest/geo-cache.json`) — primary live store. Both `build-calendars.yml` and `generate-outofband.ts` download at start and upload on completion. Requires the GH Actions IAM role to have `s3:PutObject` on the outofband bucket (in addition to `GetObject`).
+2. **GH Actions artifact** (`geo-cache` artifact, 90-day retention) — reliable fallback uploaded by every build with `if: always()`. Useful if S3 upload is unavailable.
+3. **Committed file** — empty cold-start baseline only. Used when both S3 and credentials are unavailable (e.g. fork PRs with no secrets). Never populate and commit this file — let S3 and artifacts handle persistence.
 
 ### Manually fixing or adding entries
 

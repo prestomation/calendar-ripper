@@ -3,6 +3,7 @@ import type { Env, FeedTokenRecord, FavoritesRecord, EventsIndexEntry, GeoFilter
 import { mergeIcsFiles } from './ics-merge.js'
 import { fetchEventsIndex, fetchAllIcs, searchEventsIndex, extractMatchingVEvents } from './event-search.js'
 
+// Keep in sync with web/src/lib/haversine.js (client-side copy)
 function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371
   const dLat = (lat2 - lat1) * Math.PI / 180

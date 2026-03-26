@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-26T18:02:18.978Z",
+  "buildTime": "2026-03-26T18:14:37.002Z",
   "totalErrors": 482,
   "configErrors": [],
   "sources": [],
@@ -1669,7 +1669,7 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Rotating Location",
+      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
@@ -1681,19 +1681,19 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
+      "location": "Rotating Location",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Kirkland Rotary Central Station\\, 1 Railroad Ave\\, Kirkland\\, WA 9",
+      "location": "Chainline Brewing Company Taproom at Urban\\, 500 Uptown Ct Suite 2",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Chainline Brewing Company Taproom at Urban\\, 500 Uptown Ct Suite 2",
+      "location": "Kirkland Rotary Central Station\\, 1 Railroad Ave\\, Kirkland\\, WA 9",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
@@ -2035,31 +2035,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Meridian Playground\\, 4800 Meridian Ave N\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "2100 block of N 45th Street\\, Seattle\\, WA",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
       "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Lincoln High School Gym\\, Woodlawn & 44th",
+      "location": "Meridian Playground\\, 4800 Meridian Ave N\\, Seattle\\, WA 98103\\, U",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2077,13 +2059,31 @@
     },
     {
       "type": "GeocodeError",
+      "location": "2100 block of N 45th Street\\, Seattle\\, WA",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
+      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "Russell's Tavern\\, 4111 Stone Way N\\, Seattle\\, WA 98103",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Lincoln High School Gym\\, Woodlawn & 44th",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2467,12 +2467,6 @@
     },
     {
       "type": "GeocodeError",
-      "location": "University of Washington Club (Faculty Center) (FAC)",
-      "source": "external-uw-campus-events",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
       "location": "On Zoom",
       "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
@@ -2552,6 +2546,12 @@
     {
       "type": "GeocodeError",
       "location": "Magnuson Health Sciences Center D (HSD)",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "University of Washington Club (Faculty Center) (FAC)",
       "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
     },
@@ -3991,7 +3991,7 @@
     {
       "name": "tag-university-district",
       "type": "Aggregate",
-      "events": 885,
+      "events": 886,
       "expectEmpty": false
     },
     {
@@ -4015,7 +4015,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1988,
+      "events": 1989,
       "expectEmpty": false
     },
     {
@@ -4045,7 +4045,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2699,
+      "events": 2700,
       "expectEmpty": false
     },
     {
@@ -4063,7 +4063,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 458,
+      "events": 457,
       "expectEmpty": false
     },
     {
@@ -4105,7 +4105,7 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1076,
+      "events": 1077,
       "expectEmpty": false
     },
     {

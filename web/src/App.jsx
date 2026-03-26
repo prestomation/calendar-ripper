@@ -1699,6 +1699,12 @@ function App() {
     return groups
   }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters])
 
+  // Flat list of favorites events for the map (EventsMap expects a flat array, not day groups)
+  const favoritesEventsFlat = useMemo(
+    () => favoritesEvents.flatMap(group => group.events),
+    [favoritesEvents]
+  )
+
   // Track which calendars matched by name/description (not just event content)
   const calendarNameMatches = useMemo(() => {
     const nameMatches = new Set()
@@ -3109,7 +3115,7 @@ function App() {
 
             {showFavoritesMap && (
               <EventsMap
-                eventsIndex={favoritesEvents}
+                eventsIndex={favoritesEventsFlat}
                 geoFilters={geoFilters}
                 eventAttributions={eventAttributions}
                 calendarNameByIcsUrl={calendarNameByIcsUrl}

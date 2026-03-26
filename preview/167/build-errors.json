@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-26T16:53:22.136Z",
-  "totalErrors": 483,
+  "buildTime": "2026-03-26T18:02:18.978Z",
+  "totalErrors": 482,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
@@ -1669,12 +1669,6 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
-      "source": "external-seattle-streets-alliance",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
       "location": "Rotating Location",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
@@ -1682,6 +1676,12 @@
     {
       "type": "GeocodeError",
       "location": "Jellyfish Brewing Company - Green Lake\\, 6808 East Green Lake Way",
+      "source": "external-seattle-streets-alliance",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
@@ -1700,12 +1700,6 @@
     {
       "type": "GeocodeError",
       "location": "Jack Sprat\\, 2808 Calder Ave NE on\\, NE Turing St\\, Redmond\\, WA 9",
-      "source": "external-the-urbanist",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Judkins Park Station\\, I-90\\, Seattle\\, WA 98144\\, USA",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
@@ -2041,37 +2035,7 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
       "location": "Meridian Playground\\, 4800 Meridian Ave N\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Russell's Tavern\\, 4111 Stone Way N\\, Seattle\\, WA 98103",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Wallingford United Methodist Church\\, 2115 N 42nd St\\, Seattle\\, W",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Kite Hill\\, 1717 N Northlake Pl\\, Seattle\\, WA 98103\\, USA",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2083,13 +2047,43 @@
     },
     {
       "type": "GeocodeError",
+      "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "Lincoln High School Gym\\, Woodlawn & 44th",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
+      "location": "Kite Hill\\, 1717 N Northlake Pl\\, Seattle\\, WA 98103\\, USA",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Wallingford United Methodist Church\\, 2115 N 42nd St\\, Seattle\\, W",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Russell's Tavern\\, 4111 Stone Way N\\, Seattle\\, WA 98103",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -3283,7 +3277,7 @@
     {
       "name": "events12-seattle-events",
       "type": "Ripper",
-      "events": 89,
+      "events": 88,
       "expectEmpty": false
     },
     {
@@ -3307,7 +3301,7 @@
     {
       "name": "frye-art-museum-frye-art-museum",
       "type": "Ripper",
-      "events": 5,
+      "events": 4,
       "expectEmpty": false
     },
     {
@@ -3319,7 +3313,7 @@
     {
       "name": "hidden-hall-events",
       "type": "Ripper",
-      "events": 65,
+      "events": 66,
       "expectEmpty": false
     },
     {
@@ -3391,7 +3385,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 45,
+      "events": 44,
       "expectEmpty": false
     },
     {
@@ -3865,7 +3859,7 @@
     {
       "name": "sunset-tavern-sunset-tavern",
       "type": "Ripper",
-      "events": 63,
+      "events": 64,
       "expectEmpty": false
     },
     {
@@ -3877,7 +3871,7 @@
     {
       "name": "taproot-taproot",
       "type": "Ripper",
-      "events": 114,
+      "events": 115,
       "expectEmpty": false
     },
     {
@@ -3919,7 +3913,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 481,
+      "events": 482,
       "expectEmpty": false
     },
     {
@@ -3955,7 +3949,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 157,
+      "events": 158,
       "expectEmpty": false
     },
     {
@@ -3979,7 +3973,7 @@
     {
       "name": "tag-greenwood",
       "type": "Aggregate",
-      "events": 157,
+      "events": 158,
       "expectEmpty": false
     },
     {
@@ -4039,7 +4033,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 155,
+      "events": 153,
       "expectEmpty": false
     },
     {
@@ -4051,7 +4045,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2697,
+      "events": 2699,
       "expectEmpty": false
     },
     {
@@ -4111,19 +4105,19 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1077,
+      "events": 1076,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 514,
+      "events": 513,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1032,
+      "events": 1031,
       "expectEmpty": false
     },
     {
@@ -4153,7 +4147,7 @@
     {
       "name": "tag-theatre",
       "type": "Aggregate",
-      "events": 773,
+      "events": 774,
       "expectEmpty": false
     },
     {

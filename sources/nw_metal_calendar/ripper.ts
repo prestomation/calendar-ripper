@@ -49,8 +49,8 @@ export default class NWMetalRipper extends HTMLRipper {
             const dayEvents: RipperCalendarEvent[] = [];
             for (let day = startDay; day <= endDay; day++) {
                 const eventTime = now
-                    .withYear(year)
                     .withDayOfMonth(1)
+                    .withYear(year)
                     .withMonth(month)
                     .withDayOfMonth(day)
                     .withHour(19)

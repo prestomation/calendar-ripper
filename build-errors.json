@@ -1,77 +1,10 @@
 {
-  "buildTime": "2026-03-26T12:25:03.375Z",
-  "totalErrors": 11,
+  "buildTime": "2026-03-26T12:33:23.716Z",
+  "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "Neumos & Barboza",
-      "source": "NWMetalCalendar",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "The Shakedown (Bellingham)",
-      "source": "NWMetalCalendar",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "The Paramount Theatre",
-      "source": "NWMetalCalendar",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Rickshaw Theatre (Vancouver BC)",
-      "source": "NWMetalCalendar",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Central Library, Piso 8 - Sala de reuniones",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Central Library, &#193;rea para ni&#241;os",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Green Lake Branch, Meeting Room",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Magnolia Branch, Meeting Room",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "South Park Branch, Meeting Room",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "29457 testimonials-widget type-testimonials-widget status-publish category-esf-vendors\" style=\"\">",
-      "source": "urbancraftuprising",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Jack Sprat\\, 2808 Calder Ave NE on\\, NE Turing St\\, Redmond\\, WA 9",
-      "source": "external-the-urbanist",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
@@ -559,7 +492,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 44,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -1207,7 +1140,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 154,
+      "events": 155,
       "expectEmpty": false
     },
     {
@@ -1285,7 +1218,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 513,
+      "events": 514,
       "expectEmpty": false
     },
     {
@@ -1357,7 +1290,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7493,
+      "events": 7494,
       "expectEmpty": false
     },
     {

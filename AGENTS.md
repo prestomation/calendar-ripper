@@ -279,6 +279,51 @@ The `description` field in `ripper.yaml` is used as the `<h2>` section heading o
 
 Don't mention APIs, scraping methods, or other implementation details.
 
+## Geo-Cache (`geo-cache.json`)
+
+`geo-cache.json` is committed to the repository and stores resolved geographic coordinates for event locations. It is the source of truth for geocoding and is used by both the main calendar build and the out-of-band ripper.
+
+### How it works
+
+- **Venue-level coords** — Sources with a fixed address set `geo: { lat, lng }` in `ripper.yaml`. These are applied to all events for that source without any network call.
+- **Per-event geocoding** — For sources with variable event locations (e.g., community calendars), each `event.location` string is looked up via Nominatim and cached here. Cache entries include `lat`, `lng`, `geocodedAt`, and `source: "nominatim"`. Unresolvable locations are stored with `unresolvable: true` so they are not retried.
+- **Out-of-band** — `scripts/generate-outofband.ts` loads and saves `geo-cache.json` the same way as the main build, and also uploads it to S3 (`latest/geo-cache.json`) so the main GH Actions build can fall back to it if the GH Actions cache is cold.
+
+### Cache strategy (S3 as source of truth)
+
+S3 is the live store for `geo-cache.json`. The build and outofband scripts both download from S3 at start and upload back on completion. The committed file is an empty baseline — **never commit a populated cache to the repo**.
+
+1. **S3** (`$OUTOFBAND_BUCKET/latest/geo-cache.json`) — primary live store. Both `build-calendars.yml` and `generate-outofband.ts` download at start and upload on completion. Requires the GH Actions IAM role to have `s3:PutObject` on the outofband bucket (in addition to `GetObject`).
+2. **GH Actions artifact** (`geo-cache` artifact, 90-day retention) — reliable fallback uploaded by every build with `if: always()`. Useful if S3 upload is unavailable.
+3. **Committed file** — empty cold-start baseline only. Used when both S3 and credentials are unavailable (e.g. fork PRs with no secrets). Never populate and commit this file — let S3 and artifacts handle persistence.
+
+### Manually fixing or adding entries
+
+To fix a bad geocode result or manually add a location, edit `geo-cache.json` directly:
+
+```json
+{
+  "version": 1,
+  "entries": {
+    "123 main st, seattle, wa": {
+      "lat": 47.6062,
+      "lng": -122.3321,
+      "geocodedAt": "2026-03-26",
+      "source": "nominatim"
+    },
+    "some unresolvable place": {
+      "unresolvable": true,
+      "geocodedAt": "2026-03-26",
+      "source": "nominatim"
+    }
+  }
+}
+```
+
+Keys are the **lowercased, trimmed** location string (matching what `normalizeLocationKey()` in `lib/geocoder.ts` produces). After editing, commit the file and open a PR — the change will take effect on the next build.
+
+To mark a previously-unresolvable location as now-valid, simply delete its entry so it will be re-tried, or set the correct `lat`/`lng` and remove `unresolvable`.
+
 ## Build Errors JSON
 
 Every build writes `output/build-errors.json` with a consolidated report of all errors that occurred during calendar generation. This file is deployed alongside the website artifacts, so it can be read programmatically after a PR preview without needing access to the build logs.

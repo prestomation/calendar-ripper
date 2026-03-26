@@ -17,10 +17,11 @@
 import { RipperLoader } from "../lib/config/loader.js";
 import { toICS } from "../lib/config/schema.js";
 import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
+import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.js";
 import { nodriverFetch } from "../lib/config/proxy-fetch.js";
 import { mkdir, writeFile, readFile } from "fs/promises";
 import { createReadStream } from "fs";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 import { join } from "path";
 
 const BUCKET = process.env.OUTOFBAND_BUCKET ?? "calendar-ripper-outofband-220483515252";
@@ -54,6 +55,29 @@ async function main() {
     }
 
     await mkdir("output", { recursive: true });
+
+    // Download the latest geo-cache from S3 before processing so we start with
+    // the most up-to-date resolved locations (main build may have added entries
+    // since the last outofband run).
+    const s3 = new S3Client({ region: REGION });
+    try {
+        const response = await s3.send(new GetObjectCommand({
+            Bucket: BUCKET,
+            Key: `${PREFIX}geo-cache.json`,
+        }));
+        const body = await response.Body?.transformToString();
+        if (body) {
+            await writeFile("geo-cache.json", body, "utf-8");
+            console.log("Downloaded geo-cache from S3");
+        }
+    } catch {
+        console.log("S3 geo-cache not available, using local file");
+    }
+
+    // Load the shared geo-cache so outofband sources benefit from previously
+    // resolved locations and contribute new lookups back to the cache.
+    let geoCache = await loadGeoCache("geo-cache.json");
+    console.log(`Loaded geo-cache with ${Object.keys(geoCache.entries).length} entries`);
 
     interface CalendarReport {
         name: string;
@@ -142,6 +166,25 @@ async function main() {
         };
 
         for (const calendar of calendars) {
+            // Geocode events using the shared cache.
+            // Outofband sources may have per-source geo coords (use those directly),
+            // or per-event location strings (resolved via Nominatim + cache).
+            const sourceGeo = config.config.geo;
+            for (const event of calendar.events) {
+                if (sourceGeo && event.lat === undefined) {
+                    // Apply source-level geo to events missing coords
+                    event.lat = sourceGeo.lat;
+                    event.lng = sourceGeo.lng;
+                } else if (event.location && event.lat === undefined) {
+                    const result = await resolveEventCoords(geoCache, event.location, config.config.name);
+                    geoCache = result.cache;
+                    if (result.coords) {
+                        event.lat = result.coords.lat;
+                        event.lng = result.coords.lng;
+                    }
+                }
+            }
+
             const filename = `${config.config.name}-${calendar.name}.ics`;
             const outPath = join("output", filename);
             const icsString = await toICS(calendar);
@@ -185,6 +228,10 @@ async function main() {
         report.sources.push(sourceReport);
     }
 
+    // Persist updated geo-cache so new lookups survive to the next run
+    await saveGeoCache(geoCache, "geo-cache.json");
+    console.log(`\nGeo-cache saved (${Object.keys(geoCache.entries).length} entries)`);
+
     // Write report locally
     const reportPath = "outofband-report.json";
     await writeFile(reportPath, JSON.stringify(report, null, 2));
@@ -192,7 +239,6 @@ async function main() {
 
     // Upload to S3
     console.log(`\nUploading to s3://${BUCKET}/${PREFIX}...`);
-    const s3 = new S3Client({ region: REGION });
 
     // Upload all .ics files
     for (const filePath of writtenFiles) {
@@ -212,6 +258,16 @@ async function main() {
         Bucket: BUCKET,
         Key: `${PREFIX}outofband-report.json`,
         Body: JSON.stringify(report, null, 2),
+        ContentType: "application/json",
+    }));
+
+    // Upload the updated geo-cache so the main GitHub Actions build can download
+    // it as a complement to the GH Actions cache (which has a 7-day TTL).
+    console.log(`  Uploading ${PREFIX}geo-cache.json`);
+    await s3.send(new PutObjectCommand({
+        Bucket: BUCKET,
+        Key: `${PREFIX}geo-cache.json`,
+        Body: JSON.stringify(geoCache, null, 2),
         ContentType: "application/json",
     }));
 

@@ -50,7 +50,7 @@ function FitBounds({ events, geoFilters }) {
     if (points.length > 0) {
       map.fitBounds(points, { padding: [40, 40], maxZoom: 15 })
     }
-  }, []) // only on mount
+  }, [events, geoFilters, map])
   return null
 }
 

@@ -61,16 +61,16 @@ export default class NWMetalRipper extends HTMLRipper {
             //    (e.g. today is Mar 31, switching to Feb would give Feb 31 → exception).
             // 2. Handle year rollover: if the event month is earlier in the year than
             //    the current month (e.g. JAN event parsed in DEC), use next year.
-            const now = ZonedDateTime.now(ZoneRegion.of("America/Los_Angeles"));
-            let year = now.year();
-            if (month < now.monthValue()) {
+            // Use the `date` parameter so tests can control the reference time.
+            let year = date.year();
+            if (month < date.monthValue()) {
                 year += 1;
             }
 
             // Generate one event per day in the range [startDay, endDay]
             const dayEvents: RipperCalendarEvent[] = [];
             for (let day = startDay; day <= endDay; day++) {
-                const eventTime = now
+                const eventTime = date
                     .withDayOfMonth(1)
                     .withYear(year)
                     .withMonth(month)

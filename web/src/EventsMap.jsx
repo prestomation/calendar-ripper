@@ -1,7 +1,10 @@
+import { useMemo } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { eventKey } from './lib/eventKey.js'
+import { AttributionChips } from './AttributionChips.jsx'
 
 // Fix Leaflet default marker icons in Vite
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
@@ -46,6 +49,7 @@ function formatEventDate(dateStr) {
  *   calendarTagsByIcsUrl - map of icsUrl → tags[]
  *   selectedTag      - currently active tag ('' means all)
  *   calendarNameByIcsUrl - map of icsUrl → friendly calendar name
+ *   eventAttributions  - optional Map<compositeKey, Attribution[]> from App.jsx for showing why events appear
  */
 export function EventsMap({
   eventsIndex,
@@ -54,9 +58,10 @@ export function EventsMap({
   calendarTagsByIcsUrl,
   selectedTag,
   calendarNameByIcsUrl,
+  eventAttributions,
 }) {
   // Filter events: only those with lat/lng, and respecting active tag/calendar filter
-  const mappableEvents = eventsIndex.filter(event => {
+  const mappableEvents = useMemo(() => eventsIndex.filter(event => {
     if (!event.lat || !event.lng) return false
 
     // Calendar/tag filter
@@ -69,14 +74,14 @@ export function EventsMap({
     }
 
     return true
-  })
+  }), [eventsIndex, calendarFilter, selectedTag, calendarTagsByIcsUrl])
 
   // Parse dates for popup display
-  const eventsWithDates = mappableEvents.map(event => ({
+  const eventsWithDates = useMemo(() => mappableEvents.map(event => ({
     ...event,
     formattedDate: formatEventDate(event.date),
     calendarName: calendarNameByIcsUrl[event.icsUrl] || event.icsUrl?.replace('.ics', ''),
-  }))
+  })), [mappableEvents, calendarNameByIcsUrl])
 
   return (
     <div className="events-map-container" data-testid="events-map">
@@ -132,6 +137,7 @@ export function EventsMap({
                       View event →
                     </a>
                   )}
+                  <AttributionChips attributions={eventAttributions?.get(eventKey(event))} />
                 </div>
               </Popup>
             </Marker>

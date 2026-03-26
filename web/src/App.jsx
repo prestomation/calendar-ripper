@@ -4,6 +4,9 @@ import Fuse from 'fuse.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 import { GeoFiltersSection } from './GeoFiltersSection.jsx'
 import { EventsMap } from './EventsMap.jsx'
+import { haversineKm } from './lib/haversine.js'
+import { eventKey } from './lib/eventKey.js'
+import { AttributionChips } from './AttributionChips.jsx'
 
 const FUSE_THRESHOLD = 0.1
 import ICAL from 'ical.js'
@@ -1488,22 +1491,6 @@ function App() {
     return groups
   }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet])
 
-  // Compute summaries matching search filters (for favorites view)
-  const searchFilterMatchSummaries = useMemo(() => {
-    if (!searchFilters.length || !eventsIndex.length) return new Set()
-    const fuse = new Fuse(eventsIndex, {
-      keys: ['summary', 'description', 'location'],
-      threshold: FUSE_THRESHOLD,
-    })
-    const matches = new Set()
-    for (const filter of searchFilters) {
-      for (const result of fuse.search(filter)) {
-        matches.add(result.item.summary + '|' + result.item.date)
-      }
-    }
-    return matches
-  }, [searchFilters, eventsIndex])
-
   // Per-filter match counts and match sets for view mode filtering
   const perFilterMatches = useMemo(() => {
     if (!eventsIndex.length) return new Map()
@@ -1515,12 +1502,64 @@ function App() {
     for (const filter of searchFilters) {
       const matches = new Set()
       for (const r of fuse.search(filter)) {
-        matches.add(r.item.summary + '|' + r.item.date)
+        matches.add(eventKey(r.item))
       }
       result.set(filter, matches)
     }
     return result
   }, [searchFilters, eventsIndex])
+
+  // Compute summaries matching search filters (for favorites view) — derived from perFilterMatches
+  const searchFilterMatchSummaries = useMemo(() => {
+    const set = new Set()
+    for (const matchSet of perFilterMatches.values()) {
+      for (const key of matchSet) set.add(key)
+    }
+    return set
+  }, [perFilterMatches])
+
+  // Attribution map: Map<compositeKey, Attribution[]>
+  // compositeKey = eventKey(event) = event.summary + '|' + event.date
+  // Derives search attributions from perFilterMatches to avoid re-running Fuse
+  const eventAttributions = useMemo(() => {
+    const map = new Map()
+    const addAttr = (key, attr) => {
+      if (!map.has(key)) map.set(key, [])
+      map.get(key).push(attr)
+    }
+
+    // 1. Favorited calendars
+    for (const event of eventsIndex) {
+      if (favoritesSet.has(event.icsUrl)) {
+        const calName = calendarNameByIcsUrl[event.icsUrl] || event.icsUrl
+        addAttr(eventKey(event), { type: 'calendar', value: calName })
+      }
+    }
+
+    // 2. Search filters — derive from perFilterMatches (already computed above)
+    for (const [filter, matchSet] of perFilterMatches) {
+      for (const key of matchSet) {
+        addAttr(key, { type: 'search', value: filter })
+      }
+    }
+
+    // 3. Geo filters — haversine formula matching infra/favorites-worker/src/feed.ts exactly
+    if (geoFilters.length) {
+      for (const event of eventsIndex) {
+        if (event.lat == null || event.lng == null) continue
+        for (const gf of geoFilters) {
+          if (haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm) {
+            addAttr(eventKey(event), {
+              type: 'geo',
+              value: gf.label || `${gf.radiusKm} km`,
+            })
+          }
+        }
+      }
+    }
+
+    return map
+  }, [eventsIndex, favoritesSet, perFilterMatches, geoFilters, calendarNameByIcsUrl])
 
   // Live preview: match count for the text currently being typed in the input
   const livePreviewMatches = useMemo(() => {
@@ -1580,8 +1619,8 @@ function App() {
         if (effectiveEnd <= now) return false
 
         const isFavorited = favoritesSet.has(event.icsUrl)
-        const isSearchMatch = searchFilterMatchSummaries.has(event.summary + '|' + event.date)
-        const eventKey = event.summary + '|' + event.date
+        const key = eventKey(event)
+        const isSearchMatch = searchFilterMatchSummaries.has(key)
 
         if (favoritesViewMode === 'calendars') {
           return isFavorited
@@ -1590,7 +1629,7 @@ function App() {
         } else if (favoritesViewMode !== 'all') {
           // Specific filter selected
           const filterMatches = perFilterMatches.get(favoritesViewMode)
-          return filterMatches ? filterMatches.has(eventKey) : false
+          return filterMatches ? filterMatches.has(key) : false
         }
         // 'all' mode
         if (!isFavorited && !isSearchMatch) return false
@@ -2783,6 +2822,7 @@ function App() {
                 calendarTagsByIcsUrl={calendarTagsByIcsUrl}
                 selectedTag={selectedTag}
                 calendarNameByIcsUrl={calendarNameByIcsUrl}
+                eventAttributions={eventAttributions}
               />
             ) : happeningSoonEvents.length > 0 ? (
               happeningSoonEvents.map(group => (
@@ -2866,6 +2906,7 @@ function App() {
                           </a>
                         </div>
                       )}
+                      <AttributionChips attributions={eventAttributions?.get(eventKey(event))} />
                     </div>
                   ))}
                 </div>
@@ -3112,6 +3153,7 @@ function App() {
                           </a>
                         </div>
                       )}
+                      <AttributionChips attributions={eventAttributions?.get(eventKey(event))} />
                     </div>
                   ))}
                 </div>

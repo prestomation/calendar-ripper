@@ -2629,11 +2629,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
   border-radius: 16px;
   padding: 4px 10px;
   font-size: 13px;
-  color: var(--text-primary, #333);
+  color: var(--text-primary);
 }
 
 .geo-filter-chip-label {
@@ -2672,7 +2672,7 @@ body {
 }
 
 .geo-filter-add-btn:hover:not(:disabled) {
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
   color: var(--text-primary, #333);
 }
 
@@ -2770,7 +2770,7 @@ body {
 }
 
 .address-dropdown-item:hover {
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
 }
 
 .geo-filter-location-set {
@@ -2792,7 +2792,7 @@ body {
 }
 
 .geo-filter-change-location-btn:hover {
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
 }
 
 .geo-filter-radius-section {
@@ -2817,7 +2817,7 @@ body {
 }
 
 .geo-filter-radius-preset-btn {
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
   border: 1px solid var(--border-color, #ccc);
   border-radius: 16px;
   padding: 4px 12px;
@@ -2884,7 +2884,7 @@ body {
 }
 
 .geo-filter-cancel-btn:hover {
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
 }
 
 /* ============================================================
@@ -2895,7 +2895,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--tag-bg, #f0f0f0);
+  background: var(--bg-muted);
   border: 1px solid var(--border-color, #ccc);
   border-radius: 16px;
   padding: 4px 12px;
@@ -2984,4 +2984,37 @@ body {
   .events-map-container {
     height: 350px;
   }
+}
+
+/* Attribution chips */
+.event-attributions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.attribution-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.attribution-calendar {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.attribution-search {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.attribution-geo {
+  background: #f3e5f5;
+  color: #7b1fa2;
 }

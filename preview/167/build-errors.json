@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-26T18:14:37.002Z",
-  "totalErrors": 482,
+  "buildTime": "2026-03-26T18:20:52.613Z",
+  "totalErrors": 483,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
@@ -1207,6 +1207,12 @@
     },
     {
       "type": "GeocodeError",
+      "location": "Husky Ballpark, Walla Walla Rd, Seattle, WA",
+      "source": "seatoday",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "Moore Theatre, 932 2nd Avenue, Seattle, WA",
       "source": "seatoday",
       "reason": "Nominatim returned no results"
@@ -1669,13 +1675,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
+      "location": "Jellyfish Brewing Company - Green Lake\\, 6808 East Green Lake Way",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Jellyfish Brewing Company - Green Lake\\, 6808 East Green Lake Way",
+      "location": "Reuben's Brews - The Ballard Taproom\\, 5010 14th Ave NW\\, Seattle\\",
       "source": "external-seattle-streets-alliance",
       "reason": "Nominatim returned no results"
     },
@@ -1687,13 +1693,19 @@
     },
     {
       "type": "GeocodeError",
+      "location": "Kirkland Rotary Central Station\\, 1 Railroad Ave\\, Kirkland\\, WA 9",
+      "source": "external-the-urbanist",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
       "location": "Chainline Brewing Company Taproom at Urban\\, 500 Uptown Ct Suite 2",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Kirkland Rotary Central Station\\, 1 Railroad Ave\\, Kirkland\\, WA 9",
+      "location": "Judkins Park Station\\, I-90\\, Seattle\\, WA 98144\\, USA",
       "source": "external-the-urbanist",
       "reason": "Nominatim returned no results"
     },
@@ -1705,13 +1717,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Cal Anderson Park\\, 1635 11th Ave\\, Seattle\\, WA 98122\\, USA",
+      "location": "600 1st Ave\\, Suite 200C\\; Seattle\\, WA 98104.",
       "source": "external-350-seattle",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "600 1st Ave\\, Suite 200C\\; Seattle\\, WA 98104.",
+      "location": "Cal Anderson Park\\, 1635 11th Ave\\, Seattle\\, WA 98122\\, USA",
       "source": "external-350-seattle",
       "reason": "Nominatim returned no results"
     },
@@ -2035,13 +2047,31 @@
     },
     {
       "type": "GeocodeError",
-      "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
+      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
       "location": "Meridian Playground\\, 4800 Meridian Ave N\\, Seattle\\, WA 98103\\, U",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "2100 block of N 45th Street\\, Seattle\\, WA",
+      "source": "external-wallyhood",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Good Shepherd Center\\, Room 202\\, 4649 Sunnyside Ave N\\, Seattle\\,",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2059,31 +2089,13 @@
     },
     {
       "type": "GeocodeError",
-      "location": "2100 block of N 45th Street\\, Seattle\\, WA",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
+      "location": "Lincoln High School Gym\\, Woodlawn & 44th",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
       "location": "Russell's Tavern\\, 4111 Stone Way N\\, Seattle\\, WA 98103",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Lincoln High School Gym\\, Woodlawn & 44th",
       "source": "external-wallyhood",
       "reason": "Nominatim returned no results"
     },
@@ -2558,12 +2570,6 @@
     {
       "type": "GeocodeError",
       "location": "Magnuson Health Sciences Center G (HSG)",
-      "source": "external-uw-campus-events",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Physics-Astronomy Auditorium (PAA)",
       "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
     },

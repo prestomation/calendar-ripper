@@ -1,0 +1,468 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GeekWire - ECPv6.5.0.1//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GeekWire
+X-ORIGINAL-URL:https://www.geekwire.com
+X-WR-CALDESC:Events for GeekWire
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260326
+DTEND;VALUE=DATE:20260330
+DTSTAMP:20260325T184457
+CREATED:20260127T172315Z
+LAST-MODIFIED:20260127T172315Z
+UID:10003172-1774483200-1774828799@www.geekwire.com
+SUMMARY:Electric SEA
+DESCRIPTION:Please join us for Electric SEA 2026\, an arts-oriented hackathon—part creative retreat\, part pop-up lab\, part public art salon.\nElectric SEA 2026 brings together artists\, technologists\, designers\, makers\, and creative researchers from across the Pacific Northwest. Please register for the hackathon and/or the showcase exhibition which is open to the public. \nLearn more at https://ElectricSea.ART \nEvent Schedule Overview: \nThursday\, March 26: lab setup and preliminary project installation\nFriday–Saturday\, March 27–28: Hackathon\, workshops\, and collaborative sprints\nSaturday evening\, March 28: Public showcase exhibition and reception\nSunday\, March 29: Debrief and takedown\nMore About the Arts and Tech Theme \nHackathon participants are invited to bring interdisciplinary\, art- and design-driven projects that engage a wide range of creative technologies and practices\, including creative code\, interactive installation\, data visualization\, light-based projection\, sound art\, light art\, wearables\, performance-based and kinetic works\, physical computing\, generative systems\, vibe coding\, mixed reality\, Internet of Things\, ethical AI tools\, and other emerging hybrid practices. \nIn the spirit of hackathons\, the emphasis is on experimentation\, interdisciplinary collaboration\, shared problem-solving\, and learning by doing. \nLocation at 110 Union St\, downtown Seattle \nElectric SEA will take over multiple floors of PublicDisplay.Art and the ArtLove Salon downtown Seattle event space\, creating a fluid\, open environment for experimentation\, collaboration\, and public engagement. Electric SEA will utilize PublicDisplay.Art’s offices as a pop-up maker lab\, with the ArtLove Salon event space—located one floor above—hosting breakout sessions\, the exhibition\, and closing celebration. \nEvent details\, including the schedule\, workshops\, microgrants\, and how to participate\, are available at http://ElectricSEA.com. \nRegistration \nThanks to the support of 4Culture\, ArtsFund\, the Conru Foundation\, Passable Art\, and generous contributions of time and expertise from organizers and volunteers\, Electric SEA will be free to attend. However\, space is limited so registration is required. \nThis event is designed primarily for adults\, but avid youth under 18 may join if accompanied by a parent or guardian. The reception on Saturday includes an under 21 preview 6:30pm to 7:30pm\, but is 21+ after 7:30pm when the bar opens. \nAbout your hosts\nThird Place Technologies is a 501c3 nonprofit organization with the mission to support the interdisciplinary community in the PNW at the intersection of arts and technology through collaborative spaces\, exhibition opportunities\, networking events\, and life-long learning opportunities. \nPublicDisplay.Art is also a 501c3 nonprofit organization dedicated to fostering a thriving creative community in the Northwest through arts journalism\, exhibitions\, and civic engagement. \nSrc Material is a Seattle-based creative technology nonprofit functioning as a connective and curatorial force linking artists\, technologists\, thinkers\, and institutions. It will be providing organizational support for the hackathon. \nThird Place Technologies and PublicDisplay.Art previously collaborated on Seattle: City of the Future (2023)\, and share a commitment to art as a public good.
+URL:https://www.geekwire.com/calendar-event/electric-sea/
+LOCATION:Art Love Salon\, 110 Union Street\, 5th Floor\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/ElectricSEA-v7_eventbrite-1100x1410-1.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260327T180000
+DTEND;TZID=America/Los_Angeles:20260327T210000
+DTSTAMP:20260325T184457
+CREATED:20260319T175039Z
+LAST-MODIFIED:20260319T175039Z
+UID:10003260-1774634400-1774645200@www.geekwire.com
+SUMMARY:Turn Daily Workflows into AI Agents — A No-Code Workshop with MuleRun
+DESCRIPTION:Premium Small-Group Online Workshop\nBuild real AI Agents from real industry workflows. \n​This premium small-group\, hands-on online workshop is designed for experienced professionals who want to turn real-world workflows into working AI Agents using MuleRun’s agent-building platform. \n​Unlike general AI introductions\, this session is execution-focused. \n​You will work on your own workflow or recurring industry use case — and leave with a functional AI Agent prototype. \n​🎁 Awards & Incentives\n​🥇 1st Prize: $200\n🥈 2nd Prize: $150\n🥉 3rd Prize: $100 \n🎟️ All participants receive $20 MuleRun Plus subscription credit \n​Awards are evaluated based on:\n• Clarity of problem definition\n• Practical execution\n• Strength of workflow logic\n• Real-world usability \n​⚠️ No coding background required. \n​🔥 What Makes This Workshop Different\n​• Premium small-group format (limited seats for meaningful interaction)\n• Bring a real workflow → leave with a working AI Agent\n• No-code building experience\n• Live guidance and real-time feedback\n• Clear path to publish and iterate \n​This is not a webinar.\nThis is structured\, hands-on building. \n​🧠 By the End of the Session\, You Will\n​• Build a functional AI Agent based on your own workflow\n• Structure agent logic around decisions\, actions\, and outcomes\n• Test and refine your Agent\n• Publish your Agent to the MuleRun Agent Store \n​⚙️ Workshop Structure (3 Hours)\n​🧭 30-minute framework walkthrough\nCore concepts\, workflow-to-agent thinking\, and setup best practices \n​🛠️ 2 hours of hands-on building\nParticipants build their own agents with live guidance \n​🎤 30-minute demo & judging session\nParticipants present their agents and receive feedback \n​👤 Who Should Join\n​This workshop is best suited for: \n​• Industry professionals with 5+ years of experience\n• Founders and operators\n• Consultants and domain experts\n• Corporate leaders exploring AI integration\n• Builders looking to prototype practical tools \n​Participants are strongly encouraged to come with a specific workflow or use case in mind. \n​⚠️ This is not a general AI introduction session. \n​About MuleRun\n​MuleRun is one of the world’s largest AI agent platforms and agent stores\, serving millions of users globally. \n​On MuleRun\, users can: \n​Discover and use AI agents built by others across a wide range of use cases \n​Build their own AI agents using MuleRun’s agent tools \n​Publish agents to the MuleRun Agent Store\, making them available to other users \n​Generate revenue when others use or subscribe to their agents \n​MuleRun provides an open platform where ideas can be quickly turned into usable\, shareable\, and monetizable AI agents. （Learn more at: mulerun.com） \n_________\nAbout B.E.L.L.E\nWe are B.E.L.L.E (Boundless; Entrepreneurship; Liberty; Liaison; Empowerment)\, a community of entrepreneurs dedicated to breaking boundaries and building futures. \nOur Impact: We’ve connected over 25\,000 people\, supported more than 600 startups\, and collectively they raised $1 billion in funding!
+URL:https://www.geekwire.com/calendar-event/turn-daily-workflows-into-ai-agents-a-no-code-workshop-with-mulerun/
+CATEGORIES:Artificial Intelligence,Developer,Educational events,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Image_20260317110213.png
+ORGANIZER;CN="B.E.L.L.E Community":MAILTO:info@belle.community
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T090000
+DTEND;TZID=America/Los_Angeles:20260328T180000
+DTSTAMP:20260325T184457
+CREATED:20260312T203444Z
+LAST-MODIFIED:20260312T203444Z
+UID:10003248-1774688400-1774720800@www.geekwire.com
+SUMMARY:Insforge x Qoder AI Agent Hackathon – $3\,000 Cash Prize
+DESCRIPTION:Build the next generation of autonomous AI agents — together. \n​🌍 What’s This About?\n​AI isn’t just the future — it’s happening now. Join a community of mission-driven developers\, designers\, and builders for a one-day\, in-person hackathon focused on building autonomous AI agents and AI-powered applications that solve real-world problems. \n​This hackathon centers around the powerful combination of Qoder and Insforge\, providing a full end-to-end AI-native development stack: \n​Qoder — An Agentic IDE designed for real software development. It transforms how AI understands code; beyond snippets\, it grasps your entire architecture\, dependencies\, and patterns. \n​Insforge — An Agent-native Backend Platform that lets your coding agents build and run the backend for you. Add Auth\, DB\, Storage\, and Serverless functions to your app in seconds. \n​Together\, these platforms enable a new way of building software: AI agents that don’t just write code\, but also test it\, connect it to real backends\, and ship production-ready systems. \n​🎯 Agenda\n​09:00 AM – Doors Open & Check-In \n​09:30 AM – Opening & Platform Demos (Qoder & Insforge) \n​09:50 AM – Team Formation & Ideation (Teams may also be formed in advance through our Discord channel.) \n​10:00 AM – Hacking Begins 🚀 \n​12:00 PM – Lunch Served 🍕 \n​04:00 PM – Project Submission Deadline ⏳ \n​04:15 PM – Pitches & Demo Showcase \n​05:15 PM – Judging & Networking \n​05:45 PM – Awards Ceremony 🏆 \n​06:00 PM – Event Concludes \n​🏆 Prizes — $3\,000 Total Pool\n​🥇 1st Place – $1\,000 \n​🥈 2nd Place – $800 \n​🥉 3rd Place – $500 \n​🧪 Best Use of Qoder – $350 \n​🚀 Best Use of Insforge – $350 \n​🛠️ Rules\n​Pre-planning encouraged: Feel free to come with ideas\, diagrams\, and architecture ready to go. \n​Team Size: Teams of up to 3 people. \n​In-person only: This is a build-and-vibe day in Seattle; remote participation is not available. \n​Respect & Inclusion: Mandatory. We are here to create a safe space for bold ideas and collaborative building. \n​💡 Pro Tip: While you are welcome to use any tools you like\, projects that best demonstrate the synergy between Qoder and Insforge will stand out significantly to the judges. \n​🧩 About the Hosts & Partners\n​Qoder: The world’s first Agentic IDE built for real-world software engineering. It acts as an autonomous collaborator that understands entire codebases and executes multi-file edits to help developers ship faster. \n​Insforge: An Agent-native Backend Platform that enables AI coding agents to build and operate production-ready backends in seconds\, bridging the gap from prototype to scalable applications. \n​B.E.L.L.E Community: A global community of entrepreneurs dedicated to breaking boundaries. We’ve connected over 25\,000 members and supported 600+ startups that have collectively raised over $1 billion.
+URL:https://www.geekwire.com/calendar-event/insforge-x-qoder-ai-agent-hackathon-3000-cash-prize/
+LOCATION:1700 Westlake Ave N #200\, Seattle\, WA 98109
+CATEGORIES:Artificial Intelligence,Developer,Hackathons,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Image_20260310103946_36_38.png
+ORGANIZER;CN="B.E.L.L.E Community":MAILTO:info@belle.community
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T120000
+DTEND;TZID=America/Los_Angeles:20260328T150000
+DTSTAMP:20260325T184457
+CREATED:20260312T203507Z
+LAST-MODIFIED:20260312T203507Z
+UID:10003246-1774699200-1774710000@www.geekwire.com
+SUMMARY:ctrl+alt+create live: Vibe Coding for Everybody
+DESCRIPTION:​https://ctrlaltcreate.live/ \n​Anybody Can Build Software with AI. No Experience? We’ll Help You Get Started. \n​One Registered Participant Will Get a $100 Amazon Gift Card! \n​Presented by Every\, this is a community-oriented\, beginner-friendly workshop series that’s fun for techies & non-technical people alike. \n​Register to participate either in-person (in Seattle) or online. \n​If you need to use AI but don’t know where to start\, this is for you. If you’ve been building with AI\, then you’re also welcome! \n​We’ll help you build something in just 2 hours. Fast\, fun\, and zero skills required. And if you know what you’re doing\, great! \n​Seriously\, Anyone Can Build Something. \n​We’re bringing together non-technical users with big ideas and technical users who share a passion for AI and vibe coding. It’s a creative melting pot where curiosity meets capability. \n​Learn how to begin: We show you how to use AI tools that respond to plain English. It’s easy to get started with vibe coding. \n​2-Hour Sprint: Fast\, high-energy\, and satisfying. You could walk away with a real project or prototype. \n​Low Stakes\, High Reward: Experiment without fear. Plus\, a random attendee will get a $100 Amazon Gift Card! \n​In-Person & Virtual: We host regular workshops in tech hubs like Seattle\, while welcoming virtual participants from anywhere in the world. \n​All Ages Welcome: Kids and students are encouraged to participate alongside adults. \n​Who Is This For? \n​The Daydreamer: Would-be entrepreneurs who have never launched their own idea. Turn “what if” into a functional prototype in two hours. \n​The Idea Hunter: Curious entrepreneurs waiting for inspiration to strike. Test concepts quickly and find your next big venture. \n​The Tech-Adjacent: People who work in tech but aren’t software developers. Master the tools that allow you to build without engineering tickets. \n​The Upskiller: Looking for work or better positioning? Build a portfolio of AI-powered projects to prove your value in the modern workforce. \n​The Creative: Artists\, designers\, or writers. Learn how to bridge the gap between your imagination and a working digital product. \n​The Experimenter: This is your chance to try AI tools or build with low stakes. No pressure\, no wrong answers—just create.
+URL:https://www.geekwire.com/calendar-event/ctrlaltcreate-live-vibe-coding-for-everybody/
+LOCATION:Foundations\, 1605 Boylston Ave\, Seattle\, 98122\, United States
+CATEGORIES:Artificial Intelligence
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/03/CtrlAltCreate.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260401T080000
+DTEND;TZID=America/Los_Angeles:20260401T170000
+DTSTAMP:20260325T184457
+CREATED:20251118T020742Z
+LAST-MODIFIED:20251118T020742Z
+UID:10003089-1775030400-1775062800@www.geekwire.com
+SUMMARY:Seattle (AI) Startup Summit 2026
+DESCRIPTION:​This is Not a Generative AI Event. This is an AI-Driven Startup Summit. \n​Forget the hype cycle. Join the focused gathering of AI founders\, deep-tech investors\, and executive decision-makers who are actually building and funding the next generation of intelligent systems. The Seattle Startup Summit is your nexus for the applied AI ecosystem. \n​What You Will Gain: \n\n​📈 The Investor Thesis: Get exclusive access to Venture Capitalists and Angel Investors actively writing checks for AI-first business models. Learn what VCs are really looking for in LLMOps\, Agentic AI\, and specialized foundation models (pre-seed to Series A).\n​🛠️ Deep-Tech Deployment: Move from prototype to production. Sessions focus on the hardest technical challenges: Inference Optimization\, Data Strategy (Data as Moat)\, and Cost-Efficient Scaling of massive models.\n​⚖️ Governance & GTM: Navigate the new regulatory landscape. Dive into discussions on AI Governance\, Ethical Frameworks\, IP/Data Rights\, and how to build a go-to-market strategy that wins enterprise trust.\n​🤝 High-Value Connections: This is a curated assembly. Network directly with the engineers\, researchers\, and founders from Seattle’s most prominent AI companies who are defining the global standard.\n\n​Register now to build your AI advantage and secure your funding future. \n​Find our more at seattlestartupsummit.com. \n​2025 Stats: \n\n​Over 40% of attendees were in leadership positions\n​Over 55% of attendees were in an engineering role\n​Over 450 unique companies participated\n​Over 50 companies came to exhibit\n​Almost 900 people signed up\n\n​For 2026\, you can expect: \n\n​80-100 companies to exhibit\n​1200 – 1500 attendees\n​120 Top Tier AI Companies vying for the top category prize
+URL:https://www.geekwire.com/calendar-event/seattle-ai-startup-summit-2026-2/
+LOCATION:Sheraton Grand Seattle\, 1400 6th Avenue\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2025/11/Screenshot-2025-11-17-100637.png
+GEO:47.6108179;-122.3334181
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Sheraton Grand Seattle 1400 6th Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1400 6th Avenue:geo:-122.3334181,47.6108179
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T140000
+DTEND;TZID=America/Los_Angeles:20260402T170000
+DTSTAMP:20260325T184457
+CREATED:20260324T174355Z
+LAST-MODIFIED:20260324T174355Z
+UID:10003261-1775138400-1775149200@www.geekwire.com
+SUMMARY:The Hiring Playbook
+DESCRIPTION:​The Hiring Playbook is a practical\, conversation-led event designed for HR leaders\, people managers\, founders\, and organizations preparing for the upcoming H-1B cycle. The goal is simple: help teams understand what’s changing and how to plan ahead. \n​This session brings together immigration professionals and industry experts to share how companies are preparing for this year’s changes and what strategies they are using to support candidates in a rapidly evolving immigration landscape.
+URL:https://www.geekwire.com/calendar-event/the-hiring-playbook/
+LOCATION:2801 Alaskan Wy Suite 302\, Seattle\, WA 98121\, 2801 Alaskan Wy Suite 302\, Seattle\, 98121\, United States
+CATEGORIES:Jobs/Recruiting,Meetups,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/The-Hiring-Playbook-Panel-Update.png
+ORGANIZER;CN="Casium":MAILTO:kaustubh@casium.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260404T090000
+DTEND;TZID=America/Los_Angeles:20260404T180000
+DTSTAMP:20260325T184457
+CREATED:20260123T172859Z
+LAST-MODIFIED:20260216T025803Z
+UID:10003165-1775293200-1775325600@www.geekwire.com
+SUMMARY:Global Security Tour 2026 | Microsoft Keynote + Women in Tech | FREE
+DESCRIPTION:Global Security Tour – Seattle 2026\nHosted by Seattle Data\, AI & Security \n📅 Saturday\, April 4\, 2026\n🕘 9:00 AM – 6:00 PM\n📍 Bellevue City Hall\n🎟️ RSVP: Free (Limited capacity)\n👥 500+ expected | Enterprise + Startup leaders in one room \nThe first Global Security Tour launches in Seattle — and it starts with a Microsoft executive keynote.\nIf you’re responsible for security outcomes\, budgets\, platforms\, or strategy\, this is the room you want to be in.\n✅ Keynote: Corporate Vice President (Microsoft) – Sentinel Data Lake\n✅ Microsoft product leaders attending across Security Copilot\, Microsoft Sentinel\, Defender\, and Purview\n✅ Women in Tech panel featuring senior voices and real career leadership stories\n✅ Hackathon experience (build / learn / collaborate — details coming soon)\n✅ High-value networking with senior enterprise leaders\, founders\, and builders \nWhy Directors & VPs are showing up \nSee where unified security operations is going — straight from the leaders building it\nGet practical direction on how enterprises are approaching modern SecOps (without the salesy fluff)\nMeet peers facing the same challenges: scale\, visibility\, governance\, SOC efficiency\, and AI adoption\nBuild relationships that matter — Microsoft leaders\, enterprise decision-makers\, and startups solving real problems\nWhat to expect (speaker roster + detailed agenda coming soon) \nMicrosoft executive keynote\nLeadership sessions + discussions (Sentinel / Defender / Purview / Security Copilot ecosystem)\nWomen in Tech panel\nNetworking blocks built for meaningful conversations\nPerks \nFree registration (limited seats)\nBreakfast + lunch + coffee included\nSwag\, giveaways & strong networking energy\nThis isn’t just another security event — it’s the start of a tour and a community movement.\nIf you want early access to the conversations shaping security platforms and AI-powered SecOps\, register now. \n👉 RSVP (Free) — reserve your seat before it fills.
+URL:https://www.geekwire.com/calendar-event/global-security-tour-2026-microsoft-keynote-women-in-tech-free/
+LOCATION:Bellevue City Hall\, 450 110th Ave NE\, Bellevue\, WA\, 98004\, United States
+CATEGORIES:Artificial Intelligence
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/01/WhatsApp-Image-2026-02-15-at-5.55.35-PM-1.jpeg
+GEO:47.614351;-122.191873
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Bellevue City Hall 450 110th Ave NE Bellevue WA 98004 United States;X-APPLE-RADIUS=500;X-TITLE=450 110th Ave NE:geo:-122.191873,47.614351
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260408T170000
+DTEND;TZID=America/Los_Angeles:20260408T180000
+DTSTAMP:20260325T184457
+CREATED:20260312T203459Z
+LAST-MODIFIED:20260312T203459Z
+UID:10003247-1775667600-1775671200@www.geekwire.com
+SUMMARY:Modernizing legacy frontends: refactor\, replatform\, or rearchitect?
+DESCRIPTION:Legacy frontends often evolve over many years\, accumulating technical debt\, architectural constraints\, and delivery friction. At some point\, teams face a strategic decision: should the application be refactored\, migrated to a modern framework\, or redesigned architecturally? \nThis webinar explores practical approaches to frontend modernization\, helping engineering teams evaluate when incremental improvement is sufficient and when deeper architectural changes are required. Using real-world architectural patterns and decision frameworks\, we will examine how to assess the current state of a frontend system and determine the most appropriate modernization path. \nWhat we will cover \n1. Assess the current state\nUnderstand how to evaluate legacy frontend systems by reviewing technical debt signals\, framework lifecycle risks\, performance limitations\, and alignment with business goals\n2. Refactor for code quality and maintainability\nExplore scenarios where incremental refactoring can improve modularity\, reduce coupling\, and increase delivery velocity without requiring major architectural changes.\n3. Replatform to modern frontend ecosystems\nLearn when migrating to modern frameworks or runtimes can improve performance\, maintainability\, and long-term support while preserving existing application functionality.\n4. Rearchitect for scalability and micro-frontend readiness\nExamine architectural approaches such as domain-driven frontend structures and micro-frontend patterns that enable teams to scale development across multiple domains.\n5. Balance risk\, cost\, and time-to-value\nUnderstand how engineering effort\, operational risk\, and business priorities influence the decision between refactoring\, replatforming\, and full architectural redesign. \nWho should attend\nThis session is relevant for:\nSoftware architects\nFrontend engineering leaders\nCTOs and technical decision-makers\nProduct teams responsible for legacy applications\nWhat you will gain\nParticipants will gain a clearer understanding of:\nHow to evaluate the modernization readiness of legacy frontend systems\nWhen to choose refactor vs replatform vs rearchitect\nArchitectural patterns that support long-term frontend scalability\nPractical considerations when planning modernization initiatives
+URL:https://www.geekwire.com/calendar-event/modernizing-legacy-frontends-refactor-replatform-or-rearchitect/
+LOCATION:Online
+CATEGORIES:Developer,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Cigen.io-App-modernization-webinar-2.png
+ORGANIZER;CN="CIGen.io Azure Consulting and Development Company":MAILTO:contact@cigen.me
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260409T083000
+DTEND;TZID=America/Los_Angeles:20260409T170000
+DTSTAMP:20260325T184457
+CREATED:20260303T164945Z
+LAST-MODIFIED:20260303T164945Z
+UID:10003233-1775723400-1775754000@www.geekwire.com
+SUMMARY:Higher Education Summit: The Impact of AI
+DESCRIPTION:ABOUT \nThursday\, April 9\n8:30 AM – 5:00 PM\nSeattle Colleges – Georgetown Campus\n6737 Corson Ave S. Seattle\, WA \nThe Higher Education Summit: The Impact of AI will bring together academic leaders\, business innovators\, and workforce directors for a one-day\, highly interactive forum focused on preparing students for this new era. The program will combine thought-provoking keynote and panel sessions with outcome-driven small-group discussions. Each breakout will generate actionable strategies and contribute to a shared AI in Higher Education Playbook—a roadmap for institutional readiness\, responsible integration\, and future workforce alignment. Free parking available.
+URL:https://www.geekwire.com/calendar-event/higher-education-summit-the-impact-of-ai/
+LOCATION:Seattle Colleges – Georgetown Campus\, 6737 Corson Ave S.\, Seattle\, WA
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Screenshot-2026-03-03-084520.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260410T090000
+DTEND;TZID=America/Los_Angeles:20260410T100000
+DTSTAMP:20260325T184457
+CREATED:20260324T174347Z
+LAST-MODIFIED:20260324T174347Z
+UID:10003262-1775811600-1775815200@www.geekwire.com
+SUMMARY:Eastside Marketing Morning Brew Meetup
+DESCRIPTION:The business landscape is changing and many marketers are doing their best to keep up. \nNew tools. New algorithms. New ideas. And the best way to keep up isn’t by competing over who’s doing the best. It’s by learning together. \nWhen someone shares what worked for them and what didn’t\, everyone benefits. That’s the power of showing up honestly. \nIf you want genuine conversations\, come join us at our upcoming Eastside Marketing Morning Brew Meetup.
+URL:https://www.geekwire.com/calendar-event/eastside-marketing-morning-brew-meetup-2/
+LOCATION:Beyondsoft Consulting Inc.\, 2010 156th Ave NE\, Bellevue\, 98007\, United States
+CATEGORIES:Brand Marketing
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/03/Eastside-Marketing-Morning-Brew-Meetup-April-2026.jpeg
+ORGANIZER;CN="Beyondsoft Consulting Inc":MAILTO:marketing@us.beyondsoft.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260410T113000
+DTEND;TZID=America/Los_Angeles:20260410T130000
+DTSTAMP:20260325T184457
+CREATED:20251024T200341Z
+LAST-MODIFIED:20251024T200341Z
+UID:10003060-1775820600-1775826000@www.geekwire.com
+SUMMARY:Discovery Series\, Dr. Bruce Maxwell\, Teaching Professor & Director of Computing Programs\, Northeastern University Seattle
+DESCRIPTION:What if the way we prepare images for computers is getting in the way of understanding them?\nMost digital images are designed to look good to human eyes. But what’s best for people isn’t always best for machines. Bruce Maxwell\, teaching professor at Northeastern University’s Seattle campus\, explores how rethinking image formats—especially how brightness and color are represented—can unlock new capabilities in computer vision. \n​Inspired by how the human eye processes light\, Maxwell’s research shows that using alternative formats can make AI models more stable under changing lighting\, reveal hidden patterns\, and improve performance across tasks like object recognition and image generation. His experiments suggest that small changes in how we feed images to machines can lead to big improvements in how they interpret the world. \n​This talk invites us to look beneath the surface of everyday images—and discover how seeing differently might help machines see better. \n​About the Discovery Series: designed to bring together the state’s preeminent researchers\, innovative leaders\, and elected officials who want to stay on top of important advancements being made in our state\, each Discovery Series program includes lunch\, networking time\, a Q&A session\, and an opportunity to meet the speaker.
+URL:https://www.geekwire.com/calendar-event/discovery-series-dr-bruce-maxwell-teaching-professor-director-of-computing-programs-northeastern-university-seattle/
+LOCATION:McKinsey & Company\, 1420 5th Avenue\, Suite 4300\, Seattle\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/10/discoveryseries_drbrucemaxwell.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260413
+DTEND;VALUE=DATE:20260415
+DTSTAMP:20260325T184457
+CREATED:20260224T175403Z
+LAST-MODIFIED:20260224T175403Z
+UID:10003219-1776038400-1776211199@www.geekwire.com
+SUMMARY:ESEC Startup-a-thon
+DESCRIPTION:48 Hours. One Startup.\nFrom idea to pitch—here’s what your Startup-a-Thon weekend looks like.
+URL:https://www.geekwire.com/calendar-event/esec-startup-a-thon/
+LOCATION:UW HUB Lyceum\, 4001 E Stevens Way NE\, Seattle\, Washington\, 98195\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-095245.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T100000
+DTEND;TZID=America/Los_Angeles:20260413T150000
+DTSTAMP:20260325T184457
+CREATED:20260305T184218Z
+LAST-MODIFIED:20260305T184218Z
+UID:10003241-1776074400-1776092400@www.geekwire.com
+SUMMARY:2026 Women’s Success Summit - SHIFT: The CEO Advantage
+DESCRIPTION:Does your business feel like it’s in constant reaction mode – always dealing with urgent fixes and putting out fires instead of leading with strategy? In today’s rapidly evolving marketplace\, reactive leadership won’t create sustainable growth. \nSHIFT: The CEO Advantage is a transformational experience designed for women business owners ready to step fully into their CEO role. This high-impact summit goes beyond inspiration\, offering practical strategies\, clear action steps\, and powerful mindset shifts to help you move from constant reaction to confident\, strategic leadership. You’ll surround yourself with 120 serious women business owners and walk away with meaningful connections. \nLed by renowned entrepreneur and eWomenNetwork Founder & CEO Sandra Yancey\, you’ll leave with renewed clarity\, momentum\, and an actionable plan you can implement immediately. \nSeats are limited. Reserve yours today.
+URL:https://www.geekwire.com/calendar-event/2026-womens-success-summit-shift-the-ceo-advantage/
+LOCATION:Hilton Garden Inn Downtown Bellevue\, 10777 NE 10th St.\, Bellevue\, 98004\, United States
+CATEGORIES:Conferences
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/2026_Summit_Banner3.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260414T090000
+DTEND;TZID=America/Los_Angeles:20260414T150000
+DTSTAMP:20260325T184457
+CREATED:20260224T205544Z
+LAST-MODIFIED:20260224T205544Z
+UID:10003220-1776157200-1776178800@www.geekwire.com
+SUMMARY:NQN Northwest Quantum Day
+DESCRIPTION:​Date: April 14. Doors open 8am\, Sessions from 9-3pm \n​Target Audience: policy makers and staff\, investors\, academia\, emerging technologists\, and the quantum curious. \n​Agenda: \n​9:00 to 9:15 Welcome \n​9:15 to 9:45 Keynote: Quantum in the Northwest \n​9:45 to 10:30 Panel: Government’s role in Quantum Economic Development \n​10:30 to 10:45 BREAK \n​10:45 to 11:45 Panel: Quantum in Industry: A look inside the Enterprise \n​11:45 to 12:15 Presentation: The Mission of Northwest Quantum Nexus \n​12:15 to 1:00 LUNCH \n​1:00 to1:45 Panel: Quantum Technology: The investable business model \n​1:45 to 2:00 Panel: Building a Quantum Workforce for the Northwest \n​2:00 to 3:00 Fireside chat: Special guest speaker \n​3:00 to 5:00 NETWORKING
+URL:https://www.geekwire.com/calendar-event/nqn-northwest-quantum-day/
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-125437.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260414T120000
+DTEND;TZID=America/Los_Angeles:20260414T130000
+DTSTAMP:20260325T184457
+CREATED:20260305T184226Z
+LAST-MODIFIED:20260305T184226Z
+UID:10003240-1776168000-1776171600@www.geekwire.com
+SUMMARY:What Does a Career With AI Look Like for You?
+DESCRIPTION:In this virtual panel\, Microsoft professionals in software engineering\, AI product management\, marketing\, and human resources will share their career journeys\, the skills that matter\, and how AI impacts their work. Moderated by a Microsoft Software Engineer\, this discussion will offer practical insights and advice for students exploring careers in technology. \nThe session will begin with a brief welcome and introduction from The Mentoring Project and North Seattle Tech Talks. Then our guest panelists will take over\, giving their introductions and covering the main topics. We’ll wrap up with a brief\, moderated Q&A.
+URL:https://www.geekwire.com/calendar-event/what-does-a-career-with-ai-look-like-for-you/
+LOCATION:Zoom
+CATEGORIES:Artificial Intelligence,Educational events,Jobs/Recruiting
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/03/Artboard.jpg
+ORGANIZER;CN="North Seattle Tech Talks":MAILTO:steven.balo@seattlecolleges.edu
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T100000
+DTEND;TZID=America/Los_Angeles:20260418T160000
+DTSTAMP:20260325T184457
+CREATED:20260218T173229Z
+LAST-MODIFIED:20260218T173229Z
+UID:10003204-1776506400-1776528000@www.geekwire.com
+SUMMARY:Seattle Intro to AI Development Workshop
+DESCRIPTION:Learn how to build your first AI web application at the University of Washington – Beginner friendly\, no experience required. \nJoin us for our Intro to AI Development Workshop\, a full-day\, hands-on program where you’ll build your first AI web application and learn the fundamentals of creating your own AI apps. \nNo coding experience is required. Every participant will receive free API key credits to experiment with leading models such as GPT\, Claude\, Gemini\, and more. \nBy the end of the workshop\, you will have built a custom Retrieval-Augmented Generation (RAG) chatbot. You’ll upload your own dataset\, prompt the chatbot to generate outputs\, and see how industry-standard GenAI models can be integrated into practical applications. This project-based approach gives you a clear starting point to extend your skills into more advanced AI development. \nThe day concludes with a showcase where participants can demo their projects\, connect with peers\, and ask questions directly to the instructors from Circuit Stream. \nWe look forward to seeing what you create! \nEvent Instructor: Guillaume Duteaud \nWhat You’ll Learn:\n– How to use Python to interact with leading AI models like OpenAI’s GPT\, Anthropic’s Claude\, Google Gemini\, Meta’s Llama\, and more\n– How to upload documents and connect them to an AI assistant using Retrieval-Augmented Generation (RAG)\n– How to prompt\, test\, and refine your assistant to answer questions accurately using your own data\n– How modern web apps integrate AI features—from concept to deployment \nWhat’s Included:\n– A full day of hands-on training in AI development using Python and real industry tools\n– A working AI assistant that you build using your own dataset\, and can continue to expand after the workshop\n– Free API credits to experiment with tools like GPT\, Claude\, Gemini\, and Llama\n– A project template and resource bundle to support your next steps after the workshop\n– A chance to meet instructors\, developers\, and other aspiring AI builders during the workshop showcase\n– A catered lunch \nWho Should Attend:\nThis workshop is designed for aspiring AI developers\, career changers\, and curious professionals who want to start building with AI. Whether you’re exploring a new career path\, working on a side project\, or looking to bring AI tools into your current role\, you’ll leave with a working project and a clear path forward. \nWhat to Bring:\n– A laptop (Mac or Windows)\n– We’ll provide step-by-step instructions before the workshop to help you set up your environment. If you’re new to Python\, we’ll also send you an optional pre-work tutorial to help you feel confident before arriving.\n– We’ll supply all necessary tools\, a project template\, and free API credits sponsored by Circuit Stream. \nSpaces are limited to keep the experience personal and hands-on. Whether you’re exploring AI for the first time or building on past experience\, this workshop gives you a clear starting point and a working project you can keep improving. Reserve your seat now!
+URL:https://www.geekwire.com/calendar-event/seattle-intro-to-ai-development-workshop/
+LOCATION:Maple Hall Great Room\, Maple Hall\, University of Washington\, Maple Hall Great Room\, Maple Hall\, University of Washington\, Seattle\, 98105\, United States
+CATEGORIES:Artificial Intelligence,Science
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Seattle-6.png
+ORGANIZER;CN="Circuit Stream":MAILTO:rio@circuitstream.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260424T193000
+DTEND;TZID=America/Los_Angeles:20260424T213000
+DTSTAMP:20260325T184457
+CREATED:20260312T203517Z
+LAST-MODIFIED:20260312T203517Z
+UID:10003245-1777059000-1777066200@www.geekwire.com
+SUMMARY:Crescendo: A Symphonic Celebration of Washington Landscapes
+DESCRIPTION:Join Northwest Symphony Orchestra and Washington Trails Association for their third annual celebration of music and nature. Be transported to the wilderness as you experience photos from WTA’s Northwest Exposure Photo Contest on the big screen while listening to the sweeping melodies of Ravel\, Bizet\, Grieg\, Wagner and more performed live by NWSO. Special guests The Musical Mountaineers will return to perform and present the world premiere of their newest short film. The concert is open to all ages\, so gather your friends and family for a truly unforgettable evening. \nBoth longstanding Washington nonprofits\, WTA and NWSO share the goal of bringing joy and beauty into people’s lives. Your ticket purchase supports NWSO’s work to promote the vibrant spectrum of classical music\, especially contemporary Northwest composers\, and WTA’s mission to connect everyone to the outdoors and build a community that gives back to trails and public lands.
+URL:https://www.geekwire.com/calendar-event/crescendo-a-symphonic-celebration-of-washington-landscapes/
+LOCATION:S. Mark Taper Foundation Auditorium – Benaroya Hall\, 200 University St\, Seattle\, WA\, 98101\, United States
+CATEGORIES:Arts,Family events
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/03/26-Cresendo_hero-1.jpg
+ORGANIZER;CN="Washington Trails Association":MAILTO:donations@wta.org
+GEO:47.608106;-122.337005
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=S. Mark Taper Foundation Auditorium – Benaroya Hall 200 University St Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=200 University St:geo:-122.337005,47.608106
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260429T170000
+DTEND;TZID=America/Los_Angeles:20260624T183000
+DTSTAMP:20260325T184457
+CREATED:20260319T175109Z
+LAST-MODIFIED:20260319T175109Z
+UID:10003254-1777482000-1782325800@www.geekwire.com
+SUMMARY:TiE Entrepreneur Institute 2026
+DESCRIPTION:TiE Entrepreneur Institute 2026 – Registrations Open! \nHave a startup idea but unsure how to turn it into a real company? \nTiE Seattle’s Entrepreneur Institute is designed to help aspiring and early-stage founders learn the fundamentals of building and scaling a startup—from idea validation and fundraising to go-to-market\, sales strategy\, and building strong teams. \nApr 29 – Jun 24\, 2026 | 5:00 PM (Virtual Sessions) \nLearn directly from successful founders\, seasoned executives\, and industry experts through practical\, interactive sessions. \nBonus for TiE Members:\n• 50% discount on the program\n• Access to the TiE global network\n• 1:1 mentorship from experienced entrepreneurs \nWhether you’re exploring an idea or already building\, this program will give you the frameworks\, insights\, and connections to move forward with confidence. \n👉 Register here:\nhttps://events.tie.org/TiEEntrepreneurInstitute2026#/ \nFeel free to share with founders and aspiring entrepreneurs in your network!
+URL:https://www.geekwire.com/calendar-event/tie-entrepreneur-institute-2026/
+LOCATION:Zoom
+CATEGORIES:Educational events,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/image-11.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260507T090000
+DTEND;TZID=America/Los_Angeles:20260507T170000
+DTSTAMP:20260325T184457
+CREATED:20260212T202340Z
+LAST-MODIFIED:20260212T202340Z
+UID:10003194-1778144400-1778173200@www.geekwire.com
+SUMMARY:Henley Live 2026: A Seattle Business Leadership Conference
+DESCRIPTION:For one day\, step away from the noise of daily leadership demands and into a space that nourishes your growth and connection to others. \nJoin us on May 7\, 2026 at The Collective in Seattle\, for a one-day leadership conference designed to reset\, reconnect\, and reimagine how you lead and support your teams. \nHenley Leadership offers immersive learning experiences designed for business professionals at all levels\, whether you lead teams or contribute as an individual. Our approach combines honest conversations and meaningful community connections\, all delivered in our signature style: welcoming\, energizing\, and deeply human.
+URL:https://www.geekwire.com/calendar-event/henley-live-2026-a-seattle-business-leadership-conference/
+LOCATION:The Collective Seattle\, 400 Dexter Avenue North\, Seattle\, Washington\, 98109\, United States
+CATEGORIES:Conferences
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/02/HenleyLive.jpg
+ORGANIZER;CN="Henley Leadership Group":MAILTO:kathyaberardi@gmail.com
+GEO:47.6221728;-122.3419734
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=The Collective Seattle 400 Dexter Avenue North Seattle Washington 98109 United States;X-APPLE-RADIUS=500;X-TITLE=400 Dexter Avenue North:geo:-122.3419734,47.6221728
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260508T113000
+DTEND;TZID=America/Los_Angeles:20260508T130000
+DTSTAMP:20260325T184457
+CREATED:20251024T200349Z
+LAST-MODIFIED:20251226T215413Z
+UID:10003061-1778239800-1778245200@www.geekwire.com
+SUMMARY:Discovery Series\, Dr. Cyrus Ghjar\, Professor\, Fred Hutch
+DESCRIPTION:What if cancer didn’t strike in one dramatic moment—but instead lingered\, quietly\, for years? Long after a tumor seems gone\, cancer cells can lie dormant. And sometimes\, they return. This is the mystery of metastatic relapse—and the frontier where Dr. Cyrus Ghajar works. \n​At Fred Hutch Cancer Center\, Ghajar leads research into how dormant cancer cells evade treatment and what reactivates them. His lab bridges oncology\, immunology\, and bioengineering to explore the role of the immune system in suppressing dormant cancer cells. It’s a delicate numbers game that can tip the balance between remission and recurrence. \n​Supported by the National Institutes of Health\, the Kuni Foundation\, U.S. Department of Defense and other funders\, Ghajar holds the Peter S. Lefkarites Memorial Endowed Chair. Ghajar’s work is reshaping how we think about metastasis—not as a sudden invasion\, but a slow\, stealthy process that might be intercepted. Join us to explore how silence in the body might hold the key to preventing relapse.
+URL:https://www.geekwire.com/calendar-event/discovery-series-dr-cyrus-ghjar-professor-fred-hutch/
+LOCATION:Perkins Coie\, 1201 Third Avenue\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/10/discoveryseries_drcyrusghjar.jpg
+GEO:47.6070578;-122.3360757
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Perkins Coie 1201 Third Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1201 Third Avenue:geo:-122.3360757,47.6070578
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260513
+DTEND;VALUE=DATE:20260516
+DTSTAMP:20260325T184457
+CREATED:20260218T172109Z
+LAST-MODIFIED:20260218T172109Z
+UID:10003207-1778630400-1778889599@www.geekwire.com
+SUMMARY:Cre8te Summit
+DESCRIPTION:Cre8te Summit is designed to help you move from ideas to execution. You’ll gain clarity\, practical skills\, and real connections that extend far beyond the event.
+URL:https://www.geekwire.com/calendar-event/cre8te-summit/
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-18-090455.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260515T080000
+DTEND;TZID=America/Los_Angeles:20260515T170000
+DTSTAMP:20260325T184457
+CREATED:20260305T184134Z
+LAST-MODIFIED:20260305T184134Z
+UID:10003242-1778832000-1778864400@www.geekwire.com
+SUMMARY:Startup Day 2026 - The founder conference
+DESCRIPTION:400+ founders. One day. No fluff. If you’re building something or thinking about it\, Startup Day is the one room in Seattle where you want to be. Talks from active founders on building in the age of AI\, an Advisory Room with dozens of investors to meet 1:1\, co-founder matching\, and a Startup Fair – see what Seattle’s top startups are building and hiring for.
+URL:https://www.geekwire.com/calendar-event/startup-day-2026-the-founder-conference/
+LOCATION:Bell Harbor International Conference Center\, 2211 Alaskan Way\, Seattle\, WA\, 98101\, United States
+CATEGORIES:Artificial Intelligence,Jobs/Recruiting,Startups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/startupday-square.png
+ORGANIZER;CN="Seattle Flow":MAILTO:contact@seattleflow.org
+GEO:47.6099287;-122.3462037
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Bell Harbor International Conference Center 2211 Alaskan Way Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=2211 Alaskan Way:geo:-122.3462037,47.6099287
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260515T103000
+DTEND;TZID=America/Los_Angeles:20260515T130000
+DTSTAMP:20260325T184457
+CREATED:20260204T183704Z
+LAST-MODIFIED:20260204T183704Z
+UID:10003188-1778841000-1778850000@www.geekwire.com
+SUMMARY:PacSci Ignite Luncheon
+DESCRIPTION:PacSci’s annual Ignite Luncheon brings together our community’s business\, philanthropic\, and civic leaders to celebrate the power of curiosity and innovation.
+URL:https://www.geekwire.com/calendar-event/pacsci-ignite-luncheon/
+LOCATION:Fisher Pavilion\, 305 Harrison Street\, Seattle\, WA\, 98109\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-04-103536.png
+GEO:47.620532;-122.3502738
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Fisher Pavilion 305 Harrison Street Seattle WA 98109 United States;X-APPLE-RADIUS=500;X-TITLE=305 Harrison Street:geo:-122.3502738,47.620532
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260520
+DTEND;VALUE=DATE:20260523
+DTSTAMP:20260325T184457
+CREATED:20260108T201444Z
+LAST-MODIFIED:20260108T201500Z
+UID:10003142-1779235200-1779494399@www.geekwire.com
+SUMMARY:7th Annual World ALLoT Congress
+DESCRIPTION:Continuing from the outstanding success of IEEE AIIoT 2025\, we are very proud to present IEEE World AI IoT Congress 2026 which will provide an opportunity for researchers\, educators and students to discuss and exchange ideas on issues\, trends and developments in the related fields of AI and IoT. The conference aims to bring together scholars from different disciplinary backgrounds to emphasize the dissemination of ongoing research in the fields of AI and IoT. Research papers are invited describing original work in the above-mentioned fields and related technologies. The conference will include a peer-reviewed program of technical sessions. This year we will be hosting the conference physically. \nThis conference will also promote an intense dialogue between academia and industry to bridge the gap between academic research\, industry initiatives\, and governmental policies. This is fostered through panel discussions\, keynotes\, and industry exhibits where academia is exposed to state-of-practice and results from trials and interoperability experiments. The industry in turn benefits by exposure to leading-edge research in networking as well as the opportunity to communicate with academic researchers regarding practical problems that require further research.
+URL:https://www.geekwire.com/calendar-event/7th-annual-world-allot-congress/
+LOCATION:Seattle Convention Center\, 705 Pike Street\, Seattle\, Washington\, 98101\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-162917.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260531
+DTEND;VALUE=DATE:20260603
+DTSTAMP:20260325T184457
+CREATED:20260108T201427Z
+LAST-MODIFIED:20260108T201427Z
+UID:10003143-1780185600-1780444799@www.geekwire.com
+SUMMARY:2026 AST Surgical Technology Conference
+DESCRIPTION:Join us Sunday\, May 31 – Tuesday\, June 2\, 2026\, In Seattle\, Washington! Seattle offers iconic landmarks like the Space Needle\, a world-class coffee culture\, and a thriving tech scene. From exploring Pike Place Market to hiking in nearby national parks\, Seattle is a city that blends urban energy with outdoor adventure. Whether you’re a foodie\, artist\, entrepreneur\, or explorer\, Seattle welcomes you with open arms and endless possibilities. AST offers an event focused on education\, innovation\, and networking opportunities. It’s not just a professional gathering; it’s an opportunity to explore the unique charm and culture that Seattle has to offer. More information coming soon.
+URL:https://www.geekwire.com/calendar-event/2026-ast-surgical-technology-conference/
+LOCATION:Summit at the Seattle Convention Center\, 900 Pine Street\, Seattle\, 98101\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-163118.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260601
+DTEND;VALUE=DATE:20260603
+DTSTAMP:20260325T184457
+CREATED:20260108T201730Z
+LAST-MODIFIED:20260108T201730Z
+UID:10003138-1780272000-1780444799@www.geekwire.com
+SUMMARY:CascadiaJS 2026
+DESCRIPTION:A Web + AI conference for the Pacific Northwest \nCascadiaJS is a community-driven conference for developers in the PNW and beyond. You’ll hear from 30+ speakers\, connect with 500+ fellow devs\, and explore the latest in web and AI technologies with some of the top companies in the industry.
+URL:https://www.geekwire.com/calendar-event/cascadiajs-2026/
+LOCATION:Town Hall Seattle\, 1119 8th Avenue\, Seattle\, WA\, 98101\, United States
+CATEGORIES:Conferences
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/hero-mushroom.png
+ORGANIZER;CN="Carter Rabasa":MAILTO:carter.rabasa@gmail.com
+GEO:47.609019;-122.329901
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Town Hall Seattle 1119 8th Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1119 8th Avenue:geo:-122.329901,47.609019
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260603T083000
+DTEND;TZID=America/Los_Angeles:20260603T163000
+DTSTAMP:20260325T184457
+CREATED:20260313T161348Z
+LAST-MODIFIED:20260313T161348Z
+UID:10003253-1780475400-1780504200@www.geekwire.com
+SUMMARY:Seattle Investor Summit+Showcase
+DESCRIPTION:​Where capital\, innovation\, and leadership converge. \n​Overview: Get ready to connect\, invest\, and discover what’s next. The Seattle Investor Summit + Showcase returns in 2026\, convening leading venture capitalists\, corporate innovators\, and high-growth startups from across the Pacific Northwest and beyond. \n​This one-day event is designed to \n​Create meaningful connections between startups and potential investors and/or customers. \n​Showcase the breadth of Washington’s startup ecosystem (AI\, Cloud\, Space\, Defense\, Ag\, and more) \n​Help investors tap into the exceptional opportunities offered by Washington to build and scale a company \n​ What to Expect: \n​✔ Strategic Startup Showcases\n✔ Top VCs + Corporate Investors\n✔ Emerging Innovation Across Key Sectors\n✔ Networking\, Panels\, and 1:1 Meeting Opportunities \n​Agenda\n8:00 AM – Check-in table opens\, lite breakfast ready\n9:00 AM – Keynote\n10:00 AM – Networking break\n10:30 AM – Pitch tracks: Applied AI & Cloud Infrastructure\, Climate & Energy Tech\, Defense & Space\n12:00 PM – Networking lunch\n1:15 PM – Panel with local VCs\n2:00 PM – Keynote – Jaime Teevan\, Chief Scientist\, Microsoft\n2:45 PM – Networking break\n3:15 PM – Pitch tracks (same as above)\n4:30 PM – Reception\, Hosted by Orrick\n6:30 PM – End \n​Don’t miss your chance to be part of this high-value summit at the intersection of innovation and investment.
+URL:https://www.geekwire.com/calendar-event/seattle-investor-summitshowcase/
+LOCATION:Microsoft Building #92\, 15010 Northeast 36th St\, Redmond\, 98052\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Screenshot-2026-03-13-091121.png
+ORGANIZER;CN="Technology Alliance":MAILTO:events@technology-alliance.com
+GEO:47.6423109;-122.1368406
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Microsoft Building #92 15010 Northeast 36th St Redmond 98052 United States;X-APPLE-RADIUS=500;X-TITLE=15010 Northeast 36th St:geo:-122.1368406,47.6423109
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260607T080000
+DTEND;TZID=America/Los_Angeles:20260612T170000
+DTSTAMP:20260325T184457
+CREATED:20260121T162411Z
+LAST-MODIFIED:20260121T162412Z
+UID:10003149-1780819200-1781283600@www.geekwire.com
+SUMMARY:AI Con USA 2026
+DESCRIPTION:Don’t Just Watch the AI Revolution—Help Lead It.\nJoin the premier conference dedicated to Artificial Intelligence and Machine Learning\, live in Seattle and virtually online. AI Con USA is the essential gathering for tech & engineering leaders\, researchers\, and innovators\, covering the critical topics that matter now: real-world AI in practice\, RAG\, AI strategy\, agentic\, and much more. This is your unparalleled opportunity for knowledge exchange\, career-defining networking\, and gaining the actionable insights you need to keep your organization at the absolute forefront.
+URL:https://www.geekwire.com/calendar-event/ai-con-usa-2026/
+LOCATION:Hyatt Regency Seattle\, 808 Howell Street Seattle\, Seattle\, WA\, 98101\, United States
+CATEGORIES:Artificial Intelligence,Conferences,Developer,Trade Show
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/AICU26_Ad_Google_GEN_1200x628.png
+ORGANIZER;CN="Coveros":MAILTO:clientsupport@coveros.com
+GEO:47.6145385;-122.3339418
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Hyatt Regency Seattle 808 Howell Street Seattle Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=808 Howell Street Seattle:geo:-122.3339418,47.6145385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260708
+DTEND;VALUE=DATE:20260712
+DTSTAMP:20260325T184457
+CREATED:20250908T190823Z
+LAST-MODIFIED:20250908T190823Z
+UID:10002962-1783468800-1783814399@www.geekwire.com
+SUMMARY:Aviation Expo
+DESCRIPTION:Aviation Expo is the new premier gathering for aviation enthusiasts\, collectors\, and spotters! The debut event will take place from July 8-11\, 2026\, at the DoubleTree by Hilton Seattle Tacoma International Airport (SEA). This event features an aviation marketplace with over 200 tables of airline/aviation collectibles for trade/sale\, Seattle aviation landmark tours\, plane spotting events\, an aviation career day\, workshops & seminars\, and MUCH MORE! Hotel booking and registration are now open on our website. Additional information such as preliminary tours\, vendor information\, and our show hosts. We will provide more updates and information as they become available.
+URL:https://www.geekwire.com/calendar-event/aviation-expo/
+LOCATION:Double Tree Seattle Airport\, 16500 Southcenter Pkwy\, Seattle\, 98188\, United States
+CATEGORIES:Aerospace
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/09/IMG_9175.jpeg
+ORGANIZER;CN="Airways Magazine":MAILTO:erratumcenter@airwaysmag.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260801
+DTSTAMP:20260325T184457
+CREATED:20251226T214644Z
+LAST-MODIFIED:20251226T214644Z
+UID:10003130-1785110400-1785542399@www.geekwire.com
+SUMMARY:VSLive! @ Microsoft HQ 2026
+DESCRIPTION:Visual Studio Live! @ Microsoft HQ 2026 delivers advanced\, practical training for software developers in the heart of Microsoft’s campus. This immersive event provides expert-led sessions on .NET\, C#\, Azure\, Blazor\, cloud-native application development\, DevOps\, and modern architecture. Attendees benefit from focused learning\, hands-on labs\, and direct engagement with experienced practitioners while networking with peers in a highly technical environment.
+URL:https://www.geekwire.com/calendar-event/vslive-microsoft-hq-2026/
+LOCATION:Microsoft Conference Center\, 16070 NE 36th Way\, Redmond\, WA\, 98052\, United States
+CATEGORIES:Artificial Intelligence,Developer,Educational events
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2025/12/2026-Events_LI-event-covers_1920x1080-2-VSL-MSHQ.png
+GEO:47.6429434;-122.1255156
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Microsoft Conference Center 16070 NE 36th Way Redmond WA 98052 United States;X-APPLE-RADIUS=500;X-TITLE=16070 NE 36th Way:geo:-122.1255156,47.6429434
+END:VEVENT
+END:VCALENDAR

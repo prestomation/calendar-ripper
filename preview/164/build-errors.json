@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-26T04:39:54.944Z",
+  "buildTime": "2026-03-26T04:56:57.433Z",
   "totalErrors": 3,
   "configErrors": [],
   "sources": [
@@ -317,7 +317,7 @@
     {
       "name": "bbyc-ballard-all-events",
       "type": "Ripper",
-      "events": 33,
+      "events": 32,
       "expectEmpty": false
     },
     {
@@ -1061,7 +1061,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 486,
+      "events": 485,
       "expectEmpty": false
     },
     {
@@ -1211,7 +1211,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 458,
+      "events": 457,
       "expectEmpty": false
     },
     {
@@ -1331,7 +1331,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7399,
+      "events": 7398,
       "expectEmpty": false
     },
     {

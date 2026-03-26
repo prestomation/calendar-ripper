@@ -54,6 +54,7 @@ export function EventsMap({
   calendarTagsByIcsUrl,
   selectedTag,
   calendarNameByIcsUrl,
+  eventAttributions,
 }) {
   // Filter events: only those with lat/lng, and respecting active tag/calendar filter
   const mappableEvents = eventsIndex.filter(event => {
@@ -132,6 +133,20 @@ export function EventsMap({
                       View event →
                     </a>
                   )}
+                  {eventAttributions && (() => {
+                    const key = event.summary + '|' + event.date
+                    const attributions = eventAttributions.get(key) || []
+                    return attributions.length > 0 ? (
+                      <div className="event-attributions" style={{ marginTop: '4px' }}>
+                        {attributions.map((attr, j) => (
+                          <span key={`${attr.type}-${attr.value}-${j}`} className={`attribution-chip attribution-${attr.type}`}>
+                            {attr.type === 'calendar' ? '🗓️' : attr.type === 'search' ? '🔍' : '📍'}
+                            {' '}{attr.value}
+                          </span>
+                        ))}
+                      </div>
+                    ) : null
+                  })()}
                 </div>
               </Popup>
             </Marker>

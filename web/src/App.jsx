@@ -1504,6 +1504,66 @@ function App() {
     return matches
   }, [searchFilters, eventsIndex])
 
+  // Attribution map: Map<compositeKey, Attribution[]>
+  // compositeKey = event.summary + '|' + event.date
+  // Reuses perFilterMatches to avoid re-running Fuse; geo uses haversine matching worker exactly
+  const eventAttributions = useMemo(() => {
+    const map = new Map()
+    const addAttr = (key, attr) => {
+      if (!map.has(key)) map.set(key, [])
+      map.get(key).push(attr)
+    }
+
+    // 1. Favorited calendars
+    for (const event of eventsIndex) {
+      if (favoritesSet.has(event.icsUrl)) {
+        const calName = calendarNameByIcsUrl[event.icsUrl] || event.icsUrl
+        addAttr(event.summary + '|' + event.date, { type: 'calendar', value: calName })
+      }
+    }
+
+    // 2. Search filters — reuse searchFilterMatchSummaries structure but need per-filter attribution
+    if (searchFilters.length && eventsIndex.length) {
+      const fuse = new Fuse(eventsIndex, {
+        keys: ['summary', 'description', 'location'],
+        threshold: FUSE_THRESHOLD,
+      })
+      for (const filter of searchFilters) {
+        for (const { item } of fuse.search(filter)) {
+          addAttr(item.summary + '|' + item.date, { type: 'search', value: filter })
+        }
+      }
+    }
+
+    // 3. Geo filters — haversine formula matching infra/favorites-worker/src/feed.ts exactly
+    function haversineKm(lat1, lng1, lat2, lng2) {
+      const R = 6371
+      const dLat = (lat2 - lat1) * Math.PI / 180
+      const dLng = (lng2 - lng1) * Math.PI / 180
+      const a = Math.sin(dLat / 2) ** 2 +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLng / 2) ** 2
+      const aClamped = Math.min(1, Math.max(0, a))
+      return R * 2 * Math.atan2(Math.sqrt(aClamped), Math.sqrt(1 - aClamped))
+    }
+
+    if (geoFilters.length) {
+      for (const event of eventsIndex) {
+        if (event.lat == null || event.lng == null) continue
+        for (const gf of geoFilters) {
+          if (haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm) {
+            addAttr(event.summary + '|' + event.date, {
+              type: 'geo',
+              value: gf.label || `${gf.radiusKm} km`,
+            })
+          }
+        }
+      }
+    }
+
+    return map
+  }, [eventsIndex, favoritesSet, searchFilters, geoFilters, calendarNameByIcsUrl])
+
   // Per-filter match counts and match sets for view mode filtering
   const perFilterMatches = useMemo(() => {
     if (!eventsIndex.length) return new Map()
@@ -2783,6 +2843,7 @@ function App() {
                 calendarTagsByIcsUrl={calendarTagsByIcsUrl}
                 selectedTag={selectedTag}
                 calendarNameByIcsUrl={calendarNameByIcsUrl}
+                eventAttributions={eventAttributions}
               />
             ) : happeningSoonEvents.length > 0 ? (
               happeningSoonEvents.map(group => (
@@ -2866,6 +2927,20 @@ function App() {
                           </a>
                         </div>
                       )}
+                      {(() => {
+                        const key = event.summary + '|' + event.date
+                        const attributions = eventAttributions.get(key) || []
+                        return attributions.length > 0 ? (
+                          <div className="event-attributions">
+                            {attributions.map((attr, i) => (
+                              <span key={`${attr.type}-${attr.value}-${i}`} className={`attribution-chip attribution-${attr.type}`}>
+                                {attr.type === 'calendar' ? '🗓️' : attr.type === 'search' ? '🔍' : '📍'}
+                                {' '}{attr.value}
+                              </span>
+                            ))}
+                          </div>
+                        ) : null
+                      })()}
                     </div>
                   ))}
                 </div>

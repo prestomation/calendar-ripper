@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-26T02:28:08.433Z",
-  "totalErrors": 4,
+  "buildTime": "2026-03-26T02:50:05.880Z",
+  "totalErrors": 3,
   "configErrors": [],
   "sources": [
     {
@@ -44,14 +44,7 @@
     }
   ],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "Book-It Repertory Theatre, 305 Harrison Street, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
@@ -540,7 +533,7 @@
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 45,
+      "events": 44,
       "expectEmpty": false
     },
     {
@@ -1188,7 +1181,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 155,
+      "events": 154,
       "expectEmpty": false
     },
     {
@@ -1266,7 +1259,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 517,
+      "events": 516,
       "expectEmpty": false
     },
     {
@@ -1338,7 +1331,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7405,
+      "events": 7404,
       "expectEmpty": false
     },
     {

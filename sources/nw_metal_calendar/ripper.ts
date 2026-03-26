@@ -1,9 +1,7 @@
 import { Duration, LocalDateTime, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { Ripper, RipperCalendar, RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
-import { parse, HTMLElement } from 'node-html-parser';
-
-const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
+import { HTMLElement } from 'node-html-parser';
 
 
 // Matches single-day events: "MAY 7 at Venue: Band Name"
@@ -14,26 +12,6 @@ const eventRegex = /(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) (\d\d?)(?:
 const MONTH_LOOKUP = "JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC";
 
 export default class NWMetalRipper extends HTMLRipper {
-
-    // nocleansinging.com returns 403 unless a browser User-Agent is sent.
-    // Override rip() to fetch with the correct header before parsing.
-    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
-        const url = ripper.config.url;
-        const res = await fetch(url, { headers: { 'User-Agent': BROWSER_UA } });
-        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-        const html = parse(await res.text());
-        const now = ZonedDateTime.now(ZoneRegion.of("America/Los_Angeles"));
-        const events = await this.parseEvents(html, now, ripper.config.calendars[0]?.config ?? {});
-        const cal = ripper.config.calendars[0];
-        return [{
-            name: cal.name,
-            friendlyname: cal.friendlyname,
-            events: events.filter(e => "date" in e) as RipperCalendarEvent[],
-            errors: events.filter(e => "type" in e) as any[],
-            parent: ripper.config,
-            tags: cal.tags || [],
-        }];
-    }
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
 
@@ -56,12 +34,12 @@ export default class NWMetalRipper extends HTMLRipper {
             // Yes, really
             const month = MONTH_LOOKUP.indexOf(monthStr) / 3 + 1;
 
-            // Build the event datetime safely:
+            // Build the event datetime safely using the `date` parameter (not wall clock),
+            // so tests with fixed fixture dates produce deterministic output.
             // 1. withDayOfMonth(1) first to avoid invalid intermediate dates
             //    (e.g. today is Mar 31, switching to Feb would give Feb 31 → exception).
             // 2. Handle year rollover: if the event month is earlier in the year than
             //    the current month (e.g. JAN event parsed in DEC), use next year.
-            // Use the `date` parameter so tests can control the reference time.
             let year = date.year();
             if (month < date.monthValue()) {
                 year += 1;
@@ -73,6 +51,7 @@ export default class NWMetalRipper extends HTMLRipper {
                 const eventTime = date
                     .withDayOfMonth(1)
                     .withYear(year)
+                    .withDayOfMonth(1)
                     .withMonth(month)
                     .withDayOfMonth(day)
                     .withHour(19)

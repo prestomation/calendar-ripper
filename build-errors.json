@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-26T04:59:47.472Z",
+  "buildTime": "2026-03-26T05:03:38.956Z",
   "totalErrors": 3,
   "configErrors": [],
   "sources": [
@@ -527,13 +527,13 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 45,
+      "events": 46,
       "expectEmpty": false
     },
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 44,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -629,7 +629,7 @@
     {
       "name": "seattle-convention-center-all-events",
       "type": "Ripper",
-      "events": 46,
+      "events": 47,
       "expectEmpty": false
     },
     {
@@ -1091,7 +1091,7 @@
     {
       "name": "tag-downtown",
       "type": "Aggregate",
-      "events": 273,
+      "events": 274,
       "expectEmpty": false
     },
     {
@@ -1181,7 +1181,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 154,
+      "events": 156,
       "expectEmpty": false
     },
     {
@@ -1193,7 +1193,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2612,
+      "events": 2613,
       "expectEmpty": false
     },
     {
@@ -1259,13 +1259,13 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 515,
+      "events": 517,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1032,
+      "events": 1033,
       "expectEmpty": false
     },
     {
@@ -1331,7 +1331,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7399,
+      "events": 7402,
       "expectEmpty": false
     },
     {

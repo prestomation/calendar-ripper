@@ -1590,7 +1590,7 @@ function App() {
         }
       }
     }
-  }, [searchFilters, selectedTag, geoFilters])
+  }, [searchFilters, selectedTag, geoFilters, favoritesViewMode])
 
   // Compute events for the favorites view
   const favoritesEvents = useMemo(() => {

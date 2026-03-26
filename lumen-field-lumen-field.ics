@@ -6,20 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Lumen Field
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:K0V3Cv_Q2PUKDx37N2awj
-SUMMARY:World Cup: Match 16 ??? Group G - Belgium vs Egypt
-DTSTAMP:20260326T123253Z
-DTSTART:20260615T190000Z
-DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A743fd
-URL:https://www.ticketmaster.com/event/Z7r9jZ1A743fd
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:sh_GLAFjM0xWNtveabIko
+UID:pZ8hqH1Jx_fL20hyY3dVF
 SUMMARY:World Cup: Match 32 - Group D- USA vs Australia
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260619T190000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A743f9
 URL:https://www.ticketmaster.com/event/Z7r9jZ1A743f9
@@ -28,9 +17,20 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:LApnwFKO0UA3kRavdargv
+UID:iRW3rDn6itB9-uiKPDH5L
+SUMMARY:World Cup: Match 16 ??? Group G - Belgium vs Egypt
+DTSTAMP:20260326T215638Z
+DTSTART:20260615T190000Z
+DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A743fd
+URL:https://www.ticketmaster.com/event/Z7r9jZ1A743fd
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:grtk3AxmVBQeEfCRDBUU1
 SUMMARY:World Cup: Match 52 ??? Group B - Qatar vs TBA
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260624T190000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A743fV
 URL:https://www.ticketmaster.com/event/Z7r9jZ1A743fV
@@ -39,43 +39,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3OyAbJx2poe2Awoq35XA4
-SUMMARY:ACCESS PASS ONLY
-DTSTAMP:20260326T123253Z
-DTSTART:20260413T010000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:3Lr3NoTdDEiL1P9vdPXHz
-SUMMARY:0412 Sounders Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260413T010000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:dYBK2PWo3GPc6hFlLxqhH
-SUMMARY:Seattle Sounders FC vs. Real Salt Lake
-DTSTAMP:20260326T123253Z
-DTSTART:20260413T010000Z
-DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
-	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
-	x 6" x 12" or a small clutch or purse no larger than 4.5" x 6.5".\n\nhttps
-	://www.ticketmaster.com/seattle-sounders-fc-vs-real-salt-seattle-washingto
-	n-04-12-2026/event/0F006383C4568451
-URL:https://www.ticketmaster.com/seattle-sounders-fc-vs-real-salt-seattle-w
-	ashington-04-12-2026/event/0F006383C4568451
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:W4cLjRmgDQ9FXtijqC86N
+UID:8CcX6iilGheTGwrmRuO8H
 SUMMARY:U.S. Women's National Team v Japan presented by Allstate
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260415T020000Z
 DESCRIPTION:* Event Info Text: Fans age 2 and older will require a ticket. 
 	There will be no re-entry. Prices are subject to change. U.S. Soccer prefe
@@ -92,9 +58,25 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:xGkwKroSZhL9EZDfqAmlf
+UID:9h7OGCDJ8Qfcn-ZbQolcX
+SUMMARY:Seattle Sounders FC vs. Real Salt Lake
+DTSTAMP:20260326T215638Z
+DTSTART:20260413T010000Z
+DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
+	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
+	x 6" x 12" or a small clutch or purse no larger than 4.5" x 6.5".\n\nhttps
+	://www.ticketmaster.com/seattle-sounders-fc-vs-real-salt-seattle-washingto
+	n-04-12-2026/event/0F006383C4568451
+URL:https://www.ticketmaster.com/seattle-sounders-fc-vs-real-salt-seattle-w
+	ashington-04-12-2026/event/0F006383C4568451
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:yc7Qw7zDlb5w4MoTkayCe
 SUMMARY:Seattle Sounders FC vs. Tigres UANL
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260416T033000Z
 DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
 	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
@@ -108,27 +90,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4aZaW3ZHCF4OBmeMECJO9
-SUMMARY:0418 Sounders Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260419T013000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:CSqqE-EJy0XjIWrYiLgRA
-SUMMARY:ACCESS PASS ONLY
-DTSTAMP:20260326T123253Z
-DTSTART:20260419T013000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:XkhpmP8gQ2dutSYUgyLMa
+UID:2vE9jY5r3IFlncON3qv-K
 SUMMARY:Seattle Sounders FC vs. St. Louis City SC
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260419T013000Z
 DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
 	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
@@ -142,27 +106,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:hAAg8SFJEsYnqNW0wrmuo
-SUMMARY:0425 Sounders Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260426T023000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:oE2ernWN6716rOgVtnOku
-SUMMARY:ACCESS PASS ONLY
-DTSTAMP:20260326T123253Z
-DTSTART:20260426T023000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:RV-kucJhqW96X1JjEchJb
+UID:eHTYljmAlfcMIT0R1ZHT9
 SUMMARY:Seattle Sounders FC vs. FC Dallas
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260426T023000Z
 DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
 	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
@@ -176,54 +122,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Qe52cJpOAcY7TIqal3OjD
-SUMMARY:0426 Reign Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260427T000000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:_ZOm-gISQ1UF2aXx42-Qu
-SUMMARY:Seattle Reign FC vs. Utah Royals FC
-DTSTAMP:20260326T123253Z
-DTSTART:20260427T000000Z
-DESCRIPTION:A clear bag policy is enforced by Lumen Field. You may carry a 
-	clear tote no larger than 12" x 6" x 12" or a small clutch or purse no lar
-	ger than 4.5" x 6.5".\nPlan your visit to Lumen Field and make it the best
-	\, most efficient time using the information regarding the stadium - https
-	://www.lumenfield.com/plan-your-visit/stadium-guide This event is Mobile O
-	nly\n\nhttps://www.ticketmaster.com/seattle-reign-fc-vs-utah-royals-seattl
-	e-washington-04-26-2026/event/0F006454A523CE84
-URL:https://www.ticketmaster.com/seattle-reign-fc-vs-utah-royals-seattle-wa
-	shington-04-26-2026/event/0F006454A523CE84
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:k432B_clFaQlcC3Jr_P5R
-SUMMARY:0509 Sounders Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260510T023000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:iykkWm9vbjmIPZyRE8zEB
-SUMMARY:ACCESS PASS ONLY
-DTSTAMP:20260326T123253Z
-DTSTART:20260510T023000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:zDTpE8LSin7KJKuIDsD1a
+UID:4Bg-pAud6eroIvXyYGT3p
 SUMMARY:Seattle Sounders FC vs. San Diego FC
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260510T023000Z
 DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
 	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
@@ -237,18 +138,41 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:cJQSwNNkIc0u3wGBhxDyQ
-SUMMARY:0510 Reign Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260510T230000Z
+UID:VCN5UdM91MQ4wdNPmpssW
+SUMMARY:Seattle Sounders FC vs. San Jose Earthquakes
+DTSTAMP:20260326T215638Z
+DTSTART:20260514T013000Z
+DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
+	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
+	x 6" x 12" or a small clutch or purse no larger than 4.5" x 6.5".\n\nhttps
+	://www.ticketmaster.com/seattle-sounders-fc-vs-san-jose-seattle-washington
+	-05-13-2026/event/0F006383ED599A47
+URL:https://www.ticketmaster.com/seattle-sounders-fc-vs-san-jose-seattle-wa
+	shington-05-13-2026/event/0F006383ED599A47
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3ei-TEKi8t41EoRvOFIiD
+UID:krzTaX1aFW9bnm6kN97Ml
+SUMMARY:Seattle Sounders FC vs. LA Galaxy
+DTSTAMP:20260326T215638Z
+DTSTART:20260517T010000Z
+DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
+	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
+	x 6" x 12" or a small clutch or purse no larger than 4.5" x 6.5".\n\nhttps
+	://www.ticketmaster.com/seattle-sounders-fc-vs-la-galaxy-seattle-washingto
+	n-05-16-2026/event/0F006383C464845F
+URL:https://www.ticketmaster.com/seattle-sounders-fc-vs-la-galaxy-seattle-w
+	ashington-05-16-2026/event/0F006383C464845F
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:qe1aGUErlDYmwkH6Mvasj
 SUMMARY:Seattle Reign FC vs. Washington Spirit
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260510T230000Z
 DESCRIPTION:A clear bag policy is enforced by Lumen Field. You may carry a 
 	clear tote no larger than 12" x 6" x 12" or a small clutch or purse no lar
@@ -264,52 +188,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:AS4aOr2ysK6BWjVtMvcFz
-SUMMARY:ACCESS PASS ONLY
-DTSTAMP:20260326T123253Z
-DTSTART:20260514T013000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:C6yxeep7CIelPnT0cimQW
-SUMMARY:0513 Sounders Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260514T013000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:dwUjRIbcmBuCA4szO9jYP
-SUMMARY:Seattle Sounders FC vs. San Jose Earthquakes
-DTSTAMP:20260326T123253Z
-DTSTART:20260514T013000Z
-DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
-	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
-	x 6" x 12" or a small clutch or purse no larger than 4.5" x 6.5".\n\nhttps
-	://www.ticketmaster.com/seattle-sounders-fc-vs-san-jose-seattle-washington
-	-05-13-2026/event/0F006383ED599A47
-URL:https://www.ticketmaster.com/seattle-sounders-fc-vs-san-jose-seattle-wa
-	shington-05-13-2026/event/0F006383ED599A47
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:qx22UaghvjNtaN_GPnP1U
-SUMMARY:0515 Reign Credential
-DTSTAMP:20260326T123253Z
-DTSTART:20260516T020000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:eiuCfIoskAhOHriuXCjK-
+UID:52d-ehrT7RYcGYX_flg_9
 SUMMARY:Seattle Reign FC vs. NJ/NY Gotham FC
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260516T020000Z
 DESCRIPTION:A clear bag policy is enforced by Lumen Field. You may carry a 
 	clear tote no larger than 12" x 6" x 12" or a small clutch or purse no lar
@@ -325,124 +206,216 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8jXe-TbPIEmrfu-XYN7TN
-SUMMARY:0516 Sounders Credentia
-DTSTAMP:20260326T123253Z
-DTSTART:20260517T010000Z
+UID:9BW3UE8rwPuZWbWHutKPj
+SUMMARY:Seattle Reign FC vs. Utah Royals FC
+DTSTAMP:20260326T215638Z
+DTSTART:20260427T000000Z
+DESCRIPTION:A clear bag policy is enforced by Lumen Field. You may carry a 
+	clear tote no larger than 12" x 6" x 12" or a small clutch or purse no lar
+	ger than 4.5" x 6.5".\nPlan your visit to Lumen Field and make it the best
+	\, most efficient time using the information regarding the stadium - https
+	://www.lumenfield.com/plan-your-visit/stadium-guide This event is Mobile O
+	nly\n\nhttps://www.ticketmaster.com/seattle-reign-fc-vs-utah-royals-seattl
+	e-washington-04-26-2026/event/0F006454A523CE84
+URL:https://www.ticketmaster.com/seattle-reign-fc-vs-utah-royals-seattle-wa
+	shington-04-26-2026/event/0F006454A523CE84
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:0wYCJkZepqvXPF6vOBMAB
-SUMMARY:ACCESS PASS ONLY
-DTSTAMP:20260326T123253Z
-DTSTART:20260517T010000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:V02fQJZDW7fWLJ0hY7oAn
-SUMMARY:Seattle Sounders FC vs. LA Galaxy
-DTSTAMP:20260326T123253Z
-DTSTART:20260517T010000Z
-DESCRIPTION:A clear bag policy is enforced by Lumen Field and Sounders FC f
-	or all Sounders FC matches. You may carry a clear tote no larger than 12" 
-	x 6" x 12" or a small clutch or purse no larger than 4.5" x 6.5".\n\nhttps
-	://www.ticketmaster.com/seattle-sounders-fc-vs-la-galaxy-seattle-washingto
-	n-05-16-2026/event/0F006383C464845F
-URL:https://www.ticketmaster.com/seattle-sounders-fc-vs-la-galaxy-seattle-w
-	ashington-05-16-2026/event/0F006383C464845F
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:gU3_98r3QiMZPEvSzqzds
-SUMMARY:2026 Season Member Deposit
-DTSTAMP:20260326T123253Z
-DTSTART:20260531T030000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:hZ2oCs-eoiHX2GbzdQQhX
-SUMMARY:DWTS LN Fee
-DTSTAMP:20260326T123253Z
-DTSTART:20260416T023000Z
-LOCATION:General Adm\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:wHeHVtevPTiZ3nGuhUuvj
-SUMMARY:Attend Holding Item: Sounders FC vs. St Lous City
-DTSTAMP:20260326T123253Z
+UID:t2-lZIbqDbCRHiEMcXUE1
+SUMMARY:0418 Sounders Credential
+DTSTAMP:20260326T215638Z
 DTSTART:20260419T013000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5puy6EwuWrDgdKb7i4Vnn
-SUMMARY:Attend Holding Item: Sounders FC vs. RSL
-DTSTAMP:20260326T123253Z
-DTSTART:20260413T010000Z
+UID:ZVO5T7QPsd1cxG31ADdKj
+SUMMARY:ACCESS PASS ONLY
+DTSTAMP:20260326T215638Z
+DTSTART:20260419T013000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ioYq-2x-U4ZE46LR8Iq-3
-SUMMARY:Attend Holding Item: Sounders FC vs. FC Dallas
-DTSTAMP:20260326T123253Z
+UID:SuKuDhjBf-vwwg1CXsknv
+SUMMARY:0425 Sounders Credential
+DTSTAMP:20260326T215638Z
 DTSTART:20260426T023000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:j2rDIQKebcBWu11Ol_sR0
-SUMMARY:World Cup: TBD vs. Qatar
-DTSTAMP:20260326T123253Z
-DTSTART:20260625T023000Z
+UID:wPpXjr39_WsJ8ZMP856h4
+SUMMARY:ACCESS PASS ONLY
+DTSTAMP:20260326T215638Z
+DTSTART:20260426T023000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4al39YXLkSX1h9S8ng7YR
-SUMMARY:World Cup: Belgium vs. Egypt
-DTSTAMP:20260326T123253Z
-DTSTART:20260616T023000Z
+UID:Ehp7hopJiCaoR81Ta7qzV
+SUMMARY:0426 Reign Credential
+DTSTAMP:20260326T215638Z
+DTSTART:20260427T000000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:T7ZalaM8GbmwEzWH19TL-
-SUMMARY:Attend Holding Item: Sounders FC vs. San Jose
-DTSTAMP:20260326T123253Z
-DTSTART:20260514T013000Z
-LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:ejyvLTxZsljuSDWET7p0s
-SUMMARY:Attend Holding Item: Sounders FC vs. San Diego FC
-DTSTAMP:20260326T123253Z
+UID:meb8zP_6rNZg6mJWiu28t
+SUMMARY:0509 Sounders Credential
+DTSTAMP:20260326T215638Z
 DTSTART:20260510T023000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:6oHNnYlSDLuthpamgAOs0
+UID:YkZrXo30GwA99iW6f7MaR
+SUMMARY:ACCESS PASS ONLY
+DTSTAMP:20260326T215638Z
+DTSTART:20260510T023000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:hpr5UoOstJTT6BdrD_19w
+SUMMARY:0510 Reign Credential
+DTSTAMP:20260326T215638Z
+DTSTART:20260510T230000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:8UYRYsAtAU1da2OQO1QDb
+SUMMARY:ACCESS PASS ONLY
+DTSTAMP:20260326T215638Z
+DTSTART:20260514T013000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:JV70sRBj1K66hAYqMRSG1
+SUMMARY:0513 Sounders Credential
+DTSTAMP:20260326T215638Z
+DTSTART:20260514T013000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:R1HmP8qiCPhR_RKShqkWH
+SUMMARY:0515 Reign Credential
+DTSTAMP:20260326T215638Z
+DTSTART:20260516T020000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:wvFTscxIwjJfJLaSv-UsJ
+SUMMARY:0516 Sounders Credentia
+DTSTAMP:20260326T215638Z
+DTSTART:20260517T010000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:FekOB6Mj1fO6kPZO6RQbl
+SUMMARY:ACCESS PASS ONLY
+DTSTAMP:20260326T215638Z
+DTSTART:20260517T010000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:VC2T-deyjpalUJxuiwMfK
+SUMMARY:2026 Season Member Deposit
+DTSTAMP:20260326T215638Z
+DTSTART:20260531T030000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:wLB1a-krcuMHNbaS4uSTI
+SUMMARY:DWTS LN Fee
+DTSTAMP:20260326T215638Z
+DTSTART:20260416T023000Z
+LOCATION:General Adm\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:rukZa-2pqlnfBMjkOODWC
+SUMMARY:Attend Holding Item: Sounders FC vs. St Lous City
+DTSTAMP:20260326T215638Z
+DTSTART:20260419T013000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:DDtcQh0hd13mK4hKxeul_
+SUMMARY:Attend Holding Item: Sounders FC vs. FC Dallas
+DTSTAMP:20260326T215638Z
+DTSTART:20260426T023000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:aV0zb6rFZ9ykln7_8RYjK
+SUMMARY:World Cup: TBD vs. Qatar
+DTSTAMP:20260326T215638Z
+DTSTART:20260625T023000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:Gbdwk7DSxTR2o-uT4eh8s
+SUMMARY:World Cup: Belgium vs. Egypt
+DTSTAMP:20260326T215638Z
+DTSTART:20260616T023000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:DfyiXF17GTuAMN9kQgr5_
+SUMMARY:Attend Holding Item: Sounders FC vs. San Jose
+DTSTAMP:20260326T215638Z
+DTSTART:20260514T013000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:949-wFoF6jSKnohPiiVMo
+SUMMARY:Attend Holding Item: Sounders FC vs. San Diego FC
+DTSTAMP:20260326T215638Z
+DTSTART:20260510T023000Z
+LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:TfQAzayAM-xK3hR9I6_K9
 SUMMARY:Attend Holding Item: Sounders FC vs. LA Galaxy
-DTSTAMP:20260326T123253Z
+DTSTAMP:20260326T215638Z
 DTSTART:20260517T010000Z
 LOCATION:Lumen Field\, 800 Occidental Ave S\, Seattle\, WA
 TRANSP:TRANSPARENT

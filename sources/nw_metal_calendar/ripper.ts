@@ -1,7 +1,9 @@
 import { Duration, LocalDateTime, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
-import { HTMLElement } from 'node-html-parser';
+import { Ripper, RipperCalendar, RipperCalendarEvent, RipperEvent } from "../../lib/config/schema.js";
+import { parse, HTMLElement } from 'node-html-parser';
+
+const BROWSER_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
 
 // Matches single-day events: "MAY 7 at Venue: Band Name"
@@ -12,6 +14,26 @@ const eventRegex = /(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC) (\d\d?)(?:
 const MONTH_LOOKUP = "JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC";
 
 export default class NWMetalRipper extends HTMLRipper {
+
+    // nocleansinging.com returns 403 unless a browser User-Agent is sent.
+    // Override rip() to fetch with the correct header before parsing.
+    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const url = ripper.config.url;
+        const res = await fetch(url, { headers: { 'User-Agent': BROWSER_UA } });
+        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+        const html = parse(await res.text());
+        const now = ZonedDateTime.now(ZoneRegion.of("America/Los_Angeles"));
+        const events = await this.parseEvents(html, now, ripper.config.calendars[0]?.config ?? {});
+        const cal = ripper.config.calendars[0];
+        return [{
+            name: cal.name,
+            friendlyname: cal.friendlyname,
+            events: events.filter(e => "date" in e) as RipperCalendarEvent[],
+            errors: events.filter(e => "type" in e) as any[],
+            parent: ripper.config,
+            tags: cal.tags || [],
+        }];
+    }
 
     public async parseEvents(html: HTMLElement, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
 

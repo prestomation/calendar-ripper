@@ -1626,6 +1626,8 @@ function App() {
         const isFavorited = favoritesSet.has(event.icsUrl)
         const key = eventKey(event)
         const isSearchMatch = searchFilterMatchSummaries.has(key)
+        const isGeoMatch = geoFilters.length > 0 && event.lat != null && event.lng != null &&
+          geoFilters.some(gf => haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm)
 
         if (favoritesViewMode === 'calendars') {
           return isFavorited
@@ -1638,12 +1640,12 @@ function App() {
           if (event.lat == null || event.lng == null) return false
           return haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm
         } else if (favoritesViewMode !== 'all') {
-          // Specific filter selected
+          // Specific search filter selected
           const filterMatches = perFilterMatches.get(favoritesViewMode)
           return filterMatches ? filterMatches.has(key) : false
         }
-        // 'all' mode
-        if (!isFavorited && !isSearchMatch) return false
+        // 'all' mode — include events from any active source
+        if (!isFavorited && !isSearchMatch && !isGeoMatch) return false
         return true
       })
 

@@ -436,6 +436,7 @@ function App() {
 
   // Map view toggle (for events panel)
   const [showMapView, setShowMapView] = useState(false)
+  const [showFavoritesMap, setShowFavoritesMap] = useState(false)
 
   // Auth state
   const [authUser, setAuthUser] = useState(null)
@@ -1697,6 +1698,12 @@ function App() {
 
     return groups
   }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters])
+
+  // Flat list of favorites events for the map (EventsMap expects a flat array, not day groups)
+  const favoritesEventsFlat = useMemo(
+    () => favoritesEvents.flatMap(group => group.events),
+    [favoritesEvents]
+  )
 
   // Track which calendars matched by name/description (not just event content)
   const calendarNameMatches = useMemo(() => {
@@ -3096,7 +3103,25 @@ function App() {
                     </button>
                   )
                 })}
+                <button
+                  className={`map-toggle-btn${showFavoritesMap ? ' active' : ''}`}
+                  onClick={() => setShowFavoritesMap(v => !v)}
+                  title={showFavoritesMap ? 'Hide map' : 'Show map'}
+                >
+                  🗺️ Map
+                </button>
               </div>
+            )}
+
+            {showFavoritesMap && (
+              <EventsMap
+                eventsIndex={favoritesEventsFlat}
+                geoFilters={geoFilters}
+                eventAttributions={eventAttributions}
+                calendarNameByIcsUrl={calendarNameByIcsUrl}
+                selectedTag={selectedTag}
+                calendarTagsByIcsUrl={calendarTagsByIcsUrl}
+              />
             )}
 
             {favoritesEvents.length > 0 ? (

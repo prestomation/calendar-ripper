@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-03-26T00:43:51.038Z",
-  "totalErrors": 19,
+  "buildTime": "2026-03-26T00:56:23.097Z",
+  "totalErrors": 3,
   "configErrors": [],
   "sources": [
     {
@@ -44,104 +44,7 @@
     }
   ],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "The Mortuary",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Captain Black's",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Culture Yard",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Virtual Meeting, South Lake Union, Seattle, WA",
-      "source": "discover-slu",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Blakely Hall and Village Green Park, 2550 NE Park Dr, Issaquah, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Catbird, 2326 Northeast University Village Street, Suite 7, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": " ISSAQUAH COMMONS, 705-975 NW Gilman Blvd, Issaquah, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "SCERA, 625 S. 4th Street, Renton, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Leo K. Theater, 155 Mercer St., Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Chamber Office, 3100 S 176th St, SeaTac, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "High School Trail, Southeast Evans Street, Issaquah, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "blosm studio wedgwood, 8050 35th Ave NE, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Magnuson Park Building 30Lower Conference Room, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "The Fauntleroy Schoolhouse, 9131 California Avenue SW, Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "74345 testimonials-widget type-testimonials-widget status-publish category-esf-vendors\" style=\"\">",
-      "source": "urbancraftuprising",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "UW Club\\, 4020  E. Stevens Way NE\\, Seattle",
-      "source": "external-uw-campus-events",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
@@ -624,7 +527,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 45,
+      "events": 46,
       "expectEmpty": false
     },
     {
@@ -1278,7 +1181,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 154,
+      "events": 155,
       "expectEmpty": false
     },
     {
@@ -1290,7 +1193,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2615,
+      "events": 2616,
       "expectEmpty": false
     },
     {
@@ -1356,7 +1259,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 515,
+      "events": 516,
       "expectEmpty": false
     },
     {
@@ -1428,7 +1331,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7405,
+      "events": 7406,
       "expectEmpty": false
     },
     {

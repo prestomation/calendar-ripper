@@ -1580,12 +1580,17 @@ function App() {
   useEffect(() => {
     if (selectedTag !== '__favorites__') return
     if (favoritesViewMode !== 'all' && favoritesViewMode !== 'calendars' && favoritesViewMode !== 'search') {
-      // It's a specific filter — check if it still exists
-      if (!searchFilters.includes(favoritesViewMode)) {
-        setFavoritesViewMode('all')
+      if (favoritesViewMode.startsWith('geo:')) {
+        const idx = parseInt(favoritesViewMode.split(':')[1])
+        if (!geoFilters[idx]) setFavoritesViewMode('all')
+      } else {
+        // It's a specific filter — check if it still exists
+        if (!searchFilters.includes(favoritesViewMode)) {
+          setFavoritesViewMode('all')
+        }
       }
     }
-  }, [searchFilters, selectedTag, favoritesViewMode])
+  }, [searchFilters, selectedTag, favoritesViewMode, geoFilters])
 
   // Compute events for the favorites view
   const favoritesEvents = useMemo(() => {
@@ -1626,6 +1631,12 @@ function App() {
           return isFavorited
         } else if (favoritesViewMode === 'search') {
           return isSearchMatch
+        } else if (favoritesViewMode.startsWith('geo:')) {
+          const geoIndex = parseInt(favoritesViewMode.split(':')[1])
+          const gf = geoFilters[geoIndex]
+          if (!gf) return false
+          if (event.lat == null || event.lng == null) return false
+          return haversineKm(gf.lat, gf.lng, event.lat, event.lng) <= gf.radiusKm
         } else if (favoritesViewMode !== 'all') {
           // Specific filter selected
           const filterMatches = perFilterMatches.get(favoritesViewMode)
@@ -1683,7 +1694,7 @@ function App() {
     }
 
     return groups
-  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches])
+  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters])
 
   // Track which calendars matched by name/description (not just event content)
   const calendarNameMatches = useMemo(() => {
@@ -3037,23 +3048,6 @@ function App() {
                   )}
                 </div>
               )}
-              {(favorites.length > 0 && searchFilters.length > 0) && (
-                <div className="favorites-view-switcher">
-                  {[
-                    { key: 'all', label: 'All' },
-                    { key: 'calendars', label: 'Calendars Only' },
-                    { key: 'search', label: 'Search Only' },
-                  ].map(({ key, label }) => (
-                    <button
-                      key={key}
-                      className={`favorites-view-btn${favoritesViewMode === key ? ' favorites-view-btn-active' : ''}`}
-                      onClick={() => setFavoritesViewMode(key)}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             <GeoFiltersSection
@@ -3069,6 +3063,37 @@ function App() {
               <div className="search-filter-banner">
                 Showing events matching "{searchTerm}"
                 <button className="link-button" onClick={() => handleSearchChange('')}>Clear search</button>
+              </div>
+            )}
+
+            {((favorites.length > 0 && searchFilters.length > 0) || geoFilters.length > 0) && (
+              <div className="favorites-view-switcher">
+                {[
+                  { key: 'all', label: 'All' },
+                  { key: 'calendars', label: '❤️ Only' },
+                  { key: 'search', label: 'Search Only' },
+                ].map(({ key, label }) => (
+                  <button
+                    key={key}
+                    className={`favorites-view-btn${favoritesViewMode === key ? ' favorites-view-btn-active' : ''}`}
+                    onClick={() => setFavoritesViewMode(key)}
+                  >
+                    {label}
+                  </button>
+                ))}
+                {geoFilters.length > 0 && geoFilters.map((gf, i) => {
+                  const geoKey = `geo:${i}`
+                  const geoLabel = gf.label ? `📍 ${gf.label}` : `📍 Filter ${i + 1}`
+                  return (
+                    <button
+                      key={geoKey}
+                      className={`favorites-view-btn${favoritesViewMode === geoKey ? ' favorites-view-btn-active' : ''}`}
+                      onClick={() => setFavoritesViewMode(geoKey)}
+                    >
+                      {geoLabel}
+                    </button>
+                  )
+                })}
               </div>
             )}
 

@@ -3153,6 +3153,7 @@ function App() {
                           </a>
                         </div>
                       )}
+                      <AttributionChips attributions={eventAttributions?.get(eventKey(event))} />
                     </div>
                   ))}
                 </div>

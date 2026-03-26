@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-26T12:11:24.569Z",
+  "lastUpdated": "2026-03-26T12:13:53.447Z",
   "rippers": [
     {
       "name": "19hz",
@@ -1507,6 +1507,23 @@
             "Arts",
             "Community",
             "International District"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NWMetalCalendar",
+      "friendlyName": "NWMetalCalendar",
+      "description": "NW Metal Calendar",
+      "friendlyLink": "https://www.nocleansinging.com",
+      "calendars": [
+        {
+          "name": "NWMetal",
+          "friendlyName": "NW Metal Calendar",
+          "icsUrl": "NWMetalCalendar-NWMetal.ics",
+          "rssUrl": "NWMetalCalendar-NWMetal.rss",
+          "tags": [
+            "Music"
           ]
         }
       ]

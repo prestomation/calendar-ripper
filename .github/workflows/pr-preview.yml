@@ -120,6 +120,13 @@ jobs:
               ? `\n\n<details>\n<summary>ℹ️ ${unexpectedNonEmpty.length} calendar(s) marked expectEmpty but have events</summary>\n\n${unexpectedNonEmpty.map(c => `- \`${c.name}\`: ${c.events} events — consider removing expectEmpty`).join('\n')}\n\n</details>`
               : '';
 
+            // Geo coverage stats
+            const geoStats = buildErrors.geoStats;
+            const geoSection = geoStats
+              ? `\n\n**🗺️ Geo coverage:** ${geoStats.eventsWithGeo.toLocaleString()} / ${geoStats.totalEvents.toLocaleString()} events (${Math.round(geoStats.eventsWithGeo / geoStats.totalEvents * 100)}%)` +
+                (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
+              : '';
+
             let errorSection = '';
             if (parseInt(errorCount) > 0) {
               const lines = [];
@@ -163,6 +170,7 @@ jobs:
               `**Status:** ${errorBadge}`,
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
+              geoSection,
               errorSection,
               zeroEventSection,
               unexpectedNonEmptySection,

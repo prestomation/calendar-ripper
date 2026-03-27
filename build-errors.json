@@ -1,14 +1,14 @@
 {
-  "buildTime": "2026-03-27T03:39:34.466Z",
+  "buildTime": "2026-03-27T04:17:54.860Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7410,
-    "eventsWithGeo": 4943,
-    "eventsWithoutGeo": 2467,
+    "totalEvents": 7408,
+    "eventsWithGeo": 5001,
+    "eventsWithoutGeo": 2407,
     "geocodeErrors": 0
   },
   "zeroEventCalendars": [
@@ -384,13 +384,13 @@
     {
       "name": "elliott-bay-elliott-bay",
       "type": "Ripper",
-      "events": 28,
+      "events": 27,
       "expectEmpty": false
     },
     {
       "name": "events12-seattle-events",
       "type": "Ripper",
-      "events": 89,
+      "events": 88,
       "expectEmpty": false
     },
     {
@@ -1038,7 +1038,7 @@
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 486,
+      "events": 485,
       "expectEmpty": false
     },
     {
@@ -1218,19 +1218,19 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1092,
+      "events": 1091,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 520,
+      "events": 519,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1034,
+      "events": 1033,
       "expectEmpty": false
     },
     {
@@ -1296,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7480,
+      "events": 7478,
       "expectEmpty": false
     },
     {

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-26T23:06:44.339Z",
+  "lastUpdated": "2026-03-27T02:25:17.541Z",
   "rippers": [
     {
       "name": "19hz",
@@ -87,6 +87,23 @@
       ]
     },
     {
+      "name": "chop-suey",
+      "description": "Chop Suey music venue and nightclub events on Capitol Hill",
+      "friendlyLink": "https://chopsuey.com",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Chop Suey",
+          "icsUrl": "chop-suey-all-events.ics",
+          "rssUrl": "chop-suey-all-events.rss",
+          "tags": [
+            "Music",
+            "Capitol Hill"
+          ]
+        }
+      ]
+    },
+    {
       "name": "climate-pledge-arena",
       "description": "Seattle's premier arena at Seattle Center, home of the Kraken and Storm",
       "friendlyLink": "https://climatepledgearena.com",
@@ -162,21 +179,6 @@
           "tags": [
             "Dogs"
           ]
-        }
-      ]
-    },
-    {
-      "name": "downtown-seattle-association",
-      "friendlyName": "Downtown Seattle Association",
-      "description": "Downtown Seattle Association Events Calendar",
-      "friendlyLink": "https://downtownseattle.org",
-      "calendars": [
-        {
-          "name": "occidental-square",
-          "friendlyName": "Occidental Square Events",
-          "icsUrl": "downtown-seattle-association-occidental-square.ics",
-          "rssUrl": "downtown-seattle-association-occidental-square.rss",
-          "tags": []
         }
       ]
     },

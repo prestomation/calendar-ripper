@@ -1,0 +1,475 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Town Hall Seattle - ECPv6.15.17.1//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Town Hall Seattle
+X-ORIGINAL-URL:https://townhallseattle.org
+X-WR-CALDESC:Events for Town Hall Seattle
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260327T180000
+DTEND;TZID=America/Los_Angeles:20260327T180000
+DTSTAMP:20260327T000508
+CREATED:20260319T220758Z
+LAST-MODIFIED:20260326T160359Z
+UID:10001042-1774634400-1774634400@townhallseattle.org
+SUMMARY:A Town Hall on Security and Surveillance
+DESCRIPTION:Join Mayor Wilson and Executive Director of the South Seattle Emerald\, Florangela Davila for a conversation on security\, surveillance\, and their impacts on Seattle’s communities. This event brings Mayor Wilson on stage and in dialogue for a shared look at the challenges and opportunities shaping the city right now. The evening will begin with a moderated conversation\, followed by time for audience Q&A. Together\, we’ll explore questions of safety\, privacy\, and public trust — and consider how policy decisions resonate across the city’s creative and civic landscape. Above all\, this is a chance to gather: to listen\, exchange ideas\, and reflect together on how Seattle can move forward in this moment.
+URL:https://townhallseattle.org/event/seattle-surveillance/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Civics
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/03/surveillance-town-hall.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T193000
+DTEND;TZID=America/Los_Angeles:20260328T193000
+DTSTAMP:20260327T000508
+CREATED:20260217T192449Z
+LAST-MODIFIED:20260220T171813Z
+UID:10000991-1774726200-1774726200@townhallseattle.org
+SUMMARY:Maple Arts Sing Along
+DESCRIPTION:Whoome is excited to bring Sing Along to Seattle for the first time. An unforgettable musical experience! \nThis one-of-a-kind event invites you to take center stage\, singing timeless Arabic classics chosen by you\, our audience. With digital lyrics provided\, everyone gets to be the lead singer in this interactive musical celebration. \nJoin Maple Arts Group in Seattle for an evening filled with joy\, connection\, and the magic of music. Don’t miss your chance to be part of this extraordinary sing-along experience! \nThe evening will be presented by Maple Arts Group musicians from the Canadian Arabic Orchestra. \n\nEvents are offered for informational\, entertainment\, and educational purposes only. Read Town Hall’s Program Content Policy.
+URL:https://townhallseattle.org/event/maple-arts-sing-along/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/maple-arts-sing-along.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260329T130000
+DTEND;TZID=America/Los_Angeles:20260329T130000
+DTSTAMP:20260327T000508
+CREATED:20260202T185516Z
+LAST-MODIFIED:20260218T173107Z
+UID:10000976-1774789200-1774789200@townhallseattle.org
+SUMMARY:Spelling Bee 2026
+DESCRIPTION:Want to watch 90 middle-schoolers knock out words like éclaircissement\, palooka\, and quonk? So do we!  \nThe regional spelling bee brings together students from schools across King and Snohomish Counties who have already proven themselves to be fantastic spellers. This year’s bee will be moderated by Seattle Radio Theatre founder and KIRO Radio’s producer\, host\, and historian Feliks Banel. The winner will advance to the annual Scripps National Spelling Bee in Washington\, D.C. Join us to support our outstanding students as they grapple with high-level language and cheer them on as they try to take the championship in 2026!
+URL:https://townhallseattle.org/event/spelling-bee-2026/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Civics
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2024/02/Spelling-Bee-4-e1706922808396.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260329T193000
+DTEND;TZID=America/Los_Angeles:20260329T193000
+DTSTAMP:20260327T000508
+CREATED:20260203T224245Z
+LAST-MODIFIED:20260311T230953Z
+UID:10000980-1774812600-1774812600@townhallseattle.org
+SUMMARY:Suzanne Simard with Lynda Mapes
+DESCRIPTION:Forest ecologist Suzanne Simard has long been fascinated by the sharing of natural knowledge. From the interconnected root systems she studied in her book Finding the Mother Tree to her ongoing work as an educator\, Simard has learned to see the importance of cooperative efforts to share resources and knowledge. Joined in conversation by Seattle-based nature journalist Lynda Mapes\, Simard expands these connections into a considerate exploration of the elaborate cycles of forest ecosystems\, the challenges they currently face\, and the intergenerational value they can provide through her new book When the Forest Breathes: Renewal and Resilience in the Natural World. \nRaised in a family of loggers committed to sensible forest stewardship\, Simard has watched as modern practices and timber companies have left forests vulnerable to damage and depletion. In her research\, Simard explores the finely honed cycles of regeneration forests inherently use to maintain themselves. From mushrooms breaking down logs to dying elder trees passing their genetic knowledge to younger growth\, When the Forest Breathes presents these cycles as a key component in the protection and preservation of our forests. Working closely with Indigenous communities and the models of responsible forestry they’ve upheld over time\, Simard examines the damage caused by industrialization and wide-scale human intervention– particularly the impact on the overstory’s mother trees that are responsible for sharing intergenerational wisdom and supporting new growth.
+URL:https://townhallseattle.org/event/suzanne-simard/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Science
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/suzanne-simard.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260330T193000
+DTEND;TZID=America/Los_Angeles:20260330T193000
+DTSTAMP:20260327T000508
+CREATED:20260206T195118Z
+LAST-MODIFIED:20260206T224107Z
+UID:10000985-1774899000-1774899000@townhallseattle.org
+SUMMARY:Stephen Graham Jones
+DESCRIPTION:Stephen Graham Jones is the author of bone-chilling novels that include The Only Good Indians\, My Heart Is a Chainsaw\, I Was a Teenage Slasher\, and most recently\, The Buffalo Hunter Hunter\, a historical horror novel tracing the life of a vampire who haunts the fields of the Blackfeet reservation looking for justice. \nA diary\, written in 1912 by a Lutheran pastor\, is discovered within a wall. What it unveils is a slow massacre\, a chain of events that goes back to 217 Blackfeet dead in the snow. Told in transcribed interviews by a Blackfeet named Good Stab\, who shares the narrative of his peculiar life over a series of confessional visits. This is an American Indian revenge story written by one of the new masters of horror\, Stephen Graham Jones.
+URL:https://townhallseattle.org/event/stephen-graham-jones/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/steven-graham-jones.jpg
+ORGANIZER;CN="Seattle Arts & Lectures":MAILTO:boxoffice@lectures.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260331T193000
+DTEND;TZID=America/Los_Angeles:20260331T193000
+DTSTAMP:20260327T000508
+CREATED:20260210T015412Z
+LAST-MODIFIED:20260211T185600Z
+UID:10000986-1774985400-1774985400@townhallseattle.org
+SUMMARY:On Point Live with Meghna Chakrabarti
+DESCRIPTION:Join KUOW for a special live taping of On Point with Meghna Chakrabarti Tuesday\, March 31 at Town Hall Seattle. \nSeattle’s mayor\, socialist Katie Wilson\, won one of the tightest elections in the city’s history last year. Now\, three months into the job\, how is her progressive agenda taking shape — and what might national Democrats learn from her early leadership? \nJoin On Point host Meghna Chakrabarti on Tuesday\, March 31 at 7:30 p.m. at Town Hall Seattle as she sits down with Mayor Katie Wilson for a special live taping of On Point.
+URL:https://townhallseattle.org/event/on-point-live/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/on-point-live-800x400-1.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260401T193000
+DTEND;TZID=America/Los_Angeles:20260401T193000
+DTSTAMP:20260327T000508
+CREATED:20260212T205837Z
+LAST-MODIFIED:20260213T010703Z
+UID:10000987-1775071800-1775071800@townhallseattle.org
+SUMMARY:Kiliii Yüyan
+DESCRIPTION:When we think of environmental conservation\, we tend to think in terms of emerging technologies and increased data tracking. While technology is one piece of the puzzle\, we are also called to look back and take stock of information that has existed since time immemorial. In Indigenous communities\, knowledge of the environment and how to protect it has been acquired over countless generations. In Guardians of Life: Indigenous Science\, Indigenous Wisdom and Restoring the Planet\, Kiliii Yüyan presents a photographic journey that reveals Indigenous communities to be Earth’s most powerful protectors. \nYüyan’s photography is informed by the collective wisdom of more than two dozen Indigenous voices\, including activist Quannah Chasinghorse and Palauan statesman Tommy Remengesau Jr. Yüyan provides striking imagery to assist in telling the stories of how traditional knowledge and modern innovation come together as a planetary safeguard. Guardians of Life takes us all over the world\, from the coral reefs in Palau\, to Mongolia’s steppes\, to the Amazon rainforest\, even to beds of sea ice in Greenland.
+URL:https://townhallseattle.org/event/kiliii-yuyan/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/kiliii-yuyan.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T193000
+DTEND;TZID=America/Los_Angeles:20260402T193000
+DTSTAMP:20260327T000508
+CREATED:20250814T212728Z
+LAST-MODIFIED:20251204T194759Z
+UID:10000827-1775158200-1775158200@townhallseattle.org
+SUMMARY:Psychedelic Salon: Psychedelics & Disordered Eating
+DESCRIPTION:A conversation about the emerging potential of psychedelics\, particularly psilocybin\, in addressing eating disorders—a psychiatric area marked by persistent treatment challenges. This Salon dives into groundbreaking research showing how psychedelics disrupt entrenched thought patterns\, ease cognitive rigidity\, and foster self-compassion and emotional reconnection. April Pride and invited experts will discuss the limitations of current treatments and how psychedelic therapies could offer new hope. Attendees will leave with a deeper understanding of how psychedelic-assisted therapy might revolutionize the path to healing for those struggling with disordered eating. \nDr. Amanda Downey is a pediatrician and psychiatrist who cares for adolescents and young adults with eating disorders. She works with patients and their families to develop a treatment plan that honors their unique strengths and challenges. Through education\, advocacy\, and research\, she strives to dismantle the systems that increase risk for eating disorders and improve evidence-based eating disorder treatments. She is the assistant medical director of the UCSF Eating Disorders Program and a member of the UCSF Translational Psychedelic Research Program (TrPR).
+URL:https://townhallseattle.org/event/psychedelic-salon-psychedelics-disordered-eating/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Science
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2025/08/psychedelic-salon-psychedelics-and-disordered-eating.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260402T193000
+DTEND;TZID=America/Los_Angeles:20260402T193000
+DTSTAMP:20260327T000508
+CREATED:20260219T224032Z
+LAST-MODIFIED:20260324T000848Z
+UID:10001000-1775158200-1775158200@townhallseattle.org
+SUMMARY:J. Kenji López-Alt and Tessa Lark present Tasting Notes
+DESCRIPTION:If nothing is truly new\, what is creativity? \nIn this special live event\, New York Times bestselling author and James Beard Award–winning chef J. Kenji López-Alt joins Grammy-nominated violinist and composer Tessa Lark for an evening of cooking\, music\, and conversation. Moderated by renowned food writer\, Serious Eats founder\, and Special Sauce host Ed Levine\, the program explores how creatives build on tradition\, transform influence\, and turn identity into expression. \nOn stage\, Kenji brings his signature curiosity to the kitchen\, while Lark\, a Kentucky-born musician who bridges bluegrass roots with classical virtuosity\, reveals how seemingly distant traditions can combine to form brand new sounds. Through live culinary demonstration and musical performance\, this special edition of Kenji’s Tasting Notes reflects on how cultures and ideas blend\, and how originality is less invention and more a reinterpretation of our shared cultural histories. \n\n					WHAT TO EXPECT Get ready for a multisensory experience that fuses live music\, cooking demos\, tastings\, and conversation. Think: A stunning Great Hall filled with the sound of Tessa Lark’s violin; curiosity-driven conversation guided by Ed Levine; and interactive\, culinary creativity with J. Kenji Alt-Lopez that is rumored to involve blindfolds\, nose plugs\, and…20 lbs. of gummy bears? You’ll have to join us to find out!
+URL:https://townhallseattle.org/event/tasting-notes/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/tasting-notes.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260403T193000
+DTEND;TZID=America/Los_Angeles:20260403T193000
+DTSTAMP:20260327T000508
+CREATED:20260206T193401Z
+LAST-MODIFIED:20260326T175501Z
+UID:10000984-1775244600-1775244600@townhallseattle.org
+SUMMARY:Lindy West
+DESCRIPTION:In her new memoir\, Adult Braces\, Lindy West brings readers along on an uproarious cross-country road trip as she unpacks her last few tumultuous years\, rediscovers herself\, and reinvents her marriage. \nThrough Shrill—the book and then the Hulu series—Lindy West became an inspiration. To this day\, she is stopped on the street and hailed as a beacon of empowerment by women who felt badly for not conforming to a narrow set of societal norms—thin\, straight\, compliant. But behind the scenes\, Lindy never felt like she was the self-actualized woman fans made her out to be. When she found herself in the throes of a deep depression\, with her marriage and sense of self-worth hanging in the balance\, she knew she needed to make a change. \nIn Adult Braces\, Lindy shares the story of her rock bottom and of the journey she took to claw her way out of it. With her trademark candor and sense of humor\, she examines her post-Shrill emotional implosion\, her shifting feelings about traditional marriage\, and her search for her long-lost self. She also tracks the highs and lows of her journey\, from eye-opening natural wonders and kitschy roadside attractions to lackluster tourist traps and campground epiphanies. The result is an engaging and laugh-out-loud narrative of becoming as Lindy transforms from a passenger into the active navigator of her own life.
+URL:https://townhallseattle.org/event/lindy-west/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/lindy-west.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260404T110000
+DTEND;TZID=America/Los_Angeles:20260404T110000
+DTSTAMP:20260327T000508
+CREATED:20251222T211204Z
+LAST-MODIFIED:20260109T202554Z
+UID:10000946-1775300400-1775300400@townhallseattle.org
+SUMMARY:Saturday Family Concert: The Brian Waite Band
+DESCRIPTION:Come sing\, dance\, and laugh with the band that has rocked its way into the hearts of both kids and parents\, as they fly with superheroes and dance on the moon! \nThe Brian Waite Band was born from the idea of creating live rock shows that thrill both parents and children alike. Founded in 2001 by Brian Waite (guitar)\, Todd Gray (drums)\, and Clif Swiggett (bass)\, the trio began touring the West Coast\, and before they knew it\, their music was being played all over the world. Twenty-five years and eight critically-acclaimed albums later\, their interactive shows have evolved into more than just children’s concerts. The Brian Waite Band’s live shows combine musical theater\, imaginative storytelling\, laughs\, and a great rock ‘n roll concert filled with original songs that take the whole family on a “Rock ‘n Roll Adventure.”
+URL:https://townhallseattle.org/event/the-brian-waite-band/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2025/12/the-brian-waite-band.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260404T190000
+DTEND;TZID=America/Los_Angeles:20260404T190000
+DTSTAMP:20260327T000508
+CREATED:20260129T235524Z
+LAST-MODIFIED:20260130T000847Z
+UID:10000974-1775329200-1775329200@townhallseattle.org
+SUMMARY:Slavoj Zizek
+DESCRIPTION:Join philosopher Slavoj Žižek for a guide to the end times. Is despair the only hope? Can the world escape the clutches of libertarian fascism? \nErudite and comic\, ironic and profound\, philosopher Slavoj Žižek has travelled into territory where few of us dare to tread – and at age 76\, he shows no signs of becoming less provocative. \nAs populism continues to grip the globe\, Slavoj joins How To Academy to share his iconoclastic reflections on the state of the world and our prospects for the future. Taking us from Europe and the Middle East into the dark heart of Trump’s America\, he will explore the paradox of ‘liberal fascism’\, peering at the seeping wounds beneath our ‘post-truth age’ to ask: what forms of justice are possible in an age of terrifying disorder? \nThis will be an evening of dark humour to help us survive in a dark era\, with Trump\, Putin\, postmodernism\, and antisemitism all on the cards. Slavoj promises to tell us many things we do not want to hear — and to remind us why he is widely known as the ‘most dangerous philosopher of the West’. Don’t miss it. \nSlavoj Žižek will sign copies of Liberal Fascisms following the event. \n\nEvents are offered for informational\, entertainment\, and educational purposes only. Read Town Hall’s Program Content Policy.
+URL:https://townhallseattle.org/event/slavoj-zizek/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/01/slavoj-zizek-web-image.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260406T173000
+DTEND;TZID=America/Los_Angeles:20260406T173000
+DTSTAMP:20260327T000508
+CREATED:20260309T224756Z
+LAST-MODIFIED:20260311T173757Z
+UID:10001026-1775496600-1775496600@townhallseattle.org
+SUMMARY:UW Science Now
+DESCRIPTION:Hear from UW students about research on the hidden drivers behind shifting marbled murrelet populations and viewing monsoon seasons from the perspective of the ocean.
+URL:https://townhallseattle.org/event/uw-science-now-apr6/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Science
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/03/uw-science-now-april-6.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260406T193000
+DTEND;TZID=America/Los_Angeles:20260406T193000
+DTSTAMP:20260327T000508
+CREATED:20260114T160003Z
+LAST-MODIFIED:20260116T180045Z
+UID:10000945-1775503800-1775503800@townhallseattle.org
+SUMMARY:V.E. Schwab and Cat Clarke with Moira Macdonald
+DESCRIPTION:Layering classic tropes of the mystery genre with a clever modern satire of the publishing industry\, The Ending Writes Itself is the debut novel of “Evelyn Clarke\,” a new writing collaboration between best-selling authors V.E. Schwab and Cat Clarke. Joined in conversation by local author and journalist Moira Macdonald\, Schwab and Clarke explore their co-authoring venture and the twists and turns that await readers in their new take on a locked-room mystery thriller. How will the pages unfold for the six authors isolated with nothing but their own minds\, a diabolical deadline\, and a plot-driving incentive? Starting is often the hardest part. But getting to the end could be murder. \nWorld-renowned best-selling novelist Arthur Fletch is a reclusive genius who captivates readers with iconic protagonists and fiendish twists. So when six struggling authors of different genres receive an invitation to spend a weekend on his private island off the coast of Scotland\, they pack their bags. But the twists have gone further than ever this time\, and the authors are greeted with a shocking secret– Arthur Fletch is dead… and his highly-anticipated last novel remains unfinished. \nDesperate to publish\, Fletch’s agent and editor have summoned these writers hoping one of them can pen a worthy ending. To sweeten the deal\, they pitch them the opportunity of a lifetime. Ghost write the final chapter and win an irresistible prize– a mind-boggling sum of money and a partnership that could relaunch their own careers and guarantee future bestsellers. And with that to motivate them\, surely 72 hours is enough time to finish Fletch’s magnus opus? All they have to do is write…
+URL:https://townhallseattle.org/event/ve-schwab-cat-clarke/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2025/12/ve-schwab-and-cat-clarke.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260406T193000
+DTEND;TZID=America/Los_Angeles:20260406T193000
+DTSTAMP:20260327T000508
+CREATED:20260224T002709Z
+LAST-MODIFIED:20260311T211232Z
+UID:10001003-1775503800-1775503800@townhallseattle.org
+SUMMARY:Design for Longevity: ADUs and Aging in Place
+DESCRIPTION:Join Lili Weigert\, author of Making Space: ADUs for Modern Living\, in conversation with local ADU designers Joe Schneider and Mike Freeman of JAS Design Build. They will explore how thoughtful ADU design can support aging in place\, foster intergenerational living\, and provide resilient housing options for the future. Rebecca Crichton\, Executive Director of Northwest Center for Creative Aging\, will moderate the discussion.
+URL:https://townhallseattle.org/event/design-for-longevity/
+LOCATION:The Mehdi Reading Room\, 1119 8th Ave\, Seattle\, 98101\, United States
+CATEGORIES:Science
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/design-for-longevity.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260407T183000
+DTEND;TZID=America/Los_Angeles:20260407T183000
+DTSTAMP:20260327T000508
+CREATED:20260217T210508Z
+LAST-MODIFIED:20260323T224656Z
+UID:10000992-1775586600-1775586600@townhallseattle.org
+SUMMARY:Dr. Bertha Hidalgo
+DESCRIPTION:Join Dr. Bertha Hidalgo as she explores how epigenetics is reshaping our understanding of hypertensive pregnancy disorders. This lecture highlights population-based insights\, early biomarkers of risk\, and transformative strategies for prevention—advancing maternal health equity and innovation in public health.
+URL:https://townhallseattle.org/event/dr-bertha-hidalgo/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/dr.-bertha-hidalgo.jpg
+ORGANIZER;CN="University of Washington Office of Public Lectures":MAILTO:lectures@uw.edu
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260407T193000
+DTEND;TZID=America/Los_Angeles:20260407T193000
+DTSTAMP:20260327T000508
+CREATED:20260217T221505Z
+LAST-MODIFIED:20260318T161830Z
+UID:10000993-1775590200-1775590200@townhallseattle.org
+SUMMARY:A Conversation with George Saunders
+DESCRIPTION:An electric novel from the #1 New York Times bestselling\, Booker Prize-winning author of Lincoln in the Bardo\, taking place at the bedside of an oil company CEO\, in the twilight hours of his life\, as he is ferried from this world into the next. \nNot for the first time\, Jill “Doll” Blaine finds herself hurtling toward earth\, reconstituting as she falls\, right down to her favorite black pumps. She plummets towards her newest charge\, yet another soul she must usher into the afterlife\, and lands headfirst in the circular drive of his ornate mansion. \nShe has performed this sacred duty three hundred and forty-three times since her own death. Her charges\, as a rule\, have been greatly comforted in their final moments. But this charge\, she soon discovers\, isn’t like the others: the powerful K.J. Boone will not be consoled\, because he has nothing to regret. He lived a big\, bold life\, and the world is better for it. Isn’t it? \nVigil transports us\, careening\, through the wild final evening of an epic\, complicated life. Crowds of people and animals — worldly and otherworldly\, alive and dead — arrive\, clamoring for a reckoning. Birds swarm the dying man’s room\, a black calf grazes on the loveseat\, a man from a distant drought-ravaged village materializes\, two oil-business cronies from decades past show up with chilling plans for Boone’s post-death future. \nWith the acuity and explosive imagination we’ve come to expect\, George Saunders takes on the gravest issues of our time — the menace of corporate greed\, the toll of capitalism\, the environmental perils of progress — and\, in the process\, spins a tale that encompasses life and death\, good and evil\, and the thorny question of absolution.
+URL:https://townhallseattle.org/event/george-saunders/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/george-saunders.jpg
+ORGANIZER;CN="Seattle Arts & Lectures":MAILTO:boxoffice@lectures.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260409T173000
+DTEND;TZID=America/Los_Angeles:20260409T173000
+DTSTAMP:20260327T000508
+CREATED:20260310T001234Z
+LAST-MODIFIED:20260311T173647Z
+UID:10001027-1775755800-1775755800@townhallseattle.org
+SUMMARY:UW Science Now
+DESCRIPTION:Hear from UW students about research on how biomimicry can be used to reduce pollution\, how dopamine networks mediate motivation\, and untreatable gonorrhea.
+URL:https://townhallseattle.org/event/uw-science-now-apr9/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Science
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/03/uw-science-now-april-9.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260409T193000
+DTEND;TZID=America/Los_Angeles:20260409T193000
+DTSTAMP:20260327T000508
+CREATED:20260204T191942Z
+LAST-MODIFIED:20260326T175418Z
+UID:10000981-1775763000-1775763000@townhallseattle.org
+SUMMARY:Terry Tempest Williams
+DESCRIPTION:In a world so fraught with chaos and uncertainty\, where can we find connection and hope? Author Terry Tempest Williams invites readers to learn about what she calls “The Glorians.” \nIn her latest work\, The Glorians: Visitations from the Holy Ordinary\, Williams explains that Glorians are not distant deities\, but instead ordinary\, often overlooked presences — animals\, plants\, memories\, moments — that reveal our shared vulnerability and interconnectedness with the natural world. The Glorians can be as small as an ant or as commonplace as the night sky. Williams offers both personal and societal insight in her assertion that Glorians have much to teach and remind us about consciousness\, connection\, and courage. \nIn pages that explore subjects like climate change\, finding wonder in the unexpected\, and turning to deep reflection and intention\, The Glorians invites us to imagine a better and more beautiful future in a time of uncertainty.
+URL:https://townhallseattle.org/event/terry-tempest-williams/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/terry-tempest-williams.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260409T193000
+DTEND;TZID=America/Los_Angeles:20260409T193000
+DTSTAMP:20260327T000508
+CREATED:20260218T233406Z
+LAST-MODIFIED:20260219T165517Z
+UID:10000996-1775763000-1775763000@townhallseattle.org
+SUMMARY:Emma Straub
+DESCRIPTION:From New York Times bestselling author of This Time Tomorrow\, an irresistible story about what happens when your teenage fantasy comes true after you’re already an adult. In Emma Straub’s tradition of books “that will make you laugh\, make you cry\, and make you call the people you love” (Emily Henry)\, American Fantasy is a richly textured\, uplifting story about the magic of revisiting youthful feelings\, and the even greater magic of starting anew. \nWhen the American Fantasy cruise ship sets sail for a four-day themed voyage\, aboard are all five members of a famous 1990s boy band\, and three thousand screaming women who have worshipped them for thirty years. \nNewly divorced and with an empty nest\, Annie is on board as a lark to appease her sister. Once a diehard fan of the band as a teen\, her tastes have matured\, and she feels out of place amid the sea of bedazzled\, air-brushed t-shirts bearing the singers’ faces. Yet when the lights come up and the idols of her youth begin to sing before her\, something is unlocked. “Maybe that was nostalgia after all\, the music a direct vein to her childhood\, the least complicated part of her life. A shortcut to happiness.” Between the slushy alcoholic drinks\, the music of her youth\, and the thousands of middle-aged women acting like lovesick teenagers\, Annie finally reconnects to a long-submerged part of herself. By the time she befriends one of the band members — not just a celebrity but someone also in need of a friend — she feels like anything is possible. But a lot can go wrong on a ship ruled by hormones and hope\, frustration and fantasy.
+URL:https://townhallseattle.org/event/emma-straub/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/emma-straub.jpg
+ORGANIZER;CN="Seattle Arts & Lectures":MAILTO:boxoffice@lectures.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260410T193000
+DTEND;TZID=America/Los_Angeles:20260410T193000
+DTSTAMP:20260327T000508
+CREATED:20260310T201313Z
+LAST-MODIFIED:20260310T233052Z
+UID:10001031-1775849400-1775849400@townhallseattle.org
+SUMMARY:Santa Clarita Valley Youth Orchestra
+DESCRIPTION:The Santa Clarita Valley Youth Orchestra (SCVYO)\, an innovative Los Angeles–based nonprofit youth orchestra\, makes its Seattle debut in a dynamic evening celebrating collaboration\, creativity\, and cross-disciplinary performance. \nThis special concert brings together three vibrant youth arts communities: SCVYO\, students from the Seattle Youth Symphony\, and dancers from Spectrum Dance Theater Youth Company. The program culminates in a powerful\, staged performance of selections from Georges Bizet’s Carmen Suite No. 1\, featuring live choreography performed alongside the orchestra. \nThe evening opens with string repertoire showcasing the expressive depth and precision of SCVYO and Seattle Youth Symphony musicians\, followed by the electrifying rhythms and dramatic flair of Carmen & more! Audiences will experience music not only as sound\, but as movement and storytelling — an immersive collaboration between young instrumentalists and dancers. \nDesigned for families\, classical music lovers\, and arts supporters alike\, in this performance\, audiences will experience the excitement of seeing young artists from different cities unite on one stage. The result is a celebration of artistic partnership and the transformative power of youth arts education. \nThis concert is free and open to the public. Optional donations are warmly welcomed and will directly support the participating youth arts organizations and the students you see on stage. \n\nEvents are offered for informational\, entertainment\, and educational purposes only. Read Town Hall’s Program Content Policy. 
+URL:https://townhallseattle.org/event/scvyo/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/03/santa-clarita-valley-youth-orchestra.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260410T200000
+DTEND;TZID=America/Los_Angeles:20260410T200000
+DTSTAMP:20260327T000508
+CREATED:20260129T173523Z
+LAST-MODIFIED:20260218T230703Z
+UID:10000972-1775851200-1775851200@townhallseattle.org
+SUMMARY:for posterity: proof of free will
+DESCRIPTION:for posterity: proof of free will is a speculative oral history — a performance staged as a panel discussion reflecting on the end of humanity. Panelists look back at a civilization and environment in collapse\, tracing the chain of events that began when humanity chose to stop reproducing and instead prepare for the last person’s death. \nThis is an exploration of peace in the face of existential crisis. As runaway climate change spiraled uncontrollably and humanity reached the brink of cataclysmic war\, undeniable questions arose: Do we continue? What if we just… stopped? \nThe project asks what happens if we stop resisting mortality — not just individually\, but on a global scale. Under this condition\, the discussion is forced to consider alternative meanings for sex\, existence\, and community\, opening space for new\, subversive questions. If not survival\, then what? If we were to turn off the engines of exploitation\, how would the trauma we carry and the damaged planet transform? How could we practice inter-species care\, care for the planet\, recognition of harm\, and attempt reparation on the largest possible scale? \nIn this world\, what did humanity ultimately achieve through designing its own end?
+URL:https://townhallseattle.org/event/for-posterity-apr10/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/01/for-posterity-proof-of-free-will.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260411T200000
+DTEND;TZID=America/Los_Angeles:20260411T200000
+DTSTAMP:20260327T000508
+CREATED:20260129T175028Z
+LAST-MODIFIED:20260218T230652Z
+UID:10000973-1775937600-1775937600@townhallseattle.org
+SUMMARY:for posterity: proof of free will
+DESCRIPTION:for posterity: proof of free will is a speculative oral history — a performance staged as a panel discussion reflecting on the end of humanity. Panelists look back at a civilization and environment in collapse\, tracing the chain of events that began when humanity chose to stop reproducing and instead prepare for the last person’s death. \nThis is an exploration of peace in the face of existential crisis. As runaway climate change spiraled uncontrollably and humanity reached the brink of cataclysmic war\, undeniable questions arose: Do we continue? What if we just… stopped? \nThe project asks what happens if we stop resisting mortality — not just individually\, but on a global scale. Under this condition\, the discussion is forced to consider alternative meanings for sex\, existence\, and community\, opening space for new\, subversive questions. If not survival\, then what? If we were to turn off the engines of exploitation\, how would the trauma we carry and the damaged planet transform? How could we practice inter-species care\, care for the planet\, recognition of harm\, and attempt reparation on the largest possible scale? \nIn this world\, what did humanity ultimately achieve through designing its own end?
+URL:https://townhallseattle.org/event/for-posterity-apr11/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/01/for-posterity-proof-of-free-will.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T193000
+DTEND;TZID=America/Los_Angeles:20260413T193000
+DTSTAMP:20260327T000508
+CREATED:20260123T150059Z
+LAST-MODIFIED:20260317T184347Z
+UID:10000959-1776108600-1776108600@townhallseattle.org
+SUMMARY:Planet Money: A Guide to the Economic Forces That Shape Your Life
+DESCRIPTION:Join the team behind the popular podcast Planet Money and celebrate the publication of their new book\, Planet Money: A Guide to the Economic Forces That Shape Your Life. Book author and longtime contributor Alex Mayyasi\, Planet Money host Kenny Malone\, and visual host Jack Corbett will bring Planet Money’s signature brand of storytelling to the stage and discuss some highlights from the new book\, including unlikely origin stories\, revealing truths about human behavior\, and insightful suggestions for navigating chaotic times drawn from the latest ideas in economics. Daryl Fairweather\, Chief Economist at Redfin\, will be the special guest this evening. Come prepared to engage with the silly and the sublime and ask some questions of your favorite Planet Money hosts and reporters. \nEach book purchased with a ticket comes with an exclusive Planet Money tote bag!
+URL:https://townhallseattle.org/event/planet-money/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/01/npr-planet-money-v2.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260415T193000
+DTEND;TZID=America/Los_Angeles:20260415T193000
+DTSTAMP:20260327T000508
+CREATED:20260302T205658Z
+LAST-MODIFIED:20260311T182724Z
+UID:10001018-1776281400-1776281400@townhallseattle.org
+SUMMARY:This Art Here
+DESCRIPTION:What roles do artists play in civil society? What do artists think about when they think about making things in public? Is art a basic need? Join us in conversation with Nakisa Dehpanah\, Titus Ross\, and Imani Sims — three artists pushing towards a future rooted in collaboration\, resilience\, and transformation. \nEach artist is part of the Seattle Office of Arts & Culture’s collective imagining\, “We Still Dream a Future”. This series features more than thirty artists and artist groups performing\, dancing\, installing\, learning\, organizing\, and exhibiting around Downtown\, the C-ID\, Pioneer Square\, Stadium District\, Union\, and King Street Stations this year. \nThe conversation will be hosted by Matthew Offenbacher\, Seattle artist and advisor for ARTS at King Street Station. \nThis program is supported by the City of Seattle Office of Arts & Culture and is part of the commUNITY series\, a selection of free public programs that center on connection\, career development\, and the co-creation of art curated by ARTS at King Street Station Advisors.
+URL:https://townhallseattle.org/event/this-art-here/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/03/this-art-here.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260416T193000
+DTEND;TZID=America/Los_Angeles:20260416T193000
+DTSTAMP:20260327T000508
+CREATED:20260224T004146Z
+LAST-MODIFIED:20260225T170249Z
+UID:10001004-1776367800-1776367800@townhallseattle.org
+SUMMARY:Scratch Night with Ollella
+DESCRIPTION:Why don’t we often see symphonic music in clubs\, or rock music in concert halls — and what shifts when we try? \nSymphonic music has evolved through concert halls\, designed to project acoustically in naturally reverberant rooms. Rock music\, by contrast\, was born in clubs: amplified\, built for energy and proximity. These traditions developed in different spaces\, for different audiences\, with different listening experiences. As a cellist working within contemporary songwriting\, Ollella often finds herself standing between these two worlds. So what happens when you bring them together? \nThis talk unpacks what Ollella has learned from merging these genres in her own work\, making what she calls ‘symphonic-indie’ music. She will examine how arrangement\, amplification\, and instrumentation shape emotional impact through performance and recorded music. Rather than choosing one tradition over the other\, this evening explores what new language can emerge when space\, scale\, and sound are considered together.
+URL:https://townhallseattle.org/event/scratch-night-2026-with-ollella/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/scratch-night-with-ollella.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260417T173000
+DTEND;TZID=America/Los_Angeles:20260417T173000
+DTSTAMP:20260327T000508
+CREATED:20260310T003433Z
+LAST-MODIFIED:20260311T173541Z
+UID:10001028-1776447000-1776447000@townhallseattle.org
+SUMMARY:UW Science Now
+DESCRIPTION:Hear from UW students about research on tadpole tail regeneration\, the science of early immunity\, and how corals remember.
+URL:https://townhallseattle.org/event/uw-science-now-apr17/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Science
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/03/uw-science-now-april-17.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260417T193000
+DTEND;TZID=America/Los_Angeles:20260417T193000
+DTSTAMP:20260327T000508
+CREATED:20260224T181229Z
+LAST-MODIFIED:20260317T212121Z
+UID:10001005-1776454200-1776454200@townhallseattle.org
+SUMMARY:As Many Weirdos As Possible
+DESCRIPTION:Join As Many Weirdos As Possible (AMWAP) for an evening of storytelling and portraiture that brings to life one of the most vibrant chapters of the Pacific Northwest music scene (1985-1995). This live program will feature musicians\, artists\, and community members sharing personal memories\, projected alongside their documentary portraits as part of the ongoing AMWAP project. \nDrawn from Poser Productions’ mission to preserve and celebrate personal and cultural histories\, this evening invites audiences to engage in a communal reflection on memory\, music\, identity\, and place. Hosted by John Roderick. Best known for his work with The Long Winters\, Harvey Danger\, and The Western State Hurricanes\, John was also a founding member of the Seattle Music Commission and a short-order chef at The Offramp. \nStorytellers\nSheryl Wiser\nDejha Colantuono\nSteve Manning\nJesse Higman\nSusan Silver\nHiro Yamamoto \nWith storytelling coaching by Emmett Montgomery \n\nPresented by Town Hall Seattle and Poser Productions. Poser Productions is fiscally sponsored by Shunpike. \n \n \nEvents are offered for informational\, entertainment\, and educational purposes only. Read Town Hall’s Program Content Policy. 
+URL:https://townhallseattle.org/event/as-many-weirdos-as-possible-2/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/as-many-weirdos-as-possible-v2.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T170000
+DTEND;TZID=America/Los_Angeles:20260418T170000
+DTSTAMP:20260327T000508
+CREATED:20260219T224849Z
+LAST-MODIFIED:20260221T013645Z
+UID:10000998-1776531600-1776531600@townhallseattle.org
+SUMMARY:The Night of Ideas
+DESCRIPTION:Join Alliance Française de Seattle and Villa Albertine\, alongside Gage Academy of Art and other local partners\, for a weekend of critical inquiry and creative exploration as part of Night of Ideas 2026. This year\, the global event series celebrates the 250th anniversary of the Declaration of Independence and the historic role of Franco-American cultural diplomacy.
+URL:https://townhallseattle.org/event/night-of-ideas-2026/
+LOCATION:The Wyncote NW Forum\, 1119 8th Ave (Entrance off Seneca St.)\, Seattle\, 98101\, United States
+CATEGORIES:Rentals
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/night-of-ideas-2026.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T193000
+DTEND;TZID=America/Los_Angeles:20260418T193000
+DTSTAMP:20260327T000508
+CREATED:20260219T001218Z
+LAST-MODIFIED:20260221T013511Z
+UID:10000997-1776540600-1776540600@townhallseattle.org
+SUMMARY:Maria Semple with Ken Jennings
+DESCRIPTION:Have you ever reinvented yourself — even unintentionally? Bestselling author Maria Semple’s latest novel\, Go Gentle\, tells the story of one woman’s midlife transformation. \nAdora Hazzard\, a Stoic philosopher and divorcée living in New York City\, believes that she has it all figured out. She’s a working mom of a teenage daughter\, she’s relishing her freedom\, and she regularly meets with a group of like-minded women she refers to her “coven” — a group she assembled herself and is working to expand. Adora’s carefully curated life is going as planned until a chance meeting with a handsome stranger. She begins subverting people’s expectations — perhaps most of all her own. \nSoon\, her normally orderly existence is upended by adventure and risk: black-market art deals\, secret rendezvous\, and international intrigue. If that isn’t enough\, secrets from her past return to visit her in the present. \nGo Gentle‘s narrative raises that age-old question: In the battle between the mind and the heart\, which one will win?
+URL:https://townhallseattle.org/event/maria-semple/
+LOCATION:The Great Hall\, 1119 Eighth Avenue (enter on Eighth Avenue)\, Seattle\, 98101\, United States
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://townhallseattle.org/wp-content/uploads/2026/02/maria-semple.jpg
+END:VEVENT
+END:VCALENDAR

@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-03-27T07:10:33.094Z",
+  "buildTime": "2026-03-27T07:16:27.436Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
@@ -396,7 +396,7 @@
     {
       "name": "fremont-arts-council-all-events",
       "type": "Ripper",
-      "events": 8,
+      "events": 9,
       "expectEmpty": false
     },
     {
@@ -492,7 +492,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 46,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -1062,7 +1062,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 156,
+      "events": 157,
       "expectEmpty": false
     },
     {
@@ -1128,7 +1128,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1981,
+      "events": 1982,
       "expectEmpty": false
     },
     {
@@ -1146,7 +1146,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 157,
+      "events": 156,
       "expectEmpty": false
     },
     {
@@ -1158,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2688,
+      "events": 2687,
       "expectEmpty": false
     },
     {
@@ -1218,13 +1218,13 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1089,
+      "events": 1090,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 513,
+      "events": 512,
       "expectEmpty": false
     },
     {

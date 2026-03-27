@@ -86,8 +86,7 @@ describe('emitFeedMetrics', () => {
 
     // blobs array has 3 entries
     expect(call.blobs).toHaveLength(3)
-    expect(typeof call.blobs[0]).toBe('string')  // hashed userId
-    expect(call.blobs[0]).toHaveLength(16)        // 16 hex chars
+    expect(call.blobs[0]).toBe('user-123')  // raw userId (opaque KV ID, no hashing needed)
     expect(call.blobs[1]).toBe('favorites-only')
     expect(call.blobs[2]).toBe('dedup-active')
   })
@@ -118,29 +117,22 @@ describe('emitFeedMetrics', () => {
     await expect(emitFeedMetrics(env, baseMetrics)).resolves.toBeUndefined()
   })
 
-  it('hashes userId consistently (same input = same hash)', async () => {
-    const writeDataPoint = vi.fn()
+  it('swallows errors from writeDataPoint so analytics never crash feed requests', async () => {
+    const writeDataPoint = vi.fn().mockImplementation(() => { throw new Error('Analytics unavailable') })
     const env = makeEnv(writeDataPoint)
-
-    await emitFeedMetrics(env, baseMetrics)
-    await emitFeedMetrics(env, baseMetrics)
-
-    const hash1 = writeDataPoint.mock.calls[0][0].blobs[0]
-    const hash2 = writeDataPoint.mock.calls[1][0].blobs[0]
-    expect(hash1).toBe(hash2)
-    expect(hash1).toHaveLength(16)
+    // Should not throw even when writeDataPoint throws
+    await expect(emitFeedMetrics(env, baseMetrics)).resolves.toBeUndefined()
   })
 
-  it('produces different hashes for different userIds', async () => {
+  it('passes userId through as raw blob (no hashing)', async () => {
     const writeDataPoint = vi.fn()
     const env = makeEnv(writeDataPoint)
 
     await emitFeedMetrics(env, { ...baseMetrics, userId: 'user-aaa' })
     await emitFeedMetrics(env, { ...baseMetrics, userId: 'user-bbb' })
 
-    const hash1 = writeDataPoint.mock.calls[0][0].blobs[0]
-    const hash2 = writeDataPoint.mock.calls[1][0].blobs[0]
-    expect(hash1).not.toBe(hash2)
+    expect(writeDataPoint.mock.calls[0][0].blobs[0]).toBe('user-aaa')
+    expect(writeDataPoint.mock.calls[1][0].blobs[0]).toBe('user-bbb')
   })
 
   it('sets feedType to mixed for favorites+geo', async () => {

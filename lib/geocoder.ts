@@ -271,6 +271,156 @@ export function lookupSPLBranchCoords(location: string): GeoCoords | null {
 }
 
 /**
+ * UW building code → coordinates table.
+ * Keys are uppercase building codes (e.g. "HUB", "PAT").
+ */
+const UW_BUILDING_COORDS: Record<string, GeoCoords> = {
+  HUB: { lat: 47.6557, lng: -122.3050 },
+  PAT: { lat: 47.6532, lng: -122.3115 },
+  KNE: { lat: 47.6561, lng: -122.3088 },
+  MNY: { lat: 47.6556, lng: -122.3073 },
+  MUS: { lat: 47.6553, lng: -122.3060 },
+  ART: { lat: 47.6573, lng: -122.3080 },
+  HAG: { lat: 47.6575, lng: -122.3095 },
+  FAC: { lat: 47.6531, lng: -122.3048 },
+  BRK: { lat: 47.6601, lng: -122.3131 },
+  HSD: { lat: 47.6508, lng: -122.3076 },
+  HSG: { lat: 47.6508, lng: -122.3076 },
+  HRC: { lat: 47.6501, lng: -122.3072 },
+  HSK: { lat: 47.6508, lng: -122.3076 },
+  CHSC: { lat: 47.6589, lng: -122.3037 },
+  CUH: { lat: 47.6601, lng: -122.2898 },
+  OBS: { lat: 47.6601, lng: -122.3131 },
+  PHT: { lat: 47.6561, lng: -122.3088 },
+  SAV: { lat: 47.6565, lng: -122.3088 },
+  THO: { lat: 47.6565, lng: -122.3076 },
+  GWN: { lat: 47.6565, lng: -122.3076 },
+  ALB: { lat: 47.6557, lng: -122.3076 },
+  MGH: { lat: 47.6557, lng: -122.3057 },
+  PAR: { lat: 47.6569, lng: -122.3088 },
+  EGL: { lat: 47.6565, lng: -122.3076 },
+  LSB: { lat: 47.6557, lng: -122.3057 },
+  OAK: { lat: 47.6531, lng: -122.3048 },
+  SFCO: { lat: 47.6610, lng: -122.3145 },
+  EDP: { lat: 47.6515, lng: -122.3011 },
+  SUZ: { lat: 47.6557, lng: -122.3076 },
+};
+
+/**
+ * UW named-location fallback (no building code in string).
+ * Keys are lowercased location strings.
+ */
+const UW_NAMED_LOCATIONS: Record<string, GeoCoords> = {
+  'anderson hall courtyard': { lat: 47.6553, lng: -122.3035 },
+  'uw botanic gardens': { lat: 47.6601, lng: -122.2898 },
+  'center for urban horticulture': { lat: 47.6601, lng: -122.2898 },
+};
+
+/**
+ * Look up UW building coordinates from a location string.
+ *
+ * Matches:
+ * 1. Named UW locations like "anderson hall courtyard" or "uw botanic gardens"
+ * 2. Building code in parens: "(HUB)" at end of string or after a comma/space
+ *
+ * Returns null if no match.
+ */
+export function lookupUWBuilding(location: string): GeoCoords | null {
+  const lower = location.toLowerCase().trim();
+
+  // Check named locations first
+  for (const [name, coords] of Object.entries(UW_NAMED_LOCATIONS)) {
+    if (lower === name) {
+      return coords;
+    }
+  }
+
+  // Look for "(CODE)" pattern — code is 2-5 uppercase letters/digits
+  const match = lower.match(/\(([a-z0-9]{2,5})\)\s*$/i) ??
+    lower.match(/,\s*\(([a-z0-9]{2,5})\)/i);
+  if (match) {
+    const code = match[1].toUpperCase();
+    if (code in UW_BUILDING_COORDS) {
+      return UW_BUILDING_COORDS[code];
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Well-known Seattle venue coordinates table.
+ * Keys are lowercased venue names.
+ */
+const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
+  'the museum of flight': { lat: 47.5186, lng: -122.2967 },
+  'museum of flight': { lat: 47.5186, lng: -122.2967 },
+  'langston hughes performing arts institute': { lat: 47.5969, lng: -122.3165 },
+  'arts at king street station': { lat: 47.5983, lng: -122.3303 },
+  'hazard factory': { lat: 47.6138, lng: -122.3204 },
+  'volunteer park amphitheater': { lat: 47.6372, lng: -122.3150 },
+  'kremwerk': { lat: 47.6202, lng: -122.3374 },
+  'kremwerk-timbre room-cherry complex': { lat: 47.6202, lng: -122.3374 },
+  'bitterlake community center': { lat: 47.7201, lng: -122.3473 },
+  'discovery park, north parking lot': { lat: 47.6617, lng: -122.4077 },
+  'gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
+  'the gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
+  'meadowbrook community center': { lat: 47.7133, lng: -122.2989 },
+  'worksource north seattle': { lat: 47.7097, lng: -122.3359 },
+  'worksource north seattle computer lab': { lat: 47.7097, lng: -122.3359 },
+  'duwamish longhouse': { lat: 47.5612, lng: -122.3598 },
+  'cwb boathouse': { lat: 47.6259, lng: -122.3392 },
+  'the taproom at pike place': { lat: 47.6097, lng: -122.3425 },
+  'gould gallery': { lat: 47.6092, lng: -122.3321 },
+  'culture yard': { lat: 47.6165, lng: -122.3456 },
+  'neumos & barboza': { lat: 47.6134, lng: -122.3203 },
+  'neumos': { lat: 47.6134, lng: -122.3203 },
+  'the moore theatre': { lat: 47.6120, lng: -122.3425 },
+  'the paramount theatre': { lat: 47.6120, lng: -122.3321 },
+  'club comedy seattle': { lat: 47.6176, lng: -122.3499 },
+  'vue lounge': { lat: 47.6134, lng: -122.3203 },
+  'shibuya hi-fi': { lat: 47.6134, lng: -122.3203 },
+  'ohm nightclub': { lat: 47.6134, lng: -122.3203 },
+  'the new frontier lounge': { lat: 47.6677, lng: -122.3829 },
+  'glasswing shop': { lat: 47.6175, lng: -122.3251 },
+  'orient express restaurant & lounge': { lat: 47.5983, lng: -122.3237 },
+  'central saloon': { lat: 47.6007, lng: -122.3321 },
+  'spanish ballroom at mcmenamins elks temple': { lat: 47.6120, lng: -122.3321 },
+  'the church cantina': { lat: 47.6253, lng: -122.3222 },
+  'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
+  'husky ballpark': { lat: 47.6515, lng: -122.3011 },
+};
+
+/**
+ * Look up a well-known Seattle venue by normalized (lowercased, trimmed) location string.
+ * If the location *starts with* a known venue name, return that venue's coords
+ * even if there's trailing room/floor info after the venue name.
+ *
+ * Returns null if no match.
+ */
+export function lookupKnownVenue(location: string): GeoCoords | null {
+  const lower = location.toLowerCase().trim();
+
+  // Exact match first
+  if (lower in KNOWN_VENUE_COORDS) {
+    return KNOWN_VENUE_COORDS[lower];
+  }
+
+  // Prefix match: location starts with a known venue name followed by a separator
+  for (const [name, coords] of Object.entries(KNOWN_VENUE_COORDS)) {
+    if (lower.startsWith(name) && lower.length > name.length) {
+      const nextChar = lower[name.length];
+      // Only match if followed by a separator (, - : space)
+      if (nextChar === ',' || nextChar === ' ' || nextChar === '-' || nextChar === ':') {
+        return coords;
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
  * Known venue-area suffix patterns that map to a centroid.
  * Used as a last-resort fallback when Nominatim fails and the location string
  * contains a recognizable area suffix like ", seattle center" or ", south lake union".
@@ -435,6 +585,8 @@ export interface ResolveEventCoordsResult {
  * 6. SPL branch lookup (if Nominatim fails and location mentions a branch)
  * 7. Known venue-area centroid fallback (Seattle Center, South Lake Union, etc.)
  * 8. Suite/floor stripping retry (if first Nominatim attempt fails)
+ * 9. UW building lookup (building code in parens, or named UW location)
+ * 10. Known venue lookup (well-known Seattle venues that Nominatim misses)
  */
 export async function resolveEventCoords(
   cache: Readonly<GeoCache>,
@@ -494,6 +646,16 @@ export async function resolveEventCoords(
   // Step 5: Known venue-area centroid fallback (Seattle Center, South Lake Union, etc.)
   if (coords === null) {
     coords = lookupVenueAreaFallback(normalized);
+  }
+
+  // Step 9: UW building lookup (building code in parens, or named UW location)
+  if (coords === null) {
+    coords = lookupUWBuilding(normalized);
+  }
+
+  // Step 10: Known venue lookup (well-known Seattle venues that Nominatim misses)
+  if (coords === null) {
+    coords = lookupKnownVenue(normalized);
   }
 
   // Step 6: Suite/floor stripping retry (if still no coords)

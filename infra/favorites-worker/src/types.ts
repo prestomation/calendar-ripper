@@ -46,6 +46,7 @@ export interface EventsIndexEntry {
   lat?: number
   lng?: number
   geocodeSource?: 'ripper' | 'cached' | 'none'
+  dedupedSources?: string[]
 }
 
 export interface FeedTokenRecord {

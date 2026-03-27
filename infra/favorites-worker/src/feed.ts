@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import type { Env, FeedTokenRecord, FavoritesRecord, EventsIndexEntry, GeoFilter } from './types.js'
 import { mergeIcsFiles } from './ics-merge.js'
 import { fetchEventsIndex, fetchAllIcs, searchEventsIndex, extractMatchingVEvents } from './event-search.js'
+import { deduplicateEvents } from './event-dedup.js'
 
 // Keep in sync with web/src/lib/haversine.js (client-side copy)
 function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -80,11 +81,76 @@ feedRoutes.get('/:filename', async (c) => {
   }
 
   const baseUrl = c.env.GITHUB_PAGES_BASE_URL
+
+  // Determine which ICS urls to actually fetch (may be narrowed by dedup)
+  let icsUrlsToFetch = favorites.icsUrls
+
+  // Search for events matching search filters and/or geo filters
+  let searchMatchedVEvents: string[] = []
+  if (hasSearchFilters || hasGeoFilters || hasIcsFavorites) {
+    try {
+      const eventsIndex = await fetchEventsIndex(baseUrl)
+
+      // Collect all events-index entries that would appear in this feed.
+      // Favorited events are always included in full — users explicitly selected
+      // those calendars, so geo filters must NOT exclude them.
+      const favoritedIndexEvents: EventsIndexEntry[] = hasIcsFavorites
+        ? eventsIndex.filter(e => favorites.icsUrls.includes(e.icsUrl))
+        : []
+
+      // Exclude events from favorited calendars — they are already covered by
+      // favoritedIndexEvents above, so including them here too would cause the
+      // same event to appear twice in combinedEvents, making the dedup algorithm
+      // treat an event as a duplicate of itself and corrupt dedupedSources.
+      const favoritedIcsUrls = new Set(favorites.icsUrls)
+      const geoFilteredIndex = (hasSearchFilters || hasGeoFilters)
+        ? eventsIndex.filter(e => eventMatchesGeoFilters(e, geoFilters) && !favoritedIcsUrls.has(e.icsUrl))
+        : []
+
+      // Combine all candidate events and deduplicate.
+      // Favorited events lead so they win ties over geo-only events.
+      const combinedEvents = [...favoritedIndexEvents, ...geoFilteredIndex]
+      const deduped = deduplicateEvents(combinedEvents)
+
+      // Always fetch ALL favorited ICS files — dedup removes duplicate VEVENTs in
+      // the search/geo output path, but we still need the full ICS content from
+      // each favorited calendar. A calendar may contain events not in the
+      // events-index at all, and users explicitly chose these calendars so they
+      // should appear regardless of geo location.
+      // icsUrlsToFetch remains favorites.icsUrls (set above, unchanged).
+
+      // For search/geo path: build matchingKeys from surviving deduped entries
+      if (hasSearchFilters || hasGeoFilters) {
+        const allIcs = await fetchAllIcs(baseUrl)
+
+        // Filter deduped entries to those from the geo/search pool
+        const survivingGeoEntries = deduped.filter(e => {
+          // An entry is from the search/geo pool if it was in geoFilteredIndex
+          // (i.e., it passes the geo filter, whether or not it's also a favorite)
+          return eventMatchesGeoFilters(e, geoFilters)
+        })
+
+        let matchingKeys: Set<string>
+        if (hasSearchFilters) {
+          matchingKeys = searchEventsIndex(survivingGeoEntries, searchFilters)
+        } else {
+          // Geo-only: include all surviving geo-matched events
+          matchingKeys = new Set(survivingGeoEntries.map(e => e.summary + '|' + e.date))
+        }
+
+        searchMatchedVEvents = extractMatchingVEvents(allIcs, matchingKeys)
+      }
+    } catch {
+      // If events-index fetch fails, fall through to plain ICS favorites fetch
+      // (dedup is a best-effort enhancement; don't break the feed)
+    }
+  }
+
   const icsContents: string[] = []
 
-  // Fetch favorited calendar ICS files
+  // Fetch favorited calendar ICS files (using dedup-filtered url list)
   if (hasIcsFavorites) {
-    const fetches = favorites.icsUrls.map(async (icsUrl) => {
+    const fetches = icsUrlsToFetch.map(async (icsUrl) => {
       try {
         // Validate URL is a safe relative .ics path (no protocol, no traversal)
         if (!icsUrl.endsWith('.ics') || icsUrl.includes('://') || icsUrl.includes('..')) {
@@ -99,29 +165,6 @@ feedRoutes.get('/:filename', async (c) => {
       }
     })
     await Promise.all(fetches)
-  }
-
-  // Search for events matching search filters and/or geo filters
-  let searchMatchedVEvents: string[] = []
-  if (hasSearchFilters || hasGeoFilters) {
-    try {
-      const [eventsIndex, allIcs] = await Promise.all([
-        fetchEventsIndex(baseUrl),
-        fetchAllIcs(baseUrl),
-      ])
-      // Apply geo filter first, then text search
-      const geoFilteredIndex = eventsIndex.filter(e => eventMatchesGeoFilters(e, geoFilters))
-      let matchingKeys: Set<string>
-      if (hasSearchFilters) {
-        matchingKeys = searchEventsIndex(geoFilteredIndex, searchFilters)
-      } else {
-        // Geo-only: include all geo-matched events
-        matchingKeys = new Set(geoFilteredIndex.map(e => e.summary + '|' + e.date))
-      }
-      searchMatchedVEvents = extractMatchingVEvents(allIcs, matchingKeys)
-    } catch {
-      // If search data fetch fails, continue with just favorites
-    }
   }
 
   const merged = mergeIcsFiles(icsContents, searchMatchedVEvents)

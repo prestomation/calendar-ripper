@@ -58,8 +58,15 @@ describe('Feed endpoint', () => {
     }))
 
     const originalFetch = globalThis.fetch
-    globalThis.fetch = vi.fn(async () => {
-      throw new Error('Should not have been called')
+    const fetchedUrls: string[] = []
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      const urlStr = typeof url === 'string' ? url : url instanceof URL ? url.toString() : url.url
+      fetchedUrls.push(urlStr)
+      // Allow trusted base-URL fetches (events-index for dedup)
+      if (urlStr.startsWith('https://prestomation.github.io/calendar-ripper/')) {
+        return new Response('[]', { status: 200 })
+      }
+      throw new Error(`Unexpected fetch to: ${urlStr}`)
     }) as typeof fetch
 
     try {
@@ -69,7 +76,8 @@ describe('Feed endpoint', () => {
       const body = await res.text()
       expect(body).toContain('BEGIN:VCALENDAR')
       expect(body).not.toContain('VEVENT')
-      expect(globalThis.fetch).not.toHaveBeenCalled()
+      // The evil URL must never have been fetched
+      expect(fetchedUrls).not.toContain('https://evil.com/steal.ics')
     } finally {
       globalThis.fetch = originalFetch
     }
@@ -83,8 +91,15 @@ describe('Feed endpoint', () => {
     }))
 
     const originalFetch = globalThis.fetch
-    globalThis.fetch = vi.fn(async () => {
-      throw new Error('Should not have been called')
+    const fetchedUrls: string[] = []
+    globalThis.fetch = vi.fn(async (url: string | URL | Request) => {
+      const urlStr = typeof url === 'string' ? url : url instanceof URL ? url.toString() : url.url
+      fetchedUrls.push(urlStr)
+      // Allow trusted base-URL fetches (events-index for dedup)
+      if (urlStr.startsWith('https://prestomation.github.io/calendar-ripper/')) {
+        return new Response('[]', { status: 200 })
+      }
+      throw new Error(`Unexpected fetch to: ${urlStr}`)
     }) as typeof fetch
 
     try {
@@ -93,7 +108,8 @@ describe('Feed endpoint', () => {
       const body = await res.text()
       expect(body).toContain('BEGIN:VCALENDAR')
       expect(body).not.toContain('VEVENT')
-      expect(globalThis.fetch).not.toHaveBeenCalled()
+      // The traversal URL must never have been fetched
+      expect(fetchedUrls.some(u => u.includes('etc/passwd'))).toBe(false)
     } finally {
       globalThis.fetch = originalFetch
     }

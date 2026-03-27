@@ -1,0 +1,74 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hugo House - ECPv6.15.17.1//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Hugo House
+X-ORIGINAL-URL:https://hugohouse.org
+X-WR-CALDESC:Events for Hugo House
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260326T190000
+DTEND;TZID=America/Los_Angeles:20260326T210000
+DTSTAMP:20260326T194839
+CREATED:20260228T192648Z
+LAST-MODIFIED:20260327T013253Z
+UID:1534501-1774551600-1774558800@hugohouse.org
+SUMMARY:It Goes On
+DESCRIPTION:$3 wine & poetry \nReadings by Samar Abulhassan\, Kevin Emerson\, Ramon Isao\, and Arlene Naganawa \nHosted by hosted by Jeanine Walker & Aaron Counts \nThursday\, March 26\, 7pm \nDoors at 6pm \nHugo House is delighted to partner with poet Jeanine Walker and mixed media artist Aaron Counts to bring It Goes On to the Hugo House stage! It Goes On features $3 glasses of wine\, and invaluable words. March 26 stars poets Samar Abulhassan and Arelene Naganawa\, and fiction writers Kevin Emerson and Ramon Isao. Come on out to our cozy cabaret-style theater to partake in the words\, wine\, and full-on spring fun. \nFree admission to this event is made possible with support from 4Culture.
+URL:https://hugohouse.org/event/_2026-03-26/
+CATEGORIES:Mainstage,Community Event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260328T130000
+DTEND;TZID=America/Los_Angeles:20260328T210000
+DTSTAMP:20260326T194839
+CREATED:20260319T210739Z
+LAST-MODIFIED:20260324T194832Z
+UID:1547400-1774702800-1774731600@hugohouse.org
+SUMMARY:DUNE Mini-Comics Night
+DESCRIPTION:Join us today for the 100th edition of DUNE with an extra long DUNE day! \nOn Saturday\, March 28th participants will be creating comics and illustrations for the 100th issue of the mini-comic anthology DUNE. Hugo House on Capitol Hill who partnered with the organizer Marc Palm in 2025 will host an eight hour long event celebrating this milestone. \n \nHugo House is large enough to accommodate 50-80+ participants normally\, more are expected for issue 100. Be prepared for some elbow to elbow space. All are welcome despite skill level or experience. All artwork must be started and finished within the time allowed in black & white and totally analog. A special edition book will be published with all the submitted work and available to only contributors at the following month's meeting on Tuesday April 28th. \n \nDune – Mini-Comics Night 100 will take place on Saturday\, March 28th from 1pm – 9pm. Two drink minimum is required from the soda/beer/wine bar located in Hugo House. Bring your own materials and ideas. Each participant will be asked to donate $10 – $20 (cash or digital payment) towards the cost of printing a special edition book. \n \nThere will motivational tunes from a live DJ spinning records\, a limited amount of snacks available\, as well as an "Inspiration Packet" given out to the first 100 contributors.  \n \nContact the organizer/publisher Marc Palm – \nselfsatisfiedbooks@gmail.com or Hugo House welcome@hugohouse.org for \nmore information. \n \nDUNE 100 Day \n1-9 PM \nHugo House \n1634 11th Ave\, Seattle\, WA 98122 \n \nPreregistering for this event is highly recommend! Grab your free ticket below! \n \nFree admission to this event is made possible with support from 4Culture.
+URL:https://hugohouse.org/event/_2026-03-28/
+END:VEVENT
+END:VCALENDAR

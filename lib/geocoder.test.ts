@@ -8,6 +8,8 @@ import {
   lookupNeighborhoodCentroid,
   lookupSPLBranchCoords,
   lookupVenueAreaFallback,
+  lookupUWBuilding,
+  lookupKnownVenue,
   lookupGeoCache,
   resolveEventCoords,
   type GeoCache,
@@ -674,5 +676,167 @@ describe('resolveEventCoords - venue area fallback', () => {
     expect(result.coords).toEqual({ lat: 47.6275, lng: -122.3362 });
     expect(result.geocodeSource).toBe('ripper');
     expect(result.error).toBeUndefined();
+  });
+});
+
+describe('lookupUWBuilding', () => {
+  it('matches HUB building code in parens at end of string', () => {
+    const result = lookupUWBuilding('Some Event, University of Washington (HUB)');
+    expect(result).toEqual({ lat: 47.6557, lng: -122.3050 });
+  });
+
+  it('matches PAT building code', () => {
+    const result = lookupUWBuilding('Physics Seminar (PAT)');
+    expect(result).toEqual({ lat: 47.6532, lng: -122.3115 });
+  });
+
+  it('matches KNE building code', () => {
+    const result = lookupUWBuilding('Lecture (KNE)');
+    expect(result).toEqual({ lat: 47.6561, lng: -122.3088 });
+  });
+
+  it('matches SFCO (multi-letter code)', () => {
+    const result = lookupUWBuilding('Admin Meeting (SFCO)');
+    expect(result).toEqual({ lat: 47.6610, lng: -122.3145 });
+  });
+
+  it('matches case-insensitively', () => {
+    const result = lookupUWBuilding('Event (hub)');
+    expect(result).toEqual({ lat: 47.6557, lng: -122.3050 });
+  });
+
+  it('matches BRK (Burke Museum)', () => {
+    const result = lookupUWBuilding('Art Opening (BRK)');
+    expect(result).toEqual({ lat: 47.6601, lng: -122.3131 });
+  });
+
+  it('returns null for unknown building code', () => {
+    expect(lookupUWBuilding('Event (XYZ)')).toBeNull();
+  });
+
+  it('returns null for non-UW string', () => {
+    expect(lookupUWBuilding('Pike Place Market, Seattle')).toBeNull();
+  });
+
+  it('matches named location "anderson hall courtyard"', () => {
+    const result = lookupUWBuilding('Anderson Hall Courtyard');
+    expect(result).toEqual({ lat: 47.6553, lng: -122.3035 });
+  });
+
+  it('matches named location "uw botanic gardens"', () => {
+    const result = lookupUWBuilding('UW Botanic Gardens');
+    expect(result).toEqual({ lat: 47.6601, lng: -122.2898 });
+  });
+
+  it('matches named location "center for urban horticulture"', () => {
+    const result = lookupUWBuilding('Center for Urban Horticulture');
+    expect(result).toEqual({ lat: 47.6601, lng: -122.2898 });
+  });
+});
+
+describe('lookupKnownVenue', () => {
+  it('matches exact venue name', () => {
+    const result = lookupKnownVenue('museum of flight');
+    expect(result).toEqual({ lat: 47.5186, lng: -122.2967 });
+  });
+
+  it('matches case-insensitively', () => {
+    const result = lookupKnownVenue('Museum of Flight');
+    expect(result).toEqual({ lat: 47.5186, lng: -122.2967 });
+  });
+
+  it('matches "the museum of flight"', () => {
+    const result = lookupKnownVenue('The Museum of Flight');
+    expect(result).toEqual({ lat: 47.5186, lng: -122.2967 });
+  });
+
+  it('matches venue with trailing room info', () => {
+    const result = lookupKnownVenue('Neumos, Main Stage');
+    expect(result).toEqual({ lat: 47.6134, lng: -122.3203 });
+  });
+
+  it('matches venue with trailing dash separator', () => {
+    const result = lookupKnownVenue('Neumos - Balcony');
+    expect(result).toEqual({ lat: 47.6134, lng: -122.3203 });
+  });
+
+  it('matches "gorge amphitheatre"', () => {
+    const result = lookupKnownVenue('Gorge Amphitheatre');
+    expect(result).toEqual({ lat: 47.0801, lng: -119.9947 });
+  });
+
+  it('matches "the gorge amphitheatre"', () => {
+    const result = lookupKnownVenue('The Gorge Amphitheatre');
+    expect(result).toEqual({ lat: 47.0801, lng: -119.9947 });
+  });
+
+  it('matches langston hughes', () => {
+    const result = lookupKnownVenue('Langston Hughes Performing Arts Institute');
+    expect(result).toEqual({ lat: 47.5969, lng: -122.3165 });
+  });
+
+  it('returns null for unknown venue', () => {
+    expect(lookupKnownVenue('Some Random Bar')).toBeNull();
+  });
+
+  it('returns null for empty string', () => {
+    expect(lookupKnownVenue('')).toBeNull();
+  });
+
+  it('does not prefix-match when next char is not a separator', () => {
+    // "neumos" should not match "neumos & barboza" prefix for a string like "neumosbakery"
+    expect(lookupKnownVenue('neumosbakery')).toBeNull();
+  });
+});
+
+describe('resolveEventCoords - UW building and known venue', () => {
+  let cache: GeoCache;
+
+  beforeEach(() => {
+    cache = { version: 1, entries: {} };
+    mockFetch.mockReset();
+  });
+
+  it('resolves UW building code when Nominatim fails', async () => {
+    mockFetch.mockResolvedValue({ ok: true, json: async () => [] });
+
+    const result = await resolveEventCoords(cache, 'Seminar in Kane Hall (KNE)', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6561, lng: -122.3088 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+    const key = 'seminar in kane hall (kne)';
+    expect(result.cache.entries[key]).toBeDefined();
+    expect(result.cache.entries[key].unresolvable).toBeUndefined();
+  });
+
+  it('resolves known venue when Nominatim fails', async () => {
+    mockFetch.mockResolvedValue({ ok: true, json: async () => [] });
+
+    const result = await resolveEventCoords(cache, 'Museum of Flight', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.5186, lng: -122.2967 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+    expect(result.cache.entries['museum of flight']).toBeDefined();
+    expect(result.cache.entries['museum of flight'].unresolvable).toBeUndefined();
+  });
+
+  it('resolves known venue with trailing room info', async () => {
+    mockFetch.mockResolvedValue({ ok: true, json: async () => [] });
+
+    const result = await resolveEventCoords(cache, 'Neumos, Main Floor', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6134, lng: -122.3203 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+  });
+
+  it('uses Nominatim result if available (UW lookup is fallback only)', async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [{ lat: '47.6560', lon: '-122.3090' }],
+    });
+
+    const result = await resolveEventCoords(cache, 'Seminar in Kane Hall (KNE)', 'test-source');
+    // Should use Nominatim coords, not the hardcoded UW ones
+    expect(result.coords).toEqual({ lat: 47.6560, lng: -122.3090 });
   });
 });

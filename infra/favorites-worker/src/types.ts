@@ -1,3 +1,11 @@
+interface AnalyticsEngineDataset {
+  writeDataPoint(event: {
+    doubles?: number[]
+    blobs?: string[]
+    indexes?: string[]
+  }): void
+}
+
 export interface Env {
   USERS: KVNamespace
   FAVORITES: KVNamespace
@@ -7,6 +15,7 @@ export interface Env {
   GOOGLE_CLIENT_SECRET: string
   GITHUB_PAGES_BASE_URL: string
   SITE_URL: string
+  ANALYTICS?: AnalyticsEngineDataset
 }
 
 export interface UserRecord {

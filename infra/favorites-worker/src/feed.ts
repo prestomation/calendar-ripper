@@ -3,6 +3,7 @@ import type { Env, FeedTokenRecord, FavoritesRecord, EventsIndexEntry, GeoFilter
 import { mergeIcsFiles } from './ics-merge.js'
 import { fetchEventsIndex, fetchAllIcs, searchEventsIndex, extractMatchingVEvents } from './event-search.js'
 import { deduplicateEvents } from './event-dedup.js'
+import { emitFeedMetrics } from './analytics.js'
 
 // Keep in sync with web/src/lib/haversine.js (client-side copy)
 function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -72,6 +73,19 @@ feedRoutes.get('/:filename', async (c) => {
       'END:VCALENDAR',
     ].join('\r\n')
 
+    await emitFeedMetrics(c.env, {
+      userId: tokenRecord.userId,
+      totalEvents: 0,
+      dedupedCount: 0,
+      finalEvents: 0,
+      hasFavorites: false,
+      hasGeoFilter: false,
+      hasSearchFilter: false,
+      geoFilterCount: 0,
+      searchFilterCount: 0,
+      favoritesCount: 0,
+    })
+
     return new Response(emptyIcs, {
       headers: {
         'Content-Type': 'text/calendar; charset=utf-8',
@@ -84,6 +98,10 @@ feedRoutes.get('/:filename', async (c) => {
 
   // Determine which ICS urls to actually fetch (may be narrowed by dedup)
   let icsUrlsToFetch = favorites.icsUrls
+
+  // Analytics tracking variables (set inside try block below)
+  let totalEvents = 0
+  let dedupedCount = 0
 
   // Search for events matching search filters and/or geo filters
   let searchMatchedVEvents: string[] = []
@@ -110,7 +128,9 @@ feedRoutes.get('/:filename', async (c) => {
       // Combine all candidate events and deduplicate.
       // Favorited events lead so they win ties over geo-only events.
       const combinedEvents = [...favoritedIndexEvents, ...geoFilteredIndex]
+      totalEvents = combinedEvents.length
       const deduped = deduplicateEvents(combinedEvents)
+      dedupedCount = totalEvents - deduped.length
 
       // Always fetch ALL favorited ICS files — dedup removes duplicate VEVENTs in
       // the search/geo output path, but we still need the full ICS content from
@@ -123,11 +143,13 @@ feedRoutes.get('/:filename', async (c) => {
       if (hasSearchFilters || hasGeoFilters) {
         const allIcs = await fetchAllIcs(baseUrl)
 
-        // Filter deduped entries to those from the geo/search pool
+        // Filter deduped entries to those from the geo/search pool only.
+        // Explicitly exclude favorited calendar entries — those are served via
+        // icsContents (full ICS fetch) and must not also appear in
+        // searchMatchedVEvents, otherwise the same event would be counted twice
+        // in finalEvents.
         const survivingGeoEntries = deduped.filter(e => {
-          // An entry is from the search/geo pool if it was in geoFilteredIndex
-          // (i.e., it passes the geo filter, whether or not it's also a favorite)
-          return eventMatchesGeoFilters(e, geoFilters)
+          return eventMatchesGeoFilters(e, geoFilters) && !favoritedIcsUrls.has(e.icsUrl)
         })
 
         let matchingKeys: Set<string>
@@ -168,6 +190,26 @@ feedRoutes.get('/:filename', async (c) => {
   }
 
   const merged = mergeIcsFiles(icsContents, searchMatchedVEvents)
+
+  // Count final VEVENTs in merged output (approximate by dedupedEvents)
+  // searchMatchedVEvents are individual VEVENT strings; icsContents are full ICS files.
+  // Use string splitting instead of regex to avoid unbounded backtracking on large ICS files.
+  const finalEvents = searchMatchedVEvents.length + icsContents.reduce((acc, ics) => {
+    return acc + ics.split('BEGIN:VEVENT').length - 1
+  }, 0)
+
+  await emitFeedMetrics(c.env, {
+    userId: tokenRecord.userId,
+    totalEvents,
+    dedupedCount,
+    finalEvents,
+    hasFavorites: hasIcsFavorites,
+    hasGeoFilter: hasGeoFilters,
+    hasSearchFilter: hasSearchFilters,
+    geoFilterCount: geoFilters.length,
+    searchFilterCount: searchFilters.length,
+    favoritesCount: favorites.icsUrls.length,
+  })
 
   return new Response(merged, {
     headers: {

@@ -1,15 +1,28 @@
 {
-  "buildTime": "2026-03-27T06:16:36.077Z",
-  "totalErrors": 0,
+  "buildTime": "2026-03-27T07:05:55.179Z",
+  "totalErrors": 2,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [],
+  "geocodeErrors": [
+    {
+      "type": "GeocodeError",
+      "location": "Central Library, Level 1 - Story Hour Room in Children&#8217;s Center",
+      "source": "spl",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Northeast Branch, Children&#39;s Area",
+      "source": "spl",
+      "reason": "Nominatim returned no results"
+    }
+  ],
   "geoStats": {
-    "totalEvents": 7407,
-    "eventsWithGeo": 5519,
-    "eventsWithoutGeo": 1888,
-    "geocodeErrors": 0
+    "totalEvents": 7389,
+    "eventsWithGeo": 5508,
+    "eventsWithoutGeo": 1881,
+    "geocodeErrors": 2
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -330,7 +343,7 @@
     {
       "name": "crocodile-crocodile-main",
       "type": "Ripper",
-      "events": 73,
+      "events": 72,
       "expectEmpty": false
     },
     {
@@ -372,13 +385,13 @@
     {
       "name": "el-corazon-el-corazon",
       "type": "Ripper",
-      "events": 41,
+      "events": 40,
       "expectEmpty": false
     },
     {
       "name": "el-corazon-the-funhouse",
       "type": "Ripper",
-      "events": 53,
+      "events": 54,
       "expectEmpty": false
     },
     {
@@ -492,7 +505,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 45,
+      "events": 46,
       "expectEmpty": false
     },
     {
@@ -600,7 +613,7 @@
     {
       "name": "seattle-food-trucks-seattle-food-trucks",
       "type": "Ripper",
-      "events": 294,
+      "events": 285,
       "expectEmpty": false
     },
     {
@@ -780,13 +793,13 @@
     {
       "name": "spl-central-library",
       "type": "Ripper",
-      "events": 30,
+      "events": 31,
       "expectEmpty": false
     },
     {
       "name": "spl-ballard",
       "type": "Ripper",
-      "events": 8,
+      "events": 10,
       "expectEmpty": false
     },
     {
@@ -810,7 +823,7 @@
     {
       "name": "spl-columbia",
       "type": "Ripper",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -822,7 +835,7 @@
     {
       "name": "spl-douglass-truth",
       "type": "Ripper",
-      "events": 9,
+      "events": 8,
       "expectEmpty": false
     },
     {
@@ -840,7 +853,7 @@
     {
       "name": "spl-greenwood",
       "type": "Ripper",
-      "events": 10,
+      "events": 8,
       "expectEmpty": false
     },
     {
@@ -858,7 +871,7 @@
     {
       "name": "spl-lake-city",
       "type": "Ripper",
-      "events": 17,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -870,43 +883,43 @@
     {
       "name": "spl-newholly",
       "type": "Ripper",
-      "events": 10,
+      "events": 9,
       "expectEmpty": false
     },
     {
       "name": "spl-northeast",
       "type": "Ripper",
-      "events": 3,
+      "events": 4,
       "expectEmpty": false
     },
     {
       "name": "spl-northgate",
       "type": "Ripper",
-      "events": 9,
+      "events": 10,
       "expectEmpty": false
     },
     {
       "name": "spl-queen-anne",
       "type": "Ripper",
-      "events": 6,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "spl-rainier-beach",
       "type": "Ripper",
-      "events": 7,
+      "events": 8,
       "expectEmpty": false
     },
     {
       "name": "spl-south-park",
       "type": "Ripper",
-      "events": 8,
+      "events": 9,
       "expectEmpty": false
     },
     {
       "name": "spl-southwest",
       "type": "Ripper",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -918,19 +931,19 @@
     {
       "name": "spl-west-seattle",
       "type": "Ripper",
-      "events": 2,
+      "events": 1,
       "expectEmpty": false
     },
     {
       "name": "spl-online",
       "type": "Ripper",
-      "events": 2,
+      "events": 3,
       "expectEmpty": false
     },
     {
       "name": "stg-stg-paramount",
       "type": "Ripper",
-      "events": 125,
+      "events": 124,
       "expectEmpty": false
     },
     {
@@ -1026,25 +1039,25 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 468,
+      "events": 470,
       "expectEmpty": false
     },
     {
       "name": "tag-belltown",
       "type": "Aggregate",
-      "events": 132,
+      "events": 131,
       "expectEmpty": false
     },
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 485,
+      "events": 484,
       "expectEmpty": false
     },
     {
       "name": "tag-central-district",
       "type": "Aggregate",
-      "events": 16,
+      "events": 15,
       "expectEmpty": false
     },
     {
@@ -1074,7 +1087,7 @@
     {
       "name": "tag-lake-city",
       "type": "Aggregate",
-      "events": 19,
+      "events": 18,
       "expectEmpty": false
     },
     {
@@ -1086,7 +1099,7 @@
     {
       "name": "tag-greenwood",
       "type": "Aggregate",
-      "events": 158,
+      "events": 156,
       "expectEmpty": false
     },
     {
@@ -1116,7 +1129,7 @@
     {
       "name": "tag-west-seattle",
       "type": "Aggregate",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -1128,7 +1141,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1989,
+      "events": 1981,
       "expectEmpty": false
     },
     {
@@ -1140,13 +1153,13 @@
     {
       "name": "tag-food",
       "type": "Aggregate",
-      "events": 327,
+      "events": 318,
       "expectEmpty": false
     },
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 156,
+      "events": 157,
       "expectEmpty": false
     },
     {
@@ -1188,7 +1201,7 @@
     {
       "name": "tag-queenanne",
       "type": "Aggregate",
-      "events": 275,
+      "events": 274,
       "expectEmpty": false
     },
     {
@@ -1218,13 +1231,13 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1090,
+      "events": 1089,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 519,
+      "events": 513,
       "expectEmpty": false
     },
     {
@@ -1260,7 +1273,7 @@
     {
       "name": "tag-theatre",
       "type": "Aggregate",
-      "events": 773,
+      "events": 772,
       "expectEmpty": false
     },
     {
@@ -1296,7 +1309,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7477,
+      "events": 7459,
       "expectEmpty": false
     },
     {
@@ -1464,19 +1477,19 @@
     {
       "name": "external-worksource-north-seattle",
       "type": "External",
-      "events": 86,
+      "events": 82,
       "expectEmpty": false
     },
     {
       "name": "external-worksource-downtown-seattle",
       "type": "External",
-      "events": 26,
+      "events": 24,
       "expectEmpty": false
     },
     {
       "name": "external-hugo-house",
       "type": "External",
-      "events": 2,
+      "events": 1,
       "expectEmpty": false
     },
     {

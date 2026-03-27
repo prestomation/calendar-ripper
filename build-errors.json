@@ -1,14 +1,14 @@
 {
-  "buildTime": "2026-03-27T03:16:07.970Z",
+  "buildTime": "2026-03-27T03:39:34.466Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7411,
-    "eventsWithGeo": 4536,
-    "eventsWithoutGeo": 2875,
+    "totalEvents": 7410,
+    "eventsWithGeo": 4943,
+    "eventsWithoutGeo": 2467,
     "geocodeErrors": 0
   },
   "zeroEventCalendars": [
@@ -396,7 +396,7 @@
     {
       "name": "fremont-arts-council-all-events",
       "type": "Ripper",
-      "events": 9,
+      "events": 8,
       "expectEmpty": false
     },
     {
@@ -1062,7 +1062,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 157,
+      "events": 156,
       "expectEmpty": false
     },
     {
@@ -1128,7 +1128,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1990,
+      "events": 1989,
       "expectEmpty": false
     },
     {
@@ -1218,7 +1218,7 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1093,
+      "events": 1092,
       "expectEmpty": false
     },
     {
@@ -1296,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7481,
+      "events": 7480,
       "expectEmpty": false
     },
     {

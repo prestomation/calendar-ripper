@@ -1050,6 +1050,16 @@ END:VCALENDAR`;
 
   totalErrorCount += geocodeErrors.length;
 
+  // Calculate geo coverage stats from events index
+  const eventsWithGeo = eventsIndex.filter(e => e.lat !== undefined && e.lng !== undefined).length;
+  const eventsWithoutGeo = eventsIndex.filter(e => e.lat === undefined || e.lng === undefined).length;
+  const geoStats = {
+    totalEvents: eventsIndex.length,
+    eventsWithGeo,
+    eventsWithoutGeo,
+    geocodeErrors: geocodeErrors.length,
+  };
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -1058,6 +1068,7 @@ END:VCALENDAR`;
     sources: buildErrors,
     externalCalendarFailures,
     geocodeErrors: geocodeErrors,
+    geoStats,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),

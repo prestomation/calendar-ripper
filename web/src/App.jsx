@@ -292,8 +292,14 @@ function HealthDashboard({ buildErrors, calendars }) {
           <div className="health-card-value">{totalEvents}</div>
           <div className="health-card-label">Total Events</div>
         </div>
+        {buildErrors.geoStats && (
+          <div className="health-card health-card--ok">
+            <div className="health-card-value">{buildErrors.geoStats.eventsWithGeo.toLocaleString()} / {buildErrors.geoStats.totalEvents.toLocaleString()}</div>
+            <div className="health-card-label">Events with Geo</div>
+          </div>
+        )}
         <div className="health-card health-card--warning">
-          <div className="health-card-value">📍 {buildErrors.geocodeErrors?.length || 0}</div>
+          <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? buildErrors.geocodeErrors?.length ?? 0}</div>
           <div className="health-card-label">Geo Misses</div>
         </div>
       </div>

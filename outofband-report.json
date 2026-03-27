@@ -1,28 +1,79 @@
 {
-  "buildTime": "2026-03-17T06:05:19.777Z",
+  "buildTime": "2026-03-26T12:18:35.794Z",
   "sources": [
     {
-      "source": "neumos",
-      "friendlyName": "neumos",
-      "description": "Neumos",
-      "friendlyLink": "https://www.neumos.com/events",
+      "source": "rainier-arts-center",
+      "friendlyName": "rainier-arts-center",
+      "description": "Rainier Arts Center",
+      "friendlyLink": "https://rainierartscenter.org/events/",
       "tags": [
+        "Arts",
         "Music",
-        "Capitol Hill"
+        "Community"
       ],
       "calendars": [
         {
-          "name": "neumos",
-          "friendlyName": "Neumos",
-          "icsFile": "neumos-neumos.ics",
-          "events": 0,
-          "hasFutureEvents": false,
-          "errors": [
-            "Failed to fetch AXS events for venue 102495: Error: AXS fetch error: HTTP 403 for https://www.axs.com/venues/102495/neumos-seattle-tickets"
-          ],
+          "name": "rainier-arts-center",
+          "friendlyName": "Rainier Arts Center",
+          "icsFile": "rainier-arts-center-rainier-arts-center.ics",
+          "events": 3,
+          "hasFutureEvents": true,
+          "errors": [],
           "tags": [
+            "Arts",
             "Music",
+            "Community"
+          ]
+        }
+      ]
+    },
+    {
+      "source": "sam",
+      "friendlyName": "Seattle Art Museum",
+      "description": "Seattle Art Museum",
+      "friendlyLink": "https://www.seattleartmuseum.org/whats-on/events",
+      "tags": [
+        "Arts",
+        "Museums"
+      ],
+      "calendars": [
+        {
+          "name": "sam-downtown",
+          "friendlyName": "Seattle Art Museum - Downtown",
+          "icsFile": "sam-sam-downtown.ics",
+          "events": 159,
+          "hasFutureEvents": true,
+          "errors": [],
+          "tags": [
+            "Arts",
+            "Museums",
+            "Downtown"
+          ]
+        },
+        {
+          "name": "sam-asian-art",
+          "friendlyName": "Seattle Asian Art Museum",
+          "icsFile": "sam-sam-asian-art.ics",
+          "events": 47,
+          "hasFutureEvents": true,
+          "errors": [],
+          "tags": [
+            "Arts",
+            "Museums",
             "Capitol Hill"
+          ]
+        },
+        {
+          "name": "sam-sculpture-park",
+          "friendlyName": "Olympic Sculpture Park",
+          "icsFile": "sam-sam-sculpture-park.ics",
+          "events": 50,
+          "hasFutureEvents": true,
+          "errors": [],
+          "tags": [
+            "Arts",
+            "Museums",
+            "Belltown"
           ]
         }
       ]

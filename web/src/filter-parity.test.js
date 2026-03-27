@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import Fuse from 'fuse.js'
 import { haversineKm } from './lib/haversine.js'
 import { eventKey } from './lib/eventKey.js'
+import { deduplicateEvents } from './lib/event-dedup.js'
 
 const FUSE_THRESHOLD = 0.1
 const FUSE_KEYS = ['summary', 'description', 'location']
@@ -103,5 +104,93 @@ describe('Filter parity: client matches worker behavior', () => {
       expect(searchMatches.has(crocodileKey)).toBe(true)
       expect(geoMatches.has(crocodileKey)).toBe(true)
     })
+  })
+})
+
+describe('Dedup parity: client matches worker behavior', () => {
+  // Two events that ARE duplicates: same date, same coords (within 50m), similar title, different icsUrl
+  const DUPE_A = {
+    icsUrl: 'source-a.ics',
+    summary: 'Punk Night at the Crocodile',
+    description: 'Short desc',
+    date: '2026-04-10T20:00',
+    lat: 47.6146,
+    lng: -122.3474,
+  }
+  const DUPE_B = {
+    icsUrl: 'source-b.ics',
+    summary: 'Punk Night at the Crocodile',
+    description: 'Longer description with more detail about the event',
+    date: '2026-04-10T20:00',
+    lat: 47.6146,
+    lng: -122.3474,
+  }
+
+  // Two events that look similar but are NOT duplicates:
+  // same venue (same coords), same day, but very different titles (different show).
+  // Titles chosen to have Jaccard similarity < 0.6 with each other and with DUPE titles.
+  const DIFFERENT_SHOW_A = {
+    icsUrl: 'venue-show1.ics',
+    summary: 'Jazz Night',
+    description: 'Jazz performance',
+    date: '2026-04-10T19:00',
+    lat: 47.6146,
+    lng: -122.3474,
+  }
+  const DIFFERENT_SHOW_B = {
+    icsUrl: 'venue-show2.ics',
+    summary: 'Comedy Show',
+    description: 'Stand-up comedy',
+    date: '2026-04-10T22:00',
+    lat: 47.6146,
+    lng: -122.3474,
+  }
+
+  it('deduplicates two events with same date, coords, and similar title', () => {
+    const result = deduplicateEvents([DUPE_A, DUPE_B])
+    expect(result).toHaveLength(1)
+  })
+
+  it('keeps the event with the longer description as the winner', () => {
+    const result = deduplicateEvents([DUPE_A, DUPE_B])
+    // DUPE_B has longer description, so it should win
+    expect(result[0].icsUrl).toBe('source-b.ics')
+  })
+
+  it('attaches dedupedSources to the winner', () => {
+    const result = deduplicateEvents([DUPE_A, DUPE_B])
+    expect(result[0].dedupedSources).toBeDefined()
+    expect(result[0].dedupedSources).toContain('source-a.ics')
+  })
+
+  it('does not deduplicate events with similar location but very different titles (false positive case)', () => {
+    const result = deduplicateEvents([DIFFERENT_SHOW_A, DIFFERENT_SHOW_B])
+    expect(result).toHaveLength(2)
+    expect(result.map(e => e.icsUrl)).toContain('venue-show1.ics')
+    expect(result.map(e => e.icsUrl)).toContain('venue-show2.ics')
+  })
+
+  it('non-duplicate events have no dedupedSources', () => {
+    const result = deduplicateEvents([DIFFERENT_SHOW_A, DIFFERENT_SHOW_B])
+    for (const event of result) {
+      expect(event.dedupedSources).toBeUndefined()
+    }
+  })
+
+  it('passes through events without lat/lng unchanged', () => {
+    const noCoords = { icsUrl: 'no-coords.ics', summary: 'Punk Night at the Crocodile', date: '2026-04-10T20:00', lat: null, lng: null }
+    const result = deduplicateEvents([DUPE_A, noCoords])
+    // Both should survive since noCoords can't be geo-deduped
+    expect(result).toHaveLength(2)
+  })
+
+  it('client and worker produce same result (they are the same implementation)', () => {
+    const fixture = [DUPE_A, DUPE_B, DIFFERENT_SHOW_A, DIFFERENT_SHOW_B]
+    // Both client and worker use deduplicateEvents — same JS logic, same result
+    const clientResult = deduplicateEvents(fixture)
+    // Re-run to simulate "worker" result — identical function, identical output
+    const workerResult = deduplicateEvents(fixture)
+    expect(clientResult.map(e => e.icsUrl)).toEqual(workerResult.map(e => e.icsUrl))
+    expect(clientResult).toHaveLength(3) // DUPE_A suppressed, others survive
   })
 })

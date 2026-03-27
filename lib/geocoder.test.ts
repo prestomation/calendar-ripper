@@ -7,6 +7,7 @@ import {
   stripSuiteFloorSuffixes,
   lookupNeighborhoodCentroid,
   lookupSPLBranchCoords,
+  lookupVenueAreaFallback,
   lookupGeoCache,
   resolveEventCoords,
   type GeoCache,
@@ -565,5 +566,113 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.coords).toEqual({ lat: 47.6050, lng: -122.3295 });
     expect(result.geocodeSource).toBe('cached');
     expect(mockFetch).not.toHaveBeenCalled();
+  });
+});
+
+describe('stripSuiteFloorSuffixes - meeting room variants', () => {
+  it('strips ", meeting room" suffix', () => {
+    expect(stripSuiteFloorSuffixes('Capitol Hill Branch, Meeting Room')).toBe('Capitol Hill Branch');
+  });
+
+  it('strips ", meeting room N" suffix', () => {
+    expect(stripSuiteFloorSuffixes('Northgate Branch, Meeting Room 1')).toBe('Northgate Branch');
+  });
+
+  it('strips "- meeting room" separator variant', () => {
+    expect(stripSuiteFloorSuffixes('Community Center - Meeting Room')).toBe('Community Center');
+  });
+
+  it('strips ", meeting room / <multilingual>" suffix', () => {
+    expect(stripSuiteFloorSuffixes('Library, Meeting Room / 会议室 / 회의실')).toBe('Library');
+  });
+
+  it("strips \", children's area\" suffix", () => {
+    expect(stripSuiteFloorSuffixes("Some Library, Children's Area")).toBe('Some Library');
+  });
+
+  it('strips ", lobby" suffix', () => {
+    expect(stripSuiteFloorSuffixes('Event Center, Lobby')).toBe('Event Center');
+  });
+
+  it('strips ", level N - room N" pattern', () => {
+    expect(stripSuiteFloorSuffixes('Building A, Level 2 - Room 201')).toBe('Building A');
+  });
+
+  it('does not modify strings without sub-room qualifiers', () => {
+    expect(stripSuiteFloorSuffixes('Capitol Hill Branch, Seattle, WA')).toBeNull();
+  });
+
+  it('handles mixed case in meeting room', () => {
+    expect(stripSuiteFloorSuffixes('Fremont Branch, MEETING ROOM')).toBe('Fremont Branch');
+  });
+});
+
+describe('lookupVenueAreaFallback', () => {
+  it('returns Seattle Center centroid for "Leo K. Theater, Seattle Center"', () => {
+    const result = lookupVenueAreaFallback('Leo K. Theater, Seattle Center');
+    expect(result).toEqual({ lat: 47.6205, lng: -122.3493 });
+  });
+
+  it('returns Seattle Center centroid for "Bagley Wright Theater, Seattle Center"', () => {
+    const result = lookupVenueAreaFallback('Bagley Wright Theater, Seattle Center');
+    expect(result).toEqual({ lat: 47.6205, lng: -122.3493 });
+  });
+
+  it('returns Seattle Center centroid for exact "Seattle Center"', () => {
+    const result = lookupVenueAreaFallback('Seattle Center');
+    expect(result).toEqual({ lat: 47.6205, lng: -122.3493 });
+  });
+
+  it('returns SLU centroid for "<venue>, South Lake Union, Seattle, WA"', () => {
+    const result = lookupVenueAreaFallback('Amazon HQ, South Lake Union, Seattle, WA');
+    expect(result).toEqual({ lat: 47.6275, lng: -122.3362 });
+  });
+
+  it('returns SLU centroid for "<venue>, South Lake Union, Seattle"', () => {
+    const result = lookupVenueAreaFallback('Tech Hub, South Lake Union, Seattle');
+    expect(result).toEqual({ lat: 47.6275, lng: -122.3362 });
+  });
+
+  it('matches case-insensitively', () => {
+    const result = lookupVenueAreaFallback('MCCAW HALL, SEATTLE CENTER');
+    expect(result).toEqual({ lat: 47.6205, lng: -122.3493 });
+  });
+
+  it('returns null for unrecognized area', () => {
+    expect(lookupVenueAreaFallback('Some Venue, Bellevue')).toBeNull();
+  });
+
+  it('returns null for empty string', () => {
+    expect(lookupVenueAreaFallback('')).toBeNull();
+  });
+});
+
+describe('resolveEventCoords - venue area fallback', () => {
+  let cache: GeoCache;
+
+  beforeEach(() => {
+    cache = { version: 1, entries: {} };
+    mockFetch.mockReset();
+  });
+
+  it('returns Seattle Center centroid when Nominatim fails on Seattle Center venue', async () => {
+    mockFetch.mockResolvedValue({ ok: true, json: async () => [] });
+
+    const result = await resolveEventCoords(cache, 'Leo K. Theater, Seattle Center', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6205, lng: -122.3493 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+    const key = 'leo k. theater, seattle center';
+    expect(result.cache.entries[key]).toBeDefined();
+    expect(result.cache.entries[key].unresolvable).toBeUndefined();
+  });
+
+  it('returns SLU centroid when Nominatim fails on South Lake Union venue', async () => {
+    mockFetch.mockResolvedValue({ ok: true, json: async () => [] });
+
+    const result = await resolveEventCoords(cache, 'Some Venue, South Lake Union, Seattle, WA', 'test-source');
+    expect(result.coords).toEqual({ lat: 47.6275, lng: -122.3362 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
   });
 });

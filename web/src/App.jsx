@@ -292,6 +292,10 @@ function HealthDashboard({ buildErrors, calendars }) {
           <div className="health-card-value">{totalEvents}</div>
           <div className="health-card-label">Total Events</div>
         </div>
+        <div className="health-card health-card--warning">
+          <div className="health-card-value">📍 {buildErrors.geocodeErrors?.length || 0}</div>
+          <div className="health-card-label">Geo Misses</div>
+        </div>
       </div>
 
       {configErrors.length > 0 && (
@@ -317,6 +321,21 @@ function HealthDashboard({ buildErrors, calendars }) {
               <div key={i} className="health-error-item">
                 <span className="health-error-type">{f.friendlyName || f.name}</span>
                 <span className="health-error-reason">{f.error}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {(buildErrors.geocodeErrors?.length || 0) > 0 && (
+        <div className="health-section">
+          <h2>📍 Geocode Errors ({buildErrors.geocodeErrors.length})</h2>
+          <div className="health-error-list">
+            {buildErrors.geocodeErrors.map((err, i) => (
+              <div key={i} className="health-error-item">
+                <span className="health-error-type">{err.source}</span>
+                <span className="health-error-reason">{err.location}</span>
+                <span className="health-error-path">{err.reason}</span>
               </div>
             ))}
           </div>

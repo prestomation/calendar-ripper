@@ -1,28 +1,62 @@
 {
-  "buildTime": "2026-03-27T07:05:55.179Z",
-  "totalErrors": 2,
+  "buildTime": "2026-03-27T07:15:50.907Z",
+  "totalErrors": 3,
   "configErrors": [],
-  "sources": [],
-  "externalCalendarFailures": [],
-  "geocodeErrors": [
+  "sources": [
     {
-      "type": "GeocodeError",
-      "location": "Central Library, Level 1 - Story Hour Room in Children&#8217;s Center",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
+      "source": "NWMetalCalendar",
+      "calendar": "NWMetal",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 403 Forbidden",
+          "context": ""
+        }
+      ]
     },
     {
-      "type": "GeocodeError",
-      "location": "Northeast Branch, Children&#39;s Area",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 403 Forbidden",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-all",
+      "calendar": "tag-all",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: Error: 403 Forbidden",
+          "context": ""
+        }
+      ]
     }
   ],
+  "externalCalendarFailures": [
+    {
+      "name": "united-indians-daybreak-star",
+      "friendlyName": "United Indians / Daybreak Star",
+      "url": "https://unitedindians.org/?post_type=tribe_events&ical=1",
+      "error": "Error: HTTP 403: Forbidden"
+    }
+  ],
+  "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7389,
-    "eventsWithGeo": 5508,
-    "eventsWithoutGeo": 1881,
-    "geocodeErrors": 2
+    "totalEvents": 7274,
+    "eventsWithGeo": 5414,
+    "eventsWithoutGeo": 1860,
+    "geocodeErrors": 0
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -30,6 +64,7 @@
     "benaroya-hall-benaroya-nordstrom",
     "downtown-seattle-association-pioneer-park",
     "jcccw-all-events",
+    "NWMetalCalendar-NWMetal",
     "reubens-brews-downtown",
     "seattle-barkery-all-events",
     "seattle-showlists-bad-bar",
@@ -409,7 +444,7 @@
     {
       "name": "fremont-arts-council-all-events",
       "type": "Ripper",
-      "events": 8,
+      "events": 9,
       "expectEmpty": false
     },
     {
@@ -487,7 +522,7 @@
     {
       "name": "NWMetalCalendar-NWMetal",
       "type": "Ripper",
-      "events": 85,
+      "events": 0,
       "expectEmpty": false
     },
     {
@@ -505,7 +540,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 46,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -1075,7 +1110,7 @@
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 156,
+      "events": 157,
       "expectEmpty": false
     },
     {
@@ -1141,7 +1176,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1981,
+      "events": 1952,
       "expectEmpty": false
     },
     {
@@ -1159,7 +1194,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 157,
+      "events": 156,
       "expectEmpty": false
     },
     {
@@ -1171,7 +1206,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2688,
+      "events": 2602,
       "expectEmpty": false
     },
     {
@@ -1231,13 +1266,13 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1089,
+      "events": 1060,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 513,
+      "events": 512,
       "expectEmpty": false
     },
     {
@@ -1309,7 +1344,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7459,
+      "events": 7344,
       "expectEmpty": false
     },
     {
@@ -1514,12 +1549,6 @@
       "name": "external-langston",
       "type": "External",
       "events": 0,
-      "expectEmpty": false
-    },
-    {
-      "name": "external-united-indians-daybreak-star",
-      "type": "External",
-      "events": 30,
       "expectEmpty": false
     }
   ]

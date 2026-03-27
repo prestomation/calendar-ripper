@@ -238,7 +238,9 @@ function HealthDashboard({ buildErrors, calendars }) {
   const warningCount = sources.filter(s => s.status === 'warning').length
   const expectedEmptyCount = sources.filter(s => s.status === 'expected-empty').length
   const unexpectedNonEmptyCount = sources.filter(s => s.status === 'unexpected-non-empty').length
-  const totalEvents = sources.reduce((sum, s) => sum + s.events, 0)
+  // Use geoStats.totalEvents for unique event count (deduplicated across tag-aggregate feeds)
+  // Fall back to sum of per-source counts if geoStats not available
+  const uniqueEventCount = buildErrors.geoStats?.totalEvents ?? sources.reduce((sum, s) => sum + s.events, 0)
 
   const configErrors = buildErrors.configErrors || []
   const externalFailures = buildErrors.externalCalendarFailures || []
@@ -289,11 +291,17 @@ function HealthDashboard({ buildErrors, calendars }) {
           </div>
         )}
         <div className="health-card">
-          <div className="health-card-value">{totalEvents}</div>
-          <div className="health-card-label">Total Events</div>
+          <div className="health-card-value">{uniqueEventCount.toLocaleString()}</div>
+          <div className="health-card-label">Unique Events</div>
         </div>
+        {buildErrors.geoStats && (
+          <div className="health-card health-card--ok">
+            <div className="health-card-value">{buildErrors.geoStats.eventsWithGeo.toLocaleString()} / {buildErrors.geoStats.totalEvents.toLocaleString()}</div>
+            <div className="health-card-label">Events with Geo</div>
+          </div>
+        )}
         <div className="health-card health-card--warning">
-          <div className="health-card-value">📍 {buildErrors.geocodeErrors?.length || 0}</div>
+          <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? buildErrors.geocodeErrors?.length ?? 0}</div>
           <div className="health-card-label">Geo Misses</div>
         </div>
       </div>

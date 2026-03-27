@@ -69,6 +69,180 @@ export function extractAddressFromVenuePrefix(location: string): string | null {
   return null;
 }
 
+/**
+ * If the location string is a Google Maps search URL of the form:
+ *   https://www.google.com/maps/search/?api=1&query=<url-encoded-address>
+ * extract and return the decoded query parameter as the location string.
+ * Returns null if not a Google Maps search URL.
+ */
+export function extractFromGoogleMapsUrl(location: string): string | null {
+  const trimmed = location.trim();
+  // Match Google Maps search URLs
+  const match = trimmed.match(/^https?:\/\/(?:www\.)?google\.com\/maps\/search\/\?/i);
+  if (!match) return null;
+
+  try {
+    const url = new URL(trimmed);
+    const query = url.searchParams.get('query');
+    if (query && query.trim().length > 0) {
+      return query.trim();
+    }
+  } catch {
+    // If URL parsing fails, try regex fallback
+    const queryMatch = trimmed.match(/[?&]query=([^&]+)/i);
+    if (queryMatch) {
+      try {
+        return decodeURIComponent(queryMatch[1].replace(/\+/g, ' ')).trim();
+      } catch {
+        return null;
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * Strip suite/floor/room/level suffixes from a location string that may cause
+ * Nominatim lookup failures. Also collapses double commas and strips trailing
+ * ", United States" or ", USA".
+ *
+ * Returns the stripped string, or null if no stripping was done (i.e. the
+ * string is the same as the input after stripping).
+ */
+export function stripSuiteFloorSuffixes(location: string): string | null {
+  let result = location;
+
+  // Strip #NNN, Suite NNN, Ste NNN, Floor N, Flr N, Room NNN, Level N
+  // These may appear anywhere in the string (with a preceding comma/space separator)
+  result = result.replace(/[,\s]*#\s*\w+/g, '');
+  result = result.replace(/[,\s]*\bSuite\s+\w+/gi, '');
+  result = result.replace(/[,\s]*\bSte\.?\s+\w+/gi, '');
+  result = result.replace(/[,\s]*\bFloor\s+\w+/gi, '');
+  result = result.replace(/[,\s]*\bFlr\.?\s+\w+/gi, '');
+  result = result.replace(/[,\s]*\bRoom\s+\w+/gi, '');
+  result = result.replace(/[,\s]*\bLevel\s+\w+/gi, '');
+
+  // Collapse double commas
+  result = result.replace(/,\s*,+/g, ',');
+
+  // Strip trailing ", United States" or ", USA"
+  result = result.replace(/,\s*United States\s*$/i, '');
+  result = result.replace(/,\s*USA\s*$/i, '');
+
+  // Trim
+  result = result.trim().replace(/,\s*$/, '').trim();
+
+  if (result === location || result === '') return null;
+  return result;
+}
+
+/**
+ * Seattle neighborhood centroid table. Used as a fallback when Nominatim
+ * fails for neighborhood-level location strings.
+ */
+const SEATTLE_NEIGHBORHOOD_CENTROIDS: Record<string, GeoCoords> = {
+  'belltown': { lat: 47.6132, lng: -122.3473 },
+  'capitol hill': { lat: 47.6253, lng: -122.3222 },
+  'central district': { lat: 47.6097, lng: -122.2953 },
+  'fremont': { lat: 47.6512, lng: -122.3501 },
+  'georgetown': { lat: 47.5477, lng: -122.3226 },
+  'magnolia': { lat: 47.6431, lng: -122.4009 },
+  'wallingford': { lat: 47.6603, lng: -122.3338 },
+  'phinney ridge': { lat: 47.6699, lng: -122.3551 },
+  'greenwood': { lat: 47.6920, lng: -122.3551 },
+  'ballard': { lat: 47.6677, lng: -122.3829 },
+  'south lake union': { lat: 47.6275, lng: -122.3362 },
+  'seattle center': { lat: 47.6205, lng: -122.3493 },
+  'pioneer square': { lat: 47.6007, lng: -122.3321 },
+  'international district': { lat: 47.5983, lng: -122.3237 },
+  'beacon hill': { lat: 47.5674, lng: -122.3076 },
+  'columbia city': { lat: 47.5596, lng: -122.2893 },
+  'rainier valley': { lat: 47.5468, lng: -122.2754 },
+  'west seattle': { lat: 47.5629, lng: -122.3862 },
+  'university district': { lat: 47.6614, lng: -122.3121 },
+  'queen anne': { lat: 47.6374, lng: -122.3569 },
+  'eastlake': { lat: 47.6392, lng: -122.3252 },
+  'lake city': { lat: 47.7190, lng: -122.2976 },
+};
+
+/**
+ * Look up Seattle neighborhood centroid coords from a normalized location string.
+ * Matches "<neighborhood> neighborhood, seattle" or "<neighborhood>, seattle"
+ * (case-insensitive). Returns null if no match.
+ */
+export function lookupNeighborhoodCentroid(location: string): GeoCoords | null {
+  const lower = location.toLowerCase().trim();
+
+  for (const [neighborhood, coords] of Object.entries(SEATTLE_NEIGHBORHOOD_CENTROIDS)) {
+    // Match "<neighborhood> neighborhood, seattle" or "<neighborhood>, seattle"
+    // or just "<neighborhood>" alone
+    if (
+      lower === neighborhood ||
+      lower === `${neighborhood} neighborhood, seattle` ||
+      lower === `${neighborhood}, seattle` ||
+      lower === `${neighborhood} neighborhood, seattle, wa` ||
+      lower === `${neighborhood}, seattle, wa`
+    ) {
+      return coords;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Seattle Public Library branch coordinates.
+ */
+const SPL_BRANCH_COORDS: Record<string, GeoCoords> = {
+  'ballard branch': { lat: 47.6671, lng: -122.3836 },
+  'beacon hill branch': { lat: 47.5689, lng: -122.3014 },
+  'broadview branch': { lat: 47.7377, lng: -122.3560 },
+  'capitol hill branch': { lat: 47.6234, lng: -122.3196 },
+  'central library': { lat: 47.6064, lng: -122.3328 },
+  'columbia branch': { lat: 47.5589, lng: -122.2917 },
+  'delridge branch': { lat: 47.5540, lng: -122.3620 },
+  'douglass-truth branch': { lat: 47.6097, lng: -122.3000 },
+  'fremont branch': { lat: 47.6519, lng: -122.3502 },
+  'green lake branch': { lat: 47.6788, lng: -122.3321 },
+  'greenwood branch': { lat: 47.6960, lng: -122.3557 },
+  'high point branch': { lat: 47.5503, lng: -122.3718 },
+  'international district branch': { lat: 47.5979, lng: -122.3238 },
+  'lake city branch': { lat: 47.7189, lng: -122.2971 },
+  'magnolia branch': { lat: 47.6432, lng: -122.3985 },
+  'montlake branch': { lat: 47.6419, lng: -122.3079 },
+  'newholly branch': { lat: 47.5367, lng: -122.2839 },
+  'northeast branch': { lat: 47.6766, lng: -122.2987 },
+  'northgate branch': { lat: 47.7063, lng: -122.3255 },
+  'queen anne branch': { lat: 47.6374, lng: -122.3569 },
+  'rainier beach branch': { lat: 47.5222, lng: -122.2610 },
+  'south park branch': { lat: 47.5274, lng: -122.3251 },
+  'southwest branch': { lat: 47.5540, lng: -122.3776 },
+  'university branch': { lat: 47.6614, lng: -122.3121 },
+  'west seattle branch': { lat: 47.5629, lng: -122.3862 },
+};
+
+/**
+ * Look up Seattle Public Library branch coordinates from a normalized location string.
+ * Searches for a branch name substring within the location string (case-insensitive).
+ * Returns null if no match.
+ */
+export function lookupSPLBranchCoords(location: string): GeoCoords | null {
+  const lower = location.toLowerCase();
+
+  // Only apply to SPL-related strings
+  if (!lower.includes('seattle public library') && !lower.includes('spl') && !lower.includes('branch') && !lower.includes('central library')) {
+    return null;
+  }
+
+  for (const [branch, coords] of Object.entries(SPL_BRANCH_COORDS)) {
+    if (lower.includes(branch)) {
+      return coords;
+    }
+  }
+
+  return null;
+}
+
 export async function loadGeoCache(filePath: string): Promise<GeoCache> {
   try {
     const raw = await readFile(filePath, 'utf-8');
@@ -187,6 +361,15 @@ export interface ResolveEventCoordsResult {
  * a new cache object (with the new entry merged in) alongside the result.
  * No shared mutable state is modified — the caller is responsible for storing
  * the returned cache and persisting it to disk.
+ *
+ * Resolution order:
+ * 1. Google Maps URL extraction (before normalization)
+ * 2. normalizeLocation()
+ * 3. Cache lookup
+ * 4. Nominatim geocoding (with venue-prefix fallback)
+ * 5. Neighborhood centroid lookup (if Nominatim fails)
+ * 6. SPL branch lookup (if Nominatim fails and location mentions a branch)
+ * 7. Suite/floor stripping retry (if first Nominatim attempt fails)
  */
 export async function resolveEventCoords(
   cache: Readonly<GeoCache>,
@@ -197,10 +380,14 @@ export async function resolveEventCoords(
     return { coords: null, geocodeSource: 'none', cache };
   }
 
-  // Normalize the raw location string before any cache lookup or geocoding.
+  // Step 1: Google Maps URL extraction — do this BEFORE normalization
+  const googleMapsExtracted = extractFromGoogleMapsUrl(location);
+  const rawLocation = googleMapsExtracted ?? location;
+
+  // Step 2: Normalize the raw location string before any cache lookup or geocoding.
   // This ensures HTML tags, ICS-escaped commas, and extra whitespace don't
   // cause spurious cache misses or Nominatim failures.
-  const normalized = normalizeLocation(location);
+  const normalized = normalizeLocation(rawLocation);
 
   if (normalized === '') {
     return { coords: null, geocodeSource: 'none', cache };
@@ -227,6 +414,30 @@ export async function resolveEventCoords(
   for (const candidate of candidates) {
     coords = await geocodeLocation(candidate);
     if (coords !== null) break;
+  }
+
+  // Step 3: Neighborhood centroid lookup (if Nominatim failed)
+  if (coords === null) {
+    coords = lookupNeighborhoodCentroid(normalized);
+  }
+
+  // Step 4: SPL branch lookup (if Nominatim and neighborhood failed)
+  if (coords === null) {
+    coords = lookupSPLBranchCoords(normalized);
+  }
+
+  // Step 5: Suite/floor stripping retry (if still no coords)
+  if (coords === null) {
+    const stripped = stripSuiteFloorSuffixes(normalized);
+    if (stripped !== null) {
+      // Also try extracting address from venue prefix of stripped string
+      const strippedAddressOnly = extractAddressFromVenuePrefix(stripped);
+      const strippedCandidates = strippedAddressOnly ? [stripped, strippedAddressOnly] : [stripped];
+      for (const candidate of strippedCandidates) {
+        coords = await geocodeLocation(candidate);
+        if (coords !== null) break;
+      }
+    }
   }
 
   if (coords !== null) {

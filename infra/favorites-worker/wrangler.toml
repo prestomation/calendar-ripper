@@ -17,3 +17,7 @@ id = "d3d850c6081a4a0490e1e02c34e1c231"
 [[kv_namespaces]]
 binding = "FEED_TOKENS"
 id = "d798d8ad13214ade84fd5692532a7993"
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "feed_requests"

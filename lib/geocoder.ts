@@ -84,21 +84,23 @@ export function extractFromGoogleMapsUrl(location: string): string | null {
   try {
     const url = new URL(trimmed);
     const query = url.searchParams.get('query');
-    if (query && query.trim().length > 0) {
+    if (query != null && query.trim().length > 0) {
       return query.trim();
     }
+    return null;
   } catch {
     // If URL parsing fails, try regex fallback
     const queryMatch = trimmed.match(/[?&]query=([^&]+)/i);
-    if (queryMatch) {
+    if (queryMatch != null && queryMatch[1] != null) {
       try {
-        return decodeURIComponent(queryMatch[1].replace(/\+/g, ' ')).trim();
+        const decoded = decodeURIComponent(queryMatch[1].replace(/\+/g, ' ')).trim();
+        return decoded.length > 0 ? decoded : null;
       } catch {
         return null;
       }
     }
+    return null;
   }
-  return null;
 }
 
 /**
@@ -112,15 +114,17 @@ export function extractFromGoogleMapsUrl(location: string): string | null {
 export function stripSuiteFloorSuffixes(location: string): string | null {
   let result = location;
 
-  // Strip #NNN, Suite NNN, Ste NNN, Floor N, Flr N, Room NNN, Level N
+  // Strip #NNN (including alphanumeric and hyphenated suite numbers like #100A, #3-B)
+  // Suite NNN, Ste NNN, Floor N, Flr N, Room NNN, Level N
   // These may appear anywhere in the string (with a preceding comma/space separator)
-  result = result.replace(/[,\s]*#\s*\w+/g, '');
-  result = result.replace(/[,\s]*\bSuite\s+\w+/gi, '');
-  result = result.replace(/[,\s]*\bSte\.?\s+\w+/gi, '');
-  result = result.replace(/[,\s]*\bFloor\s+\w+/gi, '');
-  result = result.replace(/[,\s]*\bFlr\.?\s+\w+/gi, '');
-  result = result.replace(/[,\s]*\bRoom\s+\w+/gi, '');
-  result = result.replace(/[,\s]*\bLevel\s+\w+/gi, '');
+  // Use [\w-]+ to match suite numbers with hyphens (e.g. Suite 200-A)
+  result = result.replace(/[,\s]*#\s*[\w-]+/g, '');
+  result = result.replace(/[,\s]*\bSuite\s+[\w-]+/gi, '');
+  result = result.replace(/[,\s]*\bSte\.?\s+[\w-]+/gi, '');
+  result = result.replace(/[,\s]*\bFloor\s+[\w-]+/gi, '');
+  result = result.replace(/[,\s]*\bFlr\.?\s+[\w-]+/gi, '');
+  result = result.replace(/[,\s]*\bRoom\s+[\w-]+/gi, '');
+  result = result.replace(/[,\s]*\bLevel\s+[\w-]+/gi, '');
 
   // Collapse double commas
   result = result.replace(/,\s*,+/g, ',');
@@ -223,16 +227,21 @@ const SPL_BRANCH_COORDS: Record<string, GeoCoords> = {
 
 /**
  * Look up Seattle Public Library branch coordinates from a normalized location string.
+ * Only applies to strings that explicitly mention "seattle public library" or "spl".
  * Searches for a branch name substring within the location string (case-insensitive).
  * Returns null if no match.
  */
 export function lookupSPLBranchCoords(location: string): GeoCoords | null {
   const lower = location.toLowerCase();
 
-  // Only apply to SPL-related strings
-  if (!lower.includes('seattle public library') && !lower.includes('spl') && !lower.includes('branch') && !lower.includes('central library')) {
-    return null;
-  }
+  // Only apply to strings that explicitly reference Seattle Public Library or SPL
+  // to avoid false positives (e.g. "Fremont Brewing" → "fremont branch")
+  const isSPLString =
+    lower.includes('seattle public library') ||
+    // Match "spl" as a whole word or common SPL prefix patterns (avoid partial matches)
+    /\bspl\b/.test(lower);
+
+  if (!isSPLString) return null;
 
   for (const [branch, coords] of Object.entries(SPL_BRANCH_COORDS)) {
     if (lower.includes(branch)) {

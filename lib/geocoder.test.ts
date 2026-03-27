@@ -468,6 +468,18 @@ describe('lookupSPLBranchCoords', () => {
     expect(lookupSPLBranchCoords('Seattle Public Library')).toBeNull();
   });
 
+  it('does not match non-SPL strings containing branch neighborhood names', () => {
+    // "Fremont Brewing" should not match "fremont branch"
+    expect(lookupSPLBranchCoords('Fremont Brewing, 1050 N 34th St, Seattle, WA')).toBeNull();
+    // "Ballard Beer Company" should not match "ballard branch"
+    expect(lookupSPLBranchCoords('Ballard Beer Company, Seattle, WA')).toBeNull();
+  });
+
+  it('does not match strings where "spl" appears as part of another word', () => {
+    // "Splendor Event Hall" should not match
+    expect(lookupSPLBranchCoords('Splendor Event Hall, Seattle')).toBeNull();
+  });
+
   it('matches douglass-truth branch', () => {
     const result = lookupSPLBranchCoords('Seattle Public Library - Douglass-Truth Branch');
     expect(result).toEqual({ lat: 47.6097, lng: -122.3000 });

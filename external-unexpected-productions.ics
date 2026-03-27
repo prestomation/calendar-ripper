@@ -10,45 +10,6 @@ REFRESH-INTERVAL;VALUE=DURATION:PT1H
 X-Robots-Tag:noindex
 X-PUBLISHED-TTL:PT1H
 BEGIN:VTIMEZONE
-TZID:America/Denver
-BEGIN:DAYLIGHT
-TZOFFSETFROM:-0700
-TZOFFSETTO:-0600
-TZNAME:MDT
-DTSTART:20250309T090000
-END:DAYLIGHT
-BEGIN:STANDARD
-TZOFFSETFROM:-0600
-TZOFFSETTO:-0700
-TZNAME:MST
-DTSTART:20251102T080000
-END:STANDARD
-BEGIN:DAYLIGHT
-TZOFFSETFROM:-0700
-TZOFFSETTO:-0600
-TZNAME:MDT
-DTSTART:20260308T090000
-END:DAYLIGHT
-BEGIN:STANDARD
-TZOFFSETFROM:-0600
-TZOFFSETTO:-0700
-TZNAME:MST
-DTSTART:20261101T080000
-END:STANDARD
-BEGIN:DAYLIGHT
-TZOFFSETFROM:-0700
-TZOFFSETTO:-0600
-TZNAME:MDT
-DTSTART:20270314T090000
-END:DAYLIGHT
-BEGIN:STANDARD
-TZOFFSETFROM:-0600
-TZOFFSETTO:-0700
-TZNAME:MST
-DTSTART:20271107T080000
-END:STANDARD
-END:VTIMEZONE
-BEGIN:VTIMEZONE
 TZID:America/Los_Angeles
 BEGIN:DAYLIGHT
 TZOFFSETFROM:-0800
@@ -88,38 +49,9 @@ DTSTART:20271107T090000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Denver:20260326T190000
-DTEND;TZID=America/Denver:20260326T213000
-DTSTAMP:20260326T211411
-CREATED:20260202T021036Z
-LAST-MODIFIED:20260202T021036Z
-UID:10011418-1774551600-1774560600@www.unexpectedproductions.org
-SUMMARY:IMPROV 100 THURSDAYS- Intro to Improv: Say Yes!\, SPRING'26
-DESCRIPTION:Discover Unexpected Productions’ philosophy of improvisation\, developed over our 43 years of improvising in Seattle! \nYou’ll learn how to actively listen\, to use your own life to create collaborative stories\, and you’ll work on the fundamental principles of improvisation: what it means to say\, “Yes\, And”\, how to tell stories that include everyone in the room\, how to stop worrying about failing\, and the games and concepts behind what we do on stages around the world! \nUnder the guidance of one of our best Seattle improv teachers\, you will learn to:· \n\nBe a Better Listener\nConquer Fears\nSpark Creativity\nMeet New People & Make New Friends\nBecome a Better Problem Solver\nGain Confidence·\nFail With Grace (and Maybe Even Enjoy It)\nSay Yes More in Your Life\nGet Out of Your Comfort Zone\nBecome a Better Public Speaker\nDiscover More About Yourself\n…and have a blast doing it!\n\nTime and Dates: Thursdays for eight (8) weeks\, from March 26 to May 24\, 7pm to 9:30pm \nNOTE: Attendance at the first session of your course is mandatory as it sets the agenda for the entire quarter. If you think you will have to miss the first class\, please consider registering for the next quarter. \nNo Prerequisites. All students begin at this level\, even those with existing improv experience. It’s a prerequisite to the other levels. \nLocation: 5700 6th Ave St\, Suite 109\, Umbrella Room\, Seattle\, WA 98108 (In Georgetown\, south of downtown\, with plenty of parking.) \nMaximum Students: 16 \nCost: Ticket price $295.00 \nAge: 18 and above \n**Cancellation policy: If you must cancel before the first class\, we can only offer credit towards the same level class next quarter. We are unable to offer refunds. If you cancel after the first class we cannot offer credit towards a future class. Again\, we are unable to offer refunds.
-URL:https://www.unexpectedproductions.org/event/improv-100-thursdays-intro-to-improv-say-yes-spring26/
-LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
-CATEGORIES:Education
-ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/https___cdn.evbuc_.com_images_169399859_51975056320_1_original-1-1-1.jpg
-GEO:47.5520122;-122.3251523
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260326T200000
-DTEND;TZID=America/Los_Angeles:20260326T213000
-DTSTAMP:20260326T211411
-CREATED:20251204T005447Z
-LAST-MODIFIED:20251230T165100Z
-UID:10010079-1774555200-1774560600@www.unexpectedproductions.org
-SUMMARY:Loose Cannons 2026
-DESCRIPTION:Loose Cannons is Seattle improv at its most unpredictable. Every performance at Unexpected Productions in Pike Place Market is a one-of-a-kind experience: exciting\, unexpected\, a little dangerous\, and always ridiculously fun. This is the show where anything can happen and usually does. \nPart One: Part One: The night kicks off with a unique performance\, setting the performers in a new format with special guest improvisers showcasing their signature style or a never-before-seen format. Your suggestions fuel the fire\, and the improvisers will ignite the stage\, bringing your ideas to life. \nPart Two: The second half launches from a single audience suggestion\, setting the performers in motion. It might start with a song\, a monologue\, or a rapid-fire group connection game. Whatever emerges will inspire spontaneous stories\, surprising twists\, and big comedic swings. \nLoose Cannons is fueled by audience ideas\, fearless performers\, and the thrill of not knowing what happens next. You light the fuse. They run with it. What they create is entirely up to you.
-URL:https://www.unexpectedproductions.org/event/loose-cannons-2026/2026-03-26/
-LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
-ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/02/cannon_px-lrg-250x200-1-2.jpg
-END:VEVENT
-BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260327T193000
 DTEND;TZID=America/Los_Angeles:20260327T204500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221606
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011228-1774639800-1774644300@www.unexpectedproductions.org
@@ -132,7 +64,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260327T213000
 DTEND;TZID=America/Los_Angeles:20260327T230000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221606
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011099-1774647000-1774652400@www.unexpectedproductions.org
@@ -145,7 +77,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260328T180000
 DTEND;TZID=America/Los_Angeles:20260328T193000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221606
 CREATED:20251229T170840Z
 LAST-MODIFIED:20260123T191701Z
 UID:10011205-1774720800-1774726200@www.unexpectedproductions.org
@@ -158,7 +90,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260328T193000
 DTEND;TZID=America/Los_Angeles:20260328T204500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221606
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011229-1774726200-1774730700@www.unexpectedproductions.org
@@ -171,7 +103,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260328T213000
 DTEND;TZID=America/Los_Angeles:20260328T230000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221606
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011100-1774733400-1774738800@www.unexpectedproductions.org
@@ -184,7 +116,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260329T193000
 DTEND;TZID=America/Los_Angeles:20260329T204600
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221606
 CREATED:20260307T210541Z
 LAST-MODIFIED:20260307T210703Z
 UID:10011524-1774812600-1774817160@www.unexpectedproductions.org
@@ -197,7 +129,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260331T210000
 DTEND;TZID=America/Los_Angeles:20260331T220000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260106T193054Z
 LAST-MODIFIED:20260106T193054Z
 UID:10010206-1774990800-1774994400@www.unexpectedproductions.org
@@ -210,7 +142,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260401T190000
 DTEND;TZID=America/Los_Angeles:20260401T194500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010145-1775070000-1775072700@www.unexpectedproductions.org
@@ -223,7 +155,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260401T190000
 DTEND;TZID=America/Los_Angeles:20260401T194500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011469-1775070000-1775072700@www.unexpectedproductions.org
@@ -236,7 +168,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260401T200000
 DTEND;TZID=America/Los_Angeles:20260401T213000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009844-1775073600-1775079000@www.unexpectedproductions.org
@@ -249,7 +181,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260402T200000
 DTEND;TZID=America/Los_Angeles:20260402T213000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010080-1775160000-1775165400@www.unexpectedproductions.org
@@ -262,7 +194,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260403T193000
 DTEND;TZID=America/Los_Angeles:20260403T204500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011230-1775244600-1775249100@www.unexpectedproductions.org
@@ -275,7 +207,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260403T213000
 DTEND;TZID=America/Los_Angeles:20260403T230000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011101-1775251800-1775257200@www.unexpectedproductions.org
@@ -288,7 +220,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260404T193000
 DTEND;TZID=America/Los_Angeles:20260404T204500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011231-1775331000-1775335500@www.unexpectedproductions.org
@@ -301,7 +233,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260404T213000
 DTEND;TZID=America/Los_Angeles:20260404T230000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011102-1775338200-1775343600@www.unexpectedproductions.org
@@ -314,7 +246,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260405T190000
 DTEND;TZID=America/Los_Angeles:20260405T201500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260203T220818Z
 LAST-MODIFIED:20260203T220818Z
 UID:10011414-1775415600-1775420100@www.unexpectedproductions.org
@@ -327,7 +259,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T190000
 DTEND;TZID=America/Los_Angeles:20260408T194500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010146-1775674800-1775677500@www.unexpectedproductions.org
@@ -340,7 +272,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T190000
 DTEND;TZID=America/Los_Angeles:20260408T194500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011470-1775674800-1775677500@www.unexpectedproductions.org
@@ -353,7 +285,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T200000
 DTEND;TZID=America/Los_Angeles:20260408T213000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009845-1775678400-1775683800@www.unexpectedproductions.org
@@ -366,7 +298,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260409T200000
 DTEND;TZID=America/Los_Angeles:20260409T213000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010081-1775764800-1775770200@www.unexpectedproductions.org
@@ -379,7 +311,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T193000
 DTEND;TZID=America/Los_Angeles:20260410T204500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011232-1775849400-1775853900@www.unexpectedproductions.org
@@ -392,7 +324,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T213000
 DTEND;TZID=America/Los_Angeles:20260410T230000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011103-1775856600-1775862000@www.unexpectedproductions.org
@@ -405,7 +337,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T190000
 DTEND;TZID=America/Los_Angeles:20260411T210000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260225T205422Z
 LAST-MODIFIED:20260225T205526Z
 UID:10011463-1775934000-1775941200@www.unexpectedproductions.org
@@ -418,7 +350,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T193000
 DTEND;TZID=America/Los_Angeles:20260411T204500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011233-1775935800-1775940300@www.unexpectedproductions.org
@@ -431,7 +363,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T213000
 DTEND;TZID=America/Los_Angeles:20260411T230000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011104-1775943000-1775948400@www.unexpectedproductions.org
@@ -444,7 +376,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T190000
 DTEND;TZID=America/Los_Angeles:20260415T194500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010147-1776279600-1776282300@www.unexpectedproductions.org
@@ -457,7 +389,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T190000
 DTEND;TZID=America/Los_Angeles:20260415T194500
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011471-1776279600-1776282300@www.unexpectedproductions.org
@@ -470,7 +402,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T200000
 DTEND;TZID=America/Los_Angeles:20260415T213000
-DTSTAMP:20260326T211411
+DTSTAMP:20260326T221607
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009846-1776283200-1776288600@www.unexpectedproductions.org
@@ -479,5 +411,30 @@ DESCRIPTION:Seattle’s one and only open mic dedicated to two-person improv t
 URL:https://www.unexpectedproductions.org/event/duo-comedy-showcase-2026/2026-04-15/
 LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
 ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/12/200-px-by-250-px-DUOs-.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260416T200000
+DTEND;TZID=America/Los_Angeles:20260416T213000
+DTSTAMP:20260326T221607
+CREATED:20251204T005447Z
+LAST-MODIFIED:20251230T165100Z
+UID:10010082-1776369600-1776375000@www.unexpectedproductions.org
+SUMMARY:Loose Cannons 2026
+DESCRIPTION:Loose Cannons is Seattle improv at its most unpredictable. Every performance at Unexpected Productions in Pike Place Market is a one-of-a-kind experience: exciting\, unexpected\, a little dangerous\, and always ridiculously fun. This is the show where anything can happen and usually does. \nPart One: Part One: The night kicks off with a unique performance\, setting the performers in a new format with special guest improvisers showcasing their signature style or a never-before-seen format. Your suggestions fuel the fire\, and the improvisers will ignite the stage\, bringing your ideas to life. \nPart Two: The second half launches from a single audience suggestion\, setting the performers in motion. It might start with a song\, a monologue\, or a rapid-fire group connection game. Whatever emerges will inspire spontaneous stories\, surprising twists\, and big comedic swings. \nLoose Cannons is fueled by audience ideas\, fearless performers\, and the thrill of not knowing what happens next. You light the fuse. They run with it. What they create is entirely up to you.
+URL:https://www.unexpectedproductions.org/event/loose-cannons-2026/2026-04-16/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/02/cannon_px-lrg-250x200-1-2.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260417T193000
+DTEND;TZID=America/Los_Angeles:20260417T204500
+DTSTAMP:20260326T221607
+CREATED:20260125T024426Z
+LAST-MODIFIED:20260125T024426Z
+UID:10011386-1776454200-1776458700@www.unexpectedproductions.org
+SUMMARY:Spellbound: An Improvised Romantasy
+DESCRIPTION:Epic fantasy meets heart-pounding romance in a one-night-only improvised saga.\n\n\n\nSpellbound is a bold\, fun\, fully improvised romantasy where epic fantasy and big feelings take center stage. Inspired by books like A Court of Thorns and Roses and Fourth Wing\, our improvisers build a brand-new magical world on the spot using your ideas. \nExpect dramatic romance\, dangerous magic\, surprising twists\, and characters who fall hard\, mess up spectacularly\, and make very questionable choices in the name of love. It is playful\, passionate\, audience-powered storytelling with high stakes and zero scripts. Every show is a fresh fantasy adventure that only happens once.
+URL:https://www.unexpectedproductions.org/event/spellbound-an-improvised-romantasy/2026-04-17/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
 END:VEVENT
 END:VCALENDAR

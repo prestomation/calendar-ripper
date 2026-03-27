@@ -5,6 +5,7 @@ import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 import { GeoFiltersSection } from './GeoFiltersSection.jsx'
 import { EventsMap } from './EventsMap.jsx'
 import { haversineKm } from './lib/haversine.js'
+import { deduplicateEvents } from './lib/event-dedup.js'
 import { eventKey } from './lib/eventKey.js'
 import { AttributionChips } from './AttributionChips.jsx'
 
@@ -1676,6 +1677,10 @@ function App() {
         if (!isFavorited && !isSearchMatch && !isGeoMatch) return false
         return true
       })
+
+    // Deduplicate cross-source events (same date + location + title)
+    // Mirrors the dedup logic in infra/favorites-worker/src/feed.ts
+    upcoming = deduplicateEvents(upcoming)
 
     if (searchTerm) {
       const fuse = new Fuse(upcoming, {

@@ -840,3 +840,64 @@ describe('resolveEventCoords - UW building and known venue', () => {
     expect(result.coords).toEqual({ lat: 47.6560, lng: -122.3090 });
   });
 });
+
+describe('resolveEventCoords - firstSeen timestamps', () => {
+  let cache: GeoCache;
+
+  beforeEach(() => {
+    cache = { version: 1, entries: {} };
+    mockFetch.mockReset();
+  });
+
+  it('sets firstSeen on a newly resolved entry', async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [{ lat: '47.6200', lon: '-122.3500' }],
+    });
+
+    const today = new Date().toISOString().slice(0, 10);
+    const result = await resolveEventCoords(cache, 'New Venue, Seattle', 'test-source');
+    expect(result.geocodeSource).toBe('ripper');
+    const entry = result.cache.entries['new venue, seattle'];
+    expect(entry).toBeDefined();
+    expect(entry.firstSeen).toBe(today);
+  });
+
+  it('sets firstSeen on a newly unresolvable entry', async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [],
+    });
+
+    const today = new Date().toISOString().slice(0, 10);
+    const result = await resolveEventCoords(cache, 'Totally Unknown Place XYZ', 'test-source');
+    expect(result.geocodeSource).toBe('none');
+    const entry = result.cache.entries['totally unknown place xyz'];
+    expect(entry).toBeDefined();
+    expect(entry.firstSeen).toBe(today);
+  });
+
+  it('does not overwrite firstSeen on a cache hit (entry written twice)', async () => {
+    // Pre-populate cache with an existing entry that has a past firstSeen
+    const pastDate = '2025-01-15';
+    const primed: GeoCache = {
+      version: 1,
+      entries: {
+        'existing venue, seattle': {
+          lat: 47.62,
+          lng: -122.35,
+          geocodedAt: pastDate,
+          source: 'nominatim',
+          firstSeen: pastDate,
+        },
+      },
+    };
+
+    // Second call — should be a cache hit, no mutation
+    const result = await resolveEventCoords(primed, 'Existing Venue, Seattle', 'test-source');
+    expect(result.geocodeSource).toBe('cached');
+    expect(result.cache).toBe(primed); // same reference — no new entry written
+    expect(result.cache.entries['existing venue, seattle'].firstSeen).toBe(pastDate);
+    expect(mockFetch).not.toHaveBeenCalled();
+  });
+});

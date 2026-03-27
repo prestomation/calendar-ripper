@@ -12,6 +12,7 @@ export interface GeoCacheEntry {
   unresolvable?: boolean;
   geocodedAt: string;
   source: 'nominatim' | 'manual';
+  firstSeen?: string;
 }
 
 export interface GeoCache {
@@ -678,6 +679,7 @@ export async function resolveEventCoords(
       lng: coords.lng,
       geocodedAt: new Date().toISOString().slice(0, 10),
       source: 'nominatim',
+      firstSeen: new Date().toISOString().slice(0, 10),
     };
     const updatedCache: GeoCache = {
       ...cache,
@@ -689,6 +691,7 @@ export async function resolveEventCoords(
       unresolvable: true,
       geocodedAt: new Date().toISOString().slice(0, 10),
       source: 'nominatim',
+      firstSeen: new Date().toISOString().slice(0, 10),
     };
     const updatedCache: GeoCache = {
       ...cache,

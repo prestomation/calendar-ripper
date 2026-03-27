@@ -1,124 +1,15 @@
 {
-  "buildTime": "2026-03-27T04:09:50.064Z",
-  "totalErrors": 18,
+  "buildTime": "2026-03-27T04:14:51.490Z",
+  "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Northwest%20Trek%20Wildlife%20Park%2C%2011610%20Trek%20Dr%20E%2C%20Eatonville%2C%20WA%2098328",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Everett%20Performing%20Arts%20Center%2C%202710%20Wetmore%20Ave%2C%20Everett%2C%20WA%2098201",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Edmonds%20Waterfront%20Center%2C%20220%20Railroad%20Ave%2C%20Edmonds%2C%20WA%2098020",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Thomas%20Family%20Farm%2C%209010%20Marsh%20Rd%2C%20Snohomish%2C%20WA%2098296",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Marcus%20Pavilion%20At%20Saint%20Martin's%20University%2C%205300%20Pacific%20Ave%20SE%2C%20Lacey%2C%20WA%2098503",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Tacoma%20Convention%20Center%2C%201500%20Commerce%20St%20%2C%20Tacoma%2C%20WA%2098402",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Coupeville%20Wharf%2C%2024%20Front%20St%20NW%2C%20Coupeville%2C%20WA%2098239",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Methow%20Valley%20Thriftway%2C%20920%20State%20Rte%2020%2C%20Winthrop%2C%20WA%2098862",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Nordstrom%20Southcenter%2C%20100%20Southcenter%20Mall%2C%20Tukwila%2C%20WA%2098188",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Evergreen%20State%20Fairgrounds%2C%2014405%20179th%20Ave%20SE%2C%20Monroe%2C%20WA%2098272",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Washington%20State%20Fair%20Events%20Center%2C%20110%209th%20Ave%20SW%2C%20Puyallup%2C%20WA%2098371",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Edmonds%20Center%20for%20the%20Arts%2C%20410%204th%20Ave%20N%2C%20Edmonds%2C%20WA%2098020",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=The%20Forum%2C%20815%20Pacific%20Ave%20A%2C%20Tacoma%2C%20WA%2098402",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Grand%20Cinema%2C%20606%20Fawcett%20Ave%2C%20Tacoma%2C%20WA%2098402",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Pavilion%20at%20the%20Blaine%20Community%20Center%2C%20635%208th%20St%2C%20Blaine%2C%20WA%2098230",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Kells%20Irish%20Restaurant%20%26%20Pub%2C%201916%20Post%20Alley%20Walk%20Wy%2C%20Seattle%2C%20WA%2098101",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=McMenamins%20Elks%20Temple%2C%20565%20Broadway%2C%20Tacoma%2C%20WA%2098402",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/search/?api=1&query=Ocean%20Shores%20Visitor%20Information%20Center%2C%20120%20W%20Chance%20a%20La%20Mer%20NW%2C%20Ocean%20Shores%2C%20WA%2098569",
-      "source": "events12",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7408,
-    "eventsWithGeo": 5001,
+    "totalEvents": 7409,
+    "eventsWithGeo": 5002,
     "eventsWithoutGeo": 2407,
-    "geocodeErrors": 18
+    "geocodeErrors": 0
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -601,7 +492,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 45,
+      "events": 46,
       "expectEmpty": false
     },
     {
@@ -1255,7 +1146,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 156,
+      "events": 157,
       "expectEmpty": false
     },
     {
@@ -1267,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2689,
+      "events": 2690,
       "expectEmpty": false
     },
     {
@@ -1333,7 +1224,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 519,
+      "events": 520,
       "expectEmpty": false
     },
     {
@@ -1405,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7478,
+      "events": 7479,
       "expectEmpty": false
     },
     {

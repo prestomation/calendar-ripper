@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-27T06:07:44.353Z",
+  "lastUpdated": "2026-03-27T06:11:01.974Z",
   "rippers": [
     {
       "name": "19hz",
@@ -566,6 +566,23 @@
           "rssUrl": "ravenna-brewing-all-events.rss",
           "tags": [
             "Beer"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reubens-brews",
+      "description": "Reuben's Brews",
+      "friendlyLink": "https://reubensbrews.com/events/",
+      "calendars": [
+        {
+          "name": "ballard",
+          "friendlyName": "Reuben's Brews - Ballard",
+          "icsUrl": "reubens-brews-ballard.ics",
+          "rssUrl": "reubens-brews-ballard.rss",
+          "tags": [
+            "Beer",
+            "Ballard"
           ]
         }
       ]

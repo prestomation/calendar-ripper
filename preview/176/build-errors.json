@@ -1,102 +1,13 @@
 {
-  "buildTime": "2026-03-27T06:07:44.755Z",
-  "totalErrors": 8,
+  "buildTime": "2026-03-27T06:11:02.342Z",
+  "totalErrors": 0,
   "configErrors": [],
-  "sources": [
-    {
-      "source": "reubens-brews",
-      "calendar": "ballard",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "reubens-brews",
-      "calendar": "downtown",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-ballard",
-      "calendar": "tag-ballard",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-downtown",
-      "calendar": "tag-downtown",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-beer",
-      "calendar": "tag-beer",
-      "type": "Aggregate",
-      "errorCount": 2,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        },
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-all",
-      "calendar": "tag-all",
-      "type": "Aggregate",
-      "errorCount": 2,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        },
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    }
-  ],
+  "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7403,
-    "eventsWithGeo": 5515,
+    "totalEvents": 7407,
+    "eventsWithGeo": 5519,
     "eventsWithoutGeo": 1888,
     "geocodeErrors": 0
   },
@@ -106,7 +17,6 @@
     "benaroya-hall-benaroya-nordstrom",
     "downtown-seattle-association-pioneer-park",
     "jcccw-all-events",
-    "reubens-brews-ballard",
     "reubens-brews-downtown",
     "seattle-barkery-all-events",
     "seattle-showlists-bad-bar",
@@ -612,7 +522,7 @@
     {
       "name": "reubens-brews-ballard",
       "type": "Ripper",
-      "events": 0,
+      "events": 3,
       "expectEmpty": false
     },
     {
@@ -1062,7 +972,7 @@
     {
       "name": "sunset-tavern-sunset-tavern",
       "type": "Ripper",
-      "events": 63,
+      "events": 64,
       "expectEmpty": false
     },
     {
@@ -1116,7 +1026,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 464,
+      "events": 468,
       "expectEmpty": false
     },
     {
@@ -1248,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2687,
+      "events": 2688,
       "expectEmpty": false
     },
     {
@@ -1266,7 +1176,7 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 453,
+      "events": 456,
       "expectEmpty": false
     },
     {
@@ -1386,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7473,
+      "events": 7477,
       "expectEmpty": false
     },
     {

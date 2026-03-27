@@ -19,8 +19,54 @@ export interface GeoCache {
   entries: Record<string, GeoCacheEntry>;
 }
 
+/**
+ * Normalize a raw location string from an ICS feed or scraper:
+ * 1. Unescape ICS-escaped commas (\\, → ,)
+ * 2. Strip HTML tags
+ * 3. Split on <br>, newlines, or semicolons and take only the first segment
+ * 4. Collapse internal whitespace and trim
+ */
+export function normalizeLocation(location: string): string {
+  // Step 1: Unescape ICS-escaped commas (\\, → ,)
+  let normalized = location.replace(/\\,/g, ',');
+
+  // Step 2: Split on <br> variants and newlines BEFORE stripping tags,
+  // so we can grab the first meaningful line.
+  // Also split on semicolons (ICS uses ; as multi-value separator).
+  const firstSegment = normalized.split(/<br\s*\/?>/i)[0];
+
+  // Step 3: Strip all remaining HTML tags
+  const stripped = firstSegment.replace(/<[^>]*>/g, '');
+
+  // Step 4: Split on newlines and semicolons, take the first non-empty part
+  const lines = stripped.split(/[\n\r;]+/);
+  const firstLine = lines.find(l => l.trim().length > 0) ?? stripped;
+
+  // Step 5: Collapse internal whitespace and trim
+  return firstLine.replace(/\s+/g, ' ').trim();
+}
+
 export function normalizeLocationKey(location: string): string {
-  return location.trim().toLowerCase();
+  return normalizeLocation(location).toLowerCase();
+}
+
+/**
+ * If the location looks like "Venue Name: 1234 Street..." or "Venue Name, 1234 Street..."
+ * (i.e. a venue prefix followed by a street address starting with a digit),
+ * return the address-only portion.  Returns null if no venue prefix is detected.
+ *
+ * Only `:` or `,` are treated as venue-prefix separators; plain spaces are not,
+ * to avoid false positives on bare addresses like "1515 12th Ave, Seattle WA".
+ */
+export function extractAddressFromVenuePrefix(location: string): string | null {
+  // Match "Some Venue Name: 1234 Street..." or "Some Venue Name, 1234 Street..."
+  // The venue part must contain at least one non-digit character (so pure addresses
+  // like "1515 12th Ave" don't accidentally match).
+  const match = location.match(/^([^:,]*[A-Za-z][^:,]*)[:,]\s*(\d.+)$/);
+  if (match) {
+    return match[2].trim();
+  }
+  return null;
 }
 
 export async function loadGeoCache(filePath: string): Promise<GeoCache> {
@@ -151,20 +197,37 @@ export async function resolveEventCoords(
     return { coords: null, geocodeSource: 'none', cache };
   }
 
-  const cached = lookupGeoCache(cache, location);
+  // Normalize the raw location string before any cache lookup or geocoding.
+  // This ensures HTML tags, ICS-escaped commas, and extra whitespace don't
+  // cause spurious cache misses or Nominatim failures.
+  const normalized = normalizeLocation(location);
+
+  if (normalized === '') {
+    return { coords: null, geocodeSource: 'none', cache };
+  }
+
+  const cached = lookupGeoCache(cache, normalized);
   if (cached !== null) {
     return { coords: cached, geocodeSource: 'cached', cache };
   }
 
-  const key = normalizeLocationKey(location);
+  const key = normalizeLocationKey(normalized);
   // Already known unresolvable — no network call needed
   const entry = cache.entries[key];
   if (entry?.unresolvable) {
     return { coords: null, geocodeSource: 'none', cache };
   }
 
-  // Cache miss — call Nominatim
-  const coords = await geocodeLocation(location);
+  // Try geocoding the normalized string first.
+  // If it looks like "Venue: 1234 Street..." also try the address-only part.
+  const addressOnly = extractAddressFromVenuePrefix(normalized);
+  const candidates = addressOnly ? [normalized, addressOnly] : [normalized];
+
+  let coords: GeoCoords | null = null;
+  for (const candidate of candidates) {
+    coords = await geocodeLocation(candidate);
+    if (coords !== null) break;
+  }
 
   if (coords !== null) {
     const newEntry: GeoCacheEntry = {

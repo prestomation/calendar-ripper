@@ -1,10 +1,16 @@
 {
-  "buildTime": "2026-03-27T02:25:17.708Z",
+  "buildTime": "2026-03-27T03:14:52.884Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [],
+  "geoStats": {
+    "totalEvents": 7411,
+    "eventsWithGeo": 4536,
+    "eventsWithoutGeo": 2875,
+    "geocodeErrors": 0
+  },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "belltown-community-council-all-events",
@@ -486,7 +492,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 45,
+      "events": 46,
       "expectEmpty": false
     },
     {
@@ -594,7 +600,7 @@
     {
       "name": "seattle-food-trucks-seattle-food-trucks",
       "type": "Ripper",
-      "events": 296,
+      "events": 294,
       "expectEmpty": false
     },
     {
@@ -996,7 +1002,7 @@
     {
       "name": "vera-project-vera-project",
       "type": "Ripper",
-      "events": 68,
+      "events": 69,
       "expectEmpty": false
     },
     {
@@ -1134,13 +1140,13 @@
     {
       "name": "tag-food",
       "type": "Aggregate",
-      "events": 329,
+      "events": 327,
       "expectEmpty": false
     },
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 156,
+      "events": 157,
       "expectEmpty": false
     },
     {
@@ -1152,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2688,
+      "events": 2690,
       "expectEmpty": false
     },
     {
@@ -1212,13 +1218,13 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1091,
+      "events": 1092,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 520,
+      "events": 521,
       "expectEmpty": false
     },
     {

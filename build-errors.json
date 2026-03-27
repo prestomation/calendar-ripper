@@ -1,14 +1,61 @@
 {
-  "buildTime": "2026-03-27T04:17:54.860Z",
-  "totalErrors": 0,
+  "buildTime": "2026-03-27T04:52:30.854Z",
+  "totalErrors": 3,
   "configErrors": [],
-  "sources": [],
-  "externalCalendarFailures": [],
+  "sources": [
+    {
+      "source": "NWMetalCalendar",
+      "calendar": "NWMetal",
+      "type": "Ripper",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: TypeError: fetch failed",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-music",
+      "calendar": "tag-music",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: TypeError: fetch failed",
+          "context": ""
+        }
+      ]
+    },
+    {
+      "source": "tag-all",
+      "calendar": "tag-all",
+      "type": "Aggregate",
+      "errorCount": 1,
+      "errors": [
+        {
+          "type": "ParseError",
+          "reason": "Ripper crashed: TypeError: fetch failed",
+          "context": ""
+        }
+      ]
+    }
+  ],
+  "externalCalendarFailures": [
+    {
+      "name": "united-indians-daybreak-star",
+      "friendlyName": "United Indians / Daybreak Star",
+      "url": "https://unitedindians.org/?post_type=tribe_events&ical=1",
+      "error": "TypeError: fetch failed"
+    }
+  ],
   "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7408,
-    "eventsWithGeo": 5001,
-    "eventsWithoutGeo": 2407,
+    "totalEvents": 7293,
+    "eventsWithGeo": 5417,
+    "eventsWithoutGeo": 1876,
     "geocodeErrors": 0
   },
   "zeroEventCalendars": [
@@ -17,6 +64,7 @@
     "benaroya-hall-benaroya-nordstrom",
     "downtown-seattle-association-pioneer-park",
     "jcccw-all-events",
+    "NWMetalCalendar-NWMetal",
     "reubens-brews-downtown",
     "seattle-barkery-all-events",
     "seattle-showlists-bad-bar",
@@ -474,7 +522,7 @@
     {
       "name": "NWMetalCalendar-NWMetal",
       "type": "Ripper",
-      "events": 85,
+      "events": 0,
       "expectEmpty": false
     },
     {
@@ -1128,7 +1176,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1989,
+      "events": 1959,
       "expectEmpty": false
     },
     {
@@ -1158,7 +1206,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2689,
+      "events": 2604,
       "expectEmpty": false
     },
     {
@@ -1218,7 +1266,7 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1091,
+      "events": 1061,
       "expectEmpty": false
     },
     {
@@ -1296,7 +1344,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7478,
+      "events": 7363,
       "expectEmpty": false
     },
     {
@@ -1501,12 +1549,6 @@
       "name": "external-langston",
       "type": "External",
       "events": 0,
-      "expectEmpty": false
-    },
-    {
-      "name": "external-united-indians-daybreak-star",
-      "type": "External",
-      "events": 30,
       "expectEmpty": false
     }
   ]

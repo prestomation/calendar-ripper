@@ -5842,6 +5842,49 @@ X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d183381423
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Seed ball workshop with UW Recycling & UW Farm
+LOCATION:Mercer Court Building E
+DTSTART;TZID=America/Los_Angeles:20260410T150000
+DTEND;TZID=America/Los_Angeles:20260410T170000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+CATEGORIES:UW Seattle Campus Events
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgABSxmICBYEv8F039ywi1eC.jpg
+DTSTAMP:20260326T214823Z
+GEO:47.65451040293962;-122.31853328168786
+DESCRIPTION:Event interval: Single day event\nCampus room: UW Farm Merce
+ r Court Clubhouse\nAccessibility Contact: uwfarm@uw.edu\nEvent Types: Sp
+ ecial Events\,Student Activities\,Workshops\nEvent sponsors: <a href="ht
+ tps://www.instagram.com/uwrecycling" target="_blank">UW Recycling</a> an
+ d <a href="https://www.instagram.com/uwfarmdirtydozen/" target="_blank">
+ Dirty Dozen</a>\n\nJoin for a native seed ball workshop and help buzz in
+  the spring season! Students are invited to get their hands dirty and cr
+ aft their very own seed balls with The Dirty Dozen: \nhttps://huskylink.
+ washington.edu/organization/dduw and UW Recycling: \nhttps://facilities.
+ uw.edu/services/recycling. First come\, first served—bring your own cont
+ ainer and take them home!\n\nSpecies may include: calendula\, gumweed\, 
+ globe gilia\, lupine\, camas\, self-heal\, winecup clarkia\, yarrow\, an
+ d Oregon sunshine. Please email the Dirty Dozen at dduw@uw.edu with any 
+ questions.
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:UW Farm
+  Mercer Court Clubhouse
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:uwfarm@uw.edu
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
+ l Events\,Student Activities\,Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
+ mba.com/i/DgABSxmICBYEv8F039ywi1eC.jpg
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Re
+ cycling: \nhttps://www.instagram.com/uwrecycling and Dirty Dozen: \nhttp
+ s://www.instagram.com/uwfarmdirtydozen/
+UID:http://uid.trumba.com/event/199610833
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d199610833
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Media\, Power\, and Democracy in South Asia
 LOCATION:Student Union Building (HUB)
 DTSTART;TZID=America/Los_Angeles:20260410T153000
@@ -28390,52 +28433,5 @@ CATEGORIES:UW Seattle Campus Events
 UID:http://uid.trumba.com/event/175832448
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d175832448
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:HPC Office Hours - In-person
-LOCATION:Physics-Astronomy Tower (PAT)
-DTSTART;TZID=America/Los_Angeles:20260625T140000
-DTEND;TZID=America/Los_Angeles:20260625T150000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
- gle day event
-X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ph
- ysics-Astronomy Tower (PAT)
-X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:eScienc
- e Institute\, WRF Data Science Studio\, University of Washington\, UW Ph
- ysics/Astronomy Tower\, 6th Floor\, 3910 15th Ave NE\, Seattle\, WA 9819
- 5
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:finchkn@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
- ics\,Information Sessions
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
- mba.com/i/DgAwHywhju1UTFfCcZ4JzIq8.jpg
-X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW-IT
-  Research Computing
-DTSTAMP:20260115T155537Z
-DESCRIPTION:Event interval: Single day event\nCampus location: Physics-A
- stronomy Tower (PAT)\nCampus room: eScience Institute\, WRF Data Science
-  Studio\, University of Washington\, UW Physics/Astronomy Tower\, 6th Fl
- oor\, 3910 15th Ave NE\, Seattle\, WA 98195\nAccessibility Contact: finc
- hkn@uw.edu\nEvent Types: Academics\,Information Sessions\nEvent sponsors
- : UW-IT Research Computing\n\nNeed support with your High Performance Co
- mputing (HPC) project? Attend HPC office hours and have your questions a
- bout the University of Washington's Supercomputer Hyak and GPU system Ti
- llicum answered by an HPC expert. \n\nWe can help with: \n	 - HPC access
-  for your research	\n - Building software containers for your research	
- \n - Installing software packages on our systems	\n - Optimizing your wor
- kflows 	\n - Mastering the job scheduler\, Slurm	\n - Using GPUs	\n - Py
- thon and Jupyter environments	\n - ...and more\nSelf help and more infor
- mation: Be sure to checkout our documentation: https://hyak.uw.edu with 
- includes step-by-step guides and tutorials\, and our training video coll
- ection: https://hyak.uw.edu/learn.
-CATEGORIES:UW Seattle Campus Events
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgAwHywhju1UTFfCcZ4JzIq8.jpg
-UID:http://uid.trumba.com/event/189395480
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d189395480
 END:VEVENT
 END:VCALENDAR

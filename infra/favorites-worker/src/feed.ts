@@ -91,7 +91,9 @@ feedRoutes.get('/:filename', async (c) => {
     try {
       const eventsIndex = await fetchEventsIndex(baseUrl)
 
-      // Collect all events-index entries that would appear in this feed
+      // Collect all events-index entries that would appear in this feed.
+      // Favorited events are always included in full — users explicitly selected
+      // those calendars, so geo filters must NOT exclude them.
       const favoritedIndexEvents: EventsIndexEntry[] = hasIcsFavorites
         ? eventsIndex.filter(e => favorites.icsUrls.includes(e.icsUrl))
         : []
@@ -100,17 +102,17 @@ feedRoutes.get('/:filename', async (c) => {
         ? eventsIndex.filter(e => eventMatchesGeoFilters(e, geoFilters))
         : []
 
-      // Combine all candidate events and deduplicate
+      // Combine all candidate events and deduplicate.
+      // Favorited events lead so they win ties over geo-only events.
       const combinedEvents = [...favoritedIndexEvents, ...geoFilteredIndex]
       const deduped = deduplicateEvents(combinedEvents)
 
-      // Surviving icsUrls for favorites — only fetch ICS files with surviving events
-      if (hasIcsFavorites) {
-        const survivingIcsUrls = new Set(
-          deduped.filter(e => favorites.icsUrls.includes(e.icsUrl)).map(e => e.icsUrl)
-        )
-        icsUrlsToFetch = favorites.icsUrls.filter(url => survivingIcsUrls.has(url))
-      }
+      // Always fetch ALL favorited ICS files — dedup removes duplicate VEVENTs in
+      // the search/geo output path, but we still need the full ICS content from
+      // each favorited calendar. A calendar may contain events not in the
+      // events-index at all, and users explicitly chose these calendars so they
+      // should appear regardless of geo location.
+      // icsUrlsToFetch remains favorites.icsUrls (set above, unchanged).
 
       // For search/geo path: build matchingKeys from surviving deduped entries
       if (hasSearchFilters || hasGeoFilters) {

@@ -73,7 +73,15 @@ export function deduplicateEvents(events: EventsIndexEntry[]): DeduplicatedEvent
       const bDescLen = (b.description ?? '').length
 
       if (bDescLen > aDescLen) {
-        // b wins: suppress i, attribute i's source to j
+        // b wins: suppress i, attribute i's source to j.
+        //
+        // Safety: after this break, the outer loop reaches i=j (since j is not
+        // suppressed), and j will scan j+1…end for further duplicates. This
+        // guarantees every event pair is eventually compared — there is no
+        // "skipped" comparison. Example: [A, B, C] all mutual dupes with
+        // B having the longest description:
+        //   i=0(A) → j=1(B) wins → suppress A, break
+        //   i=1(B, not suppressed) → j=2(C) → B wins → suppress C  ✓
         suppressed[i] = true
         const sources = dedupedSourcesMap.get(j) ?? []
         sources.push(a.icsUrl)

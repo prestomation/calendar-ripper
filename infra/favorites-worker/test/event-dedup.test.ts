@@ -168,6 +168,20 @@ describe('deduplicateEvents', () => {
     expect(result[0].dedupedSources).toContain('cal-c.ics')
   })
 
+  it('deduplicates [A, B, C] where B has longest description into just B', () => {
+    // Regression: verify the break-on-i-suppressed path doesn't skip C vs B.
+    // When i=0(A) loses to j=1(B), we break. Then i=1(B) scans j=2(C) and
+    // correctly suppresses C. All three collapse into B.
+    const a = makeEvent({ summary: 'Jazz Night', date: DATE, icsUrl: 'cal-a.ics', lat: SEA_LAT, lng: SEA_LNG, description: 'x' })
+    const b = makeEvent({ summary: 'Jazz Night', date: DATE, icsUrl: 'cal-b.ics', lat: SEA_LAT, lng: SEA_LNG, description: 'Much longer description that wins' })
+    const c = makeEvent({ summary: 'Jazz Night', date: DATE, icsUrl: 'cal-c.ics', lat: SEA_LAT, lng: SEA_LNG, description: 'yy' })
+    const result = deduplicateEvents([a, b, c])
+    expect(result).toHaveLength(1)
+    expect(result[0].icsUrl).toBe('cal-b.ics')
+    expect(result[0].dedupedSources).toContain('cal-a.ics')
+    expect(result[0].dedupedSources).toContain('cal-c.ics')
+  })
+
   it('uses date bucket only (first 10 chars), ignores time', () => {
     // Same YYYY-MM-DD, different times → same bucket → may dedup
     const a = makeEvent({ summary: 'Jazz Night', date: '2026-03-15T19:00', icsUrl: 'cal-a.ics', lat: SEA_LAT, lng: SEA_LNG })

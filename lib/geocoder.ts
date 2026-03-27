@@ -114,6 +114,24 @@ export function extractFromGoogleMapsUrl(location: string): string | null {
 export function stripSuiteFloorSuffixes(location: string): string | null {
   let result = location;
 
+  // Strip sub-room qualifiers FIRST (before individual suite/floor/room/level strippers)
+  // to avoid compound patterns being partially matched by the generic strippers.
+  // Match both ", " and " - " separators, and handle optional room numbers /
+  // multilingual suffixes after " / ".
+  // e.g. "Capitol Hill Branch, Meeting Room" → "Capitol Hill Branch"
+  // e.g. "Library, Meeting Room 1 / 会议室" → "Library"
+  // e.g. "Community Center - Meeting Room / Sala de reuniones" → "Community Center"
+  // "Level N - Room N" patterns (e.g. ", Level 2 - Room 201")
+  result = result.replace(/[,\s]*,\s*level\s+[\w-]+\s*[-–]\s*room\s+[\w-]+(\s*\/.*)?$/i, '');
+  result = result.replace(/[,\s]*[-–]\s*meeting room(\s+[\w-]+)?(\s*\/.*)?$/i, '');
+  result = result.replace(/[,\s]*,\s*meeting room(\s+[\w-]+)?(\s*\/.*)?$/i, '');
+  result = result.replace(/[,\s]*,\s*children'?s?\s+area(\s*\/.*)?$/i, '');
+  result = result.replace(/[,\s]*,\s*lobby(\s*\/.*)?$/i, '');
+  // Strip any trailing " / <multilingual text>" that looks like a translation duplicate
+  // but only when it appears after a sub-room keyword has already been stripped above,
+  // or standalone at the very end of a string after a known room-like prefix.
+  // (Standalone " / X" is NOT stripped to avoid false positives on "Venue A / Venue B")
+
   // Strip #NNN (including alphanumeric and hyphenated suite numbers like #100A, #3-B)
   // Suite NNN, Ste NNN, Floor N, Flr N, Room NNN, Level N
   // These may appear anywhere in the string (with a preceding comma/space separator)
@@ -252,6 +270,43 @@ export function lookupSPLBranchCoords(location: string): GeoCoords | null {
   return null;
 }
 
+/**
+ * Known venue-area suffix patterns that map to a centroid.
+ * Used as a last-resort fallback when Nominatim fails and the location string
+ * contains a recognizable area suffix like ", seattle center" or ", south lake union".
+ *
+ * Keys are lowercase area suffixes; values are centroids.
+ */
+const VENUE_AREA_SUFFIX_COORDS: Record<string, GeoCoords> = {
+  'seattle center': { lat: 47.6205, lng: -122.3493 },
+  'south lake union': { lat: 47.6275, lng: -122.3362 },
+  'south lake union, seattle, wa': { lat: 47.6275, lng: -122.3362 },
+  'south lake union, seattle': { lat: 47.6275, lng: -122.3362 },
+};
+
+/**
+ * Check if the location ends with a known venue-area suffix (e.g. ", seattle center"
+ * or ", south lake union, seattle, wa"). Returns the centroid if matched, null otherwise.
+ *
+ * Matches case-insensitively. The area suffix must appear after a comma or space.
+ */
+export function lookupVenueAreaFallback(location: string): GeoCoords | null {
+  const lower = location.toLowerCase().trim();
+
+  for (const [suffix, coords] of Object.entries(VENUE_AREA_SUFFIX_COORDS)) {
+    // Match exactly equal, or ending with ", <suffix>"
+    if (
+      lower === suffix ||
+      lower.endsWith(`, ${suffix}`) ||
+      lower.endsWith(` ${suffix}`)
+    ) {
+      return coords;
+    }
+  }
+
+  return null;
+}
+
 export async function loadGeoCache(filePath: string): Promise<GeoCache> {
   try {
     const raw = await readFile(filePath, 'utf-8');
@@ -378,7 +433,8 @@ export interface ResolveEventCoordsResult {
  * 4. Nominatim geocoding (with venue-prefix fallback)
  * 5. Neighborhood centroid lookup (if Nominatim fails)
  * 6. SPL branch lookup (if Nominatim fails and location mentions a branch)
- * 7. Suite/floor stripping retry (if first Nominatim attempt fails)
+ * 7. Known venue-area centroid fallback (Seattle Center, South Lake Union, etc.)
+ * 8. Suite/floor stripping retry (if first Nominatim attempt fails)
  */
 export async function resolveEventCoords(
   cache: Readonly<GeoCache>,
@@ -435,7 +491,12 @@ export async function resolveEventCoords(
     coords = lookupSPLBranchCoords(normalized);
   }
 
-  // Step 5: Suite/floor stripping retry (if still no coords)
+  // Step 5: Known venue-area centroid fallback (Seattle Center, South Lake Union, etc.)
+  if (coords === null) {
+    coords = lookupVenueAreaFallback(normalized);
+  }
+
+  // Step 6: Suite/floor stripping retry (if still no coords)
   if (coords === null) {
     const stripped = stripSuiteFloorSuffixes(normalized);
     if (stripped !== null) {

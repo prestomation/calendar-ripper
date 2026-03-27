@@ -1,118 +1,15 @@
 {
-  "buildTime": "2026-03-27T04:44:38.987Z",
-  "totalErrors": 17,
+  "buildTime": "2026-03-27T04:49:49.218Z",
+  "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "International District/Chinatown Branch, Children&#39;s Area / &#20799;&#31461;&#21306;&#22495; / &#20818;&#31461;&#21312;&#22495;",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "South Park Branch, Children&#8217;s Area / &#193;rea para ni&#241;os",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Wallingford United Methodist Church\\, 2115 N 42nd St\\, Seattle\\, W",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Lincoln High School Theater\\, Wallingford\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Meridian Playground\\, 4800 Meridian Ave N\\, Seattle\\, WA 98103\\, U",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6",
-      "source": "external-wallyhood",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "The Stables in Seattle&#39\\;s historic Georgetown\\, 980 South N",
-      "source": "external-seattle-gov-city-wide",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "PRELIMS: April 10\\, 2026 @ Nomad Skyway\\, 12600 Renton Ave S\\,",
-      "source": "external-seattle-gov-city-wide",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "In person - City Hall - 600 &#8211\\; 4th Avenue\\, Room L-280<br",
-      "source": "external-seattle-gov-city-wide",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "&#4808\\;&#4848\\;&#4826\\;&#4613\\; &#4814\\;&#4653\\;&#4781\\;&#4670",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "&#4709\\;&#4770\\;&#4757\\;&#4720\\;&#4653\\;&#4756\\;&#4725\\; &#4829",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Reuni&#243\\;n en l&#237\\;nea de Zoom: La informaci&#243\\;n del",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "&#1575\\;&#1740\\;&#1606\\; &#1580\\;&#1604\\;&#1587\\;&#1607\\; &#157",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "&#1054\\;&#1085\\;&#1083\\;&#1072\\;&#1081\\;&#1085\\;-&#1082\\;&#1086",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Location:Reuni&#243\\;n en l&#237\\;nea de Zoom La informaci&#243",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "&#1069\\;&#1090\\;&#1086\\;&#1090\\; &#1089\\;&#1077\\;&#1084\\;&#1080",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "El cliente tendr&#225\\; que registrarse en WorkSourceWA.com ant",
-      "source": "external-worksource-north-seattle",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7409,
-    "eventsWithGeo": 5008,
-    "eventsWithoutGeo": 2401,
-    "geocodeErrors": 17
+    "totalEvents": 7408,
+    "eventsWithGeo": 5505,
+    "eventsWithoutGeo": 1903,
+    "geocodeErrors": 0
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -595,7 +492,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 46,
+      "events": 45,
       "expectEmpty": false
     },
     {
@@ -1249,7 +1146,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 157,
+      "events": 156,
       "expectEmpty": false
     },
     {
@@ -1261,7 +1158,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2690,
+      "events": 2689,
       "expectEmpty": false
     },
     {
@@ -1327,7 +1224,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 520,
+      "events": 519,
       "expectEmpty": false
     },
     {
@@ -1399,7 +1296,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7479,
+      "events": 7478,
       "expectEmpty": false
     },
     {

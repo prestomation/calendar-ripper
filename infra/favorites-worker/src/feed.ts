@@ -98,8 +98,13 @@ feedRoutes.get('/:filename', async (c) => {
         ? eventsIndex.filter(e => favorites.icsUrls.includes(e.icsUrl))
         : []
 
+      // Exclude events from favorited calendars — they are already covered by
+      // favoritedIndexEvents above, so including them here too would cause the
+      // same event to appear twice in combinedEvents, making the dedup algorithm
+      // treat an event as a duplicate of itself and corrupt dedupedSources.
+      const favoritedIcsUrls = new Set(favorites.icsUrls)
       const geoFilteredIndex = (hasSearchFilters || hasGeoFilters)
-        ? eventsIndex.filter(e => eventMatchesGeoFilters(e, geoFilters))
+        ? eventsIndex.filter(e => eventMatchesGeoFilters(e, geoFilters) && !favoritedIcsUrls.has(e.icsUrl))
         : []
 
       // Combine all candidate events and deduplicate.

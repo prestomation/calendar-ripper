@@ -15,7 +15,7 @@ export interface Env {
   GOOGLE_CLIENT_SECRET: string
   GITHUB_PAGES_BASE_URL: string
   SITE_URL: string
-  ANALYTICS: AnalyticsEngineDataset
+  ANALYTICS?: AnalyticsEngineDataset
 }
 
 export interface UserRecord {

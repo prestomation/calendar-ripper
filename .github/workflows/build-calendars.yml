@@ -65,7 +65,6 @@ jobs:
         TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         EVENTBRITE_TOKEN: ${{ secrets.EVENTBRITE_TOKEN }}
         DICE_API_KEY: ${{ secrets.DICE_API_KEY }}
-        PROXY_URL: ${{ secrets.PROXY_URL }}
       run: |
         npm run generate-calendars
         cat errorCount.txt

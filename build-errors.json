@@ -1,22 +1,15 @@
 {
-  "buildTime": "2026-03-28T11:08:09.351Z",
-  "totalErrors": 1,
+  "buildTime": "2026-03-28T11:10:12.723Z",
+  "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "Stone Way Auto Fremont",
-      "source": "19hz",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "geoStats": {
     "totalEvents": 7403,
     "eventsWithGeo": 5554,
     "eventsWithoutGeo": 1849,
-    "geocodeErrors": 1
+    "geocodeErrors": 0
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",

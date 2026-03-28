@@ -1,7 +1,7 @@
 name: seattle-barkery
 description: "The Seattle Barkery, a family-owned dog treat bakery with locations in South Lake Union and Shoreline"
 url: "https://theseattlebarkery.com/wp-json/tribe/events/v1/events"
-proxy: true
+proxy: "outofband"
 friendlyLink: https://theseattlebarkery.com
 tags: ["Dogs"]
 calendars:

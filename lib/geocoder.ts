@@ -390,6 +390,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'the church cantina': { lat: 47.6253, lng: -122.3222 },
   'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
   'husky ballpark': { lat: 47.6515, lng: -122.3011 },
+  'fremont studios': { lat: 47.6513746, lng: -122.3556160 },
 };
 
 /**

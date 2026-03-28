@@ -10,7 +10,8 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
         const eventPages = jsonData.filter((page: any) => {
             const title = page.title.rendered.toLowerCase();
             return (title.includes('market') || title.includes('show') || title.includes('uprising')) &&
-                   !title.includes('vendor') && !title.includes('resource') &&
+                   !title.includes('vendor') && !title.includes('vendors') &&
+                   !title.includes('resource') &&
                    !title.includes('selling at shows'); // Filter out problematic page
         });
         
@@ -61,6 +62,11 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
             // Extract location and description
             const location = this.extractLocation(content);
             const description = this.extractDescription(content);
+            
+            // Skip events without valid location
+            if (!location) {
+                return null;
+            }
             
             return {
                 id: page.slug,
@@ -166,11 +172,45 @@ export default class UrbanCraftUprisingRipper extends JSONRipper {
         for (const pattern of locationPatterns) {
             const match = content.match(pattern);
             if (match) {
-                return match[0].replace(/<[^>]*>/g, '').trim();
+                const location = match[0].replace(/<[^>]*>/g, '').trim();
+                
+                // Validate location - reject WordPress internal garbage
+                if (this.isValidLocation(location)) {
+                    return location;
+                }
             }
         }
         
         return undefined;
+    }
+    
+    private isValidLocation(location: string): boolean {
+        if (!location || location.length < 3) {
+            return false;
+        }
+        
+        // Reject if it starts with only digits (page ID)
+        if (/^\d+$/.test(location)) {
+            return false;
+        }
+        
+        // Reject WordPress-specific patterns
+        const wordpressPatterns = [
+            /testimonials-widget/i,
+            /status-publish/i,
+            /status-draft/i,
+            /category-\w+/i,
+            /css=/i,
+            /style=/i
+        ];
+        
+        for (const pattern of wordpressPatterns) {
+            if (pattern.test(location)) {
+                return false;
+            }
+        }
+        
+        return true;
     }
     
     private extractDescription(content: string): string | undefined {

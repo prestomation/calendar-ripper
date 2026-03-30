@@ -38,12 +38,20 @@ jobs:
     - name: Run unit tests
       run: npm run test:all
 
+    - name: Check AWS credentials
+      run: |
+        if [ -n "${{ secrets.AWS_ROLE_ARN }}" ]; then
+          echo "✅ AWS_ROLE_ARN is configured — will configure credentials"
+        else
+          echo "⚠️  AWS_ROLE_ARN is not set — S3 uploads will be skipped"
+        fi
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
         aws-region: us-west-2
-      continue-on-error: true  # Gracefully skip if secrets aren't configured
+      if: secrets.AWS_ROLE_ARN != ''
 
     - name: Download geo-cache from S3
       env:

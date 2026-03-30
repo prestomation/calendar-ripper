@@ -6,10 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:West Seattle Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:7L_ED80hEaTF5YCez3u7g
+UID:bW-CrjtjXKuawgdkUGxGV
 SUMMARY:Trivia Night @ Alki   
-DTSTAMP:20260328T110949Z
-DTSTART;TZID=America/Los_Angeles:20260329T100000
+DTSTAMP:20260330T060559Z
+DTSTART;TZID=America/Los_Angeles:20260401T193000
 DESCRIPTION:Teams up to 6 people welcome and free to play with prizes for t
 	he top 2 teams.\n\nhttps://www.futureprimitivebeer.com/events/2025/10/29/t
 	rivia-night-alki-cclnt-gjeww-acte8-bm2nl-hla7k-3bbhh-wapjx\n\nFrom Future 
@@ -23,10 +23,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:HtQUZIc2-dz12tq-2MSPu
+UID:-MEqvYdxqhFbfMg1qZFqG
 SUMMARY:Trivia Night @ Alki   
-DTSTAMP:20260328T110949Z
-DTSTART;TZID=America/Los_Angeles:20260401T193000
+DTSTAMP:20260330T060559Z
+DTSTART;TZID=America/Los_Angeles:20260405T100000
 DESCRIPTION:Teams up to 6 people welcome and free to play with prizes for t
 	he top 2 teams.\n\nhttps://www.futureprimitivebeer.com/events/2025/10/29/t
 	rivia-night-alki-cclnt-gjeww-acte8-bm2nl-hla7k-3bbhh-wapjx-3t5we\n\nFrom F
@@ -40,9 +40,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:4xfWFMYmwm-wpvKECONZu
+UID:hoD6hAqQrQGCnPaDi1sql
 SUMMARY:Trivia Night @ Alki   
-DTSTAMP:20260328T110949Z
+DTSTAMP:20260330T060559Z
 DTSTART;TZID=America/Los_Angeles:20260409T180000
 DESCRIPTION:Teams up to 6 people welcome and free to play with prizes for t
 	he top 2 teams.\n\nhttps://www.futureprimitivebeer.com/events/2025/10/29/t
@@ -57,25 +57,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:5JWy_dxMUYJBux9ntRvMO
-SUMMARY:West Seattle Farmers Market
-DTSTAMP:20260328T110949Z
-DTSTART:20260329T170000Z
-DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
-	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
-	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
-URL:https://seattlefarmersmarkets.org/wsfm
-LOCATION:California Ave SW & SW Alaska St\, Seattle
-X-CALRIPPER-SOURCE:west-seattle-farmers-market
-CATEGORIES:West Seattle Farmers Market
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=SU
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:bRX1rV0YjQIHnH_XuE_gf
+UID:0dVCXgW51yZ2_QsmQZqh2
 SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260328T110949Z
+DTSTAMP:20260330T060559Z
 DTSTART:20260402T023000Z
 DESCRIPTION:Weekly open mic with full backline provided and 16-track record
 	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
@@ -89,9 +73,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:OMDYO84QUVTYvYIAXbLyL
+UID:Z9Wa1B_d3ABdA9IrliIHB
 SUMMARY:Preschool Story Time
-DTSTAMP:20260328T110949Z
+DTSTAMP:20260330T060559Z
 DTSTART:20260402T173000Z
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
@@ -106,9 +90,25 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:7hYC2n9iel4MI3IFZP9JE
+UID:fWVmJ7F4t1FCG1yU3J_0X
+SUMMARY:West Seattle Farmers Market
+DTSTAMP:20260330T060559Z
+DTSTART:20260405T170000Z
+DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
+	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
+	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
+URL:https://seattlefarmersmarkets.org/wsfm
+LOCATION:California Ave SW & SW Alaska St\, Seattle
+X-CALRIPPER-SOURCE:west-seattle-farmers-market
+CATEGORIES:West Seattle Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:3xtLki3rZyDXiJiBzoLvd
 SUMMARY:West Seattle Art Walk
-DTSTAMP:20260328T110949Z
+DTSTAMP:20260330T060559Z
 DTSTART:20260410T010000Z
 DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
 	om West Seattle Art Walk

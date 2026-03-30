@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-28T11:10:12.344Z",
+  "lastUpdated": "2026-03-30T06:06:20.453Z",
   "rippers": [
     {
       "name": "19hz",
@@ -1494,20 +1494,20 @@
       ]
     },
     {
-      "name": "wing-luke",
-      "description": "Wing Luke Museum events calendar",
-      "friendlyLink": "https://www.wingluke.org/eventscalendar",
+      "name": "rainier-arts-center",
+      "friendlyName": "rainier-arts-center",
+      "description": "Rainier Arts Center",
+      "friendlyLink": "https://rainierartscenter.org/events/",
       "calendars": [
         {
-          "name": "all-events",
-          "friendlyName": "Wing Luke Museum",
-          "icsUrl": "wing-luke-all-events.ics",
-          "rssUrl": "wing-luke-all-events.rss",
+          "name": "rainier-arts-center",
+          "friendlyName": "Rainier Arts Center",
+          "icsUrl": "rainier-arts-center-rainier-arts-center.ics",
+          "rssUrl": "rainier-arts-center-rainier-arts-center.rss",
           "tags": [
-            "Museums",
             "Arts",
-            "Community",
-            "International District"
+            "Music",
+            "Community"
           ]
         }
       ]
@@ -2304,19 +2304,6 @@
       "tags": [
         "Community",
         "Education"
-      ]
-    },
-    {
-      "name": "hugo-house",
-      "friendlyName": "Hugo House",
-      "description": "Hugo House",
-      "icsUrl": "external-hugo-house.ics",
-      "originalIcsUrl": "https://hugohouse.org/programs-events/?ical=1&tribe_display=list",
-      "infoUrl": "https://hugohouse.org/programs-events/",
-      "tags": [
-        "Arts",
-        "Community",
-        "Capitol Hill"
       ]
     },
     {

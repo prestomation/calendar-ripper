@@ -391,6 +391,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
   'husky ballpark': { lat: 47.6515, lng: -122.3011 },
   'fremont studios': { lat: 47.6513746, lng: -122.3556160 },
+  'mount vernon downtown association': { lat: 48.4206767, lng: -122.337333 },
+  'peace of mind brewing': { lat: 47.8316011, lng: -122.3053788 },
+  'cap hill (rsvp for details)': { lat: 47.6253, lng: -122.3222 },
 };
 
 /**

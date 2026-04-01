@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-04-01T02:36:47.250Z",
+  "buildTime": "2026-04-01T04:46:07.670Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
@@ -13,8 +13,8 @@
   ],
   "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7481,
-    "eventsWithGeo": 5707,
+    "totalEvents": 7478,
+    "eventsWithGeo": 5704,
     "eventsWithoutGeo": 1774,
     "geocodeErrors": 0
   },
@@ -563,7 +563,7 @@
     {
       "name": "elliott-bay-elliott-bay",
       "type": "Ripper",
-      "events": 23,
+      "events": 22,
       "expectEmpty": false
     },
     {
@@ -719,7 +719,7 @@
     {
       "name": "seatoday-seatoday-arts",
       "type": "Ripper",
-      "events": 148,
+      "events": 147,
       "expectEmpty": false
     },
     {
@@ -743,7 +743,7 @@
     {
       "name": "seatoday-seatoday-community",
       "type": "Ripper",
-      "events": 180,
+      "events": 179,
       "expectEmpty": false
     },
     {
@@ -1211,7 +1211,7 @@
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 451,
+      "events": 450,
       "expectEmpty": false
     },
     {
@@ -1331,7 +1331,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2618,
+      "events": 2617,
       "expectEmpty": false
     },
     {
@@ -1445,19 +1445,19 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1070,
+      "events": 1069,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 502,
+      "events": 501,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1058,
+      "events": 1056,
       "expectEmpty": false
     },
     {
@@ -1469,19 +1469,19 @@
     {
       "name": "tag-art",
       "type": "Aggregate",
-      "events": 153,
+      "events": 152,
       "expectEmpty": false
     },
     {
       "name": "tag-activism",
       "type": "Aggregate",
-      "events": 324,
+      "events": 323,
       "expectEmpty": false
     },
     {
       "name": "tag-volunteer",
       "type": "Aggregate",
-      "events": 210,
+      "events": 209,
       "expectEmpty": false
     },
     {
@@ -1517,7 +1517,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7484,
+      "events": 7481,
       "expectEmpty": false
     },
     {

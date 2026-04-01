@@ -6,9 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Georgetown Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:9o--u6oVgg0O0Pvr8A5RC
+UID:KqSZQEM2UfIvzZCdZfGju
 SUMMARY:Dub Lounge International // Lion of Judah Band // The Selassie Ites
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART;TZID=America/Los_Angeles:20260404T100000
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -19,10 +19,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:psl-N_FMEvcIx5QHbTTNM
+UID:e_On8flk0YwU-O4xGFABb
 SUMMARY:Georgetown Flea Market
-DTSTAMP:20260401T021312Z
-DTSTART;TZID=America/Los_Angeles:20260411T180000
+DTSTAMP:20260401T023621Z
+DTSTART;TZID=America/Los_Angeles:20260407T183000
 DESCRIPTION:Monthly flea market at the Georgetown Trailer Park Mall.\n\nhtt
 	p://georgetowntrailerparkmall.com/events\n\nFrom Georgetown Flea Market
 URL:http://georgetowntrailerparkmall.com/events
@@ -34,10 +34,10 @@ RRULE:FREQ=MONTHLY;BYDAY=1SA
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:j5xX4jkewpjFDo-zO28Hv
+UID:eLy-sswc76gD2xIWngmYi
 SUMMARY:Dish Pit // Pet Mosquito // Snörkler // Worms In Dirt
-DTSTAMP:20260401T021312Z
-DTSTART:20260405T030000Z
+DTSTAMP:20260401T023621Z
+DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
 LOCATION:Slim's Last Chance\, 5606 1st Ave S\, Seattle\, WA 98108
@@ -47,9 +47,24 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:q-DOdX_qzISRHaaksAaDk
+UID:e8XkTegZeLJtymJNbrj0P
+SUMMARY:Trivia at Great Notion Georgetown
+DTSTAMP:20260401T023621Z
+DTSTART:20260408T013000Z
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Great Notion Georgetown
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:6235 Airport Way S\, Seattle\, WA 98108
+X-CALRIPPER-SOURCE:hitc-trivia-great-notion-georgetown
+CATEGORIES:Trivia at Great Notion Georgetown
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:Qigz3Ugi1eiDiGIuQJfPC
 SUMMARY:Lounge\, Tiki & Surf with Tikigraphs (2 sets) // Johnny Astro
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260411T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -60,9 +75,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ryDtECOGNrYECgZC9pS1I
+UID:0Fhv6iDIQYbHskRJgW8H5
 SUMMARY:Georgetown Art Attack
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260412T010000Z
 DESCRIPTION:Monthly art walk in the Georgetown neighborhood\n\nhttps://geor
 	getownseattle.org/art-attack/\n\nFrom Georgetown Art Attack
@@ -75,9 +90,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZxBzkVMmZQkyLO3XEZTi1
+UID:hE_koQL0Ok0nIT1LhIklW
 SUMMARY:Prelude to a Pistol // Dual Analog // NeuroGeist
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260412T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -88,10 +103,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Q9Zj_rEAKrNTbb--QwGkA
+UID:8ORjQPjJ-AwBbddXbdbOl
 SUMMARY:Supreme Masters of Relaxed Living // Dick Rossetti & Bulk Male // F
 	ull Ripley
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260418T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -102,10 +117,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:N347yTPpnKjGdVMjtbGY6
+UID:6emc2edXvN5oNTV0HcpOc
 SUMMARY:Lisa's 60th Birthday Party - a benefit for Seattle Children's Choru
 	s
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -116,9 +131,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:0E_YN19gjarJVSB34w0yN
+UID:Q58I5INXOWlnTp-So6wxi
 SUMMARY:Devil’s Duvet // Runaway Satellite // Will Moore
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260425T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -129,10 +144,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:h_BjpX-0r9HGTeaRAzdUj
+UID:MGPDJFlQRbLkaakIE2uRI
 SUMMARY:The Mistons (ex-Crackerbash) // The Freak Accident (ex-Victims Fami
 	ly) // TV1984 (ex-Gits)
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260426T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -143,9 +158,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:TfARDGrISmAdVpJLpW833
+UID:T5-Rbr8ISZWMepR4-032a
 SUMMARY:Allyn Naylor // Cuvier // Drifter
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260503T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -156,9 +171,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:-oNiuWs23ElsvWPkZ6g1A
+UID:k1Ls18fr6aWUS3cx-pYvq
 SUMMARY:SKATES! // Sweet Piece // Straight to Video
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260510T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -169,9 +184,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9V2VfmiAO73oxd2dS04iK
+UID:ply32oPaa8g2glfmML-He
 SUMMARY:Peter Case & Christy McWilson
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260516T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -182,9 +197,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gWZ68Ab5ZkvxG-opi_MCt
+UID:5noqe3OfCpJv0S8iJVB2m
 SUMMARY:Hüligan // Stargazey Pie // Sharkeologist // Guilded Lilly
-DTSTAMP:20260401T021312Z
+DTSTAMP:20260401T023621Z
 DTSTART:20260627T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/

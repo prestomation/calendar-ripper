@@ -6,10 +6,25 @@ METHOD:PUBLISH
 X-WR-CALNAME:Belltown Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:q8fQXuKQRolmINunWgsmG
+UID:E8-ZmWWzvSdBU1fCkiKjc
+SUMMARY:Trivia at Pub 70
+DTSTAMP:20260401T023620Z
+DTSTART;TZID=America/Los_Angeles:20260401T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Pub 70
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:70 Virginia St\, Seattle\, WA 98101
+X-CALRIPPER-SOURCE:hitc-trivia-pub-70
+CATEGORIES:Trivia at Pub 70
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:WphUZTfwD3pdet9JaqslY
 SUMMARY:Humbe
-DTSTAMP:20260401T021311Z
-DTSTART;TZID=America/Los_Angeles:20260410T180000
+DTSTAMP:20260401T023620Z
+DTSTART;TZID=America/Los_Angeles:20260406T193000
 DESCRIPTION:Performance in Spanish The Moore Theatre is located in downtown
 	 Seattle at 1932 2nd Ave\, Seattle\, WA 98101. There is an overall 8 ticke
 	t limit per patron. Patrons exceeding the ticket limit will have their ord
@@ -37,10 +52,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:iMtLKbc5SM_ZBPr8HvU5n
+UID:v4jtjZZyjRtbntGJdUidU
 SUMMARY:Jeff Tweedy with special guest Macie Stewart
-DTSTAMP:20260401T021311Z
-DTSTART:20260403T023000Z
+DTSTAMP:20260401T023620Z
+DTSTART;TZID=America/Los_Angeles:20260410T180000
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 8 ticket limit per patron. Pat
 	rons exceeding the ticket limit will have their orders canceled at the ven
@@ -68,9 +83,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gY67BPH2X3l-98vLKg_P2
+UID:yr6HRyVpRE0kFXIC7OTHr
 SUMMARY:The Moss\, Rec Hall
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260403T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -91,9 +106,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:7msMB9E5zXpGnEUrw-0E4
+UID:JUIxKoxE6LjOlWa0ObJrn
 SUMMARY:Blue Moon Marquee
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260403T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -104,9 +119,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:WkZ8QV_C_5AButFD2CCQi
+UID:_vqagcVkve5weVXdBJm68
 SUMMARY:Brandon Wardell\, Haley Stiel
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260404T020000Z
 DESCRIPTION:Limited First Come First Serve Seating Available\nThis event is
 	 21 and over. Any ticket holder unable to present valid identification ind
@@ -131,9 +146,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:IQ1kUDIJl01-yyxm1v5OM
+UID:TzbcrgCM3BjceEPfrUPZL
 SUMMARY:Electric Garden Rave Night
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260404T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -144,9 +159,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3XLntpW17XqVecfSJ1rTN
+UID:M9lpPllas_OW7kFTGachC
 SUMMARY:Quiébrala
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260404T050000Z
 DESCRIPTION:with La Zima & Banda La Tremenda\nThis event is 21 and over. An
 	y ticket holder unable to present valid identification indicating that the
@@ -163,10 +178,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3vNPkuuLkwyA64gr-gh7Y
+UID:bBA1wLBzDGjgh84CWLGTL
 SUMMARY:LACUNA COIL: Sleepless Empire Tour 2026 w/ Special Guests ESCAPE TH
 	E FATE and VOWWS
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260405T010000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -187,9 +202,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:tgVavneDjNp9j7pO3AMSr
+UID:nRrClkr6lna5Ce6DBU7ln
 SUMMARY:Amplify Courage: A Concert For School Bullying Prevention
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260405T020000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -217,9 +232,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:YdQyD0-Za79TvcvQ-zh92
+UID:fLZBnUXJswTXcFB9D310V
 SUMMARY:Abyecta\, Nightfeeder\, Fan Club\, Mass Grief
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260405T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -230,9 +245,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:J31ku2UcpeNo-1wPRuHDJ
+UID:ofOu0kZIt7k337DeQ6TW2
 SUMMARY:BIT BRIGADE Performs "Mega Man X" LIVE w/ 8-Bit Brass Band
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260406T030000Z
 DESCRIPTION:Bit Brigade performs rock covers of full NES/SNES game soundtra
 	cks as their gamer speedruns the game live on stage.\nThis event is 21 and
@@ -257,9 +272,24 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:o-J1hxant20Tks0IXWJFQ
+UID:lUNnXPhg8T4Frdg8anvRw
+SUMMARY:Trivia at Here Today Brewery
+DTSTAMP:20260401T023620Z
+DTSTART:20260407T023000Z
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Here Today Brewery
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:2815 Elliott Ave\, Seattle\, WA 98121
+X-CALRIPPER-SOURCE:hitc-trivia-here-today
+CATEGORIES:Trivia at Here Today Brewery
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:7wWAt2_4WaSjvIIqvU7tc
 SUMMARY:Ravi Shankar Ensemble
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260407T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 9 ticket limit per patron. Pat
@@ -288,9 +318,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:TQmIkkmDmAZ0sfQkryIXg
+UID:SAcM1YTe5dsrhvoFsSm3G
 SUMMARY:KXLLSWXTCH: EYESORE Tour w/ Warlord Colossus\, Druidess
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260407T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -311,9 +341,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:KXQUM9M5fqsxA-x3JbnpK
+UID:6buHdXIc5mDYDtUbLR8H1
 SUMMARY:The Summer Set\, Senses\, Lindsay Ell\, Good Boy Daisy
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260408T020000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -334,9 +364,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:jhfJ85JjsNXSWfcVtAjIs
+UID:dsIUu3sJeFIOoLnqXfISn
 SUMMARY:Belltown Art Walk
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260411T010000Z
 DESCRIPTION:Monthly art walk in the Belltown neighborhood\n\nhttp://www.bel
 	ltownartwalk.com/\n\nFrom Belltown Art Walk
@@ -349,9 +379,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:z3-_AdOV0OxKs4SIDsZiq
+UID:CSB1Rz7RdENGroXiEkJ8Z
 SUMMARY:Cameron Esposito
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260411T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -375,9 +405,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:DBRHCyJ21yMXU4CKQVx0P
+UID:zcXlTwqFsyExgfo_LnS8I
 SUMMARY:Michael Blaustein: The Taste Me Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260411T020000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 6 ticket limit per patron. Pat
@@ -406,9 +436,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ej0O-vZLO5xnNMQZN50Rv
+UID:c60kiDcXelceWDFvX1LFQ
 SUMMARY:A Night of Latin Music &amp\; Art IV
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260411T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Hotel Crocodile
 URL:https://seattle.showlists.net/
@@ -419,10 +449,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ojtFTbv7MdyBkHWz1PwlO
+UID:Wzx1uW2oC1y2JCZy9ZhLR
 SUMMARY:Fishbone - In Your Face 40th Anniversary w/ Bite Me Bambi & Kimya D
 	awson
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260412T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -446,9 +476,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CQ7sUp3FqDMBeTujxtdO3
+UID:E5Ajv0gNGfIWZSyR1gfaS
 SUMMARY:Jim Jefferies - Son Of A Carpenter 
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260412T020000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 8 ticket limit per patron. Pat
@@ -477,9 +507,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:9bbXRvhtyZoU7-0Veam5R
+UID:7ksrrOOldo4AyVlAnwKec
 SUMMARY:Jim Jefferies
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260412T020000Z
 DESCRIPTION:From STG - Moore Theatre
 LOCATION:Moore Theatre\, 1932 2nd Ave\, Seattle\, WA
@@ -489,9 +519,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:IbfgoS4F2qp-EcuKraC15
+UID:-agEG4-ihFF8lOlDIoA5J
 SUMMARY:College Radio\, Delridge\, Further North\, The Requisite
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260412T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -502,9 +532,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:WsVUvGSITquRwOeKy4pLW
+UID:q_Q18mjaNYWBp1wAUbWsg
 SUMMARY:Afrobeats to the World
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260412T050000Z
 DESCRIPTION:Get ready to groove at Afrobeats to the World! Dive into a high
 	-energy Experience where electrifying rhythms and music bring Afrobeats an
@@ -532,9 +562,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:jISRIn2y8PSuQIyalW1uD
+UID:BSuTAsvziJGC9ZB-wRoE-
 SUMMARY:Weedeater\, Conan\, Telekinetic
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260413T020000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -558,9 +588,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:W-dzcXJx63rqPl_PV38bF
+UID:yQfUskvSU5bzBVVorK67d
 SUMMARY:Pleasure Pill\, Native Sun\, John Honda
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260413T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -571,9 +601,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4jns3cU84vLlY3hwsOe4A
+UID:JU3oWBP2oIGKEgRJ8sY_C
 SUMMARY:Ari Lennox - The Vacancy Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260413T030000Z
 DESCRIPTION:MOVED from WAMU Theater. Tickets for the original show will be 
 	honored. The Moore Theatre is located in downtown Seattle at 1932 2nd Ave\
@@ -605,9 +635,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Z5bcwVLC5xVDJ6Y4YRLOG
+UID:OuT2pHXuxu268qwcFaF1T
 SUMMARY:The Format
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260414T015000Z
 DESCRIPTION:The Format will donate $1 from every ticket sold to help fight 
 	food insecurity and fund local animal shelters. This is a sponsored projec
@@ -642,9 +672,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Al2CyrApFnaKhrE80X2gD
+UID:SO1aSYltBNUKxzxPeCFPM
 SUMMARY:Maria Somerville
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260414T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -655,10 +685,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:21Na87trFaIHTQXCjbKSN
+UID:PHvE-x6LZAoDEiEIhuDzA
 SUMMARY:THURSDAY presents FULL CITY DEVOLUCION with special guest CHRIS CON
 	LEY
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260415T023000Z
 DESCRIPTION:THURSDAY presents FULL CITY DEVOLUCION with special guest CHRIS
 	 CONLEY Celebrating 25 Years of FULL COLLAPSE20 Years of A CITY BY THE LIG
@@ -684,9 +714,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3T8zrhvX_l40wIGm69W-o
+UID:Fr7g8DH5T9w7MHDoLuGJc
 SUMMARY:Coltrane 100: Both Directions at Once
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260415T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. Featuring Joe Lovano\, Melissa Aldana\, Nduduzo Ma
@@ -716,9 +746,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4zSSTQag0QELjlx2LrF7F
+UID:DLzocHX3j7LP6AlUQ8rdm
 SUMMARY:Throwing Muses
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260416T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -742,9 +772,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Bb_wjZpXCcMyGo2CqRfBF
+UID:zc6BqwOlh3Bn8dPi_2hW9
 SUMMARY:Urgant Live - First Time in North America
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260416T030000Z
 DESCRIPTION:This show is in Russian with no English translation. The Moore 
 	Theatre is located in downtown Seattle at 1932 2nd Ave\, Seattle\, WA 9810
@@ -776,9 +806,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:zMf4JdP0uKkvU6NuAHh2A
+UID:BGppguityEXVpRw2x_iK_
 SUMMARY:Richard Thompson with Zara Phillips
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260417T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 8 ticket limit per patron. Pat
@@ -805,9 +835,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:6f-oykuU8RZvV6DHva6UV
+UID:o7yHl6OFqb65ksPBO_uXl
 SUMMARY:Flyte\, Samantha Crain
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260418T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -831,9 +861,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:bmOLNilBtyKQxgKFBl6Jt
+UID:sMQ42qAjsEqewNgi3mm-x
 SUMMARY:Tommy Emmanuel CGP - Living In The Light Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260418T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 8 ticket limit per patron. Pat
@@ -862,9 +892,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:JnzuWciE_GD6fWWr8l9x-
+UID:MEo0TvgL8IclAzZWZaYH4
 SUMMARY:Daft Disko: Seattle
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260418T050000Z
 DESCRIPTION:Daft Disko:A French Touch & Disco House PartyA party inspired b
 	y the music of:Daft Punk Stardust Breakbot Justice Cassius Uffie Giorgio M
@@ -893,9 +923,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:v_EjuHbwFxiAGd5YXBePb
+UID:j5gKA3C7RCHOg-inWNYVO
 SUMMARY:Drugdealer\, Josh Da Costa
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260419T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -919,9 +949,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:1zb3BGTkpDnNVOPjBwOSI
+UID:7gWBmacWRbtxyPMFzyPXy
 SUMMARY:Gondos\, Pyrocene\, Brute!
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -932,9 +962,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:644sCO7jufw-Bu6iCZ5MK
+UID:o5ZtqSjTfefd0KpPPa1S2
 SUMMARY:Gimme Gimme Disco
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260419T050000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -958,9 +988,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_jJWwrpTIfVS3g4Za8LZJ
+UID:AGcRVihq9pJ3zKFoDCN2d
 SUMMARY:SCHOOL OF ROCK: Spring Season Preview
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260419T190000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -981,9 +1011,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:W4LT6fpXzoTEdxLX89R5w
+UID:DOey_7-5uPLpQoEwdQ-_S
 SUMMARY:Margaret Cho: Choligarchy
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260420T020000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 6 ticket limit per patron. Pat
@@ -1011,9 +1041,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:dY9c4565O37Rbs0CQ_C7E
+UID:txqvx4JprNvk_EuKCAH8C
 SUMMARY:Low Hums\, Fuckwolf\, Corespondents
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260420T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -1024,9 +1054,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:6fYfM1C5uflYXZjCI-AjJ
+UID:u0eYk-NnjjJIA_11nkFxO
 SUMMARY:Bleed From Within - The Zenith Tour - North America
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260421T020000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -1047,9 +1077,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4Zr2bKIOgYFXyKQtZ2qAE
+UID:ec6k-IQvCfEkjKBMGVKqV
 SUMMARY:Lebanon Hanover\, TRAITRS \, SOFT VEIN 
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260422T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -1073,9 +1103,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:lI03t8kcv7sY-Og-w-Vd4
+UID:atX8GDseh5rI_m-9CUTBN
 SUMMARY:Hotel Crocodile Presents: The Terror/Cactus Lobby Session
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260422T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Hotel Crocodile
 URL:https://seattle.showlists.net/
@@ -1086,9 +1116,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ripYIvTZ--blQ16f2fpp1
+UID:olFJ4Rvte3_3tVsmRXBiL
 SUMMARY:Ryan Caraveo: The Forever Foggy Tour w/ Special Guest VICENTE
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260423T030000Z
 DESCRIPTION:VIP Package Description One (1) GA ticket to the showOne (1) Pi
 	cture with Ryan CaraveoEarly Entry to the venueOne (1) exclusive merch ite
@@ -1112,9 +1142,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:curltJDZ5UAGaow_8pke9
+UID:Yd0VVIuu-mV-HHZhMk03g
 SUMMARY:Fiona Grey\, Tinsley\, Brittany Danielle
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260423T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -1125,9 +1155,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:YFKHPwst69_RHjGI6OA1y
+UID:z1SCd4QbSk7GE2be9xi31
 SUMMARY:Moonchild\, Brittney Carter
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260424T030000Z
 DESCRIPTION:Moonchild Meet & Greet PackageOne general admission ticketEarly
 	 entry into the venueAccess to an intimate preshow performanceExclusive me
@@ -1153,9 +1183,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:O805WbO1pQjTR_LQJvvwo
+UID:P_7PTsHEpVAgyRh5ADDVP
 SUMMARY:Babename\, Pink Moss\, Forest Service
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260424T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -1166,9 +1196,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:RfFCWFEm2yQGbCIoeJ6YZ
+UID:SaGTCkNmfC8P_xkEgwIhS
 SUMMARY:Wednesday: Wednesday Bleeds Tour 2026
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260424T030000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. Wednesday has partnered with PLUS1 so that $1 from
@@ -1206,9 +1236,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UfyUsRSP09-2k-rHf94xe
+UID:n3gHvM6CrHSy5Ap1C476R
 SUMMARY:Food House\,  torr
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260425T010000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -1229,9 +1259,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:pDo2UbworPfONApNFDl5-
+UID:Ee2U_AJqPDE13jz5gas0e
 SUMMARY:Puff Puff Puss
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260425T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -1242,9 +1272,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:R8aP9CsidsgE7RYECRcoM
+UID:XE1CzAHUxnRFZcrcDEKub
 SUMMARY:Jonathan Van Ness: Hot & Healed
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260425T030000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 8 ticket limit per patron. Pat
@@ -1272,10 +1302,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:FBgmsHzdna94Q2uoMPVv7
+UID:uP55FpHKbZg2RROn5X1CO
 SUMMARY:LANGHORNE SLIM: The Dreamin’ Kind Tour w/ Laney Jones and the Spiri
 	ts
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260426T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -1299,9 +1329,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:bdfL5q53Uqm15BePE-oe2
+UID:otPnCXm4nC-mT3jB4mtWW
 SUMMARY:TWEN
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260426T013000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7jgQK\n\nFrom Madame
 	 Lou's
@@ -1313,9 +1343,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:y81Bk8ppvH8jAJxa3psfr
+UID:6aA94gSBKRkTCS8gVDZft
 SUMMARY:Saxsquatch\, Lola K
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260426T050000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -1339,10 +1369,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3-WNiFYGNtjG-hvTy6Z5R
+UID:n65Mc6A5FJ0DRNcfvBU5i
 SUMMARY:THE WEDDING PRESENT: Seamonsters 35th Anniversary Tour w/ Mark Robi
 	nson sings Unrest
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260427T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -1366,9 +1396,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:TK83f1-fl9Cy_pZa0W9CA
+UID:UX9Hx7sbPphi4XZYza3Ug
 SUMMARY:Something United\, Niko Haley\, Lowe Cellar
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260427T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -1379,9 +1409,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:LzBIymwxdtGCKujGNLZCA
+UID:NJrKf084Zq7MkAAH_hlvn
 SUMMARY:Claire Rosinkranz
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260429T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7ON-b\n\nFrom The Cr
 	ocodile
@@ -1393,9 +1423,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:lx9AE8j4iZ9gOHdj_eMOH
+UID:iphX6Q36WTOqYJlq1w2PV
 SUMMARY:Liz Miele
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260501T020000Z
 DESCRIPTION:LIMITED FIRST COME FIRST SERVE SEATING AVAILABLE\nThis event is
 	 21 and over. Any ticket holder unable to present valid identification ind
@@ -1419,9 +1449,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:HDT3V6VrwCeeKEeZhIGOI
+UID:6uUsVCHKRz_oSQ9tQhPyv
 SUMMARY:Earlybirds Club
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260502T003000Z
 DESCRIPTION:Earlybirds Club is a dance party designed for women\, trans\, a
 	nd non-binary folks that starts at 6pm and ends at 10pm because we have sh
@@ -1460,9 +1490,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:A4mQsBoTTQyrrjDVbfTdi
+UID:5T0m0o0zBbbPaon8xBRlq
 SUMMARY:Bbhs Drama: The Music Man
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260502T023000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -1491,10 +1521,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:EquVOuQHHEiQtUjkG3i7Z
+UID:0a7THNUz0WPcj1Pb3LYLK
 SUMMARY:GRINDHAUS with Bosco\, Naomi Smalls\, Aja\, King Molasses\, & Speci
 	al Guests
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260502T053000Z
 DESCRIPTION:This May 1-2\, join the action with another double-feature inst
 	allment of Seattles best drag and performance art showcase. International 
@@ -1532,9 +1562,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:unheRSK7OYA70BvIQh61B
+UID:8lksv4wR1SSkxuoyr2BIj
 SUMMARY:Earlybirds Club
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260503T003000Z
 DESCRIPTION:Earlybirds Club is a dance party designed for women\, trans\, a
 	nd non-binary folks that starts at 6pm and ends at 10pm - because we have 
@@ -1570,9 +1600,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:dv9-cxWuQKSa7Z2rsDyld
+UID:IpPoO77bASeQ8OISb1tfN
 SUMMARY:Bbhs Drama: The Music Man
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260503T023000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -1601,10 +1631,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Uyq7XPrXCQXCFVP4tSls1
+UID:p9D24OWXqeQ0gPodokZHz
 SUMMARY:GRINDHAUS with Bosco\, Naomi Smalls\, Aja\, King Molasses\, & Speci
 	al Guests
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260503T053000Z
 DESCRIPTION:This May 1-2\, join the action with another double-feature inst
 	allment of Seattles best drag and performance art showcase. International 
@@ -1642,9 +1672,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WBGKFQG9Pi_3S2YYTaQ3F
+UID:-lFFSbZ6u3MsIokYcgMpp
 SUMMARY:Bbhs Drama: The Music Man
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260503T210000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -1673,9 +1703,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5LKqYUZmCphuHJpVY4hG9
+UID:Q_Q9qtczO2eK3x-kn_y7C
 SUMMARY:Maye & Ambar Lucid
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260504T030000Z
 DESCRIPTION:Entre Dos Mundos brings together maye and Ambar Lucid for a tou
 	r rooted in duality\; not just sonically\, but also emotionally. Together\
@@ -1705,9 +1735,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eJTwgQnERAxVa8YDtWM7-
+UID:yW1HEY69suk_QTrQbVmSi
 SUMMARY:KILL THE KEG! Punk Night
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260504T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -1718,9 +1748,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:bbPB1RTHDedFSjOyXeWLX
+UID:GQANv-HjX6Bwm9WOgV2CO
 SUMMARY:Cabaret Voltaire
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260505T030000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 8 ticket limit per patron. Pat
@@ -1748,9 +1778,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:V0WG0DW01Y6X4O9-RQKZq
+UID:1fKLSAFdH437xyBbooD0U
 SUMMARY:Hiromi's Sonicwonder
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260506T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 9 ticket limit per patron. Pat
@@ -1779,9 +1809,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3m0GMNisFH0uNdtIdhUK3
+UID:sbSHXhH2GgHsBb4t4wum8
 SUMMARY:Joy Crookes
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260508T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -1802,9 +1832,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Cj9JhF95UGF5s3sFWMND-
+UID:_MxViberLbYWSSiwowO8m
 SUMMARY:Las Alucines: Tu Nuevo Estilo de Vida US Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260508T033000Z
 DESCRIPTION:Las Alucines is a hit podcast with Lupita Villalobos & Kass Que
 	zada (Quesito). The Moore Theatre is located at 1932 2nd Avenue in Downtow
@@ -1833,9 +1863,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:jUTKxdPv-VbZgnGJSqAgC
+UID:oQjcJnP-lfjwefspC6PIO
 SUMMARY:Teen Suicide\, Cloud Nothings\, Anthers
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260509T010000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -1856,9 +1886,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Q8VS4rG3EhMd3QSNLuQTQ
+UID:D0DgENZeOoeKDV3mP5x-t
 SUMMARY:Snail Mail
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260509T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. This is a general admission event. The ADA section
@@ -1886,9 +1916,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:QzeJ2HiFXXMq_uwEj36Bi
+UID:Q0fMU2N5vVk6x85WdI2dx
 SUMMARY:SIr Woman - Spring Tour 2026 w/ Oh He Dead and Uncle Roy & Spice
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260510T010000Z
 DESCRIPTION:Were bringing the magic back. Sir Woman heads out in Spring 202
 	6 with a full band for a run of shows built around feel\, groove\, and rea
@@ -1920,9 +1950,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:7VtLVhBYl2ISgGBc_Xfc1
+UID:Oq6tYgb0NR6kpuQ1yWiLR
 SUMMARY:Seattle Rock Orchestra Performs The Beatles: Number 1's
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260510T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 9 ticket limit per patron. Pat
@@ -1951,9 +1981,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:9mWtBierL3eN9riOQwMPK
+UID:Jr-CohyhmvFkOyISo7ACG
 SUMMARY:The Floozies\, Mocha\, Bray Radbury
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260510T053000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -1977,9 +2007,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Zlyg_Sa6QG937F0Lr24Zg
+UID:_vKnBFbh4QXwVq_cPyio7
 SUMMARY:BOYS LIKE GIRLS - The Soundtrack Of Your Life Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260511T020000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. 8 ticket limit per patron. Patrons exceeding the t
@@ -2010,9 +2040,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:7b2stpwY5KMDG1qAiJIqO
+UID:46iwHf4ifld2N2DwzphQi
 SUMMARY:MARIACHI EL BRONX - CINCO DE MAYO 2026
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260511T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2036,10 +2066,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:hdrmfGj7YEoSJ-WGZfFC1
+UID:GR0es5dxKm8squSdNRJ_H
 SUMMARY:VANA: THE LADY IN RED TOUR w/ special guests Cloudyfield\, Deadland
 	s & Redhook
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260513T020000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2060,9 +2090,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ilNr8uYtNBrSXRBlPyDCN
+UID:k5U5oiwLsFJXgRWtZ3E50
 SUMMARY:Allie X
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260514T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7qz-e\n\nFrom The Cr
 	ocodile
@@ -2074,9 +2104,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:rXfFc7YlnDkO8E5wtBBHe
+UID:ElvIcfKykIMW-4SFo8xXo
 SUMMARY:Culture Wars
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260515T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2097,9 +2127,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8XJs2UrKCFkpn9OG7ip9S
+UID:laBmesGNBFiGD1xeOVIMX
 SUMMARY:Bungalow Collect + Guests
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260515T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -2110,9 +2140,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Gvv7872Ik0Z1ymU5s9zSm
+UID:jZ-Wx_Axq0f4NPYR249GI
 SUMMARY:Gary Owen: No Hard Feelings Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260515T030000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. This show is recommended for ages 12+. 8 ticket li
@@ -2144,10 +2174,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:EpWSY-KmcTUSrxsnqo0V4
+UID:Q14X26FyaKOpylP2DxfUE
 SUMMARY:TRIPPING DAISY: Playing 'I Am An Elastic Firecracker' In Its Entire
 	ty w/ Jumprope
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260516T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2171,9 +2201,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5bgh4Wa8KJf1tTO9f45Rq
+UID:doTyWBLa_zQ-QeFiETK5U
 SUMMARY:Buffalo Traffic Jam
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260517T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2197,9 +2227,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:kxJVcSIZ_SOHVw3CBWWM8
+UID:uXiOqoHWLGkBA-kIG2LBL
 SUMMARY:Rat King/Skelm/Ripping Remains/Impulse Noise
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260517T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -2210,9 +2240,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9u0EvY5Hg-HtJsVxOp8Fv
+UID:HsRibKMViPfxZhCo2Vp4p
 SUMMARY:John Butler with Band
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260517T030000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. 8 ticket limit per patron. Patrons exceeding the t
@@ -2243,9 +2273,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:HiyEm5zp3sDhtARxXoP3p
+UID:dfwC1y8aC_WuwGgl0FjiI
 SUMMARY:Gimme Gimme Disco
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260517T050000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2269,9 +2299,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5JQ46HgsTvzT121TSiG_Q
+UID:EfPC-uJMm4FEGZrHRnVKR
 SUMMARY:A Taste of Ireland
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260517T230000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 12 tickets per person and per credit card
@@ -2299,9 +2329,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:lLh9GLOhqbzorWcwV52v5
+UID:cALb3yGEmmlxLde04jcbi
 SUMMARY:Spinall - Motion Tour 2026
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260518T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2325,9 +2355,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eAbH3TtMQJaYbgfzNtzsd
+UID:almfMO33QfFA0P9NQ8BFN
 SUMMARY:NewDad
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260520T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7q7J3\n\nFrom The Cr
 	ocodile
@@ -2339,9 +2369,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:g7GDVRhfWz5ruD2rEfNSF
+UID:gF12M3LN8ecrbi_G_v9eH
 SUMMARY:NewDad
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260520T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2361,9 +2391,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:j3DqMF_S3-Vf0Aw_kjFTJ
+UID:wHPIVpAz5dCzh3tonvfvb
 SUMMARY:American Football
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260520T030000Z
 DESCRIPTION:American Football has partnered with PLUS1 so that $1 from ever
 	y ticket sold on our tour will go towards organizations protecting immigra
@@ -2400,9 +2430,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8zQ5LFBtSv7FdvDixkTIk
+UID:2Q_JQleVSPXqEz6vTM_6x
 SUMMARY:Sleaford Mods
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260522T030000Z
 DESCRIPTION:Sleaford Mods has partnered with PLUS1 to support War Child UK.
 	 $1 from every ticket sold will help War Child UK to protect\, educate\, a
@@ -2428,10 +2458,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:tXyMLkTUN4HxSyxM8SyLb
+UID:qRZM0CP246NN35HtbrtBg
 SUMMARY:The Paper Kites - If You Go There\, I Hope You Find It (US/Canada T
 	our)
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260522T030000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 6 ticket limit per patron. Pat
@@ -2460,9 +2490,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:pC3WSgT4Z-Nqh3lj-HGcM
+UID:hbrBWzLwEv58JfuKSZH9G
 SUMMARY:Mariachazo Tour 2026
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260523T030000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -2490,9 +2520,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Tw7woCxg87-SPau8eeYKH
+UID:cUT0CgGYhZ1_jyP9IXJnV
 SUMMARY:Melody’s Echo Chamber – Unclouded Tour w/ Strange Lot
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260524T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2516,9 +2546,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:h2TK1FTPqhHGFMYY-7PAq
+UID:4vaC5mu7pCa-rW-2XwDRx
 SUMMARY:NEONI: HOW TO KILL A FAIRYTALE TOUR
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260525T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2539,9 +2569,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:iLYOsAgNOLNA_UZK4buNE
+UID:Jbb48NeuctOUnnXMNw80a
 SUMMARY:Dethklok
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260526T020000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -2568,10 +2598,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:zQ24HS-YEb0OJvERGZRKH
+UID:M17XDAPhsjbUXgjWr1dCS
 SUMMARY:CHAPTERHOUSE: Whirlpool 35 - Performing their classic debut album i
 	n full w/ The Asteroid No.4
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260526T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2592,9 +2622,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:N5-OT4v8uzzlJnrchfXky
+UID:jTyeFADUJh9tSxj8-2XmG
 SUMMARY:Sorcia\, Daytripper\, Iron Rot
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260528T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -2605,9 +2635,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aR3yjQMRjB8WOwV9S341x
+UID:iDsFa-aPE6O5w9G8JwzEQ
 SUMMARY:Joe Jackson + Band - Hope and Fury Tour 2026
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260529T023000Z
 DESCRIPTION:The Moore Theatre is located in downtown Seattle at 1932 2nd Av
 	e\, Seattle\, WA 98101. There is an overall 6 ticket limit per patron. Pat
@@ -2636,9 +2666,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gEhczMnGaqS2-2KoR65SZ
+UID:PLpqHK0emoZadz-C-MECS
 SUMMARY:Haste the Day – Dissentour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260529T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2662,10 +2692,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:VtVpjBcANPn07RBWSQcdI
+UID:4XGl2Uwh2e3K57bFmttU_
 SUMMARY:MAGIC SWORD / DANCE WITH THE DEAD: The Face Off Tour 2026 w/ Megan 
 	McDuffee
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260530T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2689,9 +2719,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CcTL1pYbs1WHVKHCkNszZ
+UID:XuON7uZsE7GSl6daKNOQ4
 SUMMARY:Qveen Herby - Isle of Qveen Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260530T030000Z
 DESCRIPTION:The Moore Theatre is located at 1932 2nd Avenue in Downtown Sea
 	ttle. There is a ticket limit of 8 tickets per person and per credit card 
@@ -2719,9 +2749,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:K-PiKK8A1-QO2jghnRXzl
+UID:-bzKi6IuS2tnbKklH6w9W
 SUMMARY:Spite\, Emmure\, Psycho-Frame\, Rev3rent
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260531T010000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2742,9 +2772,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Js64Ec27o1UR-7IoR90HG
+UID:8rJB_5NNrQ7SNFJYWhvhB
 SUMMARY:Slender Gems\, i-90 Fiasco\, Understater
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260531T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -2755,9 +2785,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:5AFkC03YZGZcFjyHqm6Vc
+UID:zhmsZfR5Vh39HIPA67pxy
 SUMMARY:Waku Waku: Anime Rave
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260531T050000Z
 DESCRIPTION:Dive head first into a high-energy\, anime-inspired Rave as WAK
 	U WAKU makes its Seattle debut on Saturday\, May 30th\, 2026DJ Jak Syn wil
@@ -2792,9 +2822,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WgiXZSjdVJ3OpHsdf5-ht
+UID:MsCRtdBn2DYawJkKslem3
 SUMMARY:KRANIUM - A SLIGHT DELAY TOUR
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260601T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2815,9 +2845,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_Adwg2Caxt_wbECxpzGMe
+UID:glm4xaR5IzXHxl7EQZrqk
 SUMMARY:Claire Rosinkranz: My Lover Tour w/  Stevie Bil
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260602T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2838,9 +2868,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:HrgmuEjdzhSVjnNMXltYJ
+UID:GWB0jex6_qUc9NvtuXwWL
 SUMMARY:Bingo Loco presents Name That Song
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260606T000000Z
 DESCRIPTION:Bingo Loco is an interactive stage show which takes the concept
 	 of bingo and switches it on its head by turning it into an immersive part
@@ -2874,9 +2904,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Zbzj2OT52qQtPxeuxoqxP
+UID:A1FxKVy4VhmHxzv8seIxM
 SUMMARY:Bingo Loco presents Name That Song
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260606T043000Z
 DESCRIPTION:Bingo Loco is an interactive stage show which takes the concept
 	 of bingo and switches it on its head by turning it into an immersive part
@@ -2910,9 +2940,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:W_otb3QWRASNnaqrZuavq
+UID:3GTOoXPbVxtB8ZixipjGL
 SUMMARY:Therapy Gecko
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260607T010000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2936,10 +2966,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:lZc4K-gO9pcuGb5_vwhmf
+UID:IcRBncNBz1uY7n03DJm7M
 SUMMARY:School of Rock Seattle Presents: Rock N' Grohl\, The Who\, & Keys L
 	egends
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260607T164500Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -2960,9 +2990,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:BJ6tj-mxV06N5WzFaobAC
+UID:DK4X8DY98jx70E7D08Jkq
 SUMMARY:ROSTAM: American Stories Tour
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260608T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -2986,9 +3016,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3RMS4DDa-gCepy3ep4YLW
+UID:4z0L1BKk1NhkZZTWC7KCD
 SUMMARY:PETE & BAS: Pete & Bas Save America w/ Delivery Boys
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260610T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -3009,9 +3039,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:2EqHk-XjcifkEEx-T58_p
+UID:GUFqEEZtw046MPMdct7oN
 SUMMARY:Tigers Jaw\, Pool Kids\, Bleary Eyed
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260612T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -3035,9 +3065,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:RYuDkcHFgCdvqG2rG3gft
+UID:NjRkSTxxT425RnSdVCvZS
 SUMMARY:Midnite City: Indie Disco [Seattle Debut]
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260614T050000Z
 DESCRIPTION:MIDNIGHT CITY: INDIE DISCOInspired by the more electronic (and 
 	dance floor-friendly) side of indie\;Justice LCD Soundsystem Crystal Castl
@@ -3067,10 +3097,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eUXaA17Y-X24muTu8TTWs
+UID:ggsT4H1I8zcrxOSb_snlo
 SUMMARY:School of Rock Seattle Presents: AC/DC\, White Stripes vs Black Key
 	s\, &  Pop Legends
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260614T164500Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -3091,9 +3121,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:KNO6W3ywEeHNcm-TkDxNd
+UID:rjDPj35bZVr_y6XRGxCwe
 SUMMARY:The Crane Wives - ACT II  With special guest Yasmin Williams
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260621T010000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -3114,9 +3144,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WCaig177PSjd0SDkD3a8C
+UID:5mhZe35wQb3Uuo8-3dd2j
 SUMMARY:Bad Honey\, Guero Brown\, Red Water
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260621T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Belltown Yacht Club
 URL:https://seattle.showlists.net/
@@ -3127,10 +3157,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ix4-HK2dPjfXOcS5LAbkD
+UID:D24dbD0SHLpIW5YJX04pA
 SUMMARY:School of Rock Seattle Presents: Rock 101\, Joan Jett & Pat Benatar
 	\, Pearl Jam
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260621T164500Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -3151,9 +3181,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZzWd5cpKw24ZiMS1Ihv8v
+UID:Vyl2hJnD8FuAMwylyTtmk
 SUMMARY:The Crane Wives - ACT II  With special guest Yasmin Williams
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260622T030000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -3174,9 +3204,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ev2UYj30vL_hQQU2gFH9W
+UID:In4ZnYRnhXYHCIVnRwmXP
 SUMMARY:Ibrahim Maalouf
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260624T030000Z
 DESCRIPTION:This event is 21 and over. Any ticket holder unable to present 
 	valid identification indicating that they are at least 21 years of age wil
@@ -3200,9 +3230,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:fQb5iOH0H9xAWBhyd1Ozk
+UID:dSS77TJlB_8MHUIeSzclu
 SUMMARY:Heavenly\, The Umbrellas\, Swansea Sound
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260628T010000Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at
@@ -3223,10 +3253,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:x252BsKZusrdmZ144srLd
+UID:GkWlBFmd3wwgLXit4nZWz
 SUMMARY:School of Rock Seattle Presents: Rush\, Modern Metal\, & Best of Th
 	e 80's
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260628T164500Z
 DESCRIPTION:All sales are final. There are no refunds unless the event is c
 	ancelled or postponed Opening Acts are subject to change or cancelation at

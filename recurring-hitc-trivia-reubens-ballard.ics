@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Reuben's Brews Ballard
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:cstLL7nRREd_1HprFucWT
+SUMMARY:Trivia at Reuben's Brews Ballard
+DTSTAMP:20260401T023559Z
+DTSTART;TZID=America/Los_Angeles:20260401T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:5010 14th Ave NW\, Seattle\, WA 98107
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

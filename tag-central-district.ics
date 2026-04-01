@@ -6,10 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Central District Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:cvgGMZ14jjf-YgqNUMqFY
+UID:deyNT5_swBxsBCSOFpjj9
 SUMMARY:Mariners Opening Day Beer Release with Fast Fashion
-DTSTAMP:20260401T021311Z
-DTSTART;TZID=America/Los_Angeles:20260403T180000
+DTSTAMP:20260401T023620Z
+DTSTART;TZID=America/Los_Angeles:20260401T183000
 DESCRIPTION:Join us to celebrate the start of the Mariners season! We often
 	\n\nFrom Chuck's Hop Shop - Central District
 LOCATION:Chuck's Hop Shop Central District\\\, 2001 E Union St\\\, Seattle\
@@ -20,10 +20,10 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:20x0VYGeM12HCoZjZMshj
+UID:QksVTRDINkQ4zAu_aYwx9
 SUMMARY:Homework Help
-DTSTAMP:20260401T021311Z
-DTSTART;TZID=America/Los_Angeles:20260411T180000
+DTSTAMP:20260401T023620Z
+DTSTART;TZID=America/Los_Angeles:20260403T180000
 DESCRIPTION:Homework Help volunteers will be at this branch to assist K-12 
 	students with school assignments during the school year. \n\nhttps://www.s
 	pl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3d195835289\n\nFr
@@ -37,10 +37,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:DckvBTl8KV-4N7v9MfiS3
+UID:gOr8-M0u79NxP2u3FHUqs
 SUMMARY:Teen Zone!
-DTSTAMP:20260401T021311Z
-DTSTART:20260401T230000Z
+DTSTAMP:20260401T023620Z
+DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:Teens! Drop in for Teen Zone! a rotating series of activities a
 	nd fun.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26e
 	ventid%3d197033944\n\nFrom SPL - Douglass-Truth Branch
@@ -53,9 +53,24 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:3-wNQgeKMHXd5EhCi-TZ1
+UID:aReVF1GYOtuQ97vviR6xo
+SUMMARY:Trivia at Woodshop BBQ
+DTSTAMP:20260401T023620Z
+DTSTART:20260402T013000Z
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Woodshop BBQ
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:2513 E Cherry St\, Seattle\, WA 98122
+X-CALRIPPER-SOURCE:hitc-trivia-woodshop-bbq
+CATEGORIES:Trivia at Woodshop BBQ
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:3FeqxnBKz13W-SAmbcY6X
 SUMMARY:Homework Help
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260402T233000Z
 DESCRIPTION:Homework Help volunteers will be at this branch to assist K-12 
 	students with school assignments during the school year. \n\nhttps://www.s
@@ -70,9 +85,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:GJwPEYgtVVUiu6s-L2Uny
+UID:RHg6pkzxpfWsqWKt-wizn
 SUMMARY:Central District Art Walk (First Friday)
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260404T010000Z
 DESCRIPTION:Monthly art walk in the Central District on first Fridays\n\nht
 	tps://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty\n\nF
@@ -86,9 +101,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:2RsqK0STVdUXmL60dPK3f
+UID:Tqc6Ks_1-LKipGM_YQvQ1
 SUMMARY:Free Tax Help
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260404T190000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -102,9 +117,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:GPOkV6vrRN4niqWTlOywQ
+UID:BjF_LdLeyyVYYIcPh4phl
 SUMMARY:Free Tax Help
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260406T190000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -118,9 +133,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:x-cYlGV1BQ6nN4ACeqtbC
+UID:5isOeonuUoKEkySLv1LZu
 SUMMARY:Homework Help
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260407T233000Z
 DESCRIPTION:Homework Help volunteers will be at this branch to assist K-12 
 	students with school assignments during the school year. \n\nhttps://www.s
@@ -135,9 +150,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Wh3wKyCxQZ3CDQrng9t7C
+UID:KbdmzBQnWcemQov1ZQO6q
 SUMMARY:Family Story Time
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260408T173000Z
 DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
@@ -152,9 +167,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:noniDEywzZM5EW9eGoMXQ
+UID:8UDQ6PnXby26kCeZdMx27
 SUMMARY:Firefighter Story Time
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260408T173000Z
 DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities. \n\nhttps://www.spl.org/event-ca
@@ -169,9 +184,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:-HBgllurKmqcmOObLsqgl
+UID:DGK6sqdvayzKKllwcI2le
 SUMMARY:Teen Zone!
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260408T230000Z
 DESCRIPTION:Teens! Drop in for Teen Zone! a rotating series of activities a
 	nd fun.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26e
@@ -185,9 +200,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:RdQIPsB3nv34msCqC0M1Y
+UID:8K3YY0I0hsVJegRMVcY-i
 SUMMARY:Freedom Day - Civil Rights Act of 1866
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260409T170000Z
 DESCRIPTION:https://www.naamnw.org/events/freedom-day-april-9th-2026\n\nFro
 	m Northwest African American Museum
@@ -200,9 +215,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:RELyiHYPOPHgIG-wY0Jet
+UID:sjygxgn8SEmEAql8iyGqN
 SUMMARY:Central District Art Walk (Second Saturday)
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260412T010000Z
 DESCRIPTION:Monthly art walk in the Central District on second Saturdays\n\
 	nhttps://www.facebook.com/centraldistrictartwalk\n\nFrom Central District 
@@ -216,10 +231,10 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:u_QhXC0PB0aRfUT6GPkNG
+UID:F-Djo6gIEsUd1zm1Vke9o
 SUMMARY:Every Month is Black History Month - A Community Health & Resource 
 	Fair 
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260418T170000Z
 DESCRIPTION:https://www.naamnw.org/events/every-month-is-black-history-mont
 	h-a-community-health-resource-fair\n\nFrom Northwest African American Muse
@@ -234,9 +249,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Dv8oCQyHXiTpvrUGkguU1
+UID:Pt5EwaliGe3gGZ_dbjG6O
 SUMMARY:The Power of the River 
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260430T020000Z
 DESCRIPTION:https://www.naamnw.org/events/the-power-of-the-river\n\nFrom No
 	rthwest African American Museum
@@ -249,9 +264,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:maBTdK30jM7ZI1OrMYaAr
+UID:XHlYN5cOvZbT_uubs1c0l
 SUMMARY:Cribbage Club
-DTSTAMP:20260401T021311Z
+DTSTAMP:20260401T023620Z
 DTSTART:20260507T190000Z
 DESCRIPTION:On the 1st & 3rd Thursday of each month there is Cribbage Club\
 	n\nFrom Chuck's Hop Shop - Central District

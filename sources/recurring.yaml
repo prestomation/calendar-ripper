@@ -467,12 +467,12 @@ events:
     url: "https://www.instagram.com/critical_mass_seattle/"
     tags: ["Cycling", "Downtown"]
 
+
   # Head in the Clouds Pub Trivia
-  # Source: https://www.headinthecloudstrivia.com
 
   # Monday venues
-  - name: hitc-trivia-oak-beacon-hill
-    friendlyname: "Head in the Clouds Trivia — Oak (Beacon Hill)"
+  - name: hitc-trivia-oak
+    friendlyname: "Trivia at Oak"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
@@ -483,7 +483,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Beacon Hill"]
 
   - name: hitc-trivia-project-9-brewing
-    friendlyname: "Head in the Clouds Trivia — Project 9 Brewing (Maple Leaf)"
+    friendlyname: "Trivia at Project 9 Brewing Co"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
@@ -494,18 +494,18 @@ events:
     tags: ["Trivia", "Pub Trivia", "Maple Leaf"]
 
   - name: hitc-trivia-great-notion-ballard
-    friendlyname: "Head in the Clouds Trivia — Great Notion Ballard"
+    friendlyname: "Trivia at Great Notion Ballard"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "19:00"
-    location: "5101 14th Ave NW Ste 101, Seattle, WA 98107"
+    location: "5101 14th Ave NW, Seattle, WA 98107"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
   - name: hitc-trivia-stoup-capitol-hill
-    friendlyname: "Head in the Clouds Trivia — Stoup Brewing Capitol Hill"
+    friendlyname: "Trivia at Stoup Brewing Capitol Hill"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
@@ -516,7 +516,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
   - name: hitc-trivia-stoup-ballard
-    friendlyname: "Head in the Clouds Trivia — Stoup Brewing Ballard"
+    friendlyname: "Trivia at Stoup Brewing Ballard"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
@@ -526,19 +526,19 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-here-today-brewery
-    friendlyname: "Head in the Clouds Trivia — Here Today Brewery (Belltown)"
+  - name: hitc-trivia-here-today
+    friendlyname: "Trivia at Here Today Brewery"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "19:30"
-    location: "2815 Elliott Ave Suite 101, Seattle, WA 98107"
+    location: "2815 Elliott Ave, Seattle, WA 98121"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Belltown"]
 
   - name: hitc-trivia-mermaid-lounge
-    friendlyname: "Head in the Clouds Trivia — Mermaid Lounge (Fremont)"
+    friendlyname: "Trivia at Mermaid Lounge"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
     timezone: America/Los_Angeles
@@ -550,7 +550,7 @@ events:
 
   # Tuesday venues
   - name: hitc-trivia-bizarre-brewing
-    friendlyname: "Head in the Clouds Trivia — Bizarre Brewing (Magnolia)"
+    friendlyname: "Trivia at Bizarre Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -561,7 +561,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Magnolia"]
 
   - name: hitc-trivia-college-inn-pub
-    friendlyname: "Head in the Clouds Trivia — College Inn Pub (U District)"
+    friendlyname: "Trivia at College Inn Pub"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -569,10 +569,10 @@ events:
     start_time: "19:00"
     location: "4006 University Way NE, Seattle, WA 98105"
     url: "https://www.headinthecloudstrivia.com"
-    tags: ["Trivia", "Pub Trivia", "U District"]
+    tags: ["Trivia", "Pub Trivia", "University District"]
 
   - name: hitc-trivia-fiddlers-inn
-    friendlyname: "Head in the Clouds Trivia — Fiddler's Inn (Wedgwood)"
+    friendlyname: "Trivia at Fiddler's Inn"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -583,7 +583,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Wedgwood"]
 
   - name: hitc-trivia-figurehead-stone-way
-    friendlyname: "Head in the Clouds Trivia — Figurehead Stone Way (Fremont)"
+    friendlyname: "Trivia at Figurehead Brewing Stone Way"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -594,18 +594,18 @@ events:
     tags: ["Trivia", "Pub Trivia", "Fremont"]
 
   - name: hitc-trivia-great-notion-georgetown
-    friendlyname: "Head in the Clouds Trivia — Great Notion Georgetown"
+    friendlyname: "Trivia at Great Notion Georgetown"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "18:30"
-    location: "6235 Airport Way S Suite 102, Seattle, WA 98108"
+    location: "6235 Airport Way S, Seattle, WA 98108"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Georgetown"]
 
   - name: hitc-trivia-ravenna-brewing
-    friendlyname: "Head in the Clouds Trivia — Ravenna Brewing"
+    friendlyname: "Trivia at Ravenna Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -616,7 +616,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Ravenna"]
 
   - name: hitc-trivia-the-runaway
-    friendlyname: "Head in the Clouds Trivia — The Runaway (Capitol Hill)"
+    friendlyname: "Trivia at The Runaway"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -626,8 +626,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
-  - name: hitc-trivia-hopvine-pub-tuesday
-    friendlyname: "Head in the Clouds Trivia — Hopvine Pub (Capitol Hill) — Tuesday"
+  - name: hitc-trivia-hopvine-tuesday
+    friendlyname: "Trivia at Hopvine Pub (Tuesday)"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -638,7 +638,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
   - name: hitc-trivia-the-dray
-    friendlyname: "Head in the Clouds Trivia — The Dray (Greenwood)"
+    friendlyname: "Trivia at The Dray"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -649,7 +649,7 @@ events:
     tags: ["Trivia", "Pub Trivia", "Greenwood"]
 
   - name: hitc-trivia-trailbend-taproom
-    friendlyname: "Head in the Clouds Trivia — Trailbend Taproom (Ballard)"
+    friendlyname: "Trivia at Trailbend Taproom"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
     timezone: America/Los_Angeles
@@ -661,40 +661,40 @@ events:
 
   # Wednesday venues
   - name: hitc-trivia-woodshop-bbq
-    friendlyname: "Head in the Clouds Trivia — Woodshop BBQ (Central District)"
+    friendlyname: "Trivia at Woodshop BBQ"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "18:30"
-    location: "2513 S Jackson St, Seattle, WA 98144"
+    location: "2513 E Cherry St, Seattle, WA 98122"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Central District"]
 
   - name: hitc-trivia-old-stove-ship-canal
-    friendlyname: "Head in the Clouds Trivia — Old Stove Brewing Ship Canal (Interbay)"
+    friendlyname: "Trivia at Old Stove Brewing Ship Canal"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "19:00"
-    location: "600 W Nickerson St, Seattle, WA 98119"
+    location: "1429 12th Ave W, Seattle, WA 98119"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Interbay"]
 
   - name: hitc-trivia-old-stove-gardens
-    friendlyname: "Head in the Clouds Trivia — Old Stove Gardens (Ballard)"
+    friendlyname: "Trivia at Old Stove Brewing Gardens"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "19:00"
-    location: "1550 NW 49th St, Seattle, WA 98107"
+    location: "5501 6th Ave NW, Seattle, WA 98107"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-reubens-brews-ballard
-    friendlyname: "Head in the Clouds Trivia — Reuben's Brews Ballard"
+  - name: hitc-trivia-reubens-ballard
+    friendlyname: "Trivia at Reuben's Brews Ballard"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
@@ -704,8 +704,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-saint-johns-bar
-    friendlyname: "Head in the Clouds Trivia — Saint John's Bar & Eatery (Capitol Hill)"
+  - name: hitc-trivia-saint-johns
+    friendlyname: "Trivia at Saint John's Bar & Eatery"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
@@ -716,18 +716,18 @@ events:
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
   - name: hitc-trivia-pub-70
-    friendlyname: "Head in the Clouds Trivia — Pub 70 (Belltown)"
+    friendlyname: "Trivia at Pub 70"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "19:30"
-    location: "2801 Alaskan Way Ste 103, Seattle, WA 98121"
+    location: "70 Virginia St, Seattle, WA 98101"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Belltown"]
 
   - name: hitc-trivia-latona-pub
-    friendlyname: "Head in the Clouds Trivia — Latona Pub (Green Lake)"
+    friendlyname: "Trivia at Latona Pub"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
@@ -737,8 +737,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Green Lake"]
 
-  - name: hitc-trivia-reubens-brews-downtown
-    friendlyname: "Head in the Clouds Trivia — Reuben's Brews Downtown"
+  - name: hitc-trivia-reubens-downtown
+    friendlyname: "Trivia at Reuben's Brews Downtown"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
     timezone: America/Los_Angeles
@@ -746,22 +746,22 @@ events:
     start_time: "19:00"
     location: "800 Occidental Ave S, Seattle, WA 98134"
     url: "https://www.headinthecloudstrivia.com"
-    tags: ["Trivia", "Pub Trivia", "Downtown"]
+    tags: ["Trivia", "Pub Trivia", "SoDo"]
 
   # Thursday venues
-  - name: hitc-trivia-wheelie-pop-brewing
-    friendlyname: "Head in the Clouds Trivia — Wheelie Pop Brewing (Ballard)"
+  - name: hitc-trivia-wheelie-pop
+    friendlyname: "Trivia at Wheelie Pop Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
     timezone: America/Los_Angeles
     duration: PT2H
     start_time: "18:30"
-    location: "1110 NW 50th St, Seattle, WA 98107"
+    location: "4907 Leary Ave NW, Seattle, WA 98107"
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-ladd-and-lass-brewing
-    friendlyname: "Head in the Clouds Trivia — Ladd & Lass Brewing (U District)"
+  - name: hitc-trivia-ladd-and-lass
+    friendlyname: "Trivia at Ladd & Lass Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
     timezone: America/Los_Angeles
@@ -769,10 +769,10 @@ events:
     start_time: "19:00"
     location: "722 NE 45th St, Seattle, WA 98105"
     url: "https://www.headinthecloudstrivia.com"
-    tags: ["Trivia", "Pub Trivia", "U District"]
+    tags: ["Trivia", "Pub Trivia", "University District"]
 
   - name: hitc-trivia-veras-pizza
-    friendlyname: "Head in the Clouds Trivia — Vera's Pizza (Ballard)"
+    friendlyname: "Trivia at Vera's Pizza"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
     timezone: America/Los_Angeles
@@ -782,8 +782,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-hopvine-pub-thursday
-    friendlyname: "Head in the Clouds Trivia — Hopvine Pub (Capitol Hill) — Thursday"
+  - name: hitc-trivia-hopvine-thursday
+    friendlyname: "Trivia at Hopvine Pub (Thursday)"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
     timezone: America/Los_Angeles

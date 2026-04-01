@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-30T06:06:20.453Z",
+  "lastUpdated": "2026-04-01T02:13:36.871Z",
   "rippers": [
     {
       "name": "19hz",
@@ -179,6 +179,21 @@
           "tags": [
             "Dogs"
           ]
+        }
+      ]
+    },
+    {
+      "name": "downtown-seattle-association",
+      "friendlyName": "Downtown Seattle Association",
+      "description": "Downtown Seattle Association Events Calendar",
+      "friendlyLink": "https://downtownseattle.org",
+      "calendars": [
+        {
+          "name": "occidental-square",
+          "friendlyName": "Occidental Square Events",
+          "icsUrl": "downtown-seattle-association-occidental-square.ics",
+          "rssUrl": "downtown-seattle-association-occidental-square.rss",
+          "tags": []
         }
       ]
     },
@@ -584,6 +599,16 @@
             "Beer",
             "Ballard"
           ]
+        },
+        {
+          "name": "downtown",
+          "friendlyName": "Reuben's Brews - Downtown",
+          "icsUrl": "reubens-brews-downtown.ics",
+          "rssUrl": "reubens-brews-downtown.rss",
+          "tags": [
+            "Beer",
+            "Downtown"
+          ]
         }
       ]
     },
@@ -663,6 +688,22 @@
           "tags": [
             "Events",
             "Nightlife"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "seattle-beer-week",
+      "description": "Seattle Beer Week Events Calendar",
+      "friendlyLink": "https://www.seattlebeerweek.com",
+      "calendars": [
+        {
+          "name": "beer-week",
+          "friendlyName": "Seattle Beer Week",
+          "icsUrl": "seattle-beer-week-beer-week.ics",
+          "rssUrl": "seattle-beer-week-beer-week.rss",
+          "tags": [
+            "Beer"
           ]
         }
       ]
@@ -918,6 +959,16 @@
           "tags": [
             "Music",
             "University District"
+          ]
+        },
+        {
+          "name": "skylark",
+          "friendlyName": "Skylark",
+          "icsUrl": "seattle-showlists-skylark.ics",
+          "rssUrl": "seattle-showlists-skylark.rss",
+          "tags": [
+            "Music",
+            "West Seattle"
           ]
         },
         {

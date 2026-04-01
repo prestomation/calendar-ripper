@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Woodshop BBQ
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:FYWBlhueQpkrWpM9VMQth
+SUMMARY:Trivia at Woodshop BBQ
+DTSTAMP:20260401T021302Z
+DTSTART;TZID=America/Los_Angeles:20260401T183000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:2513 E Cherry St\, Seattle\, WA 98122
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

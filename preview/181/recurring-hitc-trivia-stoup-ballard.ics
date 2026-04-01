@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Stoup Brewing Ballard
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:G86tgQnbQzpazL9YUG-Zb
+SUMMARY:Trivia at Stoup Brewing Ballard
+DTSTAMP:20260401T021302Z
+DTSTART;TZID=America/Los_Angeles:20260406T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:1108 NW 52nd St\, Seattle\, WA 98107
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

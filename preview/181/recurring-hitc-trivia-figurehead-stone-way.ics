@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Figurehead Brewing Stone Way
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:0rnxNxetpjmYJe6JjYbP5
+SUMMARY:Trivia at Figurehead Brewing Stone Way
+DTSTAMP:20260401T021302Z
+DTSTART;TZID=America/Los_Angeles:20260407T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:3513 Stone Way N\, Seattle\, WA 98103
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Wedgwood Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:Z8MTDTd08m6EHFpQQtFLS
+SUMMARY:Trivia at Fiddler's Inn
+DTSTAMP:20260401T021328Z
+DTSTART;TZID=America/Los_Angeles:20260407T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Fiddler's Inn
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:9219 35th Ave NE\, Seattle\, WA 98115
+X-CALRIPPER-SOURCE:hitc-trivia-fiddlers-inn
+CATEGORIES:Trivia at Fiddler's Inn
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

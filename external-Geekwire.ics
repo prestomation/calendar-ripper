@@ -25,41 +25,9 @@ DTSTART:20261101T090000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260331
-DTEND;VALUE=DATE:20260401
-DTSTAMP:20260331T214521
-CREATED:20260326T154542Z
-LAST-MODIFIED:20260326T154542Z
-UID:10003264-1774915200-1775001599@www.geekwire.com
-SUMMARY:AI Conference - Ray Day Seattle
-DESCRIPTION:Scale AI with confidence— Learn directly from Ray’s creators and power builders at this free technical event featuring real-world talks and hands-on workshops designed to move your AI workloads from experiment to production. \nSpeakers:\nRobert Nishiharam\, co-founder @Anyscale\nMickey Liu\, Software Engineer @Notion\nChi Wang\, Director Software Engineering- AI Platform @Salesforce\nHaocheng Bian\, Principal ML Engineer @Apple\nPeng Zhang\, Engineering Manager – AI Platform @Uber\nand 5+ more \nWhat to expect:\nCommunity-Led Talks: Learn real-world lessons\, proven architectures\, and scaling patterns from teams actively building with Ray.\nDirect Expert Access: Engage directly with Ray’s creators and builders to get answers\, insights\, and best practices for productionizing AI.\nHands-on Workshops: Accelerate your path to production with an instructor-led Ray workshop covering Ray’s AI libraries.\nPeer Networking: Connect with experienced engineers and AI teams and learn from shared experiences. \nEvent Details:\nMar 31st\, 2026\, 9AM~6PM\nLocation: The Westin Seattle\nRSVP: https://www.aicamp.ai/event/eventdetails/W2026033109\n(The event is free\, limited to 200 qualified developers)
-URL:https://www.geekwire.com/calendar-event/ai-conference-ray-day-seattle/
-LOCATION:The Westin Seattle\, 1900 5th Ave\, Seattle\, WA\, 98101\, United States
-CATEGORIES:Artificial Intelligence,Developer
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/w2026033109b.png
-ORGANIZER;CN="aicamp":MAILTO:billisme@gmail.com
-GEO:47.6136836;-122.3382411
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=The Westin Seattle 1900 5th Ave Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1900 5th Ave:geo:-122.3382411,47.6136836
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260401T080000
-DTEND;TZID=America/Los_Angeles:20260401T170000
-DTSTAMP:20260331T214521
-CREATED:20251118T020742Z
-LAST-MODIFIED:20251118T020742Z
-UID:10003089-1775030400-1775062800@www.geekwire.com
-SUMMARY:Seattle (AI) Startup Summit 2026
-DESCRIPTION:​This is Not a Generative AI Event. This is an AI-Driven Startup Summit. \n​Forget the hype cycle. Join the focused gathering of AI founders\, deep-tech investors\, and executive decision-makers who are actually building and funding the next generation of intelligent systems. The Seattle Startup Summit is your nexus for the applied AI ecosystem. \n​What You Will Gain: \n\n​📈 The Investor Thesis: Get exclusive access to Venture Capitalists and Angel Investors actively writing checks for AI-first business models. Learn what VCs are really looking for in LLMOps\, Agentic AI\, and specialized foundation models (pre-seed to Series A).\n​🛠️ Deep-Tech Deployment: Move from prototype to production. Sessions focus on the hardest technical challenges: Inference Optimization\, Data Strategy (Data as Moat)\, and Cost-Efficient Scaling of massive models.\n​⚖️ Governance & GTM: Navigate the new regulatory landscape. Dive into discussions on AI Governance\, Ethical Frameworks\, IP/Data Rights\, and how to build a go-to-market strategy that wins enterprise trust.\n​🤝 High-Value Connections: This is a curated assembly. Network directly with the engineers\, researchers\, and founders from Seattle’s most prominent AI companies who are defining the global standard.\n\n​Register now to build your AI advantage and secure your funding future. \n​Find our more at seattlestartupsummit.com. \n​2025 Stats: \n\n​Over 40% of attendees were in leadership positions\n​Over 55% of attendees were in an engineering role\n​Over 450 unique companies participated\n​Over 50 companies came to exhibit\n​Almost 900 people signed up\n\n​For 2026\, you can expect: \n\n​80-100 companies to exhibit\n​1200 – 1500 attendees\n​120 Top Tier AI Companies vying for the top category prize
-URL:https://www.geekwire.com/calendar-event/seattle-ai-startup-summit-2026-2/
-LOCATION:Sheraton Grand Seattle\, 1400 6th Avenue\, Seattle\, WA\, 98101\, United States
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2025/11/Screenshot-2025-11-17-100637.png
-GEO:47.6108179;-122.3334181
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Sheraton Grand Seattle 1400 6th Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1400 6th Avenue:geo:-122.3334181,47.6108179
-END:VEVENT
-BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260402T140000
 DTEND;TZID=America/Los_Angeles:20260402T170000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260324T174355Z
 LAST-MODIFIED:20260324T174355Z
 UID:10003261-1775138400-1775149200@www.geekwire.com
@@ -74,7 +42,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260403
 DTEND;VALUE=DATE:20260406
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260331T180430Z
 LAST-MODIFIED:20260331T180430Z
 UID:10003271-1775174400-1775433599@www.geekwire.com
@@ -87,7 +55,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260404T090000
 DTEND;TZID=America/Los_Angeles:20260404T180000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260123T172859Z
 LAST-MODIFIED:20260216T025803Z
 UID:10003165-1775293200-1775325600@www.geekwire.com
@@ -103,7 +71,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T170000
 DTEND;TZID=America/Los_Angeles:20260408T180000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260312T203459Z
 LAST-MODIFIED:20260312T203459Z
 UID:10003247-1775667600-1775671200@www.geekwire.com
@@ -118,7 +86,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260409T083000
 DTEND;TZID=America/Los_Angeles:20260409T170000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260303T164945Z
 LAST-MODIFIED:20260303T164945Z
 UID:10003233-1775723400-1775754000@www.geekwire.com
@@ -131,7 +99,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T090000
 DTEND;TZID=America/Los_Angeles:20260410T100000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260324T174347Z
 LAST-MODIFIED:20260324T174347Z
 UID:10003262-1775811600-1775815200@www.geekwire.com
@@ -146,7 +114,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T113000
 DTEND;TZID=America/Los_Angeles:20260410T130000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20251024T200341Z
 LAST-MODIFIED:20251024T200341Z
 UID:10003060-1775820600-1775826000@www.geekwire.com
@@ -159,7 +127,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260415
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260224T175403Z
 LAST-MODIFIED:20260224T175403Z
 UID:10003219-1776038400-1776211199@www.geekwire.com
@@ -172,7 +140,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260413T100000
 DTEND;TZID=America/Los_Angeles:20260413T150000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260305T184218Z
 LAST-MODIFIED:20260305T184218Z
 UID:10003241-1776074400-1776092400@www.geekwire.com
@@ -186,7 +154,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T090000
 DTEND;TZID=America/Los_Angeles:20260414T150000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260224T205544Z
 LAST-MODIFIED:20260224T205544Z
 UID:10003220-1776157200-1776178800@www.geekwire.com
@@ -198,7 +166,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T120000
 DTEND;TZID=America/Los_Angeles:20260414T130000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260305T184226Z
 LAST-MODIFIED:20260305T184226Z
 UID:10003240-1776168000-1776171600@www.geekwire.com
@@ -213,7 +181,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T173000
 DTEND;TZID=America/Los_Angeles:20260414T200000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260331T180457Z
 LAST-MODIFIED:20260331T180457Z
 UID:10003268-1776187800-1776196800@www.geekwire.com
@@ -229,7 +197,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T100000
 DTEND;TZID=America/Los_Angeles:20260418T160000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260218T173229Z
 LAST-MODIFIED:20260218T173229Z
 UID:10003204-1776506400-1776528000@www.geekwire.com
@@ -244,7 +212,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260424T193000
 DTEND;TZID=America/Los_Angeles:20260424T213000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260312T203517Z
 LAST-MODIFIED:20260312T203517Z
 UID:10003245-1777059000-1777066200@www.geekwire.com
@@ -261,7 +229,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260427T180000
 DTEND;TZID=America/Los_Angeles:20260427T210000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260330T154937Z
 LAST-MODIFIED:20260330T154937Z
 UID:10003269-1777312800-1777323600@www.geekwire.com
@@ -273,7 +241,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260429T170000
 DTEND;TZID=America/Los_Angeles:20260624T183000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260319T175109Z
 LAST-MODIFIED:20260319T175109Z
 UID:10003254-1777482000-1782325800@www.geekwire.com
@@ -287,7 +255,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260507T090000
 DTEND;TZID=America/Los_Angeles:20260507T170000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260212T202340Z
 LAST-MODIFIED:20260212T202340Z
 UID:10003194-1778144400-1778173200@www.geekwire.com
@@ -304,7 +272,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260508T113000
 DTEND;TZID=America/Los_Angeles:20260508T130000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20251024T200349Z
 LAST-MODIFIED:20251226T215413Z
 UID:10003061-1778239800-1778245200@www.geekwire.com
@@ -319,7 +287,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260516
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260218T172109Z
 LAST-MODIFIED:20260218T172109Z
 UID:10003207-1778630400-1778889599@www.geekwire.com
@@ -331,7 +299,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T080000
 DTEND;TZID=America/Los_Angeles:20260515T170000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260305T184134Z
 LAST-MODIFIED:20260305T184134Z
 UID:10003242-1778832000-1778864400@www.geekwire.com
@@ -348,7 +316,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T103000
 DTEND;TZID=America/Los_Angeles:20260515T130000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260204T183704Z
 LAST-MODIFIED:20260204T183704Z
 UID:10003188-1778841000-1778850000@www.geekwire.com
@@ -363,7 +331,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260523
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260108T201444Z
 LAST-MODIFIED:20260108T201500Z
 UID:10003142-1779235200-1779494399@www.geekwire.com
@@ -376,7 +344,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260531
 DTEND;VALUE=DATE:20260603
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260108T201427Z
 LAST-MODIFIED:20260108T201427Z
 UID:10003143-1780185600-1780444799@www.geekwire.com
@@ -389,7 +357,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260603
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260108T201730Z
 LAST-MODIFIED:20260108T201730Z
 UID:10003138-1780272000-1780444799@www.geekwire.com
@@ -406,7 +374,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260603T083000
 DTEND;TZID=America/Los_Angeles:20260603T163000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260313T161348Z
 LAST-MODIFIED:20260313T161348Z
 UID:10003253-1780475400-1780504200@www.geekwire.com
@@ -422,7 +390,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260603T083000
 DTEND;TZID=America/Los_Angeles:20260603T183000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260326T154609Z
 LAST-MODIFIED:20260326T154609Z
 UID:10003265-1780475400-1780511400@www.geekwire.com
@@ -438,7 +406,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260604T143000
 DTEND;TZID=America/Los_Angeles:20260604T180000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260331T182506Z
 LAST-MODIFIED:20260331T182506Z
 UID:10003272-1780583400-1780596000@www.geekwire.com
@@ -451,7 +419,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260607T080000
 DTEND;TZID=America/Los_Angeles:20260612T170000
-DTSTAMP:20260331T214521
+DTSTAMP:20260401T200231
 CREATED:20260121T162411Z
 LAST-MODIFIED:20260121T162412Z
 UID:10003149-1780819200-1781283600@www.geekwire.com
@@ -464,5 +432,36 @@ ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/AIC
 ORGANIZER;CN="Coveros":MAILTO:clientsupport@coveros.com
 GEO:47.6145385;-122.3339418
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Hyatt Regency Seattle 808 Howell Street Seattle Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=808 Howell Street Seattle:geo:-122.3339418,47.6145385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260708
+DTEND;VALUE=DATE:20260712
+DTSTAMP:20260401T200231
+CREATED:20250908T190823Z
+LAST-MODIFIED:20250908T190823Z
+UID:10002962-1783468800-1783814399@www.geekwire.com
+SUMMARY:Aviation Expo
+DESCRIPTION:Aviation Expo is the new premier gathering for aviation enthusiasts\, collectors\, and spotters! The debut event will take place from July 8-11\, 2026\, at the DoubleTree by Hilton Seattle Tacoma International Airport (SEA). This event features an aviation marketplace with over 200 tables of airline/aviation collectibles for trade/sale\, Seattle aviation landmark tours\, plane spotting events\, an aviation career day\, workshops & seminars\, and MUCH MORE! Hotel booking and registration are now open on our website. Additional information such as preliminary tours\, vendor information\, and our show hosts. We will provide more updates and information as they become available.
+URL:https://www.geekwire.com/calendar-event/aviation-expo/
+LOCATION:Double Tree Seattle Airport\, 16500 Southcenter Pkwy\, Seattle\, 98188\, United States
+CATEGORIES:Aerospace
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/09/IMG_9175.jpeg
+ORGANIZER;CN="Airways Magazine":MAILTO:erratumcenter@airwaysmag.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260801
+DTSTAMP:20260401T200231
+CREATED:20251226T214644Z
+LAST-MODIFIED:20251226T214644Z
+UID:10003130-1785110400-1785542399@www.geekwire.com
+SUMMARY:VSLive! @ Microsoft HQ 2026
+DESCRIPTION:Visual Studio Live! @ Microsoft HQ 2026 delivers advanced\, practical training for software developers in the heart of Microsoft’s campus. This immersive event provides expert-led sessions on .NET\, C#\, Azure\, Blazor\, cloud-native application development\, DevOps\, and modern architecture. Attendees benefit from focused learning\, hands-on labs\, and direct engagement with experienced practitioners while networking with peers in a highly technical environment.
+URL:https://www.geekwire.com/calendar-event/vslive-microsoft-hq-2026/
+LOCATION:Microsoft Conference Center\, 16070 NE 36th Way\, Redmond\, WA\, 98052\, United States
+CATEGORIES:Artificial Intelligence,Developer,Educational events
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2025/12/2026-Events_LI-event-covers_1920x1080-2-VSL-MSHQ.png
+GEO:47.6429434;-122.1255156
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Microsoft Conference Center 16070 NE 36th Way Redmond WA 98052 United States;X-APPLE-RADIUS=500;X-TITLE=16070 NE 36th Way:geo:-122.1255156,47.6429434
 END:VEVENT
 END:VCALENDAR

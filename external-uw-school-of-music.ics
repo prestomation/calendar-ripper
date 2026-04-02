@@ -1601,4 +1601,28 @@ UID:http://uid.trumba.com/event/177468213
 X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
  %3devent%26eventid%3d177468213
 END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Labor Day
+DTSTART;VALUE=DATE:20260907
+DTEND;VALUE=DATE:20260908
+X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
+URL:https://www.washington.edu/students/reg/2627cal.html#Q3
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Important Dates
+ /Deadlines
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Year";ID=30147;TYPE=CustomAsset:2026
+X-TRUMBA-CUSTOMFIELD;NAME="Quarter";ID=30148;TYPE=CustomAsset:Autumn
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics
+DTSTAMP:20251022T050112Z
+DESCRIPTION:Event interval: Single day event<br>Year: 2026<br>Quarter: A
+ utumn<br>Event Types: Academics<br>Link: https://www.washington.edu/stud
+ ents/reg/2627cal.html#Q3<br><br>No classes. Most University offices and 
+ buildings are closed. Check with specific offices to confirm.
+CATEGORIES:Holidays
+UID:http://uid.trumba.com/event/191299757
+X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
+ %3devent%26eventid%3d191299757
+END:VEVENT
 END:VCALENDAR

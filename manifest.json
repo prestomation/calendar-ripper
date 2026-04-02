@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-01T04:46:06.966Z",
+  "lastUpdated": "2026-04-02T03:03:13.622Z",
   "rippers": [
     {
       "name": "19hz",
@@ -47,6 +47,23 @@
           "tags": [
             "Beer",
             "Ballard"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "belltown-community-council",
+      "description": "Belltown Community Council",
+      "friendlyLink": "https://belltown-cc.org/meetings/",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Belltown Community Council",
+          "icsUrl": "belltown-community-council-all-events.ics",
+          "rssUrl": "belltown-community-council-all-events.rss",
+          "tags": [
+            "Community",
+            "Belltown"
           ]
         }
       ]
@@ -1169,17 +1186,6 @@
           ]
         },
         {
-          "name": "fremont",
-          "friendlyName": "SPL - Fremont Branch",
-          "icsUrl": "spl-fremont.ics",
-          "rssUrl": "spl-fremont.rss",
-          "tags": [
-            "Community",
-            "Education",
-            "Fremont"
-          ]
-        },
-        {
           "name": "green-lake",
           "friendlyName": "SPL - Green Lake Branch",
           "icsUrl": "spl-green-lake.ics",
@@ -1540,6 +1546,25 @@
           "rssUrl": "wamu-theater-wamu-theater.rss",
           "tags": [
             "Music"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wing-luke",
+      "description": "Wing Luke Museum events calendar",
+      "friendlyLink": "https://www.wingluke.org/eventscalendar",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Wing Luke Museum",
+          "icsUrl": "wing-luke-all-events.ics",
+          "rssUrl": "wing-luke-all-events.rss",
+          "tags": [
+            "Museums",
+            "Arts",
+            "Community",
+            "International District"
           ]
         }
       ]
@@ -2674,6 +2699,19 @@
       "tags": [
         "Community",
         "Education"
+      ]
+    },
+    {
+      "name": "hugo-house",
+      "friendlyName": "Hugo House",
+      "description": "Hugo House",
+      "icsUrl": "external-hugo-house.ics",
+      "originalIcsUrl": "https://hugohouse.org/programs-events/?ical=1&tribe_display=list",
+      "infoUrl": "https://hugohouse.org/programs-events/",
+      "tags": [
+        "Arts",
+        "Community",
+        "Capitol Hill"
       ]
     },
     {

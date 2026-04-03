@@ -1,46 +1,15 @@
 {
-  "buildTime": "2026-04-03T03:23:44.559Z",
-  "totalErrors": 5,
+  "buildTime": "2026-04-03T05:14:05.700Z",
+  "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
-  "geocodeErrors": [
-    {
-      "type": "GeocodeError",
-      "location": "The Church of Jesus Christ of Latter-day Saints, 9256 Nels Nelson Rd NW, Bremerton, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Screening Room (LEML 111), Seattle, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Central Library, Level 1 - LEAP Lab",
-      "source": "spl",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Side Hustle Local\\, Bothell\\, 18117 Bothell Way NE\\, Bothell\\, 98011\\, United States",
-      "source": "external-Geekwire",
-      "reason": "Nominatim returned no results"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Laurelhurst community center: 4654 Ne 41st st Seattle Washingto",
-      "source": "external-seattle-gov-city-wide",
-      "reason": "Nominatim returned no results"
-    }
-  ],
+  "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7467,
-    "eventsWithGeo": 5652,
-    "eventsWithoutGeo": 1815,
-    "geocodeErrors": 5
+    "totalEvents": 7546,
+    "eventsWithGeo": 5719,
+    "eventsWithoutGeo": 1827,
+    "geocodeErrors": 0
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -473,7 +442,7 @@
     {
       "name": "19hz-all-events",
       "type": "Ripper",
-      "events": 283,
+      "events": 364,
       "expectEmpty": false
     },
     {
@@ -587,7 +556,7 @@
     {
       "name": "elliott-bay-elliott-bay",
       "type": "Ripper",
-      "events": 23,
+      "events": 22,
       "expectEmpty": false
     },
     {
@@ -1235,7 +1204,7 @@
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 491,
+      "events": 490,
       "expectEmpty": false
     },
     {
@@ -1301,7 +1270,7 @@
     {
       "name": "tag-university-district",
       "type": "Aggregate",
-      "events": 887,
+      "events": 886,
       "expectEmpty": false
     },
     {
@@ -1325,7 +1294,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 2011,
+      "events": 2010,
       "expectEmpty": false
     },
     {
@@ -1355,7 +1324,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2607,
+      "events": 2687,
       "expectEmpty": false
     },
     {
@@ -1469,13 +1438,13 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1079,
+      "events": 1077,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 518,
+      "events": 517,
       "expectEmpty": false
     },
     {
@@ -1541,7 +1510,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7467,
+      "events": 7546,
       "expectEmpty": false
     },
     {

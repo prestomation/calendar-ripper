@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Great Notion Ballard
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:jwySzWnvyFtkStds8k_AG
+SUMMARY:Trivia at Great Notion Ballard
+DTSTAMP:20260403T051016Z
+DTSTART;TZID=America/Los_Angeles:20260406T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:5101 14th Ave NW\, Seattle\, WA 98107
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

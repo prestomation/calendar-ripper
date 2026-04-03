@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Vera's Pizza
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:psrxBwttJXtFZ-wKvEtc0
+SUMMARY:Trivia at Vera's Pizza
+DTSTAMP:20260403T051016Z
+DTSTART;TZID=America/Los_Angeles:20260409T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:5417 22nd Ave NW\, Seattle\, WA 98107
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TH
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

@@ -537,6 +537,31 @@ describe('resolveEventCoords - new strategies', () => {
     expect(result.error).toBeUndefined();
   });
 
+  it('resolves Central Library room-level locations without SPL prefix', async () => {
+    // SPL ripper emits "Central Library, Level 8 - Gallery" — no "SPL" or "Seattle Public Library" prefix
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [],
+    });
+
+    const result = await resolveEventCoords(cache, 'Central Library, Level 8 - Gallery', 'spl');
+    expect(result.coords).toEqual({ lat: 47.6064, lng: -122.3328 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+  });
+
+  it('resolves SPL branch room-level locations without explicit SPL prefix', async () => {
+    mockFetch.mockResolvedValue({
+      ok: true,
+      json: async () => [],
+    });
+
+    const result = await resolveEventCoords(cache, 'Ballard Branch, Study Room', 'spl');
+    expect(result.coords).toEqual({ lat: 47.6671, lng: -122.3836 });
+    expect(result.geocodeSource).toBe('ripper');
+    expect(result.error).toBeUndefined();
+  });
+
   it('retries with stripped suite suffix when Nominatim fails', async () => {
     // First call (full string) → empty, second call (stripped) → success
     mockFetch

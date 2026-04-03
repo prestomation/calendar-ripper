@@ -253,12 +253,17 @@ const SPL_BRANCH_COORDS: Record<string, GeoCoords> = {
 export function lookupSPLBranchCoords(location: string): GeoCoords | null {
   const lower = location.toLowerCase();
 
-  // Only apply to strings that explicitly reference Seattle Public Library or SPL
-  // to avoid false positives (e.g. "Fremont Brewing" → "fremont branch")
+  // Only apply to strings that explicitly reference Seattle Public Library or SPL,
+  // or that directly name a known branch/central library location.
+  // Avoids false positives (e.g. "Fremont Brewing" → "fremont branch") by requiring
+  // either an explicit SPL reference or a match against a known branch name.
   const isSPLString =
     lower.includes('seattle public library') ||
+    lower.includes('central library') ||
     // Match "spl" as a whole word or common SPL prefix patterns (avoid partial matches)
-    /\bspl\b/.test(lower);
+    /\bspl\b/.test(lower) ||
+    // Match "<branch name> branch" patterns from the SPL_BRANCH_COORDS table
+    Object.keys(SPL_BRANCH_COORDS).some(branch => branch.endsWith(' branch') && lower.includes(branch));
 
   if (!isSPLString) return null;
 

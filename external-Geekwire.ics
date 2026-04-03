@@ -25,24 +25,9 @@ DTSTART:20261101T090000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260402T140000
-DTEND;TZID=America/Los_Angeles:20260402T170000
-DTSTAMP:20260401T200231
-CREATED:20260324T174355Z
-LAST-MODIFIED:20260324T174355Z
-UID:10003261-1775138400-1775149200@www.geekwire.com
-SUMMARY:The Hiring Playbook
-DESCRIPTION:​The Hiring Playbook is a practical\, conversation-led event designed for HR leaders\, people managers\, founders\, and organizations preparing for the upcoming H-1B cycle. The goal is simple: help teams understand what’s changing and how to plan ahead. \n​This session brings together immigration professionals and industry experts to share how companies are preparing for this year’s changes and what strategies they are using to support candidates in a rapidly evolving immigration landscape.
-URL:https://www.geekwire.com/calendar-event/the-hiring-playbook/
-LOCATION:2801 Alaskan Wy Suite 302\, Seattle\, WA 98121\, 2801 Alaskan Wy Suite 302\, Seattle\, 98121\, United States
-CATEGORIES:Jobs/Recruiting,Meetups,Startups
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/The-Hiring-Playbook-Panel-Update.png
-ORGANIZER;CN="Casium":MAILTO:kaustubh@casium.com
-END:VEVENT
-BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260403
 DTEND;VALUE=DATE:20260406
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260331T180430Z
 LAST-MODIFIED:20260331T180430Z
 UID:10003271-1775174400-1775433599@www.geekwire.com
@@ -55,7 +40,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260404T090000
 DTEND;TZID=America/Los_Angeles:20260404T180000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260123T172859Z
 LAST-MODIFIED:20260216T025803Z
 UID:10003165-1775293200-1775325600@www.geekwire.com
@@ -71,7 +56,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T170000
 DTEND;TZID=America/Los_Angeles:20260408T180000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260312T203459Z
 LAST-MODIFIED:20260312T203459Z
 UID:10003247-1775667600-1775671200@www.geekwire.com
@@ -86,7 +71,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260409T083000
 DTEND;TZID=America/Los_Angeles:20260409T170000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260303T164945Z
 LAST-MODIFIED:20260303T164945Z
 UID:10003233-1775723400-1775754000@www.geekwire.com
@@ -97,9 +82,26 @@ LOCATION:Seattle Colleges – Georgetown Campus\, 6737 Corson Ave S.\, Seattle\,
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Screenshot-2026-03-03-084520.png
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260409T200000
+DTEND;TZID=America/Los_Angeles:20260409T220000
+DTSTAMP:20260402T202222
+CREATED:20260402T183004Z
+LAST-MODIFIED:20260402T183004Z
+UID:10003275-1775764800-1775772000@www.geekwire.com
+SUMMARY:Cocktail\, Collaborate\, & Crank!
+DESCRIPTION:Night owls! \n​Show up. Grab a cocktail. Open your laptop. Crank. \n​This is for founders\, solopreneurs\, freelancers\, professionals\, or anyone looking to get out of the house and focus on getting stuff done alongside people who’ll lift each other up and hold each other accountable. \n​If the moment moves you\, connect\, swap wins\, and maybe find your next collaborator. \n​​Our venue partners let us use their space for free — so we ask that you show some love and buy a cocktail\, an app\, something. Support local\, fuel yourself. Win-win. \n​​Ready\, set\, let’s build! \n​​Adam & Ryan\n​\n​PS. Locations rotate across North King County & South Snohomish County. Subscribe to our Luma page to know where we’ll be next!
+URL:https://www.geekwire.com/calendar-event/cocktail-collaborate-crank/
+LOCATION:McMenamins Anderson School\, 18607 Bothell Way NE\, Bothell\, WA\, 98011\, United States
+CATEGORIES:Meetups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/04/Coffee-Collaborate-Crank-Luma-5.png
+ORGANIZER;CN="North Sound Innovators":MAILTO:adam.peddicord@csbydesign.com
+GEO:47.7630019;-122.2086416
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=McMenamins Anderson School 18607 Bothell Way NE Bothell WA 98011 United States;X-APPLE-RADIUS=500;X-TITLE=18607 Bothell Way NE:geo:-122.2086416,47.7630019
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T090000
 DTEND;TZID=America/Los_Angeles:20260410T100000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260324T174347Z
 LAST-MODIFIED:20260324T174347Z
 UID:10003262-1775811600-1775815200@www.geekwire.com
@@ -114,7 +116,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T113000
 DTEND;TZID=America/Los_Angeles:20260410T130000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20251024T200341Z
 LAST-MODIFIED:20251024T200341Z
 UID:10003060-1775820600-1775826000@www.geekwire.com
@@ -127,7 +129,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260415
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260224T175403Z
 LAST-MODIFIED:20260224T175403Z
 UID:10003219-1776038400-1776211199@www.geekwire.com
@@ -140,7 +142,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260413T100000
 DTEND;TZID=America/Los_Angeles:20260413T150000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260305T184218Z
 LAST-MODIFIED:20260305T184218Z
 UID:10003241-1776074400-1776092400@www.geekwire.com
@@ -154,7 +156,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T090000
 DTEND;TZID=America/Los_Angeles:20260414T150000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260224T205544Z
 LAST-MODIFIED:20260224T205544Z
 UID:10003220-1776157200-1776178800@www.geekwire.com
@@ -166,7 +168,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T120000
 DTEND;TZID=America/Los_Angeles:20260414T130000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260305T184226Z
 LAST-MODIFIED:20260305T184226Z
 UID:10003240-1776168000-1776171600@www.geekwire.com
@@ -181,7 +183,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T173000
 DTEND;TZID=America/Los_Angeles:20260414T200000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260331T180457Z
 LAST-MODIFIED:20260331T180457Z
 UID:10003268-1776187800-1776196800@www.geekwire.com
@@ -197,7 +199,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T100000
 DTEND;TZID=America/Los_Angeles:20260418T160000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260218T173229Z
 LAST-MODIFIED:20260218T173229Z
 UID:10003204-1776506400-1776528000@www.geekwire.com
@@ -210,9 +212,24 @@ ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Sea
 ORGANIZER;CN="Circuit Stream":MAILTO:rio@circuitstream.com
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260423T180000
+DTEND;TZID=America/Los_Angeles:20260423T200000
+DTSTAMP:20260402T202222
+CREATED:20260402T183012Z
+LAST-MODIFIED:20260402T183012Z
+UID:10003274-1776967200-1776974400@www.geekwire.com
+SUMMARY:AI for Innovators Happy Hour: Spot the Spoof
+DESCRIPTION:Join us for good cheer and phenomenal conversations on how AI is shaping business owners\, entrepreneurs\, tech pros and the curious—right here in North King/South Snohomish County. \n​​Whether you’re a founder\, a corporate innovator\, or simply curious about the local tech and business scene\, you’ll find good company here. \nApple engineer or plumbing business owner…this means you! \n​​📍 Side Hustle\, Bothell\n​​📅 Tues\, Apr 23\n​​⏰ 6-8 PM \n​​AGENDA:\n​6:00 PM – 6:30 PM: Networking and Grab a Drink\n​6:30 PM – 7:30 PM: Spot the Spoof & Open Discussion\n​*Can you tell which one is AI and which one is real?\n​*How is AI impacting fraud?\n*​How do you protect yourself?\n​​6:30 PM – 7:30 PM: Wrap-up Networking \n​WHO THIS IS FOR:\n1. ​Small business owners\, entrepreneurs\, and independents\n2. ​Finance\, security professionals\, and startup founders\n3. ​Anyone curious about how AI is changing the fraud landscape \n​WHAT YOU’LL WALK AWAY WITH:\n1. ​How to spot fraud flags before they become costly mistakes\n2. ​Practical strategies to mitigate your risk and protect your business\n3. ​Connections with local professionals navigating the same AI-driven challenges \n​​Drinks and connections await—RSVP now (attendance is FREE)! \n​​Adam & Ryan
+URL:https://www.geekwire.com/calendar-event/ai-for-innovators-happy-hour-spot-the-spoof/
+LOCATION:Side Hustle Local\, Bothell\, 18117 Bothell Way NE\, Bothell\, 98011\, United States
+CATEGORIES:Artificial Intelligence,Meetups
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/04/Apr-23.png
+ORGANIZER;CN="North Sound Innovators":MAILTO:adam.peddicord@csbydesign.com
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260424T193000
 DTEND;TZID=America/Los_Angeles:20260424T213000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260312T203517Z
 LAST-MODIFIED:20260312T203517Z
 UID:10003245-1777059000-1777066200@www.geekwire.com
@@ -227,9 +244,23 @@ GEO:47.608106;-122.337005
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=S. Mark Taper Foundation Auditorium – Benaroya Hall 200 University St Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=200 University St:geo:-122.337005,47.608106
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260427T170000
+DTEND;TZID=America/Los_Angeles:20260427T190000
+DTSTAMP:20260402T202222
+CREATED:20260402T183020Z
+LAST-MODIFIED:20260402T183020Z
+UID:10003273-1777309200-1777316400@www.geekwire.com
+SUMMARY:Poppy Candid On Resilience
+DESCRIPTION:Poppy Candid is a bimonthly event series for the conversations *about* work that we can’t always have *at* work. On April 27\, we’re talking resilience – and going much deeper than the usual surface-level mindset-only approach. We’ll hear from a trauma-informed financial coach\, a community impact leader\, and a conflict and resilience expert as we get into what actually shapes resilience: the communities we’re a part of\, the experiences that mark us and the systems we move through each day.
+URL:https://www.geekwire.com/calendar-event/poppy-candid-on-resilience/
+LOCATION:Salon Rae\, 9734 NE 117th Ln\, Kirkland\, 98034\, United States
+CATEGORIES:Meetups
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/04/PoppyCandid102825_-65.jpg
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260427T180000
 DTEND;TZID=America/Los_Angeles:20260427T210000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260330T154937Z
 LAST-MODIFIED:20260330T154937Z
 UID:10003269-1777312800-1777323600@www.geekwire.com
@@ -241,7 +272,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260429T170000
 DTEND;TZID=America/Los_Angeles:20260624T183000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260319T175109Z
 LAST-MODIFIED:20260319T175109Z
 UID:10003254-1777482000-1782325800@www.geekwire.com
@@ -255,7 +286,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260507T090000
 DTEND;TZID=America/Los_Angeles:20260507T170000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260212T202340Z
 LAST-MODIFIED:20260212T202340Z
 UID:10003194-1778144400-1778173200@www.geekwire.com
@@ -272,7 +303,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260508T113000
 DTEND;TZID=America/Los_Angeles:20260508T130000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20251024T200349Z
 LAST-MODIFIED:20251226T215413Z
 UID:10003061-1778239800-1778245200@www.geekwire.com
@@ -287,7 +318,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260516
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260218T172109Z
 LAST-MODIFIED:20260218T172109Z
 UID:10003207-1778630400-1778889599@www.geekwire.com
@@ -299,7 +330,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T080000
 DTEND;TZID=America/Los_Angeles:20260515T170000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260305T184134Z
 LAST-MODIFIED:20260305T184134Z
 UID:10003242-1778832000-1778864400@www.geekwire.com
@@ -316,7 +347,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T103000
 DTEND;TZID=America/Los_Angeles:20260515T130000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260204T183704Z
 LAST-MODIFIED:20260204T183704Z
 UID:10003188-1778841000-1778850000@www.geekwire.com
@@ -331,7 +362,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260523
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260108T201444Z
 LAST-MODIFIED:20260108T201500Z
 UID:10003142-1779235200-1779494399@www.geekwire.com
@@ -344,7 +375,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260531
 DTEND;VALUE=DATE:20260603
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260108T201427Z
 LAST-MODIFIED:20260108T201427Z
 UID:10003143-1780185600-1780444799@www.geekwire.com
@@ -357,7 +388,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260601
 DTEND;VALUE=DATE:20260603
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260108T201730Z
 LAST-MODIFIED:20260108T201730Z
 UID:10003138-1780272000-1780444799@www.geekwire.com
@@ -374,7 +405,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260603T083000
 DTEND;TZID=America/Los_Angeles:20260603T163000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260313T161348Z
 LAST-MODIFIED:20260313T161348Z
 UID:10003253-1780475400-1780504200@www.geekwire.com
@@ -390,7 +421,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260603T083000
 DTEND;TZID=America/Los_Angeles:20260603T183000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260326T154609Z
 LAST-MODIFIED:20260326T154609Z
 UID:10003265-1780475400-1780511400@www.geekwire.com
@@ -406,7 +437,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260604T143000
 DTEND;TZID=America/Los_Angeles:20260604T180000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260331T182506Z
 LAST-MODIFIED:20260331T182506Z
 UID:10003272-1780583400-1780596000@www.geekwire.com
@@ -419,7 +450,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260607T080000
 DTEND;TZID=America/Los_Angeles:20260612T170000
-DTSTAMP:20260401T200231
+DTSTAMP:20260402T202222
 CREATED:20260121T162411Z
 LAST-MODIFIED:20260121T162412Z
 UID:10003149-1780819200-1781283600@www.geekwire.com
@@ -432,36 +463,5 @@ ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/AIC
 ORGANIZER;CN="Coveros":MAILTO:clientsupport@coveros.com
 GEO:47.6145385;-122.3339418
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Hyatt Regency Seattle 808 Howell Street Seattle Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=808 Howell Street Seattle:geo:-122.3339418,47.6145385
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260708
-DTEND;VALUE=DATE:20260712
-DTSTAMP:20260401T200231
-CREATED:20250908T190823Z
-LAST-MODIFIED:20250908T190823Z
-UID:10002962-1783468800-1783814399@www.geekwire.com
-SUMMARY:Aviation Expo
-DESCRIPTION:Aviation Expo is the new premier gathering for aviation enthusiasts\, collectors\, and spotters! The debut event will take place from July 8-11\, 2026\, at the DoubleTree by Hilton Seattle Tacoma International Airport (SEA). This event features an aviation marketplace with over 200 tables of airline/aviation collectibles for trade/sale\, Seattle aviation landmark tours\, plane spotting events\, an aviation career day\, workshops & seminars\, and MUCH MORE! Hotel booking and registration are now open on our website. Additional information such as preliminary tours\, vendor information\, and our show hosts. We will provide more updates and information as they become available.
-URL:https://www.geekwire.com/calendar-event/aviation-expo/
-LOCATION:Double Tree Seattle Airport\, 16500 Southcenter Pkwy\, Seattle\, 98188\, United States
-CATEGORIES:Aerospace
-ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/09/IMG_9175.jpeg
-ORGANIZER;CN="Airways Magazine":MAILTO:erratumcenter@airwaysmag.com
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260727
-DTEND;VALUE=DATE:20260801
-DTSTAMP:20260401T200231
-CREATED:20251226T214644Z
-LAST-MODIFIED:20251226T214644Z
-UID:10003130-1785110400-1785542399@www.geekwire.com
-SUMMARY:VSLive! @ Microsoft HQ 2026
-DESCRIPTION:Visual Studio Live! @ Microsoft HQ 2026 delivers advanced\, practical training for software developers in the heart of Microsoft’s campus. This immersive event provides expert-led sessions on .NET\, C#\, Azure\, Blazor\, cloud-native application development\, DevOps\, and modern architecture. Attendees benefit from focused learning\, hands-on labs\, and direct engagement with experienced practitioners while networking with peers in a highly technical environment.
-URL:https://www.geekwire.com/calendar-event/vslive-microsoft-hq-2026/
-LOCATION:Microsoft Conference Center\, 16070 NE 36th Way\, Redmond\, WA\, 98052\, United States
-CATEGORIES:Artificial Intelligence,Developer,Educational events
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2025/12/2026-Events_LI-event-covers_1920x1080-2-VSL-MSHQ.png
-GEO:47.6429434;-122.1255156
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Microsoft Conference Center 16070 NE 36th Way Redmond WA 98052 United States;X-APPLE-RADIUS=500;X-TITLE=16070 NE 36th Way:geo:-122.1255156,47.6429434
 END:VEVENT
 END:VCALENDAR

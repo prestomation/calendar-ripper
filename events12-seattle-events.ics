@@ -6,22 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Events12 Seattle
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:WAgdXyZ3tcu3-asABXb7R
-SUMMARY:Taste of Rainier Valley
-DTSTAMP:20260402T030246Z
-DTSTART:20260401T190000Z
-DESCRIPTION:Plate of Nations offers special deals on international meals. C
-	lick any of the 50 restaurants to see prices.\n\nhttps://www.plateofnation
-	s.com/
-URL:https://www.plateofnations.com/
-LOCATION:Rainier Valley (6 miles S)
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:gi0blIJsPaBVSyXoVPhC9
+UID:2GNdcyvzkhk5xONSXsAHj
 SUMMARY:Museum day
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
 DESCRIPTION:https://www.burkemuseum.org/tickets?date=2026-04-02
 URL:https://www.burkemuseum.org/tickets?date=2026-04-02
@@ -30,9 +17,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:N_CDgjndVjfUK6ytDVKkz
+UID:1itp9QuVcJ6I2VGk04yHF
 SUMMARY:Australian cirque show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260403T030000Z
 DESCRIPTION:University District (4.6 miles NE)\n\nCirca is a 10-member cirq
 	ue troupe that combines amazing acrobatics\, the grace and athleticism of 
@@ -47,9 +34,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:F3yhakoWgvwABvZ6OHkA2
+UID:5B1A8WUG03insJjilATLW
 SUMMARY:Swing dance
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
 DESCRIPTION:Bellevue (9.2 miles E)\n\nEaster Swing is an annual weekend of 
 	competitions\, workshops\, and social dances at Hyatt Regency Bellevue\, 9
@@ -61,9 +48,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:QiZMtNLTZH38X3vkI39lJ
+UID:J_DnYsrFEN-vVyvq8k9SK
 SUMMARY:Science fiction & fantasy convention
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
 DESCRIPTION:SeaTac (15 miles S)\n\nNorwescon features 200 vendors\, panelis
 	ts\, events\, game playing\, dances\, and a masquerade contest at DoubleTr
@@ -77,9 +64,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:2UvrA2a4Qzfxz5kAFz6TX
+UID:dgqUvKoTWxT28aIn6xGBI
 SUMMARY:Variety show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
 DESCRIPTION:Capitol Hill (0.8 miles NE)\n\nBilled as the world’s largest co
 	medy/variety festival\, Moisture Festival presents 30 shows\, mostly at Br
@@ -92,9 +79,22 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:B2lTbjpjGmhgfmW-0t1iq
+UID:V8dDuhFlAojMNpl3PxZaQ
+SUMMARY:Taste of Rainier Valley
+DTSTAMP:20260403T032238Z
+DTSTART:20260402T190000Z
+DESCRIPTION:Plate of Nations offers special deals on international meals. C
+	lick any of the 50 restaurants to see prices.\n\nhttps://www.plateofnation
+	s.com/
+URL:https://www.plateofnations.com/
+LOCATION:Rainier Valley (6 miles S)
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:IcAzqJAwNJcq7H0sk9Q2w
 SUMMARY:Hockey
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
 DESCRIPTION:Seattle Center (1.2 miles NW)\n\n\n\nhttps://www.nhl.com/kraken
 	/
@@ -105,9 +105,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eZhsNpy-Mz_ShicGpTgpj
+UID:LUo71dtCwuDHYZ72w5MNV
 SUMMARY:Art walks
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
 DESCRIPTION:https://www.seattle.gov/arts/experience/art-walks
 URL:https://www.seattle.gov/arts/experience/art-walks
@@ -116,10 +116,65 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CZW4Ps5OURYZNkAGp1KUI
-SUMMARY:Tulip festival
-DTSTAMP:20260402T030246Z
+UID:HEBKSvQ6ulgqg-VikpVJq
+SUMMARY:Live theater
+DTSTAMP:20260403T032238Z
 DTSTART:20260402T190000Z
+DESCRIPTION:https://taproottheatre.org/2026/aint-misbehavin/
+URL:https://taproottheatre.org/2026/aint-misbehavin/
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:VUecX1AwbE5TXaLk-k8_w
+SUMMARY:Easter train
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
+DESCRIPTION:April 3 — Everett Railroad\n April 3\, 5 — Mt. Rainier Scenic R
+	ailroad\n April 4 — Chehalis Central Railroad\n April 4\, 5 — Snoqualmie (
+	no Easter theme)\n\nhttps://everettrailroad.com/attractions/easter-eggspre
+	ss/
+URL:https://everettrailroad.com/attractions/easter-eggspress/
+LOCATION:Chehalis\, Elbe\, Everett\, Snoqualmie
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:R238vMI_uTbtY4oYfmyAD
+SUMMARY:Anime festival
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
+DESCRIPTION:Downtown (0.2 miles E)\n\nAnime is a style of Japanese film and
+	 TV animation featured at Sakura-Con\, plus gaming\, cosplay\, cultural pa
+	nels\, dances\, concerts\, exhibits\, and industry guests at Seattle Conve
+	ntion Center\, 705 Pike St. in Seattle.\n\nhttps://sakuracon.org/
+URL:https://sakuracon.org/
+LOCATION:https://www.google.com/maps/search/?api=1&query=Seattle%20Conventi
+	on%20Center%2C%20705%20Pike%20St%2C%20Seattle%2C%20WA%2098101
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:P3aD86E-E-GLLS9to-VtJ
+SUMMARY:Student art show
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
+DESCRIPTION:Downtown (0.5 miles N)\n\nCornish College of the Arts showcases
+	 the work of its Bachelor of Fine Arts students at the Art BFA Showcase at
+	 9th Ave Gallery\, 2014 9th Ave. in Seattle. Free reception the first day 
+	(April 3\, 6 to 9 p.m.).\n\nhttps://events.seattleu.edu/event/2026-art-bfa
+	-exhibition
+URL:https://events.seattleu.edu/event/2026-art-bfa-exhibition
+LOCATION:https://www.google.com/maps/search/?api=1&query=9th%20Ave%20Galler
+	y%2C%202014%209th%20Ave%2C%20Seattle%2C%20WA%2098121
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:03xxabhNunbJsMeRnYTAm
+SUMMARY:Tulip festival
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
 DESCRIPTION:Mount Vernon (61 miles N)\n\nCheck if flowers are blooming befo
 	re you go.\n\n April 1 - 30 — Skagit Valley Tulip Festival features specta
 	cular fields of blooming tulips and daffodils. Some fields are not free.\n
@@ -134,10 +189,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:lczkEDs5fwNZo5WqQCN99
+UID:4IbJ_ovrV8pL7EstpEjzP
 SUMMARY:All-American musical
-DTSTAMP:20260402T030246Z
-DTSTART:20260402T190000Z
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
 DESCRIPTION:Issaquah (17 miles E)\n\nTake a rollicking trip back to the 195
 	0s with the cast of Grease as they navigate the social waters of high scho
 	ol and love at Village Theatre\, 303 Front St. N in Issaquah. Repeats late
@@ -149,20 +204,23 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:P5t86hNxS9dWHrB_lbLji
-SUMMARY:Live theater
-DTSTAMP:20260402T030246Z
-DTSTART:20260402T190000Z
-DESCRIPTION:https://taproottheatre.org/2026/aint-misbehavin/
-URL:https://taproottheatre.org/2026/aint-misbehavin/
+UID:o3r1cT_H3ZJ2jNScVrVt0
+SUMMARY:Rugby
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
+DESCRIPTION:Tukwila (12 miles S)\n\n\n\nhttps://www.seawolves.rugby/schedul
+	e/
+URL:https://www.seawolves.rugby/schedule/
+LOCATION:https://www.google.com/maps/search/?api=1&query=Starfire%20Sports%
+	2C%2014800%20Starfire%20Way%2C%20Tukwila%2C%20WA%2098188
 TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Kf3AfBd3ItPYQDzM7TwkI
+UID:zDeDFoKH-ldeM29BzzuhF
 SUMMARY:Taste of Seattle
-DTSTAMP:20260402T030246Z
-DTSTART:20260402T190000Z
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
 DESCRIPTION:https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-P
 	ike-Place-Market/d704-23161P1?pid=P00051759&mcid=42383&medium=link&campaig
 	n=119020f
@@ -174,10 +232,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Nx21Wxc71YHCkm6iduame
+UID:PRCMFqJxyx0lliXY16Lzx
 SUMMARY:Free things to do
-DTSTAMP:20260402T030246Z
-DTSTART:20260402T190000Z
+DTSTAMP:20260403T032238Z
+DTSTART:20260403T190000Z
 DESCRIPTION:https://bellevuebotanical.org/admission-hours-directions-parkin
 	g/
 URL:https://bellevuebotanical.org/admission-hours-directions-parking/
@@ -185,67 +243,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:tW1jr_9z8i9mb7oqeITyT
-SUMMARY:Easter train
-DTSTAMP:20260402T030246Z
-DTSTART:20260403T190000Z
-DESCRIPTION:April 3 — Everett Railroad\n April 3\, 4\, 5 — Mt. Rainier Scen
-	ic Railroad\n April 4 — Chehalis Central Railroad\n April 4\, 5 — Snoqualm
-	ie (no Easter theme)\n\nhttps://everettrailroad.com/attractions/easter-egg
-	spress/
-URL:https://everettrailroad.com/attractions/easter-eggspress/
-LOCATION:Chehalis\, Elbe\, Everett\, Snoqualmie
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:L1YECIhLiO5MqcK8IyJIQ
-SUMMARY:Anime festival
-DTSTAMP:20260402T030246Z
-DTSTART:20260403T190000Z
-DESCRIPTION:Downtown (0.2 miles E)\n\nAnime is a style of Japanese film and
-	 TV animation featured at Sakura-Con\, plus gaming\, cosplay\, cultural pa
-	nels\, dances\, concerts\, exhibits\, and industry guests at Seattle Conve
-	ntion Center\, 705 Pike St. in Seattle.\n\nhttps://sakuracon.org/
-URL:https://sakuracon.org/
-LOCATION:https://www.google.com/maps/search/?api=1&query=Seattle%20Conventi
-	on%20Center%2C%20705%20Pike%20St%2C%20Seattle%2C%20WA%2098101
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:oSregWxApDLdLS_YeXFBX
-SUMMARY:Student art show
-DTSTAMP:20260402T030246Z
-DTSTART:20260403T190000Z
-DESCRIPTION:Downtown (0.5 miles N)\n\nCornish College of the Arts showcases
-	 the work of its Bachelor of Fine Arts students at the Art BFA Showcase at
-	 9th Ave Gallery\, 2014 9th Ave. in Seattle. Free reception the first day 
-	(April 3\, 6 to 9 p.m.).\n\nhttps://events.seattleu.edu/event/2026-art-bfa
-	-exhibition
-URL:https://events.seattleu.edu/event/2026-art-bfa-exhibition
-LOCATION:https://www.google.com/maps/search/?api=1&query=9th%20Ave%20Galler
-	y%2C%202014%209th%20Ave%2C%20Seattle%2C%20WA%2098121
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:EERql2D38TI3pABylpbDX
-SUMMARY:Rugby
-DTSTAMP:20260402T030246Z
-DTSTART:20260403T190000Z
-DESCRIPTION:Tukwila (12 miles S)\n\n\n\nhttps://www.seawolves.rugby/schedul
-	e/
-URL:https://www.seawolves.rugby/schedule/
-LOCATION:https://www.google.com/maps/search/?api=1&query=Starfire%20Sports%
-	2C%2014800%20Starfire%20Way%2C%20Tukwila%2C%20WA%2098188
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:H3mmZcUP5My1w8CwoW_p-
+UID:HD90dAuRrXARJS53zyqhq
 SUMMARY:Bunny bar crawl
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T190000Z
 DESCRIPTION:Wear bunny ears or a costume\, and then hop from bar to bar dur
 	ing BunnyCon. Your ticket includes a wristband\, live entertainment\, and 
@@ -258,9 +258,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:c043hg-JN1WJuRgN8Iui2
+UID:I-_1rX7a7IZqCqglioj-Y
 SUMMARY:Family music
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T180000Z
 DESCRIPTION:First Hill (0.5 miles SE)\n\nEntertaining for both parents and 
 	children\, The Brian Waite Band combines musical theater\, imaginative sto
@@ -274,9 +274,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Sx5nuIgiY0Ldw0FJg68xc
+UID:Ddk-wyZZ--wvxTv-vc0Ix
 SUMMARY:Comedy showcase
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260405T023000Z
 DESCRIPTION:Central District (1.5 miles SE)\n\nHear seven of Seattle’s “mos
 	t innovative comics” tell their best jokes at Undisputable Champions of Co
@@ -291,9 +291,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:IzmWkhpcGttoFKmy86UiG
+UID:IBVU0FHNXRJrfa9seLqLs
 SUMMARY:Tea party at the longhouse
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T180000Z
 DESCRIPTION:North Delridge (7.9 miles S)\n\nThe $70 Princess Angeline Sprin
 	g Tea usually features a speaker plus “tea and light refreshments” at the 
@@ -307,9 +307,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4PIp9zYlXg6kdTs-KIzd7
+UID:-bppGg4MqbJMXSbzPj6N3
 SUMMARY:Everett Film Festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T193000Z
 DESCRIPTION:Everett (29 miles N)\n\nEverett Film Festival focuses on films 
 	by or about women at Everett Performing Arts Center\, 2710 Wetmore Ave. in
@@ -321,9 +321,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:NsbqH6-nQkFEunN94dc93
+UID:zx7aiKhF4bPs3TMZ0yf9I
 SUMMARY:Small-town Easter parade
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T170000Z
 DESCRIPTION:Snohomish (29 miles NE)\n\nBilled as the state’s only Easter pa
 	rade\, Snohomish Easter Parade includes floats\, bands\, kids\, and pets o
@@ -334,9 +334,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:iSVUFEUP-iwFclUDjTYNo
+UID:nAJUpXBoHN2Xo-tBhztJC
 SUMMARY:Daffodil parade
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T190000Z
 DESCRIPTION:The Grand Floral Parade includes daffodil-covered floats\, marc
 	hing bands\, clowns\, and pirates that travel through Tacoma (10:15 a.m.)\
@@ -349,9 +349,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3GU5mE6Zs5rcc_v9hhev-
+UID:0lUhg6VeLEGZnzxDL1EcM
 SUMMARY:Easter egg hunts
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T190000Z
 DESCRIPTION:Kids Out & About\n Seattle’s Child\n Seattle Community Centers\
 	n Tacoma (Pierce County)\n Olympia (Thurston County)\n Washington state by
@@ -364,9 +364,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:FrOwM8n5RQGJrFtW5CTSt
+UID:3lH5ZM9FKCd-5NK0hKtBZ
 SUMMARY:Gourmet cooking class
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260404T190000Z
 DESCRIPTION:Belltown (0.1 miles NW)\n\n\n\nhttps://www.hotstovesociety.com/
 	store/events/
@@ -377,9 +377,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:iMAv_iQ9UvN4q9_4SAqjq
+UID:q-kl2FGWeg4S0wVhd1B-C
 SUMMARY:Easter restaurants
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260405T190000Z
 DESCRIPTION:See recommended restaurants for Easter brunch or dinner.\n\n Ga
 	yot Guide — Seattle\, Everett\, Snoqualmie\n Open Table — Seattle\, Eastsi
@@ -393,9 +393,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qy7VXWrxAvcuYIBIlCe6S
+UID:_UIibfP4CKPpkA-8_TAZ-
 SUMMARY:Easter cruise
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260405T180000Z
 DESCRIPTION:Eastlake (1.3 miles N)\n\nEnjoy a $155 Easter brunch cruise tha
 	t includes a champagne or apple juice toast\, a brunch buffet\, and two ho
@@ -409,9 +409,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:q7aMtcYtta8ayqbtsS2wD
+UID:lYawFRv-smcUMGrHKqKjx
 SUMMARY:Music by candlelight
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260405T190000Z
 DESCRIPTION:https://fever.pxf.io/Kj6j5x
 URL:https://fever.pxf.io/Kj6j5x
@@ -420,9 +420,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:75Fl9qK3YwFxT5blqg-QB
+UID:KOvZgN3U7mKY74ntvNVae
 SUMMARY:Les Misérables
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260407T190000Z
 DESCRIPTION:Downtown (0.3 miles NE)\n\nLes Misérables is the Broadway reviv
 	al of the popular musical\, which “tells an enthralling story of broken dr
@@ -436,9 +436,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:BHJBtD5YgBsGCIwrhO2NF
+UID:54Eemc6bjwCTP5a19YXFr
 SUMMARY:Community Concert
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T023000Z
 DESCRIPTION:Downtown (0.3 miles SW)\n\nThe Seattle Symphony performs with m
 	embers of the Seattle community during a Community Stages Fund: Fifth Anni
@@ -453,9 +453,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:azjRJlEMfgIeqZrygwdeP
+UID:7URVLMTtiAnUMAmmRVsYc
 SUMMARY:Classical concert
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T030000Z
 DESCRIPTION:South Lake Union (0.8 miles N)\n\nOriginally written for piano\
 	, Canto Ostinato is a big hit in the Netherlands\, performed by six artist
@@ -469,9 +469,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:HTjqcxcKa_YXk8ahzbRuu
+UID:zFOmFQdjT9MHlPf0J3E_U
 SUMMARY:Dinner in the dark
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260410T190000Z
 DESCRIPTION:South Lake Union (0.8 miles N)\n\nYour sense of taste is enhanc
 	ed when you eat a three-course meal blindfolded during Dining in the Dark 
@@ -485,9 +485,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:VFscz01_nHoi6dzTFQO2V
+UID:sPm7sDBHZ3RFpka4d-JgX
 SUMMARY:Japanese festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260410T190000Z
 DESCRIPTION:Lower Queen Anne (0.8 miles NW)\n\nThe Cherry Blossom & Japanes
 	e Cultural Festival celebrates Seattle’s friendship with Japan and Japan’s
@@ -503,9 +503,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UeZbULDA-HOdsPYKXqXbz
+UID:jZVrT7XiCT-4V7g6NbAJS
 SUMMARY:Radio controlled cars\, etc.
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260410T190000Z
 DESCRIPTION:Monroe (33 miles NE)\n\nSee vendors of radio controlled cars\, 
 	airplanes\, boats\, robots\, and trains at the $10 NW Model Hobby Expo at 
@@ -519,9 +519,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:wO-OW1JqpFvt74p7yHtWi
+UID:cSHQ7UKSY5iXwPLa8Iy5-
 SUMMARY:Ballet
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260410T190000Z
 DESCRIPTION:Seattle Center (1.2 miles NW)\n\nPacific Northwest Ballet perfo
 	rms the Romance-period ballet Giselle\, an “ethereal\, haunting\, and tend
@@ -534,9 +534,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ou48q7YxSRzsq26qOfS9Q
+UID:CXUcCpRBzg2Sn5RYeI6kb
 SUMMARY:Spring Fair
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260410T190000Z
 DESCRIPTION:Puyallup (37 miles S)\n\nSpring Fair features farm animals\, pi
 	g races\, performing dogs\, fair food\, rides\, entertainers\, demolition 
@@ -551,9 +551,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:IsSKn3FvsSR40j07dDAlH
+UID:iwqBtGk8rKN4ZMIZO5S-k
 SUMMARY:Baseball
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260410T190000Z
 DESCRIPTION:SoDo (1.6 miles S)\n\n\n\nhttps://www.mlb.com/mariners/schedule
 	/2026-04
@@ -564,9 +564,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ICUbihMVRDUf42DhucCL3
+UID:kEkTSntn3AVB5wgVMkOx6
 SUMMARY:Outer-space party
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260412T010000Z
 DESCRIPTION:Georgetown (8 miles S)\n\nCelebrate the first man to orbit the 
 	earth in 1961 at Yuri’s Night\, a space-themed spectacle that transforms t
@@ -581,9 +581,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:OymKcu2cXeZb8atfshNIp
+UID:5zdGynuqmAupgkoZBx-uL
 SUMMARY:Central Asian festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T200000Z
 DESCRIPTION:Shoreline (11 miles NW)\n\nYour ticket to Navruz Celebration in
 	cludes a Central Asian meal\, dance performances\, a fashion show\, and a 
@@ -599,9 +599,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:2i2czUGPw-24uZPeZX4p6
+UID:mahQWFAIXndn6POwHteaU
 SUMMARY:Wine walk
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T200000Z
 DESCRIPTION:Burien (12 miles S)\n\nVisit Burien shops that host wine tastin
 	g with a $53 ticket to Burien Uncorked for age 21+. Begin at Discover Buri
@@ -615,9 +615,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:HxGZkiom3y1TvQGPDLsgF
+UID:eRsoVH6jtZLtZPWkqdm7g
 SUMMARY:Farm dinner
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260412T000000Z
 DESCRIPTION:Carnation (27 miles E)\n\nA $263 ticket to Farmview Dinner incl
 	udes a welcome cocktail plus “three expertly crafted farm-to-table courses
@@ -631,9 +631,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:BpCL1mTA-5qwXjsjX8Aq4
+UID:jqTx2dN1ZgcLoguYhaVDE
 SUMMARY:Toy show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T190000Z
 DESCRIPTION:Everett (28 miles N)\n\nShop from 250 vendors of vintage and mo
 	dern toys\, comics\, and collectibles at the Washington State Toy Show at 
@@ -647,9 +647,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:j1GX3H226rBfrCbJ_3IW8
+UID:ymt9RvwRSq-_npsh9ypCQ
 SUMMARY:Small tea festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T180000Z
 DESCRIPTION:Everett (29 miles N)\n\nCascadia Spring Tea Festival features l
 	ocal vendors\, tea tasting (bring your own cup)\, tea arts and crafts\, an
@@ -662,9 +662,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:eszkalt1Cy_iC5bh6GtPX
+UID:xFsTpO5XusXZkDiWK2OFO
 SUMMARY:Arts & crafts show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T190000Z
 DESCRIPTION:Sand Point (7.6 miles NE)\n\nBest of the Northwest Spring show 
 	has 100 artists displaying jewelry\, clothing\, paintings\, glass art\, an
@@ -680,9 +680,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:NaX8-gvAi7-q9O6EsfZGE
+UID:iCUAlwAVZBTLyH1AEiZrg
 SUMMARY:Whale festival on Whidbey Island
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260411T190000Z
 DESCRIPTION:Langley (35 miles N via ferry)\n\nWelcome the Whales honors Orc
 	a whales that return every spring with costume making (Sat. 11 a.m.)\, a p
@@ -696,9 +696,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:H6R-Xdk4YYoQTHi4yCcc6
+UID:x29VUCrTqp-5H_IqQqpTw
 SUMMARY:Tasting event
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260412T230000Z
 DESCRIPTION:Belltown (0.5 miles NW)\n\nThe Big Taste includes 10 tastes of 
 	wine\, beer\, cider\, or spirits\, with live music and food for sale at Bl
@@ -711,9 +711,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:xpOLC1RrQVzXSKZENdwju
+UID:NdAB6enHiNzLwPvdQoCzt
 SUMMARY:Jazz
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260413T010000Z
 DESCRIPTION:First Hill (0.9 miles E)\n\nSeattle Jazz Vespers features the f
 	ive members of Deseo Carmin playing “a fiery fusion of Latin rhythms\, sou
@@ -725,9 +725,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:uSlI9Z1ABOmA4_Nl7wSDA
+UID:c6QY8h1s6g6tWDptvnJss
 SUMMARY:Soccer
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260412T190000Z
 DESCRIPTION:Pioneer Square (1.3 miles S)\n\n\n\nhttps://www.soundersfc.com/
 	schedule/
@@ -738,9 +738,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:dIJGzRWAwUoBNexpAP-J2
+UID:ZEf3qgATzFaTRitw_jygN
 SUMMARY:Art party
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260415T010000Z
 DESCRIPTION:Lynnwood (17 miles NE)\n\nMeet dozens of Pacific Northwest arti
 	sts\, see their bird-themed art\, eat complimentary appetizers\, buy drink
@@ -755,9 +755,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:KypMO9pp_uOLX_pBOhldZ
+UID:O9vfADRykm1oyxOLGbCuy
 SUMMARY:1980s sing along
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260417T030000Z
 DESCRIPTION:Central District (1.9 miles E)\n\nThe Totally ‘80s Sing Along p
 	rojects 30 music videos with subtitles on screen so you can sing along to 
@@ -773,9 +773,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H45M
 END:VEVENT
 BEGIN:VEVENT
-UID:Ie_Plq9Cx-2FfK8iE5hzD
+UID:cZSkCT8MVZtWW5yoLHbIU
 SUMMARY:Tacoma museum night
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260416T190000Z
 DESCRIPTION:https://www.fosswaterwayseaport.org/education-pages/free-3rd-th
 	ursday
@@ -785,9 +785,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:re-RlL2kBx2b_o50TktR6
+UID:nTO5fc8-Jji3AigiWvaj4
 SUMMARY:Courageous films
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260416T190000Z
 DESCRIPTION:Beacon Hill (2.1 miles SE)\n\nSocial Justice Film Festival show
 	cases “fresh voices and brave storytelling that demonstrate courage in act
@@ -801,9 +801,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:pDuJQ1ZYMYKTjMbu5rWoU
+UID:gnQOheiHyV4_S5jmu3rYH
 SUMMARY:Family square dance
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T023000Z
 DESCRIPTION:Ballard (5 miles NW)\n\nThe $10 Square Dance has a live band an
 	d a caller to instruct beginners at Urban Family Brewing\, 1103 NW 52nd St
@@ -816,9 +816,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:fuyCxZOYg1yI60R-kDgFm
+UID:eIGP2HRqIWHjo4CX3qm9A
 SUMMARY:Clam festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260417T190000Z
 DESCRIPTION:Long Beach (172 miles SW)\n\nLong Beach Razor Clam Festival has
 	 seafood\, a beer & wine garden\, vendors\, live music\, and clam digging 
@@ -831,9 +831,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:aKE1coYEAKRDHiohJU3ct
+UID:_JuISmRufLxDfYTjF2Mdz
 SUMMARY:Plant show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260417T190000Z
 DESCRIPTION:Lynnwood (17 miles NE)\n\nAdmire and shop for a variety of hous
 	e plants (begonia\, orchid\, cactus\, succulent\, carnivorous\, and Africa
@@ -848,9 +848,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5VIoBclOr4DqxeEAKSWSF
+UID:HhxjQYyVc8uDPoE2Rvsj8
 SUMMARY:Poetry festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260417T190000Z
 DESCRIPTION:Cadence: Video Poetry Festival is “a series of screenings\, wor
 	kshops\, and discussions on the genre of video poetry” with works from mul
@@ -863,9 +863,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:xkYjQ9MbRMndu3Qyj_gdX
+UID:MrtR8j1WbChnHz15iIK0D
 SUMMARY:Dinner dance
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T010000Z
 DESCRIPTION:Capitol Hill (1.8 miles NE)\n\nLure of the Deep: Fantasy Ball f
 	eatures dinner\, a performance by Syrena Seattle\, swing and bachata dance
@@ -878,9 +878,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qLBqovShU2DEZGhpKTobZ
+UID:gFS6pCDrTVyNrD-LShndn
 SUMMARY:Night market
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T010000Z
 DESCRIPTION:Columbia City (5.5 miles SE)\n\nMonthly Columbia City Night Mar
 	ket has 8 food trucks\, 20 makers and vendors\, live music\, and a beer ga
@@ -894,9 +894,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:SVXd0QeiShrDW2dtHq6wy
+UID:EA2-dRD1fFtROyz7K-Ree
 SUMMARY:Run
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:Seward Park (6 miles SE)\n\nSeattle Cherry Blossom is a run or 
 	walk under the cherry trees at Seward Park\, 5900 Lake Washington Blvd. S 
@@ -909,9 +909,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:yXk_1Yz9X8P8EmHSlg8ig
+UID:HG9_6hBdj--SkAmG4uKE3
 SUMMARY:Roller derby
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:Sand Point (7.6 miles NE)\n\nWatch Rat City Roller Derby play e
 	xciting games at 3:30 & 6 p.m.\, with snacks for sale and a beer garden at
@@ -926,9 +926,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:l6bLB5TVFSLmPnKpBhiC7
+UID:6rlQU3WMHTc9BnBH7xWJI
 SUMMARY:Short films in Shoreline
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:Shoreline (11 miles NW)\n\nShoreline Short Short Film Festival 
 	screens a dozen films that are 3 to 13 minutes long and made by local emer
@@ -944,9 +944,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CxWFTj3rLSQJfE3NKxE1D
+UID:KCMRJlBMZFUMg1ZGAhy3f
 SUMMARY:Distillery tasting
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T210000Z
 DESCRIPTION:Snohomish (28 miles NE)\n\nMeet local distillers\, sample eight
 	 of their products\, buy food\, hear music\, and order cocktails at $42 Sn
@@ -959,9 +959,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:xnMYcTR4qJM6X3aQNaPTd
+UID:EVNisExdN4MqMzt9X54CS
 SUMMARY:Hawaiian festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T180000Z
 DESCRIPTION:Tacoma (38 miles SW)\n\nAha Mele Hawaiian Festival has music\, 
 	hula\, vendors\, food\, workshops\, and kids’ activities at Tacoma Communi
@@ -974,9 +974,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:660O2-LAgwM7Nry8aRVUH
+UID:KHtfPjCPZAhPuNNY7XWxV
 SUMMARY:Crab races and crab feed
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:Westport (132 miles SW)\n\nWatch crabs race and eat crab at the
 	 World Class Crab Races and Crab Feed inside a tent in the parking lot at 
@@ -989,9 +989,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Yu2p-nW1VyW3_bkC9u4Ce
+UID:1NdliK-Pv_BhE5UKqFrk6
 SUMMARY:New ideas conference
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:First Hill (0.5 miles SE)\n\n“Explore art\, philosophy\, and te
 	chnology as tools for resistance and optimism” during Night of Ideas\, a p
@@ -1008,9 +1008,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:fg7dPA2H3FxgJ7xgdPAdX
+UID:L0VjcMTjvKjBFDX8p9K33
 SUMMARY:Children’s festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T180000Z
 DESCRIPTION:Seattle Center (1 mile NW)\n\nChildren from around the world da
 	nce\, sing\, play music\, make origami\, and get faces painted at the Inte
@@ -1024,9 +1024,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:PQ2Os7uNjPL5bbJYUYAVY
+UID:exqZ3xOQbtp-4pc_1fI7X
 SUMMARY:Cat convention
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:Seattle Center (1.2 miles NW)\n\nPop Cats celebrates cats and p
 	op culture with artwork\, adoptable cats\, speakers\, workshops\, and vend
@@ -1040,9 +1040,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:70kNw6TYzM9xYjv1f82uT
+UID:hZpcp6pB5gXPMuJrTkmLE
 SUMMARY:Weird arts & crafts show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:Monroe (33 miles NE)\n\nSee unusual creations by 100 artists an
 	d crafters at Oddmall Emporium of the Weird\, and visit the food trucks at
@@ -1055,9 +1055,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:bJgQmOFolFhuI4BTwkCVf
+UID:ene1eKtV87PRdeBpZ8au4
 SUMMARY:Earth Day
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T190000Z
 DESCRIPTION:https://arboretumfoundation.org/events/earth-day/
 URL:https://arboretumfoundation.org/events/earth-day/
@@ -1066,9 +1066,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:TFAQQF2bGFAPZP_5dec69
+UID:4Iwe0caH8LzRPoHzwL0uc
 SUMMARY:Architectural tour
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260418T170000Z
 DESCRIPTION:Join Seattle Architecture Foundation on a $35 walking tour. No 
 	pets. FAQ.\n\n\n April 18 — Seattle skyline historic to modern\n\n April 1
@@ -1081,9 +1081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gRHtsJbXP-8m3mnRKGp-W
+UID:QgIn-J-gRN94WzDv8KQs-
 SUMMARY:Classical music
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T220000Z
 DESCRIPTION:Central District (1.5 miles SE)\n\nHear French baroque music pe
 	rformed by four musicians in the program Temple de la Gloire at Washington
@@ -1096,9 +1096,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:er4yquRjrf8419JFmbrhl
+UID:O6ybY25GeQxkmtF_MvuyE
 SUMMARY:Party for dance fans
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T193000Z
 DESCRIPTION:Central District (1.9 miles E)\n\nSee a live dance performance\
 	, watch a video of another performance\, network\, and enjoy Korean–Southe
@@ -1111,9 +1111,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:Nk-OvQ7tXDBjo3zMYzbXL
+UID:IMr1kM7fxbw8CHvPzOnAr
 SUMMARY:Inspirational talks
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T173000Z
 DESCRIPTION:University District (4.9 miles NE)\n\nHear short talks by passi
 	onate speakers during $20 TEDxUofW  at the University of Washington in Kan
@@ -1127,9 +1127,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:P12ZnIs_tWFHljwzQQnyO
+UID:2Txry3O-1a1twSz0RDs92
 SUMMARY:Daffodil boat parade
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T183000Z
 DESCRIPTION:Tacoma (39 miles S)\n\nWatch decorated boats in the Daffodil Ma
 	rine Festival and Parade\, which departs from Tacoma Yacht Club\, 5401 Yac
@@ -1144,9 +1144,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:o800V9hnBIByuJ8kEElob
+UID:ca5qq0QQDDiDO6KYCH4xG
 SUMMARY:Restaurant week
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260419T190000Z
 DESCRIPTION:https://srweek.org
 URL:https://srweek.org/
@@ -1155,9 +1155,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:W8OpKKIKSgtDvpB1KPUTj
+UID:UJNUJA2DrcWGdBGNVdKam
 SUMMARY:State park day
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260422T190000Z
 DESCRIPTION:https://discoverpass.wa.gov/about-pass/free-ways-visit/free-par
 	king-days
@@ -1168,9 +1168,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:686AYsWJKjM-l6_V1AcqM
+UID:bfvAIWknl7w2HVYpiciI0
 SUMMARY:Glass-school tours
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260422T190000Z
 DESCRIPTION:Stanwood (54 miles N)\n\nWatch hot glass demonstrations\, meet 
 	the artists\, take a tour of the campus founded by Dale Chihuly\, and shop
@@ -1184,9 +1184,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:kQC558nAIzljuBPloK5Tg
+UID:ZwTdAlGqyOm4gJTFQaDRB
 SUMMARY:Pub night for charity
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260424T000000Z
 DESCRIPTION:Ballard (5.2 miles NW)\n\nBrew Review is an all-ages fundraiser
 	 for Unemployment Law Project offering beer\, cider\, wine\, games\, and m
@@ -1202,9 +1202,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:5zdII3ygpvPkafxRWfR1_
+UID:BKs0pebqh2vdzbb9PZKxb
 SUMMARY:Healthcare
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260423T190000Z
 DESCRIPTION:Seattle Center (1 mile NW)\n\nSeattle/King County Clinic gives 
 	dental\, vision\, and medical care to anyone (no identification necessary)
@@ -1219,9 +1219,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:LXOFyJdUUMBE2LVhCKzsQ
+UID:iyff88nN_0CddWi2QsLR8
 SUMMARY:Apple Blossom Festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260423T190000Z
 DESCRIPTION:Wenatchee (148 miles E)\n\nWashington State Apple Blossom Festi
 	val in Eastern Washington has entertainment\, food vendors\, a beer garden
@@ -1236,9 +1236,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:-wrrWYHcwf5NHaEsr4wa-
+UID:8Bzpfbvnlrogit3CvpSuy
 SUMMARY:Dance party
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T003000Z
 DESCRIPTION:Westlake (1.9 miles N)\n\nAbba Night begins with a DJ playing A
 	bba and Euro pop music\, followed by Seattle tribute band Abbagrahics perf
@@ -1252,9 +1252,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:HxFxY1WjWp_QNyKBZchdv
+UID:c6TQ37Sw0SYse9-UCtEvI
 SUMMARY:Eastside wine walk
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T010000Z
 DESCRIPTION:Issaquah (17 miles E)\n\nThe $39 Downtown Issaquah Wine & Art W
 	alk includes 12 tasting tokens to redeem at shops along picturesque Front 
@@ -1270,9 +1270,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:5OyjL-3VFxyjqPhZnWvwn
+UID:6-LOwNTwBoKTARdaDJMuI
 SUMMARY:Dance: Alice in Wonderland
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T023000Z
 DESCRIPTION:University District (4.6 miles NE)\n\nThe dance company MOMIX “
 	creates surreal and fantastic worlds with light\, shadow\, props and the h
@@ -1287,9 +1287,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:GazS_eBHXPhQBNAd3SBTx
+UID:qEG77aANdXfegx7UV8SvW
 SUMMARY:Rodeo
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260424T190000Z
 DESCRIPTION:Tacoma (33 miles S)\n\nProfessional Bull Riders compete to see 
 	who can last the longest atop a bucking bull at the Tacoma Dome\, 2727 Eas
@@ -1302,9 +1302,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:SOgjRuK75jUV1ikHrvfk9
+UID:wCBdm3F1UclrOSBmPIrac
 SUMMARY:Olympia arts weekend
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260424T190000Z
 DESCRIPTION:Olympia (62 miles S)\n\nAdmire art Friday evening and Saturday 
 	at Olympia Arts Walk. Join a luminary procession (Fri. 8:30 p.m.). Watch p
@@ -1319,9 +1319,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qmV2H5zCNk74wj_wO7qHU
+UID:0CSZ7_OLCxVSFRNbxfh_P
 SUMMARY:Body-building expo
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260424T190000Z
 DESCRIPTION:Bellevue (11 miles E)\n\nEmerald Cup is a bodybuilding\, fitnes
 	s\, figure\, bikini\, and physique championship with health-industry vendo
@@ -1334,9 +1334,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:s1MzR_ALM9JZOGocqsgS1
+UID:qw61AsbFkzjeRSk_OeaQE
 SUMMARY:Home show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260424T190000Z
 DESCRIPTION:Monroe (33 miles NE)\n\nEvergreen Home Show promises 200 booths
 	 of “specialized local businesses ready to help you customize\, update\, o
@@ -1350,9 +1350,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:h77FsQVWPXv1ZXkVqgaIt
+UID:3lVli22Xu5utKVbuo1FsR
 SUMMARY:Victorian festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260424T190000Z
 DESCRIPTION:Port Townsend (58 miles NW via ferry)\n\nVictorian Heritage Fes
 	tival has walking tours\, teas\, opening houses\, a Saturday Victorian fas
@@ -1365,9 +1365,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5X3bjYfQsvNh2wqKsxXD5
+UID:f03bnTaJtu91xVB95ssRZ
 SUMMARY:Green home tour
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T180000Z
 DESCRIPTION:multiple locations\n\nRegister online for the self-guided North
 	west Green Home Tour to see seven solar-powered\, energy-efficient\, and s
@@ -1380,9 +1380,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:dW6Mu1ilsPDqruAJ3oHcL
+UID:cxrcDb7XeAi539RZflwWM
 SUMMARY:Spirits tasting
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T190000Z
 DESCRIPTION:Downtown (0.2 miles E)\n\nThe highlight of Seattle Cocktail Wee
 	k is the $69 Carnival of Cocktails\, where adults can watch cocktail demon
@@ -1396,9 +1396,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:IshU_B3rxp5JYUfm4E-17
+UID:Dv6P-aOA6Uju5Ly5sm-kd
 SUMMARY:Underground art show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T030000Z
 DESCRIPTION:South Lake Union (0.6 miles NE)\n\nThe $21 Pancakes & Booze Art
 	 Show is a traveling exhibition by 70 artists\, with pancakes included\, D
@@ -1413,9 +1413,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H59M
 END:VEVENT
 BEGIN:VEVENT
-UID:BpEAM2B_gv6tA2DNTxIfF
+UID:E_D3TVrQ43nQ1pFxpsvmT
 SUMMARY:Masquerade ball
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T030000Z
 DESCRIPTION:International District (1 mile S)\n\nDance the night away at $1
 	05 Venice is Sinking Masquerade Ball\, which has a Venetian theme\, acroba
@@ -1429,9 +1429,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:hW9OlBKg4lMc76U0wIBXl
+UID:d5nhPNWATa62buszegYja
 SUMMARY:Magnolia wine walk
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T003000Z
 DESCRIPTION:Magnolia (3.9 miles NW)\n\nVisit local shops to taste wine from
 	 a dozen wineries during Spring Vino in the Village. Start by picking up y
@@ -1445,9 +1445,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4uMH9b8zaPvr7SAzkJ3xn
+UID:kjutuZgDcjwyICprVmWIy
 SUMMARY:Clean energy fair
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T170000Z
 DESCRIPTION:Everett (29 miles N)\n\nSee electric cars\, touch a utility tru
 	ck\, watch a high-voltage electricity show\, find out about solar energy\,
@@ -1462,9 +1462,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ge01w0-QRqad6TTOm5ZNu
+UID:4rwDd9uUxc7Ayl450YQzi
 SUMMARY:Jazz walk in North Bend
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T230000Z
 DESCRIPTION:North Bend (30 miles E)\n\nHead to the mountains to hear live j
 	azz during North Bend Jazz Walk in 18 venues centered around North Bend Th
@@ -1478,9 +1478,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H59M
 END:VEVENT
 BEGIN:VEVENT
-UID:G9NTrumH8nKHrFBrPpzn4
+UID:TvLDByAAPXBbJsgjPPxoS
 SUMMARY:Tacoma kids’ parade
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T170000Z
 DESCRIPTION:Tacoma (37 miles S)\n\nBilled as the largest children’s parade 
 	in the state\, the Junior Daffodil Parade is four blocks long\, beginning 
@@ -1493,9 +1493,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:-0FOptb6qiWpP2Uvt-ZyB
+UID:lRusR0i9zvnDKwqT3JrKP
 SUMMARY:French concert
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T190000Z
 DESCRIPTION:https://www.lcfseattlefrenchchoir.org/
 URL:https://www.lcfseattlefrenchchoir.org/
@@ -1504,9 +1504,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:k6PCYVcqa5eB3TdWnmnMr
+UID:Q-L9beTGOXWoeiImk4akN
 SUMMARY:Student acrobats
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260425T190000Z
 DESCRIPTION:SoDo (2.8 miles S)\n\nWatch teenagers from the School of Acroba
 	tics and New Circus Arts act out a creative circus story as they unicycle\
@@ -1522,9 +1522,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Jdc6t00YkJ_INqbcGqH5z
+UID:X2M8KqGaMATrhonk83pqu
 SUMMARY:Touch a Truck
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T160000Z
 DESCRIPTION:University District (4.4 miles NE)\n\nChildren can touch and ex
 	plore heavy machinery and emergency vehicles\, talk to the drivers\, and p
@@ -1539,9 +1539,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:GmMoYjYnEndGUIwlaX7hm
+UID:cGlZIYnIhdjBj_DiM7Af6
 SUMMARY:Dinosaur day
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T170000Z
 DESCRIPTION:University District (4.5 miles NE)\n\nDig up fossils\, see exhi
 	bits\, and talk to paleontologists about dinosaurs during DinoFest at The 
@@ -1554,9 +1554,9 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:O3w8Y1uUGuJUQYjBlPDHA
+UID:jZ-PzkoyyL9X3m9RTaivH
 SUMMARY:Chowder fundraiser
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T230000Z
 DESCRIPTION:Tacoma (35 miles S)\n\nA $100 ticket to Chowder Social includes
 	 “a hosted social hour\, dinner with a variety of chowders and salads\, si
@@ -1570,9 +1570,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Z9xmfInjryrrYNVbi9MkQ
+UID:CJoqxg-etnbD4vBJQ0Luq
 SUMMARY:Run around windmills
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T190000Z
 DESCRIPTION:Ellensburg (128 miles E)\n\nRun Like the Wind Running Festival 
 	includes running events (5K\, 10K\, 10 mile\, kid’s dash)\, finish-line fo
@@ -1587,9 +1587,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:IcvgboZkBp8rPq3u4bLCm
+UID:oFOr77IpOVt0COY4F3FDA
 SUMMARY:World explorer show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T190000Z
 DESCRIPTION:Downtown (0.3 miles SW)\n\nNational Geographic Live presents sc
 	ientists\, photographers\, filmmakers\, and adventurers live on stage with
@@ -1604,9 +1604,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eFSY-60y_VPjbjPu6FtbS
+UID:460WysUMw499s4EUWJFF-
 SUMMARY:Soccer
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260426T190000Z
 DESCRIPTION:Pioneer Square (1.3 miles S)\n\n\n\nhttps://www.reignfc.com/sch
 	edule
@@ -1617,9 +1617,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:PbtOPkwaNeTUkJku-kor1
+UID:ex27xk1nbWt0wHeVNZWoO
 SUMMARY:Peruvian fusion band
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260429T023000Z
 DESCRIPTION:First Hill (0.5 miles SE)\n\nGlobal Rhythms features Novalima\,
 	 a group of four friends from Peru\, playing Afro-Peruvian music at Town H
@@ -1632,9 +1632,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:rUXQv4_-Xpt2Kl7kIynWr
+UID:xf3UuKnlld_tlvpAFX0SL
 SUMMARY:Eastside wine walk
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260501T000000Z
 DESCRIPTION:Kirkland (15 miles NE)\n\nA $51 ticket to the Wine Walk include
 	s a glass and “12 wine pours from local wineries” in The Village at Totem 
@@ -1647,9 +1647,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ad4rMm8THtE-zuV2Daog3
+UID:sgnoVQxqTahUAueX9JjX3
 SUMMARY:Black film festival
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260430T190000Z
 DESCRIPTION:Central District (1.7 miles SE)\n\nSeattle Black Film Festival 
 	“features film screenings\, hands-on workshops\, panel discussions\, and i
@@ -1664,9 +1664,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WHKqwqBGcVhtZ7P_1_gi_
+UID:VQSGeNRQGmz8tw9I647_N
 SUMMARY:RV show
-DTSTAMP:20260402T030246Z
+DTSTAMP:20260403T032238Z
 DTSTART:20260430T190000Z
 DESCRIPTION:Puyallup (37 miles S)\n\nSee the latest recreational vehicles a
 	t Puyallup RV Show at Washington State Fair Events Center\, 110 9th Ave. S

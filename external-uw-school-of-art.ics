@@ -1,5 +1,5 @@
 BEGIN:VCALENDAR
-PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25531//EN
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25602//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 X-WR-CALNAME:College of Arts and Sciences|School of Art + Art History + 
@@ -553,6 +553,61 @@ IMAGE;VALUE=URI:https://www.trumba.com/i/DgAo3bH4qd0-jRpHcWKcKAHW.jpg
 UID:http://uid.trumba.com/event/197278349
 X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
  nt%26eventid%3d197278349
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Telling Your Story: Resume Workshop for Art + Art History + Desi
+ gn Students
+LOCATION:Art Building (ART)
+DTSTART;TZID=America/Los_Angeles:20260413T160000
+DTEND;TZID=America/Los_Angeles:20260413T170000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
+ t Building (ART)
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Parnass
+ us Art Rm 007
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Liz Copland\, <a href="mailto:enc5@uw.edu" target="_blank" rel="noope
+ ner">enc5@uw.edu</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Academ
+ ics\,Student Activities\,Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
+ //www.trumba.com/i/DgDqDAg0QKSNxAbnEHavssN2.jpg" target="_blank" rel="no
+ opener" title="https://www.trumba.com/i/DgDqDAg0QKSNxAbnEHavssN2.jpg">ww
+ w.trumba.com&#8230\;</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:<a hr
+ ef="https://art.washington.edu/alumni-friends-group" target="_blank" rel
+ ="noopener">School of Art + Art History + Design Alumni + Friends group<
+ /a><br>Liz Copland\, <a href="mailto:enc5@uw.edu" target="_blank" rel="n
+ oopener">enc5@uw.edu</a><br><br><a href="https://art.washington.edu/advi
+ sing" target="_blank" rel="noopener">Art Advising</a><br>Katie Twiss\, <
+ a href="mailto:ktwiss@uw.edu" target="_blank" rel="noopener">ktwiss@uw.e
+ du</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Target Audience";ID=42285;TYPE=SingleLine:Art
+ \, Art History\, and Design students
+DTSTAMP:20260402T112621Z
+DESCRIPTION:Event interval: Single day event<br>Campus location: Art Bui
+ lding (ART)<br>Campus room: Parnassus Art Rm 007<br>Accessibility Contac
+ t: Liz Copland\, enc5@uw.edu<br>Event Types: Academics\,Student Activiti
+ es\,Workshops<br>Event sponsors: <a href="https://art.washington.edu/alu
+ mni-friends-group" target="_blank">School of Art + Art History + Design 
+ Alumni + Friends group</a>\nLiz Copland\, enc5@uw.edu\n\n<a href="https:
+ //art.washington.edu/advising" target="_blank">Art Advising</a>\nKatie T
+ wiss\, ktwiss@uw.edu<br>Target Audience: Art\, Art History\, and Design 
+ students<br><br>A resume isn&#8217\;t just a list. It&#8217\;s a transla
+ tion of your work.<br><br>In this hands-on workshop\, you will learn how
+  to turn studio projects\, research\, and everyday experiences into lang
+ uage that communicates your strengths and interests. We&#8217\;ll focus 
+ on clarity\, not perfection\, and help you create a resume that reflects
+  where&#160\;you are right now. Come as you are. Leave with a draft.
+CATEGORIES:School of Art + Art History + Design
+IMAGE;VALUE=URI:https://www.trumba.com/i/DgDqDAg0QKSNxAbnEHavssN2.jpg
+UID:http://uid.trumba.com/event/200125243
+X-TRUMBA-LINK:http://art.washington.edu/calendar/?trumbaEmbed=view%3deve
+ nt%26eventid%3d200125243
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Liberation Book Club: Community\, Collaboration\, and Conflict

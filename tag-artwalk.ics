@@ -6,40 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Artwalk Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:6y8swypuZsY8_eBzS0tgx
-SUMMARY:Central District Art Walk (First Friday)
-DTSTAMP:20260403T051339Z
-DTSTART;TZID=America/Los_Angeles:20260403T180000
-DESCRIPTION:Monthly art walk in the Central District on first Fridays\n\nht
-	tps://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty\n\nF
-	rom Central District Art Walk (First Friday)
-URL:https://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty
-LOCATION:Central District neighborhood\, Seattle
-X-CALRIPPER-SOURCE:central-district-artwalk-friday
-CATEGORIES:Central District Art Walk (First Friday)
-TRANSP:TRANSPARENT
-RRULE:FREQ=MONTHLY;BYDAY=1FR
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:KGB81-yIR_Cahlpe54ymQ
-SUMMARY:Fremont First Friday Art Walk
-DTSTAMP:20260403T051339Z
-DTSTART;TZID=America/Los_Angeles:20260403T180000
-DESCRIPTION:Monthly art walk in the Fremont neighborhood\n\nhttp://www.frem
-	ontfirstfriday.com/\n\nFrom Fremont First Friday Art Walk
-URL:http://www.fremontfirstfriday.com/
-LOCATION:Fremont neighborhood\, Seattle
-X-CALRIPPER-SOURCE:fremont-artwalk
-CATEGORIES:Fremont First Friday Art Walk
-TRANSP:TRANSPARENT
-RRULE:FREQ=MONTHLY;BYDAY=1FR
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:-HpBmvIN4jPRb48sM2BuW
+UID:eAQ5P06LEfLbJsf0EHkD0
 SUMMARY:Capitol Hill Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260409T180000
 DESCRIPTION:Monthly art walk in the Capitol Hill neighborhood\n\nhttps://ca
 	pitolhillartwalk.com/\n\nFrom Capitol Hill Art Walk
@@ -52,9 +21,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:LQlQ5M2ta6OaUTqx1K37R
+UID:oxr3e49LGQWTj-zb2BFJ0
 SUMMARY:West Seattle Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260409T180000
 DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
 	om West Seattle Art Walk
@@ -67,9 +36,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:zHaDKfRMJNkR8fZ0UU7Cg
+UID:do0HOPz4y8fOLNuNpLmhe
 SUMMARY:Belltown Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260410T180000
 DESCRIPTION:Monthly art walk in the Belltown neighborhood\n\nhttp://www.bel
 	ltownartwalk.com/\n\nFrom Belltown Art Walk
@@ -82,9 +51,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:50jS8os_GEBpyW9cASSl3
+UID:_AjeOfY5LR-yq5qxx6NvA
 SUMMARY:Phinney/Greenwood Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260410T180000
 DESCRIPTION:Monthly art walk in the Phinney/Greenwood neighborhoods\n\nhttp
 	s://www.phinneycenter.org/artwalk/\n\nFrom Phinney/Greenwood Art Walk
@@ -97,9 +66,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:4cQpgCRFAzkXVWKawjEHU
+UID:Fee8gGOJZMvRGep2aCDHf
 SUMMARY:Ballard Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:Monthly art walk in the Ballard neighborhood\n\nhttp://www.visi
 	tballard.com/artwalk/\n\nFrom Ballard Art Walk
@@ -112,9 +81,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:DmGEeUcRNHk9j79BRu3aq
+UID:3icM_eYQEtZKqF9AesDsK
 SUMMARY:Central District Art Walk (Second Saturday)
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:Monthly art walk in the Central District on second Saturdays\n\
 	nhttps://www.facebook.com/centraldistrictartwalk\n\nFrom Central District 
@@ -128,9 +97,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:LnMDmEGIT4TsQrEiZi7PN
+UID:BpQVovIh4HrfYzfvQZckK
 SUMMARY:Georgetown Art Attack
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:Monthly art walk in the Georgetown neighborhood\n\nhttps://geor
 	getownseattle.org/art-attack/\n\nFrom Georgetown Art Attack
@@ -143,9 +112,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:2DEvb-N_xPXpc0Y5xzfez
+UID:geomveeKP19J0DfCwAbde
 SUMMARY:Lake City Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260416T180000
 DESCRIPTION:Monthly art walk in the Lake City neighborhood\n\nhttps://www.t
 	urntablestrails.com/art-walk\n\nFrom Lake City Art Walk
@@ -158,9 +127,9 @@ RRULE:FREQ=MONTHLY;BYDAY=3TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:4P5ZyNFbWjQlRcuIPkKy3
+UID:3tHFqe9wK9i70q47_kja7
 SUMMARY:University District Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260417T180000
 DESCRIPTION:Monthly art walk in the University District\n\nhttp://www.udist
 	rictartwalk.org/\n\nFrom University District Art Walk
@@ -173,9 +142,9 @@ RRULE:FREQ=MONTHLY;BYDAY=3FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:-sMksegKO3FCYDMpkY_hQ
+UID:eBGEXXSyqOpMbSvYV7FFA
 SUMMARY:Downtown Seattle Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260424T180000
 DESCRIPTION:Monthly art walk in Downtown Seattle\n\nhttps://www.seattle.gov
 	/arts/experience/art-walks\n\nFrom Downtown Seattle Art Walk
@@ -188,9 +157,40 @@ RRULE:FREQ=MONTHLY;BYDAY=4FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:C_cKBQ3o14TCLSQb7Cmvp
+UID:PBS2ZEf5l7IXHA8jhIUHA
+SUMMARY:Central District Art Walk (First Friday)
+DTSTAMP:20260404T043949Z
+DTSTART;TZID=America/Los_Angeles:20260501T180000
+DESCRIPTION:Monthly art walk in the Central District on first Fridays\n\nht
+	tps://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty\n\nF
+	rom Central District Art Walk (First Friday)
+URL:https://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty
+LOCATION:Central District neighborhood\, Seattle
+X-CALRIPPER-SOURCE:central-district-artwalk-friday
+CATEGORIES:Central District Art Walk (First Friday)
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1FR
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:okpMiPWs__lyL8rO956_L
+SUMMARY:Fremont First Friday Art Walk
+DTSTAMP:20260404T043949Z
+DTSTART;TZID=America/Los_Angeles:20260501T180000
+DESCRIPTION:Monthly art walk in the Fremont neighborhood\n\nhttp://www.frem
+	ontfirstfriday.com/\n\nFrom Fremont First Friday Art Walk
+URL:http://www.fremontfirstfriday.com/
+LOCATION:Fremont neighborhood\, Seattle
+X-CALRIPPER-SOURCE:fremont-artwalk
+CATEGORIES:Fremont First Friday Art Walk
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1FR
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:KG3edayeWoYDyPcOpvxlF
 SUMMARY:Pioneer Square Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260507T180000
 DESCRIPTION:Monthly art walk in Pioneer Square - the nation's first art wal
 	k!\n\nhttps://pioneersquare.org/art-walks/\n\nFrom Pioneer Square Art Walk
@@ -203,9 +203,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:NH5O3wz_Xv7OLrd73Bqc5
+UID:PLDPT2xBBQbnw5U-Qb9TX
 SUMMARY:Wallingford Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260513T180000
 DESCRIPTION:Summer art walk in the Wallingford neighborhood\, May through S
 	eptember\n\nhttps://www.facebook.com/wallingfordartwalk/\n\nFrom Wallingfo
@@ -219,9 +219,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2WE;BYMONTH=5,6,7,8,9
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:8Y1UYjFgsC0EbeN0PYwjA
+UID:Q7N6Oo8BMs3CZeGAQJ-X2
 SUMMARY:Pike Place Summer Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260604T180000
 DESCRIPTION:Summer art walk at Pike Place Market\n\nhttps://www.seattle.gov
 	/arts/experience/art-walks\n\nFrom Pike Place Summer Art Walk
@@ -234,9 +234,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1TH;BYMONTH=6,7,8,9
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:KF1p_ZnaxS4XiCXitvgPe
+UID:nBBfgpD2hppIOkVCBO1VZ
 SUMMARY:Chinatown/International District Art Walk
-DTSTAMP:20260403T051339Z
+DTSTAMP:20260404T043949Z
 DTSTART;TZID=America/Los_Angeles:20260618T180000
 DESCRIPTION:Summer art walk in the Chinatown/International District\n\nhttp
 	://www.wingluke.org/jamfest/\n\nFrom Chinatown/International District Art 

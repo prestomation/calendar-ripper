@@ -6,27 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:West Seattle Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:qznDBjb6bzhr5X3axb90n
-SUMMARY:Preschool Story Time
-DTSTAMP:20260403T051341Z
-DTSTART;TZID=America/Los_Angeles:20260405T100000
-DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
-	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
-	endar?trumbaEmbed=view%3devent%26eventid%3d196017725\n\nFrom SPL - West Se
-	attle Branch
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d196017725
-LOCATION:West Seattle Branch\, Meeting Room
-X-CALRIPPER-SOURCE:west-seattle
-CATEGORIES:SPL - West Seattle Branch
-TRANSP:TRANSPARENT
-DURATION:PT1H15M
-END:VEVENT
-BEGIN:VEVENT
-UID:ukuvSG-2hixHdUAvkQBrP
+UID:BgjW-3roSZ1wz3ZcDCA63
 SUMMARY:West Seattle Farmers Market
-DTSTAMP:20260403T051341Z
-DTSTART;TZID=America/Los_Angeles:20260408T193000
+DTSTAMP:20260404T043951Z
+DTSTART;TZID=America/Los_Angeles:20260405T100000
 DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
 	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
 	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
@@ -39,10 +22,10 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:8vKKKI10UJ0FwRAsSNnxx
+UID:X-hV8gSJgYlU7Lo0jVkjB
 SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260403T051341Z
-DTSTART;TZID=America/Los_Angeles:20260409T180000
+DTSTAMP:20260404T043951Z
+DTSTART;TZID=America/Los_Angeles:20260408T193000
 DESCRIPTION:Weekly open mic with full backline provided and 16-track record
 	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
 	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
@@ -55,10 +38,10 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:NufH4b-UgFeb_BWbCuIVS
+UID:yl1NGc8osa_9U0P_ew-Nl
 SUMMARY:Preschool Story Time
-DTSTAMP:20260403T051341Z
-DTSTART:20260409T173000Z
+DTSTAMP:20260404T043951Z
+DTSTART;TZID=America/Los_Angeles:20260409T180000
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
 	endar?trumbaEmbed=view%3devent%26eventid%3d196017726\n\nFrom SPL - West Se
@@ -72,9 +55,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:a_EnPE-xX4zo-zDHCp5Mt
+UID:lnenM72I9mTxLiKpCOG7s
 SUMMARY:West Seattle Art Walk
-DTSTAMP:20260403T051341Z
+DTSTAMP:20260404T043951Z
 DTSTART:20260410T010000Z
 DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
 	om West Seattle Art Walk
@@ -87,9 +70,25 @@ RRULE:FREQ=MONTHLY;BYDAY=2TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:FQ9zbsFgX1_6dtN53QOvf
+UID:zkxxtpzs8M1j2rpBoR8C2
+SUMMARY:Game On for Kids! National Board Game Day
+DTSTAMP:20260404T043951Z
+DTSTART:20260411T173000Z
+DESCRIPTION:Celebrate National Board Game Day! Join us and play a game or t
+	wo.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26event
+	id%3d198142786\n\nFrom SPL - West Seattle Branch
+URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
+	d198142786
+LOCATION:West Seattle Branch\, Meeting Room
+X-CALRIPPER-SOURCE:west-seattle
+CATEGORIES:SPL - West Seattle Branch
+TRANSP:TRANSPARENT
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:Ri_NHUOIChbUjs1L81Dws
 SUMMARY:Swinson\, The Rolling Thunder\, Will Rainier &amp\; the Pines
-DTSTAMP:20260403T051341Z
+DTSTAMP:20260404T043951Z
 DTSTART:20260502T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Skylark
 URL:https://seattle.showlists.net/

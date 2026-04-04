@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-03T05:14:05.323Z",
+  "lastUpdated": "2026-04-04T04:40:14.622Z",
   "rippers": [
     {
       "name": "19hz",
@@ -82,23 +82,6 @@
           "tags": [
             "Music",
             "Downtown"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "burke-museum",
-      "description": "Burke Museum",
-      "friendlyLink": "https://www.burkemuseum.org/calendar",
-      "calendars": [
-        {
-          "name": "burke-museum",
-          "friendlyName": "Burke Museum Events",
-          "icsUrl": "burke-museum-burke-museum.ics",
-          "rssUrl": "burke-museum-burke-museum.rss",
-          "tags": [
-            "Museums",
-            "University District"
           ]
         }
       ]
@@ -1565,6 +1548,25 @@
             "Arts",
             "Community",
             "International District"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "rainier-arts-center",
+      "friendlyName": "rainier-arts-center",
+      "description": "Rainier Arts Center",
+      "friendlyLink": "https://rainierartscenter.org/events/",
+      "calendars": [
+        {
+          "name": "rainier-arts-center",
+          "friendlyName": "Rainier Arts Center",
+          "icsUrl": "rainier-arts-center-rainier-arts-center.ics",
+          "rssUrl": "rainier-arts-center-rainier-arts-center.rss",
+          "tags": [
+            "Arts",
+            "Music",
+            "Community"
           ]
         }
       ]

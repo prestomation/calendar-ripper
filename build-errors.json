@@ -1,92 +1,290 @@
 {
-  "buildTime": "2026-04-04T04:41:07.113Z",
-  "totalErrors": 7,
+  "buildTime": "2026-04-04T11:15:58.639Z",
+  "totalErrors": 45,
   "configErrors": [],
-  "sources": [
-    {
-      "source": "burke-museum",
-      "calendar": "burke-museum",
-      "type": "Ripper",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-university-district",
-      "calendar": "tag-university-district",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-museums",
-      "calendar": "tag-museums",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    },
-    {
-      "source": "tag-all",
-      "calendar": "tag-all",
-      "type": "Aggregate",
-      "errorCount": 1,
-      "errors": [
-        {
-          "type": "ParseError",
-          "reason": "Ripper crashed: TypeError: fetch failed",
-          "context": ""
-        }
-      ]
-    }
-  ],
+  "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [
     {
       "type": "GeocodeError",
-      "location": "Centennial Park, 1130 208th Street Southeast, Bothell, WA",
-      "source": "seatoday",
+      "location": "Occidental Square, 117 S Washington St., Seattle, WA undefined",
+      "source": "downtown-seattle-association",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Belltown Yacht Club, 2320 1st Avenue Alleyway Entrance, Seattle, WA",
-      "source": "seatoday",
+      "location": "https://www.google.com/maps/d/viewer?mid=1GqeqbOZpeo3NG5bfahQSgoDqdGJY9Pw&usp=sharing ",
+      "source": "events12",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Meeting: <a href=\"https://bit.ly/3031302Mtg\" target=\"_blank\" re",
+      "location": "Black &amp; Tan Hall, 5608 Rainier Ave S, Seattle, WA 98118",
+      "source": "seattle-showlists",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "International District/Chinatown Branch, Children&#39;s Area / &#20799;&#31461;&#21306;&#22495; / &#20818;&#31461;&#21312;&#22495;",
+      "source": "spl",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "75 makers and artists selling handmade goods, as well as food vendors! We will be setting up along several blocks in the downtown area to showcase the best handmade products being made here in the Pacific Northwest. For those of you who have never been to an Urban Craft Uprising show, our events feature handcrafted goods including jewelry, housewares, clothing, toys, art, bath &amp; body products, paper goods, fiber arts, candles, and so much more!",
+      "source": "urbancraftuprising",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "100 makers and artists selling handmade goods. For those of you who have never been to an Urban Craft Uprising show, our events feature handcrafted goods including jewelry, housewares, clothing, toys, art, bath &amp; body products, paper goods, fiber arts, candles, and so much more!",
+      "source": "urbancraftuprising",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Maple Hall Great Room\\, Maple Hall\\, University of Washington\\, Maple Hall Great Room\\, Maple Hall\\, University of Washington\\, Seattle\\, 98105\\, United States",
+      "source": "external-Geekwire",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Side Hustle Local\\, Bothell\\, 18117 Bothell Way NE\\, Bothell\\, 98011\\, United States",
+      "source": "external-Geekwire",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Faye G. Allen Grand Atrium\\, MOHAI 860 Terry Ave N\\, Seattle\\, WA\\, 98109\\, United States",
+      "source": "external-mohai",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Microsoft Lakefront Pavilion\\, MOHAI - 860 Terry Ave N\\, Seattle\\, WA\\, 98109\\, United States",
+      "source": "external-mohai",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "MOHAI\\, MOHAI - 860 Terry Ave N\\, Seattle\\, WA\\, 98109\\, United States",
+      "source": "external-mohai",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Norcliffe Conference Room\\, MOHAI 860 Terry Ave N\\, Seattle\\, WA\\, 98109\\, United States",
+      "source": "external-mohai",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Phinney Center Campus: Brick (lower) Building\\, 6532 Phinney Ave. N.\\, Seattle\\, 98103\\, United States",
+      "source": "external-phinney-neighborhood-association",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Phinney Center Campus: Blue (upper) Building\\, 6532 Phinney Ave. N.\\, Seattle\\, WA\\, 98103\\, United States",
+      "source": "external-phinney-neighborhood-association",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Hybrid Meeting (in-person &amp\\; virtual) - Meeting link &amp\\;",
       "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Kangaroo &amp\\; Kiwi\\, 2026 NW Market St\\, Ballard",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Laurelhurst community center: 4654 Ne 41st st Seattle Washingto",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "The Stables in Seattle&#39\\;s historic Georgetown\\, 980 South N",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "39th Ave SW &amp\\; SW Orchard St\\, Seattle\\, WA 98126",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Freeway Estates Community Orchard is located next to the I-5 so",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Hybrid (OAC office &amp\\; Zoom)",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "In person - City Hall - 600 &#8211\\; 4th Avenue\\, Room L-280<br",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online &amp\\; In-person",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "UW Communications Building\\, Room 120 Lecture Hall: 4109 E Stev",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Startup Hall - 1100 NE Campus Parkway\\, 2nd floor (take elevato",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "UW Botanic Gardens - Center for Urban Horticulture\\, Elisabeth",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Alder Auditorium and HUB Lawn\\, University of Washington Seattl",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "University of Washington\\, South Campus Center\\, \\, 1601 NE Colum",
+      "source": "external-uw-campus-events",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Art Rm 312: Art Building\\, University of Washington\\, 1915 Chel",
+      "source": "external-uw-school-of-art",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Este taller te ensenara la estrategia ideal para tu busqueda de",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Link and meeting information will be share",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Reuni&#243\\;n en l&#237\\;nea de Zoom: La informaci&#243\\;n del",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Register for the workshop and the instruct",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "&#1054\\;&#1085\\;&#1083\\;&#1072\\;&#1081\\;&#1085\\;-&#1082\\;&#1086",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom online.  Link will be sent to you prior to the workshop st",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "&#1575\\;&#1740\\;&#1606\\; &#1580\\;&#1604\\;&#1587\\;&#1607\\; &#157",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Location:Reuni&#243\\;n en l&#237\\;nea de Zoom La informaci&#243",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "&#4808\\;&#4848\\;&#4826\\;&#4613\\; &#4814\\;&#4653\\;&#4781\\;&#4670",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "This is an in-person workshop being held at WorkSource North Se",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "&#1069\\;&#1090\\;&#1086\\;&#1090\\; &#1089\\;&#1077\\;&#1084\\;&#1080",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "El cliente tendr&#225\\; que registrarse en WorkSourceWA.com ant",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Unexpected Productions\\, 1428 Post Alley at the Gum Wall in Pike Place Market\\, Seattle\\, WA\\, 98101\\, United States",
+      "source": "external-unexpected-productions",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "The Wyncote NW Forum\\, 1119 8th Ave (Entrance off Seneca St.)\\, Seattle\\, 98101\\, United States",
+      "source": "external-town-hall-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "The Great Hall\\, 1119 Eighth Avenue (enter on Eighth Avenue)\\, Seattle\\, 98101\\, United States",
+      "source": "external-town-hall-seattle",
       "reason": "Nominatim returned no results"
     }
   ],
   "geoStats": {
-    "totalEvents": 7529,
-    "eventsWithGeo": 5740,
-    "eventsWithoutGeo": 1789,
-    "geocodeErrors": 3
+    "totalEvents": 7507,
+    "eventsWithGeo": 5730,
+    "eventsWithoutGeo": 1777,
+    "geocodeErrors": 45
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
     "benaroya-hall-benaroya-nordstrom",
-    "burke-museum-burke-museum",
     "downtown-seattle-association-pioneer-park",
     "future-primitive-all-events",
     "jcccw-all-events",
@@ -557,7 +755,7 @@
     {
       "name": "burke-museum-burke-museum",
       "type": "Ripper",
-      "events": 0,
+      "events": 11,
       "expectEmpty": false
     },
     {
@@ -575,7 +773,7 @@
     {
       "name": "crocodile-crocodile-main",
       "type": "Ripper",
-      "events": 72,
+      "events": 70,
       "expectEmpty": false
     },
     {
@@ -671,7 +869,7 @@
     {
       "name": "hidden-hall-events",
       "type": "Ripper",
-      "events": 61,
+      "events": 60,
       "expectEmpty": false
     },
     {
@@ -695,7 +893,7 @@
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 66,
+      "events": 65,
       "expectEmpty": false
     },
     {
@@ -737,7 +935,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 52,
+      "events": 50,
       "expectEmpty": false
     },
     {
@@ -773,7 +971,7 @@
     {
       "name": "reubens-brews-downtown",
       "type": "Ripper",
-      "events": 10,
+      "events": 9,
       "expectEmpty": false
     },
     {
@@ -839,7 +1037,7 @@
     {
       "name": "seattle-food-trucks-seattle-food-trucks",
       "type": "Ripper",
-      "events": 298,
+      "events": 287,
       "expectEmpty": false
     },
     {
@@ -983,13 +1181,13 @@
     {
       "name": "showbox-presents-the-showbox",
       "type": "Ripper",
-      "events": 62,
+      "events": 61,
       "expectEmpty": false
     },
     {
       "name": "showbox-presents-showbox-sodo",
       "type": "Ripper",
-      "events": 55,
+      "events": 54,
       "expectEmpty": false
     },
     {
@@ -1019,13 +1217,13 @@
     {
       "name": "spl-central-library",
       "type": "Ripper",
-      "events": 30,
+      "events": 33,
       "expectEmpty": false
     },
     {
       "name": "spl-ballard",
       "type": "Ripper",
-      "events": 9,
+      "events": 10,
       "expectEmpty": false
     },
     {
@@ -1037,7 +1235,7 @@
     {
       "name": "spl-broadview",
       "type": "Ripper",
-      "events": 17,
+      "events": 18,
       "expectEmpty": false
     },
     {
@@ -1049,19 +1247,19 @@
     {
       "name": "spl-columbia",
       "type": "Ripper",
-      "events": 7,
+      "events": 6,
       "expectEmpty": false
     },
     {
       "name": "spl-delridge",
       "type": "Ripper",
-      "events": 4,
+      "events": 3,
       "expectEmpty": false
     },
     {
       "name": "spl-douglass-truth",
       "type": "Ripper",
-      "events": 7,
+      "events": 8,
       "expectEmpty": false
     },
     {
@@ -1073,13 +1271,13 @@
     {
       "name": "spl-green-lake",
       "type": "Ripper",
-      "events": 3,
+      "events": 5,
       "expectEmpty": false
     },
     {
       "name": "spl-greenwood",
       "type": "Ripper",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -1097,19 +1295,19 @@
     {
       "name": "spl-lake-city",
       "type": "Ripper",
-      "events": 14,
+      "events": 13,
       "expectEmpty": false
     },
     {
       "name": "spl-magnolia",
       "type": "Ripper",
-      "events": 5,
+      "events": 4,
       "expectEmpty": false
     },
     {
       "name": "spl-newholly",
       "type": "Ripper",
-      "events": 9,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -1127,13 +1325,13 @@
     {
       "name": "spl-queen-anne",
       "type": "Ripper",
-      "events": 4,
+      "events": 3,
       "expectEmpty": false
     },
     {
       "name": "spl-rainier-beach",
       "type": "Ripper",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -1163,13 +1361,13 @@
     {
       "name": "spl-online",
       "type": "Ripper",
-      "events": 7,
+      "events": 8,
       "expectEmpty": false
     },
     {
       "name": "stg-stg-paramount",
       "type": "Ripper",
-      "events": 113,
+      "events": 112,
       "expectEmpty": false
     },
     {
@@ -1181,7 +1379,7 @@
     {
       "name": "stg-stg-neptune",
       "type": "Ripper",
-      "events": 117,
+      "events": 116,
       "expectEmpty": false
     },
     {
@@ -1205,19 +1403,19 @@
     {
       "name": "substation-substation",
       "type": "Ripper",
-      "events": 62,
+      "events": 61,
       "expectEmpty": false
     },
     {
       "name": "sunset-tavern-sunset-tavern",
       "type": "Ripper",
-      "events": 64,
+      "events": 63,
       "expectEmpty": false
     },
     {
       "name": "t-mobile-park-t-mobile-park",
       "type": "Ripper",
-      "events": 331,
+      "events": 330,
       "expectEmpty": false
     },
     {
@@ -1229,7 +1427,7 @@
     {
       "name": "tractor-tavern-tractor-tavern",
       "type": "Ripper",
-      "events": 71,
+      "events": 70,
       "expectEmpty": false
     },
     {
@@ -1241,13 +1439,13 @@
     {
       "name": "vera-project-vera-project",
       "type": "Ripper",
-      "events": 64,
+      "events": 63,
       "expectEmpty": false
     },
     {
       "name": "wamu-theater-wamu-theater",
       "type": "Ripper",
-      "events": 14,
+      "events": 13,
       "expectEmpty": false
     },
     {
@@ -1265,25 +1463,25 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 458,
+      "events": 455,
       "expectEmpty": false
     },
     {
       "name": "tag-belltown",
       "type": "Aggregate",
-      "events": 128,
+      "events": 126,
       "expectEmpty": false
     },
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 491,
+      "events": 490,
       "expectEmpty": false
     },
     {
       "name": "tag-central-district",
       "type": "Aggregate",
-      "events": 15,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -1295,13 +1493,13 @@
     {
       "name": "tag-downtown",
       "type": "Aggregate",
-      "events": 304,
+      "events": 305,
       "expectEmpty": false
     },
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 145,
+      "events": 144,
       "expectEmpty": false
     },
     {
@@ -1313,7 +1511,7 @@
     {
       "name": "tag-lake-city",
       "type": "Aggregate",
-      "events": 16,
+      "events": 15,
       "expectEmpty": false
     },
     {
@@ -1325,7 +1523,7 @@
     {
       "name": "tag-greenwood",
       "type": "Aggregate",
-      "events": 165,
+      "events": 164,
       "expectEmpty": false
     },
     {
@@ -1343,7 +1541,7 @@
     {
       "name": "tag-university-district",
       "type": "Aggregate",
-      "events": 866,
+      "events": 875,
       "expectEmpty": false
     },
     {
@@ -1367,7 +1565,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1993,
+      "events": 1989,
       "expectEmpty": false
     },
     {
@@ -1379,13 +1577,13 @@
     {
       "name": "tag-food",
       "type": "Aggregate",
-      "events": 327,
+      "events": 316,
       "expectEmpty": false
     },
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 168,
+      "events": 177,
       "expectEmpty": false
     },
     {
@@ -1397,7 +1595,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2645,
+      "events": 2632,
       "expectEmpty": false
     },
     {
@@ -1475,19 +1673,19 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 452,
+      "events": 451,
       "expectEmpty": false
     },
     {
       "name": "tag-queenanne",
       "type": "Aggregate",
-      "events": 270,
+      "events": 269,
       "expectEmpty": false
     },
     {
       "name": "tag-sports",
       "type": "Aggregate",
-      "events": 532,
+      "events": 531,
       "expectEmpty": false
     },
     {
@@ -1511,13 +1709,13 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1070,
+      "events": 1069,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 538,
+      "events": 535,
       "expectEmpty": false
     },
     {
@@ -1529,7 +1727,7 @@
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 455,
+      "events": 451,
       "expectEmpty": false
     },
     {
@@ -1553,7 +1751,7 @@
     {
       "name": "tag-theatre",
       "type": "Aggregate",
-      "events": 765,
+      "events": 763,
       "expectEmpty": false
     },
     {
@@ -1583,7 +1781,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7529,
+      "events": 7507,
       "expectEmpty": false
     },
     {
@@ -1661,13 +1859,13 @@
     {
       "name": "external-the-beacon-cinema",
       "type": "External",
-      "events": 100,
+      "events": 98,
       "expectEmpty": false
     },
     {
       "name": "external-central-cinema",
       "type": "External",
-      "events": 84,
+      "events": 82,
       "expectEmpty": false
     },
     {
@@ -1679,7 +1877,7 @@
     {
       "name": "external-nw-film-forum",
       "type": "External",
-      "events": 79,
+      "events": 80,
       "expectEmpty": false
     },
     {
@@ -1751,7 +1949,7 @@
     {
       "name": "external-worksource-north-seattle",
       "type": "External",
-      "events": 74,
+      "events": 73,
       "expectEmpty": false
     },
     {

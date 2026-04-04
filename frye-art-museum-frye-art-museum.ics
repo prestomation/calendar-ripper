@@ -6,22 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Frye Art Museum
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:dxFz336NA1PdFl3mpAePn
-SUMMARY:Coffee & Creativity
-DTSTAMP:20260404T043944Z
-DTSTART:20260403T180000Z
-DESCRIPTION:https://fryemuseum.org/calendar/event/coffee-creativity-april-2
-	026
-URL:https://fryemuseum.org/calendar/event/coffee-creativity-april-2026
-LOCATION:Frye Art Museum\n\n            704 Terry Avenue\n\n            Sea
-	ttle\, WA 98104
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:yxIwSLidCHdv3MWkcdyeA
+UID:cNf-wmWiOA4IVlaxhEFhz
 SUMMARY:Sensory Station Pop-Ups
-DTSTAMP:20260404T043944Z
+DTSTAMP:20260404T111355Z
 DTSTART:20260208T200000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/sensory-station-pop-ups
 URL:https://fryemuseum.org/calendar/event/sensory-station-pop-ups
@@ -31,10 +18,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7RvNKvtbctUXIFoInp3Z8
+UID:uzwB-fpt5TcA8GV5ItOr9
 SUMMARY:Art History Lecture Series | No\, your toddler could not have done 
 	that: A Brief History of Abstraction
-DTSTAMP:20260404T043944Z
+DTSTAMP:20260404T111355Z
 DTSTART:20260409T183000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/art-history-lecture-serie
 	s-no-your-toddler-could-not-have-done-brief-history
@@ -46,9 +33,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:vuonR3qP_0P0WeRsDZpmr
+UID:dXys6YBNidIT7aRtQPJet
 SUMMARY:Salon-Inspired Storytelling
-DTSTAMP:20260404T043944Z
+DTSTAMP:20260404T111355Z
 DTSTART:20260409T200000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/salon-inspired-storytelli
 	ng-april-2026
@@ -60,9 +47,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:KrShEgyapNyO8L4ZLywoV
+UID:kho1vuVczV657zm3r-wHh
 SUMMARY:“Water Carries the Stories of Our Stars” Closing Performance
-DTSTAMP:20260404T043944Z
+DTSTAMP:20260404T111355Z
 DTSTART:20260410T013000Z
 DESCRIPTION:https://fryemuseum.org/calendar/event/water-carries-stories-our
 	-stars-closing-performance
@@ -72,5 +59,19 @@ LOCATION:Frye Art Museum\n\n            704 Terry Avenue\n\n            Sea
 	ttle\, WA 98104
 TRANSP:TRANSPARENT
 DURATION:PT1H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:ESEM8NYADAbp9e4EF7sZP
+SUMMARY:Plein Air Portraiture: Workshop with Camille Trautman
+DTSTAMP:20260404T111355Z
+DTSTART:20260411T180000Z
+DESCRIPTION:https://fryemuseum.org/calendar/event/plein-air-portraiture-wor
+	kshop-camille-trautman
+URL:https://fryemuseum.org/calendar/event/plein-air-portraiture-workshop-ca
+	mille-trautman
+LOCATION:Frye Art Museum\n\n            704 Terry Avenue\n\n            Sea
+	ttle\, WA 98104
+TRANSP:TRANSPARENT
+DURATION:PT5H
 END:VEVENT
 END:VCALENDAR

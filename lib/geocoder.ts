@@ -36,15 +36,25 @@ export function normalizeLocation(location: string): string {
   // Also split on semicolons (ICS uses ; as multi-value separator).
   const firstSegment = normalized.split(/<br\s*\/?>/i)[0];
 
-  // Step 3: Strip all remaining HTML tags
+  // Step 3: Strip all remaining HTML tags (closed tags like <a href="...">)
   const stripped = firstSegment.replace(/<[^>]*>/g, '');
 
+  // Step 3b: Strip unclosed/malformed HTML tags (e.g. truncated "<a href=..." without closing >)
+  const noUnclosedTags = stripped.replace(/<[^>]*$/, '').trim();
+
   // Step 4: Split on newlines and semicolons, take the first non-empty part
-  const lines = stripped.split(/[\n\r;]+/);
-  const firstLine = lines.find(l => l.trim().length > 0) ?? stripped;
+  const lines = noUnclosedTags.split(/[\n\r;]+/);
+  const firstLine = lines.find(l => l.trim().length > 0) ?? noUnclosedTags;
 
   // Step 5: Collapse internal whitespace and trim
-  return firstLine.replace(/\s+/g, ' ').trim();
+  const result = firstLine.replace(/\s+/g, ' ').trim();
+
+  // Step 6: If the result is just a label like "Meeting:" with no address, treat as empty
+  if (/^meeting:\s*$/i.test(result)) {
+    return '';
+  }
+
+  return result;
 }
 
 export function normalizeLocationKey(location: string): string {
@@ -399,6 +409,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'mount vernon downtown association': { lat: 48.4206767, lng: -122.337333 },
   'peace of mind brewing': { lat: 47.8316011, lng: -122.3053788 },
   'cap hill (rsvp for details)': { lat: 47.6253, lng: -122.3222 },
+  'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
+  'centennial park, 1130 208th street southeast, bothell, wa': { lat: 47.7610, lng: -122.2218 },
 };
 
 /**

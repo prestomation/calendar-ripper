@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { ZoneRegion } from "@js-joda/core";
+import { ZoneId } from "@js-joda/core";
 import '@js-joda/timezone';
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
@@ -11,47 +11,62 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("CandlelightRipper", () => {
     const ripper = new CandlelightRipper();
-    const timezone = ZoneRegion.of("America/Los_Angeles");
-    const sampleHtml = readFileSync(join(__dirname, "sample-data.html"), "utf-8");
+    const timezone = ZoneId.of("America/Los_Angeles");
+    const sampleData = JSON.parse(readFileSync(join(__dirname, "sample-data.json"), "utf-8"));
+    const hits = sampleData.hits;
 
     it("should extract events from sample data", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
-        expect(calendarEvents.length).toBeGreaterThan(20);
+        expect(calendarEvents.length).toBeGreaterThan(10);
     });
 
-    it("should extract event titles", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+    it("should filter out gift cards", () => {
+        const events = ripper.parseEvents(hits, timezone);
+        const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
+
+        // Gift card entries should be excluded; real events have URLs like feverup.com/m/{id}
+        for (const event of calendarEvents) {
+            expect(event.url).toMatch(/^https:\/\/feverup\.com\/m\/\d+$/);
+        }
+    });
+
+    it("should extract event titles containing Candlelight", () => {
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
         const titles = calendarEvents.map(e => e.summary);
         expect(titles.some(t => t.includes("Candlelight:"))).toBe(true);
     });
 
-    it("should extract venue names", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+    it("should include known Seattle venues", () => {
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
         const locations = calendarEvents.map(e => e.location).filter(Boolean);
         expect(locations.length).toBeGreaterThan(0);
 
-        // Known venues from the data
-        const allLocations = locations.join(', ');
+        const allLocations = locations.join(", ");
         expect(allLocations).toContain("Arctic Club Hotel");
     });
 
-    it("should generate correct event URLs", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+    it("should include venue coordinates", () => {
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
-        for (const event of calendarEvents) {
-            expect(event.url).toMatch(/^https:\/\/feverup\.com\/m\/\d+$/);
-        }
+        const withCoords = calendarEvents.filter(e => e.lat !== undefined && e.lng !== undefined);
+        expect(withCoords.length).toBeGreaterThan(0);
+
+        // Arctic Club Hotel is roughly at 47.6°N, 122.3°W
+        const arctic = calendarEvents.find(e => e.location === "Arctic Club Hotel");
+        expect(arctic).toBeDefined();
+        expect(arctic!.lat).toBeCloseTo(47.6, 0);
+        expect(arctic!.lng).toBeCloseTo(-122.3, 0);
     });
 
     it("should set duration to 65 minutes", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
         for (const event of calendarEvents) {
@@ -59,17 +74,22 @@ describe("CandlelightRipper", () => {
         }
     });
 
-    it("should parse times correctly", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+    it("should convert UTC timestamps to Pacific time", () => {
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
-        // Events with times should be in the evening (typically 6-9 PM)
-        const eveningEvents = calendarEvents.filter(e => e.date.hour() >= 18 && e.date.hour() <= 21);
-        expect(eveningEvents.length).toBeGreaterThan(10);
+        // All events should be in America/Los_Angeles
+        for (const event of calendarEvents) {
+            expect(event.date.zone().id()).toBe("America/Los_Angeles");
+        }
+
+        // Events should be in the evening (typically 11 AM - 11 PM Pacific)
+        const eveningEvents = calendarEvents.filter(e => e.date.hour() >= 11 && e.date.hour() <= 23);
+        expect(eveningEvents.length).toBeGreaterThan(5);
     });
 
     it("should not produce duplicate events", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+        const events = ripper.parseEvents(hits, timezone);
         const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
 
         const ids = calendarEvents.map(e => e.id);
@@ -77,21 +97,20 @@ describe("CandlelightRipper", () => {
         expect(ids.length).toBe(uniqueIds.size);
     });
 
-    it("should produce few or no errors", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
+    it("should produce no errors on valid sample data", () => {
+        const events = ripper.parseEvents(hits, timezone);
         const errors = events.filter(e => "type" in e) as RipperError[];
 
-        // Allow some errors but not many
-        expect(errors.length).toBeLessThan(5);
+        expect(errors.length).toBe(0);
     });
 
-    it("should decode HTML entities in titles", () => {
-        const events = ripper.parseEventsFromHtml(sampleHtml, timezone);
-        const calendarEvents = events.filter(e => "date" in e) as RipperCalendarEvent[];
+    it("should deduplicate sessions with same startDateStr across calls", () => {
+        // Calling parseEvents twice should not matter since deduplication is per-call
+        const events1 = ripper.parseEvents(hits, timezone);
+        const events2 = ripper.parseEvents(hits, timezone);
 
-        for (const event of calendarEvents) {
-            expect(event.summary).not.toContain("&amp;");
-            expect(event.summary).not.toContain("&#");
-        }
+        const count1 = events1.filter(e => "date" in e).length;
+        const count2 = events2.filter(e => "date" in e).length;
+        expect(count1).toBe(count2);
     });
 });

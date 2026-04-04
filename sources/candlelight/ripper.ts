@@ -1,24 +1,19 @@
-import { ZonedDateTime, Duration, LocalDateTime, ZoneRegion } from "@js-joda/core";
+import { ZonedDateTime, Duration, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
-import { parse } from "node-html-parser";
-import { decode } from "html-entities";
-import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
+
+const ALGOLIA_APP_ID = 'I80Y2BQLSL';
+const ALGOLIA_API_KEY = 'e4226055c240f9e38e89794dcfb91766';
+const ALGOLIA_INDEX = 'Fever-SEA';
+const ALGOLIA_URL = `https://${ALGOLIA_APP_ID}-dsn.algolia.net/1/indexes/${ALGOLIA_INDEX}/query`;
 
 export default class CandlelightRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
-        const res = await fetchFn(ripper.config.url.toString(), {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            },
-        });
-        if (!res.ok) {
-            throw Error(`${res.status} ${res.statusText}`);
-        }
-
-        const htmlString = await res.text();
-        const events = this.parseEventsFromHtml(htmlString, ripper.config.calendars[0].timezone);
+        const hits = await this.fetchAllHits(fetchFn);
+        const timezone = ripper.config.calendars[0].timezone;
+        const events = this.parseEvents(hits, ZoneId.of(timezone.id()));
 
         return [{
             name: ripper.config.calendars[0].name,
@@ -30,139 +25,84 @@ export default class CandlelightRipper implements IRipper {
         }];
     }
 
-    public parseEventsFromHtml(htmlString: string, timezone: ZoneRegion): RipperEvent[] {
-        const html = parse(htmlString);
+    private async fetchAllHits(fetchFn: FetchFn): Promise<any[]> {
+        const hits: any[] = [];
+        let page = 0;
+
+        while (true) {
+            const res = await fetchFn(ALGOLIA_URL, {
+                method: 'POST',
+                headers: {
+                    'X-Algolia-Application-Id': ALGOLIA_APP_ID,
+                    'X-Algolia-API-Key': ALGOLIA_API_KEY,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ params: `query=candlelight&hitsPerPage=50&page=${page}` }),
+            });
+
+            if (!res.ok) throw new Error(`Algolia returned ${res.status} ${res.statusText}`);
+
+            const data = await res.json();
+            hits.push(...data.hits);
+
+            if (page >= data.nbPages - 1) break;
+            page++;
+        }
+
+        return hits;
+    }
+
+    public parseEvents(hits: any[], timezone: ZoneId = ZoneId.of('America/Los_Angeles')): RipperEvent[] {
         const events: RipperEvent[] = [];
         const seenIds = new Set<string>();
+        const now = new Date();
 
-        // The listing page renders session cards with id="planId-YYYY-MM-DD"
-        // Each card contains the event title, venue, and session times
-        const sessionCards = html.querySelectorAll('[id]');
+        for (const hit of hits) {
+            if (hit.is_gift_card) continue;
 
-        for (const card of sessionCards) {
-            const id = card.getAttribute('id') || '';
-            const match = id.match(/^(\d+)-(\d{4}-\d{2}-\d{2})$/);
-            if (!match) continue;
+            const planId = String(hit.id);
+            const name = hit.name as string;
+            const venue = hit.venues_coordinates?.[0];
+            const venueName: string | undefined = venue?.venue_name;
+            const lat: number | undefined = venue?.lat;
+            const lng: number | undefined = venue?.lng;
 
-            const planId = match[1];
-            const dateStr = match[2];
+            for (const session of (hit.sessions ?? [])) {
+                try {
+                    const startDate = new Date(session.startDateStr);
+                    if (startDate < now) continue;
 
-            try {
-                const title = this.extractTitle(card);
-                if (!title) {
-                    events.push({
-                        type: "ParseError",
-                        reason: `Could not extract title for plan ${planId} on ${dateStr}`,
-                        context: id,
-                    });
-                    continue;
-                }
-
-                const venue = this.extractVenue(card);
-                const times = this.extractTimes(card);
-
-                if (times.length === 0) {
-                    // No specific time found, default to 7:00 PM
-                    const eventId = `candlelight-${planId}-${dateStr}-1900`;
+                    const eventId = `candlelight-${planId}-${session.startDateStr}`;
                     if (seenIds.has(eventId)) continue;
                     seenIds.add(eventId);
 
-                    const parsedDate = this.parseDate(dateStr, 19, 0, timezone);
-                    if (!parsedDate) continue;
+                    // Parse the UTC ISO string, then convert to local timezone
+                    const utcZdt = ZonedDateTime.parse(session.startDateStr);
+                    const localZdt = utcZdt.withZoneSameInstant(timezone);
 
-                    events.push({
+                    const event: RipperCalendarEvent = {
                         id: eventId,
                         ripped: new Date(),
-                        date: parsedDate,
+                        date: localZdt,
                         duration: Duration.ofMinutes(65),
-                        summary: decode(title),
-                        description: `Candlelight concert by Fever. Tickets: https://feverup.com/m/${planId}`,
-                        location: venue ? decode(venue) : undefined,
+                        summary: name,
+                        location: venueName,
                         url: `https://feverup.com/m/${planId}`,
+                        lat,
+                        lng,
+                    };
+
+                    events.push(event);
+                } catch (err) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Failed to parse session: ${err}`,
+                        context: `${planId} ${session.startDateStr}`,
                     });
-                } else {
-                    for (const time of times) {
-                        const parsed = this.parseTime(time);
-                        if (!parsed) continue;
-
-                        const eventId = `candlelight-${planId}-${dateStr}-${String(parsed.hour).padStart(2, '0')}${String(parsed.minute).padStart(2, '0')}`;
-                        if (seenIds.has(eventId)) continue;
-                        seenIds.add(eventId);
-
-                        const parsedDate = this.parseDate(dateStr, parsed.hour, parsed.minute, timezone);
-                        if (!parsedDate) continue;
-
-                        events.push({
-                            id: eventId,
-                            ripped: new Date(),
-                            date: parsedDate,
-                            duration: Duration.ofMinutes(65),
-                            summary: decode(title),
-                            description: `Candlelight concert by Fever. Tickets: https://feverup.com/m/${planId}`,
-                            location: venue ? decode(venue) : undefined,
-                            url: `https://feverup.com/m/${planId}`,
-                        });
-                    }
                 }
-            } catch (error) {
-                events.push({
-                    type: "ParseError",
-                    reason: `Failed to parse session card: ${error}`,
-                    context: id,
-                });
             }
         }
 
         return events;
-    }
-
-    private extractTitle(card: any): string | null {
-        const titleEl = card.querySelector('.fv-wpf-session-plan-card-title');
-        if (titleEl) return titleEl.text.trim();
-        return null;
-    }
-
-    private extractVenue(card: any): string | null {
-        const venueEl = card.querySelector('[data-testid="fv-plan-location__name"]');
-        if (venueEl) return venueEl.text.trim();
-        return null;
-    }
-
-    private extractTimes(card: any): string[] {
-        const times: string[] = [];
-        // Look for time patterns like "6:15 PM" in the card content
-        const text = card.text;
-        const matches = text.match(/\d{1,2}:\d{2}\s*(?:AM|PM)/gi);
-        if (matches) {
-            for (const m of matches) {
-                times.push(m.trim());
-            }
-        }
-        return times;
-    }
-
-    private parseTime(timeStr: string): { hour: number; minute: number } | null {
-        const match = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-        if (!match) return null;
-
-        let hour = parseInt(match[1]);
-        const minute = parseInt(match[2]);
-        const isPM = /pm/i.test(match[3]);
-        const isAM = /am/i.test(match[3]);
-
-        if (isPM && hour !== 12) hour += 12;
-        if (isAM && hour === 12) hour = 0;
-
-        return { hour, minute };
-    }
-
-    private parseDate(dateStr: string, hour: number, minute: number, timezone: ZoneRegion): ZonedDateTime | null {
-        const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-        if (!match) return null;
-
-        return ZonedDateTime.of(
-            LocalDateTime.of(parseInt(match[1]), parseInt(match[2]), parseInt(match[3]), hour, minute),
-            timezone,
-        );
     }
 }

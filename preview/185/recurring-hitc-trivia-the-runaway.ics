@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at The Runaway
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:s9_IsSLDQ3772mIzglfQZ
+SUMMARY:Trivia at The Runaway
+DTSTAMP:20260404T233045Z
+DTSTART;TZID=America/Los_Angeles:20260407T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:1425 10th Ave\, Seattle\, WA 98122
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

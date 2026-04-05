@@ -6,38 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Georgetown Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:9fKi2dIWUFivdXgNSGW5x
-SUMMARY:Georgetown Flea Market
-DTSTAMP:20260404T111402Z
-DTSTART;TZID=America/Los_Angeles:20260404T100000
-DESCRIPTION:Monthly flea market at the Georgetown Trailer Park Mall.\n\nhtt
-	p://georgetowntrailerparkmall.com/events\n\nFrom Georgetown Flea Market
-URL:http://georgetowntrailerparkmall.com/events
-LOCATION:Georgetown Trailer Park Mall\, Georgetown\, Seattle
-X-CALRIPPER-SOURCE:georgetown-flea-market
-CATEGORIES:Georgetown Flea Market
-TRANSP:TRANSPARENT
-RRULE:FREQ=MONTHLY;BYDAY=1SA
-DURATION:PT5H
-END:VEVENT
-BEGIN:VEVENT
-UID:8rwl1wFp0Tdtr57GJcnF6
-SUMMARY:Dish Pit // Pet Mosquito // Snörkler // Worms In Dirt
-DTSTAMP:20260404T111402Z
-DTSTART;TZID=America/Los_Angeles:20260407T183000
-DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
-URL:https://seattle.showlists.net/
-LOCATION:Slim's Last Chance\, 5606 1st Ave S\, Seattle\, WA 98108
-X-CALRIPPER-SOURCE:slims-last-chance
-CATEGORIES:Slim's Last Chance
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:yLWqf_qAqxeAVPO6FS2kZ
+UID:QZZlSJRlqRp4l9mB_4Gfi
 SUMMARY:Trivia at Great Notion Georgetown
-DTSTAMP:20260404T111402Z
-DTSTART;TZID=America/Los_Angeles:20260411T180000
+DTSTAMP:20260405T040300Z
+DTSTART;TZID=America/Los_Angeles:20260407T183000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Great Notion Georgetown
 URL:https://www.headinthecloudstrivia.com/
@@ -49,10 +21,10 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Q4xplSoDUredd3FyP5pMO
+UID:0WtASU-sStkxkpOSAgtV8
 SUMMARY:Lounge\, Tiki & Surf with Tikigraphs (2 sets) // Johnny Astro
-DTSTAMP:20260404T111402Z
-DTSTART:20260411T030000Z
+DTSTAMP:20260405T040300Z
+DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
 LOCATION:Slim's Last Chance\, 5606 1st Ave S\, Seattle\, WA 98108
@@ -62,10 +34,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ww_cdjoRgyaQUOuuZA3e-
+UID:Y75_U6O-ysD-SvkaVTVyn
 SUMMARY:Georgetown Art Attack
-DTSTAMP:20260404T111402Z
-DTSTART:20260412T010000Z
+DTSTAMP:20260405T040300Z
+DTSTART;TZID=America/Los_Angeles:20260502T100000
 DESCRIPTION:Monthly art walk in the Georgetown neighborhood\n\nhttps://geor
 	getownseattle.org/art-attack/\n\nFrom Georgetown Art Attack
 URL:https://georgetownseattle.org/art-attack/
@@ -77,9 +49,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:IIRL-2RBC4VJLWvYWP53T
+UID:J6XVbIH2p5c0cQ2i9RwHs
 SUMMARY:Prelude to a Pistol // Dual Analog // NeuroGeist
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260412T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -90,10 +62,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4xdoZOdfWVUIWrp468EaK
+UID:PDwkwqPabqcRqBNRmYBaL
 SUMMARY:Supreme Masters of Relaxed Living // Dick Rossetti & Bulk Male // F
 	ull Ripley
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260418T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -104,10 +76,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ddXH0hYx-a_WtVmls2P8n
+UID:tMHGtUIXjSNLkJsnSEo0M
 SUMMARY:Lisa's 60th Birthday Party - a benefit for Seattle Children's Choru
 	s
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -118,9 +90,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:siz2kJEMzikDXzU2EiE3L
+UID:JLuQV6irU5aFuyYioA8WE
 SUMMARY:Devil’s Duvet // Runaway Satellite // Will Moore
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260425T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -131,10 +103,10 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Idw3c5_ogNVPXdPmt0_G5
+UID:LyFkQbKAaY6vFyLFRY7DP
 SUMMARY:The Mistons (ex-Crackerbash) // The Freak Accident (ex-Victims Fami
 	ly) // TV1984 (ex-Gits)
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260426T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -145,9 +117,24 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:AJXo1S3BmrfVVyVdFeuCF
+UID:rtz7BLqwN1S1BCVDS015E
+SUMMARY:Georgetown Flea Market
+DTSTAMP:20260405T040300Z
+DTSTART:20260502T170000Z
+DESCRIPTION:Monthly flea market at the Georgetown Trailer Park Mall.\n\nhtt
+	p://georgetowntrailerparkmall.com/events\n\nFrom Georgetown Flea Market
+URL:http://georgetowntrailerparkmall.com/events
+LOCATION:Georgetown Trailer Park Mall\, Georgetown\, Seattle
+X-CALRIPPER-SOURCE:georgetown-flea-market
+CATEGORIES:Georgetown Flea Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=1SA
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:rWtMwwViJn6oOaf-qLadj
 SUMMARY:Allyn Naylor // Cuvier // Drifter
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260503T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -158,9 +145,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XOgw1EMmdx8Z3Lhil1_sw
+UID:PbaKfxbNZJ0BezMFzXV08
 SUMMARY:SKATES! // Sweet Piece // Straight to Video
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260510T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -171,9 +158,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:OUMwrOz1KR0YhPOreL389
+UID:7MptOUulDqBFgndhu1-UI
 SUMMARY:Peter Case & Christy McWilson
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260516T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/
@@ -184,9 +171,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xC3bcvw4byWyZYzrLpCMH
+UID:VhJBAcI8KnICjh0wzLmaw
 SUMMARY:Hüligan // Stargazey Pie // Sharkeologist // Guilded Lilly
-DTSTAMP:20260404T111402Z
+DTSTAMP:20260405T040300Z
 DTSTART:20260627T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Slim's Last Chance
 URL:https://seattle.showlists.net/

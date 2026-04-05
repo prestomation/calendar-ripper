@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-05T04:03:24.441Z",
+  "lastUpdated": "2026-04-05T19:30:23.252Z",
   "rippers": [
     {
       "name": "19hz",
@@ -99,6 +99,22 @@
           "tags": [
             "Museums",
             "University District"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "candlelight",
+      "description": "Candlelight Concerts",
+      "friendlyLink": "https://feverup.com/en/seattle/candlelight",
+      "calendars": [
+        {
+          "name": "candlelight",
+          "friendlyName": "Candlelight Concerts",
+          "icsUrl": "candlelight-candlelight.ics",
+          "rssUrl": "candlelight-candlelight.rss",
+          "tags": [
+            "Music"
           ]
         }
       ]

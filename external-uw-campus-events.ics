@@ -23,52 +23,6 @@ RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
 END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
-SUMMARY:indira allegra: The Book of Zero
-LOCATION:Art Building (ART)
-DTSTART;VALUE=DATE:20260204
-DTEND;VALUE=DATE:20260405
-X-MICROSOFT-CDO-ALLDAYEVENT:TRUE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
- oing event
-X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Ar
- t Building (ART)
-X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Jacob L
- awrence Gallery
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:jacoblawrencegallery@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Divers
- ity Equity Inclusion\,Exhibits
-DTSTAMP:20251230T162452Z
-DESCRIPTION:Event interval: Ongoing event\nCampus location: Art Building
-  (ART)\nCampus room: Jacob Lawrence Gallery\nAccessibility Contact: jaco
- blawrencegallery@uw.edu\nEvent Types: Diversity Equity Inclusion\,Exhibi
- ts\n\nDeath is a fundamental first step to rebirth\, but this transition
-  can be a daunting prospect without a compassionate guide. Our 2026 Jaco
- b Lawrence Legacy Resident\, Indira Allegra\, intervenes with The Book o
- f Zero\, a multimedia meditative experience that brings together powerfu
- l sensations and visuals that have emerged during Allegra’s investigatio
- ns into doula work\, death care\, and cycles of the body and environment
- .\n\nIn The Book of Zero\, water\, weaving\, and projections animate the
-  earth and its afflictions. The structures of hate that have plagued our
-  communities—white supremacy\, patriarchy\, capitalism\, bigotry—are in 
- their final death throes\, but they need to be helped along the way to t
- heir ultimate dissolution. Borrowing from the narrative structures and p
- oetic repetition of sacred texts\, Allegra’s guidance in The Book of Zer
- o pushes through the violence of a difficult ending with compassion in o
- rder to welcome the spirit of a new beginning.\n\nRebirth happens on bot
- h collective and individual levels. The Book of Zero invites you to ask 
- yourself: What do you need to let go of before you can move forward alon
- g your personal journey? As you pass through these choreographed spaces
- \, open yourself to the vital transformations necessary to usher in an er
- a of healing.
-CATEGORIES:UW Seattle Campus Events
-UID:http://uid.trumba.com/event/188680536
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d188680536
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:2026-2027 Labor Studies Scholarship Application Now Open
 DTSTART;TZID=America/Los_Angeles:20260306T100000
 DTEND;TZID=America/Los_Angeles:20260504T235500
@@ -197,47 +151,6 @@ IMAGE;VALUE=URI:https://www.trumba.com/i/DgBg5GDujMoh0DX2ZyHWVVO5.jpg
 UID:http://uid.trumba.com/event/196619586
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d196619586
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Circa - Duck Pond
-LOCATION:Meany Hall (MNY)
-DTSTART;TZID=America/Los_Angeles:20260404T200000
-DTEND;TZID=America/Los_Angeles:20260404T220000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:https://meanycenter.org/tickets/2026-04/production/circa
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
- gle day event
-X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
- any Hall (MNY)
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:ticket@uw.edu
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
- mances\,Student Activities
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:https://www.tru
- mba.com/i/DgDKtP25FDBsU6Nd3O42VDuR.jpg
-X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:https://www.faceb
- ook.com/share/1BegqxdiAY/
-DTSTAMP:20260317T133004Z
-DESCRIPTION:Event interval: Single day event\nCampus location: Meany Hal
- l (MNY)\nAccessibility Contact: ticket@uw.edu\nEvent Types: Performances
- \,Student Activities\nFacebook: https://www.facebook.com/share/1BegqxdiA
- Y/\nLink: https://meanycenter.org/tickets/2026-04/production/circa\n\nFe
- athers will fly in this exuberant take on Swan Lake by the Australian co
- ntemporary circus group Circa. The world’s most romantic ballet is re-im
- agined as a circus spectacular\, full of Circa’s signature physicality a
- nd shot through with cheeky humor and a thoroughly contemporary energy. 
- Be swept away by this tale of swans and hapless princes sparkling with q
- uirky touches like the sequined flipper-wearing duck army and a burlesqu
- e black swan. There are sumptuous aerials\, jaw-dropping acrobatics and 
- of course…feathers! Touching\, funny and utterly entertaining\, Duck Pon
- d is a tale of identity and finding your true self.
-CATEGORIES:UW Seattle Campus Events
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgDKtP25FDBsU6Nd3O42VDuR.jpg
-UID:http://uid.trumba.com/event/185781381
-X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
- ent%26eventid%3d185781381
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:EXHIBIT: Reimagining Korean Jogakbo: From Tradition to Sustainab
@@ -456,7 +369,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -1983,7 +1896,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -3667,7 +3580,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -4832,7 +4745,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -6502,7 +6415,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -7604,7 +7517,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -9146,7 +9059,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -10300,7 +10213,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -11719,7 +11632,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -12891,7 +12804,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -14104,7 +14017,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -15224,7 +15137,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -16801,7 +16714,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -17939,7 +17852,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -19137,7 +19050,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -20171,7 +20084,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -21400,7 +21313,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -22601,7 +22514,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -23353,7 +23266,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -24153,7 +24066,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -24902,7 +24815,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -25500,7 +25413,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -26163,7 +26076,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -26700,7 +26613,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -27168,7 +27081,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -27550,7 +27463,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -27811,7 +27724,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -28422,7 +28335,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
  ne:sky0428@uw.edu
 X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
  ecified
-DTSTAMP:20260322T022646Z
+DTSTAMP:20260405T022831Z
 DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: sky042
  8@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washing
  ton.edu/uwnetid/twuext/EventAdminDetail.aspx?eventid=1284&type=existing
@@ -28633,5 +28546,71 @@ IMAGE;VALUE=URI:https://www.trumba.com/i/DgAwHywhju1UTFfCcZ4JzIq8.jpg
 UID:http://uid.trumba.com/event/189395482
 X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
  ent%26eventid%3d189395482
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Topics in Clinical Trials: Issues in Non-Inferiority Trials and 
+ Addressing Missing Data - Online Short Course
+DTSTART;TZID=America/Los_Angeles:20260710T083000
+DTEND;TZID=America/Los_Angeles:20260710T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://si.biostat.washington.edu/institutes/siscer/CR2604
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
+ gle day event
+X-TRUMBA-CUSTOMFIELD;NAME="Campus room";ID=28429;TYPE=SingleLine:Online
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:Deb Nelson\, nelsod6@uw.edu\, 206-685-9323
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Specia
+ l Events\,Workshops
+X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:UW Bi
+ ostatistics
+DTSTAMP:20260319T142255Z
+DESCRIPTION:Event interval: Single day event\nCampus room: Online\nAcces
+ sibility Contact: Deb Nelson\, nelsod6@uw.edu\, 206-685-9323\nEvent Type
+ s: Special Events\,Workshops\nEvent sponsors: UW Biostatistics\nLink: ht
+ tps://si.biostat.washington.edu/institutes/siscer/CR2604\n\nOver the pas
+ t 7 decades\, the randomized clinical trial (RCT) has become the gold st
+ andard for evaluation of new drugs\, biologics\, devices\, procedures\, 
+ and behavioral interventions.  In a half-day short course\, two critical
+ ly important topics will be discussed that have broad implications in th
+ e design and conduct of clinical trials: the Design of Non-Inferiority T
+ rials and the Prevention of Missing Data.
+CATEGORIES:UW Seattle Campus Events
+UID:http://uid.trumba.com/event/199032183
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d199032183
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Daily 15 Minute Movement Break - Yoga and Fitness
+DTSTART;TZID=America/Los_Angeles:20260710T110000
+DTEND;TZID=America/Los_Angeles:20260710T111500
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://wholeu.admin.washington.edu/uwnetid/twuext/EventDetail.aspx?
+ regid=&eventid=1160&eventsessionid=
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
+ t
+X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Ong
+ oing event
+X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
+ ne:murphyh4@uw.edu
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Not Sp
+ ecified
+DTSTAMP:20260329T022722Z
+DESCRIPTION:Event interval: Ongoing event\nAccessibility Contact: murphy
+ h4@uw.edu\nEvent Types: Not Specified\nLink: https://wholeu.admin.washin
+ gton.edu/uwnetid/twuext/EventDetail.aspx?regid=&eventid=1160&eventsessio
+ nid=\n\nThese mini movement sessions are great for re-energizing your da
+ y. Sessions are open to all levels and will include a mix of strength tr
+ aining\, yoga\, and cardio.\n\nJoin daily or when you can:\n	 - Mondays 
+ - 15-minute fitness and strength break	\n - Tuesdays - 15-minute yoga br
+ eak	\n - Wednesday - Thursday - 15-minute fitness and strength break 	\n
+  - Fridays - 15-minute guided dance break\nJoin in to start your work st
+ rong! No equipment needed. You may want a towel or yoga mat for laying o
+ n the floor.\n\nLearn more and register on The Whole U website.
+CATEGORIES:UW Seattle Campus Events
+UID:http://uid.trumba.com/event/176224975
+X-TRUMBA-LINK:https://www.washington.edu/calendar/?trumbaEmbed=view%3dev
+ ent%26eventid%3d176224975
 END:VEVENT
 END:VCALENDAR

@@ -1479,11 +1479,10 @@ function App() {
     // Sort by date
     upcoming.sort((a, b) => a.parsedDate - b.parsedDate)
 
-    // Group by day label
+    // Group by day label using diffDays as the key so timezone-shifted
+    // events that resolve to the same calendar day always merge into one group
     const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    const groups = []
-    let currentLabel = null
-    let currentGroup = null
+    const groupsByDiffDays = new Map()
 
     for (const event of upcoming) {
       // Use the event's timezone for day grouping so "Today" is correct
@@ -1506,16 +1505,16 @@ function App() {
       else if (diffDays === 1) label = 'Tomorrow'
       else label = dayNames[eventDay.getDay()]
 
-      if (label !== currentLabel) {
-        currentLabel = label
+      if (!groupsByDiffDays.has(diffDays)) {
         const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-        currentGroup = { label, dateSubtitle, events: [] }
-        groups.push(currentGroup)
+        groupsByDiffDays.set(diffDays, { label, dateSubtitle, events: [] })
       }
-      if (currentGroup) {
-        currentGroup.events.push(event)
-      }
+      groupsByDiffDays.get(diffDays).events.push(event)
     }
+
+    const groups = [...groupsByDiffDays.entries()]
+      .sort(([a], [b]) => a - b)
+      .map(([, group]) => group)
 
     return groups
   }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet])
@@ -1693,9 +1692,7 @@ function App() {
     upcoming.sort((a, b) => a.parsedDate - b.parsedDate)
 
     const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    const groups = []
-    let currentLabel = null
-    let currentGroup = null
+    const groupsByDiffDays = new Map()
 
     for (const event of upcoming) {
       let eventDay
@@ -1717,16 +1714,16 @@ function App() {
       else if (diffDays > 1 && diffDays < 7) label = dayNames[eventDay.getDay()]
       else label = eventDay.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })
 
-      if (label !== currentLabel) {
-        currentLabel = label
+      if (!groupsByDiffDays.has(diffDays)) {
         const dateSubtitle = eventDay.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-        currentGroup = { label, dateSubtitle, events: [] }
-        groups.push(currentGroup)
+        groupsByDiffDays.set(diffDays, { label, dateSubtitle, events: [] })
       }
-      if (currentGroup) {
-        currentGroup.events.push(event)
-      }
+      groupsByDiffDays.get(diffDays).events.push(event)
     }
+
+    const groups = [...groupsByDiffDays.entries()]
+      .sort(([a], [b]) => a - b)
+      .map(([, group]) => group)
 
     return groups
   }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters])

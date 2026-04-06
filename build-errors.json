@@ -1,13 +1,13 @@
 {
-  "buildTime": "2026-04-06T01:36:46.057Z",
+  "buildTime": "2026-04-06T03:05:12.589Z",
   "totalErrors": 0,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [],
   "geoStats": {
-    "totalEvents": 7472,
-    "eventsWithGeo": 5703,
+    "totalEvents": 7474,
+    "eventsWithGeo": 5705,
     "eventsWithoutGeo": 1769,
     "geocodeErrors": 0
   },
@@ -629,7 +629,7 @@
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 48,
+      "events": 47,
       "expectEmpty": false
     },
     {
@@ -671,7 +671,7 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 50,
+      "events": 52,
       "expectEmpty": false
     },
     {
@@ -1199,7 +1199,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 430,
+      "events": 429,
       "expectEmpty": false
     },
     {
@@ -1319,7 +1319,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 177,
+      "events": 179,
       "expectEmpty": false
     },
     {
@@ -1331,7 +1331,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2624,
+      "events": 2626,
       "expectEmpty": false
     },
     {
@@ -1451,7 +1451,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 540,
+      "events": 542,
       "expectEmpty": false
     },
     {
@@ -1463,7 +1463,7 @@
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 421,
+      "events": 420,
       "expectEmpty": false
     },
     {
@@ -1475,7 +1475,7 @@
     {
       "name": "tag-activism",
       "type": "Aggregate",
-      "events": 320,
+      "events": 321,
       "expectEmpty": false
     },
     {
@@ -1517,7 +1517,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7472,
+      "events": 7474,
       "expectEmpty": false
     },
     {
@@ -1547,7 +1547,7 @@
     {
       "name": "external-cascadia-climate-action",
       "type": "External",
-      "events": 3829,
+      "events": 3830,
       "expectEmpty": false
     },
     {

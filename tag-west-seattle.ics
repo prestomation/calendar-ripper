@@ -6,25 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:West Seattle Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:4ZhMbdt9p0M3-sA1b-k7_
-SUMMARY:West Seattle Farmers Market
-DTSTAMP:20260405T192959Z
-DTSTART;TZID=America/Los_Angeles:20260405T100000
-DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
-	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
-	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
-URL:https://seattlefarmersmarkets.org/wsfm
-LOCATION:California Ave SW & SW Alaska St\, Seattle
-X-CALRIPPER-SOURCE:west-seattle-farmers-market
-CATEGORIES:West Seattle Farmers Market
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=SU
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:itwLDsJfn9ejOo_QNZxIN
+UID:Q2QPehMt1gOoPonU5-XNQ
 SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260405T192959Z
+DTSTAMP:20260406T013621Z
 DTSTART;TZID=America/Los_Angeles:20260408T193000
 DESCRIPTION:Weekly open mic with full backline provided and 16-track record
 	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
@@ -38,9 +22,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:w2zAyojpmVz7rKVWCmg2V
+UID:oSxrFuqvKqfC2DmEL00n8
 SUMMARY:Preschool Story Time
-DTSTAMP:20260405T192959Z
+DTSTAMP:20260406T013621Z
 DTSTART;TZID=America/Los_Angeles:20260409T180000
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
@@ -55,10 +39,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:XU0nHCcBR120qW5pDS_xU
+UID:ihQAtePR9hR6ZnbctG2_K
 SUMMARY:West Seattle Art Walk
-DTSTAMP:20260405T192959Z
-DTSTART:20260410T010000Z
+DTSTAMP:20260406T013621Z
+DTSTART;TZID=America/Los_Angeles:20260412T100000
 DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
 	om West Seattle Art Walk
 URL:http://wsartwalk.com/
@@ -70,9 +54,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2TH
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:QSjOYS3I-5u8zst1X2PS0
+UID:XCu2K1tuls8bPLtSYULQ4
 SUMMARY:Game On for Kids! National Board Game Day
-DTSTAMP:20260405T192959Z
+DTSTAMP:20260406T013621Z
 DTSTART:20260411T173000Z
 DESCRIPTION:Celebrate National Board Game Day! Join us and play a game or t
 	wo.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26event
@@ -86,9 +70,25 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:vSWD2tauxlo-4J5GOWciy
+UID:XIjE6jdrc0k1JP3I2AsnP
+SUMMARY:West Seattle Farmers Market
+DTSTAMP:20260406T013621Z
+DTSTART:20260412T170000Z
+DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
+	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
+	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
+URL:https://seattlefarmersmarkets.org/wsfm
+LOCATION:California Ave SW & SW Alaska St\, Seattle
+X-CALRIPPER-SOURCE:west-seattle-farmers-market
+CATEGORIES:West Seattle Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:YzwuCqRtO7pDot9Jdksml
 SUMMARY:Swinson\, The Rolling Thunder\, Will Rainier &amp\; the Pines
-DTSTAMP:20260405T192959Z
+DTSTAMP:20260406T013621Z
 DTSTART:20260502T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Skylark
 URL:https://seattle.showlists.net/

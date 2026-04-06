@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Green Lake Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:gqca0CN9P_hdrSVCHVb79
+SUMMARY:Trivia at Latona Pub
+DTSTAMP:20260406T013223Z
+DTSTART;TZID=America/Los_Angeles:20260408T200000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Latona Pub
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:6423 Latona Ave NE\, Seattle\, WA 98115
+X-CALRIPPER-SOURCE:hitc-trivia-latona-pub
+CATEGORIES:Trivia at Latona Pub
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

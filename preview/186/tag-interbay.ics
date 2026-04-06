@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Interbay Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:1iFV_f9l5O9vC5F6s49qR
+SUMMARY:Trivia at Old Stove Brewing Ship Canal
+DTSTAMP:20260406T013223Z
+DTSTART;TZID=America/Los_Angeles:20260408T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Old Stove Brewing Ship C
+	anal
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:1429 12th Ave W\, Seattle\, WA 98119
+X-CALRIPPER-SOURCE:hitc-trivia-old-stove-ship-canal
+CATEGORIES:Trivia at Old Stove Brewing Ship Canal
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,101 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:West Seattle Events
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:pI_SRUTrVIbAwxteEDO3S
+SUMMARY:Skylark Cafe — Wednesday Open Mic
+DTSTAMP:20260406T013219Z
+DTSTART;TZID=America/Los_Angeles:20260408T193000
+DESCRIPTION:Weekly open mic with full backline provided and 16-track record
+	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
+	ts/seattles-best-open-mic\n\nFrom Skylark Cafe — Wednesday Open Mic
+URL:https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic
+LOCATION:3803 Delridge Way SW\, Seattle
+X-CALRIPPER-SOURCE:skylark-cafe-open-mic
+CATEGORIES:Skylark Cafe — Wednesday Open Mic
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT3H30M
+END:VEVENT
+BEGIN:VEVENT
+UID:0DXxnEyZfiOI1DavdE3Vh
+SUMMARY:Preschool Story Time
+DTSTAMP:20260406T013219Z
+DTSTART;TZID=America/Los_Angeles:20260409T180000
+DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
+	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
+	endar?trumbaEmbed=view%3devent%26eventid%3d196017726\n\nFrom SPL - West Se
+	attle Branch
+URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
+	d196017726
+LOCATION:West Seattle Branch\, Meeting Room
+X-CALRIPPER-SOURCE:west-seattle
+CATEGORIES:SPL - West Seattle Branch
+TRANSP:TRANSPARENT
+DURATION:PT1H15M
+END:VEVENT
+BEGIN:VEVENT
+UID:2KaGFA-8UgN063apeAItk
+SUMMARY:West Seattle Art Walk
+DTSTAMP:20260406T013219Z
+DTSTART;TZID=America/Los_Angeles:20260412T100000
+DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
+	om West Seattle Art Walk
+URL:http://wsartwalk.com/
+LOCATION:West Seattle
+X-CALRIPPER-SOURCE:west-seattle-artwalk
+CATEGORIES:West Seattle Art Walk
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2TH
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:QzQ8PcO588rKlSrQTKZ78
+SUMMARY:Game On for Kids! National Board Game Day
+DTSTAMP:20260406T013219Z
+DTSTART:20260411T173000Z
+DESCRIPTION:Celebrate National Board Game Day! Join us and play a game or t
+	wo.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26event
+	id%3d198142786\n\nFrom SPL - West Seattle Branch
+URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
+	d198142786
+LOCATION:West Seattle Branch\, Meeting Room
+X-CALRIPPER-SOURCE:west-seattle
+CATEGORIES:SPL - West Seattle Branch
+TRANSP:TRANSPARENT
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:Stv_PMWQBMods0xJinr5r
+SUMMARY:West Seattle Farmers Market
+DTSTAMP:20260406T013219Z
+DTSTART:20260412T170000Z
+DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
+	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
+	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
+URL:https://seattlefarmersmarkets.org/wsfm
+LOCATION:California Ave SW & SW Alaska St\, Seattle
+X-CALRIPPER-SOURCE:west-seattle-farmers-market
+CATEGORIES:West Seattle Farmers Market
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=SU
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:F4d9tj0RZFKdPYHdwGHsE
+SUMMARY:Swinson\, The Rolling Thunder\, Will Rainier &amp\; the Pines
+DTSTAMP:20260406T013219Z
+DTSTART:20260502T030000Z
+DESCRIPTION:https://seattle.showlists.net\n\nFrom Skylark
+URL:https://seattle.showlists.net/
+LOCATION:Skylark\, 3803 Delridge Way SW\, Seattle\, WA 98106
+X-CALRIPPER-SOURCE:skylark
+CATEGORIES:Skylark
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+END:VCALENDAR

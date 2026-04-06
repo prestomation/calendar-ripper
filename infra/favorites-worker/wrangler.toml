@@ -18,6 +18,24 @@ id = "d3d850c6081a4a0490e1e02c34e1c231"
 binding = "FEED_TOKENS"
 id = "d798d8ad13214ade84fd5692532a7993"
 
+[[kv_namespaces]]
+binding = "PUSH_SUBSCRIPTIONS"
+id = "PLACEHOLDER_PUSH_SUBSCRIPTIONS_KV_ID"
+
+[[kv_namespaces]]
+binding = "NOTIFICATION_LOG"
+id = "PLACEHOLDER_NOTIFICATION_LOG_KV_ID"
+
+[[queues.producers]]
+queue = "calendar-notifications"
+binding = "NOTIFICATION_QUEUE"
+
+[[queues.consumers]]
+queue = "calendar-notifications"
+max_batch_size = 5
+max_retries = 3
+dead_letter_queue = "calendar-notifications-dlq"
+
 [[analytics_engine_datasets]]
 binding = "ANALYTICS"
 dataset = "feed_requests"

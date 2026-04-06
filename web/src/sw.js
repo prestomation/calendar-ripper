@@ -119,6 +119,35 @@ async function notifyClients(message) {
   clients.forEach(client => client.postMessage(message))
 }
 
+// Web Push notification handler
+self.addEventListener('push', (event) => {
+  const data = event.data?.json() ?? {}
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'New events added', {
+      body: data.body,
+      icon: data.icon || './icon-192.png',
+      badge: data.badge,
+      data: data.data,
+    })
+  )
+})
+
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close()
+  const url = event.notification.data?.url || './'
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window' }).then(windowClients => {
+      // Focus existing window if possible
+      for (const client of windowClients) {
+        if (client.url.includes(url) && 'focus' in client) {
+          return client.focus()
+        }
+      }
+      return self.clients.openWindow(url)
+    })
+  )
+})
+
 const OFFLINE_HTML = `<!DOCTYPE html>
 <html><head><title>Offline</title></head>
 <body style="font-family:sans-serif;text-align:center;padding:4rem">

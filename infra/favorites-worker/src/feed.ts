@@ -4,29 +4,7 @@ import { mergeIcsFiles } from './ics-merge.js'
 import { fetchEventsIndex, fetchAllIcs, searchEventsIndex, extractMatchingVEvents } from './event-search.js'
 import { deduplicateEvents } from './event-dedup.js'
 import { emitFeedMetrics } from './analytics.js'
-
-// Keep in sync with web/src/lib/haversine.js (client-side copy)
-function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
-  const R = 6371
-  const dLat = (lat2 - lat1) * Math.PI / 180
-  const dLng = (lng2 - lng1) * Math.PI / 180
-  const a = Math.sin(dLat / 2) ** 2 +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-    Math.sin(dLng / 2) ** 2
-  // Clamp 'a' to [0, 1] to guard against floating-point rounding errors that
-  // could produce values slightly outside this range, which would cause NaN
-  // or Infinity in the sqrt/atan2 calculation.
-  const aClamped = Math.min(1, Math.max(0, a))
-  return R * 2 * Math.atan2(Math.sqrt(aClamped), Math.sqrt(1 - aClamped))
-}
-
-function eventMatchesGeoFilters(event: EventsIndexEntry, geoFilters: GeoFilter[]): boolean {
-  if (geoFilters.length === 0) return true
-  if (event.lat == null || event.lng == null) return true // no coords = pass through (don't exclude due to geocoding failures)
-  const eventLat = event.lat
-  const eventLng = event.lng
-  return geoFilters.some(f => haversineKm(f.lat, f.lng, eventLat, eventLng) <= f.radiusKm)
-}
+import { haversineKm, eventMatchesGeoFilters } from './filter-match.js'
 
 export const feedRoutes = new Hono<{ Bindings: Env }>()
 

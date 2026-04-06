@@ -59,6 +59,14 @@ jobs:
         OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
       run: npm run download-outofband
 
+    - name: Download previous events index
+      run: |
+        curl -sf "${{ vars.GITHUB_PAGES_BASE_URL || 'https://prestomation.github.io/calendar-ripper' }}/events-index.json" \
+          -o previous-events-index.json \
+          && echo "Previous events index downloaded ($(jq length previous-events-index.json) events)" \
+          || echo '[]' > previous-events-index.json
+      continue-on-error: true
+
     - name: Generate calendars
       id: generate-calendars
       env:
@@ -124,3 +132,25 @@ jobs:
     - name: Check for missing calendar URLs
       if: steps.get-pages-url.outputs.PAGES_URL != ''
       run: npm run check-missing-urls -- "${{ steps.get-pages-url.outputs.PAGES_URL }}"
+
+    - name: Detect new events
+      id: detect-new-events
+      run: node --loader ts-node/esm scripts/detect-new-events.ts
+      env:
+        GITHUB_RUN_ID: ${{ github.run_id }}
+
+    - name: Upload new events artifact
+      if: hashFiles('output/new-events.json') != ''
+      uses: actions/upload-artifact@v4
+      with:
+        name: new-events
+        path: output/new-events.json
+        retention-days: 7
+
+    - name: Dispatch notifications
+      if: github.ref == 'refs/heads/main' && hashFiles('output/new-events.json') != ''
+      continue-on-error: true
+      run: node --loader ts-node/esm scripts/dispatch-notifications.ts
+      env:
+        WORKER_URL: ${{ secrets.FAVORITES_WORKER_URL }}
+        DISPATCH_API_KEY: ${{ secrets.DISPATCH_API_KEY }}

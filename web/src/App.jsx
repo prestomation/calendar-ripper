@@ -466,6 +466,11 @@ function App() {
   const [showMapView, setShowMapView] = useState(false)
   const [showFavoritesMap, setShowFavoritesMap] = useState(false)
 
+  // Push notification state
+  const [pushEnabled, setPushEnabled] = useState(false)
+  const [pushLoading, setPushLoading] = useState(false)
+  const pushSupported = typeof window !== 'undefined' && 'PushManager' in window && 'serviceWorker' in navigator
+
   // Auth state
   const [authUser, setAuthUser] = useState(null)
   const [authLoading, setAuthLoading] = useState(true)
@@ -666,6 +671,70 @@ function App() {
       })
       .catch(() => {})
   }, [authUser])
+
+  // Check push notification status when authenticated
+  useEffect(() => {
+    if (!authUser || !API_URL || !pushSupported) return
+    fetch(`${API_URL}/notifications/status`, { credentials: 'include' })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => { if (data) setPushEnabled(data.enabled) })
+      .catch(() => {})
+  }, [authUser])
+
+  const togglePushNotifications = useCallback(async () => {
+    if (!API_URL || !authUser || !pushSupported) return
+    setPushLoading(true)
+    try {
+      const reg = await navigator.serviceWorker.ready
+      if (pushEnabled) {
+        // Disable: unsubscribe
+        const sub = await reg.pushManager.getSubscription()
+        if (sub) {
+          await fetch(`${API_URL}/notifications/subscribe`, {
+            method: 'DELETE',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ endpoint: sub.endpoint }),
+          })
+          await sub.unsubscribe()
+        }
+        setPushEnabled(false)
+      } else {
+        // Enable: request permission and subscribe
+        const perm = await Notification.requestPermission()
+        if (perm !== 'granted') {
+          setPushLoading(false)
+          return
+        }
+        // Get VAPID public key from Worker
+        const vapidRes = await fetch(`${API_URL}/notifications/vapid-key`)
+        if (!vapidRes.ok) throw new Error('Could not get VAPID key')
+        const { publicKey } = await vapidRes.json()
+        // Convert base64url VAPID key to Uint8Array
+        const urlBase64ToUint8Array = (base64String) => {
+          const padding = '='.repeat((4 - base64String.length % 4) % 4)
+          const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
+          const rawData = atob(base64)
+          return Uint8Array.from(rawData, c => c.charCodeAt(0))
+        }
+        const sub = await reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(publicKey),
+        })
+        await fetch(`${API_URL}/notifications/subscribe`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ subscription: sub.toJSON() }),
+        })
+        setPushEnabled(true)
+      }
+    } catch (err) {
+      console.error('Push notification toggle failed:', err)
+    } finally {
+      setPushLoading(false)
+    }
+  }, [API_URL, authUser, pushEnabled, pushSupported])
 
   // Load calendar metadata from JSON manifest
   const loadCalendars = useCallback(async () => {
@@ -3018,6 +3087,23 @@ function App() {
               <div className="feed-url-banner feed-url-prompt">
                 <span>Sign in to sync favorites across devices and get a calendar subscription link</span>
                 <button className="auth-login-btn" onClick={handleLogin}>Sign in</button>
+              </div>
+            )}
+
+            {authUser && API_URL && pushSupported && (
+              <div className="push-notification-toggle">
+                <div className="push-toggle-text">
+                  <strong>Push Notifications</strong>
+                  <span>{pushEnabled ? 'Get notified when new matching events are added' : 'Enable to get notified about new events'}</span>
+                </div>
+                <button
+                  className={`push-toggle-btn ${pushEnabled ? 'active' : ''}`}
+                  onClick={togglePushNotifications}
+                  disabled={pushLoading || Notification.permission === 'denied'}
+                  title={Notification.permission === 'denied' ? 'Notifications blocked — check browser settings' : (pushEnabled ? 'Disable notifications' : 'Enable notifications')}
+                >
+                  {pushLoading ? '...' : (pushEnabled ? 'On' : 'Off')}
+                </button>
               </div>
             )}
 

@@ -1,5 +1,5 @@
 BEGIN:VCALENDAR
-PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25602//EN
+PRODID:-//Trumba Corporation//Trumba Calendar Services 0.11.25607//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 X-WR-CALNAME:Seattle.Gov|City-Wide
@@ -1952,6 +1952,64 @@ CATEGORIES:Boards &amp; Commissions
 UID:http://uid.trumba.com/event/194825379
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d194825379
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Libraries\, Education &amp\; Neighborhoods Committee - Special M
+ eeting
+LOCATION:Council Chambers<br>600 4th Ave.\, Floor 2<br>Seattle\, WA 9810
+ 4
+DTSTART;TZID=America/Los_Angeles:20260409T150000
+DTEND;TZID=America/Los_Angeles:20260409T150000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://www.seattle.gov/council/committees/libraries-education-and-n
+ eighborhoods
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:City Council Su
+ bmission Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Venue Location";ID=27738;TYPE=SingleLine:<a h
+ ref="http://www.seattle.gov/council/visiting_city_hall.htm" target="_bla
+ nk" rel="noopener">City Hall\, Council Chambers</a>
+X-TRUMBA-CUSTOMFIELD;NAME="City Council Meeting Type";ID=12011;TYPE=Cust
+ omAsset:Libraries\, Education &amp\; Neighborhoods Committee
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:City C
+ ouncil Meeting
+X-TRUMBA-CUSTOMFIELD;NAME="Agendas";ID=12615;TYPE=MultiLine:<a href="htt
+ p://seattle.legistar.com/DepartmentDetail.aspx?ID=52009&amp\;GUID=38285A
+ E7-6756-4187-8D09-1EE12C48EC36&amp\;R=b700fab9-a0ba-423a-9710-1377e2a5ca
+ 28" target="_blank" rel="noopener">Agendas</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Committee Chair";ID=12902;TYPE=CustomAsset:<a
+  href="http://www.seattle.gov/council/rivera/" target="_blank" rel="noop
+ ener">Maritza Rivera</a>\, <a href="mailto:Maritza.Rivera@seattle.gov" t
+ arget="_blank" rel="noopener">Maritza.Rivera@seattle.gov</a>\, 206-684-8
+ 804
+X-TRUMBA-CUSTOMFIELD;NAME="Councilmembers";ID=12009;TYPE=CustomAsset:Dio
+ nne Foster\,Eddie Lin\,Joy Hollingsworth\,Maritza Rivera\,Alexis Mercede
+ s Rinck
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Down
+ town Commercial Core
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults\,A
+ ll
+X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=22851;TYPE=MultiLi
+ ne:<a href="http://www.seattle.gov/council/visiting_city_hall.htm" targe
+ t="_blank" rel="noopener">Visiting City Hall</a>
+DTSTAMP:20260406T094441Z
+DESCRIPTION:Venue Location: <a href="http://www.seattle.gov/council/visi
+ ting_city_hall.htm" target="_blank">City Hall\, Council Chambers</a><br>
+ City Council Meeting Type: Libraries\, Education & Neighborhoods Committ
+ ee<br>Event Types: City Council Meeting<br>Agendas: <a href="http://seat
+ tle.legistar.com/DepartmentDetail.aspx?ID=52009&amp\;GUID=38285AE7-6756-
+ 4187-8D09-1EE12C48EC36&amp\;R=b700fab9-a0ba-423a-9710-1377e2a5ca28" targ
+ et="_blank">Agendas</a><br>Committee Chair: <a href="http://www.seattle.
+ gov/council/rivera/">Maritza Rivera</a>\, Maritza.Rivera@seattle.gov\, 2
+ 06-684-8804<br>Councilmembers: Dionne Foster\,Eddie Lin\,Joy Hollingswor
+ th\,Maritza Rivera\,Alexis Mercedes Rinck<br>Neighborhoods: Downtown Com
+ mercial Core<br>Audience: Adults\,All<br>Additional Information: <a href
+ ="http://www.seattle.gov/council/visiting_city_hall.htm" target="_blank"
+ >Visiting City Hall</a><br>Link: https://www.seattle.gov/council/committ
+ ees/libraries-education-and-neighborhoods<br>
+CATEGORIES:Seattle City Council
+UID:http://uid.trumba.com/event/200424127
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200424127
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Sound Medicine for Liberation and Healing
@@ -4998,6 +5056,34 @@ X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d197865813
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Outdoor Racquet Sports Strategy Online Survey Launch
+LOCATION:<a href="https://engageseattleparks.com/outdoor-racquet-sports-
+ strategy" target="_blank" rel="noopener" title="https://engageseattlepar
+ ks.com/outdoor-racquet-sports-strategy">engageseattleparks.com&#8230\;</
+ a>
+DTSTART;TZID=America/Los_Angeles:20260416T090000
+DTEND;TZID=America/Los_Angeles:20260416T100000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://engageseattleparks.com/outdoor-racquet-sports-strategy/rs-en
+ gage
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Parks Submissio
+ n Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:<a href="ma
+ ilto:Jonathan.Garner@seattle.gov" target="_blank" rel="noopener">Jonatha
+ n.Garner@seattle.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
+DTSTAMP:20260406T170510Z
+DESCRIPTION:Contact: Jonathan.Garner@seattle.gov<br>Audience: All<br>Pre
+ -Register: No<br>Cost: Free<br>Link: https://engageseattleparks.com/outd
+ oor-racquet-sports-strategy/rs-engage<br>
+CATEGORIES:Parks &amp; Recreation
+UID:http://uid.trumba.com/event/200450636
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200450636
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Transportation\, Waterfront\, &amp\; Seattle Center Committee
 LOCATION:Council Chambers<br>600 4th Ave.\, Floor 2<br>Seattle\, WA 9810
  4
@@ -5645,6 +5731,56 @@ CATEGORIES:Boards &amp; Commissions
 UID:http://uid.trumba.com/event/195106255
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d195106255
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:No Kings\, no patriarchs&#8212\; are we making progress?
+LOCATION:New Freeway Hall<br>5018 Rainier Ave. S.\, Seattle 98118
+DTSTART;TZID=America/Los_Angeles:20260416T190000
+DTEND;TZID=America/Los_Angeles:20260416T210000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://www.facebook.com/share/1AmMgeQkre/
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Master Submissi
+ on Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Beac
+ on Hill\,Columbia City\,First Hill\,Georgetown\,Judkins Park\,Madrona/Le
+ schi\,Mt. Baker/North Rainier\,North Beacon Hill/Jefferson Park\,Rainier
+  Beach/Othello\,Seward Park\,South Beacon Hill/New Holly
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Commun
+ ity\,Ethnic/Cultural\,LGBT
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Radical Women
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Radical Wom
+ en
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-722-
+ 6057
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:rw.seattle@radicalwomen.org" target="_blank" rel="noopener">rw.sea
+ ttle@radicalwomen.org</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
+DTSTAMP:20260406T132706Z
+DESCRIPTION:Neighborhoods: Beacon Hill\,Columbia City\,First Hill\,Georg
+ etown\,Judkins Park\,Madrona/Leschi\,Mt. Baker/North Rainier\,North Beac
+ on Hill/Jefferson Park\,Rainier Beach/Othello\,Seward Park\,South Beacon
+  Hill/New Holly<br>Event Types: Community\,Ethnic/Cultural\,LGBT<br>Audi
+ ence: Adults<br>Sponsoring Organization: Radical Women<br>Contact: Radic
+ al Women<br>Contact Phone: 206-722-6057<br>Contact Email: rw.seattle@rad
+ icalwomen.org<br>Pre-Register: No<br>Link: https://www.facebook.com/shar
+ e/1AmMgeQkre/<br><br>We&#39\;ve marched\, protested\, and petitioned. No
+ w what can we do to stop U.S. wars and the horrific rollback on reproduc
+ tive justice\, trans freedom\, immigrant rights\, and so much more? Let&
+ #39\;s talk strategies that can reverse the right-wing tide and confront
+  the fascist threat. Capitalism is a disaster for humans and the planet.
+  What lies beyond it? <br><br>Also on the agenda: In honor of Asian/Paci
+ fic American Heritage Month\, learn about trailblazing Asian American le
+ sbian poet\, activist and educator Merle Woo. Also get informed about th
+ e debates over public surveillance in the city. Get involved -- bring yo
+ ur ideas and energy!<br><br>Light snacks available at 6:30pm for a donat
+ ion
+CATEGORIES:City-Wide
+UID:http://uid.trumba.com/event/200147888
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200147888
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Comedy Battle Royale - Ballard
@@ -8752,6 +8888,73 @@ X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d195004177
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:You&#39\;re Not Alone: A Community Event for Families Navigating
+  Substance Use
+LOCATION:Van Asselt Community Center<br>2820 S Myrtle St\, Seattle\, WA 
+ 98108
+DTSTART;TZID=America/Los_Angeles:20260426T120000
+DTEND;TZID=America/Los_Angeles:20260426T140000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://docs.google.com/forms/d/e/1FAIpQLSetN71NWlX_SU1zRKzKCMAYo2Gt
+ hdlWciS2BGdBQuuYITcqJQ/viewform?usp=header
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Master Submissi
+ on Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Building/Room #";ID=10956;TYPE=MultiLine:Mult
+ ipurpose Room
+X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Sout
+ h Beacon Hill/New Holly
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Commun
+ ity\,Education
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults\,C
+ hildren\,Teen
+X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
+ Line:Harm Reduction Doula Collective and Pulitzer Center
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Celeste Ham
+ ilton Dennis
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:971-270-
+ 6281
+X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
+ ailto:cellyham@gmail.com" target="_blank" rel="noopener">cellyham@gmail.
+ com</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:Yes
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:FREE
+X-TRUMBA-CUSTOMFIELD;NAME="Registration Details";ID=12624;TYPE=MultiLine
+ :RSVP here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSetN71NWlX
+ _SU1zRKzKCMAYo2GthdlWciS2BGdBQuuYITcqJQ/viewform?usp=header" target="_bl
+ ank" rel="noopener" title="https://docs.google.com/forms/d/e/1FAIpQLSetN
+ 71NWlX_SU1zRKzKCMAYo2GthdlWciS2BGdBQuuYITcqJQ/viewform?usp=header">docs.
+ google.com&#8230\;</a>
+DTSTAMP:20260406T132706Z
+DESCRIPTION:Building/Room #: Multipurpose Room<br>Neighborhoods: South B
+ eacon Hill/New Holly<br>Event Types: Community\,Education<br>Audience: A
+ dults\,Children\,Teen<br>Sponsoring Organization: Harm Reduction Doula C
+ ollective and Pulitzer Center<br>Contact: Celeste Hamilton Dennis<br>Con
+ tact Phone: 971-270-6281<br>Contact Email: cellyham@gmail.com<br>Pre-Reg
+ ister: Yes<br>Cost: FREE<br>Registration Details: RSVP here: https://doc
+ s.google.com/forms/d/e/1FAIpQLSetN71NWlX_SU1zRKzKCMAYo2GthdlWciS2BGdBQuu
+ YITcqJQ/viewform?usp=header<br>Link: https://docs.google.com/forms/d/e/1
+ FAIpQLSetN71NWlX_SU1zRKzKCMAYo2GthdlWciS2BGdBQuuYITcqJQ/viewform?usp=hea
+ der<br><br>In partnership with the Harm Reduction Doula Collective and w
+ ith support from the Pulitzer Center\, this community event centers the 
+ experiences of pregnant and parenting folks navigating substance use. Ou
+ r goal is to facilitate connection\, share resources\, and affirm you. &
+ #10024\;<br><br>What to expect: You&#39\;ll hear from parents and their 
+ lived experience with substance use\, and we&#39\;ll invite you to share
+  your story if you want &#8212\; whether via speaking or a collaborative
+  art project. There will also be a mini-resource fair with representativ
+ es from agencies and organizations that support this community.<br><br>I
+ n addition\, we&#39\;ll offer for FREE:<br><br>&#10084\;&#65039\;Family 
+ portraits<br>&#10084\;&#65039\;Baby/toddler clothes/diapers/few larger i
+ tems (including a crib) until supplies last<br>&#10084\;&#65039\;Self-ca
+ re items<br>&#10084\;&#65039\; Food<br><br>The event is family-friendly.
+  There is an outside playground at Van Asselt\, and we will also have a 
+ kid&#39\;s corner with art activities and children&#39\;s books.
+CATEGORIES:City-Wide
+UID:http://uid.trumba.com/event/200227726
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200227726
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Micro-forest Work Party (ivy and blackberry removal)
 LOCATION:2451 Delmar Dr E\, Seattle\, WA 98112
 DTSTART;TZID=America/Los_Angeles:20260426T120000
@@ -10128,7 +10331,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Registration Details";ID=12624;TYPE=MultiLine
  valleysenior.org/spring-into-gardening/" target="_blank" rel="noopener" 
  title="https://snovalleysenior.org/spring-into-gardening/">snovalleyseni
  or.org&#8230\;</a> or call 425-333-4152.
-DTSTAMP:20260402T135542Z
+DTSTAMP:20260402T134900Z
 DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  e Union\,Columbia City\,Greenwood/Phinney Ridge\,Madison Park\,North of 
  Seattle\,Wallingford\,West Seattle Junction/Genesee Hill<br>Event Types:
@@ -10155,9 +10358,9 @@ DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  ent sponsors\, Happy Valley Grange\, Lighthouse Plumbing\, North Bend Ac
  e Hardware\, and Carnation Co-Op!
 CATEGORIES:City-Wide
-UID:http://uid.trumba.com/event/200118204
+UID:http://uid.trumba.com/event/200118200
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d200118204
+ event%26eventid%3d200118200
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Annual Spring into Gardening Plant Sale
@@ -10192,7 +10395,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Registration Details";ID=12624;TYPE=MultiLine
  valleysenior.org/spring-into-gardening/" target="_blank" rel="noopener" 
  title="https://snovalleysenior.org/spring-into-gardening/">snovalleyseni
  or.org&#8230\;</a> or call 425-333-4152.
-DTSTAMP:20260402T134900Z
+DTSTAMP:20260402T135542Z
 DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  e Union\,Columbia City\,Greenwood/Phinney Ridge\,Madison Park\,North of 
  Seattle\,Wallingford\,West Seattle Junction/Genesee Hill<br>Event Types:
@@ -10219,9 +10422,9 @@ DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  ent sponsors\, Happy Valley Grange\, Lighthouse Plumbing\, North Bend Ac
  e Hardware\, and Carnation Co-Op!
 CATEGORIES:City-Wide
-UID:http://uid.trumba.com/event/200118200
+UID:http://uid.trumba.com/event/200118204
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d200118200
+ event%26eventid%3d200118204
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Human Services\, Labor\, &amp\; Economic Development Committee
@@ -10412,7 +10615,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Registration Details";ID=12624;TYPE=MultiLine
  valleysenior.org/spring-into-gardening/" target="_blank" rel="noopener" 
  title="https://snovalleysenior.org/spring-into-gardening/">snovalleyseni
  or.org&#8230\;</a> or call 425-333-4152.
-DTSTAMP:20260402T134900Z
+DTSTAMP:20260402T135542Z
 DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  e Union\,Columbia City\,Greenwood/Phinney Ridge\,Madison Park\,North of 
  Seattle\,Wallingford\,West Seattle Junction/Genesee Hill<br>Event Types:
@@ -10439,9 +10642,9 @@ DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  ent sponsors\, Happy Valley Grange\, Lighthouse Plumbing\, North Bend Ac
  e Hardware\, and Carnation Co-Op!
 CATEGORIES:City-Wide
-UID:http://uid.trumba.com/event/200118201
+UID:http://uid.trumba.com/event/200118205
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d200118201
+ event%26eventid%3d200118205
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Annual Spring into Gardening Plant Sale
@@ -10476,7 +10679,7 @@ X-TRUMBA-CUSTOMFIELD;NAME="Registration Details";ID=12624;TYPE=MultiLine
  valleysenior.org/spring-into-gardening/" target="_blank" rel="noopener" 
  title="https://snovalleysenior.org/spring-into-gardening/">snovalleyseni
  or.org&#8230\;</a> or call 425-333-4152.
-DTSTAMP:20260402T135542Z
+DTSTAMP:20260402T134900Z
 DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  e Union\,Columbia City\,Greenwood/Phinney Ridge\,Madison Park\,North of 
  Seattle\,Wallingford\,West Seattle Junction/Genesee Hill<br>Event Types:
@@ -10503,9 +10706,9 @@ DESCRIPTION:Neighborhoods: Ballard\,Belltown\,Cascade/Eastlake/South Lak
  ent sponsors\, Happy Valley Grange\, Lighthouse Plumbing\, North Bend Ac
  e Hardware\, and Carnation Co-Op!
 CATEGORIES:City-Wide
-UID:http://uid.trumba.com/event/200118205
+UID:http://uid.trumba.com/event/200118201
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d200118205
+ event%26eventid%3d200118201
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Seattle Youth Commission (SYC) Meeting
@@ -11107,6 +11310,39 @@ CATEGORIES:Seattle City Council
 UID:http://uid.trumba.com/event/194808482
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d194808482
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Outdoor Racquet Sports Strategy Public Meeting
+LOCATION:Bitter Lake Community Center
+DTSTART;TZID=America/Los_Angeles:20260504T183000
+DTEND;TZID=America/Los_Angeles:20260504T200000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://engageseattleparks.com/outdoor-racquet-sports-strategy/rs-en
+ gage
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Parks Submissio
+ n Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Building/Room #";ID=10956;TYPE=MultiLine:Bitt
+ er Lake Community Center
+X-TRUMBA-CUSTOMFIELD;NAME="Location Type";ID=67612;TYPE=CustomAsset:Indo
+ or
+X-TRUMBA-CUSTOMFIELD;NAME="Community Center";ID=10954;TYPE=CustomAsset:B
+ itter Lake Community Center
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:<a href="ma
+ ilto:Jonathan.Garner@seattle.gov" target="_blank" rel="noopener">Jonatha
+ n.Garner@seattle.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
+DTSTAMP:20260406T165739Z
+DESCRIPTION:Building/Room #: Bitter Lake Community Center<br>Location Ty
+ pe: Indoor<br>Community Center: Bitter Lake Community Center<br>Contact:
+  Jonathan.Garner@seattle.gov<br>Audience: Adults<br>Pre-Register: No<br>
+ Cost: Free<br>Link: https://engageseattleparks.com/outdoor-racquet-sport
+ s-strategy/rs-engage<br>
+CATEGORIES:Parks &amp; Recreation
+UID:http://uid.trumba.com/event/200450631
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200450631
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:&quot\;Stop the Bleed&quot\; class
@@ -12518,6 +12754,31 @@ X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d150685797
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:Outdoor Racquet Sports Strategy Public Meeting
+LOCATION:Garfield Community Center
+DTSTART;TZID=America/Los_Angeles:20260507T190000
+DTEND;TZID=America/Los_Angeles:20260507T203000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://engageseattleparks.com/outdoor-racquet-sports-strategy/rs-en
+ gage
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Parks Submissio
+ n Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:<a href="ma
+ ilto:Jonathan.Garner@seattle.gov" target="_blank" rel="noopener">Jonatha
+ n.Garner@seattle.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
+DTSTAMP:20260406T165935Z
+DESCRIPTION:Contact: Jonathan.Garner@seattle.gov<br>Audience: Adults<br>
+ Pre-Register: No<br>Cost: Free<br>Link: https://engageseattleparks.com/o
+ utdoor-racquet-sports-strategy/rs-engage<br>
+CATEGORIES:Parks &amp; Recreation
+UID:http://uid.trumba.com/event/200450633
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200450633
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:Comedy Battle Royale - Ballard
 LOCATION:Kangaroo &amp\; Kiwi\, 2026 NW Market St\, Ballard
 DTSTART;TZID=America/Los_Angeles:20260507T193000
@@ -12927,6 +13188,58 @@ CATEGORIES:Volunteer
 UID:http://uid.trumba.com/event/200144791
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d200144791
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Outdoor Racquet Sports Strategy Public Meeting
+LOCATION:Van Asselt Community Center
+DTSTART;TZID=America/Los_Angeles:20260509T103000
+DTEND;TZID=America/Los_Angeles:20260509T120000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+URL:https://engageseattleparks.com/outdoor-racquet-sports-strategy/rs-en
+ gage
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Parks Submissio
+ n Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:<a href="ma
+ ilto:Jonathan.Garner@seattle.gov" target="_blank" rel="noopener">Jonatha
+ n.Garner@seattle.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
+DTSTAMP:20260406T170119Z
+DESCRIPTION:Contact: Jonathan.Garner@seattle.gov<br>Audience: Adults<br>
+ Pre-Register: No<br>Cost: Free<br>Link: https://engageseattleparks.com/o
+ utdoor-racquet-sports-strategy/rs-engage<br>
+CATEGORIES:Parks &amp; Recreation
+UID:http://uid.trumba.com/event/200450634
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200450634
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:South Park Community Center and Site  Parade &amp\; Celebration!
+LOCATION:Corner of S. Sullivan St and 8th Ave S
+DTSTART;TZID=America/Los_Angeles:20260509T120000
+DTEND;TZID=America/Los_Angeles:20260509T150000
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Parks Submissio
+ n Form Template
+X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Commun
+ ity
+X-TRUMBA-CUSTOMFIELD;NAME="Location Type";ID=67612;TYPE=CustomAsset:Outd
+ oor
+X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:<a href="ma
+ ilto:Toby.Ressler@seattle.gov" target="_blank" rel="noopener">Toby.Ressl
+ er@seattle.gov</a>
+X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
+X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
+X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
+DTSTAMP:20260406T155653Z
+DESCRIPTION:Event Types: Community<br>Location Type: Outdoor<br>Contact:
+  Toby.Ressler@Seattle.Gov<br>Audience: All<br>Pre-Register: No<br>Cost: 
+ Free<br>
+CATEGORIES:Parks &amp; Recreation
+UID:http://uid.trumba.com/event/200447527
+X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
+ event%26eventid%3d200447527
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Open Adoption Hours
@@ -24382,418 +24695,5 @@ CATEGORIES:Animal Shelter
 UID:http://uid.trumba.com/event/175585021
 X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
  event%26eventid%3d175585021
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Select Committee on the Comprehensive Plan
-LOCATION:Council Chambers<br>600 4th Ave.\, Floor 2<br>Seattle\, WA 9810
- 4
-DTSTART;TZID=America/Los_Angeles:20260618T130000
-DTEND;TZID=America/Los_Angeles:20260618T130000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:https://www.seattle.gov/council/meetings/committees-and-agendas/sele
- ct-committee-on-the-comprehensive-plan
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:City Council Su
- bmission Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Venue Location";ID=27738;TYPE=SingleLine:<a h
- ref="http://www.seattle.gov/council/visiting_city_hall.htm" target="_bla
- nk" rel="noopener">City Hall\, Council Chambers</a>
-X-TRUMBA-CUSTOMFIELD;NAME="City Council Meeting Type";ID=12011;TYPE=Cust
- omAsset:Select Committee on the Comprehensive Plan
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:City C
- ouncil Meeting
-X-TRUMBA-CUSTOMFIELD;NAME="Agendas";ID=12615;TYPE=MultiLine:<a href="htt
- p://seattle.legistar.com/DepartmentDetail.aspx?ID=53400&amp\;GUID=4ADD32
- 81-A442-4D37-B0C0-25AD4CD51051&amp\;Search=" target="_blank" rel="noopen
- er">Agendas</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Committee Chair";ID=12902;TYPE=CustomAsset:Ed
- die Lin: <a href="https://www.seattle.gov/council/lin/\," target="_blank
- " rel="noopener" title="https://www.seattle.gov/council/lin/\,">www.seat
- tle.gov&#8230\;</a> <a href="mailto:Eddie.Lin@seattle.gov" target="_blan
- k" rel="noopener">Eddie.Lin@seattle.gov</a>\, 206-684-8802
-X-TRUMBA-CUSTOMFIELD;NAME="Councilmembers";ID=12009;TYPE=CustomAsset:Dio
- nne Foster\,Rob Saka\,Eddie Lin\,Joy Hollingsworth\,Maritza Rivera\,Debo
- ra Juarez\,Dan Strauss\,Robert Kettle\,Alexis Mercedes Rinck
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Down
- town Commercial Core
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults\,A
- ll
-X-TRUMBA-CUSTOMFIELD;NAME="Additional Information";ID=22851;TYPE=MultiLi
- ne:<a href="http://www.seattle.gov/council/visiting_city_hall.htm" targe
- t="_blank" rel="noopener">Visiting City Hall </a>
-DTSTAMP:20260218T095108Z
-DESCRIPTION:Venue Location: <a href="http://www.seattle.gov/council/visi
- ting_city_hall.htm" target="_blank">City Hall\, Council Chambers</a><br>
- City Council Meeting Type: Select Committee on the Comprehensive Plan<br
- >Event Types: City Council Meeting<br>Agendas: <a href="http://seattle.l
- egistar.com/DepartmentDetail.aspx?ID=53400&amp\;GUID=4ADD3281-A442-4D37-
- B0C0-25AD4CD51051&amp\;Search=" target="_blank">Agendas</a><br>Committee
-  Chair: Eddie Lin: https://www.seattle.gov/council/lin/\, Eddie.Lin@seat
- tle.gov\, 206-684-8802<br>Councilmembers: Dionne Foster\,Rob Saka\,Eddie
-  Lin\,Joy Hollingsworth\,Maritza Rivera\,Debora Juarez\,Dan Strauss\,Rob
- ert Kettle\,Alexis Mercedes Rinck<br>Neighborhoods: Downtown Commercial 
- Core<br>Audience: Adults\,All<br>Additional Information: <a href="http:/
- /www.seattle.gov/council/visiting_city_hall.htm" target="_blank">Visitin
- g City Hall </a><br>Link: https://www.seattle.gov/council/meetings/commi
- ttees-and-agendas/select-committee-on-the-comprehensive-plan<br>
-CATEGORIES:Seattle City Council
-UID:http://uid.trumba.com/event/197572916
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d197572916
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Cultural Investments Committee (CIC)
-LOCATION:Online
-DTSTART;TZID=America/Los_Angeles:20260618T140000
-DTEND;TZID=America/Los_Angeles:20260618T150000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Arts and Cultur
- al Affairs Submission Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Arts\,
- Boards &amp\; Commissions\,Community\,Grants
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Onli
- ne Event
-X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
- Line:Seattle Office of Arts &amp\; Culture
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Allie Lee
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:206-733-
- 9378
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:allie.lee@seattle.gov" target="_blank" rel="noopener">allie.lee@se
- attle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Site Contact Details";ID=10951;TYPE=MultiLine
- :Virtual meeting info:<p><a href="https://zoom.us/j/95348779926?pwd=NVNw
- OXJCZkxRTWNwWWgwa3RyL3JzQT09" target="_blank" rel="noopener">https://zoo
- m.us/j/95348779926?pwd=NVNwOXJCZkxRTWNwWWgwa3RyL3JzQT09</a></p><p>Meetin
- g ID: 953 4877 9926<br>Password: 732138</p><p>One tap mobile<br>+1253215
- 8782\,\,95348779926#\,\,\,\,0#\,\,732138# US (Tacoma)<br>+13462487799\,
- \,95348779926#\,\,\,\,0#\,\,732138# US (Houston)</p>
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
-X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
-DTSTAMP:20250618T171230Z
-DESCRIPTION:Event Types: Arts\,Boards & Commissions\,Community\,Grants<b
- r>Neighborhoods: Online Event<br>Sponsoring Organization: Seattle Office
-  of Arts & Culture<br>Contact: Allie Lee<br>Contact Phone: 206-733-9378<
- br>Contact Email: allie.lee@seattle.gov<br>Site Contact Details: Virtual
-  meeting info:<p><a href="https://zoom.us/j/95348779926?pwd=NVNwOXJCZkxR
- TWNwWWgwa3RyL3JzQT09">https://zoom.us/j/95348779926?pwd=NVNwOXJCZkxRTWNw
- WWgwa3RyL3JzQT09</a></p><p>Meeting ID: 953 4877 9926\nPassword: 732138</
- p><p>One tap mobile\n+12532158782\,\,95348779926#\,\,\,\,0#\,\,732138# U
- S (Tacoma)\n+13462487799\,\,95348779926#\,\,\,\,0#\,\,732138# US (Housto
- n)</p><br>Audience: All<br>Pre-Register: No<br>Cost: Free<br><br>The Cul
- tural Investments Committee 1) provides guidance and feedback on the Off
- ice of Arts &amp\; Culture&#8217\;s racially equitable grant processes a
- nd investment strategies and 2) advocates for equitable\, accessible\, a
- nd inclusive cultural investments.
-CATEGORIES:Arts and Culture
-UID:http://uid.trumba.com/event/174970782
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d174970782
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:The Creative Advantage Office Hours
-LOCATION:Online
-DTSTART;TZID=America/Los_Angeles:20260618T150000
-DTEND;TZID=America/Los_Angeles:20260618T160000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Arts and Cultur
- al Affairs Submission Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Arts\,
- Community\,Education
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:City
- wide\,Online Event
-X-TRUMBA-CUSTOMFIELD;NAME="Sponsoring Organization";ID=10959;TYPE=Single
- Line:The Creative Advantage &amp\; Seattle Public Schools
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Tina LaPadu
- la
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:(206) 51
- 8-4205
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:tina.lapadula@seattle.gov" target="_blank" rel="noopener">tina.lap
- adula@seattle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:Yes
-X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
- //www.trumba.com/i/DgD8KmzXMU20ccpkXVhFrP8n.jpg" target="_blank" rel="no
- opener" title="https://www.trumba.com/i/DgD8KmzXMU20ccpkXVhFrP8n.jpg">ww
- w.trumba.com&#8230\;</a>
-DTSTAMP:20251215T101858Z
-DESCRIPTION:Event Types: Arts\,Community\,Education<br>Neighborhoods: Ci
- tywide\,Online Event<br>Sponsoring Organization: The Creative Advantage 
- & Seattle Public Schools<br>Contact: Tina LaPadula<br>Contact Phone: (20
- 6) 518-4205<br>Contact Email: tina.lapadula@seattle.gov<br>Audience: Adu
- lts<br>Pre-Register: Yes<br>Cost: Free<br><br>Weekly Creative Advantage 
- Office Hours are for Seattle Public School educators\, arts team members
- \, and community art partners to drop into a standing Teams meeting and 
- ask questions\, give feedback or have a thought partner to talk through 
- an idea or problem.<br><br>These sessions are facilitated by Tina LaPadu
- la\, Arts Education Project Manager from the Seattle Office of Arts &amp
- \; Culture\, Rayna Mathis\, The Creative Advantage Project Manager for S
- eattle Public Schools\, and members of The Creative Advantage Implementa
- tion Team.<br><br>Register here and you will receive a Teams Link in you
- r confirmation email.
-CATEGORIES:Arts and Culture
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgD8KmzXMU20ccpkXVhFrP8n.jpg
-UID:http://uid.trumba.com/event/194629727
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d194629727
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Seattle Disability Commission
-LOCATION:Online &amp\; In-person
-DTSTART;TZID=America/Los_Angeles:20260618T160000
-DTEND;TZID=America/Los_Angeles:20260618T180000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:https://www.seattle.gov/commission-for-people-with-disabilities/abou
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Boards &amp\; C
- ommissions Sub Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Building/Room #";ID=10956;TYPE=MultiLine:<p><
- strong>Hybrid Meeting: In person location at City Hall\, 600 4th Ave\, S
- eattle WA 98104\,<br>Room 370 (Entrance on 5th Ave)<br><br>Attend Webex:
- &#160\;</strong><a href="https://seattle.webex.com/seattle/j.php?MTID=m5
- 65412d02b75ef8b7d7aff1c4b9ab8f7" target="_blank" rel="noopener">https://
- seattle.webex.com/seattle/j.php?MTID=m565412d02b75ef8b7d7aff1c4b9ab8f7</
- a></p>Meeting number: 2486 010 8694<br>Password: 2026<br>Call in: 206-20
- 7-1700<p>&#160\;</p>
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Boards
-  &amp\; Commissions
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:City
- wide
-X-TRUMBA-CUSTOMFIELD;NAME="Department/Organization";ID=18593;TYPE=Custom
- Asset:Civil Rights
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
-X-TRUMBA-CUSTOMFIELD;NAME="Department";ID=17289;TYPE=CustomAsset:Civil R
- ights
-X-TRUMBA-CUSTOMFIELD;NAME="Website";ID=17276;TYPE=Url:<a href="http://ww
- w.seattle.gov/civilrights/" target="_blank" rel="noopener" title="http:/
- /www.seattle.gov/civilrights/">www.seattle.gov&#8230\;</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Janet Staff
- ord
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:janet.stafford@seattle.gov" target="_blank" rel="noopener">janet.s
- tafford@seattle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
-DTSTAMP:20260319T140420Z
-DESCRIPTION:Building/Room #: <p><strong>Hybrid Meeting: In person locati
- on at City Hall\, 600 4th Ave\, Seattle WA 98104\,\nRoom 370 (Entrance o
- n 5th Ave)\n\nAttend Webex:&nbsp\;</strong><a href="https://seattle.webe
- x.com/seattle/j.php?MTID=m565412d02b75ef8b7d7aff1c4b9ab8f7">https://seat
- tle.webex.com/seattle/j.php?MTID=m565412d02b75ef8b7d7aff1c4b9ab8f7</a></
- p>Meeting number: 2486 010 8694\nPassword: 2026\nCall in: 206-207-1700<p
- >&nbsp\;</p><br>Event Types: Boards & Commissions<br>Neighborhoods: City
- wide<br>Department/Organization: Civil Rights<br>Audience: All<br>Depart
- ment: Civil Rights<br>Website: http://www.seattle.gov/civilrights/<br>Co
- ntact: Janet Stafford<br>Contact Email: janet.stafford@seattle.gov<br>Pr
- e-Register: No<br>Link: https://www.seattle.gov/commission-for-people-wi
- th-disabilities/about<br>
-CATEGORIES:Boards &amp; Commissions
-UID:http://uid.trumba.com/event/194884006
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d194884006
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Virtual Pet Loss Support Group
-LOCATION:Phone/Webex
-DTSTART;TZID=America/Los_Angeles:20260618T173000
-DTEND;TZID=America/Los_Angeles:20260618T184500
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:http://www.seattle.gov/animal-shelter/resources/pet-loss-support-gro
- up
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Animal Shelter 
- Submission Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
-X-TRUMBA-CUSTOMFIELD;NAME="Website";ID=12613;TYPE=Url:<a href="http://ww
- w.seattle.gov/animal-shelter/resources/pet-loss-support-group" target="_
- blank" rel="noopener" title="http://www.seattle.gov/animal-shelter/resou
- rces/pet-loss-support-group">www.seattle.gov&#8230\;</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Onli
- ne Event
-DTSTAMP:20230327T124606Z
-DESCRIPTION:Audience: All<br>Website: http://www.seattle.gov/animal-shel
- ter/resources/pet-loss-support-group<br>Neighborhoods: Online Event<br>L
- ink: http://www.seattle.gov/animal-shelter/resources/pet-loss-support-gr
- oup<br><br>The loss of a pet can be very difficult. The Seattle Animal S
- helter offers the Pet Loss Support Group\, which provides volunteers who
-  are here to help.<br> <br> The Pet Loss Support Group meets by phone/We
- bex every Thursday from 5:30-6:45 p.m. For the schedule and details on h
- ow to join the virtual meeting\, please email&#160\;<a href="mailto:sasp
- etloss@gmail.com" target="_blank" rel="noopener">saspetloss@gmail.com</a
- >.<br> <br> <strong>PLEASE DO NOT SHOW UP AT SEATTLE ANIMAL SHELTER</str
- ong> - this meeting is only by phone/online\, not in person<br> <br> By 
- joining the meeting\, you confirm that you have read and agreed to the f
- ollowing City of Seattle&#8217\;s terms for participation:<br> The purpo
- se of the Pet Loss Support Group at the Seattle Animal Shelter is to pro
- vide short-term group support for individuals experiencing grief and gri
- ef-related issues due to the loss of a pet.<br> This program does not pr
- ovide professional counseling and/or assessment services for the treatme
- nt of psychological problems or disorders\, and participants will not be
-  receiving professional therapeutic intervention through this program.<b
- r> As a condition of participating in this program\, I agree to release
- \, defend and indemnify the Seattle Animal Shelter\, the City of Seattle
- \, and their employees and volunteers from any loss or injury to my perso
- n and from all liability for any and all claims\, demands\, losses\, or 
- damages\, actions\, judgments of every kind and description arising out 
- of my participation in this program.
-CATEGORIES:Animal Shelter
-UID:http://uid.trumba.com/event/166235619
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d166235619
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:The Dreaming Room: Soundscapes for Deep Rest
-LOCATION:ARTS at King Street Station<br>303 South Jackson Street\, Top F
- loor<br>Seattle\, WA 98104
-DTSTART;TZID=America/Los_Angeles:20260618T180000
-DTEND;TZID=America/Los_Angeles:20260618T193000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Arts and Cultur
- al Affairs Submission Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Arts\,
- Community\,Museum/Gallery\,Music\,Special Events
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:City
- wide\,Pioneer Square
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Rana San
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Phone";ID=10950;TYPE=PhoneUS:(206) 25
- 6-6279
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:Rana.San@seattle.gov" target="_blank" rel="noopener">Rana.San@seat
- tle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:All
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
-X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
-X-TRUMBA-CUSTOMFIELD;NAME="Detail image";ID=3052;TYPE=Image:<a href="htt
- ps://www.trumba.com/i/DgCAJj9LrF%2AXSqZ3j04ccshA.png" target="_blank" re
- l="noopener" title="https://www.trumba.com/i/DgCAJj9LrF%2AXSqZ3j04ccshA.
- png">www.trumba.com&#8230\;</a>
-DTSTAMP:20260304T131231Z
-DESCRIPTION:Event Types: Arts\,Community\,Museum/Gallery\,Music\,Special
-  Events<br>Neighborhoods: Citywide\,Pioneer Square<br>Contact: Rana San<
- br>Contact Phone: (206) 256-6279<br>Contact Email: Rana.San@seattle.gov<
- br>Audience: All<br>Pre-Register: No<br>Cost: Free<br><br><p><strong>Joi
- n ARTS at King Street Station for <em>The Dreaming Room: Soundscapes for
-  Deep Rest</em>\,</strong> <strong>a concert series&#160\;hosted by Step
- hanie Ann Ball.</strong><br><br>This community-rooted concert series is 
- designed to support nervous system recovery\, emotional release\, and co
- llective connections through sound meditation\, music\, and storytelling
- . Come rest and connect over the course of this renewing series\, every 
- other month on the third Thursday&#160\;between February and December.<b
- r><br><em>We Still Dream a Future</em>&#160\;is&#160\;a series of free p
- ublic art activations\, installations\, exhibitions\, performances\, and
-  learning experiences designed to help us dream\, learn\, and grow\, tak
- ing place&#160\;throughout the Downtown core.<br><br><strong>SERIES SCHE
- DULE (3rd Thursdays)</strong>:</p><ul> <li>February 19&#160\;&#8212\;&#1
- 60\;rejuvenation + renewal	</li><li>April 16&#160\;&#8212\;&#160\;creati
- vity\, fun\, expansion	</li><li>June 18&#160\;&#8212\;&#160\;joyful\, wo
- ndrous playtime	</li><li>August 20&#160\;&#8212\;&#160\;transitioning	</
- li><li>October 15&#160\;&#8212\;&#160\;gratitude + reflection	</li><li>D
- ecember 17&#160\;&#8212\;&#160\;celebration + releasing</li></ul><hr><p>
- Gallery hours are Wed. &#8211\; Sat. 11 a.m. &#8211\; 5 p.m.\; First Thu
- rsdays 11 a.m. &#8211\; 8:00 p.m.<br><br><strong>Artist bio:<br><a href=
- "https://stephanieannball.com/" target="_blank" rel="noopener">Stephanie
-  Ann Ball</a></strong> is&#160\;a healing artist and sound meditation fa
- cilitator. Her work sits at the intersection of therapeutic sound\, scie
- nce\, and well-being. Using sound meditation\, energy work\, and subcons
- cious reprogramming techniques\, Stephanie helps individuals and teams r
- egulate the nervous system\, release stress\, and access states of calm
- \, clarity\, and flow. The best part? It all starts with something easy a
- nd fun&#8212\;listening to music.</p>
-CATEGORIES:Arts and Culture
-UID:http://uid.trumba.com/event/194911610
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d194911610
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:&quot\;Stop the Bleed&quot\; class
-LOCATION:Ravenna-Eckstein Community Center\, 6535 Ravenna Ave NE\, Seatt
- le\, WA 98115
-DTSTART;TZID=America/Los_Angeles:20260618T183000
-DTEND;TZID=America/Los_Angeles:20260618T193000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:https://www.seattle.gov/emergency-management/community-engagement/st
- op-the-bleed
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Emergency Submi
- ssion Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:Gree
- n Lake\,Ravenna/Bryant/Roosevelt\,Wedgwood/View Ridge
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Ann Forrest
- \, OEM Volunteer
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:OEM_StopTheBleed@seattle.gov" target="_blank" rel="noopener">OEM_S
- topTheBleed@seattle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults\,S
- enior\,Special Needs\,Teen
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:Yes
-X-TRUMBA-CUSTOMFIELD;NAME="Cost";ID=10963;TYPE=SingleLine:Free
-DTSTAMP:20251108T135644Z
-DESCRIPTION:Neighborhoods: Green Lake\,Ravenna/Bryant/Roosevelt\,Wedgwoo
- d/View Ridge<br>Contact: Ann Forrest\, OEM Volunteer<br>Contact Email: O
- EM_StopTheBleed@Seattle.gov<br>Audience: Adults\,Senior\,Special Needs\,
- Teen<br>Pre-Register: Yes<br>Cost: Free<br>Link: https://www.seattle.gov
- /emergency-management/community-engagement/stop-the-bleed<br><br>Life-th
- reatening bleeding injuries can happen anytime. When they do\, every min
- ute counts! Stop the Bleed empowers participants to take action! Our tra
- ined instructors teach the community about bleeding control: recognizing
-  life-threatening bleeding\, applying pressure to the wound\, and using 
- a tourniquet.
-CATEGORIES:Emergency Management
-UID:http://uid.trumba.com/event/192899490
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d192899490
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Seattle LGBTQ Commission
-LOCATION:Online &amp\; In-person
-DTSTART;TZID=America/Los_Angeles:20260618T183000
-DTEND;TZID=America/Los_Angeles:20260618T203000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:http://www.seattle.gov/lgbtq
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Boards &amp\; C
- ommissions Sub Form Template
-X-TRUMBA-CUSTOMFIELD;NAME="Building/Room #";ID=10956;TYPE=MultiLine:<p><
- strong>Hybrid Meeting: In person location at Seattle City Hall&#160\;(60
- 0 4th\, Seattle WA)<br>Room 370&#160\;(Ring bell on 5th Ave main doors)<
- /strong></p><p><strong>Webex:&#160\;</strong><a href="https://seattle.we
- bex.com/seattle/j.php?MTID=m0188f2b07bb8b0f8fd8d4e1ba98454ea" target="_b
- lank" rel="noopener">https://seattle.webex.com/seattle/j.php?MTID=m0188f
- 2b07bb8b0f8fd8d4e1ba98454ea</a></p><p>Meeting number: 2494 187 6268 &#16
- 0\;<br>Password: 2025<br>Call in: 206-207-1700</p><p>&#160\;</p>
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=11444;TYPE=CustomAsset:Boards
-  &amp\; Commissions
-X-TRUMBA-CUSTOMFIELD;NAME="Neighborhoods";ID=11388;TYPE=CustomAsset:City
- wide
-X-TRUMBA-CUSTOMFIELD;NAME="Department/Organization";ID=18593;TYPE=Custom
- Asset:Civil Rights
-X-TRUMBA-CUSTOMFIELD;NAME="Audience";ID=10952;TYPE=CustomAsset:Adults\,S
- enior\,Teen
-X-TRUMBA-CUSTOMFIELD;NAME="Department";ID=17289;TYPE=CustomAsset:Civil R
- ights
-X-TRUMBA-CUSTOMFIELD;NAME="Website";ID=17276;TYPE=Url:<a href="http://ww
- w.seattle.gov/civilrights/" target="_blank" rel="noopener" title="http:/
- /www.seattle.gov/civilrights/">www.seattle.gov&#8230\;</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Contact";ID=10948;TYPE=SingleLine:Janet Staff
- ord
-X-TRUMBA-CUSTOMFIELD;NAME="Contact Email";ID=10949;TYPE=Email:<a href="m
- ailto:janet.stafford@seattle.gov" target="_blank" rel="noopener">janet.s
- tafford@seattle.gov</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Pre-Register";ID=10961;TYPE=Boolean:No
-DTSTAMP:20260319T145050Z
-DESCRIPTION:Building/Room #: <p><strong>Hybrid Meeting: In person locati
- on at Seattle City Hall&nbsp\;(600 4th\, Seattle WA)\nRoom 370&nbsp\;(Ri
- ng bell on 5th Ave main doors)</strong></p><p><strong>Webex:&nbsp\;</str
- ong><a href="https://seattle.webex.com/seattle/j.php?MTID=m0188f2b07bb8b
- 0f8fd8d4e1ba98454ea">https://seattle.webex.com/seattle/j.php?MTID=m0188f
- 2b07bb8b0f8fd8d4e1ba98454ea</a></p><p>Meeting number: 2494 187 6268 &nbs
- p\;\nPassword: 2025\nCall in: 206-207-1700</p><p>&nbsp\;</p><br>Event Ty
- pes: Boards & Commissions<br>Neighborhoods: Citywide<br>Department/Organ
- ization: Civil Rights<br>Audience: Adults\,Senior\,Teen<br>Department: C
- ivil Rights<br>Website: http://www.seattle.gov/civilrights/<br>Contact: 
- Janet Stafford<br>Contact Email: janet.stafford@seattle.gov<br>Pre-Regis
- ter: No<br>Link: http://www.seattle.gov/lgbtq<br>
-CATEGORIES:Boards &amp; Commissions
-UID:http://uid.trumba.com/event/195106257
-X-TRUMBA-LINK:https://www.seattle.gov/event-calendar?trumbaEmbed=view%3d
- event%26eventid%3d195106257
 END:VEVENT
 END:VCALENDAR

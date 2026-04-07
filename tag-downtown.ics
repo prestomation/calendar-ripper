@@ -6,58 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Downtown Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:nuiOCAut0ozgcfoenPFPJ
-SUMMARY:Sakura-Con'26
-DTSTAMP:20260406T030445Z
+UID:WTnQHorSe0BPm9WcDkyIp
+SUMMARY:Collection Spotlight Exhibit
+DTSTAMP:20260407T043740Z
 DTSTART;TZID=America/Los_Angeles:20260408T193000
-DESCRIPTION:Sakura-Con'26 at Seattle Convention Center\n\nhttps://seattlecc
-	.com/upcoming-events/\n\nFrom Seattle Convention Center
-URL:https://seattlecc.com/upcoming-events/
-LOCATION:Seattle Convention Center\, 705 Pike St\, Seattle\, WA 98101
-X-CALRIPPER-SOURCE:all-events
-CATEGORIES:Seattle Convention Center
-TRANSP:TRANSPARENT
-DURATION:PT56H
-END:VEVENT
-BEGIN:VEVENT
-UID:Ms7WGrxA63zii5HiDsHSk
-SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
-DTSTART;TZID=America/Los_Angeles:20260413T183000
-DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
-	Public Library’s collection\, composed of over two million items.\n\nhttps
-	://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3d1937534
-	09\n\nFrom SPL - Central Library
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d193753409
-LOCATION:Central Library\, Level 8 - Gallery
-X-CALRIPPER-SOURCE:central-library
-CATEGORIES:SPL - Central Library
-TRANSP:TRANSPARENT
-DURATION:PT8H
-END:VEVENT
-BEGIN:VEVENT
-UID:MBOfypTrtCKNokvKXfj1d
-SUMMARY:El Club Latino: "Pájaros en la boca y otros cuentos"
-DTSTAMP:20260406T030445Z
-DTSTART;TZID=America/Los_Angeles:20260424T180000
-DESCRIPTION:Participe en el Club de Lectura en español. El libro de este me
-	s es "Pájaros en la boca y otros cuentos" de Samanta Schweblin.Evento en e
-	spañol.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26e
-	ventid%3d197591242\n\nFrom SPL - Central Library
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d197591242
-LOCATION:Central Library\, Piso 8 - Sala de reuniones
-X-CALRIPPER-SOURCE:central-library
-CATEGORIES:SPL - Central Library
-TRANSP:TRANSPARENT
-DURATION:PT1H30M
-END:VEVENT
-BEGIN:VEVENT
-UID:z-7vws9kLnJBUisFAHQv4
-SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
-DTSTART;TZID=America/Los_Angeles:20260424T183000
 DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
 	Public Library’s collection\, composed of over two million items.\n\nhttps
 	://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3d1937534
@@ -71,10 +23,10 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:qTbhCFljNs9DR7UuVYfLv
+UID:IjVAk3nmzTTEmy85ghrma
 SUMMARY:La Hora de Cuentos en la Biblioteca Central
-DTSTAMP:20260406T030445Z
-DTSTART:20260406T173000Z
+DTSTAMP:20260407T043740Z
+DTSTART;TZID=America/Los_Angeles:20260413T183000
 DESCRIPTION:Durante la hora de cuentos\, los niños de 0 a 5 años y sus fami
 	lias pueden disfrutar de historias\, canciones y divertidas actividades de
 	 aprendizaje. Evento en español.\n\nhttps://www.spl.org/event-calendar?tru
@@ -88,10 +40,10 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:nKnZvAIlkfk-aZHafzZ0L
+UID:euce7wQa5KxzdKmuMX4XX
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
-DTSTART:20260406T180000Z
+DTSTAMP:20260407T043740Z
+DTSTART;TZID=America/Los_Angeles:20260424T180000
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
 	bed=view%3devent%26eventid%3d192297237\n\nFrom SPL - Central Library
@@ -104,10 +56,10 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:PZK-pYFjNSCGHuHC9OR8Y
+UID:S2qhBQ79hsNE4KVltp9dw
 SUMMARY:Demystifying AI
-DTSTAMP:20260406T030445Z
-DTSTART:20260406T200000Z
+DTSTAMP:20260407T043740Z
+DTSTART;TZID=America/Los_Angeles:20260424T183000
 DESCRIPTION:This session helps you to understand the technologies that make
 	 generative AI (Artificial Intelligence) possible.\n\nhttps://www.spl.org/
 	event-calendar?trumbaEmbed=view%3devent%26eventid%3d197528319\n\nFrom SPL 
@@ -121,9 +73,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:HYNuyKm26wVeIYCTqc3WJ
+UID:3dfTwSvwdrVRt-pjFKeiy
 SUMMARY:Virtual & In-Person Citizenship Class - English
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260406T210000Z
 DESCRIPTION:This class is designed for individuals that need assistance in 
 	preparing for their citizenship exam.\n\nhttps://www.spl.org/event-calenda
@@ -138,37 +90,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8tcldayg6y0JkkkjUYgrg
-SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
-DTSTART:20260406T230000Z
-DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
-	om SIFF Cinema Downtown
-URL:https://www.siff.net/cinema/in-theaters/project-hail-mary
-LOCATION:SIFF Cinema Downtown
-X-CALRIPPER-SOURCE:downtown
-CATEGORIES:SIFF Cinema Downtown
-TRANSP:TRANSPARENT
-DURATION:PT2H46M
-END:VEVENT
-BEGIN:VEVENT
-UID:5yqn6AvlLKmPus9QGllDB
-SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
-DTSTART:20260407T024500Z
-DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
-	om SIFF Cinema Downtown
-URL:https://www.siff.net/cinema/in-theaters/project-hail-mary
-LOCATION:SIFF Cinema Downtown
-X-CALRIPPER-SOURCE:downtown
-CATEGORIES:SIFF Cinema Downtown
-TRANSP:TRANSPARENT
-DURATION:PT2H46M
-END:VEVENT
-BEGIN:VEVENT
-UID:pPlXpVYQ2qpFBZ81o-knN
+UID:lAZGqjaxSeLnhZRYdMmGO
 SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260407T170000Z
 DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
 	Public Library’s collection\, composed of over two million items.\n\nhttps
@@ -183,9 +107,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:qukh0R8tybtEArc6zUYwS
+UID:BEFPulJfr5O8DgekBdCZB
 SUMMARY:Baby Story Time
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260407T193000Z
 DESCRIPTION:At storytime\, kids ages 0-18 months and their families can enj
 	oy stories\, songs\, and fun learning activities.\n\nhttps://www.spl.org/e
@@ -201,9 +125,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:9KTpSiPH0t9IZbrkZAcC2
+UID:xq0mEU3Uom6TGzXH-Y2va
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260407T193000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -217,9 +141,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:VfcLvfHWFvWY8_aTf9rPU
+UID:rlOsW9FxzvQdIOPLQCpR5
 SUMMARY:English Conversation Circle
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260407T200000Z
 DESCRIPTION:Practice your English Conversation skills with other adult lear
 	ners.Practique su inglés.Luyện tập tiếng Anh của quý vị.练习英语。練習英語。英会話の練習をし
@@ -237,9 +161,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:p9BKlLZZqdgl14GNm-qV9
+UID:Pb4VggDLjxsWb48iLXhp9
 SUMMARY:Resume Essentials
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260407T203000Z
 DESCRIPTION:In this session you'll learn how to design a resume that highli
 	ghts your skills\, experience\, and achievements to catch the attention of
@@ -254,9 +178,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:wCF5Uvs_wTnxqnWqz-a6E
+UID:miD_5HuPNsS_XhzRqXsiu
 SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260407T230000Z
 DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
 	om SIFF Cinema Downtown
@@ -268,9 +192,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H46M
 END:VEVENT
 BEGIN:VEVENT
-UID:eyYoFZsUJpQ9cVMwrJCrV
+UID:qOqAULY6kfL899_Dc8AAc
 SUMMARY:Managing Your Money
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T003000Z
 DESCRIPTION:Discover how to budget\, track spending\, and save effectively.
 	\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%
@@ -284,9 +208,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:3sG6pkSiCdA4XUvnRNIVP
+UID:SSWRKJ9JprDrd0r_tabsL
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -317,9 +241,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:aIjokGA0tXMHuZt5MUUrK
+UID:EgzMniZauuvEETxcjKgzj
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -329,9 +253,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:4SAeohFdQn8X7vuqm5GKW
+UID:1aHqRu9QTt03NPpg5rhbf
 SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T024500Z
 DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
 	om SIFF Cinema Downtown
@@ -343,9 +267,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H46M
 END:VEVENT
 BEGIN:VEVENT
-UID:liKKoc5dUgUfjJTUYqxnt
+UID:g3_xcDIR7KygXxGcone3a
 SUMMARY:WSCAI Annual Conference 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T160000Z
 DESCRIPTION:WSCAI Annual Conference 2026 at Seattle Convention Center\n\nht
 	tps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -357,9 +281,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:LrWScBPhgCfz71IS5fIfJ
+UID:YFHj4MusIBEVlQiuiJJmN
 SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T170000Z
 DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
 	Public Library’s collection\, composed of over two million items.\n\nhttps
@@ -374,9 +298,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:nM8gtRhNK8rYq44eNsvRF
+UID:YCjHZp-Vp1kwA6vJp5rtJ
 SUMMARY:Ladies Musical Club Concert
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T190000Z
 DESCRIPTION:Join us for a classical music concert.\n\nhttps://www.spl.org/e
 	vent-calendar?trumbaEmbed=view%3devent%26eventid%3d196632564\n\nFrom SPL -
@@ -390,9 +314,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:Lp8YxBPRLWOAJmMbKdQxs
+UID:4CVA4YlFCpQ8eSK56tALL
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T193000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -406,9 +330,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:wbKBxUW2gFENJ2PDhDDLv
+UID:Oqt8RDcLUyZCttikMWLD0
 SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260408T230000Z
 DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
 	om SIFF Cinema Downtown
@@ -420,9 +344,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H46M
 END:VEVENT
 BEGIN:VEVENT
-UID:S-k5g-kZ9mEsx5G5mnb4Q
+UID:IDfMxkXvn8dSrKZQOTxcw
 SUMMARY:Trivia Night with Head in the Clouds
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T010000Z
 DESCRIPTION:https://reubensbrews.com/event/trivia-night-with-head-in-the-cl
 	ouds-04-08-2026/\n\nFrom Reuben's Brews - Downtown
@@ -435,10 +359,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eNXf2GLLR2EKB3XifnmuQ
+UID:_dq0RPaSqYXHXdTc0Cbiy
 SUMMARY:One Book\, One Coast: Frank Abe on "The Literature of Japanese Amer
 	ican Incarceration"
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T020000Z
 DESCRIPTION:Join us for a discussion of literature written by Japanese Amer
 	icans who were incarcerated during World War II.\n\nhttps://www.spl.org/ev
@@ -453,9 +377,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:4kaj0lCrLki17ooSPIJtt
+UID:87UPj27D-DXHB_iMhFxpQ
 SUMMARY:Club Comedy Seattle — Cheap Laughs Open Mic
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T023000Z
 DESCRIPTION:Recurring Wednesday night open mic for comedians at Club Comedy
 	 Seattle.\n\nhttps://www.clubcomedyseattle.com/\n\nFrom Club Comedy Seattl
@@ -469,9 +393,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:NdXOkL-3DpfRFefEDvcSZ
+UID:iqjIAU98Eu-45CexyuEpt
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -502,9 +426,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ok88Za2-9l75iZlkzsgBB
+UID:oZQ6nj5XMouftXdq1mwmO
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -514,9 +438,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ccmiz3kjtHhrwGs9pbQOR
+UID:Fyt6JmaeFF072FEnbjSxV
 SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T024500Z
 DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
 	om SIFF Cinema Downtown
@@ -528,9 +452,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H46M
 END:VEVENT
 BEGIN:VEVENT
-UID:hzsTiX7-hgJbnMNgIttBE
+UID:lCHaUtraPZuN5H0DnZZ1Y
 SUMMARY:Sera Cahoone ~ Special 20th Anniversary Show
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -541,9 +465,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:db06Ts99K1w-Hs7dsgNoc
+UID:AvJwnqoPdz_JFhcU_Cv0k
 SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T170000Z
 DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
 	Public Library’s collection\, composed of over two million items.\n\nhttps
@@ -558,9 +482,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ngr8gnou5eOfLgmyaFPjA
+UID:SGDhVB7UCBLex59fs-kcb
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T193000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -574,9 +498,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:OFBbf_B5iSWrxEdYw94yV
+UID:ASAHz9MBqDMGZoew5WIos
 SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260409T230000Z
 DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
 	om SIFF Cinema Downtown
@@ -588,9 +512,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H46M
 END:VEVENT
 BEGIN:VEVENT
-UID:p20CJrhBtk1HuORqfx0uf
+UID:9BL50RBmqap5mwice_vXG
 SUMMARY:Administrando tu Dinero
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260410T003000Z
 DESCRIPTION:Descubra cómo crear un presupuesto\, monitorear sus gastos y ah
 	orrar de manera efectiva.Evento en Español.\n\nhttps://www.spl.org/event-c
@@ -605,9 +529,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:8XLCzST6IdRnTJQCjs3iC
+UID:XLu_su4O4pCRaJzDvvgrH
 SUMMARY:Rachmaninov Symphonic Dances
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260410T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-obS\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -619,9 +543,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:nJLfjN7ajEBrWQmj48nXT
+UID:CmcTnLv92Sd7mbqRB0HrV
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043740Z
 DTSTART:20260410T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -652,9 +576,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:JjPhEdsNH0eZcOjnZlKNg
+UID:Wc6THMn6pcUFiGN-EAthG
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260410T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -664,9 +588,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:VRfv8MBN5VL1-bkbw8qrg
+UID:UmaMeBhdDkCUWaDaSbCHD
 SUMMARY:[SIFF] Project Hail Mary
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260410T024500Z
 DESCRIPTION:https://www.siff.net/cinema/in-theaters/project-hail-mary\n\nFr
 	om SIFF Cinema Downtown
@@ -678,9 +602,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H46M
 END:VEVENT
 BEGIN:VEVENT
-UID:1BWHvE6FqlkrASBQTibLK
+UID:rAb75RMGWdMvMNWMVNP8Q
 SUMMARY:Extrawilliam / Young-Chhaylee / Liv Victorino
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260410T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -691,9 +615,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:wFN7YTnAmT1v27G0KKKsd
+UID:Qb5ILTwUI9VuPVL6pWjpF
 SUMMARY:AACC 2026 Annual Conference
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260410T160000Z
 DESCRIPTION:AACC 2026 Annual Conference at Seattle Convention Center\n\nhtt
 	ps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -705,9 +629,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:-HTXI7LLZAqb_cem-8x-9
+UID:7A_H12D4MjtPdv8J-vtzT
 SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260410T170000Z
 DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
 	Public Library’s collection\, composed of over two million items.\n\nhttps
@@ -722,9 +646,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:cGR0_Y3zgT0xcHcWNl-D3
+UID:HoCb_0RIP8Hb-YsWWUlxc
 SUMMARY:Disability Empowerment Center Outreach
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260410T200000Z
 DESCRIPTION:Disability Empowerment Center (DEC) will provide information fo
 	r disabled patrons needing services.\n\nhttps://www.spl.org/event-calendar
@@ -739,9 +663,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:ElqEdS_KFDNEetqhlie1K
+UID:532j7bRMH2NxvTUeruXAH
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260411T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -772,9 +696,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UWyi7g-WbHSysq5b6o4XA
+UID:P9dP9Gtr73UlJTe9IByMe
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260411T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -784,9 +708,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:kshCwgRDucmlU2s3SKMyt
+UID:cn3QkwIiruGKVO0mmxLBi
 SUMMARY:Collection Spotlight Exhibit
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260411T170000Z
 DESCRIPTION:This exhibit highlights the diversity and depth of The Seattle 
 	Public Library’s collection\, composed of over two million items.\n\nhttps
@@ -801,9 +725,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:KIX1eE-EQuBK0wB3zWyaG
+UID:DIy8dGnn1zoJIVfGEum-s
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260411T180000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -817,9 +741,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:mJw_D553Yevj2P2XaZa5y
+UID:nlm2XZY75q4a8S4ldPZtp
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260411T210000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -850,21 +774,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:zz1l6_TmA9kr_EmPNV0Qa
-SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
-DTSTART:20260411T210000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:NbvhUt_hF8SxCW7yUwkoS
+UID:GQ63YSRhV2dhUbTQoWjKv
 SUMMARY:Crikey Month | Limited Edition Crikey IPA Tapping 🍻
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T010000Z
 DESCRIPTION:https://reubensbrews.com/event/crikey-month-limited-edition-cri
 	key-ipa-tapping-%f0%9f%8d%bb-04-11-2026/\n\nFrom Reuben's Brews - Downtown
@@ -877,9 +789,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:0296g00b5-_w8tQl2HXBK
+UID:5eEOkCRO7oaHxQP3lDHX-
 SUMMARY:2026 Latino Chamber Awards / Premios de la Cámara Latina
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T023000Z
 DESCRIPTION:Join business leaders\, entrepreneurs\, allies\, and changemake
 	rs from across Washington to celebrate the strength and spirit of the Lati
@@ -898,9 +810,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:0HdlFN0Wd5wpYwp8nUlHm
+UID:4F6rlwzW34LRSWIMs6un7
 SUMMARY:Seattle Symphony: Rachmaninov Symphonic Dances
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-obV\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -912,9 +824,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gTcPdFKvmEGqfQa6VDNxy
+UID:lXcQ9QgF42XOeoM6wuSYd
 SUMMARY:The Set Up ~ Comedy
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -925,9 +837,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:jHFlbcYhAXLScZV_wOQQn
+UID:xMWp3aB7mxdJ4-v_9M5Mz
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -958,9 +870,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:fXJ6THriM7T479JyF27W0
+UID:KGyJuXnVIBkQ85p4nmEEq
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -970,9 +882,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:xrSIQIBVK3Qps6RVe_WeG
+UID:QSSuBiSco0ZW8NUx9kWpW
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T180000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -986,9 +898,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:pDRhZjrMq6I_r2XiMiXsO
+UID:4pLtl329lZeV27MOFbJlM
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T200000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1019,9 +931,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gXVsGhKIdr9x0XxskmigD
+UID:4XWjcosOuOQ1sZmRiaf8c
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260412T200000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1031,9 +943,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:swI_41t5vhoTPKr4DN6xl
+UID:c-Ki1jwFnjVmlVeHtP_Oy
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T013000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1064,9 +976,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZXH7YL40yvt__LAYBjhQh
+UID:gL_gVlv1Rs9yVfr0hq6BN
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T013000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1076,10 +988,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:u08d-ilbqosldyY4dKxQI
+UID:lIA61MdZyTKE0WVmvqANX
 SUMMARY:Kathy Moore\, Patrick Porter & Sheryl Wiser - “Hope Is The Thing Wi
 	th Feathers”
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1090,9 +1002,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:EvfmjLw3_NFzVxUFZ9lht
+UID:M2VIVcst9a9JH_MBhCdVR
 SUMMARY:The Astro Salon presents ARIES
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1103,9 +1015,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:AT1loaovHjOATWlpXEO8U
+UID:9aVrIiBD_RqZ9BGeR6fu-
 SUMMARY:AACSB International Conference & Annual Meeting (ICAM) 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T160000Z
 DESCRIPTION:AACSB International Conference & Annual Meeting (ICAM) 2026 at 
 	Seattle Convention Center\n\nhttps://seattlecc.com/upcoming-events/\n\nFro
@@ -1118,9 +1030,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:Xih4VlrGtKdm9Hzm8cLXy
+UID:1WjT6bQIGnUIkBDDCPgOt
 SUMMARY:La Hora de Cuentos en la Biblioteca Central
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T173000Z
 DESCRIPTION:Durante la hora de cuentos\, los niños de 0 a 5 años y sus fami
 	lias pueden disfrutar de historias\, canciones y divertidas actividades de
@@ -1135,9 +1047,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:D8pL8bBo-QlHBy2mZrcJC
+UID:DpVVM3-aGicWYTL1BOI54
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T180000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -1151,9 +1063,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:ups_Evj7DreHJviXiTTYK
+UID:1qKlnB1GSdxY875mUl3kN
 SUMMARY:AI Practitioner Part 1:  Introduction to Artificial Intelligence
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T200000Z
 DESCRIPTION:In this AI foundational 6-part series\, you will learn fundamen
 	tal concepts and terminology related to artificial intelligence\, machine 
@@ -1169,9 +1081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:HrR7rnTxod5-O_W8napcH
+UID:numpKaMjrP3UOdkRbUpWp
 SUMMARY:Virtual & In-Person Citizenship Class - English
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260413T210000Z
 DESCRIPTION:This class is designed for individuals that need assistance in 
 	preparing for their citizenship exam.\n\nhttps://www.spl.org/event-calenda
@@ -1186,9 +1098,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:aEB-rcEm3-qiJH9HGbUeN
+UID:asncewojFA1uAEw-f4YHL
 SUMMARY:Downtown Seattle Community Council
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260414T013000Z
 DESCRIPTION:Monthly meeting of the Downtown Seattle Community Council\n\nht
 	tps://www.seattledcc.org/\n\nFrom Downtown Seattle Community Council
@@ -1201,9 +1113,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2MO
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:jOz5LLa6aAf1xsnjI2tAV
+UID:xNhSCRX7npNXCI34kruCy
 SUMMARY:Low Vision Book Group: "West with Giraffes"
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260414T183000Z
 DESCRIPTION:Join our Low Vision Book Club for a discussion of "West with Gi
 	raffes" by Lynda Rutledge.\n\nhttps://www.spl.org/event-calendar?trumbaEmb
@@ -1217,9 +1129,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:Byi_QV3YKciBHtjTjYCzl
+UID:FP7kJLoGVMs3LkWERDrKY
 SUMMARY:Baby Story Time
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260414T193000Z
 DESCRIPTION:At storytime\, kids ages 0-18 months and their families can enj
 	oy stories\, songs\, and fun learning activities.\n\nhttps://www.spl.org/e
@@ -1235,9 +1147,9 @@ TRANSP:TRANSPARENT
 DURATION:PT30M
 END:VEVENT
 BEGIN:VEVENT
-UID:KnqOC3mA6k1N-iAhQAQ_O
+UID:SfmNGX1vQxqYEeWbEoaDT
 SUMMARY:Free Tax Help
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260414T193000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -1251,9 +1163,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:nEd6BVNufN_bU0PIHNBEz
+UID:FnT7sQylC-vO44uItrUfj
 SUMMARY:English Conversation Circle
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260414T200000Z
 DESCRIPTION:Practice your English Conversation skills with other adult lear
 	ners.Practique su inglés.Luyện tập tiếng Anh của quý vị.练习英语。練習英語。英会話の練習をし
@@ -1271,9 +1183,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:te3hQpjid-8QvA372HdKp
+UID:QzU0F0JMCYqZzhvUW_UI-
 SUMMARY:Job Interview Essentials
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260414T203000Z
 DESCRIPTION:This interactive presentation covers essential techniques to he
 	lp you make a positive and lasting impression at your next job interview.\
@@ -1288,9 +1200,25 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:NFd_V10b0jxoA0vD1K09E
+UID:cKVSOFwABf1A6SFVA9ULn
+SUMMARY:Understanding Credit
+DTSTAMP:20260407T043741Z
+DTSTART:20260415T003000Z
+DESCRIPTION:Learn what credit is\, how it works\, and why it matters.\n\nht
+	tps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3d1978
+	57382\n\nFrom SPL - Central Library
+URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
+	d197857382
+LOCATION:Central Library\, Level 4 - Room 2
+X-CALRIPPER-SOURCE:central-library
+CATEGORIES:SPL - Central Library
+TRANSP:TRANSPARENT
+DURATION:PT2H15M
+END:VEVENT
+BEGIN:VEVENT
+UID:1VaJw89WCSPgHis6gYgTA
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260415T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1321,9 +1249,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ldu7vsnv0hsPARi5LxY2m
+UID:eqbwYmFQgs8qWoUrS35PX
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260415T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1333,9 +1261,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:MduG6SopC08sfR03zs3YL
+UID:vWU11nw1KqtBbS8gUstDu
 SUMMARY:SBI Breast Imaging Symposium
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260415T160000Z
 DESCRIPTION:SBI Breast Imaging Symposium at Seattle Convention Center\n\nht
 	tps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -1347,9 +1275,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:ec-fAR3N0a_NGpK1MmfRe
+UID:02lJoYKvNqzI5Udvzbsdx
 SUMMARY:Trivia Night with Head in the Clouds
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260416T010000Z
 DESCRIPTION:https://reubensbrews.com/event/trivia-night-with-head-in-the-cl
 	ouds-04-15-2026/\n\nFrom Reuben's Brews - Downtown
@@ -1362,9 +1290,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WtenH5RJ3FfC_ixQrsllr
+UID:D9xyIHlYRGM6_cMKbYQFf
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260416T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1395,9 +1323,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ert-AjkBlpThdiIjMui-u
+UID:PrO9ti6657SHQiXhPbTyX
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260416T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1407,9 +1335,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Vij5GRl7vw7Au_51Q52dd
+UID:mawTRQl-67K4SWe93jkV9
 SUMMARY:2026 Financial Planning Assn Symposium
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260416T160000Z
 DESCRIPTION:2026 Financial Planning Assn Symposium at Seattle Convention Ce
 	nter\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention 
@@ -1422,9 +1350,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:nDuRGNMKFcdx1lL1Ka1Sk
+UID:YXG_6eL07OwplhfHRaDeb
 SUMMARY:Seattle Symphony Presents Mendelssohn A Midsummer Night's Dream
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260417T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-obg\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -1436,9 +1364,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZVCnTrufbdpPxNTeFEMxN
+UID:D-vLMFSgZti3aBGS7EO4e
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260417T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1469,9 +1397,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:yhggvYxW1ASXTbGuM_jFL
+UID:EHSAnyEfMSNUKmX3sxied
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260417T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1481,9 +1409,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_Edea15uIP9HRpXWhUWWp
+UID:WCquoG6FujiLGHBoZ-JSr
 SUMMARY:The Star Family Singers with Special Guests
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260417T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1494,9 +1422,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XgWIGZi1E1jKJlPC8xAbe
+UID:Z-kQWBll7y2LiVYV4_8cb
 SUMMARY:[SIFF] Ani-Marathon: Millennium Actress
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260417T230000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/millenniu
 	m-actress\n\nFrom SIFF Cinema Downtown
@@ -1509,9 +1437,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H27M
 END:VEVENT
 BEGIN:VEVENT
-UID:4whbt1Hw3Qmb_LmFIVjgu
+UID:YL9pQtylHezJOuOuCOsrq
 SUMMARY:[SIFF] Ani-Marathon: Paprika
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T013000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/paprika\n
 	\nFrom SIFF Cinema Downtown
@@ -1523,9 +1451,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:4z9GVHkjyvuJM-xw0OLh3
+UID:Ydm9mQ8RrjGGX0916ryWT
 SUMMARY:Abbey Blackwell / Keeley Boyle / Don Piano
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1536,9 +1464,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Lji1gu3T4Yc3tZB-gg2EK
+UID:6U7T_-R_uzfBQ3WfHklCE
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1569,9 +1497,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:nrJNOCoyMiWzzeVtLoKhp
+UID:09XG1DVGxqtppmO-JcmDY
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1581,9 +1509,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5g6Lrw_68uhoKEmecbhLa
+UID:It2vsqYhviNK1WgUf8MOU
 SUMMARY:[SIFF] Ani-Marathon: Perfect Blue
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T041500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/perfect-b
 	lue\n\nFrom SIFF Cinema Downtown
@@ -1595,9 +1523,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H22M
 END:VEVENT
 BEGIN:VEVENT
-UID:Pk3gsniiFi5kSErbBIyPb
+UID:anVglSL9d-D3jKdtqHWCc
 SUMMARY:Academic Internal Medicine Week 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T160000Z
 DESCRIPTION:Academic Internal Medicine Week 2026 at Seattle Convention Cent
 	er\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Ce
@@ -1610,9 +1538,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:RoVsS9AmLKi0j-yORkQsF
+UID:XzWiNfT5WifnHtc8EWC94
 SUMMARY:[SIFF] Ani-Marathon: Osamu Tezuka’s Metropolis
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T193000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/osamu-tez
 	ukas-metropolis\n\nFrom SIFF Cinema Downtown
@@ -1625,9 +1553,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H53M
 END:VEVENT
 BEGIN:VEVENT
-UID:uFK-S3oBmZFc_U31xSZBE
+UID:BhpV6S9hbvvjEcw30fnxc
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T210000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1658,9 +1586,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:RCSzr9fdLhGaLMyGBPY-b
+UID:24mDW6IKGD4GC1i9h3Q3W
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T210000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1670,9 +1598,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:tjy-6-vRv-r8Ha1x_SOo1
+UID:gvdtlIMq-r8Pqoh6SQ9aP
 SUMMARY:[SIFF] Ani-Marathon: Summer Wars
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260418T223000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/summer-wa
 	rs\n\nFrom SIFF Cinema Downtown
@@ -1684,9 +1612,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H4M
 END:VEVENT
 BEGIN:VEVENT
-UID:LtKl8C9W6DAJAp4Kpi-0Z
+UID:7fzXM6m0YhiX07UbTGpIf
 SUMMARY:Crikey Month | Limited Edition Crikey IPA Tapping 🍻
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T010000Z
 DESCRIPTION:https://reubensbrews.com/event/crikey-month-limited-edition-cri
 	key-ipa-tapping-%f0%9f%8d%bb-04-18-2026/\n\nFrom Reuben's Brews - Downtown
@@ -1699,9 +1627,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gNdkJnBsPtXO40oJRwwBm
+UID:aD_3Z9IF7XrTtSLBGs3pb
 SUMMARY:[SIFF] Ani-Marathon: The End of Evangelion
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T013000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/end-of-ev
 	angelion\n\nFrom SIFF Cinema Downtown
@@ -1713,9 +1641,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H51M
 END:VEVENT
 BEGIN:VEVENT
-UID:i4I-8Q7vgszYDRuKWJDDV
+UID:B7AqPBjUYGF2pvPf65aDW
 SUMMARY:Seattle Symphony Presents Mendelssohn A Midsummer Night's Dream
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-obU\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -1727,9 +1655,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:7b-DbLVUMf6YOv9U0eUaO
+UID:cL7ddKWugIMI1WcI7lqKz
 SUMMARY:CANCELLED ///WRONG! A DARK COMEDY GAME SHOW
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1740,9 +1668,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:SjYnB3xKFJt_WIzDWW6on
+UID:rndIGzth61R_GYF11bfjU
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1773,9 +1701,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Pe5_DNLOwMEiSptZeO9yQ
+UID:dd7h6m9X2dyf30M9MEoku
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1785,9 +1713,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:2rSf7LXOUH8TEH6KShx5g
+UID:zZbJXArrm2dyWiQXQ_DHw
 SUMMARY:[SIFF] Ani-Marathon: Angel’s Egg (4K Restoration)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T041500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/angels-eg
 	g\n\nFrom SIFF Cinema Downtown
@@ -1799,9 +1727,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H13M
 END:VEVENT
 BEGIN:VEVENT
-UID:dEf_I3flQJdBR7MVk6VsT
+UID:LorgbM9qZ5KYszbnOy836
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T200000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1832,21 +1760,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:C55p0tu-_K5RKfFDIkWt7
-SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
-DTSTART:20260419T200000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:JudDXVQgk9rYnrl7WT7Kn
+UID:L3zEcUtap2N52Lbg9zgRg
 SUMMARY:[SIFF] Ani-Marathon: A Silent Voice
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T203000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/a-silent-
 	voice\n\nFrom SIFF Cinema Downtown
@@ -1858,9 +1774,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H20M
 END:VEVENT
 BEGIN:VEVENT
-UID:g9syyidX03PQr4vorhoUQ
+UID:O2RjZLAdOjRY24bqH9WO_
 SUMMARY:Seattle Symphony Presents Mendelssohn A Midsummer Night's Dream
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T210000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-oby\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -1872,9 +1788,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:bT9In3hF_1cVOgzgJ-mOj
+UID:vn1VsDsrgVQyeX69m_EFP
 SUMMARY:[SIFF] Ani-Marathon: Wolf Children
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260419T234500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/wolf-chil
 	dren\n\nFrom SIFF Cinema Downtown
@@ -1886,9 +1802,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H7M
 END:VEVENT
 BEGIN:VEVENT
-UID:Inn6csK2u3jUUVnXfpmYp
+UID:BpTIgRp2AfWzV2xbGB9v7
 SUMMARY:Les Miserables (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260420T013000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -1919,9 +1835,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:m_5TyTdF-7nVKGAisa_nC
+UID:pnmdnXWiuAqbrTAX6EnNQ
 SUMMARY:PC Les Miserables
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260420T013000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -1931,9 +1847,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:XIHoyblxbg64_xadLc2y2
+UID:5cHhAI6uwQYML4EuiB10C
 SUMMARY:Jacob Rountree & the Somethings with Dead Alder and Amy Hall
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260420T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1944,9 +1860,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gtRt0vpEcU1aEj5aybqBf
+UID:jj_Wxm8mqStv5Bgk7X0cg
 SUMMARY:[SIFF] Ani-Marathon: Mind Game
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260420T030000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/mind-game
 	\n\nFrom SIFF Cinema Downtown
@@ -1958,9 +1874,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H53M
 END:VEVENT
 BEGIN:VEVENT
-UID:wcyaBFELvp6n9UGgYS3mL
+UID:HqJNRu6UNO1K14gbddIEY
 SUMMARY:[SIFF] Ani-Marathon: Wolf Children
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260420T231500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/wolf-chil
 	dren\n\nFrom SIFF Cinema Downtown
@@ -1972,9 +1888,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H7M
 END:VEVENT
 BEGIN:VEVENT
-UID:Pou0dxoDILkePoGTEwMtL
+UID:zc-OK2z4GNz0uky4j16j7
 SUMMARY:[SIFF] Ani-Marathon: A Silent Voice
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260421T023000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/a-silent-
 	voice\n\nFrom SIFF Cinema Downtown
@@ -1986,9 +1902,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H20M
 END:VEVENT
 BEGIN:VEVENT
-UID:BMorjhJoXTBXYaN-oZLSV
+UID:xh368cn0gcrJrQSPrjZvm
 SUMMARY:420 Funnies
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260421T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -1999,9 +1915,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:cRAWDkybRp5PZJlD1Pdi1
+UID:Bvlk1oD12BMvX7NGDTjLt
 SUMMARY:Life Science Innovation Northwest 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260421T160000Z
 DESCRIPTION:Life Science Innovation Northwest 2026 at Seattle Convention Ce
 	nter\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention 
@@ -2014,9 +1930,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:EVzPpPPziDAus0eUR0XPu
+UID:oAxdZ9jXkdl2xykOtETsb
 SUMMARY:[SIFF] Ani-Marathon: Angel’s Egg (4K Restoration)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260422T000000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/angels-eg
 	g\n\nFrom SIFF Cinema Downtown
@@ -2028,9 +1944,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H13M
 END:VEVENT
 BEGIN:VEVENT
-UID:zVDnt15bPL8q6e08o7LNQ
+UID:ApeI4_jaD5czjrmM36zI6
 SUMMARY:[SIFF] Ani-Marathon: Ghost in the Shell 
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260422T023000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/ghost-in-
 	the-shell\n\nFrom SIFF Cinema Downtown
@@ -2043,9 +1959,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H33M
 END:VEVENT
 BEGIN:VEVENT
-UID:Jt-9JZhxtX0wgk1dwEZAo
+UID:uj3Zcznylh1ZfAjY5iAcY
 SUMMARY:Cory Wong featuring Devon Gilfillian and Antwaun Stanley
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260422T033000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101. There is an overall 6 ticket limit per patr
@@ -2074,21 +1990,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:2KsMV_unKiKRRgiFqtkIo
-SUMMARY:PC Cory Wong
-DTSTAMP:20260406T030445Z
-DTSTART:20260422T033000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:IL1Q_vkEKxxZk5NqQBCWp
+UID:h6kdMp96oB2-wR1ZnoC_1
 SUMMARY:[SIFF] Ani-Marathon: Redline
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260422T234500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/redline\n
 	\nFrom SIFF Cinema Downtown
@@ -2100,9 +2004,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H50M
 END:VEVENT
 BEGIN:VEVENT
-UID:EoM6OJgwFfWOcQEH1CC5_
+UID:s-UlSrctuXel2FuTb6CvU
 SUMMARY:Trivia Night with Head in the Clouds
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260423T010000Z
 DESCRIPTION:https://reubensbrews.com/event/trivia-night-with-head-in-the-cl
 	ouds-04-22-2026/\n\nFrom Reuben's Brews - Downtown
@@ -2115,9 +2019,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:XhHIS8t4z_WEt9zFqHR84
+UID:XsJs8bpt5abKcpL9bicM5
 SUMMARY:[SIFF] Ani-Marathon: Cowboy Bebop: The Movie
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260423T023000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/cowboy-be
 	bop-the-movie\n\nFrom SIFF Cinema Downtown
@@ -2130,9 +2034,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H5M
 END:VEVENT
 BEGIN:VEVENT
-UID:yykj1JgBagzy_2MHjfvMv
+UID:QkakdoBuKMDMqvhRWc8-4
 SUMMARY:[SIFF] Ani-Marathon: Paprika
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260424T000000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/paprika\n
 	\nFrom SIFF Cinema Downtown
@@ -2144,10 +2048,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:Z3W2yGk_7ICuQll-mJi07
+UID:CZZsXsMdTX8zmWpQn60VZ
 SUMMARY:Seattle Symphony: Xian Conducts Saint-Saens Featuring Daniil Trifon
 	ov
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260424T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-VGZ\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -2159,9 +2063,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:83UU6VQHYg4kbCxYlPP2u
+UID:s0T1JkPW83HPWTjBeIRYl
 SUMMARY:[SIFF] Ani-Marathon: Promare
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260424T023000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/promare\n
 	\nFrom SIFF Cinema Downtown
@@ -2173,9 +2077,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H1M
 END:VEVENT
 BEGIN:VEVENT
-UID:3F9amHOymyqVuNHQRGLB3
+UID:rUdMjz4nXt8-jqBcBVpyj
 SUMMARY:AMSSM Annual Conference
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260424T160000Z
 DESCRIPTION:AMSSM Annual Conference at Seattle Convention Center\n\nhttps:/
 	/seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -2187,9 +2091,9 @@ TRANSP:TRANSPARENT
 DURATION:PT128H
 END:VEVENT
 BEGIN:VEVENT
-UID:WeLMS2e3bIITFWJO2Px3V
+UID:HPqEgxhHalW5bCDFINrBY
 SUMMARY:[SIFF] Ani-Marathon: Ghost in the Shell 
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260424T223000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/ghost-in-
 	the-shell\n\nFrom SIFF Cinema Downtown
@@ -2202,9 +2106,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H33M
 END:VEVENT
 BEGIN:VEVENT
-UID:yzCPKLUCC9WDiFVcZ9_Nl
+UID:5DFqLrnP8yiW6RcXBxEwz
 SUMMARY:Downtown Seattle Art Walk
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T010000Z
 DESCRIPTION:Monthly art walk in Downtown Seattle\n\nhttps://www.seattle.gov
 	/arts/experience/art-walks\n\nFrom Downtown Seattle Art Walk
@@ -2217,9 +2121,9 @@ RRULE:FREQ=MONTHLY;BYDAY=4FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:NXOPTMkxfwUjg8sNSr3JB
+UID:izAmVoDyEk5koXdolS-lN
 SUMMARY:[SIFF] Ani-Marathon: Summer Wars
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T010000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/summer-wa
 	rs\n\nFrom SIFF Cinema Downtown
@@ -2231,9 +2135,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H4M
 END:VEVENT
 BEGIN:VEVENT
-UID:DsuhrQIhX69X58IAcAFP3
+UID:e3z2CHNtk5iDOtGmlx_1E
 SUMMARY:Seattle Critical Mass
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T013000Z
 DESCRIPTION:Monthly group bike ride through Seattle. Meet at 6:30 PM\, ride
 	 starts at 7:00 PM.\n\nhttps://www.instagram.com/critical_mass_seattle/\n\
@@ -2247,9 +2151,9 @@ RRULE:FREQ=MONTHLY;BYDAY=-1FR
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:yWaG09yvVd0dkfTqo0US4
+UID:ygrl0Jio0QQDPShdWgfal
 SUMMARY:ELECTRIC CALLBOY: TANZNEID WORLD TOUR
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T020000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is a 8 ticket limit per patron for thi
@@ -2280,9 +2184,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:yp44j1GK2mFOQLNOEHk7G
+UID:SkDhUvhbwZkZryL_Q7Or0
 SUMMARY:PC Electric Callboy
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T020000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -2292,9 +2196,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:XYs9Dw_NM_ATNb4gLePcj
+UID:shSh9dl0llLDhyM-xv_BK
 SUMMARY:BIG TIME MACA & AARON MONTE: Comedy Rap and Stand-Up Spectacular
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -2305,9 +2209,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:yImamAnz9cjqZX6MGSTsI
+UID:RsCfC5On72W0NSd9-gdoc
 SUMMARY:[SIFF] Ani-Marathon: Mind Game
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T040000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/mind-game
 	\n\nFrom SIFF Cinema Downtown
@@ -2319,9 +2223,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H53M
 END:VEVENT
 BEGIN:VEVENT
-UID:PA4dyoh-H_YLkFhljZrC_
+UID:aKpGG6G9CuTrKM3JU7gWB
 SUMMARY:Totally Rad Vintage Fest
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T160000Z
 DESCRIPTION:Totally Rad Vintage Fest at Seattle Convention Center\n\nhttps:
 	//seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -2333,9 +2237,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:RcoQK3FdoJq9lIShwdpFn
+UID:O59aCHuyiPNwvGtWP3HfD
 SUMMARY:[SIFF] Ani-Marathon: Summer Wars
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T193000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/summer-wa
 	rs\n\nFrom SIFF Cinema Downtown
@@ -2347,9 +2251,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H4M
 END:VEVENT
 BEGIN:VEVENT
-UID:U5mHj_frkDjrwTQenKo5c
+UID:ksFI7ODeM_EFL9ZN7W8Xn
 SUMMARY:[SIFF] Ani-Marathon: ChaO
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260425T223000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/chao\n\nF
 	rom SIFF Cinema Downtown
@@ -2361,9 +2265,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H40M
 END:VEVENT
 BEGIN:VEVENT
-UID:T7H9IUDvDbB28GDihhi4i
+UID:wDBOG5tYNW55pafuMGaaM
 SUMMARY:Crikey Month | Limited Edition Crikey IPA Tapping 🍻
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T010000Z
 DESCRIPTION:https://reubensbrews.com/event/crikey-month-limited-edition-cri
 	key-ipa-tapping-%f0%9f%8d%bb-04-25-2026/\n\nFrom Reuben's Brews - Downtown
@@ -2376,9 +2280,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:n1SMviKfc1CizBOJndKpp
+UID:5OURv6-N0EgU-jnLDo4xC
 SUMMARY:[SIFF] Ani-Marathon: Weathering With You
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T010000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/weatherin
 	g-with-you\n\nFrom SIFF Cinema Downtown
@@ -2391,10 +2295,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H1M
 END:VEVENT
 BEGIN:VEVENT
-UID:5mTAHBtuwcJARBVNFNJM-
+UID:ZUv-2hjdIK7i-YGGIr22g
 SUMMARY:Seattle Symphony: Xian Conducts Saint-Saens Featuring Daniil Trifon
 	ov
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-Vut\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -2406,9 +2310,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:cGMgJ6UCWHir0w315PU4f
+UID:LbbLfRAlSoOF1FSucvKCZ
 SUMMARY:Macey Isaacs with Sam Skolnik and Faith Ladzinski
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -2419,9 +2323,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VnSiXSdz54CcgIF5tL2Nb
+UID:FWOGBjXDSWdm5f6K2Cpv1
 SUMMARY:Ben Schwartz & Friends
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is a strict 8 ticket limit per patron 
@@ -2450,9 +2354,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3zC446kyFEmqrOydlgtyi
+UID:gRxE5JhMk8GsyA_KGqJic
 SUMMARY:PC Ben Schwartz & Friends
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -2462,9 +2366,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:jgS5Zw9DV0PZdujUScRTw
+UID:SvNilP07FsCNwEKn0xKum
 SUMMARY:[SIFF] Ani-Marathon: Millennium Actress
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T040000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/millenniu
 	m-actress\n\nFrom SIFF Cinema Downtown
@@ -2477,9 +2381,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H27M
 END:VEVENT
 BEGIN:VEVENT
-UID:28Jnc0X2QAH-_2b6Gw7rU
+UID:M_1G9nNjr6v31OkFnf3-7
 SUMMARY:[SIFF] Community Screening: Meet Me in St. Louis
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T180000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/community-screenings/m
 	eet-me-in-st-louis\n\nFrom SIFF Cinema Downtown
@@ -2492,9 +2396,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H3M
 END:VEVENT
 BEGIN:VEVENT
-UID:Xf5D9m_z82uoxriYe3I4T
+UID:FM75vGkUkoDk8h41TDbJJ
 SUMMARY:National Geographic Live!
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T210000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-gff\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -2506,9 +2410,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ciPmFNnbq2vY3wBNEcUyt
+UID:0xM4fDOtQbbM5o7lwKQMh
 SUMMARY:[SIFF] Ani-Marathon: The End of Evangelion
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T210000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/end-of-ev
 	angelion\n\nFrom SIFF Cinema Downtown
@@ -2520,9 +2424,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H51M
 END:VEVENT
 BEGIN:VEVENT
-UID:XgZTRhYAcJHy3Ptq6wUj1
+UID:PbBvQwZcCZiTymRhnkEus
 SUMMARY:[SIFF] Ani-Marathon: Promare
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260426T234500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/promare\n
 	\nFrom SIFF Cinema Downtown
@@ -2534,9 +2438,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H1M
 END:VEVENT
 BEGIN:VEVENT
-UID:XyYCd0pyBrdcDiFBH85tq
+UID:iSIzYRr6lafJO1ALdaMqT
 SUMMARY:The Sleeping Beauty by International Ballet Stars
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T020000Z
 DESCRIPTION:The Paramount Theatre is located at 911 Pine Street in Downtown
 	 Seattle. There is a ticket limit of 10 tickets per person and per credit 
@@ -2564,9 +2468,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:KVvwYJO0gGf3aQMABe87m
+UID:I2mGx9jbCmFwNbPEUByKe
 SUMMARY:PC The Sleeping Beauty
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T020000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -2576,9 +2480,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:14y7-_1pR3Lp2arS0vopT
+UID:Zp3o4wTx9PcydlzBwuA1v
 SUMMARY:[SIFF] Ani-Marathon: Osamu Tezuka’s Metropolis
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T024500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/osamu-tez
 	ukas-metropolis\n\nFrom SIFF Cinema Downtown
@@ -2591,10 +2495,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H53M
 END:VEVENT
 BEGIN:VEVENT
-UID:TpNYEs-L3oPnNkZaWwT8h
+UID:KpD01gsJRpnTUdUBhyav6
 SUMMARY:Band of Certainty ~ A Celebration of their newest release\, "5 Thin
 	gs 6 Songs"
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -2605,9 +2509,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZKnRjQjpRxnkX4YLL452w
+UID:UcoXln8kycDL4CKNq6Wt7
 SUMMARY:Henry’s Student Showcase
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -2618,9 +2522,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:bfTzawvCyZeMVhWWvdt27
+UID:bpHhYswBJxw_W5DKmxdbx
 SUMMARY:SAMPE 2026 Conference and Exhibition
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T160000Z
 DESCRIPTION:SAMPE 2026 Conference and Exhibition at Seattle Convention Cent
 	er\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Ce
@@ -2633,9 +2537,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:HM432SJub31XyFGzQEUNS
+UID:_c-qqQxI_fnyvwdqY--3-
 SUMMARY:[SIFF] Ani-Marathon: Weathering With You
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260427T234500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/weatherin
 	g-with-you\n\nFrom SIFF Cinema Downtown
@@ -2648,9 +2552,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H1M
 END:VEVENT
 BEGIN:VEVENT
-UID:SxcrRd2UQfwoAaN1D3yyS
+UID:iiV9SAA-3UnNsk92z1Jcp
 SUMMARY:Seattle Thaw: Manic Mondays!
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260428T010000Z
 DESCRIPTION:https://reubensbrews.com/event/seattle-thaw-manic-mondays/\n\nF
 	rom Reuben's Brews - Downtown
@@ -2662,9 +2566,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:y9gsmy3D3eKglf-8w0iu6
+UID:RQClNt8bVbrUfpFr-zBIq
 SUMMARY:Silent Movie Mondays - Faust (1926)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260428T020000Z
 DESCRIPTION:Music by Christian Elliott on the Mighty Wurlitzer. Total runni
 	ng time: 106 min. Print source: Kino Lorber. Format: DCP. ASL Interpretati
@@ -2691,9 +2595,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ctYmeSsYc7VaPdvXdmO95
+UID:y2M_h96tlp1_IHqF3eyWG
 SUMMARY:National Geographic Live!
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260428T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-gf4\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -2705,9 +2609,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:gCMEp8MLCAKPwMYNloHdv
+UID:ijOPH9atwi97xnQuBrTCa
 SUMMARY:[SIFF] Ani-Marathon: Millennium Actress
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260428T024500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/millenniu
 	m-actress\n\nFrom SIFF Cinema Downtown
@@ -2720,9 +2624,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H27M
 END:VEVENT
 BEGIN:VEVENT
-UID:jsZQvdO2LdNe83tCe6xGO
+UID:_YJEd_bgxy-14-Ne1UXTi
 SUMMARY:Northwest Event Show 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260428T160000Z
 DESCRIPTION:Northwest Event Show 2026 at Seattle Convention Center\n\nhttps
 	://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -2734,9 +2638,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:AqgZCtUDDzDl9U0WybeRT
+UID:sh5pEJsMc80TYWALmhUNk
 SUMMARY:[SIFF] Ani-Marathon: Perfect Blue
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260429T001500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/perfect-b
 	lue\n\nFrom SIFF Cinema Downtown
@@ -2748,9 +2652,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H22M
 END:VEVENT
 BEGIN:VEVENT
-UID:QNRwNscNPTFpcx8ult9Pc
+UID:mnPWQKLFlEawsflh7JBK4
 SUMMARY:National Geographic Live!
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260429T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-gfp\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -2762,9 +2666,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:TbjVHKfcrtxYnVYqoH-fB
+UID:KCIHa5_SyeiSKmgKLL3BQ
 SUMMARY:Helloween: 40th Anniversary North American Tour 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260429T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101. There is an overall 8 ticket limit per patr
@@ -2793,21 +2697,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3cpQIQsDI07V8IYnKs5O1
-SUMMARY:PC Helloween
-DTSTAMP:20260406T030445Z
-DTSTART:20260429T023000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:MROlxsh3Hz8ke0n1tD41D
+UID:gD7mcQXuDd2463iBruFna
 SUMMARY:[SIFF] Ani-Marathon: Redline
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260429T024500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/redline\n
 	\nFrom SIFF Cinema Downtown
@@ -2819,9 +2711,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H50M
 END:VEVENT
 BEGIN:VEVENT
-UID:GJZhNsmvkAldsUYm6Y1f3
+UID:7603CiG-7us3_6b6hi11h
 SUMMARY:ASBrS 2026 Annual Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260429T160000Z
 DESCRIPTION:ASBrS 2026 Annual Meeting at Seattle Convention Center\n\nhttps
 	://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -2833,9 +2725,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:YmCp7yLfnkUpOxw0tOnKU
+UID:sKcLaqev6Yh_q0bwO_Siq
 SUMMARY:[SIFF] Ani-Marathon: Cowboy Bebop: The Movie
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260429T234500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/cowboy-be
 	bop-the-movie\n\nFrom SIFF Cinema Downtown
@@ -2848,9 +2740,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H5M
 END:VEVENT
 BEGIN:VEVENT
-UID:BXjtyI2B_YWUffZAZz6Ez
+UID:aB39zU7RA33db9a0vMbQ_
 SUMMARY:Trivia Night with Head in the Clouds
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260430T010000Z
 DESCRIPTION:https://reubensbrews.com/event/trivia-night-with-head-in-the-cl
 	ouds-04-29-2026/\n\nFrom Reuben's Brews - Downtown
@@ -2863,9 +2755,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CTcK_8Z0vlhMKVVJvENKs
+UID:Fx6oWmM6biJVgw6Y7P4j_
 SUMMARY:Queens Of The Stone Age: The Catacombs Tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260430T023000Z
 DESCRIPTION:The Paramount Theatre is located at 911 Pine Street in Downtown
 	 Seattle. There is a ticket limit of 4 tickets per person and per credit c
@@ -2893,9 +2785,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:PcqhsmT1ZtriAb3xrkXq8
+UID:WX7IYflBwWe7JF2LfyWnV
 SUMMARY:PC Queens of the Stone Age
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260430T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -2905,9 +2797,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CZaJAh2UbzE5yIps6G3_E
+UID:xQ_ZtGmhmsFTJDDJXwvPH
 SUMMARY:[SIFF] Ani-Marathon: The Night Is Short\, Walk on Girl
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260430T024500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/night-is-
 	short-walk-on-girl\n\nFrom SIFF Cinema Downtown
@@ -2920,9 +2812,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H41M
 END:VEVENT
 BEGIN:VEVENT
-UID:Qm66ibbVTzQwCSDgx6ySf
+UID:s1btgd-lvY4WTMbfuq7Ys
 SUMMARY:The Low Lonesome Sound with Mountain Holler and Robert Leslie
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260430T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -2933,9 +2825,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:8tw-DvQUS6X7jj4Xuuc5b
+UID:1wCOtSvlWzo8AUXUydDey
 SUMMARY:[SIFF] Ani-Marathon: The Night Is Short\, Walk on Girl
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260501T000000Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/night-is-
 	short-walk-on-girl\n\nFrom SIFF Cinema Downtown
@@ -2948,9 +2840,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H41M
 END:VEVENT
 BEGIN:VEVENT
-UID:99oSUuE_bFF3wiR4WDeWZ
+UID:ts4qFBZhjIiqgQyNarzlV
 SUMMARY:Seattle Symphony: Xian Conducts Mozart
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260501T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-gfb\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -2962,9 +2854,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:suFWO786vMWQ4sfD8wIoP
+UID:Qmc76IgrVgvAnxIYgkmMV
 SUMMARY:[SIFF] Ani-Marathon: ChaO
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260501T024500Z
 DESCRIPTION:https://www.siff.net/programs-and-events/ani-marathon/chao\n\nF
 	rom SIFF Cinema Downtown
@@ -2976,9 +2868,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H40M
 END:VEVENT
 BEGIN:VEVENT
-UID:iOz6afPf5K-d1R7eND7pE
+UID:d3RbJFk74oZ_9tEMt1HWg
 SUMMARY:Shelby Natasha\, rosedust\, and Kenshi Killzzz
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260501T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -2989,9 +2881,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:RdoiuiWCZqP2vOdguyUoe
+UID:4tFMUVj_hhNWpr8M30UGn
 SUMMARY:LeAnn Rimes
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260502T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-g4p\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -3003,9 +2895,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eHRisn0oeIyS7UD4xr311
+UID:T-d_wLnQQlgwZDf1YbB-5
 SUMMARY:Mo Troper\, Elizabeth and The Catapult & Jon Patrick Titterington
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260502T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3016,9 +2908,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:75LYBshs1UXuqBjZgk6D6
+UID:fOmnL3XdcC7q3YNDz5Rz3
 SUMMARY:DOORS 2025
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260503T010000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3028,9 +2920,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:av8tZ3uSQmFezq5NKojuF
+UID:lDCCAGtjEby8_Dlo1Yyst
 SUMMARY:Seattle Symphony: Xian Conducts Mozart
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260503T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-g43\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -3042,9 +2934,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:D15nBm50sZG6wUZy9BmhD
+UID:W9NHJTsrsSbHdYMn91cN-
 SUMMARY:Lady A - The Real Lady A
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260503T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3055,9 +2947,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gAv1hWmAdP9tlRDbkSzNw
+UID:4M1n-99XR3pQJewnTr25z
 SUMMARY:Seattle Symphony: Xian Conducts Mozart
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260503T210000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7-g44\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -3069,9 +2961,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:9paZzs4hm3BLBSd7Dhm_N
+UID:WPmJ-2Jtwt63LybdQ-3JB
 SUMMARY:Waxahatchee & MJ Lenderman with special guest Brennan Wedl
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260504T023000Z
 DESCRIPTION:Waxahatchee & MJ Lenderman have partnered with PLUS1 so that $1
 	 per ticket goes to supporting community-driven nonprofits working to incr
@@ -3107,9 +2999,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:WyKceVFMIsxFI73TGccy5
+UID:wVrF0S0jjCs3G_kgUDoZx
 SUMMARY:PC Waxahatchee / MJ Lenderman
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260504T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3119,9 +3011,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ktLWNDfvVZ3yyezpKVDti
+UID:Chrt4UfjFLNaucV2LLeC8
 SUMMARY:Matt Fogelson
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260504T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3132,9 +3024,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aVfwvFGkCscm3aqFHKN3S
+UID:Zpl0uGrOsI8fEp4bl5SoQ
 SUMMARY:Neil deGrasse Tyson
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260506T023000Z
 DESCRIPTION:"This Just In: Latest Discoveries in the Universe" - The title 
 	says it all. Drawn from within the previous two or three years of cosmic d
@@ -3165,9 +3057,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qmb9h2U6ol3OJjDEXLgUG
+UID:KCsnCCLAAYzt8OvAn6puD
 SUMMARY:PC Neil deGrasse Tyson
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260506T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3177,9 +3069,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:98oMIRcPNWbCUU-TGTsoB
+UID:kqq16HTNC7wDxM3xSFDP6
 SUMMARY:Rick Ross w/ Seattle Symphony
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260507T023000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7OV0M\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -3191,9 +3083,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UFmqHD-gfooLOyqzXQ9_U
+UID:TvZgOEQ8zWRDLTjM1o5l-
 SUMMARY:Neil deGrasse Tyson
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260507T023000Z
 DESCRIPTION:"Science as a Way of Knowing" - The anatomy of science: What it
 	 is. How it works. Why it works. And why it's the most successful means of
@@ -3225,9 +3117,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:OUg647r7zE4kvNuv85LN3
+UID:leY1Esv9CbOhQHbEREWkd
 SUMMARY:Neil deGrasse Tyson 2-Day Pass
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260507T023000Z
 DESCRIPTION:New lecture titles never before presented in Seattle: May 5th -
 	 "This Just In: Latest Discoveries in the Universe" - The title says it al
@@ -3263,9 +3155,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:hbCQwWZdGkwRt9RCFiie0
+UID:Ui2W1HUTUcw7bNOPBFCNq
 SUMMARY:PC Neil deGrasse Tyson
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260507T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3275,9 +3167,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:xRFXmWvWhC0dlxVQYt6lF
+UID:OohRR1PUuuFSOqSSeC33a
 SUMMARY:Laughocaine with Bert Walpack
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260508T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3288,9 +3180,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aHVBXmRJg7fQJna22mipM
+UID:4ZmHnFtfpGND0E20KrB0P
 SUMMARY:Where's Beth ~ Claire Tucker (trio) ~ C. Martí
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260509T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3301,9 +3193,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:YWXb9W0uByCVQdxbAgcXu
+UID:an2GYr_y5vQus6DKW1Oq-
 SUMMARY:Philharmonia Fantastique w/ Seattle Symphony
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260509T180000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7qo40\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -3315,9 +3207,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:FW8-zpCdt6Qpy4xT5Xnmt
+UID:6k0IqO0OqKhrst-LDYS9p
 SUMMARY:The Midnight: Time Machines
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260510T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101. There is an overall 4 ticket limit per patr
@@ -3347,21 +3239,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:cHtlsGEemQKCBg22ORI_B
-SUMMARY:PC The Midnight
-DTSTAMP:20260406T030445Z
-DTSTART:20260510T030000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:a-G75m65t-8XJNWEyl5N8
+UID:3LWkhtVjRakflOVhEN_va
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260514T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3392,9 +3272,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:cFKbwKfISGkJ8AfUS5fP1
+UID:TEpqUU7Ijp-7BG2drLCMu
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260514T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3404,9 +3284,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:KQbKtfcZuAOt7BJlBCgTg
+UID:TN3KijB0G9fW8XE9baVz_
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260514T200000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3437,9 +3317,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:tQBqCExtKFKGWsB2B8ugq
+UID:vauztFDstR9xevDxdsJnK
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260514T200000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3449,9 +3329,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Q-TMfl6LaHWzmyJyyVxLf
+UID:F2_9ux0JKOp5C6q9i2SDo
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260515T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3482,9 +3362,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:wk8ziKRrbPFsJkCFi9m7j
+UID:yCvmg-NcCfRbhpgLSHm_A
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260515T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3494,9 +3374,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:-6VVJj6Z_UuXLwP6Sd_0B
+UID:gwmC7KqO8ASOeV-WsGZbK
 SUMMARY:Eli Moore (LAKE)\, Swirlhood\, Nathaniel Talbot
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260515T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3507,9 +3387,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xYiJ8ooKe5LXe6o--LLiT
+UID:AOIIQdcrywawWgDMJqpcn
 SUMMARY:The Music of Jane Austen with the Seattle Symphony
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260516T030000Z
 DESCRIPTION:https://www.ticketmaster.com/event/Z7r9jZ1A7qop9\n\nFrom Benaro
 	ya Hall - S. Mark Taper Auditorium
@@ -3521,9 +3401,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:xCbiXl5Z6C7Xbrugp6rPd
+UID:8acI1dDMk2Oz2Qk8Vr1Ej
 SUMMARY:Susie Philipsen ~ Sunday Kissing Club Vinyl Release
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260516T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3534,9 +3414,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:dynWPfTfZAJWf6_DAcbVA
+UID:xbkHYW3OLvoLX5jgpVc72
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260516T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3567,9 +3447,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:c1vE7fIG0EacEAvqzNDlW
+UID:QgFunVcZkiczfkvNv5Kwy
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260516T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3579,9 +3459,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ECUbMH0zsunnDvLFjDn80
+UID:kQGFzU4cSY85lioLHCM-i
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260516T210000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3612,9 +3492,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_OEt0SXNcVvG9CfatmHGn
+UID:DhIC-r9maSdGo-FvoIHs7
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260516T210000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3624,9 +3504,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:x7S8eRonToP626Ad3v_r1
+UID:Or3a-bZJ4oy3jkKJ2mX2z
 SUMMARY:The Set Up ~ Comedy
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260517T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3637,9 +3517,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ttfVh16T6U4BG36PkLmdT
+UID:YkI3qEQjuCiEqEpvKg2Lj
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260517T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3670,21 +3550,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:zSi2uCLMI2fWbywPo50Xd
-SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
-DTSTART:20260517T030000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:u0Jesi17Rd2Aq-NnlobjA
+UID:Xcbu3V3FSaXf16opmaBFj
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260517T200000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3715,9 +3583,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:GyZ-5EuNtthz0SasLdOWt
+UID:JbnH6ePJh01n5NgTnHzIy
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260517T200000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3727,9 +3595,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:NYrxHbZ1oipPl4Famm1E0
+UID:V0VGf4kya90epHKEc-5i0
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260518T013000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3760,9 +3628,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:aUbfEtEw51PHt2Jgbwuhi
+UID:PNaCLSf_04ugWsSjpjozR
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260518T013000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3772,9 +3640,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:vLzbBnmC2KGUH41-6bmqA
+UID:e5PHO_GpsRmPf6wdYA-xY
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260520T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3805,9 +3673,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:oNXR93yL7RU4kjZCWFEZj
+UID:2F1kbqF6Qv2efqHs81ciV
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260520T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3817,9 +3685,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:NamsOJoCcG-YZ78jxJFSR
+UID:tK7sfroLb44QHuqyhvZnJ
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260521T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3850,9 +3718,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:-L5_al_MHaj7zC4HTT2sf
+UID:x8r0IcSAdd8p5dzWwFqGD
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260521T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3862,9 +3730,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ixAtfAlEo9lLj2Y9OaPf8
+UID:XbTgd-Iqeofi7LeLexYDV
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260522T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3895,21 +3763,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:GklI60wrRqxRly9fJoX5V
-SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
-DTSTART:20260522T023000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:sE735jW7kNIp_YTn51qLE
+UID:fo1tEX7BIn8zPfo4fZZK6
 SUMMARY:Marisa Anderson presented by The Triple Door at The Rabbit Box
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260523T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -3920,9 +3776,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:g51UlWhFcJS360XOl-3EN
+UID:dK2__4Yg8zEwOYg_FKyJu
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260523T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3953,9 +3809,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:n887q4BZgmbWA99tt4ZRo
+UID:W2xr3eOaOpUkJKwFyQa-K
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260523T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -3965,9 +3821,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8kh5vVBX_5F0n8R4KKtFB
+UID:Mxuzrp4cBQg-P67To0t_r
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260523T210000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -3998,9 +3854,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qOKKOy_U_IHwEYdvbX_rH
+UID:qwfo8IRkFinBHs3OSn60t
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260523T210000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4010,9 +3866,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CZxpf7iMHqloJiF7NPdQM
+UID:Kt1lz7ynpwm2IP56VUCe4
 SUMMARY:Generifus / St. Yuma / Where's Beth
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260524T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -4023,9 +3879,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:isMufYLQnWmqo6wB6clyB
+UID:SJGu1AuRORqlctyrhlG05
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260524T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4056,9 +3912,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:GQGYsUEtq0Upyw4ubCKm6
+UID:hammmWp_2mMJ5G44eiysh
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260524T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4068,9 +3924,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ii5h1HcY7qZDfpE2S6k4r
+UID:QXL8zFOTl4CDTGLiUNwaV
 SUMMARY:249th ECS Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260524T160000Z
 DESCRIPTION:249th ECS Meeting at Seattle Convention Center\n\nhttps://seatt
 	lecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4082,9 +3938,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:rJQ_8zbID_ZcKxvyaRzHm
+UID:PdlyB0C6NfRFp8l-BSPbV
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260524T200000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4115,21 +3971,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:nbGWN5Yml8J2ZaYBcRIs1
-SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
-DTSTART:20260524T200000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:M5MHHcThxiZIK7Wc7FeK7
+UID:V6_n0V7bqh7j1PwUOczqi
 SUMMARY:The Phantom of the Opera (Touring)
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260525T013000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4160,9 +4004,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:JOfm7yAKFzhY7piYXFTxQ
+UID:YdSybc0YrQ7jHOWCBQqJo
 SUMMARY:PC Phantom of the Opera
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260525T013000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4172,10 +4016,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:j5eZF8MLf2L7yjwNo7the
+UID:04KhdoUVwo7WzE4oay_vx
 SUMMARY:Willy Porter with Special Guest Jeremy Dion presented by The Triple
 	 Door
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260527T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -4186,9 +4030,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:PHw2Afu9Y0oaSb-RfBjp-
+UID:YG7N7LRECze7pB3HYxZ-H
 SUMMARY:An Acoustic Evening with Trey Anastasio
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260528T023000Z
 DESCRIPTION:The Paramount Theatre is located at 911 Pine Street in Downtown
 	 Seattle. There is a ticket limit of 4 tickets per person and per credit c
@@ -4218,21 +4062,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:HKvCasXvySwqIPI5XN-Nb
-SUMMARY:PC Trey Anastasio
-DTSTAMP:20260406T030445Z
-DTSTART:20260528T023000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:xFgePgYJ3ee6ziFDsNSxQ
+UID:jL3g1u7CVeD0YhGW2mHwa
 SUMMARY:WSDA 2026 Pacific Northwest Dental Conference
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260528T160000Z
 DESCRIPTION:WSDA 2026 Pacific Northwest Dental Conference at Seattle Conven
 	tion Center\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Conv
@@ -4245,9 +4077,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:mXITCIUaOn42WCfWsldr3
+UID:Dokm_OedGn4Ao3tENjHUu
 SUMMARY:AcademyHealth 2026 Annual Research Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260529T160000Z
 DESCRIPTION:AcademyHealth 2026 Annual Research Meeting at Seattle Conventio
 	n Center\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convent
@@ -4260,9 +4092,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ci2p6CqFZk3S8NK7xxkSo
+UID:9t1H7RbcgV9q3JPXyrK9I
 SUMMARY:Blue Man Group: North American Tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260530T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4293,9 +4125,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ak0Tb8rxMGX_SfauvJkxc
+UID:DIuARF6WdC9Au8fyZdHNt
 SUMMARY:PC Blue Man Group
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260530T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4305,9 +4137,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:YcnBJ98pqhLVAaM-0HPdn
+UID:q-BIP7QmIG8k8bDvjq5Gi
 SUMMARY:Blue Man Group: North American Tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260530T210000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4338,21 +4170,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:VO_z21F_j1xd-Nbd2OfB9
-SUMMARY:PC Blue Man Group
-DTSTAMP:20260406T030445Z
-DTSTART:20260530T210000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:bN9Gwitc9fw49k1OQlRUg
+UID:4hnZsv6wTZpyeuW9zjIIH
 SUMMARY:Blue Man Group: North American Tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260531T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4383,9 +4203,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UO2GrNoBWj2QGLbHAq2VY
+UID:icMzHSfzX_zh90lKVZfcS
 SUMMARY:PC Blue Man Group
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260531T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4395,9 +4215,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Nr8guCjERutiNdslfQhBy
+UID:6Suq1jHUZEoEY63HE1Ofn
 SUMMARY:Surgical Technology Conference
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260531T160000Z
 DESCRIPTION:Surgical Technology Conference at Seattle Convention Center\n\n
 	https://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4409,9 +4229,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:yLKrDEDTbjamz7SuuXg2t
+UID:27PoUum0uiWWpi_K8QnMO
 SUMMARY:Blue Man Group: North American Tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260531T200000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101 There is no elevator. Stairs only to the bal
@@ -4442,21 +4262,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:svFWgpppGue7JWLeQ6FBl
-SUMMARY:PC Blue Man Group
-DTSTAMP:20260406T030445Z
-DTSTART:20260531T200000Z
-DESCRIPTION:From STG - Paramount Theatre
-LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
-X-CALRIPPER-SOURCE:stg-paramount
-CATEGORIES:STG - Paramount Theatre
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:_jbQBko2Eem6AIJ0jBdvf
+UID:O71J815fNH3jR_negmDim
 SUMMARY:Seals and Real
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260604T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -4467,9 +4275,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:tRKPVJMe1mskIT9t8ZYFB
+UID:VYgkfoiI-NmRpitjv_xVZ
 SUMMARY:Jonny G with special guests\, Evelyn Frances & Exact Same Speed
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260610T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -4480,9 +4288,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3oD80Emcc7SuRRxI9P24M
+UID:vz-5o4vuBTX8F6m9sPFMM
 SUMMARY:ACVIM 2026 Forum
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260610T160000Z
 DESCRIPTION:ACVIM 2026 Forum at Seattle Convention Center\n\nhttps://seattl
 	ecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4494,9 +4302,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:m19zUjhKfWginx0TE6_oh
+UID:wu4M0AQ0i2FMQYW6Yg1lv
 SUMMARY:America: The Happy Trails Tour 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260612T020000Z
 DESCRIPTION:The Paramount Theatre is located at 911 Pine Street in Downtown
 	 Seattle. There is a ticket limit of 8 tickets per person and per credit c
@@ -4524,9 +4332,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:RSL0E6x5IY-oTZS7YKtMM
+UID:NeZRaVsZZIHMsKeb7VKMV
 SUMMARY:PC America
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260612T020000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4536,10 +4344,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qrB22Z_DXaS6FujUHOnsB
+UID:L0T8pCeS8AJM3uKdR46ck
 SUMMARY:Intimate evening with BYLAND (Alie) with support from ZANDER\, acco
 	mpanied by Abby Gundersen
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260612T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -4550,9 +4358,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:kB_BWCgomgHq1ZM5kAEZN
+UID:V6_B4Ql0CiYRLmDdHVYzn
 SUMMARY:The Set Up ~ Comedy
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260614T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom The Rabbit Box
 URL:https://seattle.showlists.net/
@@ -4563,9 +4371,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:QRdtCJ280CMof48BvbctX
+UID:7glRIooN4xXwK5yHrgwH6
 SUMMARY:CHELSEA HANDLER: THE HIGH AND MIGHTY TOUR
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260614T030000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101. There is an overall 6 ticket limit per patr
@@ -4593,9 +4401,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:SSE46-is7k1szA8CB8oj9
+UID:L_jtyRLxSqcQ6IHDXHITZ
 SUMMARY:PC Chelsea Handler
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260614T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4605,9 +4413,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Yklq9-0X9TAVSdEMxxDWj
+UID:qzTKrmv9awPbtp2QSUPI6
 SUMMARY:Madison Beer: the locket tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260617T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101. There is an overall 6 ticket limit per patr
@@ -4635,9 +4443,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:3BBAbdAetkm60L69K0D10
+UID:5dF5QxiUzU8wpiI2sgkOv
 SUMMARY:PC Madison Beer
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260617T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4647,9 +4455,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:I-UnkSViUwiuqZUG7KM53
+UID:98Jqjjxsf17F7L15hmi-r
 SUMMARY:Natalia Lafourcade - The Cancionera Tour
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260618T030000Z
 DESCRIPTION:Originally scheduled for 24-SEP-25/8:00PM. Previously purchased
 	 tickets will be honored for the new date. The Paramount Theatre is locate
@@ -4681,9 +4489,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Gr5H2ud3c5f-dM1IdVJ3Z
+UID:SDxt0Yewhzu53f80KVxLU
 SUMMARY:PC Natalia Lafourcade
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260618T030000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4693,9 +4501,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:sSfHzTLBAszvEo9c_ilMU
+UID:eioF6JnfQ5dTHyWpQjdZ6
 SUMMARY:MrBallen: Lights out Live
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260620T023000Z
 DESCRIPTION:The Paramount Theatre is located at 911 Pine Street in Downtown
 	 Seattle. There is a ticket limit of 8 tickets per person and per credit c
@@ -4724,9 +4532,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZpCVwNDhG-iusStoNXK_L
+UID:PT4ZMfKYfmZtG4vFLPFm2
 SUMMARY:PC Mr Ballen
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260620T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4736,9 +4544,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:vXqMWiqGcLam2FfxaNKCw
+UID:kfb8czIQPPGV8FPbDOsaW
 SUMMARY:The Bald and the Beautiful LIVE: Very Bald\, Very Beautiful
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260621T023000Z
 DESCRIPTION:The Paramount Theatre is located in downtown Seattle at 911 Pin
 	e Street\, Seattle\, WA 98101. There is an overall 8 ticket limit per patr
@@ -4765,9 +4573,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:L_tzUtr6zynZJ2E3JqeJ-
+UID:5RdzSHL9GzkYESuey92f2
 SUMMARY:PC Bald & The Beautiful
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260621T023000Z
 DESCRIPTION:From STG - Paramount Theatre
 LOCATION:Paramount Theatre    Loge\, 911 Pine St\, Seattle\, WA
@@ -4777,9 +4585,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:nsgGk9OYoI-JIFtvThDvB
+UID:u2XMbiRy8ZQHhq3Aekldc
 SUMMARY:AOSSM 2026 Annual Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260708T160000Z
 DESCRIPTION:AOSSM 2026 Annual Meeting at Seattle Convention Center\n\nhttps
 	://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4791,9 +4599,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:rwWEPAqu6g2xhDfvZmwJY
+UID:eFGu4bu4RFa-nl4SimPn4
 SUMMARY:SNIS 2026 Annual Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260719T160000Z
 DESCRIPTION:SNIS 2026 Annual Meeting at Seattle Convention Center\n\nhttps:
 	//seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4805,9 +4613,9 @@ TRANSP:TRANSPARENT
 DURATION:PT128H
 END:VEVENT
 BEGIN:VEVENT
-UID:2fAsnx_JulFMu4O-cIiZC
+UID:AHeAPAlFiK6cROLf_lDBh
 SUMMARY:Wekfest Seattle 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260726T160000Z
 DESCRIPTION:Wekfest Seattle 2026 at Seattle Convention Center\n\nhttps://se
 	attlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4819,9 +4627,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:yI-PIrzhOz6e48VYeltcj
+UID:PxUsLYN_bIv5gO3OUVn46
 SUMMARY:Omega Delta Phi National Conference 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260730T160000Z
 DESCRIPTION:Omega Delta Phi National Conference 2026 at Seattle Convention 
 	Center\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Conventio
@@ -4834,9 +4642,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:TkskNh4Z0mKx9D4YhnV0a
+UID:l7FLHAfa-7LxoMXvhULqC
 SUMMARY:Flock Fiber Festival 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260801T160000Z
 DESCRIPTION:Flock Fiber Festival 2026 at Seattle Convention Center\n\nhttps
 	://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4848,9 +4656,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:YEvU3lbgmMVPvI4rDMy5h
+UID:tBE2ai06pRZ4mj6YldRwk
 SUMMARY:BMM Convention 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260806T160000Z
 DESCRIPTION:BMM Convention 2026 at Seattle Convention Center\n\nhttps://sea
 	ttlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4862,9 +4670,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:eg8LRRbpxWy0lFMbL8Qqg
+UID:GG2bteKheJZ9aIr0UW0S9
 SUMMARY:PAX West 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260904T160000Z
 DESCRIPTION:PAX West 2026 at Seattle Convention Center\n\nhttps://seattlecc
 	.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4876,9 +4684,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:KzWdq6MVxPmiV0PQb9sFk
+UID:80Au3ePEWuFceNbIQ0rsU
 SUMMARY:ThriftCon 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260912T160000Z
 DESCRIPTION:ThriftCon 2026 at Seattle Convention Center\n\nhttps://seattlec
 	c.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4890,9 +4698,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:VDgZyYsl-rrEIfWLmUs-k
+UID:NM233_SIxGO1gMgyLPSwg
 SUMMARY:Forth Roadmap Conference 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260913T160000Z
 DESCRIPTION:Forth Roadmap Conference 2026 at Seattle Convention Center\n\nh
 	ttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4904,9 +4712,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:8BFrLM-P5_UzOV9MTbt2e
+UID:cleZ5FFSUwdRaUSctykTd
 SUMMARY:AOFAS Annual Meeting 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260915T160000Z
 DESCRIPTION:AOFAS Annual Meeting 2026 at Seattle Convention Center\n\nhttps
 	://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4918,9 +4726,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:b9pBYyTacg_oTydhJKzbm
+UID:hEVQ30-Won8d176adWWBJ
 SUMMARY:AAOMS 2026 Annual Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20260930T160000Z
 DESCRIPTION:AAOMS 2026 Annual Meeting at Seattle Convention Center\n\nhttps
 	://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4932,9 +4740,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:C0m4D4A-LAeJPMVt6FmpB
+UID:xRsdBWwEk3xviZTDI1oOO
 SUMMARY:SASE 2026 National Convention
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261001T160000Z
 DESCRIPTION:SASE 2026 National Convention at Seattle Convention Center\n\nh
 	ttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4946,9 +4754,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:YY9ScKVufWp_jJlgvtEsl
+UID:HpKIShCiAYv6rBeFcAWM4
 SUMMARY:IAPP Privacy. Security. Risk. 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261007T160000Z
 DESCRIPTION:IAPP Privacy. Security. Risk. 2026 at Seattle Convention Center
 	\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Cent
@@ -4961,9 +4769,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:Zv6AjdLdWoCIEi1fSpbrz
+UID:EnqXyUp2zAQdQ9s59FY1v
 SUMMARY:2026 Seattle National College Fair
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261016T160000Z
 DESCRIPTION:2026 Seattle National College Fair at Seattle Convention Center
 	\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Cent
@@ -4976,9 +4784,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:1-12jcZXGDVZOdx6TpVkI
+UID:5K6UYCM8RbfnI3PoPab_T
 SUMMARY:WSCAI 2026 CA Day
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261017T160000Z
 DESCRIPTION:WSCAI 2026 CA Day at Seattle Convention Center\n\nhttps://seatt
 	lecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -4990,9 +4798,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:YTFenX-csThCs4d9E_to-
+UID:USrhZLx-btUY8-7E_C1yA
 SUMMARY:NCS 2026 Annual Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261020T160000Z
 DESCRIPTION:NCS 2026 Annual Meeting at Seattle Convention Center\n\nhttps:/
 	/seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5004,9 +4812,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:gEYMx6N-i_LlK-1UaL8mC
+UID:qKk-432TibOhAB6AGmhT-
 SUMMARY:The Oddities & Curiosities Expo 2026 Seattle
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261024T160000Z
 DESCRIPTION:The Oddities & Curiosities Expo 2026 Seattle at Seattle Convent
 	ion Center\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Conve
@@ -5019,9 +4827,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:SLNDqcvfS-rhpwZuZhTLW
+UID:cvFsjycKecAxbFcXJpY2T
 SUMMARY:GeekGirlCon '26
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261024T160000Z
 DESCRIPTION:GeekGirlCon '26 at Seattle Convention Center\n\nhttps://seattle
 	cc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5033,9 +4841,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:alAATOqm606pAIoFcqLYC
+UID:VpODlxY1XrRaE2uHQizxp
 SUMMARY:AAP 2026 Annual Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261029T160000Z
 DESCRIPTION:AAP 2026 Annual Meeting at Seattle Convention Center\n\nhttps:/
 	/seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5047,9 +4855,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:KN9O-ndG7_rJ5SDPEW0l_
+UID:Z_hoRH9gnOB-hDsvA0Ar1
 SUMMARY:Smartsheet ENGAGE 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261103T170000Z
 DESCRIPTION:Smartsheet ENGAGE 2026 at Seattle Convention Center\n\nhttps://
 	seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5061,9 +4869,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:eU4OnPEDMs39cM3ART59J
+UID:yBjZBP6u8askMwpQZPjqJ
 SUMMARY:A4LE LearningSCAPES 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261104T170000Z
 DESCRIPTION:A4LE LearningSCAPES 2026 at Seattle Convention Center\n\nhttps:
 	//seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5075,9 +4883,9 @@ TRANSP:TRANSPARENT
 DURATION:PT80H
 END:VEVENT
 BEGIN:VEVENT
-UID:tyZZn3z_up2wDkBT4UGa2
+UID:tXxydEnsMWJBIimaD2nDz
 SUMMARY:AMP 2026 Annual Meeting & Expo
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261110T170000Z
 DESCRIPTION:AMP 2026 Annual Meeting & Expo at Seattle Convention Center\n\n
 	https://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5089,9 +4897,9 @@ TRANSP:TRANSPARENT
 DURATION:PT128H
 END:VEVENT
 BEGIN:VEVENT
-UID:eh6X9G8J63gDOLs9BydYm
+UID:b99joYMAg6EdttM1TUdR2
 SUMMARY:2026 ABRCMS
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261118T170000Z
 DESCRIPTION:2026 ABRCMS at Seattle Convention Center\n\nhttps://seattlecc.c
 	om/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5103,9 +4911,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:397DIOREiyx-uslXZNRTP
+UID:Ihbkl5URSMbJhjt13mmjM
 SUMMARY:Pacific Marine Expo 2026
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20261119T170000Z
 DESCRIPTION:Pacific Marine Expo 2026 at Seattle Convention Center\n\nhttps:
 	//seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5117,9 +4925,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:oJ2xo6sv6oZNSIxhJK2wO
+UID:EcKAlt8BYP8CMJ2FJyT8R
 SUMMARY:NW Flower & Garden Festival 2027
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20270217T170000Z
 DESCRIPTION:NW Flower & Garden Festival 2027 at Seattle Convention Center\n
 	\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5131,9 +4939,9 @@ TRANSP:TRANSPARENT
 DURATION:PT104H
 END:VEVENT
 BEGIN:VEVENT
-UID:8TFokkWYjnlC5kc20IZmD
+UID:qHc3Qr0_WaF3w9HxJSyXi
 SUMMARY:Travel & Adventure Show
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20270320T160000Z
 DESCRIPTION:Travel & Adventure Show at Seattle Convention Center\n\nhttps:/
 	/seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5145,9 +4953,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:vDSOf54K1HvXkojtXzBFp
+UID:s6ZhuL3Xpxhfhc3wbsls3
 SUMMARY:LMA 2027 Annual Conference
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20270322T160000Z
 DESCRIPTION:LMA 2027 Annual Conference at Seattle Convention Center\n\nhttp
 	s://seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5159,9 +4967,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:s5Jq-JyiRiyhukbhX-Lrn
+UID:QGZyp74gxNx-Z6ia6WSP7
 SUMMARY:Sakura-Con'27
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20270326T160000Z
 DESCRIPTION:Sakura-Con'27 at Seattle Convention Center\n\nhttps://seattlecc
 	.com/upcoming-events/\n\nFrom Seattle Convention Center
@@ -5173,9 +4981,9 @@ TRANSP:TRANSPARENT
 DURATION:PT56H
 END:VEVENT
 BEGIN:VEVENT
-UID:FfLui1_nvZQq2JNhLPn5p
+UID:5u1ocVe8KcP0khsBiZP_X
 SUMMARY:WSDA 2027 Pacific Northwest Dental Conference
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20270401T160000Z
 DESCRIPTION:WSDA 2027 Pacific Northwest Dental Conference at Seattle Conven
 	tion Center\n\nhttps://seattlecc.com/upcoming-events/\n\nFrom Seattle Conv
@@ -5188,9 +4996,9 @@ TRANSP:TRANSPARENT
 DURATION:PT32H
 END:VEVENT
 BEGIN:VEVENT
-UID:TCoYdrI8p68capw3bbX5f
+UID:MpO9fbrPAQxfJqV8yqGha
 SUMMARY:MRS 2027 Spring Meeting
-DTSTAMP:20260406T030445Z
+DTSTAMP:20260407T043741Z
 DTSTART:20270405T160000Z
 DESCRIPTION:MRS 2027 Spring Meeting at Seattle Convention Center\n\nhttps:/
 	/seattlecc.com/upcoming-events/\n\nFrom Seattle Convention Center

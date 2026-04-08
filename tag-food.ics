@@ -6,24 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Food Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:XYtH7lCqyyeKa_SItFsdN
-SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+UID:D1nb3uXkamgjtDkG2X3OU
+SUMMARY:Food Trucks @ McGraw Square
+DTSTAMP:20260408T030253Z
 DTSTART;TZID=America/Los_Angeles:20260411T110000
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
-	rom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/starbucks-center
-LOCATION:2401 Utah Ave S\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:yebj8nFKDmbNDM2FnwuN-
-SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
 URL:https://www.seattlefoodtruck.com/schedule/mcgraw-square
@@ -34,152 +20,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9-mQr6bvWPzVVoAGj66HL
+UID:kCNDRb7QzaHDIZeuOv04P
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
-	om Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/westlake-center
-LOCATION:400 Pine St\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:ucCd6hDRmnMI9rcF7Wx3Z
-SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
-	ate-plaza\n\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northgate-plaz
-	a
-LOCATION:9709 3rd Ave NE\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:anD0svp-F1iJNWXaQqGRg
-SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
-	n\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/expedia-group-campus
-LOCATION:1111 Expedia Group Way W\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:cbQ1k2eVn_yry2w2zR7q2
-SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
-	 Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/1201-eastlake
-LOCATION:1201 Eastlake Avenue East\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:JpO2MiMMlFnIXQKINM47e
-SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
-	 Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/1551-eastlake
-LOCATION:1551 Eastlake Ave E\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:w1duLYY0j476e_srMH9A4
-SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T220000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
-	ompany-woodinville\n\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-company-w
-	oodinville
-LOCATION:15920 Woodinville-Redmond Rd NE\, Woodinville
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT5H
-END:VEVENT
-BEGIN:VEVENT
-UID:waGHlG42u9Xnt6HmmMPD5
-SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T230000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
-	\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/broadview-tap-house
-LOCATION:217 N 125th St\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:Fch7jlu2s7GZ4a6oTuezq
-SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
-DTSTART:20260406T230000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
-	ompany-redmond\n\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-company-r
-	edmond
-LOCATION:14679 NE 95th St\, Redmond
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:0lsa4BTpnMXSDkPXG9tAB
-SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
-DTSTART:20260407T000000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
-	e Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/salehs
-LOCATION:2401 NW 80th St\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:xGsJP7YGcBKVTFRkyOqTg
-SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
-DTSTART:20260407T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
-	 Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/mcgraw-square
-LOCATION:1801 Westlake Ave\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:QzRZ7arz0GXQY_mla9f08
-SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -191,9 +34,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4POhwRTyaknWkB2vIs-I3
+UID:f_d3anArLLUdUwA-eJtUw
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -206,9 +49,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:WLeDCHegsjzz4NtXXlLIZ
+UID:Dx0kAX052KTGe5Va1fd3G
 SUMMARY:Food Trucks @ West Lake Union Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/west-lake-union-cente
 	r\n\nFrom Seattle Food Trucks
@@ -220,9 +63,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:51rCgwkFpDITyWunygaHc
+UID:ZF5ULINM4tLil7gi2avqv
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -234,9 +77,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:5G9b6VBnDazLtMqZ7Htnl
+UID:VhoEF7804LHfarrb1pCl1
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -248,9 +91,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:vN1B7Z-RCk6pRowQm0war
+UID:bUBxNbmWDimFqGKw4wdfy
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -262,9 +105,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:OaX_evFuKwmtqD05JN1pn
+UID:MnH6nkeeoF-8em-sOaiLo
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -276,9 +119,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:93QDionGgLQr_FhRe7nYp
+UID:NeRJ2Xrx2jAYhWkAHrMih
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -290,9 +133,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZVbqCJ4MU821dsW9jUv9p
+UID:5hiH_IGcc6qto5EzaOnn_
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -305,9 +148,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:Aq13HuDTJxOKFcb1cFFQb
+UID:MVKanA5qHneISg5oYN2Sr
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -319,9 +162,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:F9ZI7JGWr1di9SMlvHAsI
+UID:Ic_P2VnM3yAUpwGIXYrTg
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260407T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -334,9 +177,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:oG3J3SLPpfYQy_NhjwVHD
+UID:uoL6W49C8VONq5EZcmITu
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -348,9 +191,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:AY8gGQMWsk9eEniwWY833
+UID:m8JFHRd-mWx_XMib2tnM_
 SUMMARY:Food Trucks @ Statsig
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/3106-160th-ave-se-bel
 	levue\n\nFrom Seattle Food Trucks
@@ -362,9 +205,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Bvb3sF-zIrxBD5VewhxUS
+UID:qXftgo6RimVNrIz5ri3wr
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -376,9 +219,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zaRSkQlA6P16tfA0FFwmi
+UID:r9lVO2vCtnF-tHH8KwgL6
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -390,9 +233,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:U7ukNDTar1-XDQRavw4kc
+UID:GDt7zp3wyRapZIpYqGgbb
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -405,9 +248,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zAMuQd6C-elJJJNASpUEJ
+UID:QRixwCxcNUcSFkWHqiDak
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -419,9 +262,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:CCsE7VLhZFJ9JAMkxM-aK
+UID:mSZXyLZagPWXiOwmuEpRD
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -433,9 +276,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gfXY5LjAZEezsrDXWGVL7
+UID:RrJdQ46Yvq6QmTla80fQg
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -447,9 +290,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:MXy951-na9L57SjTKM9Lb
+UID:LDfPN-cI4txk0raEugkwn
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -461,9 +304,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:6zQ7eo_auUM7KQjiOnM6k
+UID:0Dzew8Ttpauagtnuh3lD2
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -476,9 +319,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:WiQfMC51FE-9wUHArF-u4
+UID:OLJVe4F_TmvOLuoPVGVHq
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -490,9 +333,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:wWLE_ysF6qbtPR4aDnQQX
+UID:cImrPU_4xo3yaiFI7O7sE
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260408T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -505,9 +348,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:5gtThrGhMQ2qk9VSKH0U1
+UID:_3gAmYQoIGwjAI1Xq0WXL
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -519,9 +362,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:UDvBL8bktrwrwWMyQ0q5O
+UID:wq7YIk_dOr8wJXTxDoX8J
 SUMMARY:Dragon Eye Paint and Sip at Jellyfish Brewing
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T003000Z
 DESCRIPTION:Unleash your inner artist with a dragon eye painting while sipp
 	ing brews at Jellyfish Brewing!\n\nhttps://seatoday.6amcity.com/events/#/d
@@ -537,9 +380,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:6OAy-rZ5CZ8CoZM8JFZIJ
+UID:lh5xAyQiaQXoOqOZql5td
 SUMMARY:5-Course Gil Family Estates Winemaker Dinner at 1 Hotel Seattle
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T010000Z
 DESCRIPTION:Join the 1 Hotel Seattle team at La Loba for a special evening 
 	celebrating 110 years of Gil Family Estates with a five-course tasting men
@@ -562,9 +405,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:E7-NJOE8eBzTld4qpJKPe
+UID:IjZ1qsuZ6pIZjwbfCx2H8
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -576,9 +419,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:6_GSVHBgDiVPMr7F9-p5U
+UID:Y1LVElX67ra5fyNdvUoY5
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -590,9 +433,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7_RihqeM1pYh6nBhzqgSw
+UID:ozE9WumYZqQEe81Bc8EBE
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -605,9 +448,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:oECZiowx5hOeMd0ooNfmr
+UID:pyijskWJGk-jU5DEU-l5u
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -619,9 +462,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:SHu3yjTN9EFDpDMA3IS9z
+UID:xh1VL8fYn1p7oU4hAepch
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -633,9 +476,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:hryQ0Q3jMo2x5ZW1gQIAz
+UID:WHka6aB1sopXhXsOXTYhi
 SUMMARY:Food Trucks @ Kaiser Permanente : Northgate Medical Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/kaiser-permanente-nor
 	thgate-medical-center\n\nFrom Seattle Food Trucks
@@ -648,9 +491,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:T-q0QQMWNCxZ5bs9rvbr2
+UID:WfkbtLkpfTC0mavhr4G7L
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -662,9 +505,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:hHJ2yf22Fr7c-MBn7O9E7
+UID:mfEjgAa4w7E5TPRc1GTis
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -676,9 +519,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:LhFD6vByG4IdJHC9LXUQu
+UID:yIXP9yVbHwW1J1rLd5pG3
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -690,9 +533,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:U-lPSbpqyiQ2JETDvvdJF
+UID:I98p0AAGuLRA-nVIrSPP_
 SUMMARY:April Luncheon
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T183000Z
 DESCRIPTION:Description Explore new horizons and connect with fellow profes
 	sionals at the West Seattle Chamber&'s monthly luncheons\, where engaging 
@@ -709,9 +552,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:FQhonzxsZk618VHuDr6nW
+UID:382tfGss1DfSKuE1hF5Nl
 SUMMARY:April Luncheon: King County Updates
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T183000Z
 DESCRIPTION:Description Explore new horizons and connect with fellow profes
 	sionals at the West Seattle Chamber's monthly luncheons\, where engaging d
@@ -729,9 +572,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:Qa2ZWQeQSLsOrnD1pUCH6
+UID:HKffgY5PtF9-bufqptd_r
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -744,9 +587,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:TnkYiHz_yxt_6KBbNbkX7
+UID:C9nE6SVbt3AXAee3-BQUt
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -758,9 +601,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:RfwOsoJXzDqZPuqlZOqUV
+UID:eijFDgVkdKwfZcZtmTg-W
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260409T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -773,9 +616,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:sX85zzXUReN72iUDopU33
+UID:lu0X-kcN1TFqF4vbafXw4
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -787,9 +630,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:UuOQmJlW39p_7IJ3vHcVh
+UID:kfDg81XxapkYqAhTJo8fi
 SUMMARY:In Person Friday Coffee Crop (Craft Workshop)
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T173000Z
 DESCRIPTION:Join our friendly group for time\, space\, and help \\(if neede
 	d\\) to work on traditional and digital photo and craft projects.\n\nhttps
@@ -804,9 +647,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:y9sSlWPVvOQkagnvx2cWe
+UID:b18nEPCDeFNtmvLrJ-Q8i
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -818,9 +661,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:T4nQ5c3TOq-8Wu_yu1hpc
+UID:OSARenaZaN_Ao0q35VMm0
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -832,9 +675,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xJZw3v2mt2vsSiDdche2Q
+UID:BgA8UwmKjWH2u4D_dqoQ8
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -846,9 +689,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:_zB-xK9u9pTh1n_PRgSot
+UID:6HMjEWjrwZFQrK0Ntrbdp
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -861,9 +704,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:t01jNGSEUKaOFh4f-saRW
+UID:f-eIuOMUG80FPd67XFIfv
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -875,9 +718,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:1DBP8aOVez4ZvpY4pBMa0
+UID:EXPT8u1tNMvHskCyp8Ek9
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -889,9 +732,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VDQmT5tJlMzCSAvUdcmJj
+UID:xfBkkz3HoAS_L9pzVImYX
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -903,9 +746,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aJkKw0Wt9NfO48ES3ihe-
+UID:X-ng8MC3wcJpcSWoUEXFi
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -918,9 +761,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:tH-k5NT8wPWYs4mh8_ggR
+UID:ITsraHwbzWOyCFCMQ6__x
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -932,9 +775,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:WXeRWZXcBV-E2K66-7Maw
+UID:QORLHeuJjxqy1nitpsyef
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260410T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -947,9 +790,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:kQFycaGvMkxyEMDaaY6Q6
+UID:2kM7b2g_B-eSkeFaKsREJ
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260411T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -961,9 +804,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:WA__3ggGEK6mpSwjtASx_
+UID:fqdF0AbrGJ6IzDJ870Y0j
 SUMMARY:Food Truck Round-Up
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260411T180000Z
 DESCRIPTION:Monthly food truck gathering at the South Lake Union Saturday M
 	arket. Free and family-friendly.\n\nhttp://slumarket.com/popups\n\nFrom Fo
@@ -977,9 +820,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:StsUvGR3Hw6lg4GkJ1SLz
+UID:qFkzeAE1QEvCrRnk7AQh1
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260411T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -992,9 +835,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:tezzKde6rqmI230d9U2mM
+UID:uXbZs-65FTFjvLpdzFYg2
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260411T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -1007,9 +850,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:uyvFCxuycbkNCrC_LCMiX
+UID:iXQzLkoyxR48jbdGScxcd
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260411T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -1021,9 +864,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:SWFLKvAp_a9f0sVXdd3v2
+UID:e-NEJZFFJEJtnB_q1eqqn
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260412T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -1035,9 +878,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:zhgG6SM37UucVn-0_aB9s
+UID:O0srdbp1DDL3ulZHA7sLL
 SUMMARY:BRUNCH & BRUSH - MIMOSAS & ESPRESSO!
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260412T180000Z
 DESCRIPTION:Canvas and croissants\, mimosas and mochas! Paint alongside art
 	ist Holly Turcotte in this playful\, hands-on brunch experience.\n\nhttps:
@@ -1052,9 +895,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:iwj8C9FgcGe1BRYQcM9UA
+UID:QwQ-zwiKmTgVIaZQixLVV
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260412T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -1067,9 +910,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:uDvlA7hfAe2SOPDyENOOg
+UID:6599glw0zdc4SylKuXZ8e
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260412T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -1082,9 +925,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:IsyRn0fbstXwaNgHDOOHE
+UID:GE5QvgjOm7ZClC15Vdqcc
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260412T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -1096,9 +939,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:npkphuOiYh878MRfi07Ap
+UID:aQpyop4m3zOZ4_D9BLElt
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -1110,9 +953,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:r-Ku3NPgaKDpjh9RBz6xg
+UID:fBKVyikCQUeCD48-G3reY
 SUMMARY:Coworking Open House Week @ The Cloud Room
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T160000Z
 DESCRIPTION:Curious about coworking and looking for the perfect spot to get
 	 work done and reach your goals? Join us for a complimentary day during ou
@@ -1149,9 +992,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:CglkfVc2g0MotD9_UxV-U
+UID:PC3E9PAUY01MQ0nWm_lJk
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -1163,9 +1006,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:DimGMC_j33H4rq477gwbv
+UID:1fK4B9bk64elnX4DlJx7-
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -1177,9 +1020,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xC4yyVLyjs4_9atdwfRIP
+UID:VFssQfRJ5WYnq2J0xHNvv
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -1191,9 +1034,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:MmQJ7c_k5EmGUl_4Xde8-
+UID:x_2twyYobnGGsAxE78k8O
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -1206,9 +1049,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:jAA9Cu49EYL66gzlC79QG
+UID:VUB4HvBnjKSo_nEKrEl-w
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -1220,9 +1063,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:lEHTN6zjMwHMLMVQrE450
+UID:Y5bKE3XWS-SmODmLhUMb8
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -1234,9 +1077,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:KYiUwToWQi8Toh2cPrr9W
+UID:kqM2QGVWmxg-NQQpnH8Tv
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -1248,9 +1091,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VigstrVR8ACTXJorJK3HS
+UID:B3LZPbv_iSApFJPXHBfot
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -1263,9 +1106,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:_jSgr8zMRzotaHINBS21m
+UID:2Jt1-C0tUejUqU4rXre8e
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -1277,9 +1120,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:00E3Maqltn3Z3yQeMZPRp
+UID:IWw1Ybk03ZvPaEX2OI7yB
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260413T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -1292,9 +1135,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:TtmyAIbiYx84dGo9XbSMK
+UID:c98MbDacHJF2Pj05dPMy4
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -1306,9 +1149,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:EmpOgEN2vC-MODdhiTf-E
+UID:UlWSvGOzLySZiylLosd0Q
 SUMMARY:Coworking Open House Week @ The Cloud Room
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T160000Z
 DESCRIPTION:Curious about coworking and looking for the perfect spot to get
 	 work done and reach your goals? Join us for a complimentary day during ou
@@ -1345,9 +1188,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:qNPagw0t7lMrtaOSVim-0
+UID:XTKjCTq0VC-x8_x2EptQc
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -1359,9 +1202,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:nQP-HqrSIMMV8cvpRUfaX
+UID:-VUKi_Ye6TszMwMHhqV7u
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -1373,9 +1216,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Oli8sglUMtTMSqiwAonfv
+UID:75Zo0LT8gr3ouRr9gRELi
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -1388,9 +1231,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:E7IO2YS6gW4IZcFv8_dRo
+UID:MnCXENbNvVs6nNMyBkgSM
 SUMMARY:Food Trucks @ West Lake Union Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/west-lake-union-cente
 	r\n\nFrom Seattle Food Trucks
@@ -1402,9 +1245,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:wa5Dt3ZeyW5Dbq-3JzfPs
+UID:BKCr4KAuDy5aJKTRx48F_
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -1416,9 +1259,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XoR-pgRvdPcHwPXGM-eq3
+UID:Pq5b5vkZmCY_T9nr8x1hD
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -1430,9 +1273,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ffsTG6UYQ57LhRxnH5mhB
+UID:AggLdGBNz37MS-tpWIu5m
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -1444,9 +1287,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VxH7LnykYEiX0m031Xe3C
+UID:IFLQlURiYKt4hQ1ZSC_g4
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -1458,9 +1301,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:B_vi62uE0rmwUr18BhkSx
+UID:W7Pi1NSEG19LtU9JUl6g5
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -1472,9 +1315,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:OwWe0-I-OHPGldNOJTpQ_
+UID:y8lIF8AezHGzkoW0BNgPz
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -1487,9 +1330,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:VTHWe2x8ydh6_0xqca5tH
+UID:bTLcOcgesIbK1QvbaY33i
 SUMMARY:Hill Talk: Stoup Brewing Capitol Hill
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T230000Z
 DESCRIPTION:Description    HillTalk at Stoup Brewing \\(Capitol Hill\\) Tue
 	sday\, April 14  4:00-6:00 PM Join GSBA for our next HillTalk as we gathe
@@ -1519,9 +1362,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:iZUKqPKZE8xqouE816bQI
+UID:tyeCAdTGaNxGpsFUhgHw8
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -1533,9 +1376,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Hs3kuDRAIc_uLM4jnYEbW
+UID:ke49jF31Ih4Llo02Yzimy
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260414T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -1548,9 +1391,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:di5coHl_KMAsGzYQOos92
+UID:csDFraFu5iRvVBoZ3VtkU
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -1562,10 +1405,10 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:qPyX-B3h3AOdX1nbWDswB
+UID:IquHgbVgFnMvwXslKDIsg
 SUMMARY:INTERMEDIATE OIL PAINTING AND SIP w/ BOTTOMLESS WINE (2 PARTS) - (A
 	GE 21+)
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T010000Z
 DESCRIPTION:2-Part Class Series in the Seattle Underground | 4/14 | 4/21 | 
 	6PM–9PM | All Materials Included | Bottomless Wine\n\nhttps://seatoday.6am
@@ -1580,9 +1423,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:sRTtTke6nEr0AkdlKk3do
+UID:1Ks6hpTzPWacMGvzoBwjF
 SUMMARY:Coworking Open House Week @ The Cloud Room
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T160000Z
 DESCRIPTION:Curious about coworking and looking for the perfect spot to get
 	 work done and reach your goals? Join us for a complimentary day during ou
@@ -1619,9 +1462,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:kkvBt4hzlm1HK4vymEF34
+UID:6ORqR7R4LVuSmC6Bwg1s1
 SUMMARY:Food Trucks @ Statsig
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/3106-160th-ave-se-bel
 	levue\n\nFrom Seattle Food Trucks
@@ -1633,9 +1476,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:jYQ4DbK5ZOPtK4rYRxbhz
+UID:Z5fUDwvEfIN5e6VLNWqpK
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -1647,9 +1490,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7-RwCBxmypUsSySz7oCPJ
+UID:mR-UbBj76PQH0EUlVbTa-
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -1661,9 +1504,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:BFECDHbffz3rKI43PI2uf
+UID:AHSQvFHAV5xPVIn6kcg2Y
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -1676,9 +1519,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:W22Wx5U67X8CyTxzUCT1l
+UID:nQp0PP32vS93OouAhPCXF
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -1690,9 +1533,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:RlUqTX5cl7mVMNWZsVLHu
+UID:EBzn2vk9Un9PIzvvKVW6M
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -1704,9 +1547,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:JT9CZCGWkhgjC6NUTuRL5
+UID:Di6HjQCbxWfA5lr_ylHQm
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -1718,9 +1561,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:OTuGD-fwVHE9hjDCTXIVK
+UID:y1qG0fQF2rYYFi6Bi4JNz
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -1732,9 +1575,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:F73t2KBo40jANrrJw26GL
+UID:d-4JDPGr3GPtNdtFzPsoO
 SUMMARY:Lynnwood Chamber Luncheon
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T183000Z
 DESCRIPTION:Description  Sponsored by\n\nhttps://seatoday.6amcity.com/event
 	s/#/details/lynnwood-chamber-luncheon/18333395/2026-04-15T00\n\nFrom SEAto
@@ -1748,9 +1591,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:HUyzxRbK8bPCnDIzsFc8o
+UID:ZIvu34LESs0JAiJnx0321
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -1763,9 +1606,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:8Xcba01JUZTeAHfWZpMS8
+UID:v5oSgXT_4w6iIjwCObYKC
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -1777,9 +1620,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:A0WhhZwVuYoAyfOwe9lxj
+UID:teyGRYGKj81IPpglKOlBi
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260415T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -1792,9 +1635,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:w_BEO1LOejDpINW0ZTD-5
+UID:Lx10NWqDOiX62J7ZRXBaC
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -1806,9 +1649,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:rNodDxru_ry8srbRg5pz7
+UID:XFG1eqPElFZeSWWNj5bnE
 SUMMARY:HAPPY HOUR
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T003000Z
 DESCRIPTION:Description FREE Event for Lynnwood Chamber Members & their Gue
 	sts - please register in advance. JANUARY HAPPY HOUR What better way to st
@@ -1829,10 +1672,10 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:UuecNS2P2moPcs-HvByHb
+UID:20TL7NaDAO5H5wlekblEi
 SUMMARY:INTERMEDIATE OIL PAINTING AND SIP w/ BOTTOMLESS WINE (2 PARTS) - (A
 	GE 21+)
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T010000Z
 DESCRIPTION:2-Part Class Series in the Seattle Underground | 4/14 | 4/21 | 
 	6PM–9PM | All Materials Included | Bottomless Wine\n\nhttps://seatoday.6am
@@ -1847,9 +1690,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:K3kpvumioYaxn0tKyk5dj
+UID:NtQ5a06dRK4Fqxe4wG2cl
 SUMMARY:Coworking Open House Week @ The Cloud Room
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T160000Z
 DESCRIPTION:Curious about coworking and looking for the perfect spot to get
 	 work done and reach your goals? Join us for a complimentary day during ou
@@ -1886,9 +1729,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:h75USjGdUCDo9q51UHFY7
+UID:tOo6fCS4sThTE7RdfkDqp
 SUMMARY:Coffee Talk: The Sorrento Hotel
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T160000Z
 DESCRIPTION:Description   Join our Senior Membership Development Manager Al
 	ison for a casual hangout every third Thursday at a rotating coffee shop i
@@ -1908,9 +1751,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:ZBN9DotBdMLDSXvuap241
+UID:wNX0fA8T-On66Yl7oFtBJ
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -1922,9 +1765,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:mU8rhzjYhtAEED-ihjCJ5
+UID:eU7auk8-4PGAnAvkdhLXx
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -1936,9 +1779,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZTpnw3gt6W7TTt0ght4R9
+UID:SOfouemN2pbvcpi5kmSiN
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -1951,9 +1794,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:JXy-JAp2encaZhNELZSVP
+UID:VmDPiwjqwCgyH3c6i9XJR
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -1965,9 +1808,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:R27JOqiu6la38PqWJWCcB
+UID:Gqfts7V4fNctjfTGew851
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -1979,9 +1822,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:qwItYAUXRq92u_ovW7T9G
+UID:2nh3ad4YAH7GYSgYI9VK0
 SUMMARY:Food Trucks @ Kaiser Permanente : Northgate Medical Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/kaiser-permanente-nor
 	thgate-medical-center\n\nFrom Seattle Food Trucks
@@ -1994,9 +1837,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:-ioTxufcOmFf0egRFVg7g
+UID:Yybk6N40da8aM-pmKbh3t
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -2008,9 +1851,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:byd2OyIp3OUYOMiRf2c7A
+UID:Z8MZX41RtkMNY-5kZx6k3
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2022,9 +1865,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IkqvxXbyzoNh62wWma9G4
+UID:J1uRBwOD5r6CpjduAt9E1
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2036,9 +1879,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:fkJSkMUTS6H9IKwfjX2Lm
+UID:pOlriVvoI8PobdBjaMC-d
 SUMMARY:Chamber Luncheon
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T183000Z
 DESCRIPTION:https://seatoday.6amcity.com/events/#/details/chamber-luncheon/
 	18318126/2026-04-16T00\n\nFrom SEAtoday - Food & Drink
@@ -2050,9 +1893,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:4y9edCpNUZ_U5LP42Mk2L
+UID:NuNdvSX_EB2la_bjzoWpP
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -2065,9 +1908,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:0RAGAUF0kNlB8jlhnEqMy
+UID:5ERHOg61ipsPxG_74mH8w
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -2079,9 +1922,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:1Ke5Nr7pQiGFZtTxtikQ6
+UID:7ec0SVUbDkTe64m8X46XC
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260416T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -2094,9 +1937,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:DPbKQg9h3y1b8IqN8LqWR
+UID:yuq2SORX1klPMS6Ai7C3D
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -2108,9 +1951,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:2bUKqofTW3ndgofS2TrmC
+UID:soDhiX3TyU7XDYuQp_Wmx
 SUMMARY:Breakfast with the Birds
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T140000Z
 DESCRIPTION:What's better than an early morning bird walk with our naturali
 	sts?  Well\, a delicious breakfast of course!\n\nhttps://seatoday.6amcity.
@@ -2125,9 +1968,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:uT8x7QZsOO_fi-r2Fnw4z
+UID:Yu_l7M1iWru6lz-e-7PqY
 SUMMARY:Coworking Open House Week @ The Cloud Room
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T160000Z
 DESCRIPTION:Curious about coworking and looking for the perfect spot to get
 	 work done and reach your goals? Join us for a complimentary day during ou
@@ -2164,9 +2007,9 @@ TRANSP:TRANSPARENT
 DURATION:PT8H
 END:VEVENT
 BEGIN:VEVENT
-UID:X7BzyAIOfaoGBbcvbVqke
+UID:7AQohCygcb1tvuoVF6kvS
 SUMMARY:In Person Friday Coffee Crop (Craft Workshop)
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T173000Z
 DESCRIPTION:Join our friendly group for time\, space\, and help \\(if neede
 	d\\) to work on traditional and digital photo and craft projects.\n\nhttps
@@ -2181,9 +2024,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:zXSe5b6N7NeqeXb3K_jSR
+UID:_GgEM4uVk8RoomMhyvOQO
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -2195,9 +2038,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:F2F9XwTuMwDywUL5knMpg
+UID:MrYQX-ZS-Iah9s_HsWcR-
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -2209,9 +2052,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:SUd4z_JtdzXCZWFiSTo4l
+UID:wWL2XkWpZYd3o3VTQSk1F
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -2223,9 +2066,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:B5HqYY-ZNOcyxNpI4DbNH
+UID:T_-HefiYdWgJ7q_gLusnD
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -2238,9 +2081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Jyub8RUKww79LWWI2_Xvx
+UID:IHT00425v-eLwSEtem22E
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -2252,9 +2095,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:fk2P4Z0a0cAb7lhDVXf38
+UID:xGbZ_ha8n_9zrHo_Jd_kN
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2266,9 +2109,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:aM0S46DVwQ1gnP1CLYyJM
+UID:agAhT6Lpn6Q4Nlj1yPfb3
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2280,9 +2123,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:X2BKXX1DRXKcULELhxI9e
+UID:1gigxTmoeiVp_nUJ1A4Us
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -2295,9 +2138,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:mp0miQA-f9TuRLGaT8Emq
+UID:_W2asPpJ7_4XUhu8WY1MT
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -2309,9 +2152,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:QSu2D8MBFvICke6TkARdb
+UID:v8TEK4u4SorhO-5r6HHWM
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260417T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -2324,9 +2167,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:nXVAhKmKUdG-ZGQqHNEUD
+UID:7yXhpy0lCFW8HldJqNXZ5
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -2338,9 +2181,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:5RPgzTfzizjervnll0-kE
+UID:-JSrIUvvuRUW2-OoIfQQp
 SUMMARY:NCNW Seattle Pancake Breakfast Fundraiser
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T150000Z
 DESCRIPTION:We're excited to announce our Summer Pancake Breakfast. Join us
 	 for a delicious meal while making a difference!\n\nhttps://seatoday.6amci
@@ -2355,9 +2198,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:BQzka0Fw01Jzj0LpjM8BH
+UID:O-tr70Nxeio_VYelGwzFg
 SUMMARY:GU Earth Day Volunteering
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T170000Z
 DESCRIPTION:Zags—In honor of Earth Day\, let’s get outside and give back! J
 	oin the Seattle Chapter for a community service day at Duthie Hill Mountai
@@ -2380,9 +2223,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:QNTdBw6SxLk8lYAdS-vEp
+UID:kqWLweCoqmbPzTzuVqupN
 SUMMARY:Woodinville Market Fair: Spring April event
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T170000Z
 DESCRIPTION:Spring is in the air\, Seahawks spirit is everywhere\, and the 
 	Woodinville Market Fair is bursting back to life! Join us on April 18th as
@@ -2406,36 +2249,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:6nWiuN9hxDaz2YzXb1KiB
-SUMMARY:Earth Month Event | Restoration at Homestead Park
-DTSTAMP:20260407T043743Z
-DTSTART:20260418T170000Z
-DESCRIPTION:Join us in Homestead Park where we will be removing common ivy 
-	 and blackberry crowding native plants. This will be a great opportunity t
-	o  learn the basics of restoration and plant identification\, all while ma
-	king our local forests healthier. Come get your hands in the dirt\, work a
-	longside neighbors and friends\, and eat snacks!\n\nNo experience necessar
-	y all ages welcome\; gloves and tools are provided. Please note: we requir
-	e participants aged 14 and under to volunteer with a parent or guardian at
-	  a ratio of 1 adult to 3 kids.\n\nWhen:  Saturday\, April 18th\, 10am-1pm
-	\n\nWhere: Homestead Field\, follow VOLUNTEER EVENT signs\n\nWhat to bring
-	: Dress for the weather in clothes you don't mind getting dirty \\(think: 
-	long p ants\, boots or sneakers\\). Bring a water bottle. Small snacks\, g
-	loves\, and tools will be provided.\n\nRegistration: https://volunteersign
-	up.org/RMPY L\n\nhttps://seatoday.6amcity.com/events/#/details/earth-month
-	-event-restoration-at-homestead-park/18066410/2026-04-18T00\n\nFrom SEAtod
-	ay - Food & Drink
-URL:https://seatoday.6amcity.com/events/#/details/earth-month-event-restora
-	tion-at-homestead-park/18066410/2026-04-18T00
-X-CALRIPPER-SOURCE:seatoday-food
-CATEGORIES:SEAtoday - Food & Drink
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:3JtCfs3zegaRkFKciv2HT
+UID:yhFpwRkYI4o7ElCXKrq_p
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -2448,9 +2264,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:NFfcjj-ietIicQbEKyD9f
+UID:tyq2glaXSTNTGkvKyjEMY
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -2463,9 +2279,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:vbKvUay6R-x7qpWJ_z5DW
+UID:o0xzU2kokyKnvMv44cciv
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260418T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -2477,9 +2293,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:XQJLDJIjGN6SWdGT1FcQi
+UID:EJNCUy9nSwMH2e-01k4KG
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260419T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -2491,9 +2307,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:VxQptX6GdjNoZB-ozjHMD
+UID:wj1Y2K-M_Zb7-mYIzgXN7
 SUMMARY:The Sunday Slowdown Series: Breathe\, Move\, Brunch
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260419T160000Z
 DESCRIPTION:Slow down your Sunday and reconnect with your body\, breath\, a
 	nd community.\n\nhttps://seatoday.6amcity.com/events/#/details/the-sunday-
@@ -2508,9 +2324,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:_AxHT8Fivvt3NTQR-xFB3
+UID:hjQNdsl5l9xIHlbFqQ8y5
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260419T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -2523,9 +2339,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:uYSrguJelU-vvJJ3Db-n2
+UID:PptnxzzJf03ORjm7hs_2L
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260419T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -2538,9 +2354,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:CRnc7CQjTAxYkAN_Uak-X
+UID:8N-cvYV08N-JFTWyNW3Ht
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260419T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -2552,9 +2368,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:rxApAjGqxTrSu2rwWDQLs
+UID:RM3t6wPupgc_b8scNtjGn
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -2566,9 +2382,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:tm9j28j_Lbt_FNcvTS8zE
+UID:Gz20nqlR3hwBYA6652d5P
 SUMMARY:Bartender's Circle Summit 2026 - Seattle Cocktail Week
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T160000Z
 DESCRIPTION:The world’s bar community is converging on Seattle. For three d
 	ays\, we are transforming the iconic Pacific Place into a multi-floor glob
@@ -2619,9 +2435,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:CH_4pLP0Iaxv-aikj5vTY
+UID:An9sj2rGmOsLSy_Flwg3R
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -2633,9 +2449,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zl8CTtHTgJ2-r4l6zPz3-
+UID:rxuj2ocgBwAUAomi-Aw8P
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -2647,9 +2463,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:6Gjl44dOet3Jt4Iaab4Hx
+UID:oVZgqg2IALQoAOMqLH0Cp
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -2661,9 +2477,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:OaY_58GaYJOTrUpyruEr7
+UID:bTvQoS11wTSES9BHlX85N
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -2676,9 +2492,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:cB0PPGhP6BBPp-nV57PHx
+UID:yTRC7CAzdxcuPidDzofj9
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -2690,9 +2506,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZSAS-LFRmDdHePZNpaFo5
+UID:uKqoMVLQGST9zZu8TZkwt
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2704,9 +2520,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:SbPO8sLgwzVUCnPr4as-I
+UID:FMmHrTZe3nOi9F_a1ho-d
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2718,9 +2534,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ngT8SS1q5sOzPBS5rAT9O
+UID:xQOVhV1gzqsSRCUX95Q_X
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -2733,9 +2549,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:4Y24IJgOC5o63Nq6SwPKV
+UID:zaQ810q0IRWRS9hgRj1j6
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -2747,9 +2563,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:7DXZkdTsls3eRcqNVsBUZ
+UID:-NFUDz-I5N9kyzThWzjcV
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260420T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -2762,9 +2578,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:igfZzqEfugIyUvRDsdvtV
+UID:FjU3mc2sgHKCoGg0_iJWS
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -2776,10 +2592,10 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:iYjXDAfe_oASyxzqw2QJg
+UID:nZo1wNQsw8RBjc1ug8NGQ
 SUMMARY:INTERMEDIATE OIL PAINTING AND SIP w/ BOTTOMLESS WINE (2 PARTS) - (A
 	GE 21+)
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T010000Z
 DESCRIPTION:2-Part Class Series in the Seattle Underground | 4/14 | 4/21 | 
 	6PM–9PM | All Materials Included | Bottomless Wine\n\nhttps://seatoday.6am
@@ -2794,9 +2610,62 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:nKCAi3oTKJmZu8eyfWU9N
+UID:Sw0eUW3xW7pTQKsZ-FdXi
+SUMMARY:Bartender's Circle Summit 2026 - Seattle Cocktail Week
+DTSTAMP:20260408T030253Z
+DTSTART:20260421T160000Z
+DESCRIPTION:The world’s bar community is converging on Seattle. For three d
+	ays\, we are transforming the iconic Pacific Place into a multi-floor glob
+	al campus for the hospitality elite. This isn’t just a regional seminar—it
+	’s where the industry meets to define the next era of cocktail culture.Whe
+	ther you are traveling from across the ocean or across the city\, the Summ
+	it offers a masterclass in professional evolution\, led by the most influe
+	ntial voices in the game.️ Learn From the LegendsWe’ve curated an unparalle
+	led roster of international talent. Join these icons for deep-dives into t
+	he craft:Ivy Mix: Global bar owner and co-founder of Speed Rack.Jeffrey Mo
+	rgenthaler: Renowned author and master of modern bar management.Camper Eng
+	lish: The world’s leading "cocktail scientist" and expert on spirits physi
+	cs.Jim Romdall: Seattle’s industry veteran on sustainability and long-term
+	 bar business....plus dozens more global ambassadors and master distillers
+	. Three Tracks to MasteryOur curriculum is strategically divided into thre
+	e pillars of excellence\, allowing you to customize your education based o
+	n your career goals:The Skills Track: Precision meets innovation. These ha
+	nds-on labs and technical sessions focus on the "how" behind world-class d
+	rinks—covering everything from advanced ice programs and molecular science
+	 to creative menu development and speed of service.The Spirits Track: This
+	 is for the true student of the glass. Go deep into the technical heritage
+	 of global categories like Cognac and Pisco\, explore distillation secrets
+	 with master producers\, and refine your palate with curated tastings of r
+	are expressions and new releases.The Business Track: Build a career that l
+	asts. These sessions tackle the "why" and "how much" of the industry—focus
+	ing on bar operations\, sustainable business models\, hospitality leadersh
+	ip\, and maintaining physical and mental wellness for a long-term career.️ 
+	Secure Your Global AccessThe Summit Class Pass - $45The International Prof
+	essional’s Choice Full 3-day access to all educational tracks \\(Skills\, 
+	Spirits\, Business\\) at Pacific Place. Includes entry to exclusive indust
+	ry lounges and global networking sessions.The Pro-Bundle \\(Summit \\+ Car
+	nival of Cocktails\\) - $75The Ultimate Experience | Best Value Maximize y
+	our trip to Seattle. This combo deal is for those who want the full educat
+	ional foundation plus the high-energy celebration of the Saturday Carnival
+	.Full 3-Day Summit Access: Every class\, every speaker\, every track.Satur
+	day Carnival Entry: The PNW’s largest spirits tasting event at Pacific Pla
+	ce.12 Tasting Tokens: Sample 100\\+ brands and immersive pop-ups.The Bundl
+	e Discount: Get the best industry rate by pairing your education and your 
+	celebration.\n\nhttps://seatoday.6amcity.com/events/#/details/bartender-s-
+	circle-summit-2026-seattle-cocktail-week/18061672/2026-04-21T00\n\nFrom SE
+	Atoday - Food & Drink
+URL:https://seatoday.6amcity.com/events/#/details/bartender-s-circle-summit
+	-2026-seattle-cocktail-week/18061672/2026-04-21T00
+LOCATION:PACIFIC PLACE\, 600 Pine Street\, Seattle\, WA
+X-CALRIPPER-SOURCE:seatoday-food
+CATEGORIES:SEAtoday - Food & Drink
+TRANSP:TRANSPARENT
+DURATION:PT9H
+END:VEVENT
+BEGIN:VEVENT
+UID:zEXlcMl40u76k-DBmMvNa
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -2808,9 +2677,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:y9jWUGGeu1bCPlgt2RhMs
+UID:FKleULuDjRuIJNRggXk_6
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -2822,9 +2691,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xOFMplt3e7ssoMerKCMX_
+UID:9UIJHIh2YxElx06adkjf8
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -2837,9 +2706,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xH2y9bylyo13AWneliD6e
+UID:eN6mr2DE-gBZEL0BZOWXn
 SUMMARY:Food Trucks @ West Lake Union Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/west-lake-union-cente
 	r\n\nFrom Seattle Food Trucks
@@ -2851,9 +2720,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ck8Q2-8LRvxRbW-lBVBY2
+UID:0IppliJuAuVlngzUrlCM7
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -2865,9 +2734,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IeDvhUdEMuovYkUHJ2cuz
+UID:fEpq5K6cuBmkiGhnvNlpo
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -2879,9 +2748,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VOWRTBCQnrYq1acVe0aWO
+UID:3ebqJI9OHug10Gj2XV4mw
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -2893,9 +2762,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:vjpXM6aeOif6UAPUNVioY
+UID:rnqds-CNWmWQ9rnm1tDRu
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2907,9 +2776,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:21xEuqOrieJfieMIUNI72
+UID:_zo4bKdnFmULvujwEr0FB
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -2921,9 +2790,45 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:X9ZKFonK8vV3RIdeB85pc
+UID:oPCe8Ly_y1i8kcHht5AOh
+SUMMARY:Lunch & Learn April 2026
+DTSTAMP:20260408T030253Z
+DTSTART:20260421T181500Z
+DESCRIPTION:Featured Speaker: Catherine M. White – Accelerated Results   \n
+	\nTopic: My 24/7 Ai Assistant \n\n11:15am – 11:45am – Open Networking // B
+	usiness Showcase Tables\n\n11:45am – Food Ready\n\n12pm – Meeting Starts\n
+	\n1pm – Meeting Ends \n\nMember – $15 pre-pay or $20 the day of. For the p
+	urpose of food planning\, the cut-off for pre-pay will be the Monday befor
+	e the Tuesday meeting\, allowing us enough time to work with our lunch pro
+	viders on numbers.\n\nGuests – $20 at all times. \n\n50/50 raffle: 1 ticke
+	t/$5 or 5 tickets/$20!  \n\nAttendance and raffle tickets available for pu
+	rchase below! \n\nSpeaker Bio: \n\nChamber Members are invited to submit a
+	n application to show interest in having a display table at our Monthly Lu
+	nch & Learn events! Price is only $30 and you’ll receive table space to sh
+	owcase yourself and your business before\, during\, and after our schedule
+	d Lunch & Learn meeting. We appreciate your support and know you will make
+	 lots of connections. More details will be sent to you once you submit you
+	r application. Payment will be required once your application is approved 
+	and your showcase space is reserved. \n\nBusiness Showcase Application ava
+	ilable here! \n\n \n\n  \n\nMember of our Chamber? Please use click the Ch
+	amber Member PrePay option. This option goes away at 5pm the Monday before
+	 the Meeting and Member Price goes up to $20. \n\nNot a Member of our Cham
+	ber or registering after 5pm the Monday before the Meeting? Please select 
+	the Chamber Guest option.\n\nhttps://seatoday.6amcity.com/events/#/details
+	/lunch-learn-april-2026/18520974/2026-04-21T00\n\nFrom SEAtoday - Food & D
+	rink
+URL:https://seatoday.6amcity.com/events/#/details/lunch-learn-april-2026/18
+	520974/2026-04-21T00
+LOCATION:Mill Creek City Hall North\, 15720 Main Street\, Mill Creek\, WA
+X-CALRIPPER-SOURCE:seatoday-food
+CATEGORIES:SEAtoday - Food & Drink
+TRANSP:TRANSPARENT
+DURATION:PT1H45M
+END:VEVENT
+BEGIN:VEVENT
+UID:8fn_o0dz1H8yLdtdjZB2c
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -2936,9 +2841,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:x9QD3dPgCQknRNW1inyur
+UID:WJ4V1XyZijbr9XVQ8Rx2n
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -2950,9 +2855,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:pwul2fc8nkc6XnzYnbAg6
+UID:mrd3tGpFBNgZ-5Wdke99Z
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260421T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -2965,9 +2870,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:pNvYvi-l8xuZMw8euMuev
+UID:hFEiYoCwUdIf7Xk-sk4ZE
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -2979,9 +2884,49 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:s6FfCEWmk8kxpx6crXETY
+UID:mtMKECPwMd_Yzyn8G42PG
+SUMMARY:What's Brewing with Ed?
+DTSTAMP:20260408T030253Z
+DTSTART:20260422T003000Z
+DESCRIPTION:Join Renton Chief Administrative Officer Ed VanValey and city l
+	eadership for conversations! This free monthly event\, open to all ages\, 
+	gives you the opportunity to learn about city projects and initiatives and
+	 ask questions! Tuesday\, April 21 5:30 – 6:30 p.m. Four Generals Brewing 
+	\\(229 Wells Ave. S.\\)  Please RSVP here on Facebook to help staff and Fo
+	ur Generals plan. You can also RSVP by emailing communications@rentonwa.go
+	v Learn more: rentonwa.gov/whatsbrewing\n\nhttps://seatoday.6amcity.com/ev
+	ents/#/details/what-s-brewing-with-ed/17405316/2026-04-21T00\n\nFrom SEAto
+	day - Food & Drink
+URL:https://seatoday.6amcity.com/events/#/details/what-s-brewing-with-ed/17
+	405316/2026-04-21T00
+LOCATION:Four Generals Brewing\, 229 Wells Avenue South\, Renton\, WA
+X-CALRIPPER-SOURCE:seatoday-food
+CATEGORIES:SEAtoday - Food & Drink
+TRANSP:TRANSPARENT
+DURATION:PT1H
+END:VEVENT
+BEGIN:VEVENT
+UID:BuVbyQK-7-8xRn-CN_fbh
+SUMMARY:INTERMEDIATE OIL PAINTING AND SIP w/ BOTTOMLESS WINE (2 PARTS) - (A
+	GE 21+)
+DTSTAMP:20260408T030253Z
+DTSTART:20260422T010000Z
+DESCRIPTION:2-Part Class Series in the Seattle Underground | 4/14 | 4/21 | 
+	6PM–9PM | All Materials Included | Bottomless Wine\n\nhttps://seatoday.6am
+	city.com/events/#/details/intermediate-oil-painting-and-sip-w-bottomless-w
+	ine-2-parts-age-21/18505721/2026-04-21T00\n\nFrom SEAtoday - Food & Drink
+URL:https://seatoday.6amcity.com/events/#/details/intermediate-oil-painting
+	-and-sip-w-bottomless-wine-2-parts-age-21/18505721/2026-04-21T00
+LOCATION:Asylum Collective\, 108 South Jackson Street  B\, Seattle\, WA
+X-CALRIPPER-SOURCE:seatoday-food
+CATEGORIES:SEAtoday - Food & Drink
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:dS5Q3nEN7dEcay2P4xe1J
 SUMMARY:Food Trucks @ Statsig
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/3106-160th-ave-se-bel
 	levue\n\nFrom Seattle Food Trucks
@@ -2993,9 +2938,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:KcumoF6AqbUISuYHOsJ8F
+UID:h438JeS64yaArHaqK_U9m
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -3007,9 +2952,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:s42nL_s0PpaaeM2vzTAhw
+UID:a7w0i5Acxtk03Ho2J-hhT
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -3021,9 +2966,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:txoeoI7V_9agHmFCO9kiW
+UID:gAKK8stt2nKflFJeVDKMu
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -3036,9 +2981,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:crRqOJPiHwLxQVSAWUn_b
+UID:v0Biry5gYJp4thJLPUztH
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -3050,9 +2995,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:j2Oqc16X7iYtQ0r-eiIDc
+UID:-w3v0gQFcYnHeN2Unzt8R
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -3064,9 +3009,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:S7UK0EB6v_q3oK9OVt02B
+UID:k11Lu1OgZPzoFzfwrBx5y
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3078,9 +3023,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:odk6Tm7zMONJIDDpG_H5r
+UID:cSKAbXNAPm9WbB5FzDaUB
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3092,9 +3037,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XmyqovFj5IyaCECqPcXak
+UID:K240CMrnXyNToFr8jpt7x
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3107,9 +3052,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:Hk5RyX9-wFo_V_Av-QOXo
+UID:vuxTUlzV_6QNTq-1CpzYl
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3121,9 +3066,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ef14ZcbWIl-9W1u_kZOZe
+UID:idmfKxJcJCMdPU4PH5amB
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260422T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3136,9 +3081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zRDkYgztE5QcOjGI2oxpd
+UID:4AwhYze0LaNmdT-g_jIPL
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3150,9 +3095,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:Sf7dfxhWV1KugOLebaxLq
+UID:ZsRVnRetM672nMdLOvUF8
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -3164,9 +3109,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IhQYa2xkMH-M852sHEgL7
+UID:4rb65btlPrHJzK4et6uC9
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -3178,9 +3123,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:oc_jzl95-uNsPXjj3kcnM
+UID:XqTbWRICa9GIvUoF28Zt6
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -3193,9 +3138,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ny9YySX3Qd_gBfm2BW1In
+UID:Peu5e2hlcLbbEeCx8slCy
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -3207,9 +3152,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:P7jsjnASaeZhR_t2wPd2l
+UID:bSLLHvA9sSplsGwRhXID4
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -3221,9 +3166,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:bonxCmHSYazwq2TJl39Iw
+UID:7cdSjZRCNb7-SrpIu3XRv
 SUMMARY:Food Trucks @ Kaiser Permanente : Northgate Medical Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/kaiser-permanente-nor
 	thgate-medical-center\n\nFrom Seattle Food Trucks
@@ -3236,9 +3181,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:JdlCfjmLDIap97dgkXVk_
+UID:1B6-JA0JNfxPBDMFiRUhT
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -3250,9 +3195,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IzN-9b3o7GbD53SG_3Nwm
+UID:C6I4zxFi2zronkwdquzKy
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3264,9 +3209,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:XNZsoT_NGhckZVev2rrLh
+UID:Q9cj7Sbc-z68vf2_ccalh
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3278,9 +3223,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:GSvs0_d9YqdtIx4tKUjZH
+UID:hWOXV79AOdjuUNmfyOy6J
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3293,9 +3238,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:bKjN0i5jt7ewIW0YlskXo
+UID:phcy8c8b_-x5IhF7Sv6qa
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3307,9 +3252,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:qpIwW-eF4MOXMVr2q7ha-
+UID:A94vUwh2Lmqx0yXFm5LO9
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260423T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3322,9 +3267,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:pAgFpSKYO73xFMg18pvBX
+UID:w0NgimVznvNo8M5HuCvzn
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3336,9 +3281,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:YQdge6qPKXMvAMP801Kke
+UID:OZQHZvMOSoHTsabz-YZqp
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -3350,9 +3295,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:2BjCISwvl9YIRtSZpX4yT
+UID:yMGXqYg6WOXv0Yvn5FPnz
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -3364,9 +3309,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7gO-e0l796GUstr1veNsb
+UID:34z2FR5mV--evgp62sA1I
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -3378,9 +3323,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:jCZAijI0qD-fXlZJ1p0an
+UID:nY6roj85IkiiykdetsPB7
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -3393,9 +3338,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xFuj2AfEiQTjQGWT2h6AY
+UID:YXSj68u9ZSEagHjyKpvVj
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -3407,9 +3352,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Q9cY-VLDcxp6QdDYWuf92
+UID:tQsl-D4GBmNbP6j2Kt93p
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3421,9 +3366,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:AtxQ55UFvWIeEVhI40TXG
+UID:Ls05s918ePg3TIILItHuW
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3435,9 +3380,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:B840izXWpaKUTa_FbBFa-
+UID:f2dChhbxqKzKCCS3ixFrI
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3450,9 +3395,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:hVZPozGlWInkIiiMiNkDe
+UID:OoXkcCSiB6qivDShCHHjg
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3464,9 +3409,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:8cgeKvo_MKtS8sAqi3DI8
+UID:gTv2x0Mwvq1Rgq5S6RZdF
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260424T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3479,9 +3424,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zlNBaDN3E_cnFIhsth9nQ
+UID:P8DYkZ41gG4ZJH4IFJIPb
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260425T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3493,9 +3438,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:GfnZk0PwGiGl5sjrAfETB
+UID:TAVDDHc1GZhL2Ug2Nw-Vu
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260425T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3508,9 +3453,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:vy2D4aVrpSL59oSyjp2qZ
+UID:GWuZazpPsNATzddfPgW2G
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260425T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3523,9 +3468,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:UZdAA-vQhQuU6or6B8yvl
+UID:hfrp3zelltTCNY3yXdQvs
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260425T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3537,9 +3482,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:6ZX1wguIysGiiR9ptuJHi
+UID:scPnfRrwPpiFGD7QFFGpT
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260426T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3551,9 +3496,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:EgjtmaIAjNcYbvFc0YlSd
+UID:YZ-WCO5NnxJX89IlxR6Nk
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260426T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3566,9 +3511,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:YXayEZr72Q77njlz4i44w
+UID:DB8SO3ehp3L_dyak54YgI
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260426T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3581,9 +3526,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:-_Jb8jD8KJGhOaK_SGdUn
+UID:jgMZGzflgR4EJgMvoJW5I
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260426T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3595,9 +3540,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:8jdA1YgkKiM-Zn2x3s6hI
+UID:S_0oPcJTq6QR4yGChLOSO
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3609,9 +3554,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:RzGEKn8AE-9Q3DxKL_Elb
+UID:Db2R7hPf2W6Ht1GQVKnUe
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -3623,9 +3568,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:mrG_oFfYdki7_gktMaGan
+UID:l5vCml2N8aF4hi3duOw2f
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -3637,9 +3582,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4usHF8E5qoLCG2vbmpDsZ
+UID:F7AahmrujDz-kMGLiXN0d
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -3651,9 +3596,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gwJH_FambCSfXsUbYR9Xf
+UID:GIlNMjG8NtlwtYZqlDvKc
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -3666,9 +3611,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3x2P2_M0tcPSa_sxUHW07
+UID:3ctImJUPv83EQMdyABTt-
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -3680,9 +3625,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9wzkbjZDsCaDt8Jca4Hjj
+UID:SigSSZ9BL0416JbWBS99n
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3694,9 +3639,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:tRDA3paUYn1Orkjmr0CGz
+UID:TkzCJAw0VHWWeQbxDJdWM
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3708,9 +3653,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:2me_FTQMiJbnbk5HXQ3fx
+UID:aRCUXZWC_ceU-X3r38UsG
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3723,9 +3668,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:4kt62PKeWbx_UEqa6pleb
+UID:Nbk8P9YY18MX_9KVy6-5R
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3737,9 +3682,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:1Bl8MHM6NpwEdJjBVrTYo
+UID:Hv4nKVEOYA7dg4axDfiPc
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260427T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3752,9 +3697,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZCWy5eQTpAxXjLJhRrEMq
+UID:5fyUwK0XH2b8qomPczz50
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3766,9 +3711,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:w_7Q3qMuK-DoQ6ekIlSOv
+UID:OTkoIfdznq8TZ0nHgTcaK
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -3780,9 +3725,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:M25t10FIhB-HWlbpa6OWb
+UID:LHyI0Y8Pa95TNYxDYF2y4
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -3794,9 +3739,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9N84iGr95JgAAzy7XprlS
+UID:SwAGXn9qK7BOYGOYX7DcI
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -3809,9 +3754,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:lkMJHQweBxRLcjYuV25d4
+UID:ihGbHg_JARV4MB7avrTw1
 SUMMARY:Food Trucks @ West Lake Union Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/west-lake-union-cente
 	r\n\nFrom Seattle Food Trucks
@@ -3823,9 +3768,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:YDce6vDkvb8XREuIqIgsX
+UID:xIx5E7-FTa8ouJiW2i0GR
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -3837,9 +3782,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:krl7cAHc7aSn0GyX2n1FN
+UID:EjRCHWDSE4Hrdk72VrPyM
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -3851,9 +3796,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:-Ny--rqWQWeUcr6EEuQ5Z
+UID:2iunz_TtJrYriit1JI6s4
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -3865,9 +3810,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IrsQOXqSwpF987-HI46pd
+UID:n1KPctrrO6SixfC61xydN
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3879,9 +3824,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:lalJWyxtuAN1cSXga6ho-
+UID:4RSMuSqJEJTiXgg9cwI68
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -3893,9 +3838,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:Xu3KA1d5xLWheJuETzdku
+UID:RSzYIrZoDQvMD6IQU7pHS
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -3908,9 +3853,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:E7Xhc0jzYV7b2iayjoFNI
+UID:oEpa8S2bkeY2Q_oT3f2yB
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -3922,9 +3867,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:hVvuK20I1IKt3AOxJz-1z
+UID:W6PaYBLw2pXBZpd99tZhC
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260428T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -3937,9 +3882,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zcWtpoIE5-UVE0bbPNsxP
+UID:n7Me9l0EwRnq5z43ejU5x
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -3951,9 +3896,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:sROxQUxKRlw6tZvBvkp3_
+UID:Kb4O_wuZyoQCGTTvGGY7B
 SUMMARY:Food Trucks @ Statsig
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/3106-160th-ave-se-bel
 	levue\n\nFrom Seattle Food Trucks
@@ -3965,9 +3910,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:uZP__aXRSO5Kn-nfTbP9Y
+UID:wR91NvP20vPXH_v6NhhyW
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -3979,9 +3924,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:hIRrJIh1Rv4w9Mo2Yy-a7
+UID:xt6YlWDj1ykFQ9ZQm5lJS
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -3993,9 +3938,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:GScSjma3FyWuH5oHcwIp0
+UID:vLxVOLFngT_w1FYTTJ_ya
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -4008,9 +3953,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:z5AfXXSiNbnEKFMuzvRiO
+UID:sC1YyxM_z3d_bEdZ1uB_N
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -4022,9 +3967,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:hqnqt7Jj834IAsOLHsSMh
+UID:2asDLnUrE44ha0r9rhO3L
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -4036,9 +3981,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:apsYJZdwAWcJpP4P7pWh0
+UID:XMXpJhtn-aqzqjUrsMmhy
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4050,9 +3995,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:YQ98wP8l2OVaBJWvNWtsq
+UID:sQ19fRGw-TBCfMOsdl_ME
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4064,9 +4009,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:7PUYwizQLTI3dhdPSj7cY
+UID:WhEeDreIbMFjPJqOkfDaM
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4079,9 +4024,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:Rcx-hjhn3ye_PYXujDRf6
+UID:VejnLR2HUEblGrKdKE5Bg
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4093,9 +4038,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:qfERzbs383PRNtFjMMtd3
+UID:M2VymF-OeLx5I68RVjlB0
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260429T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4108,9 +4053,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:0dIhIcPChXQOE64Yqh0IH
+UID:6NztBD7dWpaRpd3FMpRhG
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4122,9 +4067,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:IrXe7963zlPXThHjTLlws
+UID:83twIum51LNeqwOu1FdLd
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -4136,9 +4081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:NJzotk6gdZrXtgI6hY4Ca
+UID:oJm2rCOHrKCK0PJNmuWTw
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -4150,9 +4095,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:QEJUwUwbGGoK9qhOr6SE-
+UID:zxX2mB2kiUmP0ZwGGtr99
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -4165,9 +4110,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VsJyso-Q2Wmth85f-qleg
+UID:1vjnyI2tb0VilsOepteuA
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -4179,9 +4124,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:krEETV42XwVUqJfHEY7h7
+UID:UGSkBNnZma01eQi-qnm03
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -4193,9 +4138,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:2-KVnGPjtTj18GhYPjoxV
+UID:4srtfNUieGV6KcoP0t18g
 SUMMARY:Food Trucks @ Kaiser Permanente : Northgate Medical Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/kaiser-permanente-nor
 	thgate-medical-center\n\nFrom Seattle Food Trucks
@@ -4208,9 +4153,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ydIwtOIIemvRO_7zwPcyj
+UID:1uTXaCKoHonsjGcAC615C
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -4222,9 +4167,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:66E7fBTWXMN90WirXnF89
+UID:tf8E5lN-Z9J_yf5UArEFR
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4236,9 +4181,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:crDSFLn8Y0l_Z4r4yXQfK
+UID:NCHlLTXg-5GdSj2jQ1ISc
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4250,9 +4195,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:d_e-x4NYjxaxck6UD15X3
+UID:M9aPOvWR1NXn7ci-fiCW6
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4265,9 +4210,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:-ct7wmrSgfH44yaHTfK0g
+UID:LxIi6budsPWFXIeh7JZvi
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4279,9 +4224,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:F4MLrfy4otlengomYy-Ey
+UID:uyqTdsccBmBhEhuT0EHxM
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260430T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4294,9 +4239,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:da_gHsxNBn8CPNqpodKHl
+UID:qG345tNLbgVF-KoAlLgky
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4308,9 +4253,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:QekkgPeGFEHm2mvAH0jdz
+UID:bUNDtrW_H28QM11QaS1Bv
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4322,9 +4267,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4aXwWbQe0gl-J-I7RoFca
+UID:HD6UkNfqdBEtKyASsyCAG
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -4336,9 +4281,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:vy-D_IXxIoBP-6YJzMb9M
+UID:vQrpwLCO_PMr9RZabOpoW
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -4350,9 +4295,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:jPX042Cl_BondNSmNu7gw
+UID:JduEANf4pdAbVWzNJyCSS
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4364,9 +4309,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:c2FZxwgQfwpgFkjAMJP5t
+UID:3Q9wqDSF9F3SSkWc14E3V
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -4379,9 +4324,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:5qYeFaeTBEgRX-STyl-6i
+UID:Yfhwnv9qmLHq3nZQzGX_U
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -4393,9 +4338,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:_efAdor89fvqQUp4TVZNk
+UID:ph2ew-WwicfkuvVjroHN9
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -4407,9 +4352,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4t_p7-kik_FvECgzvNFrI
+UID:i9akwHGgEfrjk8TnSntst
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4422,9 +4367,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:tgZ28AGeNwpsYOKoiMk1T
+UID:VMz3feyi2e4GunobLt7Zn
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4436,9 +4381,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:TrCspst3zArnl8g8e1PTo
+UID:tvEmR9BTVNvEGCZ1pXLi0
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260501T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4451,9 +4396,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9C_RsJTsR57nFf3D3tK_r
+UID:AWyMTUVbXh_H_XsspcKzV
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260502T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4465,9 +4410,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:QXlGz2I1UPMCy6vbbQCWn
+UID:NTdAkKj2JaH563iy1IKHa
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260502T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4480,9 +4425,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:Ukn7mDGoD044WrHFHNKV1
+UID:PouqspM4kBiPwHmTPtmUF
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260502T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4495,9 +4440,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:OxRpPzbkDFNRB-hA8SwlA
+UID:q_2KZ0gN5VJ_bbnAMpPMI
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260502T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4509,9 +4454,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:kZQAKRG_QgkKI2Yby-46z
+UID:lBfJPEGR7MwE7gQf3KUxL
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260503T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4523,9 +4468,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:lUirNVcbLyHR5BNWbmwXS
+UID:B3xmpeF_KLCQ12VIGElO_
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260503T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4538,9 +4483,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:MwXFkRE2rK5G0W9M_16oW
+UID:OvJ7QRTaPUB-xxguVczea
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260503T190000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4553,9 +4498,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:ACal8WcbdbsbB3jsr7vm7
+UID:0NBPtsqNT94sjA3tnkMB2
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260503T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4567,9 +4512,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:DtT-hCtxDqtEmk-ZBBQLa
+UID:g0CDgnaJaC8eueJepfLcR
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4581,9 +4526,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:V7-D87bXJotCpJhUsNdua
+UID:y8UTHgyMumCnJiRefXxc5
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -4595,9 +4540,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:9pnNFp-r01w56Uj71rjdC
+UID:zxIPJwNOvQZfK2LILAJm7
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -4609,9 +4554,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:TpK8YUTiPM7jl5qneZR4i
+UID:tXse5asPEg6ekYHDxP4o6
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4623,9 +4568,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:qYhoGb1fAG8EiQQtUcYky
+UID:Y0RyUXf6WqrLqN289JCY8
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4637,9 +4582,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:NXBdkqqn-e5WZh5-HA8Sl
+UID:_nEpGuyZJaZEJmGygtl_v
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -4652,9 +4597,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:WW_mildm-WIKlYJxCj5Ts
+UID:9V_Y7EeLES4Lb23f6oru8
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -4666,9 +4611,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:3_uwTv9yGLyLs_wvwoYQf
+UID:812xWFKG4XuF2Z_VGQXAN
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -4680,9 +4625,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:rhNztzdZlQRvR98gbx8Kk
+UID:qFc7DYANMtbOZKAJv4jlH
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4695,9 +4640,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:8Yfh7oUjijlvW5kTypszw
+UID:rWKAxQ5LSUOB3x7YJsUSw
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4709,9 +4654,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:8nzSQ_DvepoYs_J8Gj8OB
+UID:A7yux3Ws1p1dxFEEIHn5B
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260504T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4724,9 +4669,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:gQwh4SXIBN1c5HK6pnaID
+UID:U2LHQ9-Pn4oXEjLtU83i9
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4738,9 +4683,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:RvVtzArjUndKxObH8Mznk
+UID:XeWgj2bBD47sIGMFjXIBk
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -4752,9 +4697,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:S04hFYoygnj_15JBjFPaz
+UID:4NVCTo-z0hMZo7dDB4lvc
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -4766,9 +4711,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:IgbgM_Th5OZxW2163xARq
+UID:tuE2rwvsfvf4qFrVO2voq
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4780,9 +4725,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:tstJqUKOoBERptfx3Tspb
+UID:CJFKGveQPFIOZOwf4Jftz
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4794,9 +4739,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:TTnT5_P6QRH5FZG_Wy8xA
+UID:___onj2rht6ve6IqCKqdQ
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -4809,9 +4754,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:CE6mexUw5kbeeqzEGt2Is
+UID:vCujslBLBuoIyCCmIk4Gr
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -4823,9 +4768,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:HPnLSsDjzCF1OOqH4H84-
+UID:KhiKfVJ689VQz63sRzcqE
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -4837,9 +4782,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:1av4bZLHbNbpfAtieXZfC
+UID:rzTlODN_9vEWfyJomrDVg
 SUMMARY:Food Trucks @ West Lake Union Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/west-lake-union-cente
 	r\n\nFrom Seattle Food Trucks
@@ -4851,9 +4796,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:xl7jzHw90B1IG5d-TPs7k
+UID:UIOF4f7_MHoXqJsJzz4PL
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -4865,9 +4810,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:4I0GXo3vvkJFCQETnxEK_
+UID:0_2izY2Z_wZC9v_V4qOER
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -4880,9 +4825,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:pw90FrFt9P1ASZSRx9kPY
+UID:oiNbQP5nAMJkfCNz1vJk3
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -4894,9 +4839,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:uC2bxT0q8Y803kYuoGDCO
+UID:UzuUllOTdTZ7oEMH28w5c
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260505T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -4909,9 +4854,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ECgpPlVwxRJqRuQl55BYD
+UID:wBxwQIot913zlA4FGRtTq
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -4923,9 +4868,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:o5wQNI3EHFyE3RmxHtk4s
+UID:7tu93vjCeQoIl1mvP7pyX
 SUMMARY:Food Trucks @ Statsig
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/3106-160th-ave-se-bel
 	levue\n\nFrom Seattle Food Trucks
@@ -4937,9 +4882,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:MJzaNqx-6XSTS6DV9Bx_I
+UID:ALyV85a6ACLzQx87wq-EO
 SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
 	rom Seattle Food Trucks
@@ -4951,9 +4896,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:D_tqSaKfSwzO-THmsYmiV
+UID:a-58nTDyCo3TRtH-OGPKQ
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -4965,9 +4910,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:95G9sGAhA296VOZVdoKtS
+UID:peWHSn4wX3kq-Bag86bTE
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4979,9 +4924,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:eBovQ8FXn3rE7Uo9V0LKY
+UID:CdLD8zQZ5u7WGPGJFYm57
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -4993,23 +4938,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:pEJpulMZpKmrJs5oudDan
-SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
-DTSTART:20260506T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
-	om Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/westlake-center
-LOCATION:400 Pine St\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:9YppB6YpmQBZdZOs9oQeB
+UID:nnU04WcaQXiOFd8ylv9NN
 SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
 	ate-plaza\n\nFrom Seattle Food Trucks
@@ -5022,9 +4953,23 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:dAXQkgdkzjtgYtOYZ5_7I
+UID:KZ9ZyNpGH6FrBJKNqfl9H
+SUMMARY:Food Trucks @ Westlake Center
+DTSTAMP:20260408T030253Z
+DTSTART:20260506T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
+	om Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/westlake-center
+LOCATION:400 Pine St\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:yfVhqIJsE0iHqPFO1sSFn
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -5036,9 +4981,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:LgDeRAzccXe2fphwrob1F
+UID:7_Rv1A4O6MyJ7MPiPqDFp
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -5051,9 +4996,23 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:78Yyou-L_mQqP2GHBWsWI
+UID:ZL7KiCNdG1XGG4Rzv7cct
+SUMMARY:Food Trucks @ Broadview Tap House
+DTSTAMP:20260408T030253Z
+DTSTART:20260506T230000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
+	\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/broadview-tap-house
+LOCATION:217 N 125th St\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:yeeqoDLwZ3xFGlmCbwPhV
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260506T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-redmond\n\nFrom Seattle Food Trucks
@@ -5066,23 +5025,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:zN3tiygBlE9VW1Us4gpNn
-SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
-DTSTART:20260506T230000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
-	\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/broadview-tap-house
-LOCATION:217 N 125th St\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:oTJwFzr5yaQ2JLGCxMd3v
+UID:8XBjflfR_B_v4_bLT8FOy
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
@@ -5094,9 +5039,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:69DNo-neoYx7rVASD4X7E
+UID:zQGJ7azPlcAMlvnpOHtye
 SUMMARY:Food Trucks @ 1551 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -5108,9 +5053,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:HaKTr9LLsCub9KD_crja8
+UID:5lfMr6A15CZ5uw5iPvm4g
 SUMMARY:Food Trucks @ Expedia Group Campus
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
 	n\nFrom Seattle Food Trucks
@@ -5122,23 +5067,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:n0b7d_IpNme9tA6aOyGuX
-SUMMARY:Food Trucks @ Starbucks Center
-DTSTAMP:20260407T043743Z
-DTSTART:20260507T180000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
-	rom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/starbucks-center
-LOCATION:2401 Utah Ave S\, Seattle
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:C67dXCsPjPhgcqQ4Sx3bv
+UID:O_QLwflsPkfgy6iBDEz9i
 SUMMARY:Food Trucks @ 1201 Eastlake
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
 	 Seattle Food Trucks
@@ -5150,9 +5081,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:RiB_4Cy0FPpiHXu5rKXl-
+UID:qLpwx3uX5-z9rk3mavYGL
 SUMMARY:Food Trucks @ Kaiser Permanente : Northgate Medical Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/kaiser-permanente-nor
 	thgate-medical-center\n\nFrom Seattle Food Trucks
@@ -5165,9 +5096,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:DUALTbOuXBFH32aZdXg2A
+UID:cLjgKv6zYVbnY8JOs1yVa
 SUMMARY:Food Trucks @ Westlake Center
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
 	om Seattle Food Trucks
@@ -5179,9 +5110,24 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:mForjeA0qUn08YCCdHc9h
+UID:2x1YVkCteNbjdNPCCoHv5
+SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
+DTSTAMP:20260408T030253Z
+DTSTART:20260507T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
+	ate-plaza\n\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northgate-plaz
+	a
+LOCATION:9709 3rd Ave NE\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:CC6Nzex6UypOBOwzSeRGM
 SUMMARY:Food Trucks @ McGraw Square
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
 	 Seattle Food Trucks
@@ -5193,9 +5139,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:uHWBsDotd43JIjfkKG1QS
+UID:0P18OZaymD32gtjjZHpIT
 SUMMARY:Food Trucks @ Dexter Yard
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T180000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/dexter-yard\n\nFrom S
 	eattle Food Trucks
@@ -5207,9 +5153,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:VjAwthNmOLS_nErIIrq9f
+UID:jZpnbIa94lq1Xww7aMB73
 SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T220000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
 	ompany-woodinville\n\nFrom Seattle Food Trucks
@@ -5222,24 +5168,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:6tpod2vOYrvmqXHTI4pEH
-SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
-DTSTAMP:20260407T043743Z
-DTSTART:20260507T230000Z
-DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
-	ompany-redmond\n\nFrom Seattle Food Trucks
-URL:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-company-r
-	edmond
-LOCATION:14679 NE 95th St\, Redmond
-X-CALRIPPER-SOURCE:seattle-food-trucks
-CATEGORIES:Seattle Food Trucks
-TRANSP:TRANSPARENT
-DURATION:PT3H
-END:VEVENT
-BEGIN:VEVENT
-UID:WgX2RbXsDoSFHZ-Nf2ocg
+UID:pKWoHNBl0vIddmZD2U1qg
 SUMMARY:Food Trucks @ Broadview Tap House
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260507T230000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
 	\nFrom Seattle Food Trucks
@@ -5251,10 +5182,167 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:cCkldFSRr1chtw0ANJ2dK
+UID:Kvzekmgc13UxSuiHX9DRz
 SUMMARY:Food Trucks @ Saleh's
-DTSTAMP:20260407T043743Z
+DTSTAMP:20260408T030253Z
 DTSTART:20260508T000000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
+	e Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/salehs
+LOCATION:2401 NW 80th St\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:U9UpiC9vhSoXjsG-jofvG
+SUMMARY:Food Trucks @ 1551 Eastlake
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1551-eastlake\n\nFrom
+	 Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/1551-eastlake
+LOCATION:1551 Eastlake Ave E\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:pqRSj-Hslx0gXD9CghOh7
+SUMMARY:Food Trucks @ 1201 Eastlake
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/1201-eastlake\n\nFrom
+	 Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/1201-eastlake
+LOCATION:1201 Eastlake Avenue East\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:BSQfDl2eVC8IJ3rMNOg40
+SUMMARY:Food Trucks @ Expedia Group Campus
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/expedia-group-campus\
+	n\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/expedia-group-campus
+LOCATION:1111 Expedia Group Way W\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:Olhc-eCVWcWcgyVIMelil
+SUMMARY:Food Trucks @ Westlake Center
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/westlake-center\n\nFr
+	om Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/westlake-center
+LOCATION:400 Pine St\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:P99xcrYV80i0tI8u343jt
+SUMMARY:Food Trucks @ Starbucks Center
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/starbucks-center\n\nF
+	rom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/starbucks-center
+LOCATION:2401 Utah Ave S\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:gHcPGyGPD_YRAKuSrCZux
+SUMMARY:Food Trucks @ The Polyclinic : Northgate Plaza
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northg
+	ate-plaza\n\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/the-polyclinic-northgate-plaz
+	a
+LOCATION:9709 3rd Ave NE\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:W-itolDaNZiJlFvFW5LRn
+SUMMARY:Food Trucks @ McGraw Square
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T180000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/mcgraw-square\n\nFrom
+	 Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/mcgraw-square
+LOCATION:1801 Westlake Ave\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:4efDxuuAlxnVpKqTookqm
+SUMMARY:Food Trucks @ Black Raven Brewing Company : Woodinville
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T220000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
+	ompany-woodinville\n\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-company-w
+	oodinville
+LOCATION:15920 Woodinville-Redmond Rd NE\, Woodinville
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT5H
+END:VEVENT
+BEGIN:VEVENT
+UID:W2cTuOXiZNs9WXIXnj6In
+SUMMARY:Food Trucks @ Broadview Tap House
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T230000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/broadview-tap-house\n
+	\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/broadview-tap-house
+LOCATION:217 N 125th St\, Seattle
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT4H
+END:VEVENT
+BEGIN:VEVENT
+UID:2zza0Yf1FJzp-yswF1-TA
+SUMMARY:Food Trucks @ Black Raven Brewing Company : Redmond
+DTSTAMP:20260408T030253Z
+DTSTART:20260508T230000Z
+DESCRIPTION:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-c
+	ompany-redmond\n\nFrom Seattle Food Trucks
+URL:https://www.seattlefoodtruck.com/schedule/black-raven-brewing-company-r
+	edmond
+LOCATION:14679 NE 95th St\, Redmond
+X-CALRIPPER-SOURCE:seattle-food-trucks
+CATEGORIES:Seattle Food Trucks
+TRANSP:TRANSPARENT
+DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:L652FjFIuMsdhBcLgPeN1
+SUMMARY:Food Trucks @ Saleh's
+DTSTAMP:20260408T030253Z
+DTSTART:20260509T000000Z
 DESCRIPTION:https://www.seattlefoodtruck.com/schedule/salehs\n\nFrom Seattl
 	e Food Trucks
 URL:https://www.seattlefoodtruck.com/schedule/salehs

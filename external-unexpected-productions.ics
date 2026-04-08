@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Unexpected Productions - ECPv6.15.18//NONSGML v1.0//EN
+PRODID:-//Unexpected Productions - ECPv6.15.19//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Unexpected Productions
@@ -51,7 +51,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T190000
 DTEND;TZID=America/Los_Angeles:20260408T194500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010146-1775674800-1775677500@www.unexpectedproductions.org
@@ -64,7 +64,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T190000
 DTEND;TZID=America/Los_Angeles:20260408T194500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011470-1775674800-1775677500@www.unexpectedproductions.org
@@ -77,7 +77,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T200000
 DTEND;TZID=America/Los_Angeles:20260408T213000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009845-1775678400-1775683800@www.unexpectedproductions.org
@@ -90,7 +90,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260409T200000
 DTEND;TZID=America/Los_Angeles:20260409T213000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010081-1775764800-1775770200@www.unexpectedproductions.org
@@ -103,7 +103,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T193000
 DTEND;TZID=America/Los_Angeles:20260410T204500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011232-1775849400-1775853900@www.unexpectedproductions.org
@@ -116,7 +116,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T213000
 DTEND;TZID=America/Los_Angeles:20260410T230000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011103-1775856600-1775862000@www.unexpectedproductions.org
@@ -127,9 +127,22 @@ LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place 
 ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/Theatresports-Yellow-Small.jpg
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260411T180000
+DTEND;TZID=America/Los_Angeles:20260411T190000
+DTSTAMP:20260407T194449
+CREATED:20260407T174710Z
+LAST-MODIFIED:20260407T174710Z
+UID:10011583-1775930400-1775934000@www.unexpectedproductions.org
+SUMMARY:No Strings Attached: An Improvised Puppet Show for Grownups
+DESCRIPTION:Seattle’s ORIGINAL improvised puppet show for grownups. An improvised fever dream with googly eyes and lots of laughter \n\n\n\n\nAt Unexpected Productions’ Market Theater\, puppets let their hair down (or strings loose) in No Strings Attached—a hilarious\, adults improv puppet show. After a long day entertaining the kids\, these puppets are ready to play—singing bawdy songs\, cracking jokes\, and getting up to all kinds of outrageous fun. And the best part? You call the shots with your suggestions! \nDon’t miss this one-of-a-kind comedy show at Pike Place Market. It’s puppets\, it’s improv\, and it’s guaranteed to make you laugh. \nTHIS SHOW CONTAINS MATURE CONTENT\, LANGUAGE\, AND SITUATIONS
+URL:https://www.unexpectedproductions.org/event/no-strings-attached-an-improvised-puppet-show-for-grownups-4/2026-04-11/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/04/PPM-No-strings.jpg
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T190000
 DTEND;TZID=America/Los_Angeles:20260411T210000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260225T205422Z
 LAST-MODIFIED:20260225T205526Z
 UID:10011463-1775934000-1775941200@www.unexpectedproductions.org
@@ -142,7 +155,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T193000
 DTEND;TZID=America/Los_Angeles:20260411T204500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011233-1775935800-1775940300@www.unexpectedproductions.org
@@ -155,7 +168,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T213000
 DTEND;TZID=America/Los_Angeles:20260411T230000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011104-1775943000-1775948400@www.unexpectedproductions.org
@@ -168,7 +181,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T190000
 DTEND;TZID=America/Los_Angeles:20260415T194500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010147-1776279600-1776282300@www.unexpectedproductions.org
@@ -181,7 +194,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T190000
 DTEND;TZID=America/Los_Angeles:20260415T194500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011471-1776279600-1776282300@www.unexpectedproductions.org
@@ -194,7 +207,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T200000
 DTEND;TZID=America/Los_Angeles:20260415T213000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009846-1776283200-1776288600@www.unexpectedproductions.org
@@ -207,7 +220,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260416T200000
 DTEND;TZID=America/Los_Angeles:20260416T213000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010082-1776369600-1776375000@www.unexpectedproductions.org
@@ -220,7 +233,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260417T193000
 DTEND;TZID=America/Los_Angeles:20260417T204500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260125T024426Z
 LAST-MODIFIED:20260125T024426Z
 UID:10011386-1776454200-1776458700@www.unexpectedproductions.org
@@ -232,7 +245,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260417T213000
 DTEND;TZID=America/Los_Angeles:20260417T230000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011105-1776461400-1776466800@www.unexpectedproductions.org
@@ -245,7 +258,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T193000
 DTEND;TZID=America/Los_Angeles:20260418T204500
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260125T024426Z
 LAST-MODIFIED:20260125T024426Z
 UID:10011387-1776540600-1776545100@www.unexpectedproductions.org
@@ -257,7 +270,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T213000
 DTEND;TZID=America/Los_Angeles:20260418T230000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011106-1776547800-1776553200@www.unexpectedproductions.org
@@ -270,7 +283,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T160000
 DTEND;TZID=America/Los_Angeles:20260420T173000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260210T210657Z
 LAST-MODIFIED:20260316T182122Z
 UID:10011446-1776700800-1776706200@www.unexpectedproductions.org
@@ -283,7 +296,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T173000
 DTEND;TZID=America/Los_Angeles:20260420T190000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260211T000007Z
 LAST-MODIFIED:20260316T183706Z
 UID:10011451-1776706200-1776711600@www.unexpectedproductions.org
@@ -296,7 +309,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T190000
 DTEND;TZID=America/Los_Angeles:20260420T210000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20250616T182307Z
 LAST-MODIFIED:20250616T182307Z
 UID:10007906-1776711600-1776718800@www.unexpectedproductions.org
@@ -311,7 +324,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T190000
 DTEND;TZID=America/Los_Angeles:20260420T210000
-DTSTAMP:20260406T213722
+DTSTAMP:20260407T194449
 CREATED:20260210T211639Z
 LAST-MODIFIED:20260316T185931Z
 UID:10011448-1776711600-1776718800@www.unexpectedproductions.org
@@ -326,37 +339,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260421T190000
 DTEND;TZID=America/Los_Angeles:20260421T210000
-DTSTAMP:20260406T213723
-CREATED:20260311T220905Z
-LAST-MODIFIED:20260311T220905Z
-UID:10011527-1776798000-1776805200@www.unexpectedproductions.org
-SUMMARY:Improv Level Up: Turn Games into Scene Magic with Alan Hawkins - Issaquah
-DESCRIPTION:Many improvisers begin with short-form games\, but hidden inside those fast\, playful formats are powerful tools for deeper scene work. In this four-week class\, we’ll explore how the instincts you already use in games can strengthen your long-form improvisation. By unpacking the mechanics behind classic games\, you’ll learn how to build stronger scenes\, develop clearer relationships\, and create more confident improvised storytelling. \nThrough energetic exercises and supportive coaching\, you’ll discover how skills like listening\, commitment\, pattern recognition\, and emotional connection can expand beyond the game structure and fuel longer\, richer scenes. If you’ve ever wondered how to bridge the gap between short-form fun and long-form storytelling\, this class will help you make that leap. \nClass Details\nDates: Four (4) Tuesdays \nTime: 7:00 pm–9:00 pm \nLocation: Unexpected Productions – Issaquah \n1315 NW Mall Street\, Suite 4\, Issaquah\, WA 98027 (next to the Gaslamp Bar and Grill) \nMaximum Students: 16 \nCost: $270 \nPrerequisite: Any Improv Class or Experience \nMeet Your Instructor: Alan Hawkins\nAlan Hawkins is an improviser from Los Angeles and Chicago with over two decades of performance and teaching experience. A graduate of The Second City Conservatory\, The Second City Musical Conservatory\, iO West\, Comedysportz Chicago\, and The Annoyance\, Alan has performed across the U.S. and internationally with the acclaimed trio Extra Shelves and as a guest with Grand Theft Improv in London. He has taught and directed for numerous programs\, including the Teen Comedy Festival in Chicago. \nAlan is an ensemble member of Unexpected Productions—America’s longest-running Theatresports company—and the author of “YOU CAN’T LEARN IMPROV FROM A BOOK.” His classes are known for being energetic\, supportive\, and deeply fun. \nWhat to Bring\nThis class involves movement\, so please dress comfortably and bring a bottle of water. \nCancellation Policy\nWe are unable to offer refunds.
-URL:https://www.unexpectedproductions.org/event/theatrical-styles-with-alan-hawkins-issaquah-2/
-LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
-ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/03/623850524_909111542076592_3393537672363977217_n.jpg
-GEO:47.5520122;-122.3251523
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260421T190000
-DTEND;TZID=America/Los_Angeles:20260421T210000
-DTSTAMP:20260406T213723
-CREATED:20260316T200150Z
-LAST-MODIFIED:20260316T200150Z
-UID:10011531-1776798000-1776805200@www.unexpectedproductions.org
-SUMMARY:Improv Level Up: Turn Games into Scene Magic
-DESCRIPTION:Many improvisers begin with short-form games\, but hidden inside those fast\, playful formats are powerful tools for deeper scene work. In this four-week class\, we’ll explore how the instincts you already use in games can strengthen your long-form improvisation. By unpacking the mechanics behind classic games\, you’ll learn how to build stronger scenes\, develop clearer relationships\, and create more confident improvised storytelling. \nThrough energetic exercises and supportive coaching\, you’ll discover how skills like listening\, commitment\, pattern recognition\, and emotional connection can expand beyond the game structure and fuel longer\, richer scenes. If you’ve ever wondered how to bridge the gap between short-form fun and long-form storytelling\, this class will help you make that leap. \nClass Details\nDates: Four (4) Tuesdays \nTime: 7:00 pm–9:00 pm \nLocation: Unexpected Productions – Issaquah \n1315 NW Mall Street\, Suite 4\, Issaquah\, WA 98027 (next to the Gaslamp Bar and Grill) \nMaximum Students: 16 \nCost: $270 \nPrerequisite: Any Improv Class or Experience \nMeet Your Instructor: Alan Hawkins\nAlan Hawkins is an improviser from Los Angeles and Chicago with over two decades of performance and teaching experience. A graduate of The Second City Conservatory\, The Second City Musical Conservatory\, iO West\, Comedysportz Chicago\, and The Annoyance\, Alan has performed across the U.S. and internationally with the acclaimed trio Extra Shelves and as a guest with Grand Theft Improv in London. He has taught and directed for numerous programs\, including the Teen Comedy Festival in Chicago. \nAlan is an ensemble member of Unexpected Productions—America’s longest-running Theatresports company—and the author of “YOU CAN’T LEARN IMPROV FROM A BOOK.” His classes are known for being energetic\, supportive\, and deeply fun. \nWhat to Bring\nThis class involves movement\, so please dress comfortably and bring a bottle of water. \nCancellation Policy\nWe are unable to offer refunds.
-URL:https://www.unexpectedproductions.org/event/improv-level-up-turn-games-into-scene-magic/
-LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
-ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/03/623850524_909111542076592_3393537672363977217_n.jpg
-GEO:47.5520122;-122.3251523
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260421T190000
-DTEND;TZID=America/Los_Angeles:20260421T210000
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20260331T175337Z
 LAST-MODIFIED:20260401T172231Z
 UID:10011545-1776798000-1776805200@www.unexpectedproductions.org
@@ -371,7 +354,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T194500
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010148-1776884400-1776887100@www.unexpectedproductions.org
@@ -384,7 +367,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T194500
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011472-1776884400-1776887100@www.unexpectedproductions.org
@@ -397,7 +380,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T210000
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20260210T212836Z
 LAST-MODIFIED:20260311T220540Z
 UID:10011450-1776884400-1776891600@www.unexpectedproductions.org
@@ -412,7 +395,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T210000
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20260331T175645Z
 LAST-MODIFIED:20260401T173133Z
 UID:10011546-1776884400-1776891600@www.unexpectedproductions.org
@@ -427,7 +410,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T200000
 DTEND;TZID=America/Los_Angeles:20260422T213000
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009847-1776888000-1776893400@www.unexpectedproductions.org
@@ -440,7 +423,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260423T173000
 DTEND;TZID=America/Los_Angeles:20260423T190000
-DTSTAMP:20260406T213723
+DTSTAMP:20260407T194449
 CREATED:20260211T000600Z
 LAST-MODIFIED:20260316T184256Z
 UID:10011453-1776965400-1776970800@www.unexpectedproductions.org
@@ -449,5 +432,18 @@ DESCRIPTION:Deepen your clown craft through presence\, rhythm\, status\, and phy
 URL:https://www.unexpectedproductions.org/event/clown-200-reinforcing-your-clown-foundation-with-mick-holsbeke/
 LOCATION:Clown Garage at the Improv School Issaquah\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98027
 ATTACH;FMTTYPE=image/png:https://www.unexpectedproductions.org/wp-content/uploads/2026/02/Clown-200.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260423T200000
+DTEND;TZID=America/Los_Angeles:20260423T213000
+DTSTAMP:20260407T194449
+CREATED:20251204T005447Z
+LAST-MODIFIED:20251230T165100Z
+UID:10010083-1776974400-1776979800@www.unexpectedproductions.org
+SUMMARY:Loose Cannons 2026
+DESCRIPTION:Loose Cannons is Seattle improv at its most unpredictable. Every performance at Unexpected Productions in Pike Place Market is a one-of-a-kind experience: exciting\, unexpected\, a little dangerous\, and always ridiculously fun. This is the show where anything can happen and usually does. \nPart One: Part One: The night kicks off with a unique performance\, setting the performers in a new format with special guest improvisers showcasing their signature style or a never-before-seen format. Your suggestions fuel the fire\, and the improvisers will ignite the stage\, bringing your ideas to life. \nPart Two: The second half launches from a single audience suggestion\, setting the performers in motion. It might start with a song\, a monologue\, or a rapid-fire group connection game. Whatever emerges will inspire spontaneous stories\, surprising twists\, and big comedic swings. \nLoose Cannons is fueled by audience ideas\, fearless performers\, and the thrill of not knowing what happens next. You light the fuse. They run with it. What they create is entirely up to you.
+URL:https://www.unexpectedproductions.org/event/loose-cannons-2026/2026-04-23/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/02/cannon_px-lrg-250x200-1-2.jpg
 END:VEVENT
 END:VCALENDAR

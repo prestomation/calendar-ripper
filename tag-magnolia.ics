@@ -6,25 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Magnolia Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:iboAn-3zkoQlTBKw9XqjL
-SUMMARY:Trivia at Bizarre Brewing
-DTSTAMP:20260407T043746Z
-DTSTART;TZID=America/Los_Angeles:20260407T190000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Bizarre Brewing
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:4441 26th Ave W\, Seattle\, WA 98199
-X-CALRIPPER-SOURCE:hitc-trivia-bizarre-brewing
-CATEGORIES:Trivia at Bizarre Brewing
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=TU
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:_eJfXVwHxzoM4HdnggH4b
+UID:ZeNj5WwsLr1lUu4OUuUuh
 SUMMARY:Meet Up Magnolia- virtual networking
-DTSTAMP:20260407T043746Z
-DTSTART:20260409T093000Z
+DTSTAMP:20260408T030255Z
+DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Our member businesses know the value of networking. Join us for
 	 our virtual networking event\\\, Meet Up Magnolia\\\, on the  2nd Thursda
 	y of every month. \\nHow does this virtual networking work? You simply log
@@ -45,9 +30,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:6_ZlL_A7NoOmCgUrjEULe
+UID:alGTWO6l9ZwlOVFKTTip_
 SUMMARY:Magnolia Flea Market
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260411T100000Z
 DESCRIPTION:Discover a curated mix of vintage finds\\\, local makers\\\, ha
 	ndmade goods\\\, sweet treats\\\, coffee\\\, and food—plus a vintage wareh
@@ -65,9 +50,24 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:Lyz4pK5kmfht3j0IYoIy7
+UID:bO8GWy7Asxcyiir8unNRB
+SUMMARY:Trivia at Bizarre Brewing
+DTSTAMP:20260408T030255Z
+DTSTART:20260415T020000Z
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Bizarre Brewing
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:4441 26th Ave W\, Seattle\, WA 98199
+X-CALRIPPER-SOURCE:hitc-trivia-bizarre-brewing
+CATEGORIES:Trivia at Bizarre Brewing
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:wc1LthxblpjXz0p_iIX2a
 SUMMARY:Just Shred It!
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260425T100000Z
 DESCRIPTION:April 25\\\, 2026\; Just Shred IT! 10 AM to 1 PM\\\, KeyBank pa
 	rking lot\\\, W. McGraw St and 34th Ave W. \\nEnter off W. McGraw St.     
@@ -89,9 +89,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZzCL98NBgOzapQnLIjqCf
+UID:do3J4mMiHg_3GnATc0u_7
 SUMMARY:Parents Night Out at Ivy Blossom Preschool- Vino in the Village
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260425T170000Z
 DESCRIPTION:Please join us for our first PNO at our Village location! We ar
 	e so excited to host community kiddos so their grown-ups can enjoy wine wi
@@ -109,9 +109,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:LueLw4v-ez7yqFomU0LIY
+UID:7VRrjP3visgw7wnoDvsDT
 SUMMARY:Vino in the Village- April 25th 2026
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260425T173000Z
 DESCRIPTION:Vino in the Village\\nSaturday\\\, April 25\\\, 2026\\n5:30 to 
 	8:30 pm\\nMagnolia Village \\nVino in the Village features 18 wineries off
@@ -130,9 +130,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:bI8pTUURq6rS24LvTwtWB
+UID:gZwtEFdYrDVvZQuJDF1io
 SUMMARY:Parents Night Out
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260425T173000Z
 DESCRIPTION:Bilingual Beginnings Preschool is hosting Parents Night Out dur
 	ing Vino in the Village. While you enjoy the event\\\, your child will hav
@@ -148,9 +148,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:syHtGfj5_aIzKHyQ4uAx1
+UID:91rnzUsl-UuzCDpdunTOn
 SUMMARY:Interbay Summer Camps- The Little Gym
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260501T000000Z
 DESCRIPTION:Interbay summer camps are 3 hours of Serious Fun for kiddos 3-1
 	0 years of age! Camp consists of 2 hours of gym time\\\, and 1 hour of sna
@@ -172,9 +172,9 @@ TRANSP:TRANSPARENT
 DURATION:PT24H
 END:VEVENT
 BEGIN:VEVENT
-UID:_W5BvJhLyySdGEknfNd73
+UID:VJsunxQQa2JMlbtZHNOPg
 SUMMARY:Pet First Aid
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260502T120000Z
 DESCRIPTION:Join us for a day of the most comprehensive pet first aid cours
 	e available! Our Walks ‘n’ Wags certified instructors offer a day of fun a
@@ -194,9 +194,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:EyHwuFLFtxQ76qmL1ZE_1
+UID:J6UHku4OCP-iL3NIDAi_e
 SUMMARY:Pet First Aid
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260503T120000Z
 DESCRIPTION:Join us for a day of the most comprehensive pet first aid cours
 	e available! Our Walks ‘n’ Wags certified instructors offer a day of fun a
@@ -216,9 +216,9 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:paJE4WvlUlOD592YXPxWL
+UID:6s-cekrv9SDoZhyowNia5
 SUMMARY:Magnolia Flea Market
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260509T100000Z
 DESCRIPTION:Discover a curated mix of vintage finds\\\, local makers\\\, ha
 	ndmade goods\\\, sweet treats\\\, coffee\\\, and food—plus a vintage wareh
@@ -236,9 +236,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:J6YzPjfzj6eQ423JAS7wg
+UID:U6V1Bp5T3811hlAZoUdet
 SUMMARY:Meet Up Magnolia- virtual networking
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260514T093000Z
 DESCRIPTION:Our member businesses know the value of networking. Join us for
 	 our virtual networking event\\\, Meet Up Magnolia\\\, on the  2nd Thursda
@@ -260,9 +260,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:g84NFFHeVkP_R7Zg6PtUr
+UID:u3xJ2Uq_brXD4eL5sSYDK
 SUMMARY:Pet First Aid
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260606T120000Z
 DESCRIPTION:Join us for a day of the most comprehensive pet first aid cours
 	e available! Our Walks ‘n’ Wags certified instructors offer a day of fun a
@@ -282,9 +282,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:1pCj0tRzFMlcQ0YMIxwx4
+UID:n6AyKN3WYgwHElA-L6ijc
 SUMMARY:Pet First Aid
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260607T110000Z
 DESCRIPTION:Join us for a day of the most comprehensive pet first aid cours
 	e available! Our Walks ‘n’ Wags certified instructors offer a day of fun a
@@ -304,9 +304,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:5kVUmp_hBWVuS3ZzoKFsR
+UID:_NhovtpcHw4TiZZdaUKHp
 SUMMARY:Business & Breakfast
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260609T083000Z
 DESCRIPTION:Our Business & Breakfast series brings local professionals toge
 	ther for meaningful networking\\\, practical business education\\\, and gr
@@ -325,9 +325,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eQdMsGuYKuMYgABzTm9QI
+UID:bl9gkOhxx3gHP8zGwNEKe
 SUMMARY:Meet Up Magnolia- virtual networking
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260611T093000Z
 DESCRIPTION:Our member businesses know the value of networking. Join us for
 	 our virtual networking event\\\, Meet Up Magnolia\\\, on the  2nd Thursda
@@ -349,9 +349,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:zQP4TxeJTIYrTtL7BFens
+UID:5MAgeVAyXCK1sBq7D6IuA
 SUMMARY:Magnolia Flea Market
-DTSTAMP:20260407T043746Z
+DTSTAMP:20260408T030255Z
 DTSTART:20260613T100000Z
 DESCRIPTION:Discover a curated mix of vintage finds\\\, local makers\\\, ha
 	ndmade goods\\\, sweet treats\\\, coffee\\\, and food—plus a vintage wareh

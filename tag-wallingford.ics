@@ -6,23 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Wallingford Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:K9b98P2NBAcak1Q7xq5_z
-SUMMARY:Lincoln High School Winter Band Concert
-DTSTAMP:20260407T043742Z
-DTSTART;TZID=America/Los_Angeles:20260506T150000
-DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
-LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981
-	03\\\, U
-X-CALRIPPER-SOURCE:wallyhood
-CATEGORIES:Wallyhood — Wallingford's Neighborhood Blog
-TRANSP:TRANSPARENT
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:xAG08TXBovZgrTYxMbbLA
+UID:GhPIZ_0DgiK1VpRR67DLO
 SUMMARY:Wallingford Community Council Community Meeting
-DTSTAMP:20260407T043742Z
-DTSTART;TZID=America/Los_Angeles:20260513T180000
+DTSTAMP:20260408T030252Z
+DTSTART;TZID=America/Los_Angeles:20260506T150000
 DESCRIPTION:Topics: \\n\\n🆘 Phase 2 Zoning Preview — The April 6 Public Hea
 	r\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Good Shepherd Center\\\, Room 202\\\, 4649 Sunnyside Ave N\\\, Sea
@@ -33,10 +20,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:kVwgNuYxy3ldDSa4fSxpl
+UID:wm-FayHlDEBK1hD2ygH-G
 SUMMARY:Wallingford Art Walk
-DTSTAMP:20260407T043742Z
-DTSTART:20260404T180000Z
+DTSTAMP:20260408T030252Z
+DTSTART;TZID=America/Los_Angeles:20260513T180000
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:2100 block of N 45th Street\\\, Seattle\\\, WA
 X-CALRIPPER-SOURCE:wallyhood
@@ -45,9 +32,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:WU6-UkPQaArYei-KxTOZx
+UID:eji3gPMZEGHejp85s9R4_
 SUMMARY:FamilyWorks Wallingford Food Bank Grand Reopening
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260404T190000Z
 DESCRIPTION:At the Grand Reopening celebration on Saturday\\\, April 4th\\\
 	, th\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -58,9 +45,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:jDkSvGw8f3KLTmIaAlTe_
+UID:CV0ke2E3oqSe291TOHYvt
 SUMMARY:Easter Sunrise Service
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260405T133000Z
 DESCRIPTION:From <a href="https://www.wallingfordumc.org">Wallingford Unite
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -71,9 +58,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:0_NmMry440g9YOEMf_tw3
+UID:HNy0-p0IwcQZaQ9nTQDZ7
 SUMMARY:Children's Easter Egg Hunt
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260405T163000Z
 DESCRIPTION:Children's Easter Egg Hunt on April 5th at 9:30 am at <a href="
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -85,9 +72,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H
 END:VEVENT
 BEGIN:VEVENT
-UID:DSh3dw3u_oGtY_FEwVGD_
+UID:zxyDZ3vtGdf-sb3HGeX10
 SUMMARY:Waterway 20 Grant Project Update: Public Meeting #1
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260409T020000Z
 DESCRIPTION:Wallingford Community Council will discuss the cleanup and futu
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -99,9 +86,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ts-9-pouqQasp5kng426q
+UID:Ttpe6VFRJs7ro8xZPlfHy
 SUMMARY:FECO Plant Sale
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260411T200000Z
 DESCRIPTION:Organized by <a href="https://freewayestates.org/" target="_bla
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -112,9 +99,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:-jdUDZS4bgLIrY81iCCk1
+UID:wYtyPqyiUF64e7lbNp8NK
 SUMMARY:Wally-Home Resource Fair
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260425T170000Z
 DESCRIPTION:Hosted by Historic Wallingford<br>Saturday\\\, April 25th from 
 	10\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -125,9 +112,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:gUklTeSkZtxSvz1eJdX1t
+UID:13fOcvDQeobF5n-eeHByT
 SUMMARY:Mattress Fundraiser for Performing Arts at Lincoln
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260426T170000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Gym\\\, Woodlawn & 44th
@@ -137,9 +124,23 @@ TRANSP:TRANSPARENT
 DURATION:PT7H
 END:VEVENT
 BEGIN:VEVENT
-UID:MXhP55foRBSh5JRHazeyb
+UID:94uk-keo72VUOqQZKV_U9
+SUMMARY:An Afternoon of Greek Wine\\\, Music\\\, and History
+DTSTAMP:20260408T030252Z
+DTSTART:20260503T220000Z
+DESCRIPTION:<p>Enjoy local wines (21+) while exploring stories\\\, photos\\
+	\, a\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
+LOCATION:Kostas Opa Greek Restaurant\\\, 1924 N 45th St\\\, Seattle\\\, WA 
+	98103\\
+X-CALRIPPER-SOURCE:wallyhood
+CATEGORIES:Wallyhood — Wallingford's Neighborhood Blog
+TRANSP:TRANSPARENT
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:BNXVYtyy3KQURMfFPSLux
 SUMMARY:Wallingford Community Council Community Meeting
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260506T190000Z
 DESCRIPTION:<p>Topic: Annual Board Election</p>\n\nFrom Wallyhood — Walling
 	ford's Neighborhood Blog
@@ -151,9 +152,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Vz0RKCACMHk4Zjg67FPK3
+UID:zFhse779rrsQ6cw6700w6
 SUMMARY:Wallingford Farmers Market
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260506T220000Z
 DESCRIPTION:Seasonal Wednesday evening farmers market in Wallingford. Runs 
 	May through September.\n\nhttps://seattlefarmersmarkets.org/\n\nFrom Walli
@@ -167,9 +168,9 @@ RRULE:FREQ=YEARLY;BYDAY=WE;BYMONTH=5,6,7,8,9
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:YQMj1DURa7Z1nVoMprKCH
+UID:I8UZvK43AjCc6QQmLpTio
 SUMMARY:Guys and Dolls - Spring Musical at Lincoln High School
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260508T190000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981
@@ -180,9 +181,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:PExGjJXads3PbhueOb1dF
+UID:NFGR3wPkj1JqN0D3MVmAM
 SUMMARY:Tilth Edible Plant Sale *Early Bird Access*
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260509T000000Z
 DESCRIPTION:https://tilthalliance.org/event/may-early-bird-sale/\n\nFrom Wa
 	llyhood — Wallingford's Neighborhood Blog
@@ -194,9 +195,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:qFvsSAGbswMhpX-U7g1FQ
+UID:3OvCAB_-gpWMi54NqM3qQ
 SUMMARY:Tilth Edible Plant Sale
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260509T090000Z
 DESCRIPTION:https://tilthalliance.org/event/may-edible-plant-sale\n\nFrom W
 	allyhood — Wallingford's Neighborhood Blog
@@ -208,9 +209,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:Tf656FodMo2htaQnilkkk
+UID:cFy_0gtdYkBUCjWLyMhlh
 SUMMARY:Wallingford Art Walk
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260514T010000Z
 DESCRIPTION:Summer art walk in the Wallingford neighborhood\, May through S
 	eptember\n\nhttps://www.facebook.com/wallingfordartwalk/\n\nFrom Wallingfo
@@ -224,9 +225,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2WE;BYMONTH=5,6,7,8,9
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:MKw5FX20w4PQ_sFuM7lo0
+UID:zS1NYLMz7f2gsH0i4od7t
 SUMMARY:Guys and Dolls - Spring Musical at Lincoln High School
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260516T140000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981
@@ -237,9 +238,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:Td3QlJFjqbm9KY7y3ii9v
+UID:omKCLKpb8YTBBmlgO5qNH
 SUMMARY:Waterway 20 Grant Project Update: Public Meeting #2
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260526T230000Z
 DESCRIPTION:Wallingford Community Council will discuss the cleanup and futu
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -251,9 +252,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:hFDFZtWUDWN2bMG04hBcM
+UID:vjsNZW-EkcgT_g18kk2UR
 SUMMARY:Wallingford Farmers Market
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260527T150000Z
 DESCRIPTION:Please park along Meridian Avenue N. No parking available in th
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -264,9 +265,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:tK5UkcZBQw5n7iLB_JfZ2
+UID:bWOvzahMs_Rd1NLfyxrAU
 SUMMARY:Lincoln High School Spring Orchestra Concert
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260602T020000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981
@@ -277,9 +278,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:y0w-HUcf7r5Qj2yF6JBEH
+UID:_1rvL9MufmbD9dNvb-lZb
 SUMMARY:Lincoln High School Spring Jazz Band Concert
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260603T020000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981
@@ -290,9 +291,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:EnHM6BX-ZKqf3vlXcIdVn
+UID:3-bywASm6HsFN1CrOQ8EL
 SUMMARY:Wallingford Community Council Community Meeting
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260603T190000Z
 DESCRIPTION:<p>Topic: Waterway 20 Grant public outreach + Phase 2 Zoning Up
 	\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -304,10 +305,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:dSgLAhnyvNuagQCKDtUFm
+UID:8pk2S-UZRafZSBedNXPKr
 SUMMARY:Full weekend closure of northbound I-5\\\, from I-90 to NE 45th St 
 	(w
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260605T000000Z
 DESCRIPTION:<h3><b>2026 construction</b></h3><p>In 2026\\\, WSDOT will resu
 	me\n\nFrom Wallyhood — Wallingford's Neighborhood Blog
@@ -317,9 +318,9 @@ TRANSP:TRANSPARENT
 DURATION:PT96H
 END:VEVENT
 BEGIN:VEVENT
-UID:H1z-2ulED1p-7XFgPsRUd
+UID:VXk3C0GauEttNW3Vgy_uE
 SUMMARY:Lincoln High School Spring Choir Concert
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260605T020000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981
@@ -330,9 +331,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:xr3COCAZhn4xdtjxNUER2
+UID:2cO9Ki8q2DB0IrA4IoVln
 SUMMARY:Lincoln High School Spring Band Concert
-DTSTAMP:20260407T043742Z
+DTSTAMP:20260408T030252Z
 DTSTART:20260609T020000Z
 DESCRIPTION:From Wallyhood — Wallingford's Neighborhood Blog
 LOCATION:Lincoln High School Theater\\\, Wallingford\\\, Seattle\\\, WA 981

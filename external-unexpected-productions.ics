@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Unexpected Productions - ECPv6.15.19//NONSGML v1.0//EN
+PRODID:-//Unexpected Productions - ECPv6.15.20//NONSGML v1.0//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Unexpected Productions
@@ -49,35 +49,9 @@ DTSTART:20271107T090000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260408T190000
-DTEND;TZID=America/Los_Angeles:20260408T194500
-DTSTAMP:20260407T194449
-CREATED:20260302T222039Z
-LAST-MODIFIED:20260302T222148Z
-UID:10010146-1775674800-1775677500@www.unexpectedproductions.org
-SUMMARY:Improv Greenhouse
-DESCRIPTION:Get ready to be surprised\, delighted\, and maybe even see your wildest idea take on a life of its own!\n\n\n\nGraduate Greenhouse is a Wednesday night showcase featuring alumni from Unexpected Productions Improv School. Each performance highlights a different alumni group\, putting their training to the test with unpredictable scenes\, various formats\, and improvised stories. From long-form storytelling to character work\, these performers explore the boundaries of improv. \nJan 7 Market Improv \nJan 14 \nJan 21 \nBut the fun doesn’t stop there! Stick around for a double feature as we roll into Seattle’s longest-running Improv Open Mic: the Duos Open Mic! Starting at 8:00 pm\, this weekly showcase promises even more laughs\, surprises\, and improv magic.
-URL:https://www.unexpectedproductions.org/event/graduate-greenhouse-fka-an-improvised-holiday-special-2-2-2/2026-04-08/
-LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
-ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/01/611744788_25834828646123545_7391804144568306027_n.jpg
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260408T190000
-DTEND;TZID=America/Los_Angeles:20260408T194500
-DTSTAMP:20260407T194449
-CREATED:20260302T222645Z
-LAST-MODIFIED:20260302T222857Z
-UID:10011470-1775674800-1775677500@www.unexpectedproductions.org
-SUMMARY:700 Level Student Showcase
-DESCRIPTION:Witness the creation of believable characters\, inspiring scenes\, and some improv magic by 700 level class.\n\n\n\nJoin the advanced students in our 700 class and witness them blossom with new improv skills. Under the guidance of our expert improv teachers\, 700 students are learning new narrative formats and enhancing their skills by working in an ensemble. You get to see the fruits of their efforts by witnessing the creation of believable characters\, inspiring scenes\, and some improv magic.
-URL:https://www.unexpectedproductions.org/event/700-level-student-showcase-2/2026-04-08/
-LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
-ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/10/700.jpg
-END:VEVENT
-BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260408T200000
 DTEND;TZID=America/Los_Angeles:20260408T213000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009845-1775678400-1775683800@www.unexpectedproductions.org
@@ -90,7 +64,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260409T200000
 DTEND;TZID=America/Los_Angeles:20260409T213000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010081-1775764800-1775770200@www.unexpectedproductions.org
@@ -103,7 +77,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T193000
 DTEND;TZID=America/Los_Angeles:20260410T204500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011232-1775849400-1775853900@www.unexpectedproductions.org
@@ -116,7 +90,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260410T213000
 DTEND;TZID=America/Los_Angeles:20260410T230000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011103-1775856600-1775862000@www.unexpectedproductions.org
@@ -129,7 +103,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T180000
 DTEND;TZID=America/Los_Angeles:20260411T190000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260407T174710Z
 LAST-MODIFIED:20260407T174710Z
 UID:10011583-1775930400-1775934000@www.unexpectedproductions.org
@@ -142,7 +116,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T190000
 DTEND;TZID=America/Los_Angeles:20260411T210000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260225T205422Z
 LAST-MODIFIED:20260225T205526Z
 UID:10011463-1775934000-1775941200@www.unexpectedproductions.org
@@ -155,7 +129,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T193000
 DTEND;TZID=America/Los_Angeles:20260411T204500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260123T200531Z
 LAST-MODIFIED:20260126T180334Z
 UID:10011233-1775935800-1775940300@www.unexpectedproductions.org
@@ -168,7 +142,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T213000
 DTEND;TZID=America/Los_Angeles:20260411T230000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011104-1775943000-1775948400@www.unexpectedproductions.org
@@ -181,7 +155,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T190000
 DTEND;TZID=America/Los_Angeles:20260415T194500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010147-1776279600-1776282300@www.unexpectedproductions.org
@@ -194,7 +168,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T190000
 DTEND;TZID=America/Los_Angeles:20260415T194500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011471-1776279600-1776282300@www.unexpectedproductions.org
@@ -207,7 +181,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260415T200000
 DTEND;TZID=America/Los_Angeles:20260415T213000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009846-1776283200-1776288600@www.unexpectedproductions.org
@@ -220,7 +194,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260416T200000
 DTEND;TZID=America/Los_Angeles:20260416T213000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010082-1776369600-1776375000@www.unexpectedproductions.org
@@ -233,7 +207,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260417T193000
 DTEND;TZID=America/Los_Angeles:20260417T204500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260125T024426Z
 LAST-MODIFIED:20260125T024426Z
 UID:10011386-1776454200-1776458700@www.unexpectedproductions.org
@@ -245,7 +219,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260417T213000
 DTEND;TZID=America/Los_Angeles:20260417T230000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011105-1776461400-1776466800@www.unexpectedproductions.org
@@ -258,7 +232,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T193000
 DTEND;TZID=America/Los_Angeles:20260418T204500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260125T024426Z
 LAST-MODIFIED:20260125T024426Z
 UID:10011387-1776540600-1776545100@www.unexpectedproductions.org
@@ -270,7 +244,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T213000
 DTEND;TZID=America/Los_Angeles:20260418T230000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260123T174220Z
 LAST-MODIFIED:20260123T174348Z
 UID:10011106-1776547800-1776553200@www.unexpectedproductions.org
@@ -283,7 +257,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T160000
 DTEND;TZID=America/Los_Angeles:20260420T173000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260210T210657Z
 LAST-MODIFIED:20260316T182122Z
 UID:10011446-1776700800-1776706200@www.unexpectedproductions.org
@@ -296,7 +270,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T173000
 DTEND;TZID=America/Los_Angeles:20260420T190000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260211T000007Z
 LAST-MODIFIED:20260316T183706Z
 UID:10011451-1776706200-1776711600@www.unexpectedproductions.org
@@ -309,7 +283,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T190000
 DTEND;TZID=America/Los_Angeles:20260420T210000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20250616T182307Z
 LAST-MODIFIED:20250616T182307Z
 UID:10007906-1776711600-1776718800@www.unexpectedproductions.org
@@ -324,7 +298,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260420T190000
 DTEND;TZID=America/Los_Angeles:20260420T210000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260210T211639Z
 LAST-MODIFIED:20260316T185931Z
 UID:10011448-1776711600-1776718800@www.unexpectedproductions.org
@@ -339,7 +313,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260421T190000
 DTEND;TZID=America/Los_Angeles:20260421T210000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260331T175337Z
 LAST-MODIFIED:20260401T172231Z
 UID:10011545-1776798000-1776805200@www.unexpectedproductions.org
@@ -354,7 +328,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T194500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260302T222039Z
 LAST-MODIFIED:20260302T222148Z
 UID:10010148-1776884400-1776887100@www.unexpectedproductions.org
@@ -367,7 +341,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T194500
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260302T222645Z
 LAST-MODIFIED:20260302T222857Z
 UID:10011472-1776884400-1776887100@www.unexpectedproductions.org
@@ -380,7 +354,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T210000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260210T212836Z
 LAST-MODIFIED:20260311T220540Z
 UID:10011450-1776884400-1776891600@www.unexpectedproductions.org
@@ -395,7 +369,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T190000
 DTEND;TZID=America/Los_Angeles:20260422T210000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260331T175645Z
 LAST-MODIFIED:20260401T173133Z
 UID:10011546-1776884400-1776891600@www.unexpectedproductions.org
@@ -410,7 +384,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T200000
 DTEND;TZID=America/Los_Angeles:20260422T213000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20251204T002535Z
 LAST-MODIFIED:20251204T002535Z
 UID:10009847-1776888000-1776893400@www.unexpectedproductions.org
@@ -423,7 +397,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260423T173000
 DTEND;TZID=America/Los_Angeles:20260423T190000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20260211T000600Z
 LAST-MODIFIED:20260316T184256Z
 UID:10011453-1776965400-1776970800@www.unexpectedproductions.org
@@ -436,7 +410,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260423T200000
 DTEND;TZID=America/Los_Angeles:20260423T213000
-DTSTAMP:20260407T194449
+DTSTAMP:20260408T201137
 CREATED:20251204T005447Z
 LAST-MODIFIED:20251230T165100Z
 UID:10010083-1776974400-1776979800@www.unexpectedproductions.org
@@ -445,5 +419,32 @@ DESCRIPTION:Loose Cannons is Seattle improv at its most unpredictable. Every per
 URL:https://www.unexpectedproductions.org/event/loose-cannons-2026/2026-04-23/
 LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
 ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2024/02/cannon_px-lrg-250x200-1-2.jpg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260424T190000
+DTEND;TZID=America/Los_Angeles:20260424T210000
+DTSTAMP:20260408T201137
+CREATED:20260331T180113Z
+LAST-MODIFIED:20260401T173338Z
+UID:10011547-1777057200-1777064400@www.unexpectedproductions.org
+SUMMARY:Mime and Improv in Action with Jay Hitt
+DESCRIPTION:Mimes can create entire environments and objects using only their skill and imagination. How do they do it?  This class will show you \n\n\n\n\nWhat if you could build an entire world on stage using nothing but your body and imagination? In this dynamic and playful class\, you’ll discover how mime techniques and physical improv can transform empty space into vivid environments filled with objects\, characters\, and stories. \nThrough guided exercises and performance games\, you’ll learn the foundational tools mimes use to create invisible walls\, lift imaginary objects\, define environments\, and communicate clearly without speaking. These skills will deepen your physical awareness\, sharpen your stage presence\, and give you powerful new ways to express ideas in improv scenes. \nThis class is perfect for improvisers who want to strengthen their physical storytelling\, improve object work\, and explore the expressive possibilities of movement. Expect a highly active\, supportive environment where you’ll experiment\, play\, and learn to make the invisible visible. \nClass Details\nDates: Four (4) Fridays\nTime: 7:00 pm–9:00 pm\nLocation: Unexpected Productions – Issaquah\n1315 NW Mall Street\, Suite 4\, Issaquah\, WA 98027 (next to the Gaslamp Bar and Grill)\nMaximum Students: 16\nCost: $270\nPrerequisite: Any Improv Class or Experience \nMeet Your Instructor: \nJay Hitt is an improviser\, director\, and educator renowned for his groundbreaking work in non-verbal improvisation. As the creator and director of Mouth Wide Shut\, he has pioneered a completely non-verbal improvised show that seamlessly blends Pantomime\, Figurative Mime\, Corporeal Mime\, and various dance styles to bring audience suggestions to life. These suggestions\, staying true to the nature of the show\, are also retrieved non-verbally\, creating an immersive and unique theatrical experience. \nIn 2020\, Jay launched the Fearless Physical Improv Workshop with Jay Hitt\, a non-verbal comedy workshop at Unexpected Productions designed to push improvisers beyond spoken language and into the realm of physical storytelling. This workshop quickly gained popularity\, selling out consistently and making its way to improv festivals\, where Jay continues to share his expertise with eager performers. \nJay’s talents extend beyond the improv stage. In 2018\, he was a featured artist in an updated version of The Gong Show\, hosted by Mike Myers. That same year\, he was a featured guest on the podcast Folk Stories (folkstories.org)\, where he discussed his journey in improvisation and mime. He also showcased his skills on a segment for KING5’s Evening Magazine\, performing as a featured mime in a humorous hotel front desk skit (KING5). \nHis performances have been celebrated at numerous prestigious improv festivals. In 2025\, Mouth Wide Shut was featured at the Third Coast Improv Festival in Nashville\, showcasing his distinctive approach to non-verbal improvisation. Additionally\, Jay has performed at the Alaska State Improv Festival and the Annual Improvaganza Hawaii Festival of Improv. \nJay is also a key figure in the Seattle improv community. As the Managing Director of Unexpected Productions\, he has played a significant role in shaping the city’s improv scene since joining the company in 1993. His journey in improv began in 1988\, and over the decades\, he has performed and directed a diverse range of short and long-form improv productions\, including Playborhood\, Black Ice: An American Sitcom Improvised and Poe Unexpected: An Improvised Edgar Allan Poe. In 2008\, he created the Duo Improv Showcase\, Seattle’s only improv open mic\, providing a platform for improvisers to experiment and grow. \nJay’s dedication to his craft is reflected in his extensive training. He has studied with renowned U.S. and European coaches\, refining his expertise in physical improvisation\, mime\, and object work. Since 1998\, he has taught and coached improv\, earning recognition for his fearless and dynamic approach. His precise attention to object work and environment creation has set him apart as one of the most skilled improvisers in the field. \nJay Hitt’s passion for improvisation continues to inspire performers and audiences alike\, proving that the art of storytelling transcends words and that physical expression holds limitless potential on stage. \nNOTE: Please note that this class has a great deal of movement and action. Please dress accordingly and bring a bottle of water. \n“Physicality is a kind of language\, especially in improv. Jay’s class helped to remind me just how important\, nuanced and exciting it can be and gave me the ‘words’ to use and showed me how to ‘speak’ them with physicality. Jay as a teacher is like a clown’s never-ending scarf bit. I’m not sure how he keeps pulling more and more interesting stuff out of his pocket\, but there seems to be a never ending supply of it.”\n— James L.\, 9/18 \n“Jay reminded me that physicality is the foundation of performance and he gave me the tools to get there!”\n— Randal F. \nCancellation policy: We are unable to offer refunds.
+URL:https://www.unexpectedproductions.org/event/mime-and-improv-in-action-with-jay-hitt/
+LOCATION:Unexpected Productions Improv School ISSAQUAH/EASTSIDE\, 1315 NW Mall Street\, Suite 4\, Issaquah\, WA\, 98108\, United States
+ATTACH;FMTTYPE=image/jpeg:https://www.unexpectedproductions.org/wp-content/uploads/2026/04/Jay-Final.jpg
+GEO:47.5520122;-122.3251523
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Unexpected Productions Improv School ISSAQUAH/EASTSIDE 1315 NW Mall Street Suite 4 Issaquah WA 98108 United States;X-APPLE-RADIUS=500;X-TITLE=1315 NW Mall Street\, Suite 4:geo:-122.3251523,47.5520122
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260424T193000
+DTEND;TZID=America/Los_Angeles:20260424T204500
+DTSTAMP:20260408T201137
+CREATED:20260125T024426Z
+LAST-MODIFIED:20260125T024426Z
+UID:10011388-1777059000-1777063500@www.unexpectedproductions.org
+SUMMARY:Spellbound: An Improvised Romantasy
+DESCRIPTION:Epic fantasy meets heart-pounding romance in a one-night-only improvised saga.\n\n\n\nSpellbound is a bold\, fun\, fully improvised romantasy where epic fantasy and big feelings take center stage. Inspired by books like A Court of Thorns and Roses and Fourth Wing\, our improvisers build a brand-new magical world on the spot using your ideas. \nExpect dramatic romance\, dangerous magic\, surprising twists\, and characters who fall hard\, mess up spectacularly\, and make very questionable choices in the name of love. It is playful\, passionate\, audience-powered storytelling with high stakes and zero scripts. Every show is a fresh fantasy adventure that only happens once.
+URL:https://www.unexpectedproductions.org/event/spellbound-an-improvised-romantasy/2026-04-24/
+LOCATION:Unexpected Productions\, 1428 Post Alley at the Gum Wall in Pike Place Market\, Seattle\, WA\, 98101\, United States
 END:VEVENT
 END:VCALENDAR

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-08T03:03:14.339Z",
+  "lastUpdated": "2026-04-09T03:12:27.337Z",
   "rippers": [
     {
       "name": "19hz",
@@ -47,23 +47,6 @@
           "tags": [
             "Beer",
             "Ballard"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "belltown-community-council",
-      "description": "Belltown Community Council",
-      "friendlyLink": "https://belltown-cc.org/meetings/",
-      "calendars": [
-        {
-          "name": "all-events",
-          "friendlyName": "Belltown Community Council",
-          "icsUrl": "belltown-community-council-all-events.ics",
-          "rssUrl": "belltown-community-council-all-events.rss",
-          "tags": [
-            "Community",
-            "Belltown"
           ]
         }
       ]
@@ -227,23 +210,6 @@
           "icsUrl": "downtown-seattle-association-occidental-square.ics",
           "rssUrl": "downtown-seattle-association-occidental-square.rss",
           "tags": []
-        }
-      ]
-    },
-    {
-      "name": "eastlake-community-council",
-      "description": "Eastlake Community Council",
-      "friendlyLink": "https://www.eastlakeseattle.org/announcements-events",
-      "calendars": [
-        {
-          "name": "all-events",
-          "friendlyName": "Eastlake Community Council",
-          "icsUrl": "eastlake-community-council-all-events.ics",
-          "rssUrl": "eastlake-community-council-all-events.rss",
-          "tags": [
-            "Community",
-            "Eastlake"
-          ]
         }
       ]
     },
@@ -2772,6 +2738,18 @@
       "icsUrl": "external-town-hall-seattle.ics",
       "originalIcsUrl": "https://townhallseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list",
       "infoUrl": "https://townhallseattle.org/events/",
+      "tags": [
+        "Community",
+        "Arts"
+      ]
+    },
+    {
+      "name": "united-indians-daybreak-star",
+      "friendlyName": "United Indians / Daybreak Star",
+      "description": "Cultural center in Discovery Park - events include Seafair Indian Days Powwow, Native Art Market, and cultural celebrations",
+      "icsUrl": "external-united-indians-daybreak-star.ics",
+      "originalIcsUrl": "https://unitedindians.org/?post_type=tribe_events&ical=1",
+      "infoUrl": "https://unitedindians.org/events/",
       "tags": [
         "Community",
         "Arts"

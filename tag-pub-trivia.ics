@@ -6,132 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Pub Trivia Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:OqaA6UnhiX9fNdiC_bkRa
-SUMMARY:Trivia at Woodshop BBQ
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T183000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Woodshop BBQ
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:2513 E Cherry St\, Seattle\, WA 98122
-X-CALRIPPER-SOURCE:hitc-trivia-woodshop-bbq
-CATEGORIES:Trivia at Woodshop BBQ
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:x94K8Sq8Io3L755gKdqDl
-SUMMARY:Trivia at Old Stove Brewing Ship Canal
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T190000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Old Stove Brewing Ship C
-	anal
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:1429 12th Ave W\, Seattle\, WA 98119
-X-CALRIPPER-SOURCE:hitc-trivia-old-stove-ship-canal
-CATEGORIES:Trivia at Old Stove Brewing Ship Canal
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:X-180L5Dtn2v_r_uLs1e8
-SUMMARY:Trivia at Old Stove Brewing Gardens
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T190000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Old Stove Brewing Garden
-	s
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:5501 6th Ave NW\, Seattle\, WA 98107
-X-CALRIPPER-SOURCE:hitc-trivia-old-stove-gardens
-CATEGORIES:Trivia at Old Stove Brewing Gardens
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:n8fBl6ezFUghpMDZyl-27
-SUMMARY:Trivia at Reuben's Brews Ballard
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T190000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Reuben's Brews Ballard
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:5010 14th Ave NW\, Seattle\, WA 98107
-X-CALRIPPER-SOURCE:hitc-trivia-reubens-ballard
-CATEGORIES:Trivia at Reuben's Brews Ballard
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:dSdwMlUz-k_Ry11eZ7EAg
-SUMMARY:Trivia at Reuben's Brews Downtown
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T190000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Reuben's Brews Downtown
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:800 Occidental Ave S\, Seattle\, WA 98134
-X-CALRIPPER-SOURCE:hitc-trivia-reubens-downtown
-CATEGORIES:Trivia at Reuben's Brews Downtown
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:uYJFRcLy3LCSqYUzmfcs8
-SUMMARY:Trivia at Saint John's Bar & Eatery
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T193000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Saint John's Bar & Eater
-	y
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:719 E Pike St\, Seattle\, WA 98122
-X-CALRIPPER-SOURCE:hitc-trivia-saint-johns
-CATEGORIES:Trivia at Saint John's Bar & Eatery
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:fFBfKhv8K4IBrRF8rU2dQ
-SUMMARY:Trivia at Pub 70
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T193000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Pub 70
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:70 Virginia St\, Seattle\, WA 98101
-X-CALRIPPER-SOURCE:hitc-trivia-pub-70
-CATEGORIES:Trivia at Pub 70
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:msKfTb5z0XzXiBAqWMt-f
-SUMMARY:Trivia at Latona Pub
-DTSTAMP:20260408T030255Z
-DTSTART;TZID=America/Los_Angeles:20260408T200000
-DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
-	//www.headinthecloudstrivia.com\n\nFrom Trivia at Latona Pub
-URL:https://www.headinthecloudstrivia.com/
-LOCATION:6423 Latona Ave NE\, Seattle\, WA 98115
-X-CALRIPPER-SOURCE:hitc-trivia-latona-pub
-CATEGORIES:Trivia at Latona Pub
-TRANSP:TRANSPARENT
-RRULE:FREQ=WEEKLY;BYDAY=WE
-DURATION:PT2H
-END:VEVENT
-BEGIN:VEVENT
-UID:iR_ffhoIQxo4tisE3Uga5
+UID:yq5FoFKpeqOtdbmioNJyv
 SUMMARY:Trivia at Wheelie Pop Brewing
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260409T183000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Wheelie Pop Brewing
@@ -144,9 +21,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TH
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:sbjga6-m34zYbOpUnKZYr
+UID:SLZ1scyoPcLQw7UqDYtdE
 SUMMARY:Trivia at Ladd & Lass Brewing
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260409T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Ladd & Lass Brewing
@@ -159,9 +36,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TH
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:FPfvyVIGYWbo4524_rw-2
+UID:x_YSWoVC-3UqyKR0u6aRR
 SUMMARY:Trivia at Vera's Pizza
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260409T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Vera's Pizza
@@ -174,9 +51,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TH
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:fSRtMK9BwUQ51FaqsgM68
+UID:gmIoGHuofGZTEKZh8Zhor
 SUMMARY:Trivia at Hopvine Pub (Thursday)
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260409T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Hopvine Pub (Thursday)
@@ -189,9 +66,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TH
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZnCCUqcUUbRncj_kOrLiP
+UID:T4iM_3oizCC92D1_Qdbr5
 SUMMARY:Trivia at Oak
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Oak
@@ -204,9 +81,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:_QP9hPkUzcNG5DvFD0_j3
+UID:GL2xFH8NDBU2CapcaPfFo
 SUMMARY:Trivia at Project 9 Brewing Co
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Project 9 Brewing Co
@@ -219,9 +96,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:QnrfKzYoGANcTsOHE-x3R
+UID:xPafhnkZJQ-WPFRfl4pOK
 SUMMARY:Trivia at Great Notion Ballard
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Great Notion Ballard
@@ -234,9 +111,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:J28oNjaB96ryminER-xom
+UID:HLRsKvNTsxSqJmZonN022
 SUMMARY:Trivia at Stoup Brewing Capitol Hill
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Stoup Brewing Capitol Hi
@@ -250,9 +127,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:eK0te5ycdS5eBCfz8V391
+UID:HFf6i6aMm24FeeffdaP6A
 SUMMARY:Trivia at Stoup Brewing Ballard
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Stoup Brewing Ballard
@@ -265,9 +142,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:rkacf78m8V1LXcejLHbBk
+UID:cT8l9wOOTzM7fZhG3aqmz
 SUMMARY:Trivia at Here Today Brewery
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Here Today Brewery
@@ -280,9 +157,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:TfBwugCp99g05bBKOODBQ
+UID:Lo34ktGRKp62LSWmr2qGM
 SUMMARY:Trivia at Mermaid Lounge
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260413T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Mermaid Lounge
@@ -295,9 +172,9 @@ RRULE:FREQ=WEEKLY;BYDAY=MO
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:cE_7-_2Et12JiHozaCpxr
+UID:cZsyBpcQZa1q_CYyMKCbf
 SUMMARY:Trivia at Great Notion Georgetown
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T183000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Great Notion Georgetown
@@ -310,9 +187,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UHcjGY46xh5gLtuhICMfg
+UID:PkelSwzc4L8AF6mX11lPp
 SUMMARY:Trivia at Bizarre Brewing
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Bizarre Brewing
@@ -325,9 +202,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8_BJOW9Xrvqa_vWBkrZzO
+UID:cGhUGljLdiA8LxpkEvtIA
 SUMMARY:Trivia at College Inn Pub
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at College Inn Pub
@@ -340,9 +217,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:KMinyRX52bInV4Lpg2buT
+UID:pZOPiOCMjgEe1i9vsSgKc
 SUMMARY:Trivia at Fiddler's Inn
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Fiddler's Inn
@@ -355,9 +232,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:ciM2GoK7KE_XDp1ekaKNZ
+UID:mvOUsLKjhsvfcU_NvJFN0
 SUMMARY:Trivia at Figurehead Brewing Stone Way
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Figurehead Brewing Stone
@@ -371,9 +248,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:02z8RP_5f9vz1itszizza
+UID:p5X-RU_4WoVtTORHJEMX6
 SUMMARY:Trivia at Ravenna Brewing
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Ravenna Brewing
@@ -386,9 +263,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:UYC76embzPgsGkuPho3pg
+UID:1b8QOHHOmUL0EH9GZP6EW
 SUMMARY:Trivia at The Runaway
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T190000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at The Runaway
@@ -401,9 +278,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:5F6H_zVvJIUy0XaAEfCzW
+UID:8yI1mDj9DoKlqJCqxSJBH
 SUMMARY:Trivia at Hopvine Pub (Tuesday)
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Hopvine Pub (Tuesday)
@@ -416,9 +293,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:9j_IPu_XsdN0Fle9Yg_kB
+UID:el9yRk1Dk1aNiKAUBLDz3
 SUMMARY:Trivia at The Dray
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at The Dray
@@ -431,9 +308,9 @@ RRULE:FREQ=WEEKLY;BYDAY=TU
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:vRbaGMd4nS2C1S47YJO_j
+UID:K_yqSC92JW0nIK21UNRat
 SUMMARY:Trivia at Trailbend Taproom
-DTSTAMP:20260408T030255Z
+DTSTAMP:20260409T031205Z
 DTSTART;TZID=America/Los_Angeles:20260414T193000
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Trailbend Taproom
@@ -443,6 +320,129 @@ X-CALRIPPER-SOURCE:hitc-trivia-trailbend-taproom
 CATEGORIES:Trivia at Trailbend Taproom
 TRANSP:TRANSPARENT
 RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:Ujc_2UTy-uu1urP5mi649
+SUMMARY:Trivia at Woodshop BBQ
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T183000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Woodshop BBQ
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:2513 E Cherry St\, Seattle\, WA 98122
+X-CALRIPPER-SOURCE:hitc-trivia-woodshop-bbq
+CATEGORIES:Trivia at Woodshop BBQ
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:6PmzKhswbIlcr-u7iTDaW
+SUMMARY:Trivia at Old Stove Brewing Ship Canal
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Old Stove Brewing Ship C
+	anal
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:1429 12th Ave W\, Seattle\, WA 98119
+X-CALRIPPER-SOURCE:hitc-trivia-old-stove-ship-canal
+CATEGORIES:Trivia at Old Stove Brewing Ship Canal
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:twxE50A0ZoFhFAwnwGyID
+SUMMARY:Trivia at Old Stove Brewing Gardens
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Old Stove Brewing Garden
+	s
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:5501 6th Ave NW\, Seattle\, WA 98107
+X-CALRIPPER-SOURCE:hitc-trivia-old-stove-gardens
+CATEGORIES:Trivia at Old Stove Brewing Gardens
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:fkTHY1SpICohdTQMfK0h-
+SUMMARY:Trivia at Reuben's Brews Ballard
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Reuben's Brews Ballard
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:5010 14th Ave NW\, Seattle\, WA 98107
+X-CALRIPPER-SOURCE:hitc-trivia-reubens-ballard
+CATEGORIES:Trivia at Reuben's Brews Ballard
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:Wzxs1WpYD0avoCF8UA8PH
+SUMMARY:Trivia at Reuben's Brews Downtown
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Reuben's Brews Downtown
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:800 Occidental Ave S\, Seattle\, WA 98134
+X-CALRIPPER-SOURCE:hitc-trivia-reubens-downtown
+CATEGORIES:Trivia at Reuben's Brews Downtown
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:_UNCCyAKxGtrBcWncL9e0
+SUMMARY:Trivia at Saint John's Bar & Eatery
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Saint John's Bar & Eater
+	y
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:719 E Pike St\, Seattle\, WA 98122
+X-CALRIPPER-SOURCE:hitc-trivia-saint-johns
+CATEGORIES:Trivia at Saint John's Bar & Eatery
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:WBzQd9K3njO9iuapb9zEh
+SUMMARY:Trivia at Pub 70
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Pub 70
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:70 Virginia St\, Seattle\, WA 98101
+X-CALRIPPER-SOURCE:hitc-trivia-pub-70
+CATEGORIES:Trivia at Pub 70
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
+DURATION:PT2H
+END:VEVENT
+BEGIN:VEVENT
+UID:yCf724ZQZmGJzTgqTTVlo
+SUMMARY:Trivia at Latona Pub
+DTSTAMP:20260409T031205Z
+DTSTART;TZID=America/Los_Angeles:20260415T200000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com\n\nFrom Trivia at Latona Pub
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:6423 Latona Ave NE\, Seattle\, WA 98115
+X-CALRIPPER-SOURCE:hitc-trivia-latona-pub
+CATEGORIES:Trivia at Latona Pub
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 END:VCALENDAR

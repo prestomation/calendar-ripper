@@ -49,24 +49,9 @@ DTSTART:20271107T090000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260409T093000
-DTEND;TZID=America/Los_Angeles:20260409T103000
-DTSTAMP:20260408T201133
-CREATED:20220228T213914Z
-LAST-MODIFIED:20250114T170836Z
-UID:10000916-1775727000-1775730600@discovermagnolia.org
-SUMMARY:Meet Up Magnolia- virtual networking
-DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
-URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-04-09/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
-CATEGORIES:Networking
-ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
-ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
-END:VEVENT
-BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260411T100000
 DTEND;TZID=America/Los_Angeles:20260411T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000979-1775901600-1775923200@discovermagnolia.org
@@ -80,7 +65,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T120000
 DTEND;TZID=America/Los_Angeles:20260422T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260408T194848Z
 LAST-MODIFIED:20260408T194848Z
 UID:10001286-1776859200-1776873600@discovermagnolia.org
@@ -94,7 +79,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260422T183000
 DTEND;TZID=America/Los_Angeles:20260422T200000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260408T194848Z
 LAST-MODIFIED:20260408T194848Z
 UID:10001287-1776882600-1776888000@discovermagnolia.org
@@ -106,9 +91,23 @@ CATEGORIES:Grand Opening
 ATTACH;FMTTYPE=image/png:https://discovermagnolia.org/wp-content/uploads/2026/04/Barre3.png
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260423T180000
+DTEND;TZID=America/Los_Angeles:20260423T203000
+DTSTAMP:20260409T213850
+CREATED:20260409T152520Z
+LAST-MODIFIED:20260409T152520Z
+UID:10001288-1776967200-1776976200@discovermagnolia.org
+SUMMARY:7 Week Animal Sculpture
+DESCRIPTION:Explore creating animals through sculpture. Beginning with small maquettes\, we’ll study a variety of techniques for both wall pieces and free-standing sculptures. Bring your imagination; animal forms can be personal\, mythical or fanciful. \nYou will apply various hand-building techniques to form clay\, including: pinch\, slab\, coil building and carving. Students will also have the opportunity to build functional ware for their furry friends.
+URL:https://discovermagnolia.org/event/7-week-animal-sculpture/
+LOCATION:Gather Pottery\, 1465 Elliott Ave W\, Seattle\, 98119\, United States
+CATEGORIES:Art
+ATTACH;FMTTYPE=image/png:https://discovermagnolia.org/wp-content/uploads/2026/04/7-week-animal-sculpture-002.png
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260425T100000
 DTEND;TZID=America/Los_Angeles:20260425T130000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260320T143748Z
 LAST-MODIFIED:20260320T143748Z
 UID:10001282-1777111200-1777122000@discovermagnolia.org
@@ -123,7 +122,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260425T170000
 DTEND;TZID=America/Los_Angeles:20260425T210000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260401T215339Z
 LAST-MODIFIED:20260401T215339Z
 UID:10001284-1777136400-1777150800@discovermagnolia.org
@@ -138,7 +137,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260425T173000
 DTEND;TZID=America/Los_Angeles:20260425T203000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260228T141704Z
 LAST-MODIFIED:20260305T231525Z
 UID:10001273-1777138200-1777149000@discovermagnolia.org
@@ -153,7 +152,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260425T173000
 DTEND;TZID=America/Los_Angeles:20260425T203000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260324T193217Z
 LAST-MODIFIED:20260324T193217Z
 UID:10001283-1777138200-1777149000@discovermagnolia.org
@@ -167,7 +166,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260501
 DTEND;VALUE=DATE:20260502
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250124T173536Z
 LAST-MODIFIED:20250124T173536Z
 UID:10001040-1777593600-1777679999@discovermagnolia.org
@@ -181,7 +180,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260502T120000
 DTEND;TZID=America/Los_Angeles:20260502T170000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260318T161925Z
 LAST-MODIFIED:20260318T161925Z
 UID:10001278-1777723200-1777741200@discovermagnolia.org
@@ -195,7 +194,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260503T120000
 DTEND;TZID=America/Los_Angeles:20260503T170000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260318T161925Z
 LAST-MODIFIED:20260318T161925Z
 UID:10001279-1777809600-1777827600@discovermagnolia.org
@@ -209,7 +208,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260509T100000
 DTEND;TZID=America/Los_Angeles:20260509T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000980-1778320800-1778342400@discovermagnolia.org
@@ -223,22 +222,22 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260514T093000
 DTEND;TZID=America/Los_Angeles:20260514T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000917-1778751000-1778754600@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-05-14/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260606T120000
 DTEND;TZID=America/Los_Angeles:20260606T150000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260318T161925Z
 LAST-MODIFIED:20260318T161925Z
 UID:10001280-1780747200-1780758000@discovermagnolia.org
@@ -252,7 +251,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260607T110000
 DTEND;TZID=America/Los_Angeles:20260607T150000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260318T161925Z
 LAST-MODIFIED:20260318T161925Z
 UID:10001281-1780830000-1780844400@discovermagnolia.org
@@ -266,7 +265,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260609T083000
 DTEND;TZID=America/Los_Angeles:20260609T100000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260206T203032Z
 LAST-MODIFIED:20260206T203540Z
 UID:10001258-1780993800-1780999200@discovermagnolia.org
@@ -281,22 +280,22 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260611T093000
 DTEND;TZID=America/Los_Angeles:20260611T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000918-1781170200-1781173800@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-06-11/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260613T100000
 DTEND;TZID=America/Los_Angeles:20260613T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000981-1781344800-1781366400@discovermagnolia.org
@@ -310,22 +309,22 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260709T093000
 DTEND;TZID=America/Los_Angeles:20260709T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000919-1783589400-1783593000@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-07-09/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260711T100000
 DTEND;TZID=America/Los_Angeles:20260711T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000982-1783764000-1783785600@discovermagnolia.org
@@ -339,7 +338,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260722T160000
 DTEND;TZID=America/Los_Angeles:20260722T180000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260406T185216Z
 LAST-MODIFIED:20260406T212303Z
 UID:10001285-1784736000-1784743200@discovermagnolia.org
@@ -353,7 +352,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260808T100000
 DTEND;TZID=America/Los_Angeles:20260808T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000983-1786183200-1786204800@discovermagnolia.org
@@ -367,37 +366,37 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260813T093000
 DTEND;TZID=America/Los_Angeles:20260813T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000920-1786613400-1786617000@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-08-13/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260910T093000
 DTEND;TZID=America/Los_Angeles:20260910T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000921-1789032600-1789036200@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-09-10/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260912T100000
 DTEND;TZID=America/Los_Angeles:20260912T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000984-1789207200-1789228800@discovermagnolia.org
@@ -411,22 +410,22 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20261008T093000
 DTEND;TZID=America/Los_Angeles:20261008T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000922-1791451800-1791455400@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-10-08/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20261010T100000
 DTEND;TZID=America/Los_Angeles:20261010T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000985-1791626400-1791648000@discovermagnolia.org
@@ -440,7 +439,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20261020T083000
 DTEND;TZID=America/Los_Angeles:20261020T100000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20260206T203032Z
 LAST-MODIFIED:20260206T203540Z
 UID:10001259-1792485000-1792490400@discovermagnolia.org
@@ -455,22 +454,22 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20261112T093000
 DTEND;TZID=America/Los_Angeles:20261112T103000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20220228T213914Z
 LAST-MODIFIED:20250114T170836Z
 UID:10000923-1794475800-1794479400@discovermagnolia.org
 SUMMARY:Meet Up Magnolia- virtual networking
 DESCRIPTION:Our member businesses know the value of networking. Join us for our virtual networking event\, Meet Up Magnolia\, on the  2nd Thursday of every month. \nHow does this virtual networking work? You simply log on to the Zoom link and will be paired into one-on-one chats for 8 to 10 minutes each. We will repeat the process for approximately 3 or 4 rounds. You even have the option to follow up after the meeting and send a message to one or more of the people you meet to keep the dialogue going. \nSo many people to meet\, so many professional relationships to build. Join us HERE.
 URL:https://discovermagnolia.org/event/meet-up-magnolia-virtual-networking-2024-12-12/2026-11-12/
-LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 CATEGORIES:Networking
 ATTACH;FMTTYPE=image/jpeg:https://discovermagnolia.org/wp-content/uploads/2022/02/Meet-Up-Magnolia-scaled.jpg
 ORGANIZER;CN="Magnolia Chamber of Commerce":MAILTO:info@discovermagnolia.org
+LOCATION:https://us02web.zoom.us/j/85388228818?pwd=amdmUEMvcVo2YjhETkxkbGJCa1Q4Zz09
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20261114T100000
 DTEND;TZID=America/Los_Angeles:20261114T160000
-DTSTAMP:20260408T201133
+DTSTAMP:20260409T213850
 CREATED:20250303T175957Z
 LAST-MODIFIED:20250409T194212Z
 UID:10000986-1794650400-1794672000@discovermagnolia.org

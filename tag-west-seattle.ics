@@ -6,10 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:West Seattle Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:0YOASejs-87qbwlor8LSO
+UID:SmiZmfYV4kGap5IlPeazm
 SUMMARY:Preschool Story Time
-DTSTAMP:20260409T031201Z
-DTSTART;TZID=America/Los_Angeles:20260409T180000
+DTSTAMP:20260410T044130Z
+DTSTART;TZID=America/Los_Angeles:20260412T100000
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
 	endar?trumbaEmbed=view%3devent%26eventid%3d196017726\n\nFrom SPL - West Se
@@ -23,24 +23,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:MEHHk5k_T0csIg51y1dDf
-SUMMARY:West Seattle Art Walk
-DTSTAMP:20260409T031201Z
-DTSTART;TZID=America/Los_Angeles:20260412T100000
-DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
-	om West Seattle Art Walk
-URL:http://wsartwalk.com/
-LOCATION:West Seattle
-X-CALRIPPER-SOURCE:west-seattle-artwalk
-CATEGORIES:West Seattle Art Walk
-TRANSP:TRANSPARENT
-RRULE:FREQ=MONTHLY;BYDAY=2TH
-DURATION:PT4H
-END:VEVENT
-BEGIN:VEVENT
-UID:j5N3hl47rH3zTVF2dsk4b
+UID:OgDOMgnxqojrQ04BYfRil
 SUMMARY:Game On for Kids! National Board Game Day
-DTSTAMP:20260409T031201Z
+DTSTAMP:20260410T044130Z
 DTSTART;TZID=America/Los_Angeles:20260415T193000
 DESCRIPTION:Celebrate National Board Game Day! Join us and play a game or t
 	wo.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26event
@@ -54,10 +39,10 @@ TRANSP:TRANSPARENT
 DURATION:PT5H
 END:VEVENT
 BEGIN:VEVENT
-UID:ZJR-ilEgk5tvQmQ1qgvCN
+UID:8D04QSPYKnXpnEoGyTA9j
 SUMMARY:West Seattle Farmers Market
-DTSTAMP:20260409T031201Z
-DTSTART:20260412T170000Z
+DTSTAMP:20260410T044130Z
+DTSTART;TZID=America/Los_Angeles:20260514T180000
 DESCRIPTION:Year-round Sunday farmers market in the West Seattle Junction. 
 	Local produce\, artisan foods\, and community events.\n\nhttps://seattlefa
 	rmersmarkets.org/wsfm\n\nFrom West Seattle Farmers Market
@@ -70,9 +55,9 @@ RRULE:FREQ=WEEKLY;BYDAY=SU
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:_sXlLjmF-UkXDr8DhNE-u
+UID:dboZYSwTiyylKILjvbKke
 SUMMARY:Skylark Cafe — Wednesday Open Mic
-DTSTAMP:20260409T031201Z
+DTSTAMP:20260410T044130Z
 DTSTART:20260416T023000Z
 DESCRIPTION:Weekly open mic with full backline provided and 16-track record
 	ing available. Free sign-up.\n\nhttps://www.skylarkcafe.com/recurring-even
@@ -86,9 +71,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT3H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:-v9q2kxg1oSte5TBnyT1N
+UID:llXsSgiW8yOmzoGPEJ5St
 SUMMARY:Preschool Story Time
-DTSTAMP:20260409T031201Z
+DTSTAMP:20260410T044130Z
 DTSTART:20260416T173000Z
 DESCRIPTION:At storytime\, kids ages 3-5 and their families can enjoy stori
 	es\, songs\, and fun learning activities.\n\nhttps://www.spl.org/event-cal
@@ -103,9 +88,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H15M
 END:VEVENT
 BEGIN:VEVENT
-UID:MVlzh3QmQj-x5T9x4IXYA
+UID:iFezgYtcY1zTf4jOvr6Xu
 SUMMARY:Swinson\, The Rolling Thunder\, Will Rainier &amp\; the Pines
-DTSTAMP:20260409T031201Z
+DTSTAMP:20260410T044130Z
 DTSTART:20260502T030000Z
 DESCRIPTION:https://seattle.showlists.net\n\nFrom Skylark
 URL:https://seattle.showlists.net/
@@ -114,5 +99,20 @@ X-CALRIPPER-SOURCE:skylark
 CATEGORIES:Skylark
 TRANSP:TRANSPARENT
 DURATION:PT3H
+END:VEVENT
+BEGIN:VEVENT
+UID:U_j1gf6D6S9kx7yRspn20
+SUMMARY:West Seattle Art Walk
+DTSTAMP:20260410T044130Z
+DTSTART:20260515T010000Z
+DESCRIPTION:Monthly art walk in West Seattle\n\nhttp://wsartwalk.com/\n\nFr
+	om West Seattle Art Walk
+URL:http://wsartwalk.com/
+LOCATION:West Seattle
+X-CALRIPPER-SOURCE:west-seattle-artwalk
+CATEGORIES:West Seattle Art Walk
+TRANSP:TRANSPARENT
+RRULE:FREQ=MONTHLY;BYDAY=2TH
+DURATION:PT4H
 END:VEVENT
 END:VCALENDAR

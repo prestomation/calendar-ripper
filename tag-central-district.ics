@@ -6,58 +6,10 @@ METHOD:PUBLISH
 X-WR-CALNAME:Central District Events
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:pFjP4pCu3qg7cEmWbWS7d
-SUMMARY:Firefighter Story Time
-DTSTAMP:20260409T031200Z
-DTSTART;TZID=America/Los_Angeles:20260411T180000
-DESCRIPTION:At storytime\, kids ages 0-5 and their families can enjoy stori
-	es\, songs\, and fun learning activities. \n\nhttps://www.spl.org/event-ca
-	lendar?trumbaEmbed=view%3devent%26eventid%3d198228821\n\nFrom SPL - Dougla
-	ss-Truth Branch
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d198228821
-LOCATION:Douglass-Truth Branch\, Meeting Room
-X-CALRIPPER-SOURCE:douglass-truth
-CATEGORIES:SPL - Douglass-Truth Branch
-TRANSP:TRANSPARENT
-DURATION:PT30M
-END:VEVENT
-BEGIN:VEVENT
-UID:oIGE9-kMtnoTeZu9rsKJu
-SUMMARY:Teen Zone!
-DTSTAMP:20260409T031200Z
-DTSTART;TZID=America/Los_Angeles:20260415T183000
-DESCRIPTION:Teens! Drop in for Teen Zone! a rotating series of activities a
-	nd fun.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26e
-	ventid%3d197033945\n\nFrom SPL - Douglass-Truth Branch
-URL:https://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3
-	d197033945
-LOCATION:Douglass-Truth Branch\, Meeting Room
-X-CALRIPPER-SOURCE:douglass-truth
-CATEGORIES:SPL - Douglass-Truth Branch
-TRANSP:TRANSPARENT
-DURATION:PT1H30M
-END:VEVENT
-BEGIN:VEVENT
-UID:qAd68LhSy3agUTd_4eLzF
-SUMMARY:Freedom Day - Civil Rights Act of 1866
-DTSTAMP:20260409T031200Z
-DTSTART;TZID=America/Los_Angeles:20260501T180000
-DESCRIPTION:https://www.naamnw.org/events/freedom-day-april-9th-2026\n\nFro
-	m Northwest African American Museum
-URL:https://www.naamnw.org/events/freedom-day-april-9th-2026
-LOCATION:Northwest African American Museum\, 2300 South Massachusetts Stree
-	t\, Seattle\, WA\, 98144
-X-CALRIPPER-SOURCE:all-events
-CATEGORIES:Northwest African American Museum
-TRANSP:TRANSPARENT
-DURATION:PT7H
-END:VEVENT
-BEGIN:VEVENT
-UID:qqY2yYnUToNzdBBFRl-Rz
+UID:kfLYmX-Eea5QPaAVp3cAo
 SUMMARY:Homework Help
-DTSTAMP:20260409T031200Z
-DTSTART:20260409T233000Z
+DTSTAMP:20260410T044129Z
+DTSTART;TZID=America/Los_Angeles:20260411T180000
 DESCRIPTION:Homework Help volunteers will be at this branch to assist K-12 
 	students with school assignments during the school year. \n\nhttps://www.s
 	pl.org/event-calendar?trumbaEmbed=view%3devent%26eventid%3d195835292\n\nFr
@@ -71,10 +23,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:-fJnRGd0K1Y2QVG5AjkcT
+UID:ZWgznGWy7_4Q38_x8ntRq
 SUMMARY:Free Tax Help
-DTSTAMP:20260409T031200Z
-DTSTART:20260411T190000Z
+DTSTAMP:20260410T044129Z
+DTSTART;TZID=America/Los_Angeles:20260415T183000
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
 	bed=view%3devent%26eventid%3d192307475\n\nFrom SPL - Douglass-Truth Branch
@@ -87,10 +39,10 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:SXQRK5VYReNgBVCLES-C9
+UID:SBh2T6RVLeACAucgsR7YG
 SUMMARY:Central District Art Walk (Second Saturday)
-DTSTAMP:20260409T031200Z
-DTSTART:20260412T010000Z
+DTSTAMP:20260410T044129Z
+DTSTART;TZID=America/Los_Angeles:20260501T180000
 DESCRIPTION:Monthly art walk in the Central District on second Saturdays\n\
 	nhttps://www.facebook.com/centraldistrictartwalk\n\nFrom Central District 
 	Art Walk (Second Saturday)
@@ -103,9 +55,9 @@ RRULE:FREQ=MONTHLY;BYDAY=2SA
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:YhXKAVUVtUDJPkpiTIQn3
+UID:DQsBG12J5omFDv7AHn-BH
 SUMMARY:Free Tax Help
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260413T190000Z
 DESCRIPTION:Trained volunteers will be available to answer questions and pr
 	epare personal tax returns.\n\nhttps://www.spl.org/event-calendar?trumbaEm
@@ -119,9 +71,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:vTzmIoZ0DryzXJP9OFHk-
+UID:x5Q9Q3CGvjrBmVP3gYpCm
 SUMMARY:Office Hours with Department of Neighborhoods
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260414T220000Z
 DESCRIPTION:The City of Seattle’s Department of Neighborhoods will be holdi
 	ng office hours as part of their ‘Meeting Community Where They Are At’ Ini
@@ -136,9 +88,9 @@ TRANSP:TRANSPARENT
 DURATION:PT3H
 END:VEVENT
 BEGIN:VEVENT
-UID:sJMhqesDlmwt56Bm-kEfj
+UID:rhHwrg8HDiCuJxFiP5qp4
 SUMMARY:Teen Zone!
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260415T230000Z
 DESCRIPTION:Teens! Drop in for Teen Zone! a rotating series of activities a
 	nd fun.\n\nhttps://www.spl.org/event-calendar?trumbaEmbed=view%3devent%26e
@@ -152,9 +104,9 @@ TRANSP:TRANSPARENT
 DURATION:PT1H30M
 END:VEVENT
 BEGIN:VEVENT
-UID:5ZPcX9VYM-DPYA8AY6gUA
+UID:YUekWKwGE8kPdTeJYgcmS
 SUMMARY:Trivia at Woodshop BBQ
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260416T013000Z
 DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
 	//www.headinthecloudstrivia.com\n\nFrom Trivia at Woodshop BBQ
@@ -167,9 +119,9 @@ RRULE:FREQ=WEEKLY;BYDAY=WE
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:8GN55FRCb4OvgXVN8uR-H
+UID:oFRZ0lv6duVz1glJw1fEF
 SUMMARY:Mandala Workshop with Maya Milton
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260416T230000Z
 DESCRIPTION:https://www.naamnw.org/events/mandala-workshop-with-maya-milton
 	\n\nFrom Northwest African American Museum
@@ -182,10 +134,10 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:QRRWyQxg_7xJfnkS6NJVI
+UID:EggkpB0vYzfSpa3s8Ri2-
 SUMMARY:Every Month is Black History Month - A Community Health & Resource 
 	Fair 
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260418T170000Z
 DESCRIPTION:https://www.naamnw.org/events/every-month-is-black-history-mont
 	h-a-community-health-resource-fair\n\nFrom Northwest African American Muse
@@ -200,9 +152,9 @@ TRANSP:TRANSPARENT
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:iK-u3QJJ3mlgjw7ADz9Wj
+UID:irqkjvT8xH2FaBRAF0Gv-
 SUMMARY:Bloodworks NW Blood Drive
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260423T170000Z
 DESCRIPTION:https://www.naamnw.org/events/zyhmmr0rx16w3egejaogr5ybrrhi5u\n\
 	nFrom Northwest African American Museum
@@ -215,9 +167,9 @@ TRANSP:TRANSPARENT
 DURATION:PT6H
 END:VEVENT
 BEGIN:VEVENT
-UID:H4Pl9ejKsj5M65dk-kAtj
+UID:MS6K5TBPCrxAT_KQyP8C1
 SUMMARY:The Power of the River 
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260430T020000Z
 DESCRIPTION:https://www.naamnw.org/events/the-power-of-the-river\n\nFrom No
 	rthwest African American Museum
@@ -230,9 +182,9 @@ TRANSP:TRANSPARENT
 DURATION:PT2H
 END:VEVENT
 BEGIN:VEVENT
-UID:aJ5X7YDE7g1Cib39uCvJI
+UID:pRkWKG7Sx3-ncBHg9zrNT
 SUMMARY:Central District Art Walk (First Friday)
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260502T010000Z
 DESCRIPTION:Monthly art walk in the Central District on first Fridays\n\nht
 	tps://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty\n\nF
@@ -246,9 +198,9 @@ RRULE:FREQ=MONTHLY;BYDAY=1FR
 DURATION:PT4H
 END:VEVENT
 BEGIN:VEVENT
-UID:-QPFf_7ZoDaEu8AVeRLTx
+UID:MAeIIUGHytYZ_yV7MlIrP
 SUMMARY:Cribbage Club
-DTSTAMP:20260409T031200Z
+DTSTAMP:20260410T044129Z
 DTSTART:20260507T190000Z
 DESCRIPTION:On the 1st & 3rd Thursday of each month there is Cribbage Club\
 	n\nFrom Chuck's Hop Shop - Central District

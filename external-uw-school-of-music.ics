@@ -23,62 +23,6 @@ RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
 END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
-SUMMARY:Guest Artist Concert: Seattle Modern Orchestra\, &quot\;Entangle
- d Sounds&quot\;
-LOCATION:Meany Hall (MNY)
-DTSTART;TZID=America/Los_Angeles:20260408T193000
-DTEND;TZID=America/Los_Angeles:20260408T193000
-X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
-URL:https://music.washington.edu/events/2026-04-08/guest-artist-concert-
- seattle-modern-orchestra-entangled-sounds
-X-TRUMBA-CUSTOMFIELD;NAME="Event Type";ID=21;TYPE=number:Generic UW Even
- t
-X-TRUMBA-CUSTOMFIELD;NAME="Event interval";ID=30051;TYPE=CustomAsset:Sin
- gle day event
-X-TRUMBA-CUSTOMFIELD;NAME="Campus location";ID=30032;TYPE=CustomAsset:Me
- any Hall (MNY)
-X-TRUMBA-CUSTOMFIELD;NAME="Accessibility Contact";ID=62969;TYPE=SingleLi
- ne:To request disability accommodation contact the Disability Services O
- ffice at least ten days in advance at: (206) 543-6450/V\, (206) 543-6452
- /TTY\, (206) 685-7264 (FAX)\, or <a href="mailto:dso@u.washington.edu" t
- arget="_blank" rel="noopener">dso@u.washington.edu</a>.
-X-TRUMBA-CUSTOMFIELD;NAME="Event Types";ID=30073;TYPE=CustomAsset:Perfor
- mances
-X-TRUMBA-CUSTOMFIELD;NAME="Event image";ID=40;TYPE=Image:<a href="https:
- //www.trumba.com/i/DgAq7rJ1iWMEoDmRtjjiQSoQ.jpg" target="_blank" rel="no
- opener" title="https://www.trumba.com/i/DgAq7rJ1iWMEoDmRtjjiQSoQ.jpg">ww
- w.trumba.com&#8230\;</a>
-X-TRUMBA-CUSTOMFIELD;NAME="Event sponsors";ID=30383;TYPE=MultiLine:Unive
- rsity of Washington School of Music\; www.music.washington.edu\; ArtsUW 
- Ticket Office: 206. 543.4880.
-X-TRUMBA-CUSTOMFIELD;NAME="Facebook";ID=30202;TYPE=Url:<a href="http://w
- ww.facebook.com/UWMusic" target="_blank" rel="noopener" title="http://ww
- w.facebook.com/UWMusic">www.facebook.com&#8230\;</a>
-DTSTAMP:20250822T143853Z
-DESCRIPTION:Event interval: Single day event<br>Campus location: Meany H
- all (MNY)<br>Accessibility Contact: To request disability accommodation 
- contact the Disability Services Office at least ten days in advance at: 
- (206) 543-6450/V\, (206) 543-6452/TTY\, (206) 685-7264 (FAX)\, or dso@u.
- washington.edu.<br>Event Types: Performances<br>Event sponsors: Universi
- ty of Washington School of Music\; www.music.washington.edu\; ArtsUW Tic
- ket Office: 206. 543.4880.<br>Facebook: http://www.facebook.com/UWMusic<
- br>Link: https://music.washington.edu/events/2026-04-08/guest-artist-con
- cert-seattle-modern-orchestra-entangled-sounds<br><br>Seattle&#8217\;s c
- ontemporary music orchestra performs&#160\;Gy&#246\;rgy Ligeti&#39\;s pi
- ano concerto\, featuring faculty pianist and SMO member Cristina Vald&#2
- 33\;s\, alongside new works for sinfonietta by graduate student composer
- s and faculty members\, including Seattle newcomer and recently appointe
- d UW composition professor William Dougherty.&#160\;SMO is joined onstag
- e by select graduate-student members of the UW Modern Music Ensemble in 
- this large-ensemble format.<br><br>Tickets: $20 general\; $15 UW affilia
- te\; $10 students/seniors)
-CATEGORIES:School of Music
-IMAGE;VALUE=URI:https://www.trumba.com/i/DgAq7rJ1iWMEoDmRtjjiQSoQ.jpg
-UID:http://uid.trumba.com/event/189085156
-X-TRUMBA-LINK:https://calendar.washington.edu/sea_music?trumbaEmbed=view
- %3devent%26eventid%3d189085156
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:Guest Pianist Master Class: Spencer Myer
 LOCATION:Music Building (MUS)
 DTSTART;TZID=America/Los_Angeles:20260413T163000

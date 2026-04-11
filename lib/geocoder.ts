@@ -21,23 +21,60 @@ export interface GeoCache {
 }
 
 /**
+ * Check if a location string represents a vague/unresolvable location
+ * like "Offsite" or "TBA" that should not be sent to Nominatim.
+ */
+export function isVagueLocation(location: string): boolean {
+  const lower = location.toLowerCase().trim();
+  // Match vague location patterns that won't geocode meaningfully
+  const vaguePatterns = [
+    /^offsite\b/i,             // "Offsite, Bellevue, WA" etc
+    /^tba\b/i,                 // "TBA", "TBA - location TBD"
+    /^tbd\b/i,                 // "TBD"
+    /^various locations?\b/i,   // "Various locations"
+    /^multiple locations?\b/i, // "Multiple locations"
+    /^to be announced\b/i,      // "To be announced"
+    /^to be determined\b/i,    // "To be determined"
+    /^coming soon\b/i,         // "Coming soon"
+    /^check back\b/i,          // "Check back for location"
+    /^zoom\b/i,                // Zoom meetings
+    /^virtual\b/i,             // Virtual events
+    /^online\b/i,              // Online events
+    /^webinar\b/i,             // Webinars
+  ];
+  return vaguePatterns.some(pattern => pattern.test(lower));
+}
+
+/**
  * Normalize a raw location string from an ICS feed or scraper:
  * 1. Unescape ICS-escaped commas (\\, → ,)
  * 2. Strip HTML tags
  * 3. Split on <br>, newlines, or semicolons and take only the first segment
+ *    OR intelligently extract address from HTML-bridge format (venue<br>address)
  * 4. Collapse internal whitespace and trim
  */
 export function normalizeLocation(location: string): string {
   // Step 1: Unescape ICS-escaped commas (\\, → ,)
   let normalized = location.replace(/\\,/g, ',');
 
-  // Step 2: Split on <br> variants and newlines BEFORE stripping tags,
-  // so we can grab the first meaningful line.
-  // Also split on semicolons (ICS uses ; as multi-value separator).
-  const firstSegment = normalized.split(/<br\s*\/?>/i)[0];
+  // Step 2: Check for HTML <br> format with venue on first line and address on second
+  // e.g. "A Resting Place<br>670 S. King St.<br>Seattle, WA 98104"
+  // We want to extract the address line (starts with a digit)
+  const brSegments = normalized.split(/<br\s*\/?>/i);
+  if (brSegments.length >= 2) {
+    // Look for a segment that starts with a digit (likely an address)
+    const addressSegment = brSegments.find(seg => /^\s*\d/.test(seg));
+    if (addressSegment) {
+      // Use the address segment (strip any trailing <br> content)
+      normalized = addressSegment.split(/<br\s*\/?>/i)[0];
+    } else {
+      // No address found, fall back to first segment
+      normalized = brSegments[0];
+    }
+  }
 
   // Step 3: Strip all remaining HTML tags (closed tags like <a href="...">)
-  const stripped = firstSegment.replace(/<[^>]*>/g, '');
+  const stripped = normalized.replace(/<[^>]*>/g, '');
 
   // Step 3b: Strip unclosed/malformed HTML tags (e.g. truncated "<a href=..." without closing >)
   const noUnclosedTags = stripped.replace(/<[^>]*$/, '').trim();
@@ -84,10 +121,21 @@ export function extractAddressFromVenuePrefix(location: string): string | null {
  * If the location string is a Google Maps search URL of the form:
  *   https://www.google.com/maps/search/?api=1&query=<url-encoded-address>
  * extract and return the decoded query parameter as the location string.
+ * Also handles Google Maps short URLs (maps.app.goo.gl) by attempting to resolve them.
  * Returns null if not a Google Maps search URL.
  */
-export function extractFromGoogleMapsUrl(location: string): string | null {
+export async function extractFromGoogleMapsUrl(location: string): Promise<string | null> {
   const trimmed = location.trim();
+  
+  // Handle Google Maps short URLs (maps.app.goo.gl)
+  // These URLs redirect to the actual Google Maps URL
+  const shortUrlMatch = trimmed.match(/^https?:\/\/maps\.app\.goo\.gl\/\S+/i);
+  if (shortUrlMatch) {
+    // Short URLs can't be resolved synchronously - return null
+    // The geocoder will mark these as unresolvable
+    return null;
+  }
+  
   // Match Google Maps search URLs
   const match = trimmed.match(/^https?:\/\/(?:www\.)?google\.com\/maps\/search\/\?/i);
   if (!match) return null;
@@ -411,6 +459,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'cap hill (rsvp for details)': { lat: 47.6253, lng: -122.3222 },
   'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
   'centennial park, 1130 208th street southeast, bothell, wa': { lat: 47.7610, lng: -122.2218 },
+  'husky softball stadium': { lat: 47.6555, lng: -122.3009 },
+  'husky softball stadium, university of washington': { lat: 47.6555, lng: -122.3009 },
 };
 
 /**
@@ -599,6 +649,7 @@ export interface ResolveEventCoordsResult {
  * the returned cache and persisting it to disk.
  *
  * Resolution order:
+ * 0. Check for vague locations (TBA, Offsite, etc.) - mark as unresolvable
  * 1. Google Maps URL extraction (before normalization)
  * 2. normalizeLocation()
  * 3. Cache lookup
@@ -619,8 +670,30 @@ export async function resolveEventCoords(
     return { coords: null, geocodeSource: 'none', cache };
   }
 
+  // Step 0: Check for vague/unresolvable locations (Offsite, TBA, etc.)
+  if (isVagueLocation(location)) {
+    const key = normalizeLocationKey(location);
+    const newEntry: GeoCacheEntry = {
+      unresolvable: true,
+      geocodedAt: new Date().toISOString().slice(0, 10),
+      source: 'nominatim',
+      firstSeen: new Date().toISOString().slice(0, 10),
+    };
+    const updatedCache: GeoCache = {
+      ...cache,
+      entries: { ...cache.entries, [key]: newEntry },
+    };
+    const error: GeocodeError = {
+      type: 'GeocodeError',
+      location,
+      source: sourceName,
+      reason: 'Vague/unresolvable location',
+    };
+    return { coords: null, geocodeSource: 'none', error, cache: updatedCache };
+  }
+
   // Step 1: Google Maps URL extraction — do this BEFORE normalization
-  const googleMapsExtracted = extractFromGoogleMapsUrl(location);
+  const googleMapsExtracted = await extractFromGoogleMapsUrl(location);
   const rawLocation = googleMapsExtracted ?? location;
 
   // Step 2: Normalize the raw location string before any cache lookup or geocoding.

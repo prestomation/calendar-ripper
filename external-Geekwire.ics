@@ -25,54 +25,9 @@ DTSTART:20261101T090000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260409T200000
-DTEND;TZID=America/Los_Angeles:20260409T220000
-DTSTAMP:20260409T214106
-CREATED:20260402T183004Z
-LAST-MODIFIED:20260402T183004Z
-UID:10003275-1775764800-1775772000@www.geekwire.com
-SUMMARY:Cocktail\, Collaborate\, & Crank!
-DESCRIPTION:Night owls! \n​Show up. Grab a cocktail. Open your laptop. Crank. \n​This is for founders\, solopreneurs\, freelancers\, professionals\, or anyone looking to get out of the house and focus on getting stuff done alongside people who’ll lift each other up and hold each other accountable. \n​If the moment moves you\, connect\, swap wins\, and maybe find your next collaborator. \n​​Our venue partners let us use their space for free — so we ask that you show some love and buy a cocktail\, an app\, something. Support local\, fuel yourself. Win-win. \n​​Ready\, set\, let’s build! \n​​Adam & Ryan\n​\n​PS. Locations rotate across North King County & South Snohomish County. Subscribe to our Luma page to know where we’ll be next!
-URL:https://www.geekwire.com/calendar-event/cocktail-collaborate-crank/
-LOCATION:McMenamins Anderson School\, 18607 Bothell Way NE\, Bothell\, WA\, 98011\, United States
-CATEGORIES:Meetups
-ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/04/Coffee-Collaborate-Crank-Luma-5.png
-ORGANIZER;CN="North Sound Innovators":MAILTO:adam.peddicord@csbydesign.com
-GEO:47.7630019;-122.2086416
-X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=McMenamins Anderson School 18607 Bothell Way NE Bothell WA 98011 United States;X-APPLE-RADIUS=500;X-TITLE=18607 Bothell Way NE:geo:-122.2086416,47.7630019
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260410T090000
-DTEND;TZID=America/Los_Angeles:20260410T100000
-DTSTAMP:20260409T214106
-CREATED:20260324T174347Z
-LAST-MODIFIED:20260324T174347Z
-UID:10003262-1775811600-1775815200@www.geekwire.com
-SUMMARY:Eastside Marketing Morning Brew Meetup
-DESCRIPTION:The business landscape is changing and many marketers are doing their best to keep up. \nNew tools. New algorithms. New ideas. And the best way to keep up isn’t by competing over who’s doing the best. It’s by learning together. \nWhen someone shares what worked for them and what didn’t\, everyone benefits. That’s the power of showing up honestly. \nIf you want genuine conversations\, come join us at our upcoming Eastside Marketing Morning Brew Meetup.
-URL:https://www.geekwire.com/calendar-event/eastside-marketing-morning-brew-meetup-2/
-LOCATION:Beyondsoft Consulting Inc.\, 2010 156th Ave NE\, Bellevue\, 98007\, United States
-CATEGORIES:Brand Marketing
-ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/03/Eastside-Marketing-Morning-Brew-Meetup-April-2026.jpeg
-ORGANIZER;CN="Beyondsoft Consulting Inc":MAILTO:marketing@us.beyondsoft.com
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260410T113000
-DTEND;TZID=America/Los_Angeles:20260410T130000
-DTSTAMP:20260409T214106
-CREATED:20251024T200341Z
-LAST-MODIFIED:20251024T200341Z
-UID:10003060-1775820600-1775826000@www.geekwire.com
-SUMMARY:Discovery Series\, Dr. Bruce Maxwell\, Teaching Professor & Director of Computing Programs\, Northeastern University Seattle
-DESCRIPTION:What if the way we prepare images for computers is getting in the way of understanding them?\nMost digital images are designed to look good to human eyes. But what’s best for people isn’t always best for machines. Bruce Maxwell\, teaching professor at Northeastern University’s Seattle campus\, explores how rethinking image formats—especially how brightness and color are represented—can unlock new capabilities in computer vision. \n​Inspired by how the human eye processes light\, Maxwell’s research shows that using alternative formats can make AI models more stable under changing lighting\, reveal hidden patterns\, and improve performance across tasks like object recognition and image generation. His experiments suggest that small changes in how we feed images to machines can lead to big improvements in how they interpret the world. \n​This talk invites us to look beneath the surface of everyday images—and discover how seeing differently might help machines see better. \n​About the Discovery Series: designed to bring together the state’s preeminent researchers\, innovative leaders\, and elected officials who want to stay on top of important advancements being made in our state\, each Discovery Series program includes lunch\, networking time\, a Q&A session\, and an opportunity to meet the speaker.
-URL:https://www.geekwire.com/calendar-event/discovery-series-dr-bruce-maxwell-teaching-professor-director-of-computing-programs-northeastern-university-seattle/
-LOCATION:McKinsey & Company\, 1420 5th Avenue\, Suite 4300\, Seattle\, 98101\, United States
-ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2025/10/discoveryseries_drbrucemaxwell.jpg
-END:VEVENT
-BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260413
 DTEND;VALUE=DATE:20260415
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260224T175403Z
 LAST-MODIFIED:20260224T175403Z
 UID:10003219-1776038400-1776211199@www.geekwire.com
@@ -85,7 +40,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260413T100000
 DTEND;TZID=America/Los_Angeles:20260413T150000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260305T184218Z
 LAST-MODIFIED:20260305T184218Z
 UID:10003241-1776074400-1776092400@www.geekwire.com
@@ -99,20 +54,20 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T090000
 DTEND;TZID=America/Los_Angeles:20260414T150000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260224T205544Z
 LAST-MODIFIED:20260224T205544Z
 UID:10003220-1776157200-1776178800@www.geekwire.com
 SUMMARY:NQN Northwest Quantum Day
 DESCRIPTION:​Date: April 14. Doors open 8am\, Sessions from 9-3pm \n​Target Audience: policy makers and staff\, investors\, academia\, emerging technologists\, and the quantum curious. \n​Agenda: \n​9:00 to 9:15 Welcome \n​9:15 to 9:45 Keynote: Quantum in the Northwest \n​9:45 to 10:30 Panel: Government’s role in Quantum Economic Development \n​10:30 to 10:45 BREAK \n​10:45 to 11:45 Panel: Quantum in Industry: A look inside the Enterprise \n​11:45 to 12:15 Presentation: The Mission of Northwest Quantum Nexus \n​12:15 to 1:00 LUNCH \n​1:00 to1:45 Panel: Quantum Technology: The investable business model \n​1:45 to 2:00 Panel: Building a Quantum Workforce for the Northwest \n​2:00 to 3:00 Fireside chat: Special guest speaker \n​3:00 to 5:00 NETWORKING
 URL:https://www.geekwire.com/calendar-event/nqn-northwest-quantum-day/
-LOCATION:CA
+LOCATION:WA
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-125437.png
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T120000
 DTEND;TZID=America/Los_Angeles:20260414T130000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260305T184226Z
 LAST-MODIFIED:20260305T184226Z
 UID:10003240-1776168000-1776171600@www.geekwire.com
@@ -127,7 +82,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260414T173000
 DTEND;TZID=America/Los_Angeles:20260414T200000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260331T180457Z
 LAST-MODIFIED:20260331T180457Z
 UID:10003268-1776187800-1776196800@www.geekwire.com
@@ -143,7 +98,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260418T100000
 DTEND;TZID=America/Los_Angeles:20260418T160000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260218T173229Z
 LAST-MODIFIED:20260218T173229Z
 UID:10003204-1776506400-1776528000@www.geekwire.com
@@ -158,7 +113,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260421T110000
 DTEND;TZID=America/Los_Angeles:20260421T123000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T192519Z
 LAST-MODIFIED:20260409T192519Z
 UID:10003285-1776769200-1776774600@www.geekwire.com
@@ -173,9 +128,24 @@ GEO:47.6343747;-122.3397152
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Thinkspace – Seattle 1700 Westlake Ave N Suite 200 Seattle WA 98019 United States;X-APPLE-RADIUS=500;X-TITLE=1700 Westlake Ave N Suite 200:geo:-122.3397152,47.6343747
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260422T173000
+DTEND;TZID=America/Los_Angeles:20260422T193000
+DTSTAMP:20260410T210819
+CREATED:20260410T201905Z
+LAST-MODIFIED:20260410T201905Z
+UID:10003299-1776879000-1776886200@www.geekwire.com
+SUMMARY:Rooted & Rising: Powering Climate Tech for the Next Generation
+DESCRIPTION:The Collective Seattle — Alpenglow Room\n​Join VertueLab this Earth Day for an evening with curious minds\, bold builders\, and community champions\, exploring what becomes possible when climate innovation meets collective action. What must we build today to ensure the next generation inherits a thriving climate innovation ecosystem? \n​This interactive and engaging gathering brings together civic\, academic\, philanthropic\, and business leaders to reimagine the future we are creating in the Pacific Northwest. Through inspiring stories from climate tech founders and cross-generational conversations together\, we will explore how the region can become a national leader in climate technology and build an equitable climate future that will benefit generations to come. The best conversations happen across generations: if you’re older than 30\, consider bringing a guest who’s younger than thirty\, and vice versa! \n​In the spirit of Earth Day and climate stewardship\, we encourage guests to use public transportation\, bike\, or walk when possible. The venue is easily accessible by multiple bus routes and light rail connections. \n​Thank you to our event sponsors: Beneficial State Bank\, Kern and Thompson\, Community Energy Labs\, and TrainSnap Inc.
+URL:https://www.geekwire.com/calendar-event/rooted-rising-powering-climate-tech-for-the-next-generation/
+LOCATION:The Collective\, 400 Dexter Ave N\, Seattle\, WA\, 98109\, United States
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/04/Screenshot-2026-04-10-131725.png
+GEO:47.6221728;-122.3419734
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=The Collective 400 Dexter Ave N Seattle WA 98109 United States;X-APPLE-RADIUS=500;X-TITLE=400 Dexter Ave N:geo:-122.3419734,47.6221728
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260423T180000
 DTEND;TZID=America/Los_Angeles:20260423T200000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260402T183012Z
 LAST-MODIFIED:20260403T195519Z
 UID:10003274-1776967200-1776974400@www.geekwire.com
@@ -190,7 +160,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260424T193000
 DTEND;TZID=America/Los_Angeles:20260424T213000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260312T203517Z
 LAST-MODIFIED:20260312T203517Z
 UID:10003245-1777059000-1777066200@www.geekwire.com
@@ -207,7 +177,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260425T120000
 DTEND;TZID=America/Los_Angeles:20260425T150000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260403T232821Z
 LAST-MODIFIED:20260403T232821Z
 UID:10003277-1777118400-1777129200@www.geekwire.com
@@ -221,7 +191,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260427T170000
 DTEND;TZID=America/Los_Angeles:20260427T190000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260402T183020Z
 LAST-MODIFIED:20260402T183020Z
 UID:10003273-1777309200-1777316400@www.geekwire.com
@@ -235,20 +205,20 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260427T180000
 DTEND;TZID=America/Los_Angeles:20260427T210000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260330T154937Z
 LAST-MODIFIED:20260330T154937Z
 UID:10003269-1777312800-1777323600@www.geekwire.com
 SUMMARY:SOLIDWORKS Hard-Tech Event
 DESCRIPTION:SOLIDWORKS for Startups and the 3DEXPERIENCE Lab are hosting a startup meetup in downtown Seattle—and you’re invited! \n​Join us on Monday\, April 27\, from 6:00–8:30 PM PT for an evening of networking\, refreshments\, and great conversations with people building in the startup and hardware space. \n​You’ll have the chance to connect with founders\, innovators\, and industry leaders from both the local and global ecosystem. There will also be opportunities to participate in pitch competitions. \n​A night for founders\, fresh ideas\, and meaningful connections. Bring your energy and your questions\, and let’s light up the evening with discovery and fun! 🚀 \n​📲Location and agenda coming soon. \n​This hard-tech meetup kicks off the 30th anniversary celebration of the Seattle Area SOLIDWORKS Power Users Group\, which continues the next day\, April 28\, at the Museum of Flight. ✈️ \n​Join us from 2:00-7:00 PM PT for a free celebration of this SOLIDWORKS User Group network! \n​Register here! ⬅️🎉
 URL:https://www.geekwire.com/calendar-event/solidworks-hard-tech-event/
-LOCATION:CA
+LOCATION:WA
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/03/Screenshot-2026-03-30-084301.png
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260428T140000
 DTEND;TZID=America/Los_Angeles:20260428T190000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T192608Z
 LAST-MODIFIED:20260409T192608Z
 UID:10003281-1777384800-1777402800@www.geekwire.com
@@ -264,7 +234,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260429T170000
 DTEND;TZID=America/Los_Angeles:20260624T183000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260319T175109Z
 LAST-MODIFIED:20260319T175109Z
 UID:10003254-1777482000-1782325800@www.geekwire.com
@@ -278,7 +248,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260429T180000
 DTEND;TZID=America/Los_Angeles:20260429T190000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260403T232829Z
 LAST-MODIFIED:20260403T232829Z
 UID:10003276-1777485600-1777489200@www.geekwire.com
@@ -295,7 +265,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260507T090000
 DTEND;TZID=America/Los_Angeles:20260507T170000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260212T202340Z
 LAST-MODIFIED:20260212T202340Z
 UID:10003194-1778144400-1778173200@www.geekwire.com
@@ -310,9 +280,26 @@ GEO:47.6221728;-122.3419734
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=The Collective Seattle 400 Dexter Avenue North Seattle Washington 98109 United States;X-APPLE-RADIUS=500;X-TITLE=400 Dexter Avenue North:geo:-122.3419734,47.6221728
 END:VEVENT
 BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260507T173000
+DTEND;TZID=America/Los_Angeles:20260507T210000
+DTSTAMP:20260410T210819
+CREATED:20260410T181417Z
+LAST-MODIFIED:20260410T181418Z
+UID:10003294-1778175000-1778187600@www.geekwire.com
+SUMMARY:2026 GeekWire Awards
+DESCRIPTION:The much-anticipated and hotly-contested GeekWire Awards celebrate the top innovators\, entrepreneurs and technology leaders in the Pacific Northwest. Hosted live from Seattle’s Showbox SoDo on May 7\, this must-attend event features a seated dinner\, entertainment\, fun surprises and coveted awards handed out in a dozen categories.
+URL:https://www.geekwire.com/calendar-event/2026-geekwire-awards/
+LOCATION:Showbox SoDo\, 1700 1st Ave S\, seattle\, United States
+CATEGORIES:Celebration
+ATTACH;FMTTYPE=image/jpeg:https://cdn.geekwire.com/wp-content/uploads/2026/04/GeekWire-Awards_1920x1080.jpg
+ORGANIZER;CN="GeekWire":MAILTO:events@geekwire.com
+GEO:47.587952;-122.333692
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Showbox SoDo 1700 1st Ave S seattle United States;X-APPLE-RADIUS=500;X-TITLE=1700 1st Ave S:geo:-122.333692,47.587952
+END:VEVENT
+BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260508T113000
 DTEND;TZID=America/Los_Angeles:20260508T130000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20251024T200349Z
 LAST-MODIFIED:20251226T215413Z
 UID:10003061-1778239800-1778245200@www.geekwire.com
@@ -327,7 +314,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260508T180000
 DTEND;TZID=America/Los_Angeles:20260508T200000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T192532Z
 LAST-MODIFIED:20260409T192532Z
 UID:10003283-1778263200-1778270400@www.geekwire.com
@@ -343,7 +330,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260512T090000
 DTEND;TZID=America/Los_Angeles:20260512T163000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T192647Z
 LAST-MODIFIED:20260409T192647Z
 UID:10003279-1778576400-1778603400@www.geekwire.com
@@ -358,20 +345,20 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260513
 DTEND;VALUE=DATE:20260516
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260218T172109Z
 LAST-MODIFIED:20260218T172109Z
 UID:10003207-1778630400-1778889599@www.geekwire.com
 SUMMARY:Cre8te Summit
 DESCRIPTION:Cre8te Summit is designed to help you move from ideas to execution. You’ll gain clarity\, practical skills\, and real connections that extend far beyond the event.
 URL:https://www.geekwire.com/calendar-event/cre8te-summit/
-LOCATION:CA
+LOCATION:WA
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/02/Screenshot-2026-02-18-090455.png
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260514T090000
 DTEND;TZID=America/Los_Angeles:20260514T163000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T192638Z
 LAST-MODIFIED:20260409T192638Z
 UID:10003280-1778749200-1778776200@www.geekwire.com
@@ -386,9 +373,9 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T080000
 DTEND;TZID=America/Los_Angeles:20260515T163000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T210431Z
-LAST-MODIFIED:20260409T210431Z
+LAST-MODIFIED:20260410T161617Z
 UID:10003286-1778832000-1778862600@www.geekwire.com
 SUMMARY:Ethics & Tech Conference
 DESCRIPTION:Join Seattle University’s Technology Ethics Initiative for the fourth annual Ethics & Tech Conference\, focused this year on technology\, energy and security. As artificial intelligence reshapes global power\, cyber threats grow more sophisticated\, and competition over energy and infrastructure intensifies\, this year’s conference takes on some of the most urgent questions of our time. \nThis year’s keynote speaker is Amandeep Singh Gill\, United Nations Under-Secretary-General and Special Envoy for Digital and Emerging Technologies\, a global leader shaping international policy on artificial intelligence and digital governance. \nFrom AI-driven cybersecurity risks and techno-nationalism to the rising energy demands of data centers and the future of alternative energy systems\, speakers will explore how technology is redefining security\, resilience and global influence. \nJoin us as we consider how responsible innovation can shape a more secure and sustainable future.
@@ -396,12 +383,12 @@ URL:https://www.geekwire.com/calendar-event/ethics-tech-conference/
 LOCATION:Pigott Auditorium\, Seattle University\, 901 12th Avenue\, Seattle\, CA\, 98101\, United States
 CATEGORIES:Conferences
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/04/Untitled-design-18.png
-ORGANIZER;CN="Seattle University":MAILTO:akan@seattleu.edu
+ORGANIZER;CN="Seattle University":MAILTO:events@seattleu.edu
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T080000
 DTEND;TZID=America/Los_Angeles:20260515T170000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260305T184134Z
 LAST-MODIFIED:20260305T184134Z
 UID:10003242-1778832000-1778864400@www.geekwire.com
@@ -418,7 +405,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;TZID=America/Los_Angeles:20260515T103000
 DTEND;TZID=America/Los_Angeles:20260515T130000
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260204T183704Z
 LAST-MODIFIED:20260204T183704Z
 UID:10003188-1778841000-1778850000@www.geekwire.com
@@ -433,7 +420,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260519
 DTEND;VALUE=DATE:20260522
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260409T192536Z
 LAST-MODIFIED:20260409T192536Z
 UID:10003282-1779148800-1779407999@www.geekwire.com
@@ -447,7 +434,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260520
 DTEND;VALUE=DATE:20260523
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260108T201444Z
 LAST-MODIFIED:20260108T201500Z
 UID:10003142-1779235200-1779494399@www.geekwire.com
@@ -460,7 +447,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260531
 DTEND;VALUE=DATE:20260603
-DTSTAMP:20260409T214106
+DTSTAMP:20260410T210819
 CREATED:20260108T201427Z
 LAST-MODIFIED:20260108T201427Z
 UID:10003143-1780185600-1780444799@www.geekwire.com
@@ -469,5 +456,22 @@ DESCRIPTION:Join us Sunday\, May 31 – Tuesday\, June 2\, 2026\, In Seattle\, W
 URL:https://www.geekwire.com/calendar-event/2026-ast-surgical-technology-conference/
 LOCATION:Summit at the Seattle Convention Center\, 900 Pine Street\, Seattle\, 98101\, United States
 ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/Screenshot-2026-01-06-163118.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260601
+DTEND;VALUE=DATE:20260603
+DTSTAMP:20260410T210819
+CREATED:20260108T201730Z
+LAST-MODIFIED:20260108T201730Z
+UID:10003138-1780272000-1780444799@www.geekwire.com
+SUMMARY:CascadiaJS 2026
+DESCRIPTION:A Web + AI conference for the Pacific Northwest \nCascadiaJS is a community-driven conference for developers in the PNW and beyond. You’ll hear from 30+ speakers\, connect with 500+ fellow devs\, and explore the latest in web and AI technologies with some of the top companies in the industry.
+URL:https://www.geekwire.com/calendar-event/cascadiajs-2026/
+LOCATION:Town Hall Seattle\, 1119 8th Avenue\, Seattle\, WA\, 98101\, United States
+CATEGORIES:Conferences
+ATTACH;FMTTYPE=image/png:https://cdn.geekwire.com/wp-content/uploads/2026/01/hero-mushroom.png
+ORGANIZER;CN="Carter Rabasa":MAILTO:carter.rabasa@gmail.com
+GEO:47.609019;-122.329901
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Town Hall Seattle 1119 8th Avenue Seattle WA 98101 United States;X-APPLE-RADIUS=500;X-TITLE=1119 8th Avenue:geo:-122.329901,47.609019
 END:VEVENT
 END:VCALENDAR

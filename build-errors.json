@@ -1,46 +1,1408 @@
 {
-  "buildTime": "2026-04-11T04:09:36.741Z",
-  "totalErrors": 5,
+  "buildTime": "2026-04-11T11:19:53.146Z",
+  "totalErrors": 232,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
   "geocodeErrors": [
     {
       "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "TBA",
+      "source": "19hz",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Multiple Locations, South Lake Union, Seattle, WA",
+      "source": "discover-slu",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "multiple locations",
+      "source": "events12",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
       "location": "Offsite, Bellevue, WA",
       "source": "seatoday",
-      "reason": "Nominatim returned no results"
+      "reason": "Vague/unresolvable location"
     },
     {
       "type": "GeocodeError",
-      "location": "Husky Softball Stadium, University of Washington, Seattle, WA",
+      "location": "Offsite, Bellevue, WA",
       "source": "seatoday",
-      "reason": "Nominatim returned no results"
+      "reason": "Vague/unresolvable location"
     },
     {
       "type": "GeocodeError",
-      "location": "A Resting Place<br>670 S. King St.<br>Seattle\\, WA 98104",
+      "location": "Offsite, Bellevue, WA",
+      "source": "seatoday",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "spl",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-seattle-streets-alliance",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online\\, Seattle\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual. RSVP for details\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual. RSVP for details\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online\\, Seattle\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual. RSVP for details\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual. RSVP for details\\, WA\\, United States",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online (Zoom Call)\\, WA",
+      "source": "external-seattle-dsa",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-Geekwire",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-Geekwire",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Offsite",
+      "source": "external-mohai",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Offsite",
+      "source": "external-mohai",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online / Virtual",
+      "source": "external-phinney-neighborhood-association",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online / Virtual",
+      "source": "external-phinney-neighborhood-association",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online / Virtual",
+      "source": "external-phinney-neighborhood-association",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual Webex Meeting\\, see below for login information.<br>",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual Meeting via Zoom",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall\\, Room 370\\, 600 4th A",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or In Person in the Boards and Commissions Room - City H",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ARTS at King Street Station<br>303 South Jackson Street\\, Top F",
       "source": "external-seattle-gov-city-wide",
       "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
-      "location": "Art Love Salon<br>110 Union Street\\, 5th floor<br>Seattle\\, WA",
+      "location": "Online or in-person at Seattle City Hall",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online &amp\\; In-person",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online &amp\\; In-person",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual Webex Meeting\\, see below for login information.<br>",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in person at Seattle City Hall",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall\\, Room L280\\, 600 4th",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or In Person in the Boards and Commissions Room - City H",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ARTS at King Street Station<br>303 South Jackson Street\\, Plaza",
       "source": "external-seattle-gov-city-wide",
       "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual Meeting via Zoom",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall\\, Room 370\\, 600 4th A",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or In Person in the Boards and Commissions Room - City H",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in person at Seattle City Hall",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online &amp\\; In-person",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online &amp\\; In-person",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or In Person in the Boards and Commissions Room - City H",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual/Online Event",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual Meeting via Zoom",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall\\, Room 370\\, 600 4th A",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or In Person in the Boards and Commissions Room - City H",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall.",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in person at Seattle City Hall",
+      "source": "external-seattle-gov-city-wide",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall",
+      "source": "external-seattle-gov-neighborhoods",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall",
+      "source": "external-seattle-gov-neighborhoods",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online or in-person at Seattle City Hall",
+      "source": "external-seattle-gov-neighborhoods",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ARTS at King Street Station<br>303 S. Jackson Street\\, Plaza<br",
+      "source": "external-seattle-gov-arts",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual",
+      "source": "external-seattle-gov-arts",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Webinar",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom - Please register using the online meeting link",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom - Please register using the online meeting link",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (see registration link)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Webinar",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Webinar",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom - Please register using the online meeting link",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom - Please register using the online meeting link",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Webinar",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (see registration link)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
     },
     {
       "type": "GeocodeError",
       "location": "https://maps.app.goo.gl/JKdvwN7V5BEi5VrZ8",
       "source": "external-uw-campus-events",
       "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom - Please register using the online meeting link",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom - Please register using the online meeting link",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (registration required)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (see registration link)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (see registration link)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (registration required)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online via Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (see registration link)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online via Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (registration required)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom (registration required)",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Online",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom",
+      "source": "external-uw-campus-events",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Register for the workshop and the instruct",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "WorkSource North Seattle<br>Opportunity Center<br>9600 College",
+      "source": "external-worksource-north-seattle",
+      "reason": "Nominatim returned no results"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting:<br>Link and meeting information will be sh",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom online.  Link will be sent to you prior to the workshop st",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Link and meeting information will be share",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Register for the workshop and the instruct",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ZOOM &#1054\\;&#1085\\;&#1083\\;&#1072\\;&#1081\\;&#1085\\; &#1074\\;&",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Link and meeting information will be share",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual<br><br>Farsi",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Register for the workshop and the instruct",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting:<br>Link and meeting information will be sh",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom online.  Link will be sent to you prior to the workshop st",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Link and meeting information will be share",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Register for the workshop and the instruct",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Register for the workshop and the instruct",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting:<br>Link and meeting information will be sh",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom online.  Link will be sent to you prior to the workshop st",
+      "source": "external-worksource-north-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Zoom Online Meeting: Link and meeting information will be share",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "Virtual via Zoom",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
+    },
+    {
+      "type": "GeocodeError",
+      "location": "ZOOM Event [Virtual] ZOOM Link will be sent to you prior to the",
+      "source": "external-worksource-downtown-seattle",
+      "reason": "Vague/unresolvable location"
     }
   ],
   "geoStats": {
-    "totalEvents": 7097,
-    "eventsWithGeo": 5366,
-    "eventsWithoutGeo": 1731,
-    "geocodeErrors": 5
+    "totalEvents": 7066,
+    "eventsWithGeo": 5245,
+    "eventsWithoutGeo": 1821,
+    "geocodeErrors": 232
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -539,7 +1901,7 @@
     {
       "name": "crocodile-crocodile-main",
       "type": "Ripper",
-      "events": 70,
+      "events": 68,
       "expectEmpty": false
     },
     {
@@ -581,7 +1943,7 @@
     {
       "name": "el-corazon-el-corazon",
       "type": "Ripper",
-      "events": 42,
+      "events": 41,
       "expectEmpty": false
     },
     {
@@ -599,7 +1961,7 @@
     {
       "name": "events12-seattle-events",
       "type": "Ripper",
-      "events": 108,
+      "events": 107,
       "expectEmpty": false
     },
     {
@@ -635,7 +1997,7 @@
     {
       "name": "hidden-hall-events",
       "type": "Ripper",
-      "events": 62,
+      "events": 61,
       "expectEmpty": false
     },
     {
@@ -659,7 +2021,7 @@
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 81,
+      "events": 79,
       "expectEmpty": false
     },
     {
@@ -731,7 +2093,7 @@
     {
       "name": "reubens-brews-ballard",
       "type": "Ripper",
-      "events": 17,
+      "events": 16,
       "expectEmpty": false
     },
     {
@@ -803,7 +2165,7 @@
     {
       "name": "seattle-food-trucks-seattle-food-trucks",
       "type": "Ripper",
-      "events": 300,
+      "events": 291,
       "expectEmpty": false
     },
     {
@@ -821,7 +2183,7 @@
     {
       "name": "seattle-showlists-central-saloon",
       "type": "Ripper",
-      "events": 10,
+      "events": 11,
       "expectEmpty": false
     },
     {
@@ -851,7 +2213,7 @@
     {
       "name": "seattle-showlists-conor-byrne-pub",
       "type": "Ripper",
-      "events": 59,
+      "events": 60,
       "expectEmpty": false
     },
     {
@@ -983,7 +2345,7 @@
     {
       "name": "spl-central-library",
       "type": "Ripper",
-      "events": 34,
+      "events": 36,
       "expectEmpty": false
     },
     {
@@ -995,19 +2357,19 @@
     {
       "name": "spl-beacon-hill",
       "type": "Ripper",
-      "events": 10,
+      "events": 11,
       "expectEmpty": false
     },
     {
       "name": "spl-broadview",
       "type": "Ripper",
-      "events": 14,
+      "events": 13,
       "expectEmpty": false
     },
     {
       "name": "spl-capitol-hill",
       "type": "Ripper",
-      "events": 5,
+      "events": 4,
       "expectEmpty": false
     },
     {
@@ -1037,19 +2399,19 @@
     {
       "name": "spl-green-lake",
       "type": "Ripper",
-      "events": 7,
+      "events": 8,
       "expectEmpty": false
     },
     {
       "name": "spl-greenwood",
       "type": "Ripper",
-      "events": 3,
+      "events": 2,
       "expectEmpty": false
     },
     {
       "name": "spl-high-point",
       "type": "Ripper",
-      "events": 12,
+      "events": 11,
       "expectEmpty": false
     },
     {
@@ -1073,7 +2435,7 @@
     {
       "name": "spl-newholly",
       "type": "Ripper",
-      "events": 6,
+      "events": 4,
       "expectEmpty": false
     },
     {
@@ -1085,13 +2447,13 @@
     {
       "name": "spl-northgate",
       "type": "Ripper",
-      "events": 8,
+      "events": 10,
       "expectEmpty": false
     },
     {
       "name": "spl-queen-anne",
       "type": "Ripper",
-      "events": 6,
+      "events": 5,
       "expectEmpty": false
     },
     {
@@ -1103,13 +2465,13 @@
     {
       "name": "spl-south-park",
       "type": "Ripper",
-      "events": 9,
+      "events": 10,
       "expectEmpty": false
     },
     {
       "name": "spl-southwest",
       "type": "Ripper",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {
@@ -1133,19 +2495,19 @@
     {
       "name": "stg-stg-paramount",
       "type": "Ripper",
-      "events": 53,
+      "events": 52,
       "expectEmpty": false
     },
     {
       "name": "stg-stg-moore",
       "type": "Ripper",
-      "events": 30,
+      "events": 29,
       "expectEmpty": false
     },
     {
       "name": "stg-stg-neptune",
       "type": "Ripper",
-      "events": 54,
+      "events": 52,
       "expectEmpty": false
     },
     {
@@ -1175,13 +2537,13 @@
     {
       "name": "sunset-tavern-sunset-tavern",
       "type": "Ripper",
-      "events": 61,
+      "events": 60,
       "expectEmpty": false
     },
     {
       "name": "t-mobile-park-t-mobile-park",
       "type": "Ripper",
-      "events": 121,
+      "events": 119,
       "expectEmpty": false
     },
     {
@@ -1193,7 +2555,7 @@
     {
       "name": "tractor-tavern-tractor-tavern",
       "type": "Ripper",
-      "events": 73,
+      "events": 72,
       "expectEmpty": false
     },
     {
@@ -1205,7 +2567,7 @@
     {
       "name": "vera-project-vera-project",
       "type": "Ripper",
-      "events": 59,
+      "events": 58,
       "expectEmpty": false
     },
     {
@@ -1229,19 +2591,19 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 461,
+      "events": 457,
       "expectEmpty": false
     },
     {
       "name": "tag-belltown",
       "type": "Aggregate",
-      "events": 122,
+      "events": 119,
       "expectEmpty": false
     },
     {
       "name": "tag-capitol-hill",
       "type": "Aggregate",
-      "events": 492,
+      "events": 490,
       "expectEmpty": false
     },
     {
@@ -1259,13 +2621,13 @@
     {
       "name": "tag-downtown",
       "type": "Aggregate",
-      "events": 244,
+      "events": 245,
       "expectEmpty": false
     },
     {
       "name": "tag-fremont",
       "type": "Aggregate",
-      "events": 149,
+      "events": 148,
       "expectEmpty": false
     },
     {
@@ -1289,7 +2651,7 @@
     {
       "name": "tag-greenwood",
       "type": "Aggregate",
-      "events": 152,
+      "events": 151,
       "expectEmpty": false
     },
     {
@@ -1301,13 +2663,13 @@
     {
       "name": "tag-pioneer-square",
       "type": "Aggregate",
-      "events": 61,
+      "events": 62,
       "expectEmpty": false
     },
     {
       "name": "tag-university-district",
       "type": "Aggregate",
-      "events": 791,
+      "events": 788,
       "expectEmpty": false
     },
     {
@@ -1331,7 +2693,7 @@
     {
       "name": "tag-community",
       "type": "Aggregate",
-      "events": 1943,
+      "events": 1937,
       "expectEmpty": false
     },
     {
@@ -1343,7 +2705,7 @@
     {
       "name": "tag-food",
       "type": "Aggregate",
-      "events": 337,
+      "events": 328,
       "expectEmpty": false
     },
     {
@@ -1361,7 +2723,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2550,
+      "events": 2545,
       "expectEmpty": false
     },
     {
@@ -1391,7 +2753,7 @@
     {
       "name": "tag-beacon-hill",
       "type": "Aggregate",
-      "events": 59,
+      "events": 60,
       "expectEmpty": false
     },
     {
@@ -1403,7 +2765,7 @@
     {
       "name": "tag-magnolia",
       "type": "Aggregate",
-      "events": 20,
+      "events": 21,
       "expectEmpty": false
     },
     {
@@ -1439,19 +2801,19 @@
     {
       "name": "tag-beer",
       "type": "Aggregate",
-      "events": 449,
+      "events": 448,
       "expectEmpty": false
     },
     {
       "name": "tag-queenanne",
       "type": "Aggregate",
-      "events": 186,
+      "events": 185,
       "expectEmpty": false
     },
     {
       "name": "tag-sports",
       "type": "Aggregate",
-      "events": 212,
+      "events": 210,
       "expectEmpty": false
     },
     {
@@ -1475,25 +2837,25 @@
     {
       "name": "tag-arts",
       "type": "Aggregate",
-      "events": 1036,
+      "events": 1035,
       "expectEmpty": false
     },
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 506,
+      "events": 502,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1082,
+      "events": 1081,
       "expectEmpty": false
     },
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 452,
+      "events": 448,
       "expectEmpty": false
     },
     {
@@ -1517,7 +2879,7 @@
     {
       "name": "tag-theatre",
       "type": "Aggregate",
-      "events": 631,
+      "events": 627,
       "expectEmpty": false
     },
     {
@@ -1547,7 +2909,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 7098,
+      "events": 7067,
       "expectEmpty": false
     },
     {
@@ -1625,13 +2987,13 @@
     {
       "name": "external-the-beacon-cinema",
       "type": "External",
-      "events": 86,
+      "events": 84,
       "expectEmpty": false
     },
     {
       "name": "external-central-cinema",
       "type": "External",
-      "events": 85,
+      "events": 83,
       "expectEmpty": false
     },
     {
@@ -1643,7 +3005,7 @@
     {
       "name": "external-nw-film-forum",
       "type": "External",
-      "events": 76,
+      "events": 78,
       "expectEmpty": false
     },
     {
@@ -1709,13 +3071,13 @@
     {
       "name": "external-uw-school-of-art",
       "type": "External",
-      "events": 22,
+      "events": 21,
       "expectEmpty": false
     },
     {
       "name": "external-worksource-north-seattle",
       "type": "External",
-      "events": 67,
+      "events": 64,
       "expectEmpty": false
     },
     {
@@ -1727,7 +3089,7 @@
     {
       "name": "external-hugo-house",
       "type": "External",
-      "events": 8,
+      "events": 7,
       "expectEmpty": false
     },
     {

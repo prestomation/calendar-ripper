@@ -276,7 +276,7 @@ export function buildVenuesJson(opts: {
 
       venues.push({
         name: ripper.name,
-        friendlyName: ripper.friendlyname ?? ripper.name,
+        friendlyName: ripper.friendlyname ?? ripper.description ?? ripper.name,
         description: ripper.description,
         url: safeUrlString(ripper.friendlyLink),
         tags: dedupe([...(ripper.tags ?? [])]),

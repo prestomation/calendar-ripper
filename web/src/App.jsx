@@ -307,6 +307,16 @@ function HealthDashboard({ buildErrors, calendars }) {
         </div>
       </div>
 
+      <div className="health-section">
+        <h2>Discovery API</h2>
+        <p>
+          Machine-readable data files for LLMs, scripts, and downstream apps.
+          Start at <a href="index.json" target="_blank" rel="noopener noreferrer">index.json</a> —
+          it links to every other file. See <a href="llms.txt" target="_blank" rel="noopener noreferrer">llms.txt</a>{' '}
+          for usage info.
+        </p>
+      </div>
+
       {configErrors.length > 0 && (
         <div className="health-section">
           <h2>Configuration Errors ({configErrors.length})</h2>

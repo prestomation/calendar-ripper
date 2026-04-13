@@ -16,6 +16,7 @@
     "web:preview": "cd web && vite preview",
     "build": "npm run generate-calendars && npm run web:build",
     "check-missing-urls": "node --loader ts-node/esm scripts/check-missing-urls.ts",
+    "check-discovery-api": "node --loader ts-node/esm scripts/check-discovery-api.ts",
     "generate-outofband": "node --loader ts-node/esm scripts/generate-outofband.ts",
     "download-outofband": "node --loader ts-node/esm scripts/download-outofband.ts"
   },

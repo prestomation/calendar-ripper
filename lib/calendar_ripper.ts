@@ -27,6 +27,11 @@ import {
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { LocalDate } from "@js-joda/core";
 import { validateTags, TAG_CATEGORIES } from "./config/tags.js";
+import {
+  buildIndexJson,
+  buildTagsJson,
+  buildVenuesJson,
+} from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
 
@@ -305,15 +310,16 @@ export const main = async () => {
 
   // Load recurring events
   let recurringCalendars: RipperCalendar[] = [];
+  let recurringProcessor: RecurringEventProcessor | null = null;
   try {
     const recurringPath = join("sources", "recurring.yaml");
-    const processor = new RecurringEventProcessor(recurringPath);
-    
+    recurringProcessor = new RecurringEventProcessor(recurringPath);
+
     // Generate events for the next 12 months
     const startDate = LocalDate.now();
     const endDate = startDate.plusMonths(12);
-    
-    recurringCalendars = processor.generateCalendars(startDate, endDate);
+
+    recurringCalendars = recurringProcessor.generateCalendars(startDate, endDate);
     console.log(`Generated ${recurringCalendars.length} recurring event calendars`);
   } catch (error) {
     if ((error as any).code !== "ENOENT") {
@@ -1092,6 +1098,88 @@ END:VCALENDAR`;
     "output/build-errors.json",
     JSON.stringify(buildErrorsReport, null, 2)
   );
+
+  // -------------------------------------------------------------------------
+  // Discovery API — HATEOAS-style data files under output/
+  // See docs/design-discovery-api.md. Every href in these docs is relative
+  // so PR previews, local dev, and production all Just Work.
+  // -------------------------------------------------------------------------
+  {
+    const generated = new Date().toISOString();
+    const siteUrl = SITE_BASE_URL.replace(/\/$/, "");
+
+    const ripperConfigsForDiscovery = configs.map(r => r.config);
+    const recurringEventsForDiscovery = recurringProcessor?.getEvents() ?? [];
+
+    // index.json — entry point
+    const indexDoc = buildIndexJson({ generated, site: siteUrl });
+    await writeFile("output/index.json", JSON.stringify(indexDoc, null, 2));
+
+    // tags.json — one entry per tag with counts + aggregate-feed hrefs
+    const tagsDoc = buildTagsJson({
+      manifest: {
+        rippers: manifest.rippers.map(r => ({ calendars: r.calendars.map(c => ({ tags: c.tags })) })),
+        recurringCalendars: manifest.recurringCalendars.map(c => ({ tags: c.tags })),
+        externalCalendars: manifest.externalCalendars.map(c => ({ tags: c.tags })),
+      },
+      eventCounts: eventCounts.map(c => ({ name: c.name, type: c.type, events: c.events })),
+      generated,
+    });
+    await writeFile("output/tags.json", JSON.stringify(tagsDoc, null, 2));
+
+    // venues.json — one entry per source with a fixed physical geo
+    const venuesDoc = buildVenuesJson({
+      configs: ripperConfigsForDiscovery,
+      externals: activeExternalCalendars,
+      recurringEvents: recurringEventsForDiscovery,
+      calendarsWithFutureEvents,
+      generated,
+    });
+    await writeFile("output/venues.json", JSON.stringify(venuesDoc, null, 2));
+
+    // geo-cache.json — copied into output/ so downstream consumers can
+    // fetch it through the discovery API. The source of truth lives at
+    // the repo root (S3-synced); the build output is a published mirror.
+    try {
+      const geoCacheRaw = await readFile("geo-cache.json", "utf8");
+      await writeFile("output/geo-cache.json", geoCacheRaw);
+    } catch (e) {
+      console.warn(`Warning: could not mirror geo-cache.json into output/: ${(e as Error).message}`);
+    }
+
+    // llms.txt — static usage info for LLM crawlers (llmstxt.org convention)
+    const llmsTxtPath = join(__dirname, "templates", "llms.txt");
+    try {
+      const llmsTxt = await readFile(llmsTxtPath, "utf8");
+      await writeFile("output/llms.txt", llmsTxt);
+    } catch (e) {
+      console.warn(`Warning: could not read llms.txt template at ${llmsTxtPath}: ${(e as Error).message}`);
+    }
+
+    // sitemap.xml — point crawlers at the discovery entry points
+    const sitemapUrls = [
+      `${siteUrl}/`,
+      `${siteUrl}/index.json`,
+      `${siteUrl}/llms.txt`,
+      `${siteUrl}/tags.json`,
+      `${siteUrl}/venues.json`,
+      `${siteUrl}/manifest.json`,
+      `${siteUrl}/events-index.json`,
+    ];
+    const sitemapXml =
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+      `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+      sitemapUrls
+        .map(u => `  <url><loc>${u}</loc><lastmod>${generated.slice(0, 10)}</lastmod></url>`)
+        .join("\n") +
+      `\n</urlset>\n`;
+    await writeFile("output/sitemap.xml", sitemapXml);
+
+    console.log(
+      `Discovery API: ${tagsDoc.tags.length} tags, ${venuesDoc.venues.length} venues → ` +
+      `index.json, tags.json, venues.json, llms.txt, sitemap.xml`
+    );
+  }
 
   console.log("\n=== Event Count Summary ===");
   for (const entry of eventCounts) {

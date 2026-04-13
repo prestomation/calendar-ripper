@@ -132,7 +132,9 @@ describe('206.events Integration with Tags', () => {
       friendlyname: 'External Calendar 1',
       icsUrl: 'https://example.com/calendar1.ics',
       disabled: false,
-      tags: ['Music']
+      expectEmpty: false,
+      tags: ['Music'],
+      geo: null
     };
     
     const taggedCalendars = [

@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-04-13T00:46:46.140Z",
+  "buildTime": "2026-04-13T00:54:12.318Z",
   "totalErrors": 225,
   "configErrors": [],
   "sources": [],
@@ -1367,15 +1367,15 @@
     "belltown-community-council-all-events",
     "benaroya-hall-benaroya-nordstrom",
     "downtown-seattle-association-pioneer-park",
-    "future-primitive-all-events",
-    "here-today-all-events",
     "jcccw-all-events",
     "seatoday-seatoday-nightlife",
     "seattle-showlists-bad-bar",
     "spl-university",
     "external-langston"
   ],
-  "expectedEmptyCalendars": [],
+  "expectedEmptyCalendars": [
+    "future-primitive-all-events"
+  ],
   "unexpectedNonEmptyCalendars": [],
   "eventCounts": [
     {
@@ -1952,18 +1952,12 @@
       "name": "future-primitive-all-events",
       "type": "Ripper",
       "events": 0,
-      "expectEmpty": false
+      "expectEmpty": true
     },
     {
       "name": "hellbent-brewing-food-trucks",
       "type": "Ripper",
       "events": 18,
-      "expectEmpty": false
-    },
-    {
-      "name": "here-today-all-events",
-      "type": "Ripper",
-      "events": 0,
       "expectEmpty": false
     },
     {
@@ -2837,6 +2831,12 @@
       "expectEmpty": false
     },
     {
+      "name": "tag-white-center",
+      "type": "Aggregate",
+      "events": 22,
+      "expectEmpty": false
+    },
+    {
       "name": "tag-movies",
       "type": "Aggregate",
       "events": 403,
@@ -2870,12 +2870,6 @@
       "name": "tag-shoreline",
       "type": "Aggregate",
       "events": 11,
-      "expectEmpty": false
-    },
-    {
-      "name": "tag-white-center",
-      "type": "Aggregate",
-      "events": 22,
       "expectEmpty": false
     },
     {

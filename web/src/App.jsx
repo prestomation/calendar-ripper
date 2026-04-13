@@ -12,6 +12,50 @@ import { AttributionChips } from './AttributionChips.jsx'
 const FUSE_THRESHOLD = 0.1
 import ICAL from 'ical.js'
 
+// ── Theme switcher ──────────────────────────────────────────────
+const THEMES = [
+  { id: 'default',  label: 'Classic Blue',   swatch: '#007bff', darkSwatch: '#4dabf7' },
+  { id: 'pnw',      label: 'PNW Minimal',    swatch: '#2d6a4f', darkSwatch: '#52b788' },
+  { id: 'emerald',  label: 'Emerald City',   swatch: '#00936b', darkSwatch: '#00c896' },
+  { id: 'urban',    label: 'Urban Night',    swatch: '#7c3aed', darkSwatch: '#a78bfa' },
+  { id: 'steel',    label: 'Space Needle',   swatch: '#e63946', darkSwatch: '#ff6b6b' },
+]
+
+function useTheme() {
+  const [theme, setTheme] = useState(() =>
+    localStorage.getItem('206events-theme') || 'default'
+  )
+  useEffect(() => {
+    if (theme === 'default') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+    localStorage.setItem('206events-theme', theme)
+  }, [theme])
+  return [theme, setTheme]
+}
+
+function ThemeSwitcher({ theme, setTheme }) {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  return (
+    <span className="theme-switcher">
+      <span className="theme-switcher-label">Theme:</span>
+      {THEMES.map(t => (
+        <button
+          key={t.id}
+          className={`theme-swatch${theme === t.id ? ' active' : ''}`}
+          style={{ background: prefersDark ? t.darkSwatch : t.swatch }}
+          title={t.label}
+          onClick={() => setTheme(t.id)}
+          aria-label={`Switch to ${t.label} theme`}
+        />
+      ))}
+    </span>
+  )
+}
+// ───────────────────────────────────────────────────────────────
+
 // Mobile: single-view nav. Tablet: compact sidebar. Desktop: full sidebar.
 const BREAKPOINT_MOBILE = 768
 
@@ -419,6 +463,7 @@ function HealthDashboard({ buildErrors, calendars }) {
 }
 
 function App() {
+  const [theme, setTheme] = useTheme()
   const [calendars, setCalendars] = useState([])
   const [manifest, setManifest] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
@@ -3543,7 +3588,7 @@ function App() {
                Open an issue or pull request to add a new calendar to this page. </a>
             </p>
             <p style={{ fontSize: '12px' }}>
-              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">206.events</a>
+              Powered by <a href="https://github.com/prestomation/206events" target="_blank" rel="noopener noreferrer">206.events</a>
               {manifest && (
                 <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
               )}
@@ -3562,6 +3607,8 @@ function App() {
               >
                 Source Health
               </a>
+              {' • '}
+              <ThemeSwitcher theme={theme} setTheme={setTheme} />
             </p>
           </div>
         </footer>

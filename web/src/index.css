@@ -3034,3 +3034,142 @@ body {
 .cluster-small  { background: #4caf50; width: 36px; height: 36px; }
 .cluster-medium { background: #ff9800; width: 44px; height: 44px; }
 .cluster-large  { background: #f44336; width: 52px; height: 52px; }
+
+/* ─────────────────────────────────────────────────────────────
+   THEMES
+   Each theme overrides --color-primary and related brand vars.
+   Light-mode values use :root[data-theme], dark-mode values
+   are nested in a prefers-color-scheme media query so they
+   win over the base dark-mode block above.
+──────────────────────────────────────────────────────────────── */
+
+/* ── A: PNW Minimal (Evergreen) ── */
+:root[data-theme="pnw"] {
+  --color-primary: #2d6a4f;
+  --color-primary-dark: #1b4332;
+  --bg-accent: #e8f5f0;
+  --bg-primary-subtle: rgba(45, 106, 79, 0.1);
+  --bg-primary-subtle-hover: rgba(45, 106, 79, 0.2);
+  --border-primary-subtle: rgba(45, 106, 79, 0.2);
+  --resize-handle-hover: rgba(45, 106, 79, 0.3);
+  --resize-handle-active: rgba(45, 106, 79, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="pnw"] {
+    --color-primary: #52b788;
+    --color-primary-dark: #74c69d;
+    --bg-accent: #0d2b1a;
+    --bg-primary-subtle: rgba(82, 183, 136, 0.12);
+    --bg-primary-subtle-hover: rgba(82, 183, 136, 0.22);
+    --border-primary-subtle: rgba(82, 183, 136, 0.2);
+    --resize-handle-hover: rgba(82, 183, 136, 0.3);
+    --resize-handle-active: rgba(82, 183, 136, 0.5);
+  }
+}
+
+/* ── B: Emerald City (Teal + Gold) ── */
+:root[data-theme="emerald"] {
+  --color-primary: #00936b;
+  --color-primary-dark: #006b4e;
+  --bg-accent: #e0f7f2;
+  --bg-primary-subtle: rgba(0, 147, 107, 0.1);
+  --bg-primary-subtle-hover: rgba(0, 147, 107, 0.2);
+  --border-primary-subtle: rgba(0, 147, 107, 0.2);
+  --resize-handle-hover: rgba(0, 147, 107, 0.3);
+  --resize-handle-active: rgba(0, 147, 107, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="emerald"] {
+    --color-primary: #00c896;
+    --color-primary-dark: #00a878;
+    --bg-accent: #002b20;
+    --bg-primary-subtle: rgba(0, 200, 150, 0.12);
+    --bg-primary-subtle-hover: rgba(0, 200, 150, 0.22);
+    --border-primary-subtle: rgba(0, 200, 150, 0.2);
+    --resize-handle-hover: rgba(0, 200, 150, 0.3);
+    --resize-handle-active: rgba(0, 200, 150, 0.5);
+  }
+}
+
+/* ── C: Urban Night (Violet + Cyan) ── */
+:root[data-theme="urban"] {
+  --color-primary: #7c3aed;
+  --color-primary-dark: #5b21b6;
+  --bg-accent: #f3e8ff;
+  --bg-primary-subtle: rgba(124, 58, 237, 0.1);
+  --bg-primary-subtle-hover: rgba(124, 58, 237, 0.2);
+  --border-primary-subtle: rgba(124, 58, 237, 0.2);
+  --resize-handle-hover: rgba(124, 58, 237, 0.3);
+  --resize-handle-active: rgba(124, 58, 237, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="urban"] {
+    --color-primary: #a78bfa;
+    --color-primary-dark: #8b5cf6;
+    --bg-accent: #1e1030;
+    --bg-primary-subtle: rgba(167, 139, 250, 0.12);
+    --bg-primary-subtle-hover: rgba(167, 139, 250, 0.22);
+    --border-primary-subtle: rgba(167, 139, 250, 0.2);
+    --resize-handle-hover: rgba(167, 139, 250, 0.3);
+    --resize-handle-active: rgba(167, 139, 250, 0.5);
+  }
+}
+
+/* ── D: Space Needle Steel (Coral + Sound Blue) ── */
+:root[data-theme="steel"] {
+  --color-primary: #e63946;
+  --color-primary-dark: #c1121f;
+  --bg-accent: #fff0f1;
+  --bg-primary-subtle: rgba(230, 57, 70, 0.1);
+  --bg-primary-subtle-hover: rgba(230, 57, 70, 0.2);
+  --border-primary-subtle: rgba(230, 57, 70, 0.2);
+  --resize-handle-hover: rgba(230, 57, 70, 0.3);
+  --resize-handle-active: rgba(230, 57, 70, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="steel"] {
+    --color-primary: #ff6b6b;
+    --color-primary-dark: #ee4b4b;
+    --bg-accent: #2a0a0b;
+    --bg-primary-subtle: rgba(255, 107, 107, 0.12);
+    --bg-primary-subtle-hover: rgba(255, 107, 107, 0.22);
+    --border-primary-subtle: rgba(255, 107, 107, 0.2);
+    --resize-handle-hover: rgba(255, 107, 107, 0.3);
+    --resize-handle-active: rgba(255, 107, 107, 0.5);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   THEME SWITCHER
+──────────────────────────────────────────────────────────────── */
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.theme-switcher-label {
+  opacity: 0.7;
+  user-select: none;
+}
+
+.theme-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.theme-swatch:hover {
+  transform: scale(1.25);
+}
+
+.theme-swatch.active {
+  border-color: var(--text-primary);
+  transform: scale(1.15);
+}

@@ -1,6 +1,6 @@
 {
-  "buildTime": "2026-04-13T00:42:17.747Z",
-  "totalErrors": 226,
+  "buildTime": "2026-04-13T00:43:33.273Z",
+  "totalErrors": 225,
   "configErrors": [],
   "sources": [],
   "externalCalendarFailures": [],
@@ -100,12 +100,6 @@
       "location": "Offsite, Bellevue, WA",
       "source": "seatoday",
       "reason": "Vague/unresolvable location"
-    },
-    {
-      "type": "GeocodeError",
-      "location": "Beyond Yoga, 151 Bellevue Square, Bellevue, WA",
-      "source": "seatoday",
-      "reason": "Nominatim returned no results"
     },
     {
       "type": "GeocodeError",
@@ -1363,10 +1357,10 @@
     }
   ],
   "geoStats": {
-    "totalEvents": 6938,
-    "eventsWithGeo": 5067,
+    "totalEvents": 6934,
+    "eventsWithGeo": 5063,
     "eventsWithoutGeo": 1871,
-    "geocodeErrors": 226
+    "geocodeErrors": 225
   },
   "zeroEventCalendars": [
     "beacon-hill-council-all-events",
@@ -2047,13 +2041,13 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 43,
+      "events": 40,
       "expectEmpty": false
     },
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 58,
+      "events": 57,
       "expectEmpty": false
     },
     {
@@ -2695,7 +2689,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 168,
+      "events": 164,
       "expectEmpty": false
     },
     {
@@ -2707,7 +2701,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2481,
+      "events": 2478,
       "expectEmpty": false
     },
     {
@@ -2827,13 +2821,19 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 499,
+      "events": 495,
       "expectEmpty": false
     },
     {
       "name": "tag-events",
       "type": "Aggregate",
       "events": 1086,
+      "expectEmpty": false
+    },
+    {
+      "name": "tag-columbia-city",
+      "type": "Aggregate",
+      "events": 57,
       "expectEmpty": false
     },
     {
@@ -2867,12 +2867,6 @@
       "expectEmpty": false
     },
     {
-      "name": "tag-columbia-city",
-      "type": "Aggregate",
-      "events": 51,
-      "expectEmpty": false
-    },
-    {
       "name": "tag-shoreline",
       "type": "Aggregate",
       "events": 11,
@@ -2893,7 +2887,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 6939,
+      "events": 6935,
       "expectEmpty": false
     },
     {

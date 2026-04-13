@@ -8,7 +8,8 @@ the site publishes without scraping HTML or guessing filenames. Plus an
 `llms.txt` at the root with human-readable usage instructions.
 
 This is **not** a real HTTP API. It is a flat set of JSON files served from
-the existing GitHub Pages site, linked together by URL — a poor man's HATEOAS.
+the existing site (Cloudflare Pages, `https://206.events/`), linked together
+by URL — a poor man's HATEOAS.
 
 ## Files we will publish
 
@@ -23,7 +24,7 @@ naturally belong.
 ```json
 {
   "generated": "2026-04-13T17:00:00.000Z",
-  "site": "https://prestomation.github.io/calendar-ripper/",
+  "site": "https://206.events/",
   "links": {
     "self":           { "href": "index.json" },
     "llms":           { "href": "llms.txt",            "type": "text/plain" },
@@ -41,8 +42,9 @@ Notes:
 - `manifest.json` already exists and is the canonical calendar list — we
   don't duplicate it, we just point at it from `index.json`.
 - `events-index.json` already exists; we link it too.
-- Every link is **relative** so the file works under `/preview/<PR>/` and the
-  production root without rewriting.
+- Every link is **relative** so the file works on production
+  (`206.events`) and on Cloudflare Pages branch previews
+  (`<branch>.206events.pages.dev`) without rewriting.
 
 ### `tags.json`
 
@@ -153,8 +155,9 @@ feeds for each tag live at /tag-<slug>.ics.
 
 ## Freshness and caching
 
-The build runs daily. GitHub Pages is the host and serves with permissive
-CORS, so browser apps can fetch these files cross-origin without a proxy.
+The build runs daily. The site is hosted on Cloudflare Pages at
+https://206.events/ and serves with permissive CORS, so browser apps can
+fetch these files cross-origin without a proxy.
 
 ## Licensing & attribution
 

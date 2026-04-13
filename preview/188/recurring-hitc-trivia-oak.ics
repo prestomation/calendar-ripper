@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Oak
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:gZXvtV_d4_BlgIe5YhPNq
+SUMMARY:Trivia at Oak
+DTSTAMP:20260413T004112Z
+DTSTART;TZID=America/Los_Angeles:20260413T190000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:3019 Beacon Ave S\, Seattle\, WA 98144
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

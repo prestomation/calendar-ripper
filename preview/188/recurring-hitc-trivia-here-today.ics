@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Here Today Brewery
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:Li7qIUIpEy8iY2XuXVXZM
+SUMMARY:Trivia at Here Today Brewery
+DTSTAMP:20260413T004112Z
+DTSTART;TZID=America/Los_Angeles:20260413T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:2815 Elliott Ave\, Seattle\, WA 98121
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

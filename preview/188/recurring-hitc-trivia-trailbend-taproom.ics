@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Trailbend Taproom
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:2TOIndw2OnRMWK82H3a07
+SUMMARY:Trivia at Trailbend Taproom
+DTSTAMP:20260413T004112Z
+DTSTART;TZID=America/Los_Angeles:20260414T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:1118 NW 50th St\, Seattle\, WA 98107
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

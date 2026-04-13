@@ -1,0 +1,1396 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Seattle Democratic Socialists of America - ECPv6.15.20//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Seattle Democratic Socialists of America
+X-ORIGINAL-URL:https://seattledsa.org
+X-WR-CALDESC:Events for Seattle Democratic Socialists of America
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20250309T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20251102T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20260308T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20261101T090000
+END:STANDARD
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+TZNAME:PDT
+DTSTART:20270314T100000
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+TZNAME:PST
+DTSTART:20271107T090000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260412T140000
+DTEND;TZID=America/Los_Angeles:20260412T160000
+DTSTAMP:20260412T135958
+CREATED:20250930T202320Z
+LAST-MODIFIED:20250930T202320Z
+UID:10015784-1776002400-1776009600@seattledsa.org
+SUMMARY:Socialist Soccer! 2pm - 4pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-2pm-4pm/2026-04-12/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T183000
+DTEND;TZID=America/Los_Angeles:20260413T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016259-1776105000-1776108600@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-04-13/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T183000
+DTEND;TZID=America/Los_Angeles:20260413T200000
+DTSTAMP:20260412T135958
+CREATED:20260312T211420Z
+LAST-MODIFIED:20260312T211617Z
+UID:10016139-1776105000-1776110400@seattledsa.org
+SUMMARY:Housing Biweekly Meeting
+DESCRIPTION:Join us for the biweekly meeting of the Housing Justice Working Group! Free food and drinks will be provided. \nThe Housing Justice Working Group is committed to creating a Seattle without sweeps\, evictions\, or housing scarcity\, where housing is a human right and not a commodity. \nThe full agenda is available on Discord (check out the pinned comment in the housing-justice-general channel). If you aren’t part of the Discord yet\, members in good standing can join here.
+URL:https://seattledsa.org/event/housing-biweekly-meeting-10/
+LOCATION:Cathy Hillenbrand Community Room\, 923 E John St\, Seattle\, WA\, 98102\, United States
+CATEGORIES:Housing,New Member Friendly
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2022/01/sdsa_housing_justice_working_group.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T190000
+DTEND;TZID=America/Los_Angeles:20260413T200000
+DTSTAMP:20260412T135958
+CREATED:20250421T042428Z
+LAST-MODIFIED:20250421T042429Z
+UID:10012153-1776106800-1776110400@seattledsa.org
+SUMMARY:Immigration Justice Working Group
+DESCRIPTION:This is the weekly meeting for Seattle DSA’s Immigration Justice Working Group. We’re organizing to keep ICE out of our communities and to keep our immigrant communities and neighbors safe! RSVP here for the Zoom link!
+URL:https://seattledsa.org/event/immigration-justice-working-group-6-4-2-2/2026-04-13/
+LOCATION:Virtual. RSVP for details\, WA\, United States
+CATEGORIES:Immigration Justice,New Member Friendly
+GEO:47.7510741;-120.7401385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T200000
+DTEND;TZID=America/Los_Angeles:20260413T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014922-1776110400-1776114000@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-04-13/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260413T200000
+DTEND;TZID=America/Los_Angeles:20260413T213000
+DTSTAMP:20260412T135958
+CREATED:20260331T211111Z
+LAST-MODIFIED:20260331T214032Z
+UID:10018330-1776110400-1776115800@seattledsa.org
+SUMMARY:Ecosocialism Working Group
+DESCRIPTION:Join us biweekly for continued conversations about our strategies for ecosocialist politics and future projects. Ecosocialism promotes democratic control over all institutions that impact life and the environment.  Questions? Please contact greennewdeal@seattledsa.org . \nCheck back for RSVP and zoom links.
+URL:https://seattledsa.org/event/ecosocialism-and-green-new-deal-working-group-28/
+LOCATION:Virtual\, WA\, United States
+CATEGORIES:Ecosocialism,Green New Deal
+GEO:47.7510741;-120.7401385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260414T183000
+DTEND;TZID=America/Los_Angeles:20260414T210000
+DTSTAMP:20260412T135958
+CREATED:20260324T005832Z
+LAST-MODIFIED:20260328T190041Z
+UID:10018269-1776191400-1776200400@seattledsa.org
+SUMMARY:Soy Cuba: Film Screening Fundraiser
+DESCRIPTION:Click here to purchase tickets through Action Network\nYou can contribute additionally to the DSA Venceremos Fund.
+URL:https://seattledsa.org/event/soy-cuba-fundraiser/
+CATEGORIES:New Member Friendly
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/soy-cuba-title-card.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260414T190000
+DTEND;TZID=America/Los_Angeles:20260414T194500
+DTSTAMP:20260412T135958
+CREATED:20260411T212820Z
+LAST-MODIFIED:20260411T212822Z
+UID:10009405-1776193200-1776195900@seattledsa.org
+SUMMARY:Local Council Meeting
+DESCRIPTION:The Local Council (LC) is the elected leadership body which serves the members of Seattle DSA. During these short weekly check-ins\, LC members will primarily be ensuring work is on track\, though pressing business may occasionally be discussed and voted on. Members are welcome to observe LC meetings\, which are held on the chapter’s Discord server. To join our Discord\, please visit https://seattledsa.org/join-discord/ and follow the instructions. Thereafter\, you will be able to observe LC meetings on the #lc-voice channel every Tuesday (except the fourth Tuesday of the month when we hold our monthly General Membership Meeting) from 7:00pm – 7:45pm over Zoom. \nIf there’s something specific you’d like to bring to the Local Council\, please fill out the LC Request Form which can be found on the private resources page of our website. \nPlease note that on rare occurrences\, LC meetings will be cancelled due to holidays or unusual circumstances and these changes may not always be reflected on this calendar — if you show up to the meeting and aren’t let in after 5 minutes\, that is almost certainly what has happened.
+URL:https://seattledsa.org/event/local-council-meeting-6-2-2/2026-04-14/
+LOCATION:Online (Discord)
+CATEGORIES:SDSA Local Council,SDSA Local Council Meeting
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260415T120000
+DTEND;TZID=America/Los_Angeles:20260415T130000
+DTSTAMP:20260412T135958
+CREATED:20260204T024019Z
+LAST-MODIFIED:20260204T024021Z
+UID:10018127-1776254400-1776258000@seattledsa.org
+SUMMARY:Member Engagement Committee Meeting
+DESCRIPTION:
+URL:https://seattledsa.org/event/member-engagement-committee-meeting-14-8/2026-04-15/
+CATEGORIES:Member Engagement Team,New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260415T180000
+DTEND;TZID=America/Los_Angeles:20260415T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017952-1776276000-1776279600@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-04-15/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260417T160000
+DTEND;TZID=America/Los_Angeles:20260417T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018349-1776441600-1776448800@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-04-17/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260417T183000
+DTEND;TZID=America/Los_Angeles:20260417T200000
+DTSTAMP:20260412T135958
+CREATED:20260407T023102Z
+LAST-MODIFIED:20260407T023235Z
+UID:10018391-1776450600-1776456000@seattledsa.org
+SUMMARY:U-District New Member Meet Up
+DESCRIPTION:
+URL:https://seattledsa.org/event/u-district-new-member-meet-up/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T133000
+DTEND;TZID=America/Los_Angeles:20260418T153000
+DTSTAMP:20260412T135958
+CREATED:20260316T014214Z
+LAST-MODIFIED:20260327T012807Z
+UID:10018253-1776519000-1776526200@seattledsa.org
+SUMMARY:Spring New Member Orientation II: Socialism in Theory & Practice
+DESCRIPTION:
+URL:https://seattledsa.org/event/spring-new-member-orientation-ii-socialism-in-theory-practice/
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/Spring-2026-New-Member-Orientation-Flyer_Website-Scale-e1774574606681.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T140000
+DTEND;TZID=America/Los_Angeles:20260418T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016362-1776520800-1776528000@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-04-18/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260418T163000
+DTEND;TZID=America/Los_Angeles:20260418T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018286-1776529800-1776538800@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-04-18/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260419T100000
+DTEND;TZID=America/Los_Angeles:20260419T120000
+DTSTAMP:20260412T135958
+CREATED:20250930T202106Z
+LAST-MODIFIED:20250930T202151Z
+UID:10015539-1776592800-1776600000@seattledsa.org
+SUMMARY:Socialist Soccer! - 10am to 12pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-10am-to-12pm/2026-04-19/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260419T110000
+DTEND;TZID=America/Los_Angeles:20260419T120000
+DTSTAMP:20260412T135958
+CREATED:20260402T051602Z
+LAST-MODIFIED:20260402T051602Z
+UID:10018336-1776596400-1776600000@seattledsa.org
+SUMMARY:Pride Month Planning Meeting
+DESCRIPTION:Seattle DSA is gearing up for Pride Month 2026! Comrades from several working groups and committees have come together to prepare for tabling at events like Trans Pride Seattle and to host our own DSA Pride Event. If you’d like to get involved in these efforts please join us for our biweekly planning sessions! \nThis is an internal event for DSA members. Meeting info can be found on Discord and in our Signal chat.
+URL:https://seattledsa.org/event/pride-month-planning-meeting-2/
+CATEGORIES:Member Engagement Team,PRIDE,Trans Rights and Bodily Autonomy Working Group
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/turning_the_frickin_fish_gay.png
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260419T120000
+DTEND;TZID=America/Los_Angeles:20260419T130000
+DTSTAMP:20260412T135958
+CREATED:20260411T191912Z
+LAST-MODIFIED:20260411T191912Z
+UID:10018393-1776600000-1776603600@seattledsa.org
+SUMMARY:Member Engagement Committee Meeting
+DESCRIPTION:
+URL:https://seattledsa.org/event/member-engagement-committee-meeting-16/
+CATEGORIES:Member Engagement Team,New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260420T183000
+DTEND;TZID=America/Los_Angeles:20260420T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016260-1776709800-1776713400@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-04-20/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260420T200000
+DTEND;TZID=America/Los_Angeles:20260420T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014923-1776715200-1776718800@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-04-20/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260421T183000
+DTEND;TZID=America/Los_Angeles:20260421T200000
+DTSTAMP:20260412T135958
+CREATED:20260411T180611Z
+LAST-MODIFIED:20260411T180611Z
+UID:10018392-1776796200-1776801600@seattledsa.org
+SUMMARY:PSIWG Monthly Meeting
+DESCRIPTION:Join us for our monthly working group meeting!Agenda for this month includes:\n-Hands Off Iran coalition actions\n-Soy Cuba Film Screen Fundraiser reflections and follow-up\n-Poli Ed strategy \n\n\n>
+URL:https://seattledsa.org/event/psiwg-monthly-meeting/
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260421T190000
+DTEND;TZID=America/Los_Angeles:20260421T194500
+DTSTAMP:20260412T135958
+CREATED:20260411T212820Z
+LAST-MODIFIED:20260411T212822Z
+UID:10009406-1776798000-1776800700@seattledsa.org
+SUMMARY:Local Council Meeting
+DESCRIPTION:The Local Council (LC) is the elected leadership body which serves the members of Seattle DSA. During these short weekly check-ins\, LC members will primarily be ensuring work is on track\, though pressing business may occasionally be discussed and voted on. Members are welcome to observe LC meetings\, which are held on the chapter’s Discord server. To join our Discord\, please visit https://seattledsa.org/join-discord/ and follow the instructions. Thereafter\, you will be able to observe LC meetings on the #lc-voice channel every Tuesday (except the fourth Tuesday of the month when we hold our monthly General Membership Meeting) from 7:00pm – 7:45pm over Zoom. \nIf there’s something specific you’d like to bring to the Local Council\, please fill out the LC Request Form which can be found on the private resources page of our website. \nPlease note that on rare occurrences\, LC meetings will be cancelled due to holidays or unusual circumstances and these changes may not always be reflected on this calendar — if you show up to the meeting and aren’t let in after 5 minutes\, that is almost certainly what has happened.
+URL:https://seattledsa.org/event/local-council-meeting-6-2-2/2026-04-21/
+LOCATION:Online (Discord)
+CATEGORIES:SDSA Local Council,SDSA Local Council Meeting
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260421T200000
+DTEND;TZID=America/Los_Angeles:20260421T210000
+DTSTAMP:20260412T135958
+CREATED:20260202T005307Z
+LAST-MODIFIED:20260211T230017Z
+UID:10017007-1776801600-1776805200@seattledsa.org
+SUMMARY:Trans Rights and Bodily Autonomy Biweekly Meeting
+DESCRIPTION:This is the biweekly sync-up for Seattle DSA’s Trans Rights and Bodily Autonomy (TRBA) group\, as we plan actions to defend and advocate for trans\, queer\, and women’s liberation in Seattle and the Pacific Northwest. \nWe are currently holding virtual calls through Signal. The Signal group chat link for the meeting is provided via email after RSVP’ing. \n 
+URL:https://seattledsa.org/event/trans-rights-and-bodily-autonomy-biweekly-meeting-3/
+CATEGORIES:New Member Friendly,Trans Rights and Bodily Autonomy Working Group
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2025/12/DSA-TRBA-Seal-Solid-Red_smallest.png
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260422T180000
+DTEND;TZID=America/Los_Angeles:20260422T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017953-1776880800-1776884400@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-04-22/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260422T190000
+DTEND;TZID=America/Los_Angeles:20260422T200000
+DTSTAMP:20260412T135958
+CREATED:20260209T010853Z
+LAST-MODIFIED:20260209T011033Z
+UID:10017741-1776884400-1776888000@seattledsa.org
+SUMMARY:Electoral Working Group Campaign Operations Meeting
+DESCRIPTION:Join our Electoral Working Group’s Campaign Operations meeting series: come learn\, plan\, and execute the operational aspects of our endorsed campaigns – with tasks and trainings on field\, fundraising\, communications\, and internal member mobilization. Every Wednesday at 7pm\, except third Wednesdays. \nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-campaign-operations-meeting-2-2-2/2026-04-22/
+CATEGORIES:Electoral,New Member Friendly
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260423T190000
+DTEND;TZID=America/Los_Angeles:20260423T203000
+DTSTAMP:20260412T135958
+CREATED:20260311T023727Z
+LAST-MODIFIED:20260311T023727Z
+UID:10018186-1776970800-1776976200@seattledsa.org
+SUMMARY:South King County Branch Meeting
+DESCRIPTION:Dear South King County DSA Members\, \n\nMake sure to mark your calendars for an upcoming Branch meeting! RSVP here \n\nPlease feel free to reach out anytime if you’d like to get something added to the agenda. \n\nSee you then!
+URL:https://seattledsa.org/event/south-king-county-branch-meeting-3/2026-04-23/
+LOCATION:Online (Zoom Call)\, WA
+CATEGORIES:South King County
+GEO:47.6618326;-122.3425123
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260424T160000
+DTEND;TZID=America/Los_Angeles:20260424T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018350-1777046400-1777053600@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-04-24/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260424T180000
+DTEND;TZID=America/Los_Angeles:20260424T200000
+DTSTAMP:20260412T135958
+CREATED:20260401T070526Z
+LAST-MODIFIED:20260401T070526Z
+UID:10018333-1777053600-1777060800@seattledsa.org
+SUMMARY:Labor Organizing Happy Hour
+DESCRIPTION:Workers and labor organizers from all over Seattle and King County get together\, talk about labor organizing\, share struggles in our unions\, and get to know each other. All union activists\, socialists\, and community members are welcome to attend! \nAnyone is welcome whether you’re not a union member (yet)\, a long time union activist\, or anywhere in between. \n  \nClick Here To RSVP!
+URL:https://seattledsa.org/event/labor-organizing-happy-hour-april26/
+CATEGORIES:Labor,New Member Friendly
+ATTACH;FMTTYPE=image/jpeg:https://seattledsa.org/wp-content/uploads/2025/06/IMG_2667.jpeg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260425T140000
+DTEND;TZID=America/Los_Angeles:20260425T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016363-1777125600-1777132800@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-04-25/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260425T160000
+DTEND;TZID=America/Los_Angeles:20260425T180000
+DTSTAMP:20260412T135958
+CREATED:20260316T013202Z
+LAST-MODIFIED:20260327T012906Z
+UID:10018252-1777132800-1777140000@seattledsa.org
+SUMMARY:Spring New Member Cohort Graduation Social
+DESCRIPTION:
+URL:https://seattledsa.org/event/spring-new-member-cohort-graduation-social/
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/Spring-2026-New-Member-Orientation-Flyer_Website-Scale-e1774574606681.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260425T163000
+DTEND;TZID=America/Los_Angeles:20260425T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018287-1777134600-1777143600@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-04-25/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260426T110000
+DTEND;TZID=America/Los_Angeles:20260426T130000
+DTSTAMP:20260412T135958
+CREATED:20260407T023338Z
+LAST-MODIFIED:20260407T023338Z
+UID:10018389-1777201200-1777208400@seattledsa.org
+SUMMARY:Housing Justice Art Hang
+DESCRIPTION:Join the Housing Justice Workgroup for an outing at the Frye Art Museum. This event is open to all DSA members\, whether you’re part of the housing justice workgroup or just looking to connect with comrades and enjoy the art exhibits. \nWe’ll gather from 11:00–11:15 AM in the Frye Parlor (just outside the café) before heading into the galleries together to explore\, connect\, and reflect on art through a shared lens of justice and solidarity. Join us then\, or drop in anytime between 11:00 AM and 1:00 PM and come find us in the galleries! \n✨ The first 15 DSA members to arrive will receive a DSA pin featuring our new logo. If you’re comfortable doing so\, we’ll ask you to wear it so others can easily spot the group as we move through the museum. Admission is free but we encourage you to make a donation to support the museum if you’re able. \nPublic street parking is available and free on Sundays along Terry Ave\, 9th Ave\, Columbia St\, Marion St\, and Cherry St.  \nFor public transit options\, accessibility details\, and museum policies\, please visit the Frye Art Museum website: https://fryemuseum.org. Bring a friend (or two)!
+URL:https://seattledsa.org/event/housing-justice-art-hang/
+LOCATION:Frye Art Museum\, 704 Terry Ave\, Seattle\, WA\, 98104\, United States
+CATEGORIES:Arts & Culture,Housing,New Member Friendly,Socials
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/04/DSA-Frye-Art-Museum-Day-3-scaled.png
+GEO:47.6071321;-122.3241506
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Frye Art Museum 704 Terry Ave Seattle WA 98104 United States;X-APPLE-RADIUS=500;X-TITLE=704 Terry Ave:geo:-122.3241506,47.6071321
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260426T140000
+DTEND;TZID=America/Los_Angeles:20260426T160000
+DTSTAMP:20260412T135958
+CREATED:20250930T202320Z
+LAST-MODIFIED:20250930T202320Z
+UID:10015785-1777212000-1777219200@seattledsa.org
+SUMMARY:Socialist Soccer! 2pm - 4pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-2pm-4pm/2026-04-26/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260427T183000
+DTEND;TZID=America/Los_Angeles:20260427T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016261-1777314600-1777318200@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-04-27/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260427T183000
+DTEND;TZID=America/Los_Angeles:20260427T200000
+DTSTAMP:20260412T135958
+CREATED:20260312T211922Z
+LAST-MODIFIED:20260312T211935Z
+UID:10016140-1777314600-1777320000@seattledsa.org
+SUMMARY:Housing Biweekly Meeting
+DESCRIPTION:Join us for the biweekly meeting of the Housing Justice Working Group! Free food and drinks will be provided. \nThe Housing Justice Working Group is committed to creating a Seattle without sweeps\, evictions\, or housing scarcity\, where housing is a human right and not a commodity. \nThe full agenda is available on Discord (check out the pinned comment in the housing-justice-general channel). If you aren’t part of the Discord yet\, members in good standing can join here.
+URL:https://seattledsa.org/event/housing-biweekly-meeting-11/
+LOCATION:Cathy Hillenbrand Community Room\, 923 E John St\, Seattle\, WA\, 98102\, United States
+CATEGORIES:Housing,New Member Friendly
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2022/01/sdsa_housing_justice_working_group.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260427T190000
+DTEND;TZID=America/Los_Angeles:20260427T200000
+DTSTAMP:20260412T135958
+CREATED:20250421T042428Z
+LAST-MODIFIED:20250421T042429Z
+UID:10012154-1777316400-1777320000@seattledsa.org
+SUMMARY:Immigration Justice Working Group
+DESCRIPTION:This is the weekly meeting for Seattle DSA’s Immigration Justice Working Group. We’re organizing to keep ICE out of our communities and to keep our immigrant communities and neighbors safe! RSVP here for the Zoom link!
+URL:https://seattledsa.org/event/immigration-justice-working-group-6-4-2-2/2026-04-27/
+LOCATION:Virtual. RSVP for details\, WA\, United States
+CATEGORIES:Immigration Justice,New Member Friendly
+GEO:47.7510741;-120.7401385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260427T200000
+DTEND;TZID=America/Los_Angeles:20260427T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014924-1777320000-1777323600@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-04-27/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260429T180000
+DTEND;TZID=America/Los_Angeles:20260429T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017954-1777485600-1777489200@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-04-29/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260429T190000
+DTEND;TZID=America/Los_Angeles:20260429T200000
+DTSTAMP:20260412T135958
+CREATED:20260209T010853Z
+LAST-MODIFIED:20260209T011033Z
+UID:10017742-1777489200-1777492800@seattledsa.org
+SUMMARY:Electoral Working Group Campaign Operations Meeting
+DESCRIPTION:Join our Electoral Working Group’s Campaign Operations meeting series: come learn\, plan\, and execute the operational aspects of our endorsed campaigns – with tasks and trainings on field\, fundraising\, communications\, and internal member mobilization. Every Wednesday at 7pm\, except third Wednesdays. \nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-campaign-operations-meeting-2-2-2/2026-04-29/
+CATEGORIES:Electoral,New Member Friendly
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260429T190000
+DTEND;TZID=America/Los_Angeles:20260429T210000
+DTSTAMP:20260412T135958
+CREATED:20260305T052641Z
+LAST-MODIFIED:20260404T183711Z
+UID:10018347-1777489200-1777496400@seattledsa.org
+SUMMARY:Internationalism Reading Group
+DESCRIPTION:
+URL:https://seattledsa.org/event/internationalism-reading-group-2/2026-04-29/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Reading Groups
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260501
+DTEND;VALUE=DATE:20260502
+DTSTAMP:20260412T135958
+CREATED:20260326T192951Z
+LAST-MODIFIED:20260326T195514Z
+UID:10018271-1777593600-1777679999@seattledsa.org
+SUMMARY:International Workers' Day
+DESCRIPTION:
+URL:https://seattledsa.org/event/international-workers-day-2026/
+CATEGORIES:Immigration Justice,Labor,New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260501T160000
+DTEND;TZID=America/Los_Angeles:20260501T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018351-1777651200-1777658400@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-05-01/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260502T140000
+DTEND;TZID=America/Los_Angeles:20260502T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016364-1777730400-1777737600@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-05-02/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260502T163000
+DTEND;TZID=America/Los_Angeles:20260502T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018288-1777739400-1777748400@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-05-02/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260502T190000
+DTEND;TZID=America/Los_Angeles:20260502T210000
+DTSTAMP:20260412T135958
+CREATED:20260402T224659Z
+LAST-MODIFIED:20260402T224659Z
+UID:10018346-1777748400-1777755600@seattledsa.org
+SUMMARY:WTO/99 at The Beacon Cinema
+DESCRIPTION:Join other DSA members for a screening of WTO/99\, a documentary film about the clash between the World Trade Organization and over 40\,000 Seattle protestors. \nTickets on Sale Now at The Beacon’s website. \nSeating is Limited!
+URL:https://seattledsa.org/event/wto-99-at-the-beacon-cinema/
+LOCATION:Beacon Cinema\, 4405 Rainier Ave S.\, Seattle\, 98118\, United States
+CATEGORIES:Arts & Culture,Labor,New Member Friendly
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/04/WTO99.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260503T080000
+DTEND;TZID=America/Los_Angeles:20260503T150000
+DTSTAMP:20260412T135958
+CREATED:20260330T075842Z
+LAST-MODIFIED:20260405T052834Z
+UID:10018326-1777795200-1777820400@seattledsa.org
+SUMMARY:Hiking Club to Mount Si 🌹
+DESCRIPTION:We’re socialists who hike! \nMay we’ll be hiking Mount Si (8.0 miles) in the North Bend area. Let’s enjoy some early season hiking. DSA membership not required. \nMeet in the Hilltop Red Apple parking lot. Snacks and transportation to the trail provided. \nRecommended pack list:\n* Hiking boots\n* Water\n* Lunch or snacks\n* Jacket\n* Map (Apple or Google offline download\, AllTrails)\n* Sunglasses (weather depending)\n* Rain coat (weather depending)\n* Phone battery pack (optional)\nSee REI day hiking checklist for additional recommendations
+URL:https://seattledsa.org/event/hiking-club-to-mount-si-%f0%9f%8c%b9/
+CATEGORIES:Arts & Culture
+ATTACH;FMTTYPE=image/jpeg:https://seattledsa.org/wp-content/uploads/2026/03/si.jpeg
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260503T100000
+DTEND;TZID=America/Los_Angeles:20260503T120000
+DTSTAMP:20260412T135958
+CREATED:20250930T202106Z
+LAST-MODIFIED:20250930T202151Z
+UID:10015541-1777802400-1777809600@seattledsa.org
+SUMMARY:Socialist Soccer! - 10am to 12pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-10am-to-12pm/2026-05-03/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260503T110000
+DTEND;TZID=America/Los_Angeles:20260503T120000
+DTSTAMP:20260412T135958
+CREATED:20260402T051743Z
+LAST-MODIFIED:20260402T051743Z
+UID:10018337-1777806000-1777809600@seattledsa.org
+SUMMARY:Pride Month Planning Meeting
+DESCRIPTION:Seattle DSA is gearing up for Pride Month 2026! Comrades from several working groups and committees have come together to prepare for tabling at events like Trans Pride Seattle and to host our own DSA Pride Event. If you’d like to get involved in these efforts please join us for our biweekly planning sessions! \nThis is an internal event for DSA members. Meeting info can be found on Discord and in our Signal chat.
+URL:https://seattledsa.org/event/pride-month-planning-meeting-3/
+CATEGORIES:Member Engagement Team,PRIDE,Trans Rights and Bodily Autonomy Working Group
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/turning_the_frickin_fish_gay.png
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260504T183000
+DTEND;TZID=America/Los_Angeles:20260504T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016262-1777919400-1777923000@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-05-04/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260504T200000
+DTEND;TZID=America/Los_Angeles:20260504T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014925-1777924800-1777928400@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-05-04/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260505T190000
+DTEND;TZID=America/Los_Angeles:20260505T194500
+DTSTAMP:20260412T135958
+CREATED:20260411T212820Z
+LAST-MODIFIED:20260411T212822Z
+UID:10009407-1778007600-1778010300@seattledsa.org
+SUMMARY:Local Council Meeting
+DESCRIPTION:The Local Council (LC) is the elected leadership body which serves the members of Seattle DSA. During these short weekly check-ins\, LC members will primarily be ensuring work is on track\, though pressing business may occasionally be discussed and voted on. Members are welcome to observe LC meetings\, which are held on the chapter’s Discord server. To join our Discord\, please visit https://seattledsa.org/join-discord/ and follow the instructions. Thereafter\, you will be able to observe LC meetings on the #lc-voice channel every Tuesday (except the fourth Tuesday of the month when we hold our monthly General Membership Meeting) from 7:00pm – 7:45pm over Zoom. \nIf there’s something specific you’d like to bring to the Local Council\, please fill out the LC Request Form which can be found on the private resources page of our website. \nPlease note that on rare occurrences\, LC meetings will be cancelled due to holidays or unusual circumstances and these changes may not always be reflected on this calendar — if you show up to the meeting and aren’t let in after 5 minutes\, that is almost certainly what has happened.
+URL:https://seattledsa.org/event/local-council-meeting-6-2-2/2026-05-05/
+LOCATION:Online (Discord)
+CATEGORIES:SDSA Local Council,SDSA Local Council Meeting
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260506T180000
+DTEND;TZID=America/Los_Angeles:20260506T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017955-1778090400-1778094000@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-05-06/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260506T190000
+DTEND;TZID=America/Los_Angeles:20260506T200000
+DTSTAMP:20260412T135958
+CREATED:20260209T010853Z
+LAST-MODIFIED:20260209T011033Z
+UID:10017743-1778094000-1778097600@seattledsa.org
+SUMMARY:Electoral Working Group Campaign Operations Meeting
+DESCRIPTION:Join our Electoral Working Group’s Campaign Operations meeting series: come learn\, plan\, and execute the operational aspects of our endorsed campaigns – with tasks and trainings on field\, fundraising\, communications\, and internal member mobilization. Every Wednesday at 7pm\, except third Wednesdays. \nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-campaign-operations-meeting-2-2-2/2026-05-06/
+CATEGORIES:Electoral,New Member Friendly
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260508T160000
+DTEND;TZID=America/Los_Angeles:20260508T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018352-1778256000-1778263200@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-05-08/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260508T180000
+DTEND;TZID=America/Los_Angeles:20260508T200000
+DTSTAMP:20260412T135958
+CREATED:20250925T170620Z
+LAST-MODIFIED:20250925T170620Z
+UID:10014771-1778263200-1778270400@seattledsa.org
+SUMMARY:Socialist Educators Happy Hour
+DESCRIPTION:Socialist Educators Happy Hour\nEducators from all over (Seattle\, Renton\, Highline\, etc…) get together\, chat politics\, & share about struggles in their union. All union activists and socialists are welcome to attend! \nWe often anchor our discussions with a reading\, but we’ll provide a short summary so everyone can participate whether they read or not. \nWe meet 6pm every 2nd Friday of the month at Chuck’s Hop Shop in the Central District. Join us!
+URL:https://seattledsa.org/event/socialist-educators-happy-hour-12/2026-05-08/
+LOCATION:Chuck’s Hop Shop (Central District)\, 2001 E Union St\, Seattle\, WA\, 98122\, United States
+ATTACH;FMTTYPE=image/jpeg:https://seattledsa.org/wp-content/uploads/2025/09/signal-2025-09-24-175001_002.jpeg
+GEO:47.6127107;-122.3057116
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Chuck’s Hop Shop (Central District) 2001 E Union St Seattle WA 98122 United States;X-APPLE-RADIUS=500;X-TITLE=2001 E Union St:geo:-122.3057116,47.6127107
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260509T140000
+DTEND;TZID=America/Los_Angeles:20260509T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016365-1778335200-1778342400@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-05-09/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260509T143000
+DTEND;TZID=America/Los_Angeles:20260509T160000
+DTSTAMP:20260412T135958
+CREATED:20260402T195152Z
+LAST-MODIFIED:20260402T195153Z
+UID:10018343-1778337000-1778342400@seattledsa.org
+SUMMARY:New Labor Organizer Training
+DESCRIPTION:RSVP HERE \nHave you ever… \n\nWanted more rights at work?\nWanted to fight back against the corporate class?\nBeen thinking “I need a union\,” but don’t know how to make it happen?\n\nThis workshop will teach you what you need to get started at your workplace! \nThis is intended for people at currently non-union workplaces who want to take the first steps toward organizing\, whether you want to join an existing union\, form a new one\, or organizing demands of your boss without a union at all. \nOur experienced labor organizers will teach you how to have an organizing conversation and how to form your Organizing Committee. \nWhen we organize\, we win! \n\nPLEASE NOTE: The Cathy Hillenbrand Community Room is NOT at Cal Anderson! Do not believe Google Maps!\nIt is at the corner of 10th Ave E & John St.\nThere will be a social to follow this event at Outer Planet Brewing!
+URL:https://seattledsa.org/event/new-labor-organizer-training/
+LOCATION:Cathy Hillenbrand Community Room\, 923 E John St\, Seattle\, WA\, 98102\, United States
+CATEGORIES:Education,Labor,New Member Friendly
+ORGANIZER;CN="SDSA Labor Working Group":MAILTO:labor@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260509T143000
+DTEND;TZID=America/Los_Angeles:20260509T160000
+DTSTAMP:20260412T135958
+CREATED:20260402T195156Z
+LAST-MODIFIED:20260402T195158Z
+UID:10018344-1778337000-1778342400@seattledsa.org
+SUMMARY:Build a Better Union panel discussion
+DESCRIPTION:RSVP HERE \nIn some unions\, it’s tough to get involved beyond paying dues. Maybe leadership is an exclusive club or maybe they’re just checked out\, but something needs to change. Even when you can get involved\, is it a struggle? Are you really being listened to? Are your coworkers engaged with the union\, or just paper members? \nBuilding democratic participation makes a stronger\, fighting union. Come hear from union members who are currently organizing to do just that\, even when union leadership doesn’t agree with them. Learn how these members are working to build a better union from the inside\, and how you can apply their lessions to your own local. \nIf you are a current union staffer\, we ask that you not attend this event. Please join us afterwards at Outer Planet! \nThe Cathy Hillenbrand Community Room is NOT at Cal Anderson! Do not believe Google Maps!\nIt is at the corner of 10th Ave E & John St. \n\nThere will be a social to follow this event at Outer Planet Brewing!
+URL:https://seattledsa.org/event/build-a-better-union-panel-discussion/
+LOCATION:Capitol Hill Branch Library\, 425 Harvard Ave E\, Seattle\, WA\, 98102\, United States
+CATEGORIES:Education,Labor,New Member Friendly
+ORGANIZER;CN="SDSA Labor Working Group":MAILTO:labor@seattledsa.org
+GEO:47.6229294;-122.3223185
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Capitol Hill Branch Library 425 Harvard Ave E Seattle WA 98102 United States;X-APPLE-RADIUS=500;X-TITLE=425 Harvard Ave E:geo:-122.3223185,47.6229294
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260509T160000
+DTEND;TZID=America/Los_Angeles:20260509T180000
+DTSTAMP:20260412T135958
+CREATED:20260402T200843Z
+LAST-MODIFIED:20260402T200843Z
+UID:10018345-1778342400-1778349600@seattledsa.org
+SUMMARY:May Labor Social
+DESCRIPTION:RSVP HERE \nParticipants in our two workshops today are invited to continue their discussion and share what they learned at this social just down the street at Outer Planet Brewing. Anyone is welcome whether you’re not a union member (yet)\, a long time union activist\, or anywhere in between. \nWe’ll also have members of our Unionize for Trans Rights campaign at the social to discuss their work! \nYou can register for the Build A Better Union panel (for current union members) or the New Organizer Training (for future union members)\, both immediately before this social!
+URL:https://seattledsa.org/event/may-labor-social/
+LOCATION:Outer Planet Brewing\, 1812 12th Avenue\, Seattle\, 98122\, United States
+CATEGORIES:Labor,New Member Friendly,Socials
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/04/admin-ajax.png
+ORGANIZER;CN="SDSA Labor Working Group":MAILTO:labor@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260509T163000
+DTEND;TZID=America/Los_Angeles:20260509T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018289-1778344200-1778353200@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-05-09/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260510T100000
+DTEND;TZID=America/Los_Angeles:20260510T110000
+DTSTAMP:20260412T135958
+CREATED:20260207T181713Z
+LAST-MODIFIED:20260207T181714Z
+UID:10017673-1778407200-1778410800@seattledsa.org
+SUMMARY:Communications Committee Monthly Meeting
+DESCRIPTION:This is the monthly meeting for members of the Communications Committee for Seattle DSA \nA Zoom link will be sent to your email once you RSVP Here
+URL:https://seattledsa.org/event/communications-committee-monthly-meeting-2-5-2/2026-05-10/
+LOCATION:Online\, Seattle\, WA\, United States
+GEO:47.7510741;-120.7401385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260510T140000
+DTEND;TZID=America/Los_Angeles:20260510T160000
+DTSTAMP:20260412T135958
+CREATED:20250930T202320Z
+LAST-MODIFIED:20250930T202320Z
+UID:10015786-1778421600-1778428800@seattledsa.org
+SUMMARY:Socialist Soccer! 2pm - 4pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-2pm-4pm/2026-05-10/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260511T183000
+DTEND;TZID=America/Los_Angeles:20260511T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016263-1778524200-1778527800@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-05-11/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260511T183000
+DTEND;TZID=America/Los_Angeles:20260511T200000
+DTSTAMP:20260412T135958
+CREATED:20260312T212122Z
+LAST-MODIFIED:20260312T212131Z
+UID:10016141-1778524200-1778529600@seattledsa.org
+SUMMARY:Housing Biweekly Meeting
+DESCRIPTION:Join us for the biweekly meeting of the Housing Justice Working Group! Free food and drinks will be provided. \nThe Housing Justice Working Group is committed to creating a Seattle without sweeps\, evictions\, or housing scarcity\, where housing is a human right and not a commodity. \nThe full agenda is available on Discord (check out the pinned comment in the housing-justice-general channel). If you aren’t part of the Discord yet\, members in good standing can join here.
+URL:https://seattledsa.org/event/housing-biweekly-meeting-12/
+LOCATION:Cathy Hillenbrand Community Room\, 923 E John St\, Seattle\, WA\, 98102\, United States
+CATEGORIES:Housing,New Member Friendly
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2022/01/sdsa_housing_justice_working_group.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260511T190000
+DTEND;TZID=America/Los_Angeles:20260511T200000
+DTSTAMP:20260412T135958
+CREATED:20250421T042428Z
+LAST-MODIFIED:20250421T042429Z
+UID:10012155-1778526000-1778529600@seattledsa.org
+SUMMARY:Immigration Justice Working Group
+DESCRIPTION:This is the weekly meeting for Seattle DSA’s Immigration Justice Working Group. We’re organizing to keep ICE out of our communities and to keep our immigrant communities and neighbors safe! RSVP here for the Zoom link!
+URL:https://seattledsa.org/event/immigration-justice-working-group-6-4-2-2/2026-05-11/
+LOCATION:Virtual. RSVP for details\, WA\, United States
+CATEGORIES:Immigration Justice,New Member Friendly
+GEO:47.7510741;-120.7401385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260511T200000
+DTEND;TZID=America/Los_Angeles:20260511T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014926-1778529600-1778533200@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-05-11/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260512T183000
+DTEND;TZID=America/Los_Angeles:20260512T193000
+DTSTAMP:20260412T135958
+CREATED:20260305T051324Z
+LAST-MODIFIED:20260305T051324Z
+UID:10018008-1778610600-1778614200@seattledsa.org
+SUMMARY:Palestine Solidarity & Internationalism Working Group Meeting
+DESCRIPTION:
+URL:https://seattledsa.org/event/palestine-solidarity-internationalism-working-group-meeting/2026-05-12/
+CATEGORIES:Anti-War / Anti-Imperialism,Palestine
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260512T190000
+DTEND;TZID=America/Los_Angeles:20260512T194500
+DTSTAMP:20260412T135958
+CREATED:20260411T212820Z
+LAST-MODIFIED:20260411T212822Z
+UID:10009408-1778612400-1778615100@seattledsa.org
+SUMMARY:Local Council Meeting
+DESCRIPTION:The Local Council (LC) is the elected leadership body which serves the members of Seattle DSA. During these short weekly check-ins\, LC members will primarily be ensuring work is on track\, though pressing business may occasionally be discussed and voted on. Members are welcome to observe LC meetings\, which are held on the chapter’s Discord server. To join our Discord\, please visit https://seattledsa.org/join-discord/ and follow the instructions. Thereafter\, you will be able to observe LC meetings on the #lc-voice channel every Tuesday (except the fourth Tuesday of the month when we hold our monthly General Membership Meeting) from 7:00pm – 7:45pm over Zoom. \nIf there’s something specific you’d like to bring to the Local Council\, please fill out the LC Request Form which can be found on the private resources page of our website. \nPlease note that on rare occurrences\, LC meetings will be cancelled due to holidays or unusual circumstances and these changes may not always be reflected on this calendar — if you show up to the meeting and aren’t let in after 5 minutes\, that is almost certainly what has happened.
+URL:https://seattledsa.org/event/local-council-meeting-6-2-2/2026-05-12/
+LOCATION:Online (Discord)
+CATEGORIES:SDSA Local Council,SDSA Local Council Meeting
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260513T180000
+DTEND;TZID=America/Los_Angeles:20260513T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017956-1778695200-1778698800@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-05-13/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260513T190000
+DTEND;TZID=America/Los_Angeles:20260513T200000
+DTSTAMP:20260412T135958
+CREATED:20260209T010853Z
+LAST-MODIFIED:20260209T011033Z
+UID:10017744-1778698800-1778702400@seattledsa.org
+SUMMARY:Electoral Working Group Campaign Operations Meeting
+DESCRIPTION:Join our Electoral Working Group’s Campaign Operations meeting series: come learn\, plan\, and execute the operational aspects of our endorsed campaigns – with tasks and trainings on field\, fundraising\, communications\, and internal member mobilization. Every Wednesday at 7pm\, except third Wednesdays. \nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-campaign-operations-meeting-2-2-2/2026-05-13/
+CATEGORIES:Electoral,New Member Friendly
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260515T120000
+DTEND;TZID=America/Los_Angeles:20260515T130000
+DTSTAMP:20260412T135958
+CREATED:20260204T024019Z
+LAST-MODIFIED:20260204T024021Z
+UID:10018128-1778846400-1778850000@seattledsa.org
+SUMMARY:Member Engagement Committee Meeting
+DESCRIPTION:
+URL:https://seattledsa.org/event/member-engagement-committee-meeting-14-8/2026-05-15/
+CATEGORIES:Member Engagement Team,New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260515T160000
+DTEND;TZID=America/Los_Angeles:20260515T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018353-1778860800-1778868000@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-05-15/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260516T140000
+DTEND;TZID=America/Los_Angeles:20260516T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016366-1778940000-1778947200@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-05-16/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260516T163000
+DTEND;TZID=America/Los_Angeles:20260516T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018290-1778949000-1778958000@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-05-16/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260517T100000
+DTEND;TZID=America/Los_Angeles:20260517T120000
+DTSTAMP:20260412T135958
+CREATED:20250930T202106Z
+LAST-MODIFIED:20250930T202151Z
+UID:10015543-1779012000-1779019200@seattledsa.org
+SUMMARY:Socialist Soccer! - 10am to 12pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-10am-to-12pm/2026-05-17/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260517T110000
+DTEND;TZID=America/Los_Angeles:20260517T120000
+DTSTAMP:20260412T135958
+CREATED:20260402T051805Z
+LAST-MODIFIED:20260402T051805Z
+UID:10018338-1779015600-1779019200@seattledsa.org
+SUMMARY:Pride Month Planning Meeting
+DESCRIPTION:Seattle DSA is gearing up for Pride Month 2026! Comrades from several working groups and committees have come together to prepare for tabling at events like Trans Pride Seattle and to host our own DSA Pride Event. If you’d like to get involved in these efforts please join us for our biweekly planning sessions! \nThis is an internal event for DSA members. Meeting info can be found on Discord and in our Signal chat.
+URL:https://seattledsa.org/event/pride-month-planning-meeting-4/
+CATEGORIES:Member Engagement Team,PRIDE,Trans Rights and Bodily Autonomy Working Group
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/turning_the_frickin_fish_gay.png
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260518T183000
+DTEND;TZID=America/Los_Angeles:20260518T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016264-1779129000-1779132600@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-05-18/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260518T200000
+DTEND;TZID=America/Los_Angeles:20260518T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014927-1779134400-1779138000@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-05-18/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260519T190000
+DTEND;TZID=America/Los_Angeles:20260519T194500
+DTSTAMP:20260412T135958
+CREATED:20260411T212820Z
+LAST-MODIFIED:20260411T212822Z
+UID:10009409-1779217200-1779219900@seattledsa.org
+SUMMARY:Local Council Meeting
+DESCRIPTION:The Local Council (LC) is the elected leadership body which serves the members of Seattle DSA. During these short weekly check-ins\, LC members will primarily be ensuring work is on track\, though pressing business may occasionally be discussed and voted on. Members are welcome to observe LC meetings\, which are held on the chapter’s Discord server. To join our Discord\, please visit https://seattledsa.org/join-discord/ and follow the instructions. Thereafter\, you will be able to observe LC meetings on the #lc-voice channel every Tuesday (except the fourth Tuesday of the month when we hold our monthly General Membership Meeting) from 7:00pm – 7:45pm over Zoom. \nIf there’s something specific you’d like to bring to the Local Council\, please fill out the LC Request Form which can be found on the private resources page of our website. \nPlease note that on rare occurrences\, LC meetings will be cancelled due to holidays or unusual circumstances and these changes may not always be reflected on this calendar — if you show up to the meeting and aren’t let in after 5 minutes\, that is almost certainly what has happened.
+URL:https://seattledsa.org/event/local-council-meeting-6-2-2/2026-05-19/
+LOCATION:Online (Discord)
+CATEGORIES:SDSA Local Council,SDSA Local Council Meeting
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260520T180000
+DTEND;TZID=America/Los_Angeles:20260520T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017957-1779300000-1779303600@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-05-20/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260522T160000
+DTEND;TZID=America/Los_Angeles:20260522T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018354-1779465600-1779472800@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-05-22/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260523T140000
+DTEND;TZID=America/Los_Angeles:20260523T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016367-1779544800-1779552000@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-05-23/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260523T163000
+DTEND;TZID=America/Los_Angeles:20260523T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018291-1779553800-1779562800@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-05-23/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260524T140000
+DTEND;TZID=America/Los_Angeles:20260524T160000
+DTSTAMP:20260412T135958
+CREATED:20250930T202320Z
+LAST-MODIFIED:20250930T202320Z
+UID:10015787-1779631200-1779638400@seattledsa.org
+SUMMARY:Socialist Soccer! 2pm - 4pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-2pm-4pm/2026-05-24/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260525T183000
+DTEND;TZID=America/Los_Angeles:20260525T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016265-1779733800-1779737400@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-05-25/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260525T183000
+DTEND;TZID=America/Los_Angeles:20260525T200000
+DTSTAMP:20260412T135958
+CREATED:20260312T212242Z
+LAST-MODIFIED:20260312T212313Z
+UID:10016142-1779733800-1779739200@seattledsa.org
+SUMMARY:Housing Biweekly Meeting
+DESCRIPTION:Join us for the biweekly meeting of the Housing Justice Working Group! Free food and drinks will be provided. \nThe Housing Justice Working Group is committed to creating a Seattle without sweeps\, evictions\, or housing scarcity\, where housing is a human right and not a commodity. \nThe full agenda is available on Discord (check out the pinned comment in the housing-justice-general channel). If you aren’t part of the Discord yet\, members in good standing can join here.
+URL:https://seattledsa.org/event/housing-biweekly-meeting-13/
+LOCATION:Cathy Hillenbrand Community Room\, 923 E John St\, Seattle\, WA\, 98102\, United States
+CATEGORIES:Housing,New Member Friendly
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2022/01/sdsa_housing_justice_working_group.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260525T190000
+DTEND;TZID=America/Los_Angeles:20260525T200000
+DTSTAMP:20260412T135958
+CREATED:20250421T042428Z
+LAST-MODIFIED:20250421T042429Z
+UID:10012156-1779735600-1779739200@seattledsa.org
+SUMMARY:Immigration Justice Working Group
+DESCRIPTION:This is the weekly meeting for Seattle DSA’s Immigration Justice Working Group. We’re organizing to keep ICE out of our communities and to keep our immigrant communities and neighbors safe! RSVP here for the Zoom link!
+URL:https://seattledsa.org/event/immigration-justice-working-group-6-4-2-2/2026-05-25/
+LOCATION:Virtual. RSVP for details\, WA\, United States
+CATEGORIES:Immigration Justice,New Member Friendly
+GEO:47.7510741;-120.7401385
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260525T200000
+DTEND;TZID=America/Los_Angeles:20260525T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014928-1779739200-1779742800@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-05-25/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260527T180000
+DTEND;TZID=America/Los_Angeles:20260527T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017958-1779904800-1779908400@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-05-27/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260527T190000
+DTEND;TZID=America/Los_Angeles:20260527T200000
+DTSTAMP:20260412T135958
+CREATED:20260209T010853Z
+LAST-MODIFIED:20260209T011033Z
+UID:10017746-1779908400-1779912000@seattledsa.org
+SUMMARY:Electoral Working Group Campaign Operations Meeting
+DESCRIPTION:Join our Electoral Working Group’s Campaign Operations meeting series: come learn\, plan\, and execute the operational aspects of our endorsed campaigns – with tasks and trainings on field\, fundraising\, communications\, and internal member mobilization. Every Wednesday at 7pm\, except third Wednesdays. \nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-campaign-operations-meeting-2-2-2/2026-05-27/
+CATEGORIES:Electoral,New Member Friendly
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260528T190000
+DTEND;TZID=America/Los_Angeles:20260528T203000
+DTSTAMP:20260412T135958
+CREATED:20260311T023727Z
+LAST-MODIFIED:20260311T023727Z
+UID:10018187-1779994800-1780000200@seattledsa.org
+SUMMARY:South King County Branch Meeting
+DESCRIPTION:Dear South King County DSA Members\, \n\nMake sure to mark your calendars for an upcoming Branch meeting! RSVP here \n\nPlease feel free to reach out anytime if you’d like to get something added to the agenda. \n\nSee you then!
+URL:https://seattledsa.org/event/south-king-county-branch-meeting-3/2026-05-28/
+LOCATION:Online (Zoom Call)\, WA
+CATEGORIES:South King County
+GEO:47.6618326;-122.3425123
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260529T160000
+DTEND;TZID=America/Los_Angeles:20260529T180000
+DTSTAMP:20260412T135958
+CREATED:20260404T185043Z
+LAST-MODIFIED:20260404T185045Z
+UID:10018355-1780070400-1780077600@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nFRIDAYS: \nLocation: 4359 Roosevelt Way NE \nTime: 4-6PM
+URL:https://seattledsa.org/event/chevron-bds-picketing-2-2/2026-05-29/
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260530T140000
+DTEND;TZID=America/Los_Angeles:20260530T160000
+DTSTAMP:20260412T135958
+CREATED:20260112T052512Z
+LAST-MODIFIED:20260115T063855Z
+UID:10016368-1780149600-1780156800@seattledsa.org
+SUMMARY:Chevron BDS Picketing
+DESCRIPTION:Stand up against complicity with genocide and occupation! Come join the Chevron BDS crew every week. \nSATURDAYS: \nLocation: Chevron at 15510 Aurora Ave N\, Shoreline \nTime: 2-4pm
+URL:https://seattledsa.org/event/chevron-bds-picketing/2026-05-30/
+LOCATION:Shoreline Chevron\, 15510 Aurora Ave N\, Shoreline\, United States
+CATEGORIES:Anti-War / Anti-Imperialism,New Member Friendly,Palestine
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/01/stop_fueling_genocide.png
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260530T163000
+DTEND;TZID=America/Los_Angeles:20260530T190000
+DTSTAMP:20260412T135958
+CREATED:20260115T061347Z
+LAST-MODIFIED:20260327T030327Z
+UID:10018292-1780158600-1780167600@seattledsa.org
+SUMMARY:Solidarity Dinner: South Seattle
+DESCRIPTION:Dinner for the people! \nHelp us cook\, serve\, eat together\, and connect with our neighbors. \nWe feed our community\, no questions asked\, because we believe in our world where no one goes hungry. \nSaturdays in South Seattle:\n-Cooking shift: 1:30-4pm in Tukwila\n-Serving shift: 4:30-7pm at Cafe Red (across the street from the light rail station) \nTo volunteer for a cooking or serving shift\, follow the instructions here. \nWe are also looking for financial supporters. It costs just $2 to feed a hungry neighbor. Support here!
+URL:https://seattledsa.org/event/solidarity-dinner-south-seattle/2026-05-30/
+LOCATION:Cafe Red\, 7148 Martin Luther King Jr Way S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:Mutual Aid,New Member Friendly
+GEO:47.5374953;-122.2809353
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Cafe Red 7148 Martin Luther King Jr Way S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=7148 Martin Luther King Jr Way S:geo:-122.2809353,47.5374953
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260531T100000
+DTEND;TZID=America/Los_Angeles:20260531T120000
+DTSTAMP:20260412T135958
+CREATED:20250930T202106Z
+LAST-MODIFIED:20250930T202151Z
+UID:10015545-1780221600-1780228800@seattledsa.org
+SUMMARY:Socialist Soccer! - 10am to 12pm
+DESCRIPTION:Come play soccer with fellow socialists! This is a fun\, enjoyable way to get outdoors\, exercise\, and meet friendly socialists as well as non-socialist soccer enthusiasts! \nAll genders and skill levels are welcome! Safety is our top priority. To participate you must abide by our norms and agreements to avoid injuries and help us take care of one another. \nJoin us at Brighton Playfield in South Seattle. Map: goo.gl/maps/c74cytjrRB1vpT7h7\nWe almost always play on the most southern edge of the field. \nWe confirm if we have enough players each Sunday on a socialist soccer Signal chat. To be added\, download the Signal app\, and email your phone number to tdupuis42@gmail.com with a request to be added. \nThe game is usually at 10 AM\, but that may change\, so make sure you are on the Socialist Soccer signal chat!
+URL:https://seattledsa.org/event/socialist-soccer-10am-to-12pm/2026-05-31/
+LOCATION:Brighton Playfield\, 6000 39th Ave S\, Seattle\, WA\, 98118\, United States
+CATEGORIES:New Member Friendly,Socials
+GEO:47.5499039;-122.2810004
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-ADDRESS=Brighton Playfield 6000 39th Ave S Seattle WA 98118 United States;X-APPLE-RADIUS=500;X-TITLE=6000 39th Ave S:geo:-122.2810004,47.5499039
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260531T110000
+DTEND;TZID=America/Los_Angeles:20260531T120000
+DTSTAMP:20260412T135958
+CREATED:20260402T051824Z
+LAST-MODIFIED:20260402T051824Z
+UID:10018339-1780225200-1780228800@seattledsa.org
+SUMMARY:Pride Month Planning Meeting
+DESCRIPTION:Seattle DSA is gearing up for Pride Month 2026! Comrades from several working groups and committees have come together to prepare for tabling at events like Trans Pride Seattle and to host our own DSA Pride Event. If you’d like to get involved in these efforts please join us for our biweekly planning sessions! \nThis is an internal event for DSA members. Meeting info can be found on Discord and in our Signal chat.
+URL:https://seattledsa.org/event/pride-month-planning-meeting-5/
+CATEGORIES:Member Engagement Team,PRIDE,Trans Rights and Bodily Autonomy Working Group
+ATTACH;FMTTYPE=image/png:https://seattledsa.org/wp-content/uploads/2026/03/turning_the_frickin_fish_gay.png
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260601T183000
+DTEND;TZID=America/Los_Angeles:20260601T193000
+DTSTAMP:20260412T135958
+CREATED:20260209T011225Z
+LAST-MODIFIED:20260209T011226Z
+UID:10016266-1780338600-1780342200@seattledsa.org
+SUMMARY:Electoral Working Group Planning Subcommittee Meeting
+DESCRIPTION:Help us brainstorm\, research\, and plan for future electoral campaigns! We’re currently working on planning a potential campaign for WA State House in the 37th LD. Some of the other tasks of this subcommittee include unified campaign ideation\, powermapping districts\, assessing required scale of mobilization (field\, fundraising\, etc.) for potential campaigns\, and candidate development and recruitment. \n\nSign up for our weekly calendar event that contains the Zoom link using the form below! Email electoral@seattledsa.org with any questions.
+URL:https://seattledsa.org/event/electoral-working-group-planning-subcommittee-meeting-4-2-2-2/2026-06-01/
+CATEGORIES:Electoral
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260601T200000
+DTEND;TZID=America/Los_Angeles:20260601T210000
+DTSTAMP:20260412T135958
+CREATED:20250917T051432Z
+LAST-MODIFIED:20250929T022345Z
+UID:10014929-1780344000-1780347600@seattledsa.org
+SUMMARY:Washington State Socialists in Office Committee
+DESCRIPTION:Join DSA members statewide in working with DSA-endorsed Representative Shaun Scott in the state legislature. We meet weekly to develop and analyze policies designed to better serve Washington’s working class!
+URL:https://seattledsa.org/event/washington-state-socialists-in-office-committee/2026-06-01/
+CATEGORIES:New Member Friendly
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260602T190000
+DTEND;TZID=America/Los_Angeles:20260602T194500
+DTSTAMP:20260412T135958
+CREATED:20260411T212820Z
+LAST-MODIFIED:20260411T212822Z
+UID:10009410-1780426800-1780429500@seattledsa.org
+SUMMARY:Local Council Meeting
+DESCRIPTION:The Local Council (LC) is the elected leadership body which serves the members of Seattle DSA. During these short weekly check-ins\, LC members will primarily be ensuring work is on track\, though pressing business may occasionally be discussed and voted on. Members are welcome to observe LC meetings\, which are held on the chapter’s Discord server. To join our Discord\, please visit https://seattledsa.org/join-discord/ and follow the instructions. Thereafter\, you will be able to observe LC meetings on the #lc-voice channel every Tuesday (except the fourth Tuesday of the month when we hold our monthly General Membership Meeting) from 7:00pm – 7:45pm over Zoom. \nIf there’s something specific you’d like to bring to the Local Council\, please fill out the LC Request Form which can be found on the private resources page of our website. \nPlease note that on rare occurrences\, LC meetings will be cancelled due to holidays or unusual circumstances and these changes may not always be reflected on this calendar — if you show up to the meeting and aren’t let in after 5 minutes\, that is almost certainly what has happened.
+URL:https://seattledsa.org/event/local-council-meeting-6-2-2/2026-06-02/
+LOCATION:Online (Discord)
+CATEGORIES:SDSA Local Council,SDSA Local Council Meeting
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/Los_Angeles:20260603T180000
+DTEND;TZID=America/Los_Angeles:20260603T190000
+DTSTAMP:20260412T135958
+CREATED:20260304T194509Z
+LAST-MODIFIED:20260304T194509Z
+UID:10017959-1780509600-1780513200@seattledsa.org
+SUMMARY:Tech Committee Meeting
+DESCRIPTION:Join us for our weekly Tech Committee meeting! The Tech Committee is responsible for much of the tech administration of Seattle DSA. \nWe will be meeting on Discord in the tech-voice channel\, please RSVP there!
+URL:https://seattledsa.org/event/tech-committee-meeting-13/2026-06-03/
+CATEGORIES:New Member Friendly
+ORGANIZER;CN="Tech Committee":MAILTO:tech@seattledsa.org
+END:VEVENT
+END:VCALENDAR

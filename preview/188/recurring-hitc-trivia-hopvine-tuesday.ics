@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:CalendarRipper
+METHOD:PUBLISH
+X-WR-CALNAME:Trivia at Hopvine Pub (Tuesday)
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:w3EA0_cngmC2gtzmpYRWj
+SUMMARY:Trivia at Hopvine Pub (Tuesday)
+DTSTAMP:20260413T004112Z
+DTSTART;TZID=America/Los_Angeles:20260414T193000
+DESCRIPTION:Weekly pub trivia hosted by Head in the Clouds Trivia\n\nhttps:
+	//www.headinthecloudstrivia.com
+URL:https://www.headinthecloudstrivia.com/
+LOCATION:507 15th Ave E\, Seattle\, WA 98112
+TRANSP:TRANSPARENT
+RRULE:FREQ=WEEKLY;BYDAY=TU
+DURATION:PT2H
+END:VEVENT
+END:VCALENDAR

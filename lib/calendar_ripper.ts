@@ -919,10 +919,19 @@ END:VCALENDAR`;
       let lng: number | undefined;
       let geocodeSource: 'ripper' | 'cached' | 'none' | undefined;
 
-      if (calendar.parent?.geo) {
-        // Use ripper-level coords — no geocoding needed
-        lat = calendar.parent.geo.lat;
-        lng = calendar.parent.geo.lng;
+      // Resolve geo: calendar-level config wins over ripper-level.
+      // `geo` is now required-nullable at the ripper level; a ripper with
+      // `geo: null` plus per-calendar overrides is how multi-branch
+      // sources like SPL opt in to branch-level coords.
+      const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
+      const resolvedGeo = calendarCfg?.geo !== undefined
+        ? calendarCfg.geo
+        : (calendar.parent?.geo ?? null);
+
+      if (resolvedGeo) {
+        // Use declared coords — no geocoding needed
+        lat = resolvedGeo.lat;
+        lng = resolvedGeo.lng;
         geocodeSource = 'ripper';
       } else {
         const result = await resolveEventCoords(geoCache, event.location, sourceName);

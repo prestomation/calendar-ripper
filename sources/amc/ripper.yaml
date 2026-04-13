@@ -5,6 +5,7 @@ description: "AMC Theatres movie showtimes in the Seattle area"
 url: "https://graph.amctheatres.com/graphql"
 friendlyLink: https://www.amctheatres.com
 tags: ["Movies"]
+geo: null
 calendars:
   - name: pacific-place
     friendlyname: "AMC Pacific Place 11"

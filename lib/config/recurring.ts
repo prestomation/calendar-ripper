@@ -1,6 +1,6 @@
 import { Duration, ZonedDateTime, LocalTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
 import { z } from "zod";
-import { RipperCalendarEvent, RipperCalendar } from "./schema.js";
+import { RipperCalendarEvent, RipperCalendar, geoSchema } from "./schema.js";
 import { parse } from 'yaml';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -19,7 +19,11 @@ export const recurringEventSchema = z.object({
     url: z.string().url(),
     tags: z.array(z.string()),
     seasonal: z.string().optional(), // "summer", "winter", etc.
-    months: z.array(z.number().int().min(1).max(12)).optional() // explicit month list, e.g. [5,6,7,8,9]
+    months: z.array(z.number().int().min(1).max(12)).optional(), // explicit month list, e.g. [5,6,7,8,9]
+    // Required: every recurring entry must explicitly state whether it is a
+    // single-location venue (geo object) or not (null). A recurring event at
+    // a fixed museum is a venue; a cross-neighborhood art walk is not.
+    geo: geoSchema.nullable(),
 });
 
 export const recurringConfigSchema = z.object({

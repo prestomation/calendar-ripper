@@ -84,7 +84,7 @@ export default class HellbentBrewingRipper implements IRipper {
                 if (!startTs) continue;
 
                 const startDate = ZonedDateTime.ofInstant(
-                    Instant.ofEpochMilli(parseInt(startTs) * 1000),
+                    Instant.ofEpochMilli(parseInt(startTs, 10) * 1000),
                     timezone
                 );
 

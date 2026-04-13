@@ -609,7 +609,7 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
   try {
     const res = await fetch(url, {
       headers: {
-        'User-Agent': 'calendar-ripper/1.0 (github.com/prestomation/calendar-ripper)',
+        'User-Agent': '206.events/1.0 (https://206.events)',
       },
       ...(signal ? { signal } : {}),
     });

@@ -167,7 +167,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                 return desc;
             })(),
             location: e.location,
-            productId: "CalendarRipper",
+            productId: "206.events",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
             url: e.url?.startsWith('http') ? safeUrl(e.url) : undefined,

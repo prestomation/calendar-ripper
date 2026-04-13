@@ -677,7 +677,7 @@ export const main = async () => {
       // Create empty calendar file as fallback
       const emptyCalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//iCalendar Ripper//External Calendar Error//EN
+PRODID:-//206.events//External Calendar Error//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:${calendar.friendlyname} (Error)

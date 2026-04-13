@@ -30,7 +30,7 @@ vi.mock('./tag_aggregator.js', () => ({
   createAggregateCalendars: vi.fn()
 }));
 
-describe('Calendar Ripper Integration with Tags', () => {
+describe('206.events Integration with Tags', () => {
   beforeEach(() => {
     vi.resetAllMocks();
   });

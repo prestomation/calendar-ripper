@@ -1,4 +1,4 @@
-# iCalendar Ripper
+# 206.events
 
 Subscribe to Seattle-area event calendars in your favorite calendar app. This project scrapes event data from dozens of local websites, ICS feeds, and APIs, then publishes them as standard iCalendar (.ics) files you can add to Google Calendar, Apple Calendar, Outlook, or any other calendar application.
 

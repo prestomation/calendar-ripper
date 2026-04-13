@@ -82,7 +82,7 @@ function generateICS({ title, startDate, endDate, description, location, url }) 
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Calendar Ripper//EN',
+    'PRODID:-//206.events//EN',
     'BEGIN:VEVENT',
     `DTSTART:${start}`,
     `DTEND:${end}`,
@@ -3533,7 +3533,7 @@ function App() {
                Open an issue or pull request to add a new calendar to this page. </a>
             </p>
             <p style={{ fontSize: '12px' }}>
-              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">206.events</a>
               {manifest && (
                 <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
               )}

@@ -127,9 +127,9 @@ No counts, no templating.
 Sketch:
 
 ```
-# Calendar Ripper
+# 206.events
 
-> Calendar Ripper is a build-time aggregator that pulls events from
+> 206.events is a build-time aggregator that pulls events from
 > Seattle-area venues, museums, and community sources and republishes
 > them as ICS calendars, RSS feeds, and JSON.
 

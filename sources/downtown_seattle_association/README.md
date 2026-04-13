@@ -1,4 +1,4 @@
-# Downtown Seattle Association Calendar Ripper
+# Downtown Seattle Association Ripper
 
 This module parses events from the Downtown Seattle Association website for different venues:
 

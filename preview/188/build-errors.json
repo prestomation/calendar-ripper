@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-04-13T00:43:33.273Z",
+  "buildTime": "2026-04-13T00:46:46.140Z",
   "totalErrors": 225,
   "configErrors": [],
   "sources": [],
@@ -1357,8 +1357,8 @@
     }
   ],
   "geoStats": {
-    "totalEvents": 6934,
-    "eventsWithGeo": 5063,
+    "totalEvents": 6938,
+    "eventsWithGeo": 5067,
     "eventsWithoutGeo": 1871,
     "geocodeErrors": 225
   },
@@ -2041,13 +2041,13 @@
     {
       "name": "pacific-science-center-laser-dome",
       "type": "Ripper",
-      "events": 40,
+      "events": 43,
       "expectEmpty": false
     },
     {
       "name": "pacific-science-center-imax",
       "type": "Ripper",
-      "events": 57,
+      "events": 58,
       "expectEmpty": false
     },
     {
@@ -2689,7 +2689,7 @@
     {
       "name": "tag-museums",
       "type": "Aggregate",
-      "events": 164,
+      "events": 168,
       "expectEmpty": false
     },
     {
@@ -2701,7 +2701,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2478,
+      "events": 2481,
       "expectEmpty": false
     },
     {
@@ -2821,7 +2821,7 @@
     {
       "name": "tag-education",
       "type": "Aggregate",
-      "events": 495,
+      "events": 499,
       "expectEmpty": false
     },
     {
@@ -2887,7 +2887,7 @@
     {
       "name": "tag-all",
       "type": "Aggregate",
-      "events": 6935,
+      "events": 6939,
       "expectEmpty": false
     },
     {

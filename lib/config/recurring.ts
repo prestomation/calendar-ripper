@@ -42,6 +42,15 @@ export class RecurringEventProcessor {
         this.config = recurringConfigSchema.parse(rawConfig);
     }
 
+    /**
+     * Returns the raw (parsed) recurring event definitions. Used by the
+     * discovery-API builder to look up venue-level metadata like `geo`,
+     * `description`, and `url` that aren't exposed on `RipperCalendar`.
+     */
+    public getEvents(): RecurringEvent[] {
+        return this.config.events;
+    }
+
     public generateCalendars(startDate: LocalDate, endDate: LocalDate): RipperCalendar[] {
         const calendars: RipperCalendar[] = [];
 

@@ -4,7 +4,8 @@
 
 events:
   # Seattle Neighborhood Art Walks
-  - name: ballard-artwalk
+  - geo: null
+    name: ballard-artwalk
     friendlyname: "Ballard Art Walk"
     description: "Monthly art walk in the Ballard neighborhood"
     schedule: "2nd Saturday"
@@ -15,7 +16,8 @@ events:
     url: "http://www.visitballard.com/artwalk/"
     tags: ["Artwalk", "Ballard"]
 
-  - name: belltown-artwalk
+  - geo: null
+    name: belltown-artwalk
     friendlyname: "Belltown Art Walk"
     description: "Monthly art walk in the Belltown neighborhood"
     schedule: "2nd Friday"
@@ -26,7 +28,8 @@ events:
     url: "http://www.belltownartwalk.com/"
     tags: ["Artwalk", "Belltown"]
 
-  - name: capitol-hill-artwalk
+  - geo: null
+    name: capitol-hill-artwalk
     friendlyname: "Capitol Hill Art Walk"
     description: "Monthly art walk in the Capitol Hill neighborhood"
     schedule: "2nd Thursday"
@@ -37,7 +40,8 @@ events:
     url: "https://capitolhillartwalk.com/"
     tags: ["Artwalk", "Capitol Hill"]
 
-  - name: central-district-artwalk-friday
+  - geo: null
+    name: central-district-artwalk-friday
     friendlyname: "Central District Art Walk (First Friday)"
     description: "Monthly art walk in the Central District on first Fridays"
     schedule: "1st Friday"
@@ -48,7 +52,8 @@ events:
     url: "https://www.madespaceseattle.com/copy-of-books-bites-n-beats-blockparty"
     tags: ["Artwalk", "Central District"]
 
-  - name: central-district-artwalk-saturday
+  - geo: null
+    name: central-district-artwalk-saturday
     friendlyname: "Central District Art Walk (Second Saturday)"
     description: "Monthly art walk in the Central District on second Saturdays"
     schedule: "2nd Saturday"
@@ -59,7 +64,8 @@ events:
     url: "https://www.facebook.com/centraldistrictartwalk"
     tags: ["Artwalk", "Central District"]
 
-  - name: chinatown-id-artwalk
+  - geo: null
+    name: chinatown-id-artwalk
     friendlyname: "Chinatown/International District Art Walk"
     description: "Summer art walk in the Chinatown/International District"
     schedule: "3rd Thursday"
@@ -71,7 +77,8 @@ events:
     tags: ["Artwalk", "International District"]
     seasonal: "summer"  # Only during summer months
 
-  - name: downtown-seattle-artwalk
+  - geo: null
+    name: downtown-seattle-artwalk
     friendlyname: "Downtown Seattle Art Walk"
     description: "Monthly art walk in Downtown Seattle"
     schedule: "4th Friday"
@@ -82,7 +89,8 @@ events:
     url: "https://www.seattle.gov/arts/experience/art-walks"
     tags: ["Artwalk", "Downtown"]
 
-  - name: fremont-artwalk
+  - geo: null
+    name: fremont-artwalk
     friendlyname: "Fremont First Friday Art Walk"
     description: "Monthly art walk in the Fremont neighborhood"
     schedule: "1st Friday"
@@ -93,7 +101,8 @@ events:
     url: "http://www.fremontfirstfriday.com/"
     tags: ["Artwalk", "Fremont"]
 
-  - name: georgetown-artwalk
+  - geo: null
+    name: georgetown-artwalk
     friendlyname: "Georgetown Art Attack"
     description: "Monthly art walk in the Georgetown neighborhood"
     schedule: "2nd Saturday"
@@ -104,7 +113,8 @@ events:
     url: "https://georgetownseattle.org/art-attack/"
     tags: ["Artwalk", "Georgetown"]
 
-  - name: lake-city-artwalk
+  - geo: null
+    name: lake-city-artwalk
     friendlyname: "Lake City Art Walk"
     description: "Monthly art walk in the Lake City neighborhood"
     schedule: "3rd Thursday"
@@ -115,7 +125,8 @@ events:
     url: "https://www.turntablestrails.com/art-walk"
     tags: ["Artwalk", "Lake City"]
 
-  - name: phinney-greenwood-artwalk
+  - geo: null
+    name: phinney-greenwood-artwalk
     friendlyname: "Phinney/Greenwood Art Walk"
     description: "Monthly art walk in the Phinney/Greenwood neighborhoods"
     schedule: "2nd Friday"
@@ -126,7 +137,8 @@ events:
     url: "https://www.phinneycenter.org/artwalk/"
     tags: ["Artwalk", "Phinney", "Greenwood"]
 
-  - name: pike-place-artwalk
+  - geo: null
+    name: pike-place-artwalk
     friendlyname: "Pike Place Summer Art Walk"
     description: "Summer art walk at Pike Place Market"
     schedule: "1st Thursday"
@@ -138,7 +150,8 @@ events:
     tags: ["Artwalk", "Pike Place"]
     seasonal: "summer"  # June - September
 
-  - name: pioneer-square-artwalk
+  - geo: null
+    name: pioneer-square-artwalk
     friendlyname: "Pioneer Square Art Walk"
     description: "Monthly art walk in Pioneer Square - the nation's first art walk!"
     schedule: "1st Thursday"
@@ -149,7 +162,8 @@ events:
     url: "https://pioneersquare.org/art-walks/"
     tags: ["Artwalk", "Pioneer Square"]
 
-  - name: university-district-artwalk
+  - geo: null
+    name: university-district-artwalk
     friendlyname: "University District Art Walk"
     description: "Monthly art walk in the University District"
     schedule: "3rd Friday"
@@ -160,7 +174,8 @@ events:
     url: "http://www.udistrictartwalk.org/"
     tags: ["Artwalk", "University District"]
 
-  - name: wallingford-artwalk
+  - geo: null
+    name: wallingford-artwalk
     friendlyname: "Wallingford Art Walk"
     description: "Summer art walk in the Wallingford neighborhood, May through September"
     schedule: "2nd Wednesday"
@@ -172,7 +187,8 @@ events:
     tags: ["Artwalk", "Wallingford"]
     months: [5, 6, 7, 8, 9]  # May - September
 
-  - name: west-seattle-artwalk
+  - geo: null
+    name: west-seattle-artwalk
     friendlyname: "West Seattle Art Walk"
     description: "Monthly art walk in West Seattle"
     schedule: "2nd Thursday"
@@ -184,7 +200,8 @@ events:
     tags: ["Artwalk", "West Seattle"]
 
   # Seattle Farmers Markets
-  - name: ballard-farmers-market
+  - geo: null
+    name: ballard-farmers-market
     friendlyname: "Ballard Farmers Market"
     description: "Year-round Sunday farmers market on Ballard Avenue NW. One of Seattle's largest and most popular markets with local produce, prepared foods, and crafts."
     schedule: "every Sunday"
@@ -195,7 +212,8 @@ events:
     url: "http://www.sfmamarkets.com/visit-ballard-farmers-market"
     tags: ["FarmersMarket", "Ballard"]
 
-  - name: u-district-farmers-market
+  - geo: null
+    name: u-district-farmers-market
     friendlyname: "University District Farmers Market"
     description: "Year-round Saturday farmers market in the U-District. Fresh produce, flowers, baked goods, and artisan foods."
     schedule: "every Saturday"
@@ -206,7 +224,8 @@ events:
     url: "https://seattlefarmersmarkets.org/udfm"
     tags: ["FarmersMarket"]
 
-  - name: capitol-hill-farmers-market
+  - geo: null
+    name: capitol-hill-farmers-market
     friendlyname: "Capitol Hill Farmers Market"
     description: "Year-round Sunday farmers market on Capitol Hill featuring local farms, food vendors, and community gathering."
     schedule: "every Sunday"
@@ -217,7 +236,8 @@ events:
     url: "https://seattlefarmersmarkets.org/chfm"
     tags: ["FarmersMarket", "Capitol Hill"]
 
-  - name: columbia-city-farmers-market
+  - geo: null
+    name: columbia-city-farmers-market
     friendlyname: "Columbia City Farmers Market"
     description: "Seasonal Wednesday evening farmers market in Columbia City, one block from the light rail station. Runs May through October."
     schedule: "every Wednesday"
@@ -229,7 +249,8 @@ events:
     tags: ["FarmersMarket", "Community"]
     months: [5, 6, 7, 8, 9, 10]  # May - October
 
-  - name: west-seattle-farmers-market
+  - geo: null
+    name: west-seattle-farmers-market
     friendlyname: "West Seattle Farmers Market"
     description: "Year-round Sunday farmers market in the West Seattle Junction. Local produce, artisan foods, and community events."
     schedule: "every Sunday"
@@ -240,7 +261,8 @@ events:
     url: "https://seattlefarmersmarkets.org/wsfm"
     tags: ["FarmersMarket", "West Seattle"]
 
-  - name: lake-city-farmers-market
+  - geo: null
+    name: lake-city-farmers-market
     friendlyname: "Lake City Farmers Market"
     description: "Seasonal Thursday afternoon farmers market in Lake City. Runs June through September."
     schedule: "every Thursday"
@@ -252,7 +274,8 @@ events:
     tags: ["FarmersMarket", "Lake City"]
     seasonal: "summer"
 
-  - name: fremont-sunday-market
+  - geo: null
+    name: fremont-sunday-market
     friendlyname: "Fremont Sunday Market"
     description: "Year-round outdoor Sunday market in Fremont with 150+ vendors including vintage goods, crafts, food, and local farm produce."
     schedule: "every Sunday"
@@ -264,7 +287,8 @@ events:
     tags: ["MakersMarket", "Fremont"]
 
   # Additional Farmers Markets
-  - name: magnolia-farmers-market
+  - geo: null
+    name: magnolia-farmers-market
     friendlyname: "Magnolia Farmers Market"
     description: "Seasonal Saturday farmers market in the Magnolia neighborhood. Runs June through October."
     schedule: "every Saturday"
@@ -276,7 +300,8 @@ events:
     tags: ["FarmersMarket", "Community"]
     months: [6, 7, 8, 9, 10]  # June - October
 
-  - name: wallingford-farmers-market
+  - geo: null
+    name: wallingford-farmers-market
     friendlyname: "Wallingford Farmers Market"
     description: "Seasonal Wednesday evening farmers market in Wallingford. Runs May through September."
     schedule: "every Wednesday"
@@ -288,7 +313,8 @@ events:
     tags: ["FarmersMarket", "Wallingford"]
     months: [5, 6, 7, 8, 9]  # May - September
 
-  - name: capitol-hill-tuesday-market
+  - geo: null
+    name: capitol-hill-tuesday-market
     friendlyname: "Capitol Hill Tuesday Farmers Market"
     description: "Seasonal Tuesday evening farmers market on Capitol Hill. Runs June through September."
     schedule: "every Tuesday"
@@ -301,7 +327,8 @@ events:
     months: [6, 7, 8, 9]  # June - September
 
   # Night Markets and Flea Markets
-  - name: columbia-city-night-market
+  - geo: null
+    name: columbia-city-night-market
     friendlyname: "Columbia City Night Market"
     description: "Monthly night market organized by Peace Peloton. 60 local vendors, food trucks, beer garden, and live performances. Prioritizes Black-owned businesses. Free, all ages."
     schedule: "3rd Saturday"
@@ -312,7 +339,8 @@ events:
     url: "https://www.peacepeloton.com/night-market"
     tags: ["MakersMarket", "Community"]
 
-  - name: 210-seattle-night-market
+  - geo: null
+    name: 210-seattle-night-market
     friendlyname: "210 Seattle Night Market"
     description: "Pop-up market during Pioneer Square's First Thursday Art Walk. 20-40 local makers, vintage curators, and artists."
     schedule: "1st Thursday"
@@ -327,7 +355,8 @@ events:
   # page contains only image flyers — no structured text, dates, or captions in the
   # HTML. The Squarespace ripper produces nothing from it. Recurring entry is the
   # only viable source until the site adds structured event data.
-  - name: georgetown-flea-market
+  - geo: null
+    name: georgetown-flea-market
     friendlyname: "Georgetown Flea Market"
     description: "Monthly flea market at the Georgetown Trailer Park Mall."
     schedule: "1st Saturday"
@@ -338,7 +367,8 @@ events:
     url: "http://georgetowntrailerparkmall.com/events"
     tags: ["MakersMarket", "Georgetown"]
 
-  - name: food-truck-round-up
+  - geo: null
+    name: food-truck-round-up
     friendlyname: "Food Truck Round-Up"
     description: "Monthly food truck gathering at the South Lake Union Saturday Market. Free and family-friendly."
     schedule: "2nd Saturday"
@@ -353,7 +383,8 @@ events:
   # Participating museums include SAM, Seattle Asian Art Museum, Burke Museum, Museum of Flight,
   # MOHAI, National Nordic Museum, and Holocaust Center for Humanity. Hours vary by venue.
   # See the link for the full list and current hours.
-  - name: free-first-thursday
+  - geo: null
+    name: free-first-thursday
     friendlyname: "Free First Thursday at Seattle Area Museums"
     description: "Free admission at participating Seattle area museums on the first Thursday of every month. Includes SAM (10am–8pm), Seattle Asian Art Museum (10am–5pm), Burke Museum (10am–8pm), Museum of Flight (5–9pm), MOHAI (5–8pm), National Nordic Museum (10am–8pm), and Holocaust Center for Humanity (4–7pm)."
     schedule: "1st Thursday"
@@ -365,7 +396,8 @@ events:
     tags: ["Museums", "Community"]
 
   # Open Mic Nights — Music
-  - name: conor-byrne-open-mic
+  - geo: null
+    name: conor-byrne-open-mic
     friendlyname: "Conor Byrne Pub — Sunday Open Mic"
     description: "Weekly open mic at one of Seattle's most storied venues. Free to sign up, first come first served."
     schedule: "every Sunday"
@@ -376,7 +408,8 @@ events:
     url: "https://www.conorbyrnepub.com/"
     tags: ["OpenMic", "Music", "Ballard"]
 
-  - name: skylark-cafe-open-mic
+  - geo: null
+    name: skylark-cafe-open-mic
     friendlyname: "Skylark Cafe — Wednesday Open Mic"
     description: "Weekly open mic with full backline provided and 16-track recording available. Free sign-up."
     schedule: "every Wednesday"
@@ -387,7 +420,8 @@ events:
     url: "https://www.skylarkcafe.com/recurring-events/seattles-best-open-mic"
     tags: ["OpenMic", "Music", "West Seattle"]
 
-  - name: nectar-lounge-mo-jam
+  - geo: null
+    name: nectar-lounge-mo-jam
     friendlyname: "Nectar Lounge — Mo Jam Mondays"
     description: "Weekly music jam and open mic at Nectar Lounge."
     schedule: "every Monday"
@@ -398,7 +432,8 @@ events:
     url: "https://nectarlounge.com/"
     tags: ["OpenMic", "Music", "Fremont"]
 
-  - name: hopvine-pub-open-mic
+  - geo: null
+    name: hopvine-pub-open-mic
     friendlyname: "Hopvine Pub — Wednesday Open Mic"
     description: "Casual singer/songwriter-focused open mic hosted by Eric Miller. All welcome."
     schedule: "every Wednesday"
@@ -409,7 +444,8 @@ events:
     url: "https://www.hopvinepub.com/"
     tags: ["OpenMic", "Music", "Capitol Hill"]
 
-  - name: couth-buzzard-open-mic
+  - geo: null
+    name: couth-buzzard-open-mic
     friendlyname: "Couth Buzzard Books — Thursday Open Mic"
     description: "Acoustic, no-PA listening environment at an independent bookstore/café. All art forms welcome: music, poetry, dance, comedy, and stories."
     schedule: "every Thursday"
@@ -420,7 +456,8 @@ events:
     url: "https://www.couthbuzzard.com/"
     tags: ["OpenMic", "Music", "Community", "Phinney"]
 
-  - name: fremont-abbey-open-mic
+  - geo: null
+    name: fremont-abbey-open-mic
     friendlyname: "Fremont Abbey Open Mic"
     description: "All art forms welcome at this community arts space. Twice-monthly open mic on the 1st and 3rd Tuesdays."
     schedule: "1st and 3rd Tuesday"
@@ -432,7 +469,8 @@ events:
     tags: ["OpenMic", "Music", "Community", "Fremont"]
 
   # Open Mic Nights — Comedy
-  - name: club-comedy-cheap-laughs
+  - geo: null
+    name: club-comedy-cheap-laughs
     friendlyname: "Club Comedy Seattle — Cheap Laughs Open Mic"
     description: "Recurring Wednesday night open mic for comedians at Club Comedy Seattle."
     schedule: "every Wednesday"
@@ -444,7 +482,8 @@ events:
     tags: ["OpenMic", "Nightlife", "Downtown"]
 
   # Neighborhood Community Council Meetings
-  - name: downtown-seattle-community-council
+  - geo: null
+    name: downtown-seattle-community-council
     friendlyname: "Downtown Seattle Community Council"
     description: "Monthly meeting of the Downtown Seattle Community Council"
     schedule: "2nd Monday"
@@ -456,7 +495,8 @@ events:
     tags: ["Community", "Downtown"]
 
   # Seattle Critical Mass
-  - name: seattle-critical-mass
+  - geo: null
+    name: seattle-critical-mass
     friendlyname: "Seattle Critical Mass"
     description: "Monthly group bike ride through Seattle. Meet at 6:30 PM, ride starts at 7:00 PM."
     schedule: "last Friday"
@@ -471,7 +511,8 @@ events:
   # Head in the Clouds Pub Trivia
 
   # Monday venues
-  - name: hitc-trivia-oak
+  - geo: null
+    name: hitc-trivia-oak
     friendlyname: "Trivia at Oak"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -482,7 +523,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Beacon Hill"]
 
-  - name: hitc-trivia-project-9-brewing
+  - geo: null
+    name: hitc-trivia-project-9-brewing
     friendlyname: "Trivia at Project 9 Brewing Co"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -493,7 +535,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Maple Leaf"]
 
-  - name: hitc-trivia-great-notion-ballard
+  - geo: null
+    name: hitc-trivia-great-notion-ballard
     friendlyname: "Trivia at Great Notion Ballard"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -504,7 +547,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-stoup-capitol-hill
+  - geo: null
+    name: hitc-trivia-stoup-capitol-hill
     friendlyname: "Trivia at Stoup Brewing Capitol Hill"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -515,7 +559,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
-  - name: hitc-trivia-stoup-ballard
+  - geo: null
+    name: hitc-trivia-stoup-ballard
     friendlyname: "Trivia at Stoup Brewing Ballard"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -526,7 +571,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-here-today
+  - geo: null
+    name: hitc-trivia-here-today
     friendlyname: "Trivia at Here Today Brewery"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -537,7 +583,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Belltown"]
 
-  - name: hitc-trivia-mermaid-lounge
+  - geo: null
+    name: hitc-trivia-mermaid-lounge
     friendlyname: "Trivia at Mermaid Lounge"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Monday"
@@ -549,7 +596,8 @@ events:
     tags: ["Trivia", "Pub Trivia", "Fremont"]
 
   # Tuesday venues
-  - name: hitc-trivia-bizarre-brewing
+  - geo: null
+    name: hitc-trivia-bizarre-brewing
     friendlyname: "Trivia at Bizarre Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -560,7 +608,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Magnolia"]
 
-  - name: hitc-trivia-college-inn-pub
+  - geo: null
+    name: hitc-trivia-college-inn-pub
     friendlyname: "Trivia at College Inn Pub"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -571,7 +620,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "University District"]
 
-  - name: hitc-trivia-fiddlers-inn
+  - geo: null
+    name: hitc-trivia-fiddlers-inn
     friendlyname: "Trivia at Fiddler's Inn"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -582,7 +632,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Wedgwood"]
 
-  - name: hitc-trivia-figurehead-stone-way
+  - geo: null
+    name: hitc-trivia-figurehead-stone-way
     friendlyname: "Trivia at Figurehead Brewing Stone Way"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -593,7 +644,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Fremont"]
 
-  - name: hitc-trivia-great-notion-georgetown
+  - geo: null
+    name: hitc-trivia-great-notion-georgetown
     friendlyname: "Trivia at Great Notion Georgetown"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -604,7 +656,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Georgetown"]
 
-  - name: hitc-trivia-ravenna-brewing
+  - geo: null
+    name: hitc-trivia-ravenna-brewing
     friendlyname: "Trivia at Ravenna Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -615,7 +668,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ravenna"]
 
-  - name: hitc-trivia-the-runaway
+  - geo: null
+    name: hitc-trivia-the-runaway
     friendlyname: "Trivia at The Runaway"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -626,7 +680,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
-  - name: hitc-trivia-hopvine-tuesday
+  - geo: null
+    name: hitc-trivia-hopvine-tuesday
     friendlyname: "Trivia at Hopvine Pub (Tuesday)"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -637,7 +692,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
-  - name: hitc-trivia-the-dray
+  - geo: null
+    name: hitc-trivia-the-dray
     friendlyname: "Trivia at The Dray"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -648,7 +704,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Greenwood"]
 
-  - name: hitc-trivia-trailbend-taproom
+  - geo: null
+    name: hitc-trivia-trailbend-taproom
     friendlyname: "Trivia at Trailbend Taproom"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Tuesday"
@@ -660,7 +717,8 @@ events:
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
   # Wednesday venues
-  - name: hitc-trivia-woodshop-bbq
+  - geo: null
+    name: hitc-trivia-woodshop-bbq
     friendlyname: "Trivia at Woodshop BBQ"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -671,7 +729,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Central District"]
 
-  - name: hitc-trivia-old-stove-ship-canal
+  - geo: null
+    name: hitc-trivia-old-stove-ship-canal
     friendlyname: "Trivia at Old Stove Brewing Ship Canal"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -682,7 +741,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Interbay"]
 
-  - name: hitc-trivia-old-stove-gardens
+  - geo: null
+    name: hitc-trivia-old-stove-gardens
     friendlyname: "Trivia at Old Stove Brewing Gardens"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -693,7 +753,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-reubens-ballard
+  - geo: null
+    name: hitc-trivia-reubens-ballard
     friendlyname: "Trivia at Reuben's Brews Ballard"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -704,7 +765,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-saint-johns
+  - geo: null
+    name: hitc-trivia-saint-johns
     friendlyname: "Trivia at Saint John's Bar & Eatery"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -715,7 +777,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Capitol Hill"]
 
-  - name: hitc-trivia-pub-70
+  - geo: null
+    name: hitc-trivia-pub-70
     friendlyname: "Trivia at Pub 70"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -726,7 +789,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Belltown"]
 
-  - name: hitc-trivia-latona-pub
+  - geo: null
+    name: hitc-trivia-latona-pub
     friendlyname: "Trivia at Latona Pub"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -737,7 +801,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Green Lake"]
 
-  - name: hitc-trivia-reubens-downtown
+  - geo: null
+    name: hitc-trivia-reubens-downtown
     friendlyname: "Trivia at Reuben's Brews Downtown"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Wednesday"
@@ -749,7 +814,8 @@ events:
     tags: ["Trivia", "Pub Trivia", "SoDo"]
 
   # Thursday venues
-  - name: hitc-trivia-wheelie-pop
+  - geo: null
+    name: hitc-trivia-wheelie-pop
     friendlyname: "Trivia at Wheelie Pop Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
@@ -760,7 +826,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-ladd-and-lass
+  - geo: null
+    name: hitc-trivia-ladd-and-lass
     friendlyname: "Trivia at Ladd & Lass Brewing"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
@@ -771,7 +838,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "University District"]
 
-  - name: hitc-trivia-veras-pizza
+  - geo: null
+    name: hitc-trivia-veras-pizza
     friendlyname: "Trivia at Vera's Pizza"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"
@@ -782,7 +850,8 @@ events:
     url: "https://www.headinthecloudstrivia.com"
     tags: ["Trivia", "Pub Trivia", "Ballard"]
 
-  - name: hitc-trivia-hopvine-thursday
+  - geo: null
+    name: hitc-trivia-hopvine-thursday
     friendlyname: "Trivia at Hopvine Pub (Thursday)"
     description: "Weekly pub trivia hosted by Head in the Clouds Trivia"
     schedule: "every Thursday"

@@ -8,6 +8,12 @@ import '@js-joda/timezone'
 const createICSEvents = promisify(icsOriginal.createEvents);
 
 
+export const geoSchema = z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+    label: z.string().optional(),
+}).strict();
+
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     config: z.object({}).passthrough().optional(),
@@ -15,6 +21,10 @@ export const calendarConfigSchema = z.object({
     friendlyname: z.string(),
     tags: z.array(z.string()).optional(),
     expectEmpty: z.boolean().optional(),
+    // Optional per-calendar override for multi-branch sources (e.g. SPL).
+    // When present, this wins over ripper-level `geo`. When absent, the
+    // calendar inherits `geo` from its parent ripper.
+    geo: geoSchema.nullable().optional(),
 });
 
 export const externalCalendarSchema = z.object({
@@ -25,19 +35,18 @@ export const externalCalendarSchema = z.object({
     description: z.string().optional(),
     disabled: z.boolean().default(false),
     expectEmpty: z.boolean().default(false),
-    tags: z.array(z.string()).optional()
+    tags: z.array(z.string()).optional(),
+    // Required: every external calendar must explicitly state whether it is
+    // a single-location venue (geo object) or not (null). Single-venue feeds
+    // like a brewery's Google Calendar are venues; multi-location feeds
+    // (aggregators, cross-city calendars) are not.
+    geo: geoSchema.nullable(),
 });
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
 
 export const BUILTIN_RIPPER_TYPES = ["squarespace", "ticketmaster", "axs", "eventbrite", "dice"] as const;
 export type BuiltinRipperType = typeof BUILTIN_RIPPER_TYPES[number];
-
-export const geoSchema = z.object({
-    lat: z.number().min(-90).max(90),
-    lng: z.number().min(-180).max(180),
-    label: z.string().optional(),
-}).strict();
 
 export const configSchema = z.object({
     name: z.string(),
@@ -61,7 +70,12 @@ export const configSchema = z.object({
         }
         catch (e) { return false; }
     }, { message: "Must parse as valid ISO-8601 period. e.g. P1M" }).transform(p => Period.parse(p)).optional(),
-    geo: geoSchema.optional(),
+    // Required: every ripper must explicitly declare whether it is a
+    // venue (single fixed location, `geo: {lat, lng, label}`) or not
+    // (`geo: null`, e.g. community calendars / multi-location sources).
+    // Multi-branch rippers like SPL can declare ripper-level `geo: null`
+    // and set `geo` per calendar instead.
+    geo: geoSchema.nullable(),
 }).strict();
 
 
@@ -167,7 +181,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                 return desc;
             })(),
             location: e.location,
-            productId: "CalendarRipper",
+            productId: "206.events",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
             url: e.url?.startsWith('http') ? safeUrl(e.url) : undefined,

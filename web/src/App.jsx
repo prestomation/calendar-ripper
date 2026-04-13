@@ -82,7 +82,7 @@ function generateICS({ title, startDate, endDate, description, location, url }) 
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Calendar Ripper//EN',
+    'PRODID:-//206.events//EN',
     'BEGIN:VEVENT',
     `DTSTART:${start}`,
     `DTEND:${end}`,
@@ -305,6 +305,16 @@ function HealthDashboard({ buildErrors, calendars }) {
           <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? buildErrors.geocodeErrors?.length ?? 0}</div>
           <div className="health-card-label">Geo Misses</div>
         </div>
+      </div>
+
+      <div className="health-section">
+        <h2>Discovery API</h2>
+        <p>
+          Machine-readable data files for LLMs, scripts, and downstream apps.
+          Start at <a href="index.json" target="_blank" rel="noopener noreferrer">index.json</a> —
+          it links to every other file. See <a href="llms.txt" target="_blank" rel="noopener noreferrer">llms.txt</a>{' '}
+          for usage info.
+        </p>
       </div>
 
       {configErrors.length > 0 && (
@@ -3533,7 +3543,7 @@ function App() {
                Open an issue or pull request to add a new calendar to this page. </a>
             </p>
             <p style={{ fontSize: '12px' }}>
-              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">iCalendar Ripper</a>
+              Powered by <a href="https://github.com/prestomation/calendar-ripper" target="_blank" rel="noopener noreferrer">206.events</a>
               {manifest && (
                 <span> • Last generated at {new Date(manifest.lastUpdated).toLocaleString()}</span>
               )}

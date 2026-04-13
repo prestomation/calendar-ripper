@@ -88,6 +88,9 @@ jobs:
           || echo "S3 upload failed (credentials not configured?)"
       continue-on-error: true
 
+    - name: Validate discovery API
+      run: npm run check-discovery-api
+
     - name: Build web interface
       run: npm run web:build
       env:

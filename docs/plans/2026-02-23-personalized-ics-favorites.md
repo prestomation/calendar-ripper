@@ -968,8 +968,8 @@ describe('mergeIcsFiles', () => {
 
   it('sets correct calendar name and PRODID', () => {
     const result = mergeIcsFiles([ICS_A])
-    expect(result).toContain('X-WR-CALNAME:Seattle Calendar Ripper')
-    expect(result).toContain('PRODID:-//Calendar Ripper//Favorites//EN')
+    expect(result).toContain('X-WR-CALNAME:206.events')
+    expect(result).toContain('PRODID:-//206.events//Favorites//EN')
   })
 })
 ```
@@ -1005,8 +1005,8 @@ export function mergeIcsFiles(icsContents: string[]): string {
   const lines = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Calendar Ripper//Favorites//EN',
-    'X-WR-CALNAME:Seattle Calendar Ripper — Favorites',
+    'PRODID:-//206.events//Favorites//EN',
+    'X-WR-CALNAME:206.events — Favorites',
     ...eventBlocks,
     'END:VCALENDAR',
   ]
@@ -1152,8 +1152,8 @@ feedRoutes.get('/:token.ics', async (c) => {
     const emptyIcs = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Calendar Ripper//Favorites//EN',
-      'X-WR-CALNAME:Seattle Calendar Ripper — Favorites',
+      'PRODID:-//206.events//Favorites//EN',
+      'X-WR-CALNAME:206.events — Favorites',
       'END:VCALENDAR',
     ].join('\r\n')
 

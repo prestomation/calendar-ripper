@@ -30,7 +30,7 @@ vi.mock('./tag_aggregator.js', () => ({
   createAggregateCalendars: vi.fn()
 }));
 
-describe('Calendar Ripper Integration with Tags', () => {
+describe('206.events Integration with Tags', () => {
   beforeEach(() => {
     vi.resetAllMocks();
   });
@@ -88,15 +88,19 @@ describe('Calendar Ripper Integration with Tags', () => {
       friendlyname: 'External Calendar 1',
       icsUrl: 'https://example.com/calendar1.ics',
       disabled: false,
-      tags: ['Music', 'Entertainment']
+      expectEmpty: false,
+      tags: ['Music', 'Entertainment'],
+      geo: null
     };
-    
+
     const externalCalendar2: ExternalCalendar = {
       name: 'external2',
       friendlyname: 'External Calendar 2',
       icsUrl: 'https://example.com/calendar2.ics',
       disabled: true,
-      tags: ['Activism', 'Community']
+      expectEmpty: false,
+      tags: ['Activism', 'Community'],
+      geo: null
     };
     
     // Act
@@ -128,7 +132,9 @@ describe('Calendar Ripper Integration with Tags', () => {
       friendlyname: 'External Calendar 1',
       icsUrl: 'https://example.com/calendar1.ics',
       disabled: false,
-      tags: ['Music']
+      expectEmpty: false,
+      tags: ['Music'],
+      geo: null
     };
     
     const taggedCalendars = [

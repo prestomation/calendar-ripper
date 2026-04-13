@@ -1,8 +1,8 @@
-# iCalendar Ripper - Project Steering
+# 206.events - Project Steering
 
 ## Project Overview
 
-iCalendar Ripper is a data-driven web scraping tool that generates iCalendar (.ics) files from various websites. It uses a modular "ripper" architecture to extract event information from different sources and convert them into standardized calendar files.
+206.events is a data-driven web scraping tool that generates iCalendar (.ics) files from various Seattle-area websites. It uses a modular "ripper" architecture to extract event information from different sources and convert them into standardized calendar files, published at https://206.events/.
 
 ## Core Architecture
 

@@ -208,6 +208,57 @@ The CI runs `scripts/check-missing-urls.ts` which compares the new build's manif
 
 To intentionally remove a URL, add the filename to `allowed-removals.txt` in the repo root. Remove the entry from the file after the change has been deployed.
 
+## Discovery API
+
+Every build publishes a set of HATEOAS-style JSON files under `output/` that
+programmatic consumers (LLMs, scripts, downstream apps) can use to enumerate
+everything without scraping the HTML site. The builders live in
+`lib/discovery.ts` (pure functions, unit-tested in `lib/discovery.test.ts`)
+and are invoked from `lib/calendar_ripper.ts` near the end of the build.
+
+### Files
+
+- **`index.json`** — entry point. Contains a `links` object pointing at every
+  other data file with a relative href.
+- **`tags.json`** — one entry per tag with its category, event count,
+  calendar count, and the hrefs of its `tag-<slug>.ics` / `.rss` aggregate
+  feeds.
+- **`venues.json`** — one entry per source with a fixed physical `geo`.
+  Includes rippers, external feeds, and recurring events whose `geo` is
+  not `null`. The way events are sourced is orthogonal to whether the
+  place is a venue.
+- **`llms.txt`** — static usage info at the site root following the
+  llmstxt.org convention. Source lives at `lib/templates/llms.txt`.
+- **`sitemap.xml`** — points crawlers at the discovery entry points.
+
+### The required `geo` field
+
+Every ripper (`configSchema.geo`), external calendar (`externalCalendarSchema.geo`),
+and recurring event (`recurringEventSchema.geo`) must explicitly declare
+`geo` as either a `{lat, lng, label?}` object (the source has a single
+fixed physical location) or `null` (the source is a community calendar,
+multi-neighborhood art walk, or other non-venue). There is no default —
+the build fails if `geo` is missing, so every source is an explicit
+decision about whether it belongs in `venues.json`.
+
+Multi-branch rippers like `spl` may set ripper-level `geo: null` and then
+provide a per-calendar `geo` on each branch that resolves to a non-null
+object. The venues builder emits one venue entry per branch in that case.
+
+### Validation
+
+`scripts/check-discovery-api.ts` runs in CI after the build. It parses
+each discovery doc against its Zod schema, crawls every href to assert
+the target exists on disk, enforces PNW bounding-box sanity on venue
+coordinates, budgets `venues.json` at 100 KB, and asserts tag-slug
+parity with `lib/tag_aggregator.ts`. Run locally with
+`npm run check-discovery-api`.
+
+`scripts/check-missing-urls.ts` additionally enforces that the set of
+required discovery data files (`index.json`, `llms.txt`, `tags.json`,
+`venues.json`, `manifest.json`, `events-index.json`, `build-errors.json`,
+`geo-cache.json`, `sitemap.xml`) is present on disk.
+
 ## Unit Tests
 
 Unit tests for rippers are located in the individual ripper directories alongside the implementation files:

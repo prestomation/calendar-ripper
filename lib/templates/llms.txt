@@ -1,0 +1,71 @@
+# 206.events
+
+> 206.events is a Seattle-area event aggregator. It crawls ~70 venue and
+> organization websites and publishes the combined result as iCalendar
+> (.ics) feeds, RSS feeds, and JSON data files. Everything is static and
+> regenerated daily.
+
+If you are a programmatic consumer (LLM, script, downstream app), do not
+scrape the HTML site. Use the data files listed below instead — they are
+the canonical machine-readable view of everything the build publishes.
+
+## Start here
+
+- [index.json](/index.json): HATEOAS-style entry point. Lists every other
+  data file with its relative href. Read this first; everything else is
+  discoverable from it.
+
+## Data files
+
+- [tags.json](/tags.json): one entry per tag with its category, event
+  count, calendar count, and the hrefs of its aggregate ICS/RSS feeds
+  (`tag-<slug>.ics`).
+- [venues.json](/venues.json): one entry per source with a fixed physical
+  location. Each entry has geographic coordinates and the hrefs of its
+  calendar feeds. Sources without a single fixed location (e.g. community
+  calendars, cross-neighborhood art walks) are intentionally not listed.
+- [manifest.json](/manifest.json): full calendar manifest used by the web
+  UI. Lists every ripper, external feed, and recurring-event calendar.
+- [events-index.json](/events-index.json): flat array of all events across
+  every published calendar, with date, summary, location, and coordinates
+  (when available). Suitable for full-text search and map display.
+- [build-errors.json](/build-errors.json): machine-readable error report
+  from the most recent build (per-source parse failures, external feed
+  fetch failures, zero-event calendars).
+- [geo-cache.json](/geo-cache.json): the committed geocoding cache —
+  resolved coordinates for event location strings.
+
+## Aggregate feeds
+
+Every tag in `tags.json` has corresponding `tag-<slug>.ics` and
+`tag-<slug>.rss` feeds. Slugs follow the rule `tag.toLowerCase()`
+with every non-`[a-z0-9]` character replaced with `-`. See the `links`
+field of each tag entry for the exact hrefs.
+
+## Per-calendar feeds
+
+Every entry in `manifest.json` has its own ICS and RSS feed, with hrefs
+spelled `<ripper>-<calendar>.ics`, `external-<name>.ics`, or
+`recurring-<name>.ics`. The full list with friendly names is in the
+manifest.
+
+## Update frequency
+
+The build regenerates daily from the upstream sources. Cached data files
+all carry a `generated` ISO-8601 timestamp so you can check freshness.
+
+## Usage notes
+
+- Every href in `index.json`, `tags.json`, and `venues.json` is relative
+  to the site root. Resolve against `https://206.events/` (or the PR
+  preview origin).
+- There is no versioning scheme. Schemas are stable; additive changes
+  are expected, breaking changes would be announced via the commit log.
+- The site is a static deployment on Cloudflare Pages. There is no API
+  rate limit, but please cache results rather than re-fetching on every
+  request.
+
+## Source
+
+- Code: https://github.com/prestomation/calendar-ripper
+- Issues: https://github.com/prestomation/calendar-ripper/issues

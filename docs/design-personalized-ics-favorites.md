@@ -201,8 +201,8 @@ When `/feed/<token>.ics` is requested:
 2. Look up `userId` in `FAVORITES` KV → get list of `icsUrls`
 3. For each favorited ICS URL, fetch the `.ics` file from GitHub Pages (the existing static hosting)
 4. Merge all `VEVENT` components into a single ICS file with:
-   - `X-WR-CALNAME: Seattle Calendar Ripper — Favorites`
-   - `PRODID:-//Calendar Ripper//Favorites//EN`
+   - `X-WR-CALNAME: 206.events — Favorites`
+   - `PRODID:-//206.events//Favorites//EN`
    - Deduplicated by `UID` (same event may appear in a tag aggregate and an individual calendar)
 5. Return the merged ICS
 

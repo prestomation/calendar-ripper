@@ -1,4 +1,4 @@
-# Contributing to iCalendar Ripper
+# Contributing to 206.events
 
 A data-driven web scraping tool that generates iCalendar (.ics) files from various websites.
 

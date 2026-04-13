@@ -37,7 +37,8 @@ function useTheme() {
 }
 
 function ThemeSwitcher({ theme, setTheme }) {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const prefersDark = typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
   return (
     <span className="theme-switcher">
       <span className="theme-switcher-label">Theme:</span>

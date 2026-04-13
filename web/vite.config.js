@@ -18,7 +18,7 @@ export default defineConfig({
       }
     }
   ],
-  base: './',
+  base: '/',
   build: {
     outDir: '../output',
     manifest: true,

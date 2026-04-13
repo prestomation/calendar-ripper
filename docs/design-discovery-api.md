@@ -17,11 +17,11 @@ All paths are relative to `output/` (the deployed site root).
 ### `index.json` — the entry point
 
 The single URL a consumer needs to bookmark. Everything else is reachable from
-here.
+here. **Pure links, no counts** — counts live in the linked files where they
+naturally belong.
 
 ```json
 {
-  "version": 1,
   "generated": "2026-04-13T17:00:00.000Z",
   "site": "https://prestomation.github.io/calendar-ripper/",
   "links": {
@@ -33,12 +33,6 @@ here.
     "events":         { "href": "events-index.json",   "type": "application/json" },
     "buildErrors":    { "href": "build-errors.json",   "type": "application/json" },
     "geoCache":       { "href": "geo-cache.json",      "type": "application/json" }
-  },
-  "counts": {
-    "venues": 142,
-    "tags": 31,
-    "calendars": 187,
-    "events": 4321
   }
 }
 ```
@@ -53,12 +47,11 @@ Notes:
 ### `tags.json`
 
 One entry per tag in `VALID_TAGS`. Includes the category (Neighborhood /
-Activity / Market / Community), event count, and a link to the aggregate
-ICS/RSS for that tag.
+Activity / Market / Community), event count, calendar count, and a link to
+the aggregate ICS/RSS for that tag.
 
 ```json
 {
-  "version": 1,
   "generated": "2026-04-13T17:00:00.000Z",
   "tags": [
     {
@@ -76,15 +69,26 @@ ICS/RSS for that tag.
 }
 ```
 
+The `slug` must match the actual `tag-<slug>.ics` filename produced by
+`lib/tag_aggregator.ts`. Action item during implementation: read that file
+and confirm the exact slugification rule (lowercase only? hyphenate spaces?)
+so `tags.json` can mirror it byte-for-byte. The post-build test enforces
+parity.
+
 ### `venues.json`
 
-One entry per **ripper source** (each ripper represents a venue or org).
-Includes `geo` when present in the ripper config, the friendly name, the
-upstream URL, the tags, and links to the calendar(s) it produces.
+A venue is a **place with a fixed physical location**. The way we *get* the
+events (ripper / recurring / external feed) is orthogonal to whether the
+source is a venue. Examples:
+
+- Barboza (ripper) — venue ✓
+- Free First Thursday at SAM (recurring) — venue ✓ (always at SAM)
+- Some single-venue external ICS feed — venue ✓
+- A community calendar that aggregates events at many locations (ripper) —
+  **not** a venue ✗
 
 ```json
 {
-  "version": 1,
   "generated": "2026-04-13T17:00:00.000Z",
   "venues": [
     {
@@ -99,41 +103,32 @@ upstream URL, the tags, and links to the calendar(s) it produces.
         "label": "Barboza, 925 E Pike St, Seattle, WA 98122"
       },
       "calendars": [
-        {
-          "name": "barboza",
-          "friendlyName": "Barboza",
-          "links": {
-            "ics": { "href": "barboza-barboza.ics" },
-            "rss": { "href": "barboza-barboza.rss" }
-          }
-        }
+        { "name": "barboza", "friendlyName": "Barboza",
+          "links": { "ics": { "href": "barboza-barboza.ics" },
+                     "rss": { "href": "barboza-barboza.rss" } } }
       ]
     }
   ]
 }
 ```
 
-Open question: should external calendars (`sources/external.yaml`) appear in
-`venues.json`? They aren't venues exactly — they're upstream feeds. Proposal:
-include them with `"kind": "external"` and a top-level `kind: "venue" |
-"external" | "recurring"` discriminator. Same for the `recurring.yaml`
-synthesised calendars.
+A source appears in `venues.json` iff its declared `geo` is non-null. See the
+schema-change section below.
 
 ### `llms.txt`
 
 Plain-text file at the site root, following the
-[llms.txt convention](https://llmstxt.org/). Lives in
-`lib/templates/llms.txt` and is copied verbatim to `output/llms.txt` at build
-time (no templating needed — content is static; counts come from
-`index.json`).
+[llms.txt convention](https://llmstxt.org/). Fully **static** — committed at
+`lib/templates/llms.txt`, copied verbatim to `output/llms.txt` at build time.
+No counts, no templating.
 
-Contents (sketch):
+Sketch:
 
 ```
 # Calendar Ripper
 
 > Calendar Ripper is a build-time aggregator that pulls events from
-> ~150 Seattle-area venues, museums, and community sources and republishes
+> Seattle-area venues, museums, and community sources and republishes
 > them as ICS calendars, RSS feeds, and JSON.
 
 ## Discovery
@@ -144,7 +139,7 @@ Start at /index.json — it links to every other data file.
 
 - /index.json          Entry point. Links to all other files.
 - /tags.json           All tags with counts and aggregate-feed URLs.
-- /venues.json         All venues with geo coords (when known), tags, calendars.
+- /venues.json         All venues (places with a fixed location).
 - /manifest.json       Full calendar manifest (rippers, recurring, external).
 - /events-index.json   Flat index of every event (search/geo).
 - /build-errors.json   Last build's error report.
@@ -156,41 +151,94 @@ Every calendar is published as both an .ics file (RFC 5545) and an .rss
 feed at the URL you'll find in manifest.json or tags.json. Aggregate
 feeds for each tag live at /tag-<slug>.ics.
 
+## Freshness and caching
+
+The build runs daily. GitHub Pages is the host and serves with permissive
+CORS, so browser apps can fetch these files cross-origin without a proxy.
+
 ## Licensing & attribution
 
-Source code: <repo URL>, <license>.
-Event data is owned by the upstream venues; please link back to the
-friendlyLink in venues.json when re-publishing.
+Source: <repo URL>, <license>. Event data is owned by the upstream venues;
+please link back to each venue's `url` from venues.json when re-publishing.
 
 ## Contact
 
 File an issue at <repo URL>/issues.
 ```
 
+## Schema change: every source must declare its venue status
+
+Combining decisions #3 and #4, **every source must explicitly state whether
+it's a venue.** No more sparsely-populated optional `geo` — that hides
+unknowns and gives `venues.json` a fuzzy contract.
+
+The change:
+
+- `geoSchema` is unchanged.
+- `configSchema.geo` becomes **required and nullable** (was optional). Every
+  ripper.yaml must contain either:
+  - `geo: { lat: ..., lng: ..., label: ... }` (it's a venue), or
+  - `geo: null` (explicitly not a single venue, e.g. community calendars,
+    multi-location sources).
+- Same change applied to `externalCalendarSchema` (`sources/external.yaml`)
+  and the recurring config schema.
+- Multi-branch rippers like SPL: today `geo` is at the ripper level. For SPL
+  every branch has its own location, so `geo` should be expressible **per
+  calendar** within a ripper, overriding any ripper-level value. Concretely:
+  - Add `geo: geoSchema.nullable().optional()` to `calendarConfigSchema`.
+  - Resolution rule: calendar `geo` if set, otherwise ripper `geo`. The
+    *resolved* value is what must be non-null/null explicitly — i.e. one of
+    the two layers must declare it.
+  - Schema-level enforcement: `configSchema.refine(...)` that walks each
+    calendar and asserts at least one layer declared `geo`.
+
+### Backfill plan
+
+This touches every existing config file. Mechanical but large:
+
+1. Script `scripts/backfill-geo-schema.ts` walks `sources/**/ripper.yaml`,
+   `sources/external.yaml`, and `sources/recurring.yaml`. For each entry
+   that does **not** currently have `geo`, insert `geo: null` (preserving
+   YAML formatting via the `yaml` package's AST mode). Run once, commit the
+   result, delete the script (or keep it as a one-shot under `scripts/` if
+   it's tiny).
+2. PR review surfaces every entry that got `geo: null` — reviewers can
+   upgrade obvious venues (the brewery, the single-venue museum) to a real
+   `geo: {lat,lng,label}` in the same PR.
+3. `lib/calendar_ripper.ts` already prefers ripper-level `geo` over per-event
+   geocoding (see lines ~922–926). That logic is unchanged — null just
+   means "fall through to per-event nominatim" exactly like the current
+   `optional` behaviour.
+
+The only behavioural change is: builds now **fail** if a new ripper PR forgets
+to declare `geo`. That's the point — it forces an explicit decision per source.
+
 ## Where this code lives
 
 - `lib/discovery.ts` — new module. Pure functions:
   - `buildTagsJson(manifest, eventCounts) → TagsDoc`
   - `buildVenuesJson(configs, externals, recurring) → VenuesDoc`
-  - `buildIndexJson(generated, counts) → IndexDoc`
+  - `buildIndexJson(generated) → IndexDoc`
 - `lib/calendar_ripper.ts` — call the builders right after `manifest.json` is
-  written (~line 890). One block, four `writeFile` calls.
-- `lib/templates/llms.txt` — static template, copied to `output/llms.txt`.
+  written (~line 890). One block, three `writeFile` calls (plus copying
+  `llms.txt`).
+- `lib/templates/llms.txt` — static file, copied to `output/llms.txt`.
 - `lib/discovery.test.ts` — unit tests on the builder functions (pure data in,
   data out — no fs).
 - `scripts/check-discovery-api.ts` — **post-build** validator that runs
-  against the actual `output/` directory. Wired into `npm run test:all` via a
-  new `test:discovery` script that runs after the main build.
+  against the actual `output/` directory.
 
 ## Post-build tests
 
-The user explicitly asked for these. Two layers:
+Two layers:
 
 1. **Unit tests** (`lib/discovery.test.ts`, vitest):
    - Build the docs from fixture configs.
    - Assert shape, required fields, relative URLs, no `undefined` leaking
-     into JSON, every tag in `VALID_TAGS`, every `geo` passes the same Zod
-     schema as `geoSchema`.
+     into JSON, every tag is in `VALID_TAGS`, every `geo` passes `geoSchema`.
+   - Assert sources with `geo: null` are excluded from `venues.json`.
+   - Assert sources with `geo: {...}` are included regardless of how their
+     events are sourced (ripper, recurring, external).
 
 2. **Post-build integration tests** (`scripts/check-discovery-api.ts`):
    - Read the real `output/index.json`, `tags.json`, `venues.json`,
@@ -198,140 +246,69 @@ The user explicitly asked for these. Two layers:
    - Validate each file against a Zod schema (define schemas in
      `lib/discovery.ts` and reuse).
    - **Crawl the links**: for every `href` in every file, assert the target
-     file exists on disk under `output/`. This is the HATEOAS contract — if a
-     link is dead, the build fails.
-   - Assert counts in `index.json` match the actual array lengths in the
-     linked files.
+     file exists on disk under `output/`. This is the HATEOAS contract — if
+     a link is dead, the build fails.
+   - Reject any href starting with `http` (preview-safety).
    - Assert `tags.json` slugs match the existing `tag-<slug>.ics` filenames
-     produced by the build (this catches the same class of bug as
-     `check-missing-urls.ts`).
+     produced by the build (overlaps with `check-missing-urls.ts` but
+     catches it earlier and with a clearer error).
    - Assert every venue with `geo` has lat/lng inside the Pacific Northwest
-     bounding box (sanity check — catches swapped lat/lng).
+     bounding box (sanity — catches swapped lat/lng).
+   - Assert `venues.json` is under 100 KB (size budget — same pattern as the
+     existing 500 KB warning on `events-index.json`).
 
-   Wire this into the `build-calendars.yml` workflow as a step *after* the
-   build but *before* deploy, so a malformed discovery file fails CI.
+   Wired into `build-calendars.yml` as a step *after* the build but *before*
+   deploy, so a malformed discovery file fails CI.
 
 ## Status page wiring
 
 `web/src/App.jsx` already renders a health dashboard. Add a small "Discovery
-API" section near the top that:
+API" section near the top with two links:
 
-- Links to `./llms.txt` (open in new tab).
-- Links to `./index.json` (open in new tab).
-- Shows the four count cards (venues / tags / calendars / events) read from
-  `index.json` — cheap to fetch and renders even if `build-errors.json` is
-  stale.
+- `./llms.txt` (open in new tab)
+- `./index.json` (open in new tab)
 
-The status page already fetches `manifest.json` and `build-errors.json`; add
-a third `fetch('./index.json')` alongside them.
+No fetched counts — keep it dead simple, the linked files speak for
+themselves.
 
-## What you haven't thought about
+## Other items (decided)
 
-These are the gaps I'd flag before writing code. None are blockers, but each
-needs a decision:
-
-1. **Schema versioning.** Once an LLM or downstream tool ingests these files,
-   breaking the shape silently is bad. Every file should carry a top-level
-   `"version": 1` integer and we should bump it intentionally on breaking
-   changes. Add a one-paragraph "Versioning policy" section to `llms.txt`
-   stating that `version` is a major version and additive fields don't
-   require a bump. The post-build test asserts the version is exactly the
-   value the validator expects, so a forgotten bump fails CI.
-
-2. **Stable IDs vs. friendly names.** `venues.json` keys on `name` (the
-   ripper slug). Renaming a ripper directory will silently change the venue's
-   identity for any consumer that bookmarked it. Either:
-   - Document that `name` is the stable ID and renames are breaking, or
-   - Add an explicit `id` field that we promise never changes (and rename
-     `name` → `slug`).
-   Recommend the first (simpler), but document it in `llms.txt`.
-
-3. **Geo coverage is incomplete.** Only ~half the rippers have a `geo:` block
-   in their YAML — the rest rely on per-event nominatim geocoding cached in
-   `geo-cache.json`. So `venues.json` will be sparsely populated. Options:
-   - (a) Just emit `geo` when the ripper has it. Honest, but useless for the
-     map use case.
-   - (b) For venues without ripper-level `geo`, derive a "best-guess" venue
-     coord by picking the most-common geocoded location among that venue's
-     events. Mark it `"geoSource": "derived"` vs `"declared"`.
-   - (c) Backfill more `geo:` blocks by hand. Slow but highest quality.
-   Recommend (a) for v1 + (b) as a follow-up, with `geoSource` from day one
-   so consumers can filter.
-
-4. **External calendars and recurring calendars.** They aren't "venues" in the
-   strict sense. Either give them their own files (`external-calendars.json`,
-   `recurring-calendars.json`) or unify them under `venues.json` with a
-   `kind` discriminator. Recommend the unified approach — fewer files for
-   consumers to learn — and call the file `sources.json` instead of
-   `venues.json` to make the broader scope obvious. (Will rename below if you
-   agree.)
-
-5. **PR previews break absolute URLs.** `manifest.json` already uses relative
-   paths so previews work. We must keep that discipline in the new files —
-   no `https://prestomation.github.io/...` hardcoded. The post-build test
-   should reject any href starting with `http`.
-
-6. **`llms.txt` is static, but counts aren't.** The llmstxt convention
-   doesn't require dynamic counts, but if we want them in the prose ("indexes
-   ~150 venues"), we either:
-   - Hardcode and let it drift, or
-   - Treat `llms.txt` as a tiny template and substitute counts at build time.
-   Recommend the template approach, sub `{{venueCount}}` etc. via a trivial
-   string replace in `lib/calendar_ripper.ts`.
-
-7. **CORS / fetch from third parties.** GitHub Pages serves with permissive
-   CORS, so JS apps can `fetch()` these files cross-origin. Worth one line in
-   `llms.txt` so consumers know they don't need a proxy.
-
-8. **Caching headers.** GitHub Pages doesn't let us set them. Document that
-   the files are regenerated on every build (~hourly) and that consumers
-   should not cache aggressively. One line in `llms.txt`.
-
-9. **`allowed-removals.txt` parity.** `check-missing-urls.ts` enforces that
-   URLs don't disappear between builds. The new files (`index.json`,
-   `tags.json`, `venues.json`, `llms.txt`) should be added to that script's
-   "must exist" list so we don't accidentally stop publishing them.
-
-10. **Robots / discoverability.** Add the new files to `sitemap.xml` if one
-    exists, or generate one as part of this change. `llms.txt` is the LLM
-    discovery story; `sitemap.xml` is the search-engine one. Cheap to do
-    both.
-
-11. **Size budget for `venues.json`.** ~150 venues × small object = a few KB,
-    fine. But `events-index.json` already has a 500 KB warning. We should
-    add a similar warning for `venues.json` (say 100 KB) so a future bug
-    that inlines events into venues gets caught.
-
-12. **Tag slugs.** `tag-<lowercased>.ics` is the existing filename
-    convention, but lowercasing isn't slugifying — `"Capitol Hill"` becomes
-    `tag-capitol hill.ics` (literal space) under the current logic, or
-    `tag-capitol-hill.ics` if there's a hyphen step. Need to confirm and
-    document in `tags.json` so the link is correct. (Action item: read
-    `lib/tag_aggregator.ts` to confirm.)
+- **Stable IDs:** `name` is the stable ID. Already enforced indirectly:
+  renaming a ripper changes its ICS filename, which `check-missing-urls.ts`
+  rejects. No `id` field needed.
+- **Schema versioning:** dropped. No `version` field on any of the new files.
+  We'll deal with breakage if/when it happens.
+- **`allowed-removals.txt` parity:** add `index.json`, `tags.json`,
+  `venues.json`, and `llms.txt` to the required-files list in
+  `scripts/check-missing-urls.ts` so we don't accidentally stop publishing
+  them.
+- **`sitemap.xml`:** generate one in the same build step. Includes the site
+  root, `index.json`, `tags.json`, `venues.json`, `manifest.json`, and
+  `llms.txt`. Cheap and gives search engines the same discovery story.
+- **Tag slug rule:** confirm exact slugification in `lib/tag_aggregator.ts`
+  during implementation; mirror it in `tags.json` and assert parity in the
+  post-build test.
 
 ## Implementation order
 
-1. `lib/discovery.ts` + `lib/discovery.test.ts` — pure builders, full unit
+1. Schema change: `geo` becomes nullable-required across ripper / external /
+   recurring / calendar-level. Update `lib/config/schema.ts` + tests.
+2. Backfill script + commit `geo: null` (and obvious real `geo` upgrades)
+   across every existing source config. Builds should still pass after this
+   step with no behavioural change.
+3. `lib/discovery.ts` + `lib/discovery.test.ts` — pure builders, full unit
    coverage. No fs, no build wiring.
-2. Wire into `lib/calendar_ripper.ts` (one block of `writeFile`s near the
-   existing `manifest.json` write).
-3. `lib/templates/llms.txt` + the trivial template substitution.
-4. `scripts/check-discovery-api.ts` + a `test:discovery` npm script that
+4. Wire into `lib/calendar_ripper.ts` (one block of `writeFile`s near the
+   existing `manifest.json` write) + copy `llms.txt`.
+5. `lib/templates/llms.txt` — static content.
+6. `scripts/check-discovery-api.ts` + a `test:discovery` npm script that
    runs after `npm run test`.
-5. Update `package.json` `test:all` to run discovery checks last.
-6. Update `web/src/App.jsx` to fetch `index.json` and add the Discovery
-   section to the health dashboard.
-7. Add the new files to `scripts/check-missing-urls.ts`'s required list.
-8. Update `AGENTS.md` with a short "Discovery API" section pointing at this
-   doc.
-
-## Decisions needed before I start coding
-
-- Unify under `sources.json` with a `kind` discriminator, or keep
-  `venues.json` + separate files? **(recommend unified)**
-- v1 geo: declared-only, or include derived-from-events? **(recommend
-  declared-only + add `geoSource` field for forward compat)**
-- Stable-ID story: document `name` as stable, or add explicit `id`?
-  **(recommend document `name`)**
-- Should `llms.txt` be static or templated for counts? **(recommend
-  templated)**
+7. Update `package.json` `test:all` to run discovery checks last; wire into
+   `build-calendars.yml` between build and deploy.
+8. `sitemap.xml` generation in the same write block as the discovery files.
+9. Update `web/src/App.jsx` to add the Discovery section to the health
+   dashboard (just two links).
+10. Add the new files to `scripts/check-missing-urls.ts`'s required list.
+11. Update `AGENTS.md` with a short "Discovery API" section pointing at this
+    doc, and document the new required `geo:` field in the "Calendar
+    Integration Strategy" section.

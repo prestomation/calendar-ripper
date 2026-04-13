@@ -6,7 +6,7 @@ Subscribe to Seattle-area event calendars in your favorite calendar app. This pr
 
 Visit the web interface to search, filter by tag, and preview upcoming events:
 
-**https://prestomation.github.io/calendar-ripper/**
+**https://206.events/**
 
 From there you can:
 - Search for calendars by name or keyword
@@ -20,7 +20,7 @@ From there you can:
 
 Each calendar is available as a `.ics` file. To subscribe:
 
-1. Find the calendar you want on the [web interface](https://prestomation.github.io/calendar-ripper/)
+1. Find the calendar you want on the [web interface](https://206.events/)
 2. Copy its subscription URL
 3. Add it to your calendar app:
    - **Google Calendar**: Settings > Add other calendars > From URL

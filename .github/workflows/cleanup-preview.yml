@@ -4,41 +4,11 @@ on:
   pull_request:
     types: [closed]
 
+# Preview deployments are now managed by Cloudflare Pages.
+# CF Pages automatically cleans up preview deployments when the
+# associated branch is deleted. No gh-pages cleanup needed.
 jobs:
-  cleanup:
+  skip:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    concurrency:
-      group: gh-pages-deploy
-      cancel-in-progress: false
     steps:
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
-        continue-on-error: true
-        id: checkout
-
-      - name: Remove preview
-        if: steps.checkout.outcome == 'success'
-        run: |
-          if [ -d preview/${{ github.event.number }} ]; then
-            git config user.email "action@github.com"
-            git config user.name "GitHub Action"
-            git rm -rf preview/${{ github.event.number }}
-            git commit -m "Remove PR #${{ github.event.number }} preview"
-
-            # Retry push with rebase in case gh-pages advanced
-            PUSHED=false
-            for i in 1 2 3 4; do
-              if git pull --rebase origin gh-pages && git push; then
-                PUSHED=true
-                break
-              fi
-              echo "Push attempt $i failed, retrying in ${i}s..."
-              sleep "$i"
-            done
-            $PUSHED || { echo "ERROR: failed to push to gh-pages after 4 attempts"; exit 1; }
-          fi
+      - run: echo "Preview cleanup handled by Cloudflare Pages"

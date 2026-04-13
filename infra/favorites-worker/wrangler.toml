@@ -3,8 +3,8 @@ main = "src/index.ts"
 compatibility_date = "2026-02-01"
 
 [vars]
-GITHUB_PAGES_BASE_URL = "https://prestomation.github.io/calendar-ripper"
-SITE_URL = "https://prestomation.github.io/calendar-ripper"
+GITHUB_PAGES_BASE_URL = "https://206.events"
+SITE_URL = "https://206.events"
 
 [[kv_namespaces]]
 binding = "USERS"

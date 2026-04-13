@@ -389,7 +389,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 The production `build-errors.json` is deployed with the site at:
 
 ```
-https://prestomation.github.io/calendar-ripper/build-errors.json
+https://206.events/build-errors.json
 ```
 
 For PR previews, use:

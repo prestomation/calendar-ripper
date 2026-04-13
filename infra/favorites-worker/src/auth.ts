@@ -12,6 +12,7 @@ const SESSION_MAX_AGE = 30 * 24 * 60 * 60 // 30 days in seconds
 
 // Allowed URL prefixes for post-login redirect
 const ALLOWED_RETURN_PREFIXES = [
+  'https://206.events/',
   'https://prestomation.github.io/',
   'http://localhost:',
   'http://localhost/',

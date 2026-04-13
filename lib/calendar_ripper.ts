@@ -34,7 +34,7 @@ import ICAL from "ical.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const SITE_BASE_URL = process.env.SITE_BASE_URL || "https://prestomation.github.io/calendar-ripper/";
+const SITE_BASE_URL = process.env.SITE_BASE_URL || "https://206.events/";
 
 /**
  * Check if ICS content contains any events with a start date on or after today.

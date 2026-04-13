@@ -5,7 +5,10 @@ description: "Substation"
 url: "https://www.substationseattle.com"
 friendlyLink: https://www.substationseattle.com
 tags: ["Music", "Ballard"]
-geo: null
+geo:
+  lat: 47.6611
+  lng: -122.3553
+  label: "Substation, 645 NW 45th St, Seattle, WA 98107"
 calendars:
   - name: substation
     friendlyname: "Substation"

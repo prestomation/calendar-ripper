@@ -1,9 +1,10 @@
 name: future-primitive
 type: squarespace
-description: "West Seattle brewery with locations in White Center and Alki hosting trivia, paint nights, and community events"
+description: "Future Primitive Brewing"
 url: "https://www.futureprimitivebeer.com/events"
 friendlyLink: https://www.futureprimitivebeer.com/events
-tags: ["Beer", "West Seattle"]
+tags: ["West Seattle", "White Center"]
+expectEmpty: true
 calendars:
   - name: all-events
     friendlyname: "Future Primitive Brewing"

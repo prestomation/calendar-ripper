@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-12T04:33:09.516Z",
+  "lastUpdated": "2026-04-13T01:05:18.680Z",
   "rippers": [
     {
       "name": "19hz",
@@ -19,7 +19,7 @@
     },
     {
       "name": "ballard-brewed",
-      "description": "Coalition of Ballard neighborhood breweries hosting collaborative events, beer releases, and community gatherings across the brewery district",
+      "description": "Ballard Brewed",
       "friendlyLink": "https://www.ballardbrewed.com/events",
       "calendars": [
         {
@@ -293,7 +293,7 @@
     },
     {
       "name": "fremont-brewing",
-      "description": "Major Seattle brewery in Fremont with food trucks, beer releases, and community events at the Urban Beer Garden",
+      "description": "Fremont Brewing",
       "friendlyLink": "https://www.fremontbrewing.com/fremont-ubg-events",
       "calendars": [
         {
@@ -310,7 +310,7 @@
     },
     {
       "name": "fremont-brewing-columbia-city",
-      "description": "Fremont Brewing's Columbia City Urban Beer Garden with food trucks, art walks, and neighborhood events",
+      "description": "Fremont Brewing - Columbia City",
       "friendlyLink": "https://www.fremontbrewing.com/columbia-city-ubg-events",
       "calendars": [
         {
@@ -319,7 +319,8 @@
           "icsUrl": "fremont-brewing-columbia-city-all-events.ics",
           "rssUrl": "fremont-brewing-columbia-city-all-events.rss",
           "tags": [
-            "Beer"
+            "Beer",
+            "Columbia City"
           ]
         }
       ]
@@ -337,6 +338,23 @@
           "tags": [
             "Arts",
             "Museums"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hellbent-brewing",
+      "description": "Hellbent Brewing Company",
+      "friendlyLink": "https://hellbentbrewingcompany.com/food-trucks/",
+      "calendars": [
+        {
+          "name": "food-trucks",
+          "friendlyName": "Hellbent Brewing - Food Truck Calendar",
+          "icsUrl": "hellbent-brewing-food-trucks.ics",
+          "rssUrl": "hellbent-brewing-food-trucks.rss",
+          "tags": [
+            "Lake City",
+            "Food"
           ]
         }
       ]
@@ -496,6 +514,22 @@
       ]
     },
     {
+      "name": "ounces-taproom",
+      "description": "Ounces Taproom & Beer Garden",
+      "friendlyLink": "https://www.ounceswestseattle.com/events",
+      "calendars": [
+        {
+          "name": "all-events",
+          "friendlyName": "Ounces Taproom & Beer Garden",
+          "icsUrl": "ounces-taproom-all-events.ics",
+          "rssUrl": "ounces-taproom-all-events.rss",
+          "tags": [
+            "West Seattle"
+          ]
+        }
+      ]
+    },
+    {
       "name": "pacific-science-center",
       "friendlyName": "Pacific Science Center",
       "description": "Science museum at Seattle Center with interactive exhibits, laser shows, an IMAX theater, and special events for all ages",
@@ -570,7 +604,7 @@
     },
     {
       "name": "ravenna-brewing",
-      "description": "Northeast Seattle brewery with a rotating food truck calendar, trivia nights, and live music events",
+      "description": "Ravenna Brewing",
       "friendlyLink": "https://www.ravennabrewing.com/food-truck-calendar",
       "calendars": [
         {
@@ -579,7 +613,8 @@
           "icsUrl": "ravenna-brewing-all-events.ics",
           "rssUrl": "ravenna-brewing-all-events.rss",
           "tags": [
-            "Beer"
+            "Ravenna",
+            "Food"
           ]
         }
       ]
@@ -2695,6 +2730,18 @@
         "Arts",
         "Community",
         "Capitol Hill"
+      ]
+    },
+    {
+      "name": "unexpected-productions",
+      "friendlyName": "Unexpected Productions",
+      "description": "Seattle's oldest improv theater in Pike Place Market - 10+ shows per week including Theatresports",
+      "icsUrl": "external-unexpected-productions.ics",
+      "originalIcsUrl": "https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list",
+      "infoUrl": "https://www.unexpectedproductions.org/",
+      "tags": [
+        "Theatre",
+        "Pike Place"
       ]
     },
     {

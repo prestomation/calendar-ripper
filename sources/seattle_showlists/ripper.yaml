@@ -8,12 +8,20 @@ calendars:
   # --- Pioneer Square ---
   - name: baba-yaga
     friendlyname: "Baba Yaga"
+    geo:
+      lat: 47.6015
+      lng: -122.3325
+      label: "Baba Yaga, 130 S Jackson St, Seattle, WA 98104"
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
     config:
       venue: "Baba Yaga"
   - name: central-saloon
     friendlyname: "Central Saloon"
+    geo:
+      lat: 47.5994
+      lng: -122.333
+      label: "Central Saloon, 307 3rd Ave S, Seattle, WA 98104"
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
     config:
@@ -22,12 +30,20 @@ calendars:
   # --- Capitol Hill ---
   - name: barboza
     friendlyname: "Barboza"
+    geo:
+      lat: 47.6138
+      lng: -122.3198
+      label: "Barboza, 925 E Pike St, Seattle, WA 98122"
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
     config:
       venue: "Barboza"
   - name: vermillion
     friendlyname: "Vermillion"
+    geo:
+      lat: 47.6138
+      lng: -122.3173
+      label: "Vermillion, 1508 10th Ave, Seattle, WA 98122"
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
     config:
@@ -36,12 +52,20 @@ calendars:
   # --- Belltown ---
   - name: belltown-yacht-club
     friendlyname: "Belltown Yacht Club"
+    geo:
+      lat: 47.618
+      lng: -122.346
+      label: "Belltown Yacht Club, 2608 1st Ave, Seattle, WA 98121"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
     config:
       venue: "Belltown Yacht Club"
   - name: hotel-crocodile
     friendlyname: "Hotel Crocodile"
+    geo:
+      lat: 47.6137
+      lng: -122.3442
+      label: "Hotel Crocodile, 2400 2nd Ave, Seattle, WA 98121"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
     config:
@@ -50,6 +74,10 @@ calendars:
   # --- Ballard ---
   - name: conor-byrne-pub
     friendlyname: "Conor Byrne Pub"
+    geo:
+      lat: 47.6664
+      lng: -122.3832
+      label: "Conor Byrne Pub, 5140 Ballard Ave NW, Seattle, WA 98107"
     timezone: America/Los_Angeles
     tags: ["Ballard"]
     config:
@@ -58,6 +86,10 @@ calendars:
   # --- Beacon Hill ---
   - name: clock-out-lounge
     friendlyname: "Clock-Out Lounge"
+    geo:
+      lat: 47.5548
+      lng: -122.3065
+      label: "Clock-Out Lounge, 4864 Beacon Ave S, Seattle, WA 98108"
     timezone: America/Los_Angeles
     tags: ["Beacon Hill"]
     config:
@@ -66,12 +98,20 @@ calendars:
   # --- Columbia City ---
   - name: black-and-tan-hall
     friendlyname: "Black & Tan Hall"
+    geo:
+      lat: 47.5502
+      lng: -122.2878
+      label: "Black & Tan Hall, 5724 Rainier Ave S, Seattle, WA 98118"
     timezone: America/Los_Angeles
     tags: ["Columbia City"]
     config:
       venue: "Black &amp; Tan Hall"  # server sends HTML entity in venue name
   - name: the-royal-room
     friendlyname: "The Royal Room"
+    geo:
+      lat: 47.5522
+      lng: -122.2905
+      label: "The Royal Room, 5000 Rainier Ave S, Seattle, WA 98118"
     timezone: America/Los_Angeles
     tags: ["Columbia City"]
     config:
@@ -80,6 +120,10 @@ calendars:
   # --- Downtown ---
   - name: the-rabbit-box
     friendlyname: "The Rabbit Box"
+    geo:
+      lat: 47.608
+      lng: -122.34
+      label: "The Rabbit Box, 816 5th Ave N, Seattle, WA 98103"
     timezone: America/Los_Angeles
     tags: ["Downtown"]
     config:
@@ -88,6 +132,10 @@ calendars:
   # --- Eastlake ---
   - name: black-lodge
     friendlyname: "Black Lodge"
+    geo:
+      lat: 47.6125
+      lng: -122.308
+      label: "Black Lodge, 1404 E Jefferson St, Seattle, WA 98122"
     timezone: America/Los_Angeles
     tags: ["Eastlake"]
     config:
@@ -96,6 +144,10 @@ calendars:
   # --- Georgetown ---
   - name: slims-last-chance
     friendlyname: "Slim's Last Chance"
+    geo:
+      lat: 47.5583
+      lng: -122.277
+      label: "Slim's Last Chance, 5607 Airport Way S, Seattle, WA 98108"
     timezone: America/Los_Angeles
     tags: ["Georgetown"]
     config:
@@ -104,12 +156,20 @@ calendars:
   # --- Fremont ---
   - name: add-a-ball
     friendlyname: "Add-A-Ball"
+    geo:
+      lat: 47.6618
+      lng: -122.3341
+      label: "Add-A-Ball, 1520 N 45th St, Seattle, WA 98103"
     timezone: America/Los_Angeles
     tags: ["Fremont"]
     config:
       venue: "Add-A-Ball"
   - name: nectar-lounge
     friendlyname: "Nectar Lounge"
+    geo:
+      lat: 47.65
+      lng: -122.3358
+      label: "Nectar Lounge, 405 N 36th St, Seattle, WA 98103"
     timezone: America/Los_Angeles
     tags: ["Fremont"]
     config:
@@ -118,12 +178,20 @@ calendars:
   # --- Queen Anne ---
   - name: kexp-studio
     friendlyname: "KEXP Studio"
+    geo:
+      lat: 47.6227
+      lng: -122.3563
+      label: "KEXP Studio, 472 1st Ave N, Seattle, WA 98109"
     timezone: America/Los_Angeles
     tags: ["QueenAnne"]
     config:
       venue: "KEXP Studio"
   - name: bad-bar
     friendlyname: "Bad Bar"
+    geo:
+      lat: 47.6135
+      lng: -122.3298
+      label: "Bad Bar, 1206 Pike St, Seattle, WA 98101"
     timezone: America/Los_Angeles
     tags: ["QueenAnne"]
     config:
@@ -132,6 +200,10 @@ calendars:
   # --- Shoreline ---
   - name: darrells-tavern
     friendlyname: "Darrell's Tavern"
+    geo:
+      lat: 47.7524
+      lng: -122.3445
+      label: "Darrell's Tavern, 18022 Aurora Ave N, Shoreline, WA 98133"
     timezone: America/Los_Angeles
     tags: ["Shoreline"]
     config:
@@ -140,6 +212,10 @@ calendars:
   # --- University District ---
   - name: blue-moon-tavern
     friendlyname: "Blue Moon Tavern"
+    geo:
+      lat: 47.6612
+      lng: -122.3141
+      label: "Blue Moon Tavern, 712 NE 45th St, Seattle, WA 98105"
     timezone: America/Los_Angeles
     tags: ["University District"]
     config:
@@ -148,6 +224,10 @@ calendars:
   # --- West Seattle ---
   - name: skylark
     friendlyname: "Skylark"
+    geo:
+      lat: 47.5771
+      lng: -122.3625
+      label: "Skylark, 3803 6th Ave SW, Seattle, WA 98106"
     timezone: America/Los_Angeles
     tags: ["West Seattle"]
     config:
@@ -156,6 +236,10 @@ calendars:
   # --- White Center ---
   - name: tims-tavern
     friendlyname: "Tim's Tavern"
+    geo:
+      lat: 47.517
+      lng: -122.3708
+      label: "Tim's Tavern, 8305 14th Ave SW, Seattle, WA 98106"
     timezone: America/Los_Angeles
     tags: ["White Center"]
     config:

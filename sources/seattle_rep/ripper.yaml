@@ -3,7 +3,10 @@ description: "Seattle Repertory Theatre Performances"
 url: "https://www.seattlerep.org/plays/json"
 friendlyLink: https://www.seattlerep.org
 tags: ["Theatre"]
-geo: null
+geo:
+  lat: 47.6244
+  lng: -122.3543
+  label: "Seattle Repertory Theatre, 155 Mercer St, Seattle, WA 98109"
 calendars:
   - name: all-performances
     friendlyname: "Seattle Rep"

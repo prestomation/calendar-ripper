@@ -5,7 +5,10 @@ description: "Sunset Tavern"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=The+Sunset+Tavern"
 friendlyLink: https://sunsettavern.com/shows/
 tags: ["Music", "Ballard"]
-geo: null
+geo:
+  lat: 47.6625
+  lng: -122.3831
+  label: "Sunset Tavern, 5433 Ballard Ave NW, Seattle, WA 98107"
 calendars:
   - name: sunset-tavern
     friendlyname: "Sunset Tavern"

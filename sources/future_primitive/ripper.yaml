@@ -5,7 +5,10 @@ url: "https://www.futureprimitivebeer.com/events"
 friendlyLink: https://www.futureprimitivebeer.com/events
 tags: ["West Seattle", "White Center"]
 expectEmpty: true
-geo: null
+geo:
+  lat: 47.5283
+  lng: -122.2764
+  label: "Future Primitive Brewing, 5928 Rainier Ave S, Seattle, WA 98118"
 calendars:
   - name: all-events
     friendlyname: "Future Primitive Brewing"

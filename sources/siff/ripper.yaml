@@ -14,6 +14,10 @@ calendars:
       name: "SIFF Cinema Downtown"
       cssSelector: ".Downtown"
     tags: ["Downtown"]
+    geo:
+      lat: 47.6110
+      lng: -122.3365
+      label: "SIFF Cinema Downtown, 600 Pine St, Seattle, WA 98101"
   - name: uptown
     timezone: America/Los_Angeles
     friendlyname: "SIFF Cinema Uptown"
@@ -21,5 +25,9 @@ calendars:
       name: "SIFF Cinema Uptown"
       cssSelector: ".Uptown"
     tags: ["QueenAnne"]
+    geo:
+      lat: 47.6232
+      lng: -122.3571
+      label: "SIFF Cinema Uptown, 511 Queen Anne Ave N, Seattle, WA 98109"
   # Egyptian theater removed - theater is closed
 

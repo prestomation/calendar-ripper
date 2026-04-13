@@ -722,3 +722,42 @@ Seattle is a host city for the 2026 FIFA World Cup with matches at Lumen Field i
 - **Schedule:** May 7-16, 2026 (annual, ~10 days)
 - **Tags:** Beer, Community
 - **Note:** Already have a `seattle_beer_week` source directory. Verify it's working and covers the full event list. The website lists dozens of events across the city during the festival. If the existing ripper is functional, no action needed.
+
+### Backfill `geo` for external + recurring sources
+
+The Discovery API publishes `venues.json` built from any source whose `geo`
+is a `{lat, lng, label?}` object rather than `null`. Rippers already have
+36 real geo entries committed; external and recurring are currently all
+`null` as a baseline. Flipping the real venues to real coordinates is
+pure config work — no code changes — and each entry added immediately
+appears in `venues.json` and on the map.
+
+**`sources/external.yaml` (45 entries)**
+Walk the file and flip `geo: null` to `{lat, lng, label}` for any feed
+that is a single physical venue. Rough heuristic: if the feed is one
+brewery's Google Calendar, one museum's ICS, one theater's event page —
+it's a venue. If the feed is a cross-city aggregator, a multi-branch
+system, or a community calendar that covers more than one location, it
+stays `null`.
+
+**`sources/recurring.yaml` (69 entries)**
+Same treatment. Most recurring entries that represent museum events
+(SAM/Burke/Frye/MOHAI Free First Thursday, wing-luke monthly, etc.) or
+brewery trivia nights are single-venue and should get real geo.
+Cross-neighborhood art walks (`belltown-artwalk`,
+`capitol-hill-artwalk`, `georgetown-artwalk`, `pioneer-square-artwalk`,
+etc.) and multi-location farmers markets stay `null`.
+
+**Multi-branch ripper pass**
+Some rippers that currently set a single ripper-level geo cover
+multiple physical locations (SPL's 27 branches, STG's Paramount/Moore/
+Neptune, reubens-brews ballard/downtown). These should eventually flip
+to the SPL pattern: ripper-level `geo: null` + a per-calendar `geo`
+override on each branch, so each branch becomes its own venue entry.
+
+**How to know it worked**
+After editing, run `npm run generate-calendars && npm run check-discovery-api`.
+The check crawls every href, enforces the PNW bounding box on every
+coordinate, and budgets `venues.json` at 100 KB — so bad coords or
+missing files fail the build.
+

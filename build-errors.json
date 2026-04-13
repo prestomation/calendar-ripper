@@ -1,5 +1,5 @@
 {
-  "buildTime": "2026-04-13T01:05:19.128Z",
+  "buildTime": "2026-04-13T05:09:26.528Z",
   "totalErrors": 225,
   "configErrors": [],
   "sources": [],
@@ -1358,8 +1358,8 @@
   ],
   "geoStats": {
     "totalEvents": 6935,
-    "eventsWithGeo": 5066,
-    "eventsWithoutGeo": 1869,
+    "eventsWithGeo": 5067,
+    "eventsWithoutGeo": 1868,
     "geocodeErrors": 225
   },
   "zeroEventCalendars": [
@@ -1843,7 +1843,7 @@
     {
       "name": "candlelight-candlelight",
       "type": "Ripper",
-      "events": 56,
+      "events": 57,
       "expectEmpty": false
     },
     {
@@ -1921,7 +1921,7 @@
     {
       "name": "events12-seattle-events",
       "type": "Ripper",
-      "events": 107,
+      "events": 108,
       "expectEmpty": false
     },
     {
@@ -1987,7 +1987,7 @@
     {
       "name": "majestic-bay-main",
       "type": "Ripper",
-      "events": 61,
+      "events": 58,
       "expectEmpty": false
     },
     {
@@ -2131,7 +2131,7 @@
     {
       "name": "seattle-convention-center-all-events",
       "type": "Ripper",
-      "events": 47,
+      "events": 48,
       "expectEmpty": false
     },
     {
@@ -2563,7 +2563,7 @@
     {
       "name": "tag-ballard",
       "type": "Aggregate",
-      "events": 431,
+      "events": 428,
       "expectEmpty": false
     },
     {
@@ -2593,7 +2593,7 @@
     {
       "name": "tag-downtown",
       "type": "Aggregate",
-      "events": 231,
+      "events": 232,
       "expectEmpty": false
     },
     {
@@ -2695,7 +2695,7 @@
     {
       "name": "tag-music",
       "type": "Aggregate",
-      "events": 2478,
+      "events": 2479,
       "expectEmpty": false
     },
     {
@@ -2821,7 +2821,7 @@
     {
       "name": "tag-events",
       "type": "Aggregate",
-      "events": 1086,
+      "events": 1088,
       "expectEmpty": false
     },
     {
@@ -2839,7 +2839,7 @@
     {
       "name": "tag-movies",
       "type": "Aggregate",
-      "events": 403,
+      "events": 400,
       "expectEmpty": false
     },
     {

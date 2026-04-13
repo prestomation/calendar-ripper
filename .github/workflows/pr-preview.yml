@@ -35,7 +35,7 @@ jobs:
       - name: Deploy preview to Cloudflare Pages
         id: deploy
         run: |
-          DEPLOYMENT_URL=$(npx wrangler pages deploy output/ --project-name=calendar-ripper --branch="pr-${{ github.event.number }}" 2>&1 | tee /dev/stderr | grep -oP 'https://[a-z0-9-]+\.calendar-ripper\.pages\.dev' | head -1)
+          DEPLOYMENT_URL=$(npx wrangler pages deploy output/ --project-name=206events --branch="pr-${{ github.event.number }}" 2>&1 | tee /dev/stderr | grep -oP 'https://[a-z0-9-]+\.206events\.pages\.dev' | head -1)
           echo "deployment_url=${DEPLOYMENT_URL}" >> "$GITHUB_OUTPUT"
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -58,7 +58,7 @@ jobs:
 
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
-            const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.calendar-ripper.pages.dev`;
+            const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.206events.pages.dev`;
 
             const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
             const zeroEventCalendars = zeroEventCalendarsRaw.trim().split('\n').filter(Boolean);

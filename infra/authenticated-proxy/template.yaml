@@ -13,6 +13,7 @@ Parameters:
 
   GitHubRepo:
     Type: String
+    Default: "206events"
     Description: GitHub repository name (without the org prefix).
 
   # Kept for compatibility — no longer used

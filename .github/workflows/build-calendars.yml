@@ -43,7 +43,9 @@ jobs:
       with:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
         aws-region: us-west-2
-      continue-on-error: true
+      # Do NOT use continue-on-error here. If AWS credentials fail,
+      # the geo-cache cannot be downloaded from S3 and the build will
+      # take 20+ minutes re-geocoding every location. Fail fast instead.
 
     - name: Download geo-cache from S3
       env:
@@ -52,7 +54,6 @@ jobs:
         aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" geo-cache.json \
           && echo "geo-cache restored from S3 ($(jq '.entries | length' geo-cache.json) entries)" \
           || echo "S3 geo-cache not available, using committed baseline"
-      continue-on-error: true
 
     - name: Download out-of-band calendars
       env:
@@ -86,7 +87,6 @@ jobs:
         aws s3 cp geo-cache.json "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/geo-cache.json" \
           && echo "geo-cache uploaded to S3 ($(jq '.entries | length' geo-cache.json) entries)" \
           || echo "S3 upload failed (credentials not configured?)"
-      continue-on-error: true
 
     - name: Validate discovery API
       run: npm run check-discovery-api

@@ -3265,7 +3265,7 @@ function App() {
         ) : showHomepage ? (
           <div className="homepage">
             <h1>206.events</h1>
-            <p>Browse and subscribe to event calendars from venues, neighborhoods, and organizations across Seattle. Search and filter here, or add any calendar to your favorite app using the ICS links to keep events synced automatically.</p>
+            <p>Browse and subscribe to event calendars from venues, neighborhoods, and organizations across the Seattle area. Search and filter here, or add any calendar to your favorite app using the ICS links to keep events synced automatically.</p>
 
             {!authUser && API_URL && (
               <div className="homepage-signin-cta">

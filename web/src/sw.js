@@ -1,4 +1,4 @@
-// Service Worker for Seattle Community Calendars
+// Service Worker for 206.events
 // Provides offline support via cache-first (app shell) and stale-while-revalidate (data)
 
 const APP_SHELL_CACHE = 'app-shell-v/* __APP_SHELL_HASH__ */'
@@ -123,6 +123,6 @@ const OFFLINE_HTML = `<!DOCTYPE html>
 <html><head><title>Offline</title></head>
 <body style="font-family:sans-serif;text-align:center;padding:4rem">
   <h1>You're offline</h1>
-  <p>Seattle Community Calendars needs a network connection for the first visit.
+  <p>206.events needs a network connection for the first visit.
      Please reconnect and reload.</p>
 </body></html>`

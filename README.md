@@ -68,7 +68,7 @@ Issues are the best way to report problems or request new calendars. The more de
 
 ### Report a Bug
 
-If a calendar has incorrect data, is missing events, or is broken, [open a bug report](https://github.com/prestomation/calendar-ripper/issues/new) with:
+If a calendar has incorrect data, is missing events, or is broken, [open a bug report](https://github.com/prestomation/206events/issues/new) with:
 
 - **Which calendar** is affected (name or URL)
 - **What you expected** to see vs. what actually appeared
@@ -77,7 +77,7 @@ If a calendar has incorrect data, is missing events, or is broken, [open a bug r
 
 ### Request a New Calendar
 
-Want to see a new Seattle-area event source added? [Open a request](https://github.com/prestomation/calendar-ripper/issues/new) with:
+Want to see a new Seattle-area event source added? [Open a request](https://github.com/prestomation/206events/issues/new) with:
 
 - **The website URL** where the events are listed
 - **What kind of events** the source covers (music, art, food, community, etc.)
@@ -86,7 +86,7 @@ Want to see a new Seattle-area event source added? [Open a request](https://gith
 
 ### Report a Stale or Dead Calendar
 
-If a calendar source has shut down, changed its website, or is consistently returning errors, [let us know](https://github.com/prestomation/calendar-ripper/issues/new) with:
+If a calendar source has shut down, changed its website, or is consistently returning errors, [let us know](https://github.com/prestomation/206events/issues/new) with:
 
 - **Which calendar** is affected
 - **What changed**: did the website move, shut down, or start blocking requests?

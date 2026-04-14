@@ -1,5 +1,5 @@
 import { RipperLoader } from "./config/loader.js";
-import { writeFile, mkdir, readFile, appendFile } from "fs/promises";
+import { writeFile, mkdir, readFile, appendFile, access } from "fs/promises";
 import {
   RipperConfig,
   RipperError,
@@ -794,15 +794,25 @@ END:VCALENDAR`;
       for (const cal of source.calendars) {
         allCalendarIcsUrls.push(cal.icsFile);
         if (cal.hasFutureEvents) {
-          calendarsWithFutureEvents.add(cal.icsFile);
-          calendarEntries.push({
-            name: cal.name,
-            friendlyName: cal.friendlyName,
-            icsUrl: cal.icsFile,
-            rssUrl: cal.icsFile.replace(".ics", ".rss"),
-            tags: cal.tags,
-          });
-          console.log(`[outofband] Registered ${cal.icsFile} (${cal.events} events)`);
+          // Verify the ICS file was actually downloaded before registering it.
+          // If S3 had a stale report (hasFutureEvents=true) but the file itself
+          // was missing from the bucket or failed to download, we skip it so that
+          // venues.json never references a file that doesn't exist on disk.
+          const icsPath = join("output", cal.icsFile);
+          const icsExists = await access(icsPath).then(() => true).catch(() => false);
+          if (icsExists) {
+            calendarsWithFutureEvents.add(cal.icsFile);
+            calendarEntries.push({
+              name: cal.name,
+              friendlyName: cal.friendlyName,
+              icsUrl: cal.icsFile,
+              rssUrl: cal.icsFile.replace(".ics", ".rss"),
+              tags: cal.tags,
+            });
+            console.log(`[outofband] Registered ${cal.icsFile} (${cal.events} events)`);
+          } else {
+            console.warn(`[outofband] Skipping ${cal.icsFile} — report says hasFutureEvents but file not found in output/ (S3 download may have failed)`);
+          }
         } else {
           console.log(`[outofband] Skipping ${cal.icsFile} — no future events (${cal.errors.length} error(s))`);
         }

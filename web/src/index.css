@@ -857,6 +857,15 @@ body {
   transform: translateX(4px);
 }
 
+.event-image {
+  display: block;
+  width: calc(100% + 40px);
+  margin: -20px -20px 16px -20px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
 .event-date {
   font-weight: 600;
   color: var(--color-primary);
@@ -1395,6 +1404,12 @@ body {
   .app--mobile .event-item {
     padding: 14px;
     margin-bottom: 10px;
+  }
+
+  .app--mobile .event-image {
+    width: calc(100% + 28px);
+    margin: -14px -14px 14px -14px;
+    height: 140px;
   }
 
   .app--mobile .event-title {

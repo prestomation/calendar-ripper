@@ -794,24 +794,28 @@ END:VCALENDAR`;
       for (const cal of source.calendars) {
         allCalendarIcsUrls.push(cal.icsFile);
         if (cal.hasFutureEvents) {
-          // Verify the ICS file was actually downloaded before registering it.
-          // If S3 had a stale report (hasFutureEvents=true) but the file itself
-          // was missing from the bucket or failed to download, we skip it so that
-          // venues.json never references a file that doesn't exist on disk.
+          // Always add to the manifest so the calendar URL doesn't disappear
+          // from the deployed site (which would trigger the breaking-URL check).
+          calendarEntries.push({
+            name: cal.name,
+            friendlyName: cal.friendlyName,
+            icsUrl: cal.icsFile,
+            rssUrl: cal.icsFile.replace(".ics", ".rss"),
+            tags: cal.tags,
+          });
+
+          // Only register in calendarsWithFutureEvents (used by venues.json) if
+          // the ICS file actually landed in output/. If S3 had a stale report
+          // (hasFutureEvents=true) but the file itself was missing or failed to
+          // download, skipping it here prevents venues.json from referencing a
+          // file that doesn't exist on disk.
           const icsPath = join("output", cal.icsFile);
           const icsExists = await access(icsPath).then(() => true).catch(() => false);
           if (icsExists) {
             calendarsWithFutureEvents.add(cal.icsFile);
-            calendarEntries.push({
-              name: cal.name,
-              friendlyName: cal.friendlyName,
-              icsUrl: cal.icsFile,
-              rssUrl: cal.icsFile.replace(".ics", ".rss"),
-              tags: cal.tags,
-            });
             console.log(`[outofband] Registered ${cal.icsFile} (${cal.events} events)`);
           } else {
-            console.warn(`[outofband] Skipping ${cal.icsFile} — report says hasFutureEvents but file not found in output/ (S3 download may have failed)`);
+            console.warn(`[outofband] ${cal.icsFile} — report says hasFutureEvents but file not found in output/ (S3 download may have failed); excluded from venues.json`);
           }
         } else {
           console.log(`[outofband] Skipping ${cal.icsFile} — no future events (${cal.errors.length} error(s))`);

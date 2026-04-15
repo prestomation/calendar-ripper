@@ -186,6 +186,10 @@ export function stripSuiteFloorSuffixes(location: string): string | null {
   result = result.replace(/[,\s]*,\s*meeting room(\s+[\w-]+)?(\s*\/.*)?$/i, '');
   result = result.replace(/[,\s]*,\s*children'?s?\s+area(\s*\/.*)?$/i, '');
   result = result.replace(/[,\s]*,\s*lobby(\s*\/.*)?$/i, '');
+  
+  // Strip room/building qualifiers like ", stuart t. rolfe room" or ", alder auditorium"
+  result = result.replace(/[,\s]+stuart\s+t\.?\s+rolfe\s+room$/i, '');
+  result = result.replace(/[,\s]+alder\s+auditorium.*$/i, '');
   // Strip any trailing " / <multilingual text>" that looks like a translation duplicate
   // but only when it appears after a sub-room keyword has already been stripped above,
   // or standalone at the very end of a string after a known room-like prefix.
@@ -340,6 +344,8 @@ export function lookupSPLBranchCoords(location: string): GeoCoords | null {
  */
 const UW_BUILDING_COORDS: Record<string, GeoCoords> = {
   HUB: { lat: 47.6557, lng: -122.3050 },
+  LNDMK: { lat: 47.6195, lng: -122.1367 },  // UW landmarks
+  NAN: { lat: 47.6525, lng: -122.3045 },   // Nanoengineering & Sciences Building
   PAT: { lat: 47.6532, lng: -122.3115 },
   KNE: { lat: 47.6561, lng: -122.3088 },
   MNY: { lat: 47.6556, lng: -122.3073 },
@@ -378,6 +384,9 @@ const UW_NAMED_LOCATIONS: Record<string, GeoCoords> = {
   'anderson hall courtyard': { lat: 47.6553, lng: -122.3035 },
   'uw botanic gardens': { lat: 47.6601, lng: -122.2898 },
   'center for urban horticulture': { lat: 47.6601, lng: -122.2898 },
+  'the liberal arts quadrangle - the quad': { lat: 47.6565, lng: -122.3076 },
+  'nanoengineering & sciences building': { lat: 47.6525, lng: -122.3045 },
+  'nanoengineering & sciences building (nan)': { lat: 47.6525, lng: -122.3045 },
 };
 
 /**
@@ -458,6 +467,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'peace of mind brewing': { lat: 47.8316011, lng: -122.3053788 },
   'cap hill (rsvp for details)': { lat: 47.6253, lng: -122.3222 },
   'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
+  'calvary: the hill': { lat: 47.6260, lng: -122.3200 },
+  'calvary: the hill, 1107 e howell st, seattle, wa': { lat: 47.6260, lng: -122.3200 },
+  'the toad house': { lat: 47.6150, lng: -122.6220 },
+  'the toad house, 1405 northeast mcwilliams road, #101, bremerton, wa': { lat: 47.6150, lng: -122.6220 },
   'centennial park, 1130 208th street southeast, bothell, wa': { lat: 47.7610, lng: -122.2218 },
   'husky softball stadium': { lat: 47.6555, lng: -122.3009 },
   'husky softball stadium, university of washington': { lat: 47.6555, lng: -122.3009 },

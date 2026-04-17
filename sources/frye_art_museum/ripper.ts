@@ -174,7 +174,11 @@ export default class FryeArtMuseumRipper implements IRipper {
     public isRecurringPattern(dateText: string): boolean {
         // Recurring patterns contain no digits (e.g. "Fridays", "First Sundays",
         // "Monthly, fourth Thursdays"). Concrete dates always have a day number.
-        return !/\d/.test(dateText);
+        // However, ordinal-based recurring patterns like "First Sundays (1–3 pm)"
+        // contain digits in the time portion, so also detect ordinal/plural-day patterns.
+        const ordinalPrefixes = /^(First|Second|Third|Fourth|Fifth|Last|Every|Monthly|Weekly)\b/i;
+        const pluralDays = /(?:Sundays|Mondays|Tuesdays|Wednesdays|Thursdays|Fridays|Saturdays)/i;
+        return ordinalPrefixes.test(dateText) || pluralDays.test(dateText) || !/\d/.test(dateText);
     }
 
     public parseDate(dateText: string): { year: number; month: number; day: number } | null {

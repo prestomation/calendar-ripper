@@ -1,5 +1,24 @@
 # AI Agent Guidelines
 
+## Skills
+
+Agent skills live in `docs/skills/` in this repo. These define the operational procedures for maintaining 206.events:
+
+- **`docs/skills/build-report.md`** — Daily build health check, error fixing, and geo error resolution
+- **`docs/skills/source-discovery.md`** — Find, evaluate, and add new Seattle event sources
+- **`docs/skills/geo-resolver.md`** — Resolve geocode errors in the geo-cache
+
+## Source Candidate Tracking
+
+All source discovery findings live in **`docs/source-candidates.md`**. This file tracks:
+- Candidate sources to investigate (with status: 💡 Candidate, 🔍 Investigating, ✅ Added, ❌ Not Viable, ⏸️ Blocked)
+- Discovery log (date-stamped entries from daily scans)
+- Dead source investigations
+
+When implementing a source from the candidates file, update its status entry. The daily cron reads this file to avoid re-proposing the same sources.
+
+**Feature ideas** (not source-specific) live in `ideas.md` in the repo root.
+
 ## Project Context
 
 This repository contains steering files to help AI agents understand the project structure and architecture:
@@ -108,7 +127,7 @@ Only implement HTML parsing if no ICS feed or API is available:
 ### Investigation Process
 
 Before implementing, always:
-1. Check **`ideas.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
+1. Check **`docs/source-candidates.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
 2. Check the website for ICS/calendar export options
 3. Inspect network traffic for API endpoints
 4. Search for the calendar platform being used (e.g., CitySpark, Localist)

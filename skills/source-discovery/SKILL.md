@@ -4,7 +4,7 @@ Find and add new Seattle event sources to 206.events. Runs after the daily build
 
 ## When to run
 
-This skill is triggered by the daily build report skill (`docs/skills/build-report.md`, step 5) when the build is healthy — 0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable. The build report skill will direct you here.
+This skill is triggered by the build report skill (`skills/build-report/SKILL.md`, step 5) when the build is healthy — 0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable. The build report skill will direct you here.
 
 ## Steps
 
@@ -17,18 +17,7 @@ Read `docs/source-candidates.md` to see what sources have already been evaluated
 Before searching for new sources, check existing sources for signs of death:
 
 ```bash
-curl -s https://206.events/build-errors.json | python3 -c "
-import json, sys
-d = json.load(sys.stdin)
-zeros = d.get('zeroEventCalendars', [])
-ext_failures = d.get('externalCalendarFailures', [])
-print(f'Zero-event calendars: {len(zeros)}')
-for z in zeros:
-    print(f'  {z}')
-print(f'External failures: {len(ext_failures)}')
-for f in ext_failures:
-    print(f'  {f[\"name\"]}: {f[\"error\"]}')
-"
+python3 skills/source-discovery/scripts/dead-sources.py
 ```
 
 For any source with **0 events for 30+ consecutive days** or returning **404/410 consistently**, flag it in `docs/source-candidates.md` under the "💀 Dead Source Investigation" section with the source name and symptoms. Do NOT disable it — just flag it for human review.
@@ -37,21 +26,21 @@ For any source with **0 events for 30+ consecutive days** or returning **404/410
 
 Run 3-5 web searches using varied queries. **Rotate the focus daily** to avoid re-finding the same sources. Pick from these verticals in rotation:
 
-- **Music venues**: `"Seattle live music venue calendar"`, `"Seattle concert calendar 2026"`, `"Capitol Hill music events"`, `"Ballard live music"`
-- **Arts & culture**: `"Seattle art gallery events calendar"`, `"Seattle museum events 2026"`, `"Seattle theater calendar"`
-- **Community**: `"Seattle community center events calendar"`, `"Seattle neighborhood events"`, `"Seattle block party 2026"`
-- **Food & drink**: `"Seattle food festival 2026"`, `"Seattle beer release calendar"`, `"Seattle restaurant events"`
+- **Music venues**: `"Seattle live music venue calendar"`, `"Seattle concert calendar"`, `"Capitol Hill music events"`, `"Ballard live music"`
+- **Arts & culture**: `"Seattle art gallery events calendar"`, `"Seattle museum events"`, `"Seattle theater calendar"`
+- **Community**: `"Seattle community center events calendar"`, `"Seattle neighborhood events"`, `"Seattle block party"`
+- **Food & drink**: `"Seattle food festival"`, `"Seattle beer release calendar"`, `"Seattle restaurant events"`
 - **Comedy & nightlife**: `"Seattle comedy club calendar"`, `"Seattle open mic calendar"`, `"Seattle trivia night schedule"`
-- **Outdoors & sports**: `"Seattle outdoor events calendar"`, `"Seattle running events 2026"`, `"Seattle farmers market schedule"`
-- **Bookstores & libraries**: `"Seattle bookstore events calendar"`, `"Seattle author reading 2026"`
-- **Festivals & seasonal**: `"Seattle festival 2026"`, `"Seattle summer events calendar"`, `"Seattle holiday market 2026"`
+- **Outdoors & sports**: `"Seattle outdoor events calendar"`, `"Seattle running events"`, `"Seattle farmers market schedule"`
+- **Bookstores & libraries**: `"Seattle bookstore events calendar"`, `"Seattle author reading"`
+- **Festivals & seasonal**: `"Seattle festival"`, `"Seattle summer events calendar"`, `"Seattle holiday market"`
 
 Also try discovery-oriented searches:
 - `"site:seattle.gov calendar events"` — city events
 - `"site:eventbrite.com Seattle events organizer"` — Eventbrite sources
 - `"Seattle events ICS subscribe calendar"` — ICS feeds
 - `"Seattle events RSS feed"` — RSS/ICS sources
-- `"new Seattle venue 2026 events"` — recently opened venues
+- `"new Seattle venue events"` — recently opened venues
 
 ### 4. Quality gate each candidate
 
@@ -76,15 +65,9 @@ For each search result that looks like a Seattle event source, evaluate:
 For each source that passes the quality gate:
 
 1. **Investigate the source** — fetch its events page, check for ICS feeds, identify the platform (Squarespace, Eventbrite, etc.), determine the ripper type
-2. **Spawn a coding subagent** to implement it:
-   ```
-   sessions_spawn(runtime="acp", agentId="claude", mode="run",
-     cwd="/root/.openclaw/workspace/channels/1482476559465189426",
-     task="Add a new event source to 206.events for [VENUE NAME]. Details: [URL], [ripper type], [tags], [address/geo]. Follow the AGENTS.md guidelines for adding new sources. Write tests. Open a PR on the current branch.")
-   ```
-3. **Steer the subagent** if needed via `subagents(action="steer", message="...")`
-4. **Iterate on PR feedback** — if CI or Amazon Q has comments, steer the subagent to address them
-5. **Report the PR link** in the daily message for human review
+2. **Delegate to a coding agent** to implement it on a feature branch with a PR
+3. **Iterate on PR feedback** — if CI or Amazon Q has comments, steer the agent to address them
+4. **Report the PR link** in the daily message for human review
 
 ### 6. Update candidates file
 
@@ -97,7 +80,7 @@ For each source evaluated, update `docs/source-candidates.md`:
 
 Add a date-stamped entry at the top of the Discovery Log section:
 ```markdown
-### 2026-04-19
+### YYYY-MM-DD
 - ✅ Added: [venue name] — [ripper type] — PR #XXX
 - 💡 Candidate: [venue name] — [ripper type] — [URL]
 - ❌ Not Viable: [venue name] — [reason]
@@ -118,7 +101,7 @@ Include a "🔍 Source Discovery" section in the daily report:
 ## Important rules
 
 - **Always open a PR** for new sources — never push direct to main
-- **Always spawn a coding subagent** to implement the ripper — do not write code directly
+- **Always delegate to a coding agent** to implement the ripper — do not write code directly
 - **Seattle city limits only** — no Eastside, no Kent, no Everett
 - **Rotate search queries** — don't run the same searches every day
 - **Check `docs/source-candidates.md` first** — avoid re-proposing evaluated sources

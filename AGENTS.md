@@ -2,11 +2,11 @@
 
 ## Skills
 
-Agent skills live in `docs/skills/` in this repo. These define the operational procedures for maintaining 206.events:
+Agent skills live in `skills/` in this repo. These define the operational procedures for maintaining 206.events:
 
-- **`docs/skills/build-report.md`** — Daily build health check, error fixing, and geo error resolution
-- **`docs/skills/source-discovery.md`** — Find, evaluate, and add new Seattle event sources
-- **`docs/skills/geo-resolver.md`** — Resolve geocode errors in the geo-cache
+- **`skills/build-report/SKILL.md`** — Daily build health check, error fixing, and geo error resolution
+- **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
+- **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache
 
 ## Source Candidate Tracking
 

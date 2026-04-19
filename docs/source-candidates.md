@@ -1,6 +1,6 @@
 # 206.events Source Candidates
 
-Potential Seattle-area event sources to add, organized by status. Updated by the daily source discovery skill (`docs/skills/source-discovery.md`).
+Potential Seattle-area event sources to add, organized by status. Updated by the daily source discovery skill (`skills/source-discovery/SKILL.md`).
 
 ## Discovery Log
 

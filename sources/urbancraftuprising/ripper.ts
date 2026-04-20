@@ -18,7 +18,8 @@ const EXCLUDED_SLUGS = [
     'makers', 'apply', 'sponsors', 'contact', 'about',
     'blog', 'greenhouse-program', 'derby-days-vendors',
     'eleventh-hour-vendors', 'port-townsend-handmade-market-vendors',
-    'winter-2025-vendors', 'summer-2025-vendors'
+    'winter-2025-vendors', 'summer-2025-vendors',
+    'winter-2025', 'summer-2025'
 ];
 
 // Known location patterns from the site

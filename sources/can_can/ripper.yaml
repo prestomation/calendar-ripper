@@ -1,8 +1,8 @@
 name: can-can
-type: eventbrite
+type: squarespace
 expectEmpty: true
 description: "Can Can Culinary Cabaret"
-url: "https://thecancan.com"
+url: "https://thecancan.com/tickets"
 friendlyLink: https://thecancan.com
 tags: ["Arts", "Nightlife", "Downtown"]
 geo:
@@ -13,7 +13,3 @@ calendars:
   - name: can-can
     friendlyname: "Can Can Culinary Cabaret"
     timezone: America/Los_Angeles
-    config:
-      organizerId: "33221255261"
-      defaultLocation: "95 Pine St, Seattle, WA 98101"
-      defaultDurationHours: 2

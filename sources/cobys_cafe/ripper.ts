@@ -99,12 +99,13 @@ export default class CobysCafeRipper implements IRipper {
             TIMEZONE
         );
         const durationMinutes = (endHour * 60 + endMinute) - (startHour * 60 + startMinute);
+        if (durationMinutes <= 0) return null;
 
         return {
             id: url,
             ripped: new Date(),
             date: eventDate,
-            duration: Duration.ofMinutes(Math.max(30, durationMinutes)),
+            duration: Duration.ofMinutes(durationMinutes),
             summary: title,
             description,
             location: LOCATION,
@@ -149,7 +150,9 @@ export default class CobysCafeRipper implements IRipper {
         if (startAmPm) {
             if (startAmPm.toLowerCase() === 'pm' && startHour !== 12) startHour += 12;
             else if (startAmPm.toLowerCase() === 'am' && startHour === 12) startHour = 0;
-        } else if (endAmPm.toLowerCase() === 'pm' && startHour < 12) {
+        } else if (endAmPm.toLowerCase() === 'pm' && startHour + 12 <= endHour) {
+            // Only infer PM for start if adding 12 still keeps it at or before end (e.g. "5-8pm"
+            // → 17 ≤ 20 ✓; "11-1pm" → 23 > 13 → keep 11am ✓)
             startHour += 12;
         }
 

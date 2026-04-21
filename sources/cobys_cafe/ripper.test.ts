@@ -71,6 +71,13 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(result!.endHour).toBe(20);
     });
 
+    test('does not convert 11am to 11pm for "11-1pm" style events', () => {
+        const result = ripper.parseDateTimeFromText('Saturday, November 1 from 11-1pm');
+        expect(result).not.toBeNull();
+        expect(result!.startHour).toBe(11); // 11am, not 23pm
+        expect(result!.endHour).toBe(13);   // 1pm
+    });
+
     test('returns null for text without a date pattern', () => {
         expect(ripper.parseDateTimeFromText("Get ready for Mother's Day with our hands-on bouquet workshop")).toBeNull();
         expect(ripper.parseDateTimeFromText("This is the Members Free RSVP Link")).toBeNull();
@@ -132,6 +139,14 @@ describe('CobysCafeRipper - parseProductHtml', () => {
         const html = makeProductHtml("Mother's Day Bouquet Workshop | Coby's Cafe",
             "Get ready for Mother's Day with our hands-on bouquet workshop");
         const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/470', new Set());
+        expect(event).toBeNull();
+    });
+
+    test('skips events where end time is before start time (invalid range)', () => {
+        // "9pm-6pm" → 21:00 start, 18:00 end → negative duration
+        const html = makeProductHtml('Bad Time Event | Coby\'s Cafe',
+            'Join us on May 15 from 9pm-6pm for an event');
+        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/999', new Set());
         expect(event).toBeNull();
     });
 

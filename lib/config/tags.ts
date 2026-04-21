@@ -41,6 +41,8 @@ export const TAG_CATEGORIES = {
         'Arts',
         'Artwalk',
         'Beer',
+        'Books',
+        'Comedy',
         'Cycling',
         'Dogs',
         'Education',

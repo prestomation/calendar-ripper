@@ -4,6 +4,11 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-21 — Batch implementation of easy built-in-type sources
+- Implemented 9 new sources using built-in Eventbrite, Squarespace, and DICE rippers
+- Added `Comedy` and `Books` tags to `lib/config/tags.ts`
+- Sources added: Laughs Comedy Club, CSz Seattle, Club Comedy Seattle, Can Can Culinary Cabaret, Third Place Books, Jet City Improv, Conor Byrne Pub, Skylark Cafe, Kremwerk
+
 ### 2026-04-19 — Initial migration from ideas.md
 - Migrated all source candidates from `ideas.md` into this file
 - Feature ideas remain in `ideas.md`
@@ -27,31 +32,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **MOHAI** — `https://mohai.org/events/` — WordPress with Tribe Events (try `?post_type=tribe_events&ical=1`) — Tags: Museums, Community
 
-### Eventbrite (built-in type)
-
-**Laughs Comedy Club** — `https://laughscomedyclub.com/` — organizer ID: `29222289085` (~30 events) — 5220 Roosevelt Way NE — Tags: Comedy
-
-**CSz Seattle / ComedySportz** — `https://cszseattle.com/` — organizer ID: `18822177366` (~10 events) — 3509 Fremont Ave N — Tags: Comedy, Fremont
-
-**Club Comedy Seattle** — organizer ID: `18936516174` (~5 events) — Tags: Comedy, Capitol Hill
-
-**Can Can Culinary Cabaret** — `https://thecancan.com` — organizer ID: `33221255261` (~20 events) — 95 Pine St (Pike Place Market) — Tags: Arts, Nightlife
-
-**Third Place Books** — `https://www.thirdplacebooks.com/events` — organizer ID: `30353358534` (~40 events) — Ravenna, Seward Park, Lake Forest Park — Tags: Books
-
-**Jet City Improv** — `https://www.jetcityimprov.org/calendar.html` — organizer ID: `66421638433` (~10 events) — 5031 University Way NE — Tags: Comedy, University District
-
 ### Squarespace (built-in type)
 
-**Conor Byrne Pub** — `https://www.conorbyrnepub.com/calendar` — 5140 Ballard Ave NW — Tags: Music, Ballard
-
-**Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle
-
 **Seattle Public Theater** — `https://www.seattlepublictheater.org/current-season` — Green Lake Bathhouse — Note: may not work with SquarespaceRipper (page vs events collection)
-
-### DICE Platform
-
-**Kremwerk + Timbre Room + Cherry Complex** — `https://www.kremwerk.com/upcoming-events` — Also on DICE — 1809 Minor Ave — Tags: Music, Nightlife, Belltown
 
 ### Ticketmaster (built-in type)
 
@@ -134,6 +117,28 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **The Royal Room** — `https://theroyalroomseattle.com/` — 5000 Rainier Ave S — Tags: Music, Columbia City
 
 **Ada's Technical Books & Cafe** — `https://adasbooks.com/events` — 425 15th Ave E — Tags: Books, Capitol Hill
+
+---
+
+## ✅ Added
+
+**Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite `29222289085` — 5220 Roosevelt Way NE — Tags: Comedy, University District
+
+**CSz Seattle (ComedySportz)** — `sources/csz_seattle` — Eventbrite `18822177366` — 3509 Fremont Ave N — Tags: Comedy, Fremont
+
+**Club Comedy Seattle** — `sources/club_comedy` — Eventbrite `18936516174` — 2100 Harvard Ave E — Tags: Comedy, Capitol Hill
+
+**Can Can Culinary Cabaret** — `sources/can_can` — Eventbrite `33221255261` — 95 Pine St — Tags: Arts, Nightlife, Downtown
+
+**Third Place Books** — `sources/third_place_books` — Eventbrite `30353358534` — multi-location — Tags: Books, Education
+
+**Jet City Improv** — `sources/jet_city_improv` — Eventbrite `66421638433` — 5031 University Way NE — Tags: Comedy, Theatre, University District
+
+**Conor Byrne Pub** — `sources/conor_byrne` — Squarespace — 5140 Ballard Ave NW — Tags: Music, Ballard
+
+**Skylark Cafe** — `sources/skylark` — Squarespace — 3803 Delridge Way SW — Tags: Music, West Seattle
+
+**Kremwerk + Timbre Room + Cherry** — `sources/kremwerk` — DICE — 1809 Minor Ave — Tags: Music, Nightlife, Belltown
 
 ---
 

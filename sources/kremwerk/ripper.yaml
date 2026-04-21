@@ -1,0 +1,18 @@
+name: kremwerk
+type: dice
+description: "Kremwerk + Timbre Room + Cherry"
+url: "https://events-api.dice.fm/v1/events?filter[venues][]=Kremwerk&filter[venues][]=Timbre+Room&filter[venues][]=Cherry"
+friendlyLink: https://www.kremwerk.com/upcoming-events
+tags: ["Music", "Nightlife", "Belltown"]
+geo:
+  lat: 47.61427
+  lng: -122.33228
+  label: "Kremwerk, 1809 Minor Ave, Seattle, WA 98101"
+calendars:
+  - name: kremwerk
+    friendlyname: "Kremwerk + Timbre Room + Cherry"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "Kremwerk"
+      defaultLocation: "1809 Minor Ave, Seattle, WA 98101"
+      defaultDurationHours: 4

@@ -1,5 +1,6 @@
 name: kremwerk
 type: dice
+expectEmpty: true
 description: "Kremwerk + Timbre Room + Cherry"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Kremwerk&filter[venues][]=Timbre+Room&filter[venues][]=Cherry"
 friendlyLink: https://www.kremwerk.com/upcoming-events

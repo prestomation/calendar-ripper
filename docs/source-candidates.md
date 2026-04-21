@@ -5,9 +5,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ## Discovery Log
 
 ### 2026-04-21 — Batch implementation of easy built-in-type sources
-- Implemented 9 new sources using built-in Eventbrite, Squarespace, and DICE rippers
+- Implemented 8 new sources using built-in Eventbrite, Squarespace, and DICE rippers
 - Added `Comedy` and `Books` tags to `lib/config/tags.ts`
-- Sources added: Laughs Comedy Club, CSz Seattle, Club Comedy Seattle, Can Can Culinary Cabaret, Third Place Books, Jet City Improv, Conor Byrne Pub, Skylark Cafe, Kremwerk
+- Sources added: Laughs Comedy Club, CSz Seattle, Club Comedy Seattle, Can Can Culinary Cabaret, Third Place Books, Jet City Improv, Conor Byrne Pub, Kremwerk
+- Skylark Cafe: site is on Webflow (not Squarespace) — moved back to candidates for re-evaluation
 
 ### 2026-04-19 — Initial migration from ideas.md
 - Migrated all source candidates from `ideas.md` into this file
@@ -35,6 +36,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ### Squarespace (built-in type)
 
 **Seattle Public Theater** — `https://www.seattlepublictheater.org/current-season` — Green Lake Bathhouse — Note: may not work with SquarespaceRipper (page vs events collection)
+
+**Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle — Note: site is on **Webflow** (not Squarespace); uses Eventbrite for ticketed events — need to find correct Eventbrite organizer ID or write custom scraper
 
 ### Ticketmaster (built-in type)
 
@@ -136,7 +139,6 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Conor Byrne Pub** — `sources/conor_byrne` — Squarespace — 5140 Ballard Ave NW — Tags: Music, Ballard
 
-**Skylark Cafe** — `sources/skylark` — Squarespace — 3803 Delridge Way SW — Tags: Music, West Seattle
 
 **Kremwerk + Timbre Room + Cherry** — `sources/kremwerk` — DICE — 1809 Minor Ave — Tags: Music, Nightlife, Belltown
 

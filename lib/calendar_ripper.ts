@@ -1055,6 +1055,55 @@ END:VCALENDAR`;
   } catch {
     // report not present — no outofband errors to merge
   }
+
+  // Check for new sources with expectEmpty=true that have never appeared in production.
+  // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
+  // it has never produced events and likely has a wrong URL or ripper type.
+  const newZeroEventSources: string[] = [];
+  {
+    const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
+    try {
+      const prodManifestRes = await fetch(`${productionUrl}/manifest.json`, { signal: AbortSignal.timeout(10000) });
+      if (prodManifestRes.ok) {
+        const prodManifest = await prodManifestRes.json() as {
+          rippers?: Array<{ calendars: Array<{ icsUrl: string }> }>;
+          recurringCalendars?: Array<{ icsUrl: string }>;
+          externalCalendars?: Array<{ icsUrl: string }>;
+        };
+        // Build set of known calendar names (icsUrl without .ics suffix)
+        const knownInProduction = new Set<string>();
+        for (const ripper of prodManifest.rippers ?? []) {
+          for (const cal of ripper.calendars) {
+            knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+          }
+        }
+        for (const cal of prodManifest.recurringCalendars ?? []) {
+          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+        }
+        for (const cal of prodManifest.externalCalendars ?? []) {
+          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+        }
+        // For each expectedEmpty calendar, check if it ever appeared in production
+        const expectedEmptyNow = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
+        for (const cal of expectedEmptyNow) {
+          if (!knownInProduction.has(cal.name)) {
+            console.log(`::error::New source "${cal.name}" has 0 events and expectEmpty=true but has never produced events. Remove it or fix the ripper type/URL.`);
+            newZeroEventSources.push(cal.name);
+            finalErrorCount++;
+          }
+        }
+        if (newZeroEventSources.length > 0) {
+          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) with expectEmpty=true that have never appeared in production`);
+        }
+      } else {
+        console.log(`::warning::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — skipping new zero-event source check`);
+      }
+    } catch (err) {
+      console.log(`::warning::Could not fetch production manifest — skipping new zero-event source check: ${err}`);
+    }
+  }
+  await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
+
   await writeFile("errorCount.txt", finalErrorCount.toString());
 
   // Print event count summary
@@ -1086,6 +1135,7 @@ END:VCALENDAR`;
     geoStats,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    newZeroEventSources,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
     eventCounts: eventCounts.map(c => ({
       name: c.name,

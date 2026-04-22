@@ -4,10 +4,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-22 — Removed 3 zero-event sources from PR #199
+- **Can Can**: Abandoned Eventbrite (org page says "no upcoming events"). Squarespace site but `?format=json` returns `itemCount: 0` (tickets via Venmo only, no structured API)
+- **Kremwerk**: Not a DICE venue — is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API)
+- **Conor Byrne**: Squarespace `?format=json` returns `itemCount: 0`. Already covered by seattle-showlists (54 events) + recurring.yaml (1 open mic)
+- All three returned 0 events in CI with `expectEmpty: true`; removed to avoid cluttering the source list
+
 ### 2026-04-21 — Batch implementation of easy built-in-type sources
-- Implemented 8 new sources using built-in Eventbrite, Squarespace, and DICE rippers
+- Implemented 5 new sources using built-in Eventbrite ripper: Laughs Comedy, CSz Seattle, Club Comedy, Third Place Books, Jet City Improv
 - Added `Comedy` and `Books` tags to `lib/config/tags.ts`
-- Sources added: Laughs Comedy Club, CSz Seattle, Club Comedy Seattle, Can Can Culinary Cabaret, Third Place Books, Jet City Improv, Conor Byrne Pub, Kremwerk
+- Removed: Can Can (no Eventbrite events), Kremwerk (not DICE), Conor Byrne (0 events, covered by seattle-showlists)
 - Skylark Cafe: site is on Webflow (not Squarespace) — moved back to candidates for re-evaluation
 
 ### 2026-04-19 — Initial migration from ideas.md
@@ -125,22 +131,15 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## ✅ Added
 
-**Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite `29222289085` — 5220 Roosevelt Way NE — Tags: Comedy, University District
+**Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite — 5220 Roosevelt Way NE — Tags: Comedy, University District
 
-**CSz Seattle (ComedySportz)** — `sources/csz_seattle` — Eventbrite `18822177366` — 3509 Fremont Ave N — Tags: Comedy, Fremont
+**CSz Seattle (ComedySportz)** — `sources/csz_seattle` — Eventbrite — 3509 Fremont Ave N — Tags: Comedy, Fremont
 
-**Club Comedy Seattle** — `sources/club_comedy` — Eventbrite `18936516174` — 2100 Harvard Ave E — Tags: Comedy, Capitol Hill
+**Club Comedy Seattle** — `sources/club_comedy` — Eventbrite — 2100 Harvard Ave E — Tags: Comedy, Capitol Hill
 
-**Can Can Culinary Cabaret** — `sources/can_can` — Eventbrite `33221255261` — 95 Pine St — Tags: Arts, Nightlife, Downtown
+**Third Place Books** — `sources/third_place_books` — Eventbrite — multi-location — Tags: Books, Education
 
-**Third Place Books** — `sources/third_place_books` — Eventbrite `30353358534` — multi-location — Tags: Books, Education
-
-**Jet City Improv** — `sources/jet_city_improv` — Eventbrite `66421638433` — 5031 University Way NE — Tags: Comedy, Theatre, University District
-
-**Conor Byrne Pub** — `sources/conor_byrne` — Squarespace — 5140 Ballard Ave NW — Tags: Music, Ballard
-
-
-**Kremwerk + Timbre Room + Cherry** — `sources/kremwerk` — DICE — 1809 Minor Ave — Tags: Music, Nightlife, Belltown
+**Jet City Improv** — `sources/jet_city_improv` — Eventbrite — 5031 University Way NE — Tags: Comedy, Theatre, University District
 
 ---
 
@@ -167,6 +166,12 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Filipino Community of Seattle** — Wix site, heavily JS-dependent — Eventbrite may be an alternative route (investigate)
 
 **Climate Pledge Arena (external ICS)** — HTTP 503 — already covered by `climate_pledge_arena` Ticketmaster ripper
+
+**Can Can Culinary Cabaret** — Abandoned Eventbrite (org page: "no upcoming events"). Squarespace site but `?format=json` returns `itemCount: 0` (sells tickets via Venmo only, no structured API). Revisit if they start using Eventbrite again or if `needsBrowser` support is added.
+
+**Kremwerk + Timbre Room + Cherry** — Not a DICE venue; is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API). Revisit if `needsBrowser` support is added.
+
+**Conor Byrne Pub** — Squarespace `?format=json` returns `itemCount: 0`. Already well-covered by seattle-showlists (54 events) + recurring.yaml (1 open mic). Low priority to re-attempt.
 
 ---
 

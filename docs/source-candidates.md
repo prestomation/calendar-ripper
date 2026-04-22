@@ -4,6 +4,21 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-22 — Removed future-primitive (never produced events)
+- **Future Primitive Brewing**: Squarespace site with `itemCount: 0`, never appeared in production manifest. Removed source.
+
+### 2026-04-22 — Removed 3 zero-event sources from PR #199
+- **Can Can**: Abandoned Eventbrite (org page says "no upcoming events"). Squarespace site but `?format=json` returns `itemCount: 0` (tickets via Venmo only, no structured API)
+- **Kremwerk**: Not a DICE venue — is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API)
+- **Conor Byrne**: Squarespace `?format=json` returns `itemCount: 0`. Already covered by seattle-showlists (54 events) + recurring.yaml (1 open mic)
+- All three returned 0 events in CI with `expectEmpty: true`; removed to avoid cluttering the source list
+
+### 2026-04-21 — Batch implementation of easy built-in-type sources
+- Implemented 5 new sources using built-in Eventbrite ripper: Laughs Comedy, CSz Seattle, Club Comedy, Third Place Books, Jet City Improv
+- Added `Comedy` and `Books` tags to `lib/config/tags.ts`
+- Removed: Can Can (no Eventbrite events), Kremwerk (not DICE), Conor Byrne (0 events, covered by seattle-showlists)
+- Skylark Cafe: site is on Webflow (not Squarespace) — moved back to candidates for re-evaluation
+
 ### 2026-04-19 — Initial migration from ideas.md
 - Migrated all source candidates from `ideas.md` into this file
 - Feature ideas remain in `ideas.md`
@@ -27,31 +42,11 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **MOHAI** — `https://mohai.org/events/` — WordPress with Tribe Events (try `?post_type=tribe_events&ical=1`) — Tags: Museums, Community
 
-### Eventbrite (built-in type)
-
-**Laughs Comedy Club** — `https://laughscomedyclub.com/` — organizer ID: `29222289085` (~30 events) — 5220 Roosevelt Way NE — Tags: Comedy
-
-**CSz Seattle / ComedySportz** — `https://cszseattle.com/` — organizer ID: `18822177366` (~10 events) — 3509 Fremont Ave N — Tags: Comedy, Fremont
-
-**Club Comedy Seattle** — organizer ID: `18936516174` (~5 events) — Tags: Comedy, Capitol Hill
-
-**Can Can Culinary Cabaret** — `https://thecancan.com` — organizer ID: `33221255261` (~20 events) — 95 Pine St (Pike Place Market) — Tags: Arts, Nightlife
-
-**Third Place Books** — `https://www.thirdplacebooks.com/events` — organizer ID: `30353358534` (~40 events) — Ravenna, Seward Park, Lake Forest Park — Tags: Books
-
-**Jet City Improv** — `https://www.jetcityimprov.org/calendar.html` — organizer ID: `66421638433` (~10 events) — 5031 University Way NE — Tags: Comedy, University District
-
 ### Squarespace (built-in type)
-
-**Conor Byrne Pub** — `https://www.conorbyrnepub.com/calendar` — 5140 Ballard Ave NW — Tags: Music, Ballard
-
-**Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle
 
 **Seattle Public Theater** — `https://www.seattlepublictheater.org/current-season` — Green Lake Bathhouse — Note: may not work with SquarespaceRipper (page vs events collection)
 
-### DICE Platform
-
-**Kremwerk + Timbre Room + Cherry Complex** — `https://www.kremwerk.com/upcoming-events` — Also on DICE — 1809 Minor Ave — Tags: Music, Nightlife, Belltown
+**Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle — Note: site is on **Webflow** (not Squarespace); uses Eventbrite for ticketed events — need to find correct Eventbrite organizer ID or write custom scraper
 
 ### Ticketmaster (built-in type)
 
@@ -137,6 +132,20 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ---
 
+## ✅ Added
+
+**Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite — 5220 Roosevelt Way NE — Tags: Comedy, University District
+
+**CSz Seattle (ComedySportz)** — `sources/csz_seattle` — Eventbrite — 3509 Fremont Ave N — Tags: Comedy, Fremont
+
+**Club Comedy Seattle** — `sources/club_comedy` — Eventbrite — 2100 Harvard Ave E — Tags: Comedy, Capitol Hill
+
+**Third Place Books** — `sources/third_place_books` — Eventbrite — multi-location — Tags: Books, Education
+
+**Jet City Improv** — `sources/jet_city_improv` — Eventbrite — 5031 University Way NE — Tags: Comedy, Theatre, University District
+
+---
+
 ## ⏸️ Blocked
 
 **AXS Venues (5th Avenue Theatre, Barboza, Clock-Out Lounge, Neumos)** — Cloudflare bot protection blocks both direct and proxy requests. Need residential proxy or headless browser. — Tags: Theatre, Music
@@ -160,6 +169,14 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Filipino Community of Seattle** — Wix site, heavily JS-dependent — Eventbrite may be an alternative route (investigate)
 
 **Climate Pledge Arena (external ICS)** — HTTP 503 — already covered by `climate_pledge_arena` Ticketmaster ripper
+
+**Can Can Culinary Cabaret** — Abandoned Eventbrite (org page: "no upcoming events"). Squarespace site but `?format=json` returns `itemCount: 0` (sells tickets via Venmo only, no structured API). Revisit if they start using Eventbrite again or if `needsBrowser` support is added.
+
+**Kremwerk + Timbre Room + Cherry** — Not a DICE venue; is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API). Revisit if `needsBrowser` support is added.
+
+**Conor Byrne Pub** — Squarespace `?format=json` returns `itemCount: 0`. Already well-covered by seattle-showlists (54 events) + recurring.yaml (1 open mic). Low priority to re-attempt.
+
+**Future Primitive Brewing** — Squarespace `?format=json` returns `itemCount: 0`. Never produced events on 206.events. Revisit if they start publishing events.
 
 ---
 

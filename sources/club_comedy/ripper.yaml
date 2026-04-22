@@ -1,0 +1,18 @@
+name: club-comedy
+type: eventbrite
+description: "Club Comedy Seattle"
+url: "https://www.clubcomedyseattle.com/"
+friendlyLink: https://www.clubcomedyseattle.com/
+tags: ["Comedy", "Capitol Hill"]
+geo:
+  lat: 47.62756
+  lng: -122.31478
+  label: "Club Comedy Seattle, 2100 Harvard Ave E, Seattle, WA 98102"
+calendars:
+  - name: club-comedy
+    friendlyname: "Club Comedy Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "18936516174"
+      defaultLocation: "2100 Harvard Ave E, Seattle, WA 98102"
+      defaultDurationHours: 2

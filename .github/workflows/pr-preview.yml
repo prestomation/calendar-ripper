@@ -83,6 +83,13 @@ jobs:
               ? `\n\n<details>\n<summary>ℹ️ ${unexpectedNonEmpty.length} calendar(s) marked expectEmpty but have events</summary>\n\n${unexpectedNonEmpty.map(c => `- \`${c.name}\`: ${c.events} events — consider removing expectEmpty`).join('\n')}\n\n</details>`
               : '';
 
+            // New zero-event sources that have never appeared in production
+            const newZeroEventSourcesRaw = `${{ needs.build.outputs.new-zero-event-sources }}`;
+            const newZeroEventSources = newZeroEventSourcesRaw.trim().split('\n').filter(Boolean);
+            const newZeroEventSourcesSection = newZeroEventSources.length > 0
+              ? `\n\n🚫 **${newZeroEventSources.length} new source(s) with 0 events that have never appeared in production.** These will fail the build:\n${newZeroEventSources.map(s => `- \`${s}\``).join('\n')}\n\nRemove them or fix the ripper type/URL.`
+              : '';
+
             // Geo coverage stats
             const geoStats = buildErrors.geoStats;
             const geoSection = geoStats
@@ -137,6 +144,7 @@ jobs:
               errorSection,
               zeroEventSection,
               unexpectedNonEmptySection,
+              newZeroEventSourcesSection,
               '',
               '> 🔗 Preview deployed to Cloudflare Pages'
             ].join('\n');

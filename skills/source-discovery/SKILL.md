@@ -107,3 +107,5 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Check `docs/source-candidates.md` first** — avoid re-proposing evaluated sources
 - **Flag dead sources** — but don't disable them without human approval
 - **Respect the existing tag system** — check `lib/config/tags.ts` before proposing new tags
+- **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. A source with 0 events has no proven data pipeline and may have the wrong ripper type, wrong URL, or a dead API. Sources that go from events→0 later are fine (they may recover), but a source that has never produced events should not be added.
+- **Verify events in CI before merging** — check the PR preview build for event counts from the new source. If 0 events, move the source to `❌ Not Viable` in `docs/source-candidates.md` with the reason instead of adding it.

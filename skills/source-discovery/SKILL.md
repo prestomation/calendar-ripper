@@ -50,26 +50,18 @@ For each search result that looks like a Seattle event source, evaluate:
 2. **Has a public events page or feed?** Must have a URL with event listings
 3. **Matches a known ripper type?** Must be one of:
    - ICS/iCal feed (add to `sources/external.yaml`)
-   - Squarespace (built-in `squarespace` type)
+   - Squarespace (built-in `squarespace` type — verify `?format=json` returns `itemCount > 0`)
    - Eventbrite (built-in `eventbrite` type — needs `organizerId`)
    - Ticketmaster (built-in `ticketmaster` type)
    - DICE (built-in `dice` type)
    - AXS (built-in `axs` type)
+   - Shopify (built-in `shopify` type — verify `/products.json` returns events)
    - Simple HTML/JSON that could be scraped with a custom ripper
 4. **Not already covered?** Check `sources/` directory and `sources/external.yaml`
 5. **Not already in candidates?** Check `docs/source-candidates.md`
 6. **Sufficient event volume?** Should have at least a few events, not a one-off
 
-### 5. Implement viable sources
-
-For each source that passes the quality gate:
-
-1. **Investigate the source** — fetch its events page, check for ICS feeds, identify the platform (Squarespace, Eventbrite, etc.), determine the ripper type
-2. **Delegate to a coding agent** to implement it on a feature branch with a PR
-3. **Iterate on PR feedback** — if CI or Amazon Q has comments, steer the agent to address them
-4. **Report the PR link** in the daily message for human review
-
-### 6. Update candidates file
+### 5. Update candidates file and push to main
 
 For each source evaluated, update `docs/source-candidates.md`:
 
@@ -86,21 +78,60 @@ Add a date-stamped entry at the top of the Discovery Log section:
 - ❌ Not Viable: [venue name] — [reason]
 ```
 
-### 7. Report findings
+**Then commit and push `docs/source-candidates.md` directly to main.** This is reference data, not code — direct push is fine and ensures candidates are always up-to-date before we start implementing.
+
+### 6. Implement the highest-confidence source
+
+From the 💡 Candidate list, **always pick the source with the highest confidence**. Confidence tiers:
+
+| Tier | Criteria | Examples |
+|------|----------|---------|
+| 🔥 **High** | Built-in type with **confirmed working API** — you've verified it returns data | Eventbrite with verified organizerId, Squarespace with confirmed `itemCount > 0`, ICS feed returning valid VCALENDAR, Shopify with confirmed `/products.json` |
+| 🟡 **Medium** | Built-in type that *should* work but **unverified** | Eventbrite with untested org ID, WordPress/Tribe Events ICS endpoint, DICE venue ID |
+| 🔴 **Low** | Requires **custom scraper code** | HTML table scraping, JS-rendered pages, WordPress with custom REST endpoints |
+
+**Only implement one source per cycle.** Pick the highest-confidence 💡 candidate that hasn't been attempted. If multiple have the same tier, pick the one with the most expected events.
+
+To implement:
+1. **Cut a feature branch**: `scripts/new_feature_branch.sh`
+2. **Spawn a coding agent**: `sessions_spawn(runtime="acp", agentId="claude", cwd=<repo_path>)` with the full implementation spec including ripper type, URL, config details, geo coordinates, and tags
+3. **Push and open PR**: `scripts/push_and_pr.sh`
+
+### 7. Verify events and iterate with Q
+
+After the PR is open:
+
+1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events**, revert the source addition, move it to `❌ Not Viable` in `source-candidates.md`, and stop — do not request human review for a dead source.
+
+2. **Poll for Amazon Q review** — Check the PR for Amazon Q code review comments.
+
+3. **If Q has blocking comments** → Steer the coding agent to fix them (`subagents(action="steer", message="...")`) → Push fixes → Re-poll.
+
+4. **Repeat** until Q is clean and no blocking comments remain.
+
+5. **When Q is clean + events confirmed (>0)** → Update the source status to `✅ Added` in `docs/source-candidates.md` and commit the update to the PR branch.
+
+### 8. Report findings and request review
 
 Include a "🔍 Source Discovery" section in the daily report:
 
 ```
 🔍 Source Discovery
-  ✅ Added: venue name — type — N events — PR #XXX
+  ✅ Added: venue name — type — N events — PR #XXX (Q clean, ready for review)
   💡 Candidate: venue name — type — URL
   ❌ Not viable: venue name — reason
   💀 Dead source flagged: source name — symptom
 ```
 
+**When a source PR is Q-clean with confirmed events**, explicitly tag Preston for review:
+> 🚀 **PR #XXX is ready for review** — [venue name], [type], [N events]. Amazon Q clean, events confirmed in CI.
+
 ## Important rules
 
-- **Always open a PR** for new sources — never push direct to main
+- **Always open a PR** for new sources — never push ripper code direct to main
+- **Push `docs/source-candidates.md` direct to main** — it's reference data, not code
+- **Always implement highest-confidence source first** — don't skip to low-confidence custom scrapers when a verified built-in type is available
+- **One source per cycle** — implement, verify, iterate with Q, then report. Don't stack multiple sources in one cycle.
 - **Always delegate to a coding agent** to implement the ripper — do not write code directly
 - **Seattle city limits only** — no Eastside, no Kent, no Everett
 - **Rotate search queries** — don't run the same searches every day
@@ -108,4 +139,5 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Flag dead sources** — but don't disable them without human approval
 - **Respect the existing tag system** — check `lib/config/tags.ts` before proposing new tags
 - **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. A source with 0 events has no proven data pipeline and may have the wrong ripper type, wrong URL, or a dead API. Sources that go from events→0 later are fine (they may recover), but a source that has never produced events should not be added.
-- **Verify events in CI before merging** — check the PR preview build for event counts from the new source. If 0 events, move the source to `❌ Not Viable` in `docs/source-candidates.md` with the reason instead of adding it.
+- **Verify events in CI before requesting review** — check the PR build log for the source's event count. If 0 events, move the source to `❌ Not Viable` instead of requesting review.
+- **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.

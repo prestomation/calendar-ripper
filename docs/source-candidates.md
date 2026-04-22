@@ -4,6 +4,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-22 — Source discovery: Bookstores & Comedy verticals
+- 💡 **Book Larder** — Shopify store at `booklarder.com`, events as products in `/collections/evey-events`. Shopify JSON API confirmed working (5 products). Tags: Books, Food, Fremont
+- 💡 **Cannonball Arts Center** — New venue (from Bumbershoot producers) at `cannonballarts.com`. WordPress with custom `cba-event` REST endpoint (`/wp-json/wp/v2/cba-event`), 5 events currently. Tags: Arts, Belltown
+- 💡 **Ada's Technical Books** — Updated: Has Eventbrite organizer ID `107124733511` for events at `adasbooks.com/events`. Could use built-in Eventbrite ripper instead of custom scraper. Tags: Books, Capitol Hill
+- ❌ **Queen Anne Book Company** — IndieCommerce platform, no working ICS feed (`?post_type=tribe_events&ical=1` returns HTML, not ICS). No Eventbrite. Would need custom scraper. Tags: Books, Queen Anne
+- ❌ **Comedy Underground** — Old static HTML site, no structured event data or API. Already listed in Dead Source Investigation section. Ticketing via TicketWeb. Not viable with current ripper tools.
+- ❌ **comedy.tickets** — Aggregator site, not a primary source. Not viable.
+- ❌ **Seattle City of Literature** — Tockify embed, but ICS/API feeds don't work (404). Underlying Google Calendar is private. Not viable.
+- 🔍 **The Rendezvous** (Belltown) — Calendar shows no events since June 2025. Likely dead or on hiatus.
+
 ### 2026-04-22 — Removed future-primitive (never produced events)
 - **Future Primitive Brewing**: Squarespace site with `itemCount: 0`, never appeared in production manifest. Removed source.
 
@@ -57,6 +67,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Rat City Roller Derby** — `https://ratcityrollerderby.com/events/` — try `?post_type=tribe_events&ical=1` — Tags: Community, Sports
 
 **Theatre Off Jackson** — `https://theatreoffjackson.org/event-calendar/` — try `?post_type=tribe_events&ical=1` — 409 7th Ave S — Tags: Theatre, International District
+
+**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working
+
+**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — Tags: Arts, Belltown — New venue from Bumbershoot producers, currently 5 events, growing
 
 ### Custom HTML/JSON Scraping
 
@@ -128,7 +142,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **The Royal Room** — `https://theroyalroomseattle.com/` — 5000 Rainier Ave S — Tags: Music, Columbia City
 
-**Ada's Technical Books & Cafe** — `https://adasbooks.com/events` — 425 15th Ave E — Tags: Books, Capitol Hill
+**Ada's Technical Books & Cafe** — `https://adasbooks.com/events` — 425 15th Ave E — Tags: Books, Capitol Hill — **Updated:** Has Eventbrite organizer ID `107124733511` — can use built-in Eventbrite ripper instead of custom scraper!
 
 ---
 

@@ -72,10 +72,13 @@ Read `skills/geo-resolver/SKILL.md` and follow it completely to resolve the geoc
 
 After the geo resolver completes, include a geo fix summary in your reply including:
 - How many errors were resolved vs. remain unresolvable
-- For each code fix made (new known venue, new lookup rule, etc.): link the commit on GitHub
+- For data-only fixes (KNOWN_VENUE_COORDS entries, lookup table additions): link the commit pushed direct to main
+- For logic fixes: link the PR
 - Updated geo coverage % after fixes
 
 **After any code fixes** (geocoder or ripper changes), re-trigger a build and re-fetch `build-errors.json` to verify the errors are gone. Include the before/after error counts in your reply.
+
+Note: data-only geo fixes (known venues, lookup entries) are pushed direct to main — no PR needed. Logic changes still require a PR.
 
 ### 5. Source Discovery (if no actionable errors)
 

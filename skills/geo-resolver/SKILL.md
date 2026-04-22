@@ -49,11 +49,41 @@ python3 skills/geo-resolver/scripts/geo-cache.py purge
 
 This purges dirty-key and truncated-string entries from the cache and uploads the updated version to S3.
 
-### 5. Resolve via geocoder code changes (if needed)
+### 5. Resolve via geocoder changes
 
-If new venue patterns or location formats need to be added to `lib/geocoder.ts`, open a PR. See the **Merge gate** section — always verify geo rate improves before merging.
+Make the appropriate change to `lib/geocoder.ts` based on the fix type:
 
-### 6. Upload updated cache to S3
+**Data-only changes → push direct to main:**
+
+| Change type | Push direct? | Rationale |
+|---|---|---|
+| Add entry to `KNOWN_VENUE_COORDS` | ✅ Yes | Pure data, no logic change |
+| Add entry to `lookupKnownVenue()` | ✅ Yes | String→coords mapping, no logic |
+| Add SPL branch / UW building lookup entry | ✅ Yes | Lookup table entry |
+
+For data-only changes: commit and push direct to main with a message like `fix(geo): add <venue> to KNOWN_VENUE_COORDS`. No PR, no Q review needed.
+
+**Logic changes → open a PR:**
+
+| Change type | PR required? | Rationale |
+|---|---|---|
+| New strategy in `geocodeLocation()` | ✅ Yes | Logic change, could break things |
+| Changes to `stripSuiteFloorSuffixes()` etc | ✅ Yes | Normalization logic affects all lookups |
+| New fallback chain or reordering | ✅ Yes | Changes resolution for all venues |
+
+For logic changes: cut a feature branch, open a PR, iterate with Q. See the **Merge gate** section below.
+
+### 6. Re-trigger build
+
+After pushing any geo fix to main (data or logic), re-trigger the GitHub Actions build so the fix takes effect immediately:
+
+```bash
+gh workflow run "Generate Calendars and Publish to GitHub Pages" --ref main
+```
+
+Then verify the build succeeds and geo coverage improved.
+
+### 7. Upload updated cache to S3 (if needed)
 
 If you made manual changes to the cache file (not via the purge command):
 
@@ -61,17 +91,17 @@ If you made manual changes to the cache file (not via the purge command):
 aws s3 cp /tmp/geo-cache.json "s3://calendar-ripper-outofband-220483515252/latest/geo-cache.json" --region us-west-2
 ```
 
-### 7. Report results
+### 8. Report results
 
 Summarize:
 - Geo coverage before vs after (%)
 - How many entries purged
-- How many new venues added to geocoder
+- How many new venues added to geocoder (with commit link for data-only pushes or PR link for logic changes)
 - Remaining unresolvable count and breakdown
 
-## Merge gate for geocoder changes
+## Merge gate for geocoder logic changes
 
-When implementing a fix to `lib/geocoder.ts` (new strategy, normalization improvement, etc.), **do not merge on green CI alone**. The merge condition is:
+When implementing a **logic change** to `lib/geocoder.ts` (new strategy, normalization improvement, etc.) that goes through a PR, **do not merge on green CI alone**. The merge condition is:
 
 1. ✅ All CI checks pass
 2. ✅ Amazon Q has no blocking comments
@@ -90,6 +120,8 @@ python3 skills/geo-resolver/scripts/geo-cache.py coverage
 ```
 
 If the PR preview shows equal or lower geo coverage → **do not merge**, investigate why the strategy isn't working before proceeding.
+
+**Data-only changes** (pushed direct to main) do not need a merge gate check — they are verified by the next daily build instead.
 
 ## ⚠️ Never read geo-cache.json directly into context
 

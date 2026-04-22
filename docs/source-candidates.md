@@ -4,6 +4,29 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-22 (evening) — Source discovery: Outdoors, Community & City Calendars
+- ✅ **Volunteer Park Trust** — Squarespace at `volunteerparktrust.org/events`, 6 upcoming events confirmed. Added as `sources/volunteer_park_trust/ripper.yaml`. PR #201 merged.
+- 💡 **Seattle.Gov City-Wide (Trumba)** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — Already in `sources/external.yaml` as `seattle-gov-city-wide`. Not a new source.
+- ❌ **Seattle Farmers Markets** — Squarespace at `seattlefarmersmarkets.org`. `?format=json` returns `itemCount: 1077` but `0` upcoming (off-season; markets run May–Oct). Viable Squarespace candidate — will work in season. Tags: Food, Community
+- ❌ **Waterfront Park Seattle** — Custom WordPress (built by Civilization agency). No Tribe Events ICS, no Eventbrite. Would need custom scraper. Not viable with built-in rippers.
+- ❌ **Green Seattle Partnership** — WordPress with The Events Calendar but REST API disabled (`rest_no_route`), ICS returns HTML. Not viable.
+- ❌ **West Seattle Blog Events** — Custom WordPress theme, no Tribe Events. Not viable.
+- ❌ **Seattle Center** — Custom CMS, not Trumba. Not viable.
+- ❌ **MOHAI** — WordPress with Cloudflare protection, no Eventbrite, ICS returns HTML. Not viable with built-in rippers.
+
+### 2026-04-22 — Source discovery: Outdoors & Dance verticals
+- 💡 **SeattleDances** — WordPress (The Events Calendar) at `seattledances.com`. ICS feed confirmed working (30 events). Tags: Dance, Arts
+- ❌ **Langston (external-langston)** — ICS feed returns HTML (not ICS). WordPress REST API for Tribe Events not available (rest_no_route). Site has events but no machine-readable feed. Consider switching to HTML scraper or Eventbrite.
+- 🔍 **Zero-event calendar investigation:**
+  - `spl-university` — SPL University Branch is **closed for renovations until late 2026**. Should add `expectEmpty: true`.
+  - `beacon-hill-council-all-events` — Site has events (Squarespace), likely just currently empty. Monitor.
+  - `belltown-community-council-all-events` — WordPress.com API site, has recent events (March 2026). Likely intermittent.
+  - `benaroya-hall-benaroya-nordstrom` — Ticketmaster source, Nordstrom Recital Hall has events. Possible config or API issue.
+  - `jcccw-all-events` — Squarespace, has active events on website. Possible ripper issue.
+  - `seattle-showlists-vermillion/bad-bar/hotel-crocodile` — Showlists sub-venues, likely currently empty listings.
+  - `external-langston` — ICS feed broken (returns HTML). Needs ripper fix.
+  - `tag-seward-park` — Actually has 5 events but marked expectEmpty. May need flag review.
+
 ### 2026-04-22 — Source discovery: Bookstores & Comedy verticals
 - 💡 **Book Larder** — Shopify store at `booklarder.com`, events as products in `/collections/evey-events`. Shopify JSON API confirmed working (5 products). Tags: Books, Food, Fremont
 - 💡 **Cannonball Arts Center** — New venue (from Bumbershoot producers) at `cannonballarts.com`. WordPress with custom `cba-event` REST endpoint (`/wp-json/wp/v2/cba-event`), 5 events currently. Tags: Arts, Belltown
@@ -39,6 +62,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### ICS Feeds (add to `sources/external.yaml`)
 
+**Seattle.Gov City-Wide** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — 500 events. City meetings, community events, parks volunteer events, commission meetings. Tags: Community, Government, Parks — **New 2026-04-22**
+
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
 - `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
 - `sea_info` — UW Information School — `https://www.trumba.com/calendars/sea_info.ics`
@@ -63,6 +88,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Seattle Thunderbirds** — `https://chl.ca/whl-thunderbirds/schedule/` — accesso ShoWare Center, Kent — Tags: Sports — Note: Kent is outside Seattle city limits
 
 ### WordPress / Tribe Events ICS
+
+**SeattleDances** — `https://seattledances.com/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (30 events). Tags: Dance, Arts — **New 2026-04-22**
 
 **Rat City Roller Derby** — `https://ratcityrollerderby.com/events/` — try `?post_type=tribe_events&ical=1` — Tags: Community, Sports
 
@@ -158,6 +185,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Jet City Improv** — `sources/jet_city_improv` — Eventbrite — 5031 University Way NE — Tags: Comedy, Theatre, University District
 
+**Volunteer Park Trust** — `sources/volunteer_park_trust` — Squarespace — Volunteer Park, 1247 15th Ave E — Tags: Community, Parks, Capitol Hill — PR #201
+
 ---
 
 ## ⏸️ Blocked
@@ -195,6 +224,21 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ---
 
 ## 💀 Dead Source Investigation
+
+### Zero-Event Calendars (2026-04-22)
+
+| Name | Issue | Recommendation |
+|------|-------|---------------|
+| `spl-university` | SPL University Branch **closed for renovations until late 2026** (confirmed on spl.org) | Add `expectEmpty: true` |
+| `external-langston` | ICS feed (`?post_type=tribe_events&ical=1`) returns HTML, not ICS. REST API also disabled. Site has events but no machine-readable feed | Flag — needs ripper rewrite or switch to Eventbrite |
+| `belltown-community-council-all-events` | Custom WordPress.com API ripper. Site has posts but ripper returns 0 events. Possibly CI environment issue | Monitor — may be intermittent |
+| `benaroya-hall-benaroya-nordstrom` | Ticketmaster venue `KovZpZAaIAkA` returns 0 events. Nordstrom Recital Hall has events on ticketmaster.com. Possible API key or venue ID issue | Investigate Ticketmaster API key |
+| `jcccw-all-events` | Squarespace `itemCount: 30` but `0` upcoming. Last events are from 2022. May be abandoned calendar | Monitor — likely dead source |
+| `beacon-hill-council-all-events` | Squarespace, 0 upcoming events. Site appears active | Monitor |
+| `seattle-showlists-vermillion` | Showlists venue, currently no listings. `expectEmpty: true` already set | No action needed |
+| `seattle-showlists-hotel-crocodile` | Showlists venue, currently no listings | Monitor |
+| `seattle-showlists-bad-bar` | Showlists venue, currently no listings | Monitor |
+| `tag-seward-park` | Has 5 events but marked `expectEmpty: true` — inconsistent | Review `expectEmpty` flag |
 
 ### Disabled Sources (revisit periodically)
 

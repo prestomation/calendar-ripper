@@ -4,6 +4,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-22 — Removed future-primitive (never produced events)
+- **Future Primitive Brewing**: Squarespace site with `itemCount: 0`, never appeared in production manifest. Removed source.
+
 ### 2026-04-22 — Removed 3 zero-event sources from PR #199
 - **Can Can**: Abandoned Eventbrite (org page says "no upcoming events"). Squarespace site but `?format=json` returns `itemCount: 0` (tickets via Venmo only, no structured API)
 - **Kremwerk**: Not a DICE venue — is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API)
@@ -172,6 +175,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Kremwerk + Timbre Room + Cherry** — Not a DICE venue; is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API). Revisit if `needsBrowser` support is added.
 
 **Conor Byrne Pub** — Squarespace `?format=json` returns `itemCount: 0`. Already well-covered by seattle-showlists (54 events) + recurring.yaml (1 open mic). Low priority to re-attempt.
+
+**Future Primitive Brewing** — Squarespace `?format=json` returns `itemCount: 0`. Never produced events on 206.events. Revisit if they start publishing events.
 
 ---
 

@@ -12,6 +12,15 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Rat City Roller Derby** — no Tribe Events ICS, returns HTML.
 - ❌ **Cannonball Arts Center** — REST API returning 503.
 
+### 2026-04-23 — Source discovery: Arts & Culture, Bookstores, New Venues
+- ❌ **Frye Art Museum** — Already has a custom ripper (`sources/frye_art_museum/`). Calendar has 11+ pages of events but no ICS/Eventbrite/structured feed. No new source needed.
+- ❌ **Picklewood Paddle Club** — New SODO venue. Only 1 Eventbrite event (grand opening). Insufficient volume for a source. Tags: Sports, SODO
+- ❌ **Seattle Children's Museum** — Custom CMS, exports .ics from calendar page but no public ICS/Eventbrite feed. Already in candidates list.
+- ❌ **TeenTix** — Aggregator/calendar at `teentix.org/calendar`. No public ICS feed. Would need custom scraper. Tags: Community, Arts
+- ✅ **Elliott Bay Book Company** — Already implemented as `sources/elliott-bay` (Eventbrite org 30672130426, 25+ events). Confirmed working.
+- ✅ **Town Hall Seattle** — Already in `sources/external.yaml` as `town-hall-seattle`. No new source needed.
+- 💀 **Zero-event calendars re-checked**: All 11 zero-event calendars from 2026-04-22 remain in the same state. No new dead sources identified.
+
 ### 2026-04-22 (evening) — Source discovery: Outdoors, Community & City Calendars
 - ✅ **Volunteer Park Trust** — Squarespace at `volunteerparktrust.org/events`, 6 upcoming events confirmed. Added as `sources/volunteer_park_trust/ripper.yaml`. PR #201 merged.
 - 💡 **Seattle.Gov City-Wide (Trumba)** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — Already in `sources/external.yaml` as `seattle-gov-city-wide`. Not a new source.

@@ -4,6 +4,14 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-23 — Added The Royal Room
+- ✅ **The Royal Room** — WP Event Manager RSS feed (`?feed=event_feed`) confirmed working with 49 events. Each event page has JSON-LD `startDate`. Custom `IRipper` fetches RSS then individual event pages. Tags: Music, Columbia City.
+- ❌ **Ada's Technical Books** — removed; venue is closing permanently.
+- ❌ **SeattleDances** — ICS feed blocked by CAPTCHA (sgcaptcha). Not viable.
+- ❌ **Theatre Off Jackson** — uses venture-event-manager plugin, no working ICS export.
+- ❌ **Rat City Roller Derby** — no Tribe Events ICS, returns HTML.
+- ❌ **Cannonball Arts Center** — REST API returning 503.
+
 ### 2026-04-22 (evening) — Source discovery: Outdoors, Community & City Calendars
 - ✅ **Volunteer Park Trust** — Squarespace at `volunteerparktrust.org/events`, 6 upcoming events confirmed. Added as `sources/volunteer_park_trust/ripper.yaml`. PR #201 merged.
 - 💡 **Seattle.Gov City-Wide (Trumba)** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — Already in `sources/external.yaml` as `seattle-gov-city-wide`. Not a new source.
@@ -169,7 +177,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **The Royal Room** — `https://theroyalroomseattle.com/` — 5000 Rainier Ave S — Tags: Music, Columbia City
 
-**Ada's Technical Books & Cafe** — `https://adasbooks.com/events` — 425 15th Ave E — Tags: Books, Capitol Hill — **Updated:** Has Eventbrite organizer ID `107124733511` — can use built-in Eventbrite ripper instead of custom scraper!
+❌ **Ada's Technical Books & Cafe** — closing permanently — removed from candidates
 
 ---
 
@@ -186,6 +194,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Jet City Improv** — `sources/jet_city_improv` — Eventbrite — 5031 University Way NE — Tags: Comedy, Theatre, University District
 
 **Volunteer Park Trust** — `sources/volunteer_park_trust` — Squarespace — Volunteer Park, 1247 15th Ave E — Tags: Community, Parks, Capitol Hill — PR #201
+
+**The Royal Room** — `sources/royal_room` — WP Event Manager RSS + JSON-LD per-page — 5000 Rainier Ave S, Columbia City — Tags: Music, Columbia City
 
 ---
 

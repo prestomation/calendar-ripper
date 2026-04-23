@@ -77,10 +77,12 @@ export default class BookLarderRipper implements IRipper {
         }
 
         const now = new Date();
-        let year = now.getFullYear();
-        const testDate = new Date(year, month - 1, day);
-        if (now.getTime() - testDate.getTime() > 24 * 60 * 60 * 1000) {
-            year++;
+        const year = now.getFullYear();
+        const eventMidnight = new Date(year, month - 1, day);
+        const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        // Book Larder events are one-time; skip past events rather than assuming next-year recurrence.
+        if (eventMidnight < todayMidnight) {
+            return null;
         }
 
         const eventDate = ZonedDateTime.of(
@@ -147,7 +149,9 @@ export default class BookLarderRipper implements IRipper {
             if (startAmPm === 'pm' && hour !== 12) hour += 12;
             else if (startAmPm === 'am' && hour === 12) hour = 0;
             else if (!startAmPm) {
-                // Infer am/pm: add 12 only if it keeps start <= end
+                // endHour is already in 24h; `hour + 12 <= endHour` checks whether treating
+                // start as PM produces a valid (non-negative) range, e.g. "2-5pm": 14 ≤ 17 ✓,
+                // "11-1pm": 23 > 13 → start stays 11am ✓ (same logic as cobys_cafe ripper).
                 if (endAmPm === 'pm' && hour + 12 <= endHour) hour += 12;
             }
         } else if (timeMatch) {

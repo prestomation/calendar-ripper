@@ -55,6 +55,20 @@ describe('BookLarderRipper - parseDateFromText', () => {
         expect(result!.endMinute).toBe(0);
     });
 
+    test('parses "from X-Ypm" range without explicit start am/pm (e.g. "2-5pm" → 14:00–17:00)', () => {
+        const result = ripper.parseDateFromText('join us on May 20th from 2-5pm for drinks');
+        expect(result).not.toBeNull();
+        expect(result!.hour).toBe(14);
+        expect(result!.endHour).toBe(17);
+    });
+
+    test('keeps 11am when "11-1pm" style would push start past end', () => {
+        const result = ripper.parseDateFromText('open June 15th from 11-1pm');
+        expect(result).not.toBeNull();
+        expect(result!.hour).toBe(11);
+        expect(result!.endHour).toBe(13);
+    });
+
     test('parses date with no time and defaults to 6pm', () => {
         const result = ripper.parseDateFromText('on Thursday, May 14th for an author talk');
         expect(result).not.toBeNull();
@@ -130,6 +144,19 @@ describe('BookLarderRipper - parseProduct', () => {
         expect(product).toBeDefined();
 
         const event = ripper.parseProduct(product);
+        expect(event).toBeNull();
+    });
+
+    test('skips past events rather than bumping to next year', () => {
+        const pastProduct = {
+            id: 99999,
+            title: 'Past Author Talk',
+            handle: 'past-author-talk',
+            body_html: '<p>Join us on <strong>January 2nd</strong> at 6:30pm.</p>',
+            product_type: 'Event',
+        };
+        // January 2nd is always in the past by now (today is April 2026)
+        const event = ripper.parseProduct(pastProduct);
         expect(event).toBeNull();
     });
 

@@ -74,6 +74,11 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                     const startDateStr = eventData.scheduling?.config?.startDate;
                     
                     if (!title || !startDateStr) {
+                        events.push({
+                            type: "ParseError",
+                            reason: `Event missing title or startDate`,
+                            context: JSON.stringify(eventData).substring(0, 100)
+                        });
                         continue;
                     }
                     
@@ -97,6 +102,11 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                     
                     // Extract date and time
                     if (!eventData.scheduling?.config) {
+                        events.push({
+                            type: "ParseError",
+                            reason: `Event missing scheduling.config`,
+                            context: title
+                        });
                         continue;
                     }
                     
@@ -105,6 +115,11 @@ export default class DogwoodPlayParkRipper extends HTMLRipper {
                     const timeZoneId = eventData.scheduling.config.timeZoneId || 'America/Los_Angeles';
                     
                     if (!eventStartDate || !eventEndDate) {
+                        events.push({
+                            type: "ParseError",
+                            reason: `Event missing startDate or endDate in scheduling.config`,
+                            context: title
+                        });
                         continue;
                     }
                     

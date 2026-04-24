@@ -91,6 +91,16 @@ export default class Events12Ripper extends HTMLRipper {
                 }
 
                 // Only create event if we have a valid date
+                if (!eventDate) {
+                    if (title) {
+                        events.push({
+                            type: "ParseError",
+                            reason: `Could not parse event date`,
+                            context: title
+                        });
+                    }
+                    continue;
+                }
                 if (eventDate && title) {
                     const allDates = [{ date: eventDate, duration }, ...extraDates];
                     for (const { date: d, duration: dur } of allDates) {

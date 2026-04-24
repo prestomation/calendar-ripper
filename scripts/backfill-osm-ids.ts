@@ -69,30 +69,16 @@ function haversineMeters(lat1: number, lng1: number, lat2: number, lng2: number)
   return 2 * R * Math.asin(Math.sqrt(a));
 }
 
-/**
- * Forward-geocode the venue's label string. Nominatim's /search returns
- * the best-matching named feature (a venue, building, or address node)
- * rather than whatever happens to be nearest to a coordinate — much more
- * likely to hit the actual OSM feature we want than /reverse is.
- *
- * Returns null if no result, or if the returned coords are more than
- * `maxDistanceM` away from the declared coords (guards against
- * Nominatim returning a same-named venue in a different city).
- */
-async function nominatimSearch(
-  query: string,
-  declaredLat: number,
-  declaredLng: number,
-  maxDistanceM = 500,
-): Promise<NominatimReverseResult | null> {
+async function nominatimSearchOnce(query: string, declaredLat: number, declaredLng: number): Promise<NominatimReverseResult | null> {
   await rateLimit();
   const encoded = encodeURIComponent(query);
+  // Use a generous PNW viewbox (matches lib/geocoder.ts) to bias toward
+  // Seattle-area features when the venue name is ambiguous.
   const url =
     `https://nominatim.openstreetmap.org/search?q=${encoded}` +
-    `&format=json&limit=1&countrycodes=us&addressdetails=0`;
-  const res = await fetch(url, {
-    headers: { "User-Agent": NOMINATIM_USER_AGENT },
-  });
+    `&format=json&limit=1&countrycodes=us&addressdetails=0` +
+    `&viewbox=-122.6,47.3,-121.9,47.8`;
+  const res = await fetch(url, { headers: { "User-Agent": NOMINATIM_USER_AGENT } });
   if (!res.ok) return null;
   const data = (await res.json()) as NominatimReverseResult[];
   if (!Array.isArray(data) || data.length === 0) return null;
@@ -101,10 +87,42 @@ async function nominatimSearch(
   const rLng = parseFloat(first.lon ?? "");
   if (isNaN(rLat) || isNaN(rLng)) return null;
   const distance = haversineMeters(declaredLat, declaredLng, rLat, rLng);
-  if (distance > maxDistanceM) {
-    return { ...first, distanceM: Math.round(distance) };
-  }
   return { ...first, distanceM: Math.round(distance) };
+}
+
+/**
+ * Forward-geocode the venue's label string. Nominatim's /search returns
+ * the best-matching named feature (a venue, building, or address node)
+ * rather than whatever happens to be nearest to a coordinate — much more
+ * likely to hit the actual OSM feature we want than /reverse is.
+ *
+ * Tries three query shapes in order (stopping at the first non-null):
+ *   1. The full label string as-is.
+ *   2. Just the venue name (everything before the first comma) + ", Seattle, WA".
+ *   3. Just the address (everything after the first comma).
+ *
+ * Mirrors the strategy in lib/geocoder.ts's `resolveEventCoords`.
+ */
+async function nominatimSearch(
+  query: string,
+  declaredLat: number,
+  declaredLng: number,
+): Promise<(NominatimReverseResult & { strategy: string }) | null> {
+  const attempts: Array<{ q: string; strategy: string }> = [{ q: query, strategy: "full-label" }];
+  const firstComma = query.indexOf(",");
+  if (firstComma > 0) {
+    const venueName = query.slice(0, firstComma).trim();
+    const address = query.slice(firstComma + 1).trim();
+    if (venueName) attempts.push({ q: `${venueName}, Seattle, WA`, strategy: "name-only" });
+    if (address) attempts.push({ q: address, strategy: "address-only" });
+  }
+  for (const { q, strategy } of attempts) {
+    const r = await nominatimSearchOnce(q, declaredLat, declaredLng);
+    if (r && r.osm_id && r.osm_type) {
+      return { ...r, strategy };
+    }
+  }
+  return null;
 }
 
 function normalizeOsmType(value: unknown): OsmType | null {
@@ -298,6 +316,7 @@ async function main() {
               type: result.type ?? null,
               display_name: result.display_name ?? null,
               distanceM: result.distanceM ?? null,
+              strategy: (result as { strategy?: string }).strategy ?? null,
             }
           : null,
         error,
@@ -308,7 +327,8 @@ async function main() {
         console.log(`(no result)`);
       } else {
         const dist = result.distanceM ?? "?";
-        console.log(`${osmType}/${osmId} (${result.class ?? "?"}/${result.type ?? "?"}) ${dist}m`);
+        const strat = (result as { strategy?: string }).strategy ?? "?";
+        console.log(`${osmType}/${osmId} (${result.class ?? "?"}/${result.type ?? "?"}) ${dist}m [${strat}]`);
       }
     }
     await writeFile(reportPath, JSON.stringify(report, null, 2), "utf8");

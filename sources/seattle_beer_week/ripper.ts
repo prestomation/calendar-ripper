@@ -21,14 +21,26 @@ export default class SeattleBeerWeekRipper extends JSONRipper {
                             try {
                                 // Skip empty events (the JSON has some empty objects)
                                 if (!event.id || !event.name || !event.start) {
+                                    if (event.id || event.name) {
+                                        events.push({
+                                            type: "ParseError",
+                                            reason: `Event missing id, name, or start`,
+                                            context: JSON.stringify(event).substring(0, 100) + "..."
+                                        });
+                                    }
                                     continue;
                                 }
-                                
+
                                 // Parse start date and time
                                 const startDate = event.start.date;
                                 const startTime = event.start.time;
-                                
+
                                 if (!startDate || !startTime) {
+                                    events.push({
+                                        type: "ParseError",
+                                        reason: `Event "${event.name}" missing start.date or start.time`,
+                                        context: JSON.stringify(event).substring(0, 100) + "..."
+                                    });
                                     continue;
                                 }
                                 

@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, DayOfWeek, TemporalAdjusters, ZoneRegion } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, ParseError, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
@@ -139,12 +139,18 @@ export function parseArticle(article: HTMLElement): ParsedArticle | null {
 /**
  * Convert a parsed article to a RipperCalendarEvent.
  */
-export function articleToEvent(article: ParsedArticle, timezone: ZoneRegion): RipperCalendarEvent | null {
+export function articleToEvent(article: ParsedArticle, timezone: ZoneRegion): RipperCalendarEvent | ParseError {
     const timeRange = parseTimeRange(article.timeText);
 
     // Parse the start date from data attribute (ISO format YYYY-MM-DD)
     const dateParts = article.startDate.split("-");
-    if (dateParts.length !== 3) return null;
+    if (dateParts.length !== 3) {
+        return {
+            type: "ParseError",
+            reason: `Could not parse startDate: "${article.startDate}"`,
+            context: article.title
+        };
+    }
 
     const year = parseInt(dateParts[0], 10);
     const month = parseInt(dateParts[1], 10);
@@ -228,9 +234,7 @@ export default class SAMRipper implements IRipper {
 
             try {
                 const event = articleToEvent(article, timezone);
-                if (event) {
-                    calendars[calendarName].events.push(event);
-                }
+                calendars[calendarName].events.push(event);
             } catch (error) {
                 calendars[calendarName].events.push({
                     type: "ParseError",

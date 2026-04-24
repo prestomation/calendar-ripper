@@ -1,6 +1,6 @@
 import { DateTimeFormatter, Duration, LocalDateTime, Period, ZoneRegion, ZonedDateTime, convert } from "@js-joda/core";
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
-import { isRipperEvent, ParseError, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { ParseError, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { HTMLElement } from 'node-html-parser';
 import { Locale } from "@js-joda/locale_en-us";
 
@@ -15,7 +15,7 @@ export default class SAFRipper extends HTMLRipper {
 
         const locationNodes = html.querySelectorAll(".calendar-info");
 
-        const events: (RipperEvent | null)[] = locationNodes.map(e => {
+        const events: RipperEvent[] = locationNodes.map(e => {
             try {
                 const titleElement = e.querySelector(".calendar-info-title")
                 const title = titleElement?.innerText.trim();
@@ -36,9 +36,12 @@ export default class SAFRipper extends HTMLRipper {
                 const matches = Array.from(timeStr!);
                 if (matches.length == 0) {
                     // Sometimes there are entries like 'Feb-Dec stupid stuff'
-                    // which isn't a real event. It's possible we skip real stuff
-                    // but do this for now.
-                    return null;
+                    // which isn't a real event.
+                    return {
+                        type: "ParseError",
+                        reason: `No parseable date found for "${title}"`,
+                        context: calendarDateHTML?.substring(0, 100) || 'no date HTML'
+                    };
                 }
                 const all = matches[0][0];
                 const monthStr = matches[0][1];
@@ -77,7 +80,6 @@ export default class SAFRipper extends HTMLRipper {
                 return parseE;
             }
         });
-        const filtered = events.filter(isRipperEvent);
-        return filtered;
+        return events;
     }
 }

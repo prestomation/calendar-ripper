@@ -39,6 +39,9 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Check no null returns in rippers
+      run: bash scripts/check_no_null_returns.sh
+
     - name: Run unit tests
       run: npm run test:all
 

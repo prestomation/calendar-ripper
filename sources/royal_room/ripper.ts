@@ -1,5 +1,5 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, ParseError, RipperEvent } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 

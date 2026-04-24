@@ -34,10 +34,13 @@ If a **previously-working ripper** now errors because the source site changed (n
 - Delegate a fix to a coding agent on a feature branch
 - The fix must go through a PR — never commit directly to main
 
-#### ⚠️ Gracefully Skip Bad Items
-If only specific events within a ripper are unparseable but the ripper otherwise works:
-- Note the issue with a warning
-- Don't disable the ripper — let it skip bad items
+#### ⚠️ Report Skipped Items (ParseErrors)
+If a source reports `ParseError` entries alongside successful events (e.g., "8 events, 2 errors"), these indicate items the parser couldn't handle. **This is not a build failure** — the source is working — but the skipped items should be investigated:
+- If the item legitimately has no date or isn't really an event, no action needed
+- If the item has a date in a new format the regex doesn't handle, delegate a parser fix to a coding agent
+- Include a summary in the report: `⏭️ ParseErrors: source-name: 2 items skipped — "Event Title 1" (no date), "Event Title 2" (unparseable format)`
+
+Do not disable the ripper for ParseErrors — they're working as intended (graceful failure + visibility).
 
 #### ⏭️ Transient Errors
 If the error looks transient (network timeout, temporary 5xx):

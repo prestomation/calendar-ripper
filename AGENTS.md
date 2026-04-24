@@ -340,6 +340,33 @@ When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch ca
 - Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
 - Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
 
+## Parse Methods Must Never Return Null
+
+Parse methods (like `parseProduct`, `parseProductHtml`, `parseEventPage`) **must return `RipperCalendarEvent | RipperError`** — never `null`.
+
+TypeScript enforces this at compile time: if a parse method's return type doesn't include `null`, the compiler will catch any code path that silently drops an item.
+
+**Required pattern — parse method signature:**
+```typescript
+parseProductHtml(html: string, url: string): RipperCalendarEvent | RipperError
+```
+
+**Required pattern — caller:**
+```typescript
+const result = this.parseProductHtml(html, url);
+if ('date' in result) events.push(result);
+else errors.push(result); // It's a ParseError
+```
+
+**Filters and dedup belong in the caller, not the parse method.** Move these out:
+- **Deduplication** (`seen.has(key)`) — check after parsing, skip in caller
+- **Intentional content filters** (e.g., "members free RSVP" titles) — check before calling parse, skip in caller
+- **Type checks** (e.g., `@type !== 'Event'`) — check in caller or return ParseError with clear reason
+
+**Why:** If parse methods can return `null`, someone will forget to check it, and items get silently dropped. By making the return type `RipperCalendarEvent | RipperError`, TypeScript guarantees every code path either produces an event or reports why it couldn't. The build report then surfaces every gap: "8 events, 2 errors" instead of "8 events, 0 errors".
+
+**Existing rippers still returning `null`** (events12, dogwoodplaypark, spectrum_dance, etc.) should be migrated to this pattern incrementally.
+
 ## Writing Descriptions
 
 The `description` field in `ripper.yaml` is used as the `<h2>` section heading on the website. It should be **just the name** of the venue or organization — not a sentence describing what they do.

@@ -138,9 +138,108 @@ If you need to inspect a specific entry:
 python3 -c "import json; d=json.load(open('/tmp/geo-cache.json')); print(d['entries'].get('the key you want'))"
 ```
 
+## OSM ID reconciliation
+
+The same daily pass should also fill in OpenStreetMap feature IDs on
+venues that already have coords. Missing OSM IDs appear in the
+`osmGaps` array of `build-errors.json` — same file you already pull
+for geocode errors.
+
+OSM IDs enable downstream consumers of `venues.json` and
+`events-index.json` to join our data to OSM (Overpass, tile servers)
+without re-geocoding. See `docs/osm-ids.md` for the full shape.
+
+### 1. Pull the current gap list
+
+```bash
+curl -s https://206.events/build-errors.json | jq '.osmGaps'
+```
+
+Each entry has `source`, `name`, declared `lat`/`lng`, and `label` —
+the exact input the report tool accepts.
+
+### 2. Run the Nominatim report
+
+```bash
+node --loader ts-node/esm scripts/backfill-osm-ids.ts \
+  --report /tmp/osm-backfill-report.json
+```
+
+The script walks every source YAML, queries Nominatim once per gap,
+and writes a report JSON with the proposed `osmType` / `osmId`, the
+Nominatim `display_name`, the feature's `class`/`type`, and the
+haversine distance between declared and returned coords. It is
+rate-limited to 1 req/sec — ~80 venues takes ~3 minutes. Reuses the
+same Nominatim budget as the geo-cache workflow, so don't run both in
+parallel.
+
+### 3. Classify each candidate (A–F rubric)
+
+| Tier | Rule | Action |
+|------|------|--------|
+| **A** | name-match ≥50% AND distance ≤500m AND class ∈ {tourism, leisure, amenity, shop, historic, craft, building, office} | Auto-apply |
+| **B** | name-match 100% AND distance 500m–1km on a venue-like class | Apply — OSM is probably more accurate than our coords |
+| **C** | Result is an address-only match (`place/house` or `building/yes`) whose street number matches our label | Apply — useful even if not a named venue |
+| **D** | Result is clearly a different feature (wrong name, wrong address, >1km) | Reject — mark `osmChecked`, cite the evidence |
+| **E** | Ambiguous (name partially matches but different location) | Flag in reply, do not auto-apply |
+| **F** | No result from any query strategy | Mark `osmChecked`, move on |
+
+**Name-match heuristic:** strip the label (everything before the
+first comma), normalize to lowercase alphanumerics, count how many
+tokens >2 chars appear in the Nominatim `display_name`.
+
+### 4. Apply accepted matches
+
+```bash
+node --loader ts-node/esm scripts/apply-osm-ids.ts \
+  --report /tmp/osm-backfill-report.json \
+  --accept 1,3,5-12,17,22
+```
+
+Round-trips YAML (preserves comments via the `yaml` lib's Document
+API). Refuses to overwrite an `osmId`/`osmType` that is already set.
+
+### 5. Mark Tier D / F gaps as checked
+
+For rejections, edit the YAML to add a dated marker inside the geo
+block so we don't re-propose the same wrong match every run:
+
+```yaml
+geo:
+  lat: 47.6134
+  lng: -122.3203
+  label: "Venue Name, 123 Main St, Seattle, WA"
+  osmChecked: "2026-04-24"
+```
+
+The build skips venues with `osmChecked` within the last ~60 days.
+After that, the skill retries — OSM grows, and venues that weren't
+indexed last quarter may be there now.
+
+*(`osmChecked` is not yet wired into the schema. First time you hit a
+Tier D rejection, extend `geoSchema` in `lib/config/schema.ts` and
+teach `buildOsmGaps` in `lib/discovery.ts` to respect the 60-day
+window. Track as a follow-up to PR #206.)*
+
+### 6. Rules of thumb
+
+- **Only Tier A auto-applies.** Tier B/C need human eyes because a
+  stale `osmId` is worse than a missing one — consumers will trust
+  whatever we publish.
+- **Tier D marks must cite the evidence** (e.g. "Nominatim returned
+  'Alibi Room' at 132m — a bar inside Pike Place Market, not the
+  market"). Without the reasoning, a future agent can't evaluate
+  whether the rejection still holds.
+- **OSM IDs drift.** Features get renumbered when split or merged. If
+  a build surfaces an `osmGaps` entry for a venue that previously had
+  an id, the id was probably deleted upstream — drop the stale id
+  from the YAML and let the next run re-resolve.
+
 ## Key references
 
 - **S3 bucket:** `calendar-ripper-outofband-220483515252`
 - **S3 key:** `latest/geo-cache.json`
 - **Live errors:** `https://206.events/build-errors.json`
 - **Geocoder source:** `lib/geocoder.ts`
+- **OSM backfill scripts:** `scripts/backfill-osm-ids.ts`, `scripts/apply-osm-ids.ts`
+- **OSM field docs:** `docs/osm-ids.md`

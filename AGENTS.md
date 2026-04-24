@@ -6,7 +6,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 
 - **`skills/build-report/SKILL.md`** — Daily build health check, error fixing, and geo error resolution
 - **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
-- **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache
+- **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
 
 ## Source Candidate Tracking
 

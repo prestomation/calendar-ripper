@@ -13,6 +13,8 @@ calendars:
       lat: 47.6091
       lng: -122.3422
       label: "The Showbox, 1426 1st Ave, Seattle, WA 98101"
+      osmType: node
+      osmId: 2397493611
     timezone: America/Los_Angeles
     config:
       venue: "The Showbox"
@@ -23,6 +25,8 @@ calendars:
       lat: 47.588
       lng: -122.336
       label: "Showbox SoDo, 1700 1st Ave S, Seattle, WA 98134"
+      osmType: node
+      osmId: 2351345516
     timezone: America/Los_Angeles
     config:
       venue: "Showbox SoDo"
@@ -35,6 +39,8 @@ calendars:
       lat: 47.6138
       lng: -122.3198
       label: "Neumos, 925 E Pike St, Seattle, WA 98122"
+      osmType: node
+      osmId: 1194791180
     config:
       venue: "Neumos"
       address: "925 E Pike St, Seattle, WA 98103"

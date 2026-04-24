@@ -182,7 +182,7 @@ async function main() {
     // Bounding-box sanity check — nothing outside the PNW should end up
     // tagged as a Seattle-area venue, and a wrong-sign longitude would
     // make it past the schema but wreck the map UI.
-    const { lat, lng } = venue.geo;
+    const { lat, lng, osmId, osmType } = venue.geo;
     if (
       lat < PNW_BBOX.latMin ||
       lat > PNW_BBOX.latMax ||
@@ -192,6 +192,16 @@ async function main() {
       fail(
         errors,
         `venues.json[${venue.name}] geo (${lat}, ${lng}) is outside the PNW bounding box`,
+      );
+    }
+
+    // osmId/osmType must either both be present or both be absent. The Zod
+    // schema enforces this already; this check is a belt-and-suspenders
+    // against a future regression that skips the refinement.
+    if ((osmId === undefined) !== (osmType === undefined)) {
+      fail(
+        errors,
+        `venues.json[${venue.name}] has mismatched OSM fields (osmId=${osmId}, osmType=${osmType})`,
       );
     }
 

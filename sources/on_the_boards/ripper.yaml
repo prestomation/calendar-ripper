@@ -1,6 +1,8 @@
 name: on-the-boards
 type: squarespace
-description: "Contemporary performing arts center in Seattle's Uptown neighborhood presenting adventurous theater, dance, music, and multimedia works"
+description: "Contemporary performing arts center in Seattle's Uptown
+  neighborhood presenting adventurous theater, dance, music, and multimedia
+  works"
 url: "https://ontheboards.org/events"
 friendlyLink: https://ontheboards.org/events
 tags: ["Arts", "QueenAnne"]
@@ -8,6 +10,8 @@ geo:
   lat: 47.6232
   lng: -122.3517
   label: "On the Boards, 100 W Roy St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2400858913
 calendars:
   - name: all-events
     friendlyname: "On the Boards"

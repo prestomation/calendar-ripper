@@ -34,6 +34,8 @@ calendars:
       lat: 47.6138
       lng: -122.3198
       label: "Barboza, 925 E Pike St, Seattle, WA 98122"
+      osmType: node
+      osmId: 11177907381
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
     config:
@@ -78,6 +80,8 @@ calendars:
       lat: 47.6664
       lng: -122.3832
       label: "Conor Byrne Pub, 5140 Ballard Ave NW, Seattle, WA 98107"
+      osmType: node
+      osmId: 2138389856
     timezone: America/Los_Angeles
     tags: ["Ballard"]
     config:
@@ -90,6 +94,8 @@ calendars:
       lat: 47.5548
       lng: -122.3065
       label: "Clock-Out Lounge, 4864 Beacon Ave S, Seattle, WA 98108"
+      osmType: node
+      osmId: 2371319981
     timezone: America/Los_Angeles
     tags: ["Beacon Hill"]
     config:
@@ -105,13 +111,15 @@ calendars:
     timezone: America/Los_Angeles
     tags: ["Columbia City"]
     config:
-      venue: "Black &amp; Tan Hall"  # server sends HTML entity in venue name
+      venue: "Black &amp; Tan Hall" # server sends HTML entity in venue name
   - name: the-royal-room
     friendlyname: "The Royal Room"
     geo:
       lat: 47.5522
       lng: -122.2905
       label: "The Royal Room, 5000 Rainier Ave S, Seattle, WA 98118"
+      osmType: node
+      osmId: 2429623367
     timezone: America/Los_Angeles
     tags: ["Columbia City"]
     config:
@@ -182,6 +190,8 @@ calendars:
       lat: 47.6227
       lng: -122.3563
       label: "KEXP Studio, 472 1st Ave N, Seattle, WA 98109"
+      osmType: node
+      osmId: 3886776643
     timezone: America/Los_Angeles
     tags: ["QueenAnne"]
     config:
@@ -216,6 +226,8 @@ calendars:
       lat: 47.6612
       lng: -122.3141
       label: "Blue Moon Tavern, 712 NE 45th St, Seattle, WA 98105"
+      osmType: way
+      osmId: 467115615
     timezone: America/Los_Angeles
     tags: ["University District"]
     config:

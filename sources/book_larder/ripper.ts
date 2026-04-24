@@ -41,8 +41,12 @@ export default class BookLarderRipper implements IRipper {
         for (const product of data.products) {
             if (product.product_type !== 'Event') continue;
             try {
-                const event = this.parseProduct(product);
-                if (event) events.push(event);
+                const result = this.parseProduct(product);
+                if ('date' in result) {
+                    events.push(result);
+                } else {
+                    errors.push(result);
+                }
             } catch (err) {
                 errors.push({
                     type: 'ParseError',
@@ -62,10 +66,16 @@ export default class BookLarderRipper implements IRipper {
         }];
     }
 
-    parseProduct(product: ShopifyProduct): RipperCalendarEvent | null {
+    parseProduct(product: ShopifyProduct): RipperCalendarEvent | RipperError {
         const plainText = this.stripHtml(product.body_html);
         const parsed = this.parseDateFromText(plainText);
-        if (!parsed) return null;
+        if (!parsed) {
+            return {
+                type: 'ParseError',
+                reason: `No parseable date found in product description`,
+                context: product.title,
+            };
+        }
 
         const { month, day, hour, minute, endHour, endMinute } = parsed;
 
@@ -81,8 +91,13 @@ export default class BookLarderRipper implements IRipper {
         const eventMidnight = new Date(year, month - 1, day);
         const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         // Book Larder events are one-time; skip past events rather than assuming next-year recurrence.
+        // Compare whole-day midnights so an event at 2pm today (when it's 10am) isn't skipped.
         if (eventMidnight < todayMidnight) {
-            return null;
+            return {
+                type: 'ParseError',
+                reason: `Event date ${year}-${month}-${day} is in the past`,
+                context: product.title,
+            };
         }
 
         const eventDate = ZonedDateTime.of(
@@ -149,10 +164,13 @@ export default class BookLarderRipper implements IRipper {
             if (startAmPm === 'pm' && hour !== 12) hour += 12;
             else if (startAmPm === 'am' && hour === 12) hour = 0;
             else if (!startAmPm) {
-                // endHour is already in 24h; `hour + 12 <= endHour` checks whether treating
-                // start as PM produces a valid (non-negative) range, e.g. "2-5pm": 14 ≤ 17 ✓,
-                // "11-1pm": 23 > 13 → start stays 11am ✓ (same logic as cobys_cafe ripper).
-                if (endAmPm === 'pm' && hour + 12 <= endHour) hour += 12;
+                // Infer am/pm: if hour < 12 and end is PM, assume start is also PM
+                // when that would produce a valid (non-negative) range.
+                // e.g. "2-5pm": endHour=17, hour=2, 2<12 && 2<(17-12=5) → 2pm ✓
+                // "11-1pm": endHour=13, hour=11, 11<12 but 11≮(13-12=1) → stays 11am ✓
+                if (endAmPm === 'pm' && hour < 12 && hour < (endHour > 12 ? endHour - 12 : endHour)) {
+                    hour += 12;
+                }
             }
         } else if (timeMatch) {
             hour = parseInt(timeMatch[1], 10);

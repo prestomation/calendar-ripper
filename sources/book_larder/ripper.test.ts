@@ -137,17 +137,18 @@ describe('BookLarderRipper - parseProduct', () => {
         expect(event!.duration.toMinutes()).toBe(240);
     });
 
-    test('skips products with no parseable date (book club events)', () => {
+    test('returns ParseError for products with no parseable date', () => {
         const data = loadSampleData();
         // "Book Club: On Eating" — no date in body_html
         const product = data.products.find((p: any) => p.id === 9192727675098);
         expect(product).toBeDefined();
 
         const event = ripper.parseProduct(product);
-        expect(event).toBeNull();
+        expect(event).not.toBeNull();
+        expect(event).toHaveProperty('type', 'ParseError');
     });
 
-    test('skips past events rather than bumping to next year', () => {
+    test('returns ParseError for past events', () => {
         const pastProduct = {
             id: 99999,
             title: 'Past Author Talk',
@@ -157,7 +158,8 @@ describe('BookLarderRipper - parseProduct', () => {
         };
         // January 2nd is always in the past by now (today is April 2026)
         const event = ripper.parseProduct(pastProduct);
-        expect(event).toBeNull();
+        expect(event).not.toBeNull();
+        expect(event).toHaveProperty('type', 'ParseError');
     });
 
     test('returns null for product with non-Event product_type', () => {

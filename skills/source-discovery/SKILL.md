@@ -78,7 +78,7 @@ Add a date-stamped entry at the top of the Discovery Log section:
 - ❌ Not Viable: [venue name] — [reason]
 ```
 
-**Then commit `docs/source-candidates.md` and open a PR.** Even though this is reference data (not code), the repo requires all changes via PR. Use a branch like `chore/source-discovery-YYYY-MM-DD` and open a draft PR. This ensures candidates are always up-to-date before we start implementing.
+**Then commit `docs/source-candidates.md` and open a PR.** Even though this is reference data (not code), the repo requires all changes via PR. Use a branch like `chore/source-discovery-YYYY-MM-DD`. After CI passes and Amazon Q has no blocking comments, merge the PR. This ensures candidates are always up-to-date before we start implementing.
 
 ### 6. Implement the highest-confidence source
 

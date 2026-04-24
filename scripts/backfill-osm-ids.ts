@@ -246,7 +246,7 @@ async function collectCandidates(sourceFilter: string | null): Promise<Candidate
 }
 
 async function writeBack(file: string, doc: YAML.Document.Parsed): Promise<void> {
-  const out = String(doc);
+  const out = doc.toString({ flowCollectionPadding: false });
   await writeFile(file, out, "utf8");
 }
 

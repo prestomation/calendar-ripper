@@ -88,6 +88,25 @@ node --loader ts-node/esm scripts/backfill-osm-ids.ts
 The script respects Nominatim's 1 req/sec rate limit. Commit the
 resulting YAML changes as a normal PR.
 
+## Daily reconciliation
+
+Venues whose `geo` is populated but missing an OSM ID are surfaced in
+`build-errors.json` under the `osmGaps` key — parallel to
+`zeroEventCalendars`, not mixed in with `geocodeErrors`. The two are
+conceptually different: a geocode error means *no coords at all* (the
+event can't render on the map); an OSM gap means *coords are fine, but
+we lack the OSM feature id* (enrichment opportunity, not a problem).
+
+A daily skill (`skills/geo-resolver/SKILL.md`) reads that list, runs
+the backfill report, classifies candidates using the A–F rubric, and
+auto-applies the strong matches. Weaker matches are flagged in the
+skill's reply for human judgment.
+
+Tier D/F rejections are persisted by adding an `osmChecked: "YYYY-MM-DD"`
+marker inside the `geo` block so we don't re-propose the same wrong
+match every day. The build skips such venues from `osmGaps` for ~60
+days, then retries (OSM grows over time).
+
 ## Manually overriding an ID
 
 If Nominatim picks the wrong feature, edit the `geo` block in the

@@ -1,6 +1,7 @@
 name: mccaw-hall
 type: ticketmaster
-description: "Performing arts venue at Seattle Center, home to Pacific Northwest Ballet and Seattle Opera"
+description: "Performing arts venue at Seattle Center, home to Pacific Northwest
+  Ballet and Seattle Opera"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.mccawhall.com
 tags: ["Arts"]
@@ -8,6 +9,8 @@ geo:
   lat: 47.6237
   lng: -122.3527
   label: "McCaw Hall, 321 Mercer St, Seattle, WA 98109"
+  osmType: way
+  osmId: 161070746
 calendars:
   - name: mccaw-hall
     friendlyname: "McCaw Hall"

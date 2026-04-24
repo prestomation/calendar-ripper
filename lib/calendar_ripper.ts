@@ -31,6 +31,7 @@ import {
   buildIndexJson,
   buildTagsJson,
   buildVenuesJson,
+  buildOsmGaps,
 } from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
@@ -1138,6 +1139,15 @@ END:VCALENDAR`;
     geocodeErrors: geocodeErrors.length,
   };
 
+  // Enumerate venues whose declared `geo` has coords but no OSM feature id.
+  // Surfaced in build-errors.json so the daily osm-resolver skill has a
+  // deterministic work queue — see skills/osm-resolver/SKILL.md.
+  const osmGaps = buildOsmGaps({
+    configs: configs.map(r => r.config),
+    externals: activeExternalCalendars,
+    recurringEvents: recurringProcessor?.getEvents() ?? [],
+  });
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -1151,6 +1161,7 @@ END:VCALENDAR`;
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
     newZeroEventSources,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
+    osmGaps,
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,

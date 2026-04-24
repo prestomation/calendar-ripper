@@ -1,7 +1,8 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: tractor-tavern
 type: ticketmaster
-description: "Intimate Ballard music venue known for Americana, folk, indie, and roots music"
+description: "Intimate Ballard music venue known for Americana, folk, indie, and
+  roots music"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://tractortavern.com
 tags: ["Music", "Ballard"]
@@ -9,6 +10,8 @@ geo:
   lat: 47.6623
   lng: -122.3834
   label: "Tractor Tavern, 5213 Ballard Ave NW, Seattle, WA 98107"
+  osmType: way
+  osmId: 184092567
 calendars:
   - name: tractor-tavern
     friendlyname: "Tractor Tavern"

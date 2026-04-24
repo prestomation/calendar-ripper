@@ -17,6 +17,10 @@ export interface EventPageData {
     eventStatus: string;
 }
 
+// Result of parsing an event page: either valid data or a ParseError.
+// Null is never returned — callers must always get a definitive result.
+export type EventPageResult = EventPageData | ParseError;
+
 function decodeHtmlEntities(str: string): string {
     return str
         .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)))
@@ -45,12 +49,15 @@ export function parseRSSFeed(xml: string): EventLink[] {
     return links;
 }
 
-export function parseEventPage(html: string): EventPageData | ParseError | null {
+// Parse JSON-LD from an event page. Returns EventPageData or ParseError, never null.
+// If the JSON-LD exists but is a non-Event type (e.g., Organization), returns ParseError
+// with a clear reason — the caller decides whether to skip non-Event pages.
+export function parseEventPage(html: string): EventPageResult {
     const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
     if (!scriptMatch) return { type: 'ParseError', reason: 'No JSON-LD script tag found', context: undefined };
     try {
         const data = JSON.parse(scriptMatch[1]);
-        if (data['@type'] !== 'Event') return null; // Not an event page — intentional skip
+        if (data['@type'] !== 'Event') return { type: 'ParseError', reason: `JSON-LD @type is "${data['@type']}", not "Event"`, context: data.name || undefined };
         return {
             startDate: data.startDate || '',
             name: decodeHtmlEntities(data.name || ''),
@@ -77,7 +84,9 @@ export default class RoyalRoomRipper implements IRipper {
         const eventLinks = parseRSSFeed(rssXml);
 
         const errors: RipperError[] = [];
-        const eventResults = await Promise.all(
+        const events: RipperCalendarEvent[] = [];
+
+        const results = await Promise.all(
             eventLinks.map(async (link): Promise<RipperCalendarEvent | RipperError | null> => {
                 try {
                     const pageRes = await fetchFn(link.url, {
@@ -89,9 +98,13 @@ export default class RoyalRoomRipper implements IRipper {
 
                     const html = await pageRes.text();
                     const data = parseEventPage(html);
-                    if (data && 'type' in data) return data; // ParseError from parseEventPage
-                    if (!data || !data.startDate) return { type: 'ParseError', reason: 'No startDate found in event page JSON-LD', context: link.title };
-                    if (data.eventStatus === 'EventCancelled') return null; // Intentional skip — cancelled
+
+                    // parseEventPage returns EventPageData | ParseError, never null
+                    if ('type' in data) return data; // ParseError from parseEventPage
+
+                    // Pre-parse filters: skip cancelled and past events
+                    if (data.eventStatus === 'EventCancelled') return null; // Intentional skip
+                    if (!data.startDate) return { type: 'ParseError', reason: 'No startDate found in event page JSON-LD', context: link.title };
 
                     // startDate format: "2026-05-10 19:30:00"
                     const m = data.startDate.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
@@ -127,8 +140,7 @@ export default class RoyalRoomRipper implements IRipper {
             })
         );
 
-        const events: RipperCalendarEvent[] = [];
-        for (const r of eventResults) {
+        for (const r of results) {
             if (r && 'date' in r) events.push(r);
             else if (r && 'type' in r) errors.push(r);
             // null = intentionally skipped (past event, cancelled)

@@ -23,7 +23,7 @@ export default class CobysCafeRipper implements IRipper {
             name: calConfig.name,
             friendlyname: calConfig.friendlyname,
             events: events.filter((e): e is RipperCalendarEvent => 'date' in e),
-            errors: events.filter((e): e is any => 'type' in e),
+            errors: events.filter((e): e is RipperError => 'type' in e),
             tags: calConfig.tags ?? ripper.config.tags ?? [],
             parent: ripper.config
         }];
@@ -59,10 +59,29 @@ export default class CobysCafeRipper implements IRipper {
                     continue;
                 }
                 const html = await res.text();
-                const result = this.parseProductHtml(html, url, seen);
-                if (result && 'date' in result) events.push(result);
-                else if (result && 'type' in result) events.push(result);
-                // null = intentionally skipped, no error
+
+                // Pre-parse filter: skip non-event pages and intentionally excluded content
+                const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/);
+                if (titleMatch) {
+                    const title = titleMatch[1]
+                        .replace(/ \| Coby&#039;s Cafe$/, '')
+                        .replace(/ \| Coby's Cafe$/, '')
+                        .trim();
+                    const titleLower = title.toLowerCase();
+                    if (title === "Coby's Cafe" || title === ''
+                        || titleLower.includes('members free rsvp') || titleLower.includes('member free rsvp')) {
+                        continue; // Not an event page or intentionally filtered
+                    }
+                }
+
+                const result = this.parseProductHtml(html, url);
+                // Dedup check after parsing (need date for key)
+                if ('date' in result) {
+                    const dedupKey = `${result.date.year()}-${result.date.monthValue()}-${result.date.dayOfMonth()}-${result.date.hour()}-${result.date.minute()}`;
+                    if (seen.has(dedupKey)) continue; // Dedup — not an error
+                    seen.add(dedupKey);
+                }
+                events.push(result);
             } catch (e) {
                 events.push({ type: 'ParseError', reason: `Failed to fetch/parse event ${id}: ${e}`, context: id });
             }
@@ -71,8 +90,9 @@ export default class CobysCafeRipper implements IRipper {
         return events;
     }
 
-    // Public for testing
-    parseProductHtml(html: string, url: string, seen: Set<string>): RipperCalendarEvent | RipperError | null {
+    // Public for testing — returns RipperCalendarEvent or RipperError, never null
+    // Pre-parse filters (dedup, content exclusions) are handled in the caller
+    parseProductHtml(html: string, url: string): RipperCalendarEvent | RipperError {
         const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/);
         if (!titleMatch) return { type: 'ParseError', reason: 'No <title> found in HTML', context: url };
 
@@ -80,11 +100,6 @@ export default class CobysCafeRipper implements IRipper {
             .replace(/ \| Coby&#039;s Cafe$/, '')
             .replace(/ \| Coby's Cafe$/, '')
             .trim();
-
-        if (title === "Coby's Cafe" || title === '') return null; // Not an event page
-
-        const titleLower = title.toLowerCase();
-        if (titleLower.includes('members free rsvp') || titleLower.includes('member free rsvp')) return null; // Intentional filter
 
         const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
         const rawDesc = descMatch ? descMatch[1] : '';
@@ -94,10 +109,6 @@ export default class CobysCafeRipper implements IRipper {
         if (!parsed) return { type: 'ParseError', reason: 'No parseable date found in description', context: title };
 
         const { year, month, day, startHour, startMinute, endHour, endMinute } = parsed;
-
-        const dedupKey = `${year}-${month}-${day}-${startHour}-${startMinute}`;
-        if (seen.has(dedupKey)) return null; // Dedup — not an error
-        seen.add(dedupKey);
 
         const eventDate = ZonedDateTime.of(
             LocalDateTime.of(year, month, day, startHour, startMinute),

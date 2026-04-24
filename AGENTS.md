@@ -340,30 +340,32 @@ When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch ca
 - Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
 - Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
 
-## Skipped Items Must Be Reported as Errors
+## Parse Methods Must Never Return Null
 
-When a ripper's parse method returns `null` (regex didn't match, missing required field, unparseable date), the caller **must** push a `ParseError` to the `errors` array. Silent skips hide broken parsers — the build report must surface them so we know to improve the parser.
+Parse methods (like `parseProduct`, `parseProductHtml`, `parseEventPage`) **must return `RipperCalendarEvent | RipperError`** — never `null`.
 
-**Required pattern:**
+TypeScript enforces this at compile time: if a parse method's return type doesn't include `null`, the compiler will catch any code path that silently drops an item.
+
+**Required pattern — parse method signature:**
 ```typescript
-const event = this.parseProduct(product);
-if (event) {
-    events.push(event);
-} else {
-    errors.push({
-        type: 'ParseError',
-        reason: `No parseable date found in product ${product.id}`,
-        context: product.title,
-    });
-}
+parseProductHtml(html: string, url: string): RipperCalendarEvent | RipperError
 ```
 
-**Exceptions (no error needed):**
-- Deduplication skips (`seen.has(key)`) — correct behavior, not a parser gap
-- Intentional content filters (e.g., "members free RSVP" titles) — deliberately excluded content
-- Items that don't match the expected type (e.g., `product_type !== 'Event'`) — not events at all
+**Required pattern — caller:**
+```typescript
+const result = this.parseProductHtml(html, url);
+if ('date' in result) events.push(result);
+else errors.push(result); // It's a ParseError
+```
 
-**Why:** If a source has 10 items and 2 are silently skipped, the build report shows "8 events, 0 errors" — we'd never know the parser is missing 20% of the data. Reporting skips as `ParseError` makes the gap visible so we can fix the regex/parser for new date formats, changed HTML structures, etc.
+**Filters and dedup belong in the caller, not the parse method.** Move these out:
+- **Deduplication** (`seen.has(key)`) — check after parsing, skip in caller
+- **Intentional content filters** (e.g., "members free RSVP" titles) — check before calling parse, skip in caller
+- **Type checks** (e.g., `@type !== 'Event'`) — check in caller or return ParseError with clear reason
+
+**Why:** If parse methods can return `null`, someone will forget to check it, and items get silently dropped. By making the return type `RipperCalendarEvent | RipperError`, TypeScript guarantees every code path either produces an event or reports why it couldn't. The build report then surfaces every gap: "8 events, 2 errors" instead of "8 events, 0 errors".
+
+**Existing rippers still returning `null`** (events12, dogwoodplaypark, spectrum_dance, etc.) should be migrated to this pattern incrementally.
 
 ## Writing Descriptions
 

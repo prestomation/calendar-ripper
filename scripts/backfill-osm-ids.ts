@@ -198,6 +198,8 @@ async function main() {
   const sourceFilter = sourceIdx >= 0 ? args[sourceIdx + 1] ?? null : null;
   const dryRun = args.includes("--dry-run");
   const autoYes = args.includes("--yes");
+  const reportIdx = args.indexOf("--report");
+  const reportPath = reportIdx >= 0 ? args[reportIdx + 1] ?? "/tmp/osm-backfill-report.json" : null;
 
   const candidates = await collectCandidates(sourceFilter);
   if (candidates.length === 0) {
@@ -210,6 +212,51 @@ async function main() {
     for (const c of candidates) {
       console.log(`  ${c.label}  (${c.lat}, ${c.lng})  [${c.file}]`);
     }
+    return;
+  }
+
+  if (reportPath) {
+    const report: Array<Record<string, unknown>> = [];
+    for (let i = 0; i < candidates.length; i++) {
+      const c = candidates[i];
+      process.stdout.write(`[${i + 1}/${candidates.length}] ${c.label}... `);
+      let result: NominatimReverseResult | null = null;
+      let error: string | null = null;
+      try {
+        result = await nominatimReverse(c.lat, c.lng);
+      } catch (e) {
+        error = (e as Error).message;
+      }
+      const osmType = result ? normalizeOsmType(result.osm_type) : null;
+      const osmId = typeof result?.osm_id === "number" ? result.osm_id : null;
+      report.push({
+        index: i + 1,
+        label: c.label,
+        file: c.file,
+        lat: c.lat,
+        lng: c.lng,
+        existingLabel: c.existingLabel ?? null,
+        result: result
+          ? {
+              osmType,
+              osmId,
+              class: result.class ?? null,
+              type: result.type ?? null,
+              display_name: result.display_name ?? null,
+            }
+          : null,
+        error,
+      });
+      if (error) {
+        console.log(`ERROR: ${error}`);
+      } else if (!result || !osmType || !osmId) {
+        console.log(`(no result)`);
+      } else {
+        console.log(`${osmType}/${osmId} (${result.class ?? "?"}/${result.type ?? "?"})`);
+      }
+    }
+    await writeFile(reportPath, JSON.stringify(report, null, 2), "utf8");
+    console.log(`\nReport written to ${reportPath}`);
     return;
   }
 

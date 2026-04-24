@@ -42,29 +42,69 @@ interface NominatimReverseResult {
   display_name?: string;
   class?: string;
   type?: string;
+  lat?: string;
+  lon?: string;
+  distanceM?: number;
 }
 
 const NOMINATIM_USER_AGENT = "206.events/1.0 (https://206.events)";
 
 let lastNominatimCallTime = 0;
 
-async function nominatimReverse(lat: number, lng: number): Promise<NominatimReverseResult | null> {
-  // Respect Nominatim's 1 req/sec usage policy.
+async function rateLimit(): Promise<void> {
   const now = Date.now();
   const elapsed = now - lastNominatimCallTime;
   const delay = lastNominatimCallTime > 0 ? Math.max(0, 1100 - elapsed) : 0;
   lastNominatimCallTime = now + delay;
   if (delay > 0) await new Promise(r => setTimeout(r, delay));
+}
 
+function haversineMeters(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6_371_000;
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+/**
+ * Forward-geocode the venue's label string. Nominatim's /search returns
+ * the best-matching named feature (a venue, building, or address node)
+ * rather than whatever happens to be nearest to a coordinate — much more
+ * likely to hit the actual OSM feature we want than /reverse is.
+ *
+ * Returns null if no result, or if the returned coords are more than
+ * `maxDistanceM` away from the declared coords (guards against
+ * Nominatim returning a same-named venue in a different city).
+ */
+async function nominatimSearch(
+  query: string,
+  declaredLat: number,
+  declaredLng: number,
+  maxDistanceM = 500,
+): Promise<NominatimReverseResult | null> {
+  await rateLimit();
+  const encoded = encodeURIComponent(query);
   const url =
-    `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}` +
-    `&format=json&zoom=18&addressdetails=0`;
-
+    `https://nominatim.openstreetmap.org/search?q=${encoded}` +
+    `&format=json&limit=1&countrycodes=us&addressdetails=0`;
   const res = await fetch(url, {
     headers: { "User-Agent": NOMINATIM_USER_AGENT },
   });
   if (!res.ok) return null;
-  return (await res.json()) as NominatimReverseResult;
+  const data = (await res.json()) as NominatimReverseResult[];
+  if (!Array.isArray(data) || data.length === 0) return null;
+  const first = data[0];
+  const rLat = parseFloat(first.lat ?? "");
+  const rLng = parseFloat(first.lon ?? "");
+  if (isNaN(rLat) || isNaN(rLng)) return null;
+  const distance = haversineMeters(declaredLat, declaredLng, rLat, rLng);
+  if (distance > maxDistanceM) {
+    return { ...first, distanceM: Math.round(distance) };
+  }
+  return { ...first, distanceM: Math.round(distance) };
 }
 
 function normalizeOsmType(value: unknown): OsmType | null {
@@ -222,8 +262,22 @@ async function main() {
       process.stdout.write(`[${i + 1}/${candidates.length}] ${c.label}... `);
       let result: NominatimReverseResult | null = null;
       let error: string | null = null;
+      if (!c.existingLabel) {
+        console.log("(no label — skipping forward-geocode)");
+        report.push({
+          index: i + 1,
+          label: c.label,
+          file: c.file,
+          lat: c.lat,
+          lng: c.lng,
+          existingLabel: null,
+          result: null,
+          error: "no label",
+        });
+        continue;
+      }
       try {
-        result = await nominatimReverse(c.lat, c.lng);
+        result = await nominatimSearch(c.existingLabel, c.lat, c.lng);
       } catch (e) {
         error = (e as Error).message;
       }
@@ -235,7 +289,7 @@ async function main() {
         file: c.file,
         lat: c.lat,
         lng: c.lng,
-        existingLabel: c.existingLabel ?? null,
+        existingLabel: c.existingLabel,
         result: result
           ? {
               osmType,
@@ -243,6 +297,7 @@ async function main() {
               class: result.class ?? null,
               type: result.type ?? null,
               display_name: result.display_name ?? null,
+              distanceM: result.distanceM ?? null,
             }
           : null,
         error,
@@ -252,7 +307,8 @@ async function main() {
       } else if (!result || !osmType || !osmId) {
         console.log(`(no result)`);
       } else {
-        console.log(`${osmType}/${osmId} (${result.class ?? "?"}/${result.type ?? "?"})`);
+        const dist = result.distanceM ?? "?";
+        console.log(`${osmType}/${osmId} (${result.class ?? "?"}/${result.type ?? "?"}) ${dist}m`);
       }
     }
     await writeFile(reportPath, JSON.stringify(report, null, 2), "utf8");
@@ -271,11 +327,16 @@ async function main() {
       console.log(`  coords: ${c.lat}, ${c.lng}`);
       if (c.existingLabel) console.log(`  label: ${c.existingLabel}`);
 
+      if (!c.existingLabel) {
+        console.log("  ✗ no label to forward-geocode");
+        skipped++;
+        continue;
+      }
       let result: NominatimReverseResult | null = null;
       try {
-        result = await nominatimReverse(c.lat, c.lng);
+        result = await nominatimSearch(c.existingLabel, c.lat, c.lng);
       } catch (e) {
-        console.log(`  ✗ reverse geocode failed: ${(e as Error).message}`);
+        console.log(`  ✗ forward geocode failed: ${(e as Error).message}`);
         skipped++;
         continue;
       }
@@ -293,7 +354,8 @@ async function main() {
         continue;
       }
 
-      console.log(`  candidate: ${osmType}/${result.osm_id}  (${result.class ?? "?"}/${result.type ?? "?"})`);
+      const dist = result.distanceM ?? "?";
+      console.log(`  candidate: ${osmType}/${result.osm_id}  (${result.class ?? "?"}/${result.type ?? "?"})  ${dist}m from declared`);
       console.log(`  display:   ${result.display_name ?? "(none)"}`);
       console.log(`  verify:    https://www.openstreetmap.org/${osmType}/${result.osm_id}`);
 

@@ -24,9 +24,9 @@ export default class HiddenHallRipper extends HTMLRipper {
                     if (locationName !== "Hidden Hall") continue;
 
                     const parsed = this.parseEvent(item);
-                    if (parsed && "type" in parsed) {
+                    if ("type" in parsed) {
                         events.push(parsed);
-                    } else if (parsed) {
+                    } else {
                         if (this.seenEvents.has(parsed.id!)) continue;
                         this.seenEvents.add(parsed.id!);
                         events.push(parsed);
@@ -44,8 +44,14 @@ export default class HiddenHallRipper extends HTMLRipper {
         return events;
     }
 
-    private parseEvent(item: any): RipperEvent | null {
-        if (!item.name || !item.startDate) return null;
+    private parseEvent(item: any): RipperEvent {
+        if (!item.name || !item.startDate) {
+            return {
+                type: "ParseError",
+                reason: `JSON-LD Event missing name or startDate`,
+                context: JSON.stringify(item).substring(0, 100)
+            };
+        }
 
         const eventDate = this.parseDate(item.startDate);
         if (!eventDate) {

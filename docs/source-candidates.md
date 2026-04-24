@@ -6,9 +6,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
 - 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
-- ❌ **Emerald City Comedy Club** — SeatEngine platform (no built-in ripper type). 40+ upcoming events, rich schedule. Would need custom scraper. Not viable with current ripper tools. Tags: Comedy, Capitol Hill.
+- 💡 **Emerald City Comedy Club** — SeatEngine platform (custom ripper needed). 40+ upcoming events, rich schedule at `emeraldcitycomedy.com`. Custom HTML/JSON scraper required (🔴 Low confidence). Tags: Comedy, Capitol Hill.
 - ❌ **Mox Boarding House Seattle** — Shopify store but events are on `/pages/seattle-events` (not products). Events page is JS-rendered, no structured API for events. `/products.json` returns MTG products only. Not viable. Tags: Gaming, Ballard.
-- ❌ **Seattle Uncorked** — WordPress site with wine/beer events, but many events are in Bellevue, Redmond, Lakewold (outside Seattle city limits). Not Seattle-only. Tags: Beer, Community.
+- 💡 **Seattle Uncorked** — WordPress site with wine/beer events, mostly Seattle-focused (some Eastside events). Custom scraper needed (🔴 Low confidence). Tags: Beer, Community.
 - ❌ **Hidden Door** — DNS resolution fails (`hiddendoorseattle.com`). Appears dead/defunct. Tags: Music, Capitol Hill.
 - ❌ **Backfire Motobar** — DNS resolution fails (`backfiremotobar.com`). Appears dead/defunct. Tags: Music, Nightlife.
 - ❌ **Cohesion Brewing** — Located in Denver, CO. Not Seattle. Tags: N/A.
@@ -184,13 +184,13 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Renegade Craft Fair** — `https://www.renegadecraft.com/events/` — Tags: MakersMarket
 
-**Seattle Uncorked** — `https://seattleuncorked.com/events/` — Tags: Beer, Community
+**Seattle Uncorked** — `https://seattleuncorked.com/events/` — WordPress, mostly Seattle-focused (some Eastside events) — Tags: Beer, Community
 
 **ParentMap** — `https://www.parentmap.com/calendar` — Drupal — Tags: Community
 
 **Seattle Indian Health Board** — `https://www.sihb.org/events/` — WordPress — Tags: Community
 
-**Emerald City Comedy Club** — `https://www.emeraldcitycomedy.com/events` — SeatEngine platform — Tags: Comedy, Capitol Hill
+**Emerald City Comedy Club** — `https://www.emeraldcitycomedy.com/events` — SeatEngine platform, 40+ events, custom ripper needed — Tags: Comedy, Capitol Hill
 
 **Here-After (at The Crocodile)** — `https://www.thecrocodile.com/here-after` — 2505 1st Ave — Tags: Comedy, Belltown — May overlap with existing `crocodile` ripper
 

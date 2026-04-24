@@ -907,6 +907,8 @@ END:VCALENDAR`;
     url?: string;
     lat?: number;
     lng?: number;
+    osmType?: 'node' | 'way' | 'relation';
+    osmId?: number;
     geocodeSource?: 'ripper' | 'cached' | 'none';
   }> = [];
 
@@ -923,6 +925,8 @@ END:VCALENDAR`;
     for (const event of calendar.events) {
       let lat: number | undefined;
       let lng: number | undefined;
+      let osmType: 'node' | 'way' | 'relation' | undefined;
+      let osmId: number | undefined;
       let geocodeSource: 'ripper' | 'cached' | 'none' | undefined;
 
       // Resolve geo: calendar-level config wins over ripper-level.
@@ -938,6 +942,8 @@ END:VCALENDAR`;
         // Use declared coords — no geocoding needed
         lat = resolvedGeo.lat;
         lng = resolvedGeo.lng;
+        osmType = resolvedGeo.osmType;
+        osmId = resolvedGeo.osmId;
         geocodeSource = 'ripper';
       } else {
         const result = await resolveEventCoords(geoCache, event.location, sourceName);
@@ -945,6 +951,8 @@ END:VCALENDAR`;
         if (result.coords) {
           lat = result.coords.lat;
           lng = result.coords.lng;
+          osmType = result.coords.osmType;
+          osmId = result.coords.osmId;
         }
         geocodeSource = result.geocodeSource;
         if (result.error) geocodeErrors.push(result.error);
@@ -960,6 +968,7 @@ END:VCALENDAR`;
         url: event.url,
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
+        ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
         ...(geocodeSource !== undefined ? { geocodeSource } : {}),
       });
     }
@@ -982,9 +991,13 @@ END:VCALENDAR`;
 
           let lat: number | undefined;
           let lng: number | undefined;
+          let osmType: 'node' | 'way' | 'relation' | undefined;
+          let osmId: number | undefined;
           if (result.coords) {
             lat = result.coords.lat;
             lng = result.coords.lng;
+            osmType = result.coords.osmType;
+            osmId = result.coords.osmId;
           }
           if (result.error) geocodeErrors.push(result.error);
 
@@ -998,6 +1011,7 @@ END:VCALENDAR`;
             url: event.url,
             ...(lat !== undefined ? { lat } : {}),
             ...(lng !== undefined ? { lng } : {}),
+            ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
             ...(result.geocodeSource !== undefined ? { geocodeSource: result.geocodeSource } : {}),
           });
         }

@@ -12,7 +12,15 @@ export const geoSchema = z.object({
     lat: z.number().min(-90).max(90),
     lng: z.number().min(-180).max(180),
     label: z.string().optional(),
-}).strict();
+    // OpenStreetMap feature identity. Both must be set together or neither —
+    // consumers key off the (osmType, osmId) pair. Absent means "we positioned
+    // this venue manually, no OSM join available."
+    osmType: z.enum(["node", "way", "relation"]).optional(),
+    osmId: z.number().int().positive().optional(),
+}).strict().refine(
+    g => (g.osmId === undefined) === (g.osmType === undefined),
+    { message: "osmId and osmType must be set together or both omitted" },
+);
 
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),

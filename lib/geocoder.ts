@@ -1,14 +1,20 @@
 import { readFile, writeFile } from 'fs/promises';
 import type { GeocodeError } from './config/schema.js';
 
+export type OsmType = 'node' | 'way' | 'relation';
+
 export interface GeoCoords {
   lat: number;
   lng: number;
+  osmId?: number;
+  osmType?: OsmType;
 }
 
 export interface GeoCacheEntry {
   lat?: number;
   lng?: number;
+  osmId?: number;
+  osmType?: OsmType;
   unresolvable?: boolean;
   geocodedAt: string;
   source: 'nominatim' | 'manual';
@@ -615,7 +621,13 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
   if (!entry) return null;
   if (entry.unresolvable) return null;
   if (entry.lat !== undefined && entry.lng !== undefined) {
-    return { lat: entry.lat, lng: entry.lng };
+    return {
+      lat: entry.lat,
+      lng: entry.lng,
+      ...(entry.osmId !== undefined && entry.osmType !== undefined
+        ? { osmId: entry.osmId, osmType: entry.osmType }
+        : {}),
+    };
   }
   return null;
 }
@@ -665,7 +677,12 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
       return null;
     }
 
-    const data = await res.json() as Array<{ lat: string; lon: string }>;
+    const data = await res.json() as Array<{
+      lat: string;
+      lon: string;
+      osm_id?: number;
+      osm_type?: string;
+    }>;
     if (!Array.isArray(data) || data.length === 0) {
       return null;
     }
@@ -675,10 +692,24 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
     const lng = parseFloat(first.lon);
     if (isNaN(lat) || isNaN(lng)) return null;
 
-    return { lat, lng };
+    const osmType = normalizeOsmType(first.osm_type);
+    const osmId = typeof first.osm_id === 'number' && Number.isInteger(first.osm_id) && first.osm_id > 0
+      ? first.osm_id
+      : undefined;
+
+    return {
+      lat,
+      lng,
+      ...(osmType && osmId !== undefined ? { osmId, osmType } : {}),
+    };
   } catch {
     return null;
   }
+}
+
+function normalizeOsmType(value: unknown): OsmType | undefined {
+  if (value === 'node' || value === 'way' || value === 'relation') return value;
+  return undefined;
 }
 
 export interface ResolveEventCoordsResult {
@@ -818,6 +849,9 @@ export async function resolveEventCoords(
     const newEntry: GeoCacheEntry = {
       lat: coords.lat,
       lng: coords.lng,
+      ...(coords.osmId !== undefined && coords.osmType !== undefined
+        ? { osmId: coords.osmId, osmType: coords.osmType }
+        : {}),
       geocodedAt: new Date().toISOString().slice(0, 10),
       source: 'nominatim',
       firstSeen: new Date().toISOString().slice(0, 10),

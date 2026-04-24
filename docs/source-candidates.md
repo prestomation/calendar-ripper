@@ -4,6 +4,17 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
+- 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
+- ❌ **Emerald City Comedy Club** — SeatEngine platform (no built-in ripper type). 40+ upcoming events, rich schedule. Would need custom scraper. Not viable with current ripper tools. Tags: Comedy, Capitol Hill.
+- ❌ **Mox Boarding House Seattle** — Shopify store but events are on `/pages/seattle-events` (not products). Events page is JS-rendered, no structured API for events. `/products.json` returns MTG products only. Not viable. Tags: Gaming, Ballard.
+- ❌ **Seattle Uncorked** — WordPress site with wine/beer events, but many events are in Bellevue, Redmond, Lakewold (outside Seattle city limits). Not Seattle-only. Tags: Beer, Community.
+- ❌ **Hidden Door** — DNS resolution fails (`hiddendoorseattle.com`). Appears dead/defunct. Tags: Music, Capitol Hill.
+- ❌ **Backfire Motobar** — DNS resolution fails (`backfiremotobar.com`). Appears dead/defunct. Tags: Music, Nightlife.
+- ❌ **Cohesion Brewing** — Located in Denver, CO. Not Seattle. Tags: N/A.
+- ❌ **Salish Sea Brewing** — Located in Edmonds, WA. Outside Seattle city limits. Tags: N/A.
+- 💀 **Zero-event calendars**: All 10 from build remain same status. No new dead sources detected.
+
 ### 2026-04-23 — Added Book Larder
 - ✅ **Book Larder** — Shopify products.json API (`/collections/evey-events/products.json`). Dates parsed from body_html text. 8 of 10 products produce parseable events (book clubs without dates are skipped). Tags: Books, Food, Fremont.
 
@@ -13,7 +24,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **SeattleDances** — ICS feed blocked by CAPTCHA (sgcaptcha). Not viable.
 - ❌ **Theatre Off Jackson** — uses venture-event-manager plugin, no working ICS export.
 - ❌ **Rat City Roller Derby** — no Tribe Events ICS, returns HTML.
-- ❌ **Cannonball Arts Center** — REST API returning 503.
+- ❌ **Cannonball Arts Center** — REST API returning 503. ~~Updated 2026-04-24: REST API now working (6 events). Moved to 💡 Candidate.~~
 
 ### 2026-04-23 — Source discovery: Arts & Culture, Bookstores, New Venues
 - ❌ **Frye Art Museum** — Already has a custom ripper (`sources/frye_art_museum/`). Calendar has 11+ pages of events but no ICS/Eventbrite/structured feed. No new source needed.
@@ -117,7 +128,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
 
-**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — Tags: Arts, Belltown — New venue from Bumbershoot producers, currently 5 events, growing
+**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers
 
 ### Custom HTML/JSON Scraping
 

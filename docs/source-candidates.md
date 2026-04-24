@@ -4,6 +4,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-23 — Added Book Larder
+- ✅ **Book Larder** — Shopify products.json API (`/collections/evey-events/products.json`). Dates parsed from body_html text. 8 of 10 products produce parseable events (book clubs without dates are skipped). Tags: Books, Food, Fremont.
+
 ### 2026-04-23 — Added The Royal Room
 - ✅ **The Royal Room** — WP Event Manager RSS feed (`?feed=event_feed`) confirmed working with 49 events. Each event page has JSON-LD `startDate`. Custom `IRipper` fetches RSS then individual event pages. Tags: Music, Columbia City.
 - ❌ **Ada's Technical Books** — removed; venue is closing permanently.
@@ -112,7 +115,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Theatre Off Jackson** — `https://theatreoffjackson.org/event-calendar/` — try `?post_type=tribe_events&ical=1` — 409 7th Ave S — Tags: Theatre, International District
 
-**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working
+~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
 
 **Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — Tags: Arts, Belltown — New venue from Bumbershoot producers, currently 5 events, growing
 
@@ -205,6 +208,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Volunteer Park Trust** — `sources/volunteer_park_trust` — Squarespace — Volunteer Park, 1247 15th Ave E — Tags: Community, Parks, Capitol Hill — PR #201
 
 **The Royal Room** — `sources/royal_room` — WP Event Manager RSS + JSON-LD per-page — 5000 Rainier Ave S, Columbia City — Tags: Music, Columbia City
+
+**Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
 
 ---
 

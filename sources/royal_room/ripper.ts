@@ -45,19 +45,19 @@ export function parseRSSFeed(xml: string): EventLink[] {
     return links;
 }
 
-export function parseEventPage(html: string): EventPageData | null {
+export function parseEventPage(html: string): EventPageData | ParseError | null {
     const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-    if (!scriptMatch) return null;
+    if (!scriptMatch) return { type: 'ParseError', reason: 'No JSON-LD script tag found', context: undefined };
     try {
         const data = JSON.parse(scriptMatch[1]);
-        if (data['@type'] !== 'Event') return null;
+        if (data['@type'] !== 'Event') return null; // Not an event page — intentional skip
         return {
             startDate: data.startDate || '',
             name: decodeHtmlEntities(data.name || ''),
             eventStatus: data.eventStatus || '',
         };
     } catch {
-        return null;
+        return { type: 'ParseError', reason: 'Failed to parse JSON-LD script tag', context: undefined };
     }
 }
 
@@ -78,21 +78,24 @@ export default class RoyalRoomRipper implements IRipper {
 
         const errors: RipperError[] = [];
         const eventResults = await Promise.all(
-            eventLinks.map(async (link): Promise<RipperCalendarEvent | null> => {
+            eventLinks.map(async (link): Promise<RipperCalendarEvent | RipperError | null> => {
                 try {
                     const pageRes = await fetchFn(link.url, {
                         headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },
                     });
-                    if (!pageRes.ok) return null;
+                    if (!pageRes.ok) {
+                        return { type: 'ParseError', reason: `HTTP ${pageRes.status} fetching event page`, context: link.title };
+                    }
 
                     const html = await pageRes.text();
                     const data = parseEventPage(html);
-                    if (!data || !data.startDate) return null;
-                    if (data.eventStatus === 'EventCancelled') return null;
+                    if (data && 'type' in data) return data; // ParseError from parseEventPage
+                    if (!data || !data.startDate) return { type: 'ParseError', reason: 'No startDate found in event page JSON-LD', context: link.title };
+                    if (data.eventStatus === 'EventCancelled') return null; // Intentional skip — cancelled
 
                     // startDate format: "2026-05-10 19:30:00"
                     const m = data.startDate.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
-                    if (!m) return null;
+                    if (!m) return { type: 'ParseError', reason: `Unparseable startDate format: ${data.startDate}`, context: link.title };
 
                     const eventDate = ZonedDateTime.of(
                         LocalDateTime.of(
@@ -102,7 +105,7 @@ export default class RoyalRoomRipper implements IRipper {
                         zone
                     );
 
-                    if (eventDate.isBefore(now)) return null;
+                    if (eventDate.isBefore(now)) return null; // Past event — intentional skip
 
                     const slug = link.url.split('/').filter(Boolean).pop() ?? link.url;
                     return {
@@ -115,17 +118,21 @@ export default class RoyalRoomRipper implements IRipper {
                         url: link.url,
                     };
                 } catch (err) {
-                    errors.push({
+                    return {
                         type: 'ParseError',
                         reason: `Failed to fetch/parse event page: ${link.url}`,
                         context: String(err),
-                    });
-                    return null;
+                    };
                 }
             })
         );
 
-        const events = eventResults.filter((e): e is RipperCalendarEvent => e !== null);
+        const events: RipperCalendarEvent[] = [];
+        for (const r of eventResults) {
+            if (r && 'date' in r) events.push(r);
+            else if (r && 'type' in r) errors.push(r);
+            // null = intentionally skipped (past event, cancelled)
+        }
 
         return ripper.config.calendars.map(cal => ({
             name: cal.name,

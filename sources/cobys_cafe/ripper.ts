@@ -54,10 +54,15 @@ export default class CobysCafeRipper implements IRipper {
                 const res = await this.fetchFn(url, {
                     headers: { 'User-Agent': 'Mozilla/5.0' }
                 });
-                if (!res.ok) continue;
+                if (!res.ok) {
+                    events.push({ type: 'ParseError', reason: `HTTP ${res.status} fetching event ${id}`, context: id });
+                    continue;
+                }
                 const html = await res.text();
-                const event = this.parseProductHtml(html, url, seen);
-                if (event) events.push(event);
+                const result = this.parseProductHtml(html, url, seen);
+                if (result && 'date' in result) events.push(result);
+                else if (result && 'type' in result) events.push(result);
+                // null = intentionally skipped, no error
             } catch (e) {
                 events.push({ type: 'ParseError', reason: `Failed to fetch/parse event ${id}: ${e}`, context: id });
             }
@@ -67,31 +72,31 @@ export default class CobysCafeRipper implements IRipper {
     }
 
     // Public for testing
-    parseProductHtml(html: string, url: string, seen: Set<string>): RipperCalendarEvent | null {
+    parseProductHtml(html: string, url: string, seen: Set<string>): RipperCalendarEvent | RipperError | null {
         const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/);
-        if (!titleMatch) return null;
+        if (!titleMatch) return { type: 'ParseError', reason: 'No <title> found in HTML', context: url };
 
         const title = titleMatch[1]
             .replace(/ \| Coby&#039;s Cafe$/, '')
             .replace(/ \| Coby's Cafe$/, '')
             .trim();
 
-        if (title === "Coby's Cafe" || title === '') return null;
+        if (title === "Coby's Cafe" || title === '') return null; // Not an event page
 
         const titleLower = title.toLowerCase();
-        if (titleLower.includes('members free rsvp') || titleLower.includes('member free rsvp')) return null;
+        if (titleLower.includes('members free rsvp') || titleLower.includes('member free rsvp')) return null; // Intentional filter
 
         const descMatch = html.match(/<meta name="description" content="([^"]*)"/);
         const rawDesc = descMatch ? descMatch[1] : '';
         const description = this.decodeHtmlEntities(rawDesc);
 
         const parsed = this.parseDateTimeFromText(description);
-        if (!parsed) return null;
+        if (!parsed) return { type: 'ParseError', reason: 'No parseable date found in description', context: title };
 
         const { year, month, day, startHour, startMinute, endHour, endMinute } = parsed;
 
         const dedupKey = `${year}-${month}-${day}-${startHour}-${startMinute}`;
-        if (seen.has(dedupKey)) return null;
+        if (seen.has(dedupKey)) return null; // Dedup — not an error
         seen.add(dedupKey);
 
         const eventDate = ZonedDateTime.of(
@@ -99,7 +104,7 @@ export default class CobysCafeRipper implements IRipper {
             TIMEZONE
         );
         const durationMinutes = (endHour * 60 + endMinute) - (startHour * 60 + startMinute);
-        if (durationMinutes <= 0) return null;
+        if (durationMinutes <= 0) return { type: 'ParseError', reason: `Parsed duration <= 0 (${durationMinutes}min)`, context: title };
 
         return {
             id: url,

@@ -138,16 +138,20 @@ describe('CobysCafeRipper - parseProductHtml', () => {
     test('skips events with no parseable date in description', () => {
         const html = makeProductHtml("Mother's Day Bouquet Workshop | Coby's Cafe",
             "Get ready for Mother's Day with our hands-on bouquet workshop");
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/470', new Set());
-        expect(event).toBeNull();
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/470', new Set());
+        expect(result).not.toBeNull();
+        expect(result).toHaveProperty('type', 'ParseError');
+        expect((result as any).reason).toContain('No parseable date');
     });
 
-    test('skips events where end time is before start time (invalid range)', () => {
+    test('reports ParseError for events where end time is before start time (invalid range)', () => {
         // "9pm-6pm" → 21:00 start, 18:00 end → negative duration
         const html = makeProductHtml('Bad Time Event | Coby\'s Cafe',
             'Join us on May 15 from 9pm-6pm for an event');
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/999', new Set());
-        expect(event).toBeNull();
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/999', new Set());
+        expect(result).not.toBeNull();
+        expect(result).toHaveProperty('type', 'ParseError');
+        expect((result as any).reason).toContain('duration');
     });
 
     test('deduplicates events at same date+time', () => {
@@ -165,8 +169,9 @@ describe('CobysCafeRipper - parseProductHtml', () => {
         expect(event2).toBeNull();
     });
 
-    test('returns null for empty HTML', () => {
-        const event = ripper.parseProductHtml('', 'https://example.com', new Set());
-        expect(event).toBeNull();
+    test('returns ParseError for empty HTML (no title)', () => {
+        const result = ripper.parseProductHtml('', 'https://example.com', new Set());
+        expect(result).not.toBeNull();
+        expect(result).toHaveProperty('type', 'ParseError');
     });
 });

@@ -62,12 +62,18 @@ describe('parseEventPage', () => {
         expect(parseEventPage(html)).toBeNull();
     });
 
-    it('returns null when no JSON-LD present', () => {
-        expect(parseEventPage('<html><body>No structured data</body></html>')).toBeNull();
+    it('returns ParseError when no JSON-LD present', () => {
+        const result = parseEventPage('<html><body>No structured data</body></html>');
+        expect(result).not.toBeNull();
+        expect(result).toHaveProperty('type', 'ParseError');
+        expect((result as any).reason).toContain('No JSON-LD');
     });
 
-    it('returns null for malformed JSON', () => {
+    it('returns ParseError for malformed JSON', () => {
         const html = '<script type="application/ld+json">{bad json}</script>';
-        expect(parseEventPage(html)).toBeNull();
+        const result = parseEventPage(html);
+        expect(result).not.toBeNull();
+        expect(result).toHaveProperty('type', 'ParseError');
+        expect((result as any).reason).toContain('Failed to parse JSON-LD');
     });
 });

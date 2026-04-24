@@ -46,7 +46,7 @@ Also try discovery-oriented searches:
 
 For each search result that looks like a Seattle event source, evaluate:
 
-1. **Seattle-area?** Must be within Seattle city limits (no Bellevue, Kirkland, etc.)
+1. **Seattle-area?** Must be **Seattle-focused** — primarily serving Seattle audiences. Venues with a few events in nearby cities (Bellevue, Kirkland, etc.) are OK as long as most events are in Seattle proper.
 2. **Has a public events page or feed?** Must have a URL with event listings
 3. **Matches a known ripper type?** Must be one of:
    - ICS/iCal feed (add to `sources/external.yaml`)
@@ -56,7 +56,7 @@ For each search result that looks like a Seattle event source, evaluate:
    - DICE (built-in `dice` type)
    - AXS (built-in `axs` type)
    - Shopify (built-in `shopify` type — verify `/products.json` returns events)
-   - Simple HTML/JSON that could be scraped with a custom ripper
+   - Custom HTML/JSON scraping (the repo has many custom rippers — this is viable, not "not viable")
 4. **Not already covered?** Check `sources/` directory and `sources/external.yaml`
 5. **Not already in candidates?** Check `docs/source-candidates.md`
 6. **Sufficient event volume?** Should have at least a few events, not a one-off
@@ -78,7 +78,7 @@ Add a date-stamped entry at the top of the Discovery Log section:
 - ❌ Not Viable: [venue name] — [reason]
 ```
 
-**Then commit and push `docs/source-candidates.md` directly to main.** This is reference data, not code — direct push is fine and ensures candidates are always up-to-date before we start implementing.
+**Then commit `docs/source-candidates.md` and open a PR.** Even though this is reference data (not code), the repo requires all changes via PR. Use a branch like `chore/source-discovery-YYYY-MM-DD`. After CI passes and Amazon Q has no blocking comments, merge the PR. This ensures candidates are always up-to-date before we start implementing.
 
 ### 6. Implement the highest-confidence source
 
@@ -88,9 +88,11 @@ From the 💡 Candidate list, **always pick the source with the highest confiden
 |------|----------|---------|
 | 🔥 **High** | Built-in type with **confirmed working API** — you've verified it returns data | Eventbrite with verified organizerId, Squarespace with confirmed `itemCount > 0`, ICS feed returning valid VCALENDAR, Shopify with confirmed `/products.json` |
 | 🟡 **Medium** | Built-in type that *should* work but **unverified** | Eventbrite with untested org ID, WordPress/Tribe Events ICS endpoint, DICE venue ID |
-| 🔴 **Low** | Requires **custom scraper code** | HTML table scraping, JS-rendered pages, WordPress with custom REST endpoints |
+| 🔴 **Low** | Requires **custom scraper code** | HTML table scraping, WordPress with custom REST endpoints |
 
 **Only implement one source per cycle.** Pick the highest-confidence 💡 candidate that hasn't been attempted. If multiple have the same tier, pick the one with the most expected events.
+
+**🔴 Low does not mean "not viable".** The repo has many custom scrapers (frye_art_museum, royal_room, cobys_cafe, seatoday, etc.). A 🔴 Low source is still worth implementing — it just takes more work and should be prioritized after higher-tier candidates. Only mark a source `❌ Not Viable` if it truly can't be scraped (no structured data at all, JS-rendered with no API, requires browser automation we don't have).
 
 To implement:
 1. **Cut a feature branch**: `scripts/new_feature_branch.sh`
@@ -129,11 +131,11 @@ Include a "🔍 Source Discovery" section in the daily report:
 ## Important rules
 
 - **Always open a PR** for new sources — never push ripper code direct to main
-- **Push `docs/source-candidates.md` direct to main** — it's reference data, not code
+- **Open a PR for `docs/source-candidates.md`** — even reference data changes need a PR (repo requires it)
 - **Always implement highest-confidence source first** — don't skip to low-confidence custom scrapers when a verified built-in type is available
 - **One source per cycle** — implement, verify, iterate with Q, then report. Don't stack multiple sources in one cycle.
 - **Always delegate to a coding agent** to implement the ripper — do not write code directly
-- **Seattle city limits only** — no Eastside, no Kent, no Everett
+- **Seattle-focused only** — sources must primarily serve Seattle audiences. A few events outside city limits is OK (e.g., Seattle Uncorked with some Eastside events). Venues entirely outside Seattle (Edmonds, Everett, Kent) are not appropriate.
 - **Rotate search queries** — don't run the same searches every day
 - **Check `docs/source-candidates.md` first** — avoid re-proposing evaluated sources
 - **Flag dead sources** — but don't disable them without human approval

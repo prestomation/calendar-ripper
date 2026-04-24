@@ -4,6 +4,17 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
+- 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
+- 💡 **Emerald City Comedy Club** — SeatEngine platform (custom ripper needed). 40+ upcoming events, rich schedule at `emeraldcitycomedy.com`. Custom HTML/JSON scraper required (🔴 Low confidence). Tags: Comedy, Capitol Hill.
+- ❌ **Mox Boarding House Seattle** — Shopify store but events are on `/pages/seattle-events` (not products). Events page is JS-rendered, no structured API for events. `/products.json` returns MTG products only. Not viable. Tags: Gaming, Ballard.
+- 💡 **Seattle Uncorked** — WordPress site with wine/beer events, mostly Seattle-focused (some Eastside events). Custom scraper needed (🔴 Low confidence). Tags: Beer, Community.
+- ❌ **Hidden Door** — DNS resolution fails (`hiddendoorseattle.com`). Appears dead/defunct. Tags: Music, Capitol Hill.
+- ❌ **Backfire Motobar** — DNS resolution fails (`backfiremotobar.com`). Appears dead/defunct. Tags: Music, Nightlife.
+- ❌ **Cohesion Brewing** — Located in Denver, CO. Not Seattle. Tags: N/A.
+- ❌ **Salish Sea Brewing** — Located in Edmonds, WA. Outside Seattle city limits. Tags: N/A.
+- 💀 **Zero-event calendars**: All 10 from build remain same status. No new dead sources detected.
+
 ### 2026-04-23 — Added Book Larder
 - ✅ **Book Larder** — Shopify products.json API (`/collections/evey-events/products.json`). Dates parsed from body_html text. 8 of 10 products produce parseable events (book clubs without dates are skipped). Tags: Books, Food, Fremont.
 
@@ -13,7 +24,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **SeattleDances** — ICS feed blocked by CAPTCHA (sgcaptcha). Not viable.
 - ❌ **Theatre Off Jackson** — uses venture-event-manager plugin, no working ICS export.
 - ❌ **Rat City Roller Derby** — no Tribe Events ICS, returns HTML.
-- ❌ **Cannonball Arts Center** — REST API returning 503.
+- ❌ **Cannonball Arts Center** — REST API returning 503. ~~Updated 2026-04-24: REST API now working (6 events). Moved to 💡 Candidate.~~
 
 ### 2026-04-23 — Source discovery: Arts & Culture, Bookstores, New Venues
 - ❌ **Frye Art Museum** — Already has a custom ripper (`sources/frye_art_museum/`). Calendar has 11+ pages of events but no ICS/Eventbrite/structured feed. No new source needed.
@@ -117,7 +128,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
 
-**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — Tags: Arts, Belltown — New venue from Bumbershoot producers, currently 5 events, growing
+**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers
 
 ### Custom HTML/JSON Scraping
 
@@ -173,13 +184,13 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Renegade Craft Fair** — `https://www.renegadecraft.com/events/` — Tags: MakersMarket
 
-**Seattle Uncorked** — `https://seattleuncorked.com/events/` — Tags: Beer, Community
+**Seattle Uncorked** — `https://seattleuncorked.com/events/` — WordPress, mostly Seattle-focused (some Eastside events) — Tags: Beer, Community
 
 **ParentMap** — `https://www.parentmap.com/calendar` — Drupal — Tags: Community
 
 **Seattle Indian Health Board** — `https://www.sihb.org/events/` — WordPress — Tags: Community
 
-**Emerald City Comedy Club** — `https://www.emeraldcitycomedy.com/events` — SeatEngine platform — Tags: Comedy, Capitol Hill
+**Emerald City Comedy Club** — `https://www.emeraldcitycomedy.com/events` — SeatEngine platform, 40+ events, custom ripper needed — Tags: Comedy, Capitol Hill
 
 **Here-After (at The Crocodile)** — `https://www.thecrocodile.com/here-after` — 2505 1st Ave — Tags: Comedy, Belltown — May overlap with existing `crocodile` ripper
 

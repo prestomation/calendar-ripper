@@ -42,32 +42,51 @@ describe('parseRSSFeed', () => {
 describe('parseEventPage', () => {
     it('extracts startDate from JSON-LD', () => {
         const data = parseEventPage(loadSampleEvent());
-        expect(data).not.toBeNull();
-        expect(data!.startDate).toBe('2026-05-10 19:30:00');
+        expect('startDate' in data).toBe(true);
+        if ('startDate' in data) {
+            expect(data.startDate).toBe('2026-05-10 19:30:00');
+        }
     });
 
     it('extracts event name and decodes entities', () => {
         const data = parseEventPage(loadSampleEvent());
-        expect(data!.name).toContain('Sh');
-        expect(data!.name).not.toContain('&#8217;');
+        expect('startDate' in data).toBe(true);
+        if ('name' in data) {
+            expect(data.name).toContain('Sh');
+            expect(data.name).not.toContain('&#8217;');
+        }
     });
 
     it('returns eventStatus', () => {
         const data = parseEventPage(loadSampleEvent());
-        expect(data!.eventStatus).toBe('EventScheduled');
+        expect('startDate' in data).toBe(true);
+        if ('eventStatus' in data) {
+            expect(data.eventStatus).toBe('EventScheduled');
+        }
     });
 
-    it('returns null for non-event JSON-LD', () => {
+    // parseEventPage never returns null — non-Event JSON-LD is now a ParseError
+    // (previously returned null silently)
+    it('returns ParseError for non-event JSON-LD', () => {
         const html = '<script type="application/ld+json">{"@type":"Organization","name":"Test"}</script>';
-        expect(parseEventPage(html)).toBeNull();
+        const result = parseEventPage(html);
+        expect('type' in result).toBe(true);
+        expect((result as any).type).toBe('ParseError');
+        expect((result as any).reason).toContain('not "Event"');
     });
 
-    it('returns null when no JSON-LD present', () => {
-        expect(parseEventPage('<html><body>No structured data</body></html>')).toBeNull();
+    it('returns ParseError when no JSON-LD present', () => {
+        const result = parseEventPage('<html><body>No structured data</body></html>');
+        expect('type' in result).toBe(true);
+        expect((result as any).type).toBe('ParseError');
+        expect((result as any).reason).toContain('No JSON-LD');
     });
 
-    it('returns null for malformed JSON', () => {
+    it('returns ParseError for malformed JSON', () => {
         const html = '<script type="application/ld+json">{bad json}</script>';
-        expect(parseEventPage(html)).toBeNull();
+        const result = parseEventPage(html);
+        expect('type' in result).toBe(true);
+        expect((result as any).type).toBe('ParseError');
+        expect((result as any).reason).toContain('Failed to parse JSON-LD');
     });
 });

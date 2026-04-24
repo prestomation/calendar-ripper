@@ -88,85 +88,76 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
 describe('CobysCafeRipper - parseProductHtml', () => {
     const ripper = new CobysCafeRipper();
 
+    // Note: parseProductHtml never returns null — it returns RipperCalendarEvent or RipperError.
+    // Pre-parse filters (dedup, content exclusions, non-event pages) are handled in the caller.
+
     test('parses Small Dog Meetup event correctly', () => {
         const data = loadSampleData();
         const product = data.products['466'];
         const html = makeProductHtml(product.title, product.description);
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/466', new Set());
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/466');
 
-        expect(event).not.toBeNull();
-        expect(event!.summary).toBe('Small Dog Meetup - General Ticket');
-        expect(event!.date.monthValue()).toBe(4);
-        expect(event!.date.dayOfMonth()).toBe(24);
-        expect(event!.date.hour()).toBe(17);
-        expect(event!.date.minute()).toBe(0);
-        expect(event!.duration.toMinutes()).toBe(90);
-        expect(event!.location).toContain('101 Nickerson St');
-        expect(event!.url).toBe('https://www.cobyscafe.com/product/x/466');
+        expect('date' in result).toBe(true);
+        if ('date' in result) {
+            expect(result.summary).toBe('Small Dog Meetup - General Ticket');
+            expect(result.date.monthValue()).toBe(4);
+            expect(result.date.dayOfMonth()).toBe(24);
+            expect(result.date.hour()).toBe(17);
+            expect(result.date.minute()).toBe(0);
+            expect(result.duration.toMinutes()).toBe(90);
+            expect(result.location).toContain('101 Nickerson St');
+            expect(result.url).toBe('https://www.cobyscafe.com/product/x/466');
+        }
     });
 
     test('parses Cinco de Mayo Fiesta event correctly', () => {
         const data = loadSampleData();
         const product = data.products['464'];
         const html = makeProductHtml(product.title, product.description);
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/464', new Set());
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/464');
 
-        expect(event).not.toBeNull();
-        expect(event!.summary).toBe('Cinco de Mayo Fiesta for One Human + One Dog');
-        expect(event!.date.monthValue()).toBe(5);
-        expect(event!.date.dayOfMonth()).toBe(1);
-        expect(event!.date.hour()).toBe(18);
-        expect(event!.duration.toHours()).toBe(2);
+        expect('date' in result).toBe(true);
+        if ('date' in result) {
+            expect(result.summary).toBe('Cinco de Mayo Fiesta for One Human + One Dog');
+            expect(result.date.monthValue()).toBe(5);
+            expect(result.date.dayOfMonth()).toBe(1);
+            expect(result.date.hour()).toBe(18);
+            expect(result.duration.toHours()).toBe(2);
+        }
     });
 
-    test('skips Members Free RSVP events', () => {
-        const data = loadSampleData();
-        const product = data.products['467'];
-        const html = makeProductHtml(product.title, product.description);
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/467', new Set());
-        expect(event).toBeNull();
-    });
-
-    test('skips events with no title (bare site name)', () => {
-        const data = loadSampleData();
-        const product = data.products['UXI3YOKPLBJDGEX2ROHQU2IR'];
-        const html = makeProductHtml(product.title, product.description);
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/UXI3YOKPLBJDGEX2ROHQU2IR', new Set());
-        expect(event).toBeNull();
-    });
-
-    test('skips events with no parseable date in description', () => {
+    test('reports ParseError for events with no parseable date in description', () => {
         const html = makeProductHtml("Mother's Day Bouquet Workshop | Coby's Cafe",
             "Get ready for Mother's Day with our hands-on bouquet workshop");
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/470', new Set());
-        expect(event).toBeNull();
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/470');
+        expect('type' in result).toBe(true);
+        expect((result as any).type).toBe('ParseError');
+        expect((result as any).reason).toContain('No parseable date');
     });
 
-    test('skips events where end time is before start time (invalid range)', () => {
+    test('reports ParseError for events where end time is before start time (invalid range)', () => {
         // "9pm-6pm" → 21:00 start, 18:00 end → negative duration
         const html = makeProductHtml('Bad Time Event | Coby\'s Cafe',
             'Join us on May 15 from 9pm-6pm for an event');
-        const event = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/999', new Set());
-        expect(event).toBeNull();
+        const result = ripper.parseProductHtml(html, 'https://www.cobyscafe.com/product/x/999');
+        expect('type' in result).toBe(true);
+        expect((result as any).type).toBe('ParseError');
+        expect((result as any).reason).toContain('duration');
     });
 
-    test('deduplicates events at same date+time', () => {
-        const data = loadSampleData();
-        const seen = new Set<string>();
-
-        // Cinco de Mayo: two ticket types for the same May 1, 6pm event
-        const html464 = makeProductHtml(data.products['464'].title, data.products['464'].description);
-        const html465 = makeProductHtml(data.products['465'].title, data.products['465'].description);
-
-        const event1 = ripper.parseProductHtml(html464, 'https://www.cobyscafe.com/product/x/464', seen);
-        const event2 = ripper.parseProductHtml(html465, 'https://www.cobyscafe.com/product/x/465', seen);
-
-        expect(event1).not.toBeNull();
-        expect(event2).toBeNull();
+    test('reports ParseError for empty HTML (no title)', () => {
+        const result = ripper.parseProductHtml('', 'https://example.com');
+        expect('type' in result).toBe(true);
+        expect((result as any).type).toBe('ParseError');
+        expect((result as any).reason).toContain('No <title>');
     });
 
-    test('returns null for empty HTML', () => {
-        const event = ripper.parseProductHtml('', 'https://example.com', new Set());
-        expect(event).toBeNull();
-    });
+    // Dedup is handled in the caller (fetchAndParseEvents), not in parseProductHtml.
+    // When two events parse to the same date+time, the second is skipped by the caller's
+    // dedup set — parseProductHtml always returns a RipperCalendarEvent for valid events.
+
+    // Pre-parse content filters (Members Free RSVP, bare site name) are also handled
+    // in the caller — parseProductHtml is never called for filtered items.
+    // If called with a "Members Free RSVP" title, it will attempt to parse it
+    // and either return an event or a ParseError depending on the description.
 });

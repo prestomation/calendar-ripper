@@ -219,7 +219,14 @@ export default class PacificScienceCenterRipper implements IRipper {
 
                 for (const showtime of showtimes) {
                     const parsed = this.parseShowtime(showtime.date, showtime.time, timezone);
-                    if (!parsed) continue;
+                    if (!parsed) {
+                        events.push({
+                            type: "ParseError",
+                            reason: `Could not parse showtime: date="${showtime.date}" time="${showtime.time}"`,
+                            context: title
+                        });
+                        continue;
+                    }
 
                     const calendarEvent: RipperCalendarEvent = {
                         id: `show-${show.id}-${showtime.date}-${showtime.time}`.replace(/\s+/g, ''),

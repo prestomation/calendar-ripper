@@ -35,12 +35,21 @@ export default class MoPOPRipper extends HTMLRipper {
 
                 const eventItems = Array.isArray(data.hasPart) ? data.hasPart.filter((p: any) => p["@type"] === "Event") : [];
                 for (const item of eventItems) {
+                    if (!item.name || !item.startDate) {
+                        events.push({
+                            type: "ParseError",
+                            reason: `JSON-LD Event missing name or startDate`,
+                            context: JSON.stringify(item).substring(0, 100)
+                        });
+                        continue;
+                    }
+                    const summary = decode(item.name);
+                    const id = this.generateEventId(summary, null);
+                    if (this.seenEvents.has(id)) continue;
                     const parsed = this.parseJsonLdEvent(item);
-                    if (!parsed) continue;
                     if ("type" in parsed) {
                         events.push(parsed);
                     } else {
-                        if (this.seenEvents.has(parsed.id!)) continue;
                         this.seenEvents.add(parsed.id!);
                         events.push(parsed);
                     }
@@ -106,14 +115,9 @@ export default class MoPOPRipper extends HTMLRipper {
         }
     }
 
-    private parseJsonLdEvent(item: any): RipperEvent | null {
-        if (!item.name || !item.startDate) return null;
-
+    private parseJsonLdEvent(item: any): RipperEvent {
         const summary = decode(item.name);
         const id = this.generateEventId(summary, null);
-
-        // Check for duplicate by name
-        if (this.seenEvents.has(id)) return null;
 
         const startDate = this.parseIsoDate(item.startDate);
         if (!startDate) {

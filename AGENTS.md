@@ -452,7 +452,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
     {
       "source": "ripper-name",
       "calendar": "calendar-name",
-      "type": "Ripper | Recurring | Aggregate",
+      "type": "Ripper | Recurring",
       "errorCount": 3,
       "errors": [
         { "type": "ParseError", "reason": "...", "context": "..." }
@@ -473,7 +473,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 ```
 
 - **`configErrors`** — errors loading ripper configs (missing `ripper.yaml`, import failures)
-- **`sources`** — per-calendar parse errors from Ripper, Recurring, and Aggregate calendars (only entries with errors are included)
+- **`sources`** — per-calendar parse errors from Ripper and Recurring calendars (only entries with errors are included). Aggregate (`tag-*`) calendars are intentionally excluded — every error there is a duplicate of an upstream ripper error, and counting them inflates the build error count by the number of tags each broken source belongs to.
 - **`externalCalendarFailures`** — external ICS feeds that failed to fetch
 - **`zeroEventCalendars`** — calendar names that produced 0 events **unexpectedly** (may indicate a problem)
 - **`expectedEmptyCalendars`** — calendar names with `expectEmpty: true` that produced 0 events (not a problem)
@@ -551,6 +551,8 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 **Symptom:** Errors in `tag-*` aggregate calendars
 
 **Cause:** These are always downstream from ripper errors. Fix the underlying ripper and the tag errors resolve automatically.
+
+**Reporting:** Aggregate errors are intentionally excluded from `totalErrors`, `errorCount.txt`, and `build-errors.json#sources`. The per-aggregate `<calendar>-errors.txt` file is still written if you want the raw list, but the headline error count tracks only the upstream rippers that need fixing.
 
 ## Favorites Filter Parity Rule
 

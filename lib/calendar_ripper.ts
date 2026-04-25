@@ -345,11 +345,18 @@ export const main = async () => {
   // Track event counts per calendar for summary
   const eventCounts: Array<{ name: string; type: string; events: number; expectEmpty: boolean }> = [];
 
-  // Collect all errors for consolidated build-errors.json
+  // Collect all errors for consolidated build-errors.json. Aggregate
+  // (tag-*) calendars are intentionally absent from this list and from
+  // `totalErrorCount` — every error in an aggregate is a duplicate of an
+  // error in one of its source calendars. Counting them inflates the
+  // build's error number by the number of tags each broken source
+  // belongs to (e.g. one Book Larder parse failure shows up under
+  // tag-fremont, tag-food, tag-books, and tag-all). Fixing the upstream
+  // ripper resolves the aggregate "errors" automatically.
   interface BuildErrorEntry {
     source: string;
     calendar: string;
-    type: "Ripper" | "Recurring" | "Aggregate";
+    type: "Ripper" | "Recurring";
     errorCount: number;
     errors: RipperError[];
   }
@@ -621,8 +628,11 @@ export const main = async () => {
     for (const calendar of aggregateCalendars) {
       const icsPath = `${calendar.name}.ics`;
       const errorsPath = `${calendar.name}-errors.txt`;
+      // Aggregate errors are duplicates of upstream ripper errors — they
+      // are written to the per-aggregate `*-errors.txt` file for raw
+      // visibility but deliberately excluded from `totalErrorCount` and
+      // `buildErrors.sources` (see `BuildErrorEntry` comment above).
       const errorCount = calendar.errors.length;
-      totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
       const aggTag = calendar.tags[0];
       const isAggExpectEmpty = aggTag ? (tagExpectEmpty.get(aggTag) ?? false) : false;
@@ -630,15 +640,6 @@ export const main = async () => {
       eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty });
       if (calendar.events.length === 0 && !isAggExpectEmpty) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
-      }
-      if (errorCount > 0) {
-        buildErrors.push({
-          source: calendar.name,
-          calendar: calendar.name,
-          type: "Aggregate",
-          errorCount,
-          errors: calendar.errors,
-        });
       }
 
       aggregateWritePromises.push(writeFile(`output/${icsPath}`, icsString));

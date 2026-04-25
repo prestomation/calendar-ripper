@@ -9,24 +9,16 @@ on:
       - "Cleanup Preview"
     types:
       - completed
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - closed
   pull_request_review:
     types:
       - submitted
-  pull_request_review_comment:
-    types:
-      - created
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
       - name: Notify workflow run
-        if: github.event_name == 'workflow_run'
+        if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
           WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
@@ -43,35 +35,7 @@ jobs:
             *)         EMOJI="⚠️" ;;
           esac
 
-          CONTENT="@CalendarClaw ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"
-          PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
-
-      - name: Notify pull request
-        if: github.event_name == 'pull_request'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
-          PR_ACTION: ${{ github.event.action }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          PR_MERGED: ${{ github.event.pull_request.merged }}
-        run: |
-          case "$PR_ACTION" in
-            opened)      EMOJI="🔓" VERB="opened" ;;
-            synchronize) EMOJI="🔄" VERB="updated" ;;
-            closed)
-              if [ "$PR_MERGED" = "true" ]; then
-                EMOJI="🟣" VERB="merged"
-              else
-                EMOJI="🔴" VERB="closed"
-              fi
-              ;;
-            *) EMOJI="ℹ️" VERB="$PR_ACTION" ;;
-          esac
-
-          CONTENT="@CalendarClaw ${EMOJI} PR #${PR_NUMBER} **${PR_TITLE}** ${VERB} by \`${PR_AUTHOR}\`"$'\n'"[View PR](${PR_URL})"
+          CONTENT="${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
 
@@ -93,25 +57,13 @@ jobs:
             *)                 EMOJI="ℹ️" LABEL="reviewed" ;;
           esac
 
-          PREVIEW=$(echo "$REVIEW_BODY" | head -c 200 | tr '\n' ' ')
+          PREVIEW=$(echo "$REVIEW_BODY" | head -c 600 | iconv -c -t UTF-8 | head -c 200 | tr '\n' ' ')
           if [ -n "$PREVIEW" ]; then
-            CONTENT="@CalendarClaw ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"[View review](${REVIEW_URL})"
+            CONTENT="${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"[View review](${REVIEW_URL})"
           else
-            CONTENT="@CalendarClaw ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"[View review](${REVIEW_URL})"
+            CONTENT="${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"[View review](${REVIEW_URL})"
           fi
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
 
-      - name: Notify review comment
-        if: github.event_name == 'pull_request_review_comment'
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          COMMENTER: ${{ github.event.comment.user.login }}
-          COMMENT_BODY: ${{ github.event.comment.body }}
-          COMMENT_URL: ${{ github.event.comment.html_url }}
-        run: |
-          PREVIEW=$(echo "$COMMENT_BODY" | head -c 200 | tr '\n' ' ')
-          CONTENT="@CalendarClaw 💬 \`${COMMENTER}\` commented on PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"[View comment](${COMMENT_URL})"
-          PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
+

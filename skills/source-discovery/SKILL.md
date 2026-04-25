@@ -144,3 +144,32 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Verify events in CI before requesting review** — check the PR build log for the source's event count. If 0 events, move the source to `❌ Not Viable` instead of requesting review.
 - **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.
 - **Parse methods must never return null** — new custom rippers must have parse methods that return `RipperCalendarEvent | RipperError` (never `null`). Filters and dedup belong in the caller, not the parse method. TypeScript enforces this at compile time. See AGENTS.md "Parse Methods Must Never Return Null" for the required pattern.
+
+## Goals and Directives
+
+### Goal: Add One New Source Every Run
+
+**The primary goal of this skill is to add at least one new working source to the calendar every time it runs.** This is not optional — if the build is healthy, you must find and add a source.
+
+- **Event count is NOT a criteria for rejection.** A source with 3 events is as valid as one with 300. Volume doesn't determine viability.
+- **Any working source is better than no source.** Don't hold out for "better" candidates.
+- **If you find a working source, implement it.** Don't leave it in the candidates file for "next time."
+
+### Directive: Treat Local Checkout as Ephemeral
+
+**All work must reach GitHub.** The local checkout is temporary — commits that don't get pushed are lost.
+
+- **Always cut a feature branch** using `scripts/new_feature_branch.sh` or `git checkout -b feature/...`
+- **Always push the branch** to origin
+- **Always open a PR** — never leave changes local-only
+- **Verify the PR URL** is returned to the user
+
+### Directive: Low-Volume Sources Are Valid
+
+Don't dismiss sources for having "only" a few events:
+
+- **Shunpike (3 events)** — valid arts/community source
+- **Book Larder (5 events)** — valid bookstore events
+- **Cannonball Arts Center (6 events)** — valid new venue
+
+Unique, curated events from small organizations are valuable. The calendar's strength is breadth and variety, not just volume.

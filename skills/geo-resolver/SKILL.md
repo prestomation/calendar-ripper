@@ -242,6 +242,21 @@ quarter may be there now.
   an id, the id was probably deleted upstream — drop the stale id
   from the YAML and let the next run re-resolve.
 
+## ⚠️ Always verify venue addresses against the source website
+
+Reverse-geocoded addresses (generated from lat/lng) are **unreliable at street-number precision**. In the April 2026 geo audit, 9 venues had completely wrong street addresses because their labels were reverse-geocoded from approximate coordinates.
+
+**Rule:** When fixing or adding venue geo data, always:
+1. **Get the address from the venue's own website or event page** — not from Nominatim, Google Maps, or any geocoder's reverse-lookup.
+2. **Forward-geocode that verified address** via Nominatim to get accurate lat/lng.
+3. **Never trust a reverse-geocoded street number.** Geocoders return the nearest addressable point to the given coordinates, which is often a different building, a different street, or the wrong side of the block.
+
+Examples of reverse-geocoding failures found in the audit:
+- Tim's Tavern: coords 1.5km off → address resolved to wrong neighborhood
+- Bad Bar: coords 800m off → Capitol Hill address instead of Queen Anne
+- Add-A-Ball: coords 1.2km off → Wallingford address instead of Fremont
+- The Rabbit Box: coords 600m off → Queen Anne address instead of Pike Place Market
+
 ## Key references
 
 - **S3 bucket:** `calendar-ripper-outofband-220483515252`

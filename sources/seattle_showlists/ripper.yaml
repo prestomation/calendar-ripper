@@ -55,9 +55,9 @@ calendars:
   - name: belltown-yacht-club
     friendlyname: "Belltown Yacht Club"
     geo:
-      lat: 47.618
-      lng: -122.346
-      label: "Belltown Yacht Club, 2608 1st Ave, Seattle, WA 98121"
+      lat: 47.6154
+      lng: -122.3498
+      label: "Belltown Yacht Club, 2320 1st Ave, Seattle, WA 98121"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
     config:
@@ -91,8 +91,8 @@ calendars:
   - name: clock-out-lounge
     friendlyname: "Clock-Out Lounge"
     geo:
-      lat: 47.5548
-      lng: -122.3065
+      lat: 47.5591
+      lng: -122.3037
       label: "Clock-Out Lounge, 4864 Beacon Ave S, Seattle, WA 98108"
       osmType: node
       osmId: 2371319981
@@ -105,9 +105,9 @@ calendars:
   - name: black-and-tan-hall
     friendlyname: "Black & Tan Hall"
     geo:
-      lat: 47.5502
-      lng: -122.2878
-      label: "Black & Tan Hall, 5724 Rainier Ave S, Seattle, WA 98118"
+      lat: 47.551
+      lng: -122.2774
+      label: "Black & Tan Hall, 5608 Rainier Ave S, Seattle, WA 98118"
     timezone: America/Los_Angeles
     tags: ["Columbia City"]
     config:
@@ -115,8 +115,8 @@ calendars:
   - name: the-royal-room
     friendlyname: "The Royal Room"
     geo:
-      lat: 47.5522
-      lng: -122.2905
+      lat: 47.5569
+      lng: -122.2843
       label: "The Royal Room, 5000 Rainier Ave S, Seattle, WA 98118"
       osmType: node
       osmId: 2429623367
@@ -129,9 +129,9 @@ calendars:
   - name: the-rabbit-box
     friendlyname: "The Rabbit Box"
     geo:
-      lat: 47.608
-      lng: -122.34
-      label: "The Rabbit Box, 816 5th Ave N, Seattle, WA 98103"
+      lat: 47.6105
+      lng: -122.3425
+      label: "The Rabbit Box, 94 Pike St Suite 11, Seattle, WA 98101"
     timezone: America/Los_Angeles
     tags: ["Downtown"]
     config:
@@ -141,8 +141,8 @@ calendars:
   - name: black-lodge
     friendlyname: "Black Lodge"
     geo:
-      lat: 47.6125
-      lng: -122.308
+      lat: 47.6147
+      lng: -122.3143
       label: "Black Lodge, 1404 E Jefferson St, Seattle, WA 98122"
     timezone: America/Los_Angeles
     tags: ["Eastlake"]
@@ -153,9 +153,9 @@ calendars:
   - name: slims-last-chance
     friendlyname: "Slim's Last Chance"
     geo:
-      lat: 47.5583
-      lng: -122.277
-      label: "Slim's Last Chance, 5607 Airport Way S, Seattle, WA 98108"
+      lat: 47.5519
+      lng: -122.3313
+      label: "Slim's Last Chance, 5606 1st Ave S, Seattle, WA 98108"
     timezone: America/Los_Angeles
     tags: ["Georgetown"]
     config:
@@ -165,9 +165,9 @@ calendars:
   - name: add-a-ball
     friendlyname: "Add-A-Ball"
     geo:
-      lat: 47.6618
-      lng: -122.3341
-      label: "Add-A-Ball, 1520 N 45th St, Seattle, WA 98103"
+      lat: 47.652
+      lng: -122.3549
+      label: "Add-A-Ball, 315 N 36th St, Seattle, WA 98103"
     timezone: America/Los_Angeles
     tags: ["Fremont"]
     config:
@@ -175,9 +175,9 @@ calendars:
   - name: nectar-lounge
     friendlyname: "Nectar Lounge"
     geo:
-      lat: 47.65
-      lng: -122.3358
-      label: "Nectar Lounge, 405 N 36th St, Seattle, WA 98103"
+      lat: 47.6521
+      lng: -122.3542
+      label: "Nectar Lounge, 412 N 36th St, Seattle, WA 98103"
     timezone: America/Los_Angeles
     tags: ["Fremont"]
     config:
@@ -199,9 +199,9 @@ calendars:
   - name: bad-bar
     friendlyname: "Bad Bar"
     geo:
-      lat: 47.6135
-      lng: -122.3298
-      label: "Bad Bar, 1206 Pike St, Seattle, WA 98101"
+      lat: 47.6222
+      lng: -122.3474
+      label: "Bad Bar, 819 5th Ave N, Seattle, WA 98109"
     timezone: America/Los_Angeles
     tags: ["QueenAnne"]
     config:
@@ -211,9 +211,9 @@ calendars:
   - name: darrells-tavern
     friendlyname: "Darrell's Tavern"
     geo:
-      lat: 47.7524
-      lng: -122.3445
-      label: "Darrell's Tavern, 18022 Aurora Ave N, Shoreline, WA 98133"
+      lat: 47.7353
+      lng: -122.345
+      label: "Darrell's Tavern, 18041 Aurora Ave N, Shoreline, WA 98133"
     timezone: America/Los_Angeles
     tags: ["Shoreline"]
     config:
@@ -223,8 +223,8 @@ calendars:
   - name: blue-moon-tavern
     friendlyname: "Blue Moon Tavern"
     geo:
-      lat: 47.6612
-      lng: -122.3141
+      lat: 47.6615
+      lng: -122.32
       label: "Blue Moon Tavern, 712 NE 45th St, Seattle, WA 98105"
       osmType: way
       osmId: 467115615
@@ -237,9 +237,9 @@ calendars:
   - name: skylark
     friendlyname: "Skylark"
     geo:
-      lat: 47.5771
-      lng: -122.3625
-      label: "Skylark, 3803 6th Ave SW, Seattle, WA 98106"
+      lat: 47.5507
+      lng: -122.3525
+      label: "Skylark, 3803 Delridge Way SW, Seattle, WA 98106"
     timezone: America/Los_Angeles
     tags: ["West Seattle"]
     config:
@@ -249,9 +249,9 @@ calendars:
   - name: tims-tavern
     friendlyname: "Tim's Tavern"
     geo:
-      lat: 47.517
-      lng: -122.3708
-      label: "Tim's Tavern, 8305 14th Ave SW, Seattle, WA 98106"
+      lat: 47.5288
+      lng: -122.3529
+      label: "Tim's Tavern, 9655 16th Ave SW, Seattle, WA 98106"
     timezone: America/Los_Angeles
     tags: ["White Center"]
     config:

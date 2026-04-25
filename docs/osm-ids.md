@@ -104,8 +104,11 @@ skill's reply for human judgment.
 
 Tier D/F rejections are persisted by adding an `osmChecked: "YYYY-MM-DD"`
 marker inside the `geo` block so we don't re-propose the same wrong
-match every day. The build skips such venues from `osmGaps` for ~60
-days, then retries (OSM grows over time).
+match every day. `buildOsmGaps` skips venues whose `osmChecked` is
+within the last `OSM_CHECKED_COOLDOWN_DAYS` days (defined in
+`lib/config/schema.ts`, currently 60). After the cooldown the venue
+re-surfaces in the gap list — OSM grows over time and a feature
+missing six months ago may exist today.
 
 ## Manually overriding an ID
 
@@ -123,3 +126,25 @@ geo:
 
 The schema enforces that both fields are present or both absent; CI
 will reject a PR that sets only one.
+
+## Recording a rejection
+
+When Nominatim has no good candidate for a venue (Tier D/F in the
+skill's rubric — wrong feature, or no result at all), record the
+rejection so the daily skill doesn't re-propose the same bad match
+every run:
+
+```yaml
+geo:
+  lat: 47.6091
+  lng: -122.3416
+  label: "Pike Place Market, 85 Pike St, Seattle, WA 98101"
+  # Brief reason — helps a future agent re-evaluate when the cooldown lapses.
+  osmChecked: "2026-04-24"
+```
+
+`osmChecked` must be a `YYYY-MM-DD` string (the schema enforces the
+format). Venues with a fresh `osmChecked` are silenced from
+`build-errors.json#osmGaps` for `OSM_CHECKED_COOLDOWN_DAYS` days
+(see `lib/config/schema.ts`), then automatically re-surface so the
+skill can retry.

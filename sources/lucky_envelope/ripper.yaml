@@ -8,6 +8,9 @@ geo:
   lat: 47.6706
   lng: -122.3847
   label: "Lucky Envelope Brewing, 1520 NW Leary Way, Seattle, WA 98107"
+  # Nominatim's address-only result didn't land on the brewery — the
+  # taproom doesn't have its own OSM feature yet.
+  osmChecked: "2026-04-24"
 calendars:
   - name: all-events
     friendlyname: "Lucky Envelope Brewing"

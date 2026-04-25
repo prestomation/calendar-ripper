@@ -7,10 +7,12 @@ import {
   tagsDocSchema,
   buildVenuesJson,
   venuesDocSchema,
+  buildOsmGaps,
+  isOsmCheckedFresh,
   ManifestLike,
   EventCountLike,
 } from "./discovery.js";
-import { RipperConfig, ExternalCalendar } from "./config/schema.js";
+import { RipperConfig, ExternalCalendar, OSM_CHECKED_COOLDOWN_DAYS } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
 
 // ---------------------------------------------------------------------------
@@ -549,5 +551,294 @@ describe("buildVenuesJson", () => {
     const roundTripped = JSON.parse(JSON.stringify(doc));
     // Re-parsing with Zod tolerates absent optional keys.
     expect(() => venuesDocSchema.parse(roundTripped)).not.toThrow();
+  });
+});
+
+// ---------------------------------------------------------------------------
+// isOsmCheckedFresh — cooldown window for Tier D/F rejections
+// ---------------------------------------------------------------------------
+
+describe("isOsmCheckedFresh", () => {
+  // Fixed reference: exactly OSM_CHECKED_COOLDOWN_DAYS makes the math obvious.
+  const REF = new Date("2026-04-25T12:00:00Z");
+
+  it("returns false when osmChecked is undefined", () => {
+    expect(isOsmCheckedFresh(undefined, REF)).toBe(false);
+  });
+
+  it("returns true the day a check was recorded", () => {
+    expect(isOsmCheckedFresh("2026-04-25", REF)).toBe(true);
+  });
+
+  it("returns true within the cooldown window", () => {
+    // 30 days ago — well within the 60-day window
+    expect(isOsmCheckedFresh("2026-03-26", REF)).toBe(true);
+  });
+
+  it("returns false past the cooldown window", () => {
+    // 70 days ago — outside the 60-day window
+    expect(isOsmCheckedFresh("2026-02-14", REF)).toBe(false);
+  });
+
+  it("treats the exact cooldown boundary as expired (strict less-than)", () => {
+    // Reference minus exactly OSM_CHECKED_COOLDOWN_DAYS — boundary should
+    // not be considered fresh, so the venue re-surfaces in osmGaps.
+    const boundary = new Date(REF.getTime() - OSM_CHECKED_COOLDOWN_DAYS * 86_400_000);
+    const ymd = boundary.toISOString().slice(0, 10);
+    expect(isOsmCheckedFresh(ymd, REF)).toBe(false);
+  });
+
+  it("returns false on malformed input rather than silencing forever", () => {
+    expect(isOsmCheckedFresh("not-a-date", REF)).toBe(false);
+  });
+
+  it("treats a future osmChecked as fresh (clock skew safety)", () => {
+    expect(isOsmCheckedFresh("2099-01-01", REF)).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// buildOsmGaps
+// ---------------------------------------------------------------------------
+
+describe("buildOsmGaps", () => {
+  const NOW = new Date("2026-04-25T12:00:00Z");
+  const RECENT = "2026-04-20"; // within cooldown
+  const STALE = "2025-12-01";  // past cooldown
+
+  // Reusable geo blocks. The structural shape matches what Zod produces
+  // after parsing — we cast to satisfy the builder, which only reads the
+  // shape (no Zod-runtime fields).
+  const GAP_GEO = { lat: 47.6062, lng: -122.3321, label: "Gap Venue" };
+  const RESOLVED_GEO = {
+    lat: 47.6062,
+    lng: -122.3321,
+    label: "Resolved Venue",
+    osmType: "node" as const,
+    osmId: 12345,
+  };
+  const RECENTLY_REJECTED_GEO = {
+    lat: 47.6062,
+    lng: -122.3321,
+    label: "Recently Rejected Venue",
+    osmChecked: RECENT,
+  };
+  const STALE_REJECTED_GEO = {
+    lat: 47.6062,
+    lng: -122.3321,
+    label: "Stale Rejected Venue",
+    osmChecked: STALE,
+  };
+
+  it("emits one gap per ripper that has coords but no OSM id", () => {
+    const ripper = makeRipper({
+      name: "gappy",
+      geo: GAP_GEO,
+      calendars: [{ name: "c", friendlyname: "C" }],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(1);
+    expect(gaps[0]).toEqual({
+      source: "ripper",
+      name: "gappy",
+      label: "Gap Venue",
+      lat: 47.6062,
+      lng: -122.3321,
+    });
+  });
+
+  it("does not emit a gap for rippers that already have osmId/osmType", () => {
+    const ripper = makeRipper({
+      name: "resolved",
+      geo: RESOLVED_GEO,
+      calendars: [{ name: "c", friendlyname: "C" }],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(0);
+  });
+
+  it("silences a venue with a recent osmChecked", () => {
+    const ripper = makeRipper({
+      name: "recently-rejected",
+      geo: RECENTLY_REJECTED_GEO,
+      calendars: [{ name: "c", friendlyname: "C" }],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(0);
+  });
+
+  it("re-surfaces a venue whose osmChecked is past the cooldown", () => {
+    const ripper = makeRipper({
+      name: "stale-reject",
+      geo: STALE_REJECTED_GEO,
+      calendars: [{ name: "c", friendlyname: "C" }],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(1);
+    expect(gaps[0].name).toBe("stale-reject");
+  });
+
+  it("skips ripper-level geo and walks per-calendar geo when calendars override", () => {
+    const ripper = makeRipper({
+      name: "multi-branch",
+      geo: null,
+      calendars: [
+        { name: "branch-a", friendlyname: "A", geo: GAP_GEO },
+        { name: "branch-b", friendlyname: "B", geo: RESOLVED_GEO },
+        { name: "branch-c", friendlyname: "C", geo: RECENTLY_REJECTED_GEO },
+        { name: "branch-d", friendlyname: "D", geo: null },
+      ],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      now: NOW,
+    });
+    // Only branch-a is unresolved AND not silenced.
+    expect(gaps.map(g => g.name)).toEqual(["multi-branch/branch-a"]);
+  });
+
+  it("skips disabled rippers entirely", () => {
+    const ripper = makeRipper({
+      name: "disabled",
+      disabled: true,
+      geo: GAP_GEO,
+      calendars: [{ name: "c", friendlyname: "C" }],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(0);
+  });
+
+  it("emits gaps for external feeds with non-null geo and no OSM id", () => {
+    const ext = makeExternal({
+      name: "ext-gap",
+      friendlyname: "Ext Gap",
+      geo: GAP_GEO,
+    });
+    const gaps = buildOsmGaps({
+      configs: [],
+      externals: [ext],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(1);
+    expect(gaps[0]).toEqual({
+      source: "external",
+      name: "ext-gap",
+      label: "Gap Venue",
+      lat: 47.6062,
+      lng: -122.3321,
+    });
+  });
+
+  it("skips disabled externals and externals with null geo", () => {
+    const disabled = makeExternal({
+      name: "off",
+      friendlyname: "Off",
+      geo: GAP_GEO,
+      disabled: true,
+    });
+    const noGeo = makeExternal({
+      name: "no-geo",
+      friendlyname: "No Geo",
+      geo: null,
+    });
+    const gaps = buildOsmGaps({
+      configs: [],
+      externals: [disabled, noGeo],
+      recurringEvents: [],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(0);
+  });
+
+  it("emits gaps for recurring events with non-null geo and no OSM id", () => {
+    const rec = makeRecurring({
+      name: "rec-gap",
+      friendlyname: "Rec Gap",
+      geo: GAP_GEO,
+    });
+    const gaps = buildOsmGaps({
+      configs: [],
+      externals: [],
+      recurringEvents: [rec],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(1);
+    expect(gaps[0].source).toBe("recurring");
+    expect(gaps[0].name).toBe("rec-gap");
+  });
+
+  it("skips recurring events with null geo", () => {
+    const rec = makeRecurring({
+      name: "non-venue",
+      friendlyname: "Non Venue",
+      geo: null,
+    });
+    const gaps = buildOsmGaps({
+      configs: [],
+      externals: [],
+      recurringEvents: [rec],
+      now: NOW,
+    });
+    expect(gaps).toHaveLength(0);
+  });
+
+  it("sorts gaps by name across all source kinds", () => {
+    const gaps = buildOsmGaps({
+      configs: [
+        makeRipper({
+          name: "zeta",
+          geo: GAP_GEO,
+          calendars: [{ name: "c", friendlyname: "C" }],
+        }),
+      ],
+      externals: [makeExternal({ name: "alpha", friendlyname: "Alpha", geo: GAP_GEO })],
+      recurringEvents: [makeRecurring({ name: "mu", friendlyname: "Mu", geo: GAP_GEO })],
+      now: NOW,
+    });
+    expect(gaps.map(g => g.name)).toEqual(["alpha", "mu", "zeta"]);
+  });
+
+  it("defaults `now` to current time when not provided", () => {
+    // Smoke test — using the live clock should still produce deterministic
+    // output for a venue with no osmChecked.
+    const ripper = makeRipper({
+      name: "no-check",
+      geo: GAP_GEO,
+      calendars: [{ name: "c", friendlyname: "C" }],
+    });
+    const gaps = buildOsmGaps({
+      configs: [ripper],
+      externals: [],
+      recurringEvents: [],
+    });
+    expect(gaps).toHaveLength(1);
   });
 });

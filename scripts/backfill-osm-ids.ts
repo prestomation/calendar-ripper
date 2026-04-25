@@ -51,10 +51,15 @@ const NOMINATIM_USER_AGENT = "206.events/1.0 (https://206.events)";
 
 let lastNominatimCallTime = 0;
 
+// Nominatim's usage policy is 1 req/sec. Match `lib/geocoder.ts` exactly so
+// when this script and the main build share the same Nominatim budget the
+// pacing is consistent.
+const NOMINATIM_INTERVAL_MS = 1000;
+
 async function rateLimit(): Promise<void> {
   const now = Date.now();
   const elapsed = now - lastNominatimCallTime;
-  const delay = lastNominatimCallTime > 0 ? Math.max(0, 1100 - elapsed) : 0;
+  const delay = lastNominatimCallTime > 0 ? Math.max(0, NOMINATIM_INTERVAL_MS - elapsed) : 0;
   lastNominatimCallTime = now + delay;
   if (delay > 0) await new Promise(r => setTimeout(r, delay));
 }

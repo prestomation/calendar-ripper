@@ -8,6 +8,9 @@ geo:
   lat: 47.5585
   lng: -122.3061
   label: "Perihelion Brewery, 2702 S Columbian Way, Seattle, WA 98108"
+  # Nominatim's address-only result is at the wrong street number on Columbian
+  # Way — neither the venue nor a building at 2702 came back as a match.
+  osmChecked: "2026-04-24"
 calendars:
   - name: all-events
     friendlyname: "Perihelion Brewery"

@@ -17,10 +17,28 @@ export const geoSchema = z.object({
     // this venue manually, no OSM join available."
     osmType: z.enum(["node", "way", "relation"]).optional(),
     osmId: z.number().int().positive().optional(),
+    // ISO date (YYYY-MM-DD) recording the last time the OSM-resolver skill
+    // looked at this venue and rejected every Nominatim candidate (a Tier D/F
+    // verdict — wrong feature, or no feature at all). `buildOsmGaps` skips
+    // venues whose `osmChecked` is within the last ~60 days so the same
+    // wrong matches don't re-propose every day. After the cooldown, the
+    // skill retries — OSM grows, and venues that weren't indexed last
+    // quarter may be there now.
+    osmChecked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
 }).strict().refine(
     g => (g.osmId === undefined) === (g.osmType === undefined),
     { message: "osmId and osmType must be set together or both omitted" },
 );
+
+export type Geo = z.infer<typeof geoSchema>;
+
+/**
+ * How many days a Tier D/F rejection (recorded as `osmChecked`) silences a
+ * venue from `osmGaps`. After the cooldown the venue surfaces again so the
+ * skill can retry — OSM grows over time and a feature missing six months
+ * ago may exist today.
+ */
+export const OSM_CHECKED_COOLDOWN_DAYS = 60;
 
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),

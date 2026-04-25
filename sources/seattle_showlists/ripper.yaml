@@ -9,9 +9,9 @@ calendars:
   - name: baba-yaga
     friendlyname: "Baba Yaga"
     geo:
-      lat: 47.6015
-      lng: -122.3325
-      label: "Baba Yaga, 130 S Jackson St, Seattle, WA 98104"
+      lat: 47.601
+      lng: -122.3331
+      label: "Baba Yaga, 124 S Washington St, Seattle, WA 98104"
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
     config:
@@ -19,9 +19,9 @@ calendars:
   - name: central-saloon
     friendlyname: "Central Saloon"
     geo:
-      lat: 47.5994
-      lng: -122.333
-      label: "Central Saloon, 307 3rd Ave S, Seattle, WA 98104"
+      lat: 47.6006
+      lng: -122.3344
+      label: "Central Saloon, 207 1st Ave S, Seattle, WA 98104"
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
     config:
@@ -32,7 +32,7 @@ calendars:
     friendlyname: "Barboza"
     geo:
       lat: 47.6138
-      lng: -122.3198
+      lng: -122.3196
       label: "Barboza, 925 E Pike St, Seattle, WA 98122"
       osmType: node
       osmId: 11177907381
@@ -43,9 +43,9 @@ calendars:
   - name: vermillion
     friendlyname: "Vermillion"
     geo:
-      lat: 47.6138
-      lng: -122.3173
-      label: "Vermillion, 1508 10th Ave, Seattle, WA 98122"
+      lat: 47.6143
+      lng: -122.3193
+      label: "Vermillion, 1508 11th Ave, Seattle, WA 98122"
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
     config:
@@ -65,9 +65,9 @@ calendars:
   - name: hotel-crocodile
     friendlyname: "Hotel Crocodile"
     geo:
-      lat: 47.6137
-      lng: -122.3442
-      label: "Hotel Crocodile, 2400 2nd Ave, Seattle, WA 98121"
+      lat: 47.6146
+      lng: -122.3491
+      label: "Hotel Crocodile, 2505 1st Ave, Seattle, WA 98121"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
     config:
@@ -77,8 +77,8 @@ calendars:
   - name: conor-byrne-pub
     friendlyname: "Conor Byrne Pub"
     geo:
-      lat: 47.6664
-      lng: -122.3832
+      lat: 47.6655
+      lng: -122.3819
       label: "Conor Byrne Pub, 5140 Ballard Ave NW, Seattle, WA 98107"
       osmType: node
       osmId: 2138389856
@@ -141,9 +141,9 @@ calendars:
   - name: black-lodge
     friendlyname: "Black Lodge"
     geo:
-      lat: 47.6147
-      lng: -122.3143
-      label: "Black Lodge, 1404 E Jefferson St, Seattle, WA 98122"
+      lat: 47.6231
+      lng: -122.3539
+      label: "Black Lodge, 305 Harrison St, Seattle, WA 98109"
     timezone: America/Los_Angeles
     tags: ["Eastlake"]
     config:
@@ -187,8 +187,8 @@ calendars:
   - name: kexp-studio
     friendlyname: "KEXP Studio"
     geo:
-      lat: 47.6227
-      lng: -122.3563
+      lat: 47.6231
+      lng: -122.3551
       label: "KEXP Studio, 472 1st Ave N, Seattle, WA 98109"
       osmType: node
       osmId: 3886776643

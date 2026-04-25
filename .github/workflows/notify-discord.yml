@@ -1,0 +1,267 @@
+name: Discord Notifications
+
+on:
+  workflow_run:
+    workflows:
+      - "Generate Calendars and Publish to GitHub Pages"
+      - "Build Calendars"
+      - "PR Preview"
+      - "Deploy Favorites Worker"
+      - "Cleanup PR Preview"
+    types: [completed]
+  pull_request:
+    types: [opened, synchronize, closed]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  notify-workflow:
+    name: Notify workflow completion
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_run'
+    steps:
+      - name: Get failed jobs
+        id: failed-jobs
+        if: github.event.workflow_run.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          REPO: ${{ github.repository }}
+        run: |
+          jobs_json=$(curl -s -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/$REPO/actions/runs/$RUN_ID/jobs")
+          failed=$(echo "$jobs_json" | jq -r '
+            .jobs[]
+            | select(.conclusion == "failure")
+            | "• **" + .name + "**: " + (
+                [.steps[] | select(.conclusion == "failure") | .name]
+                | if length > 0 then "steps failed: " + join(", ") else "job failed" end
+              )
+          ' | head -10)
+          # Escape for GitHub output (percent-encode newlines)
+          failed="${failed//'%'/'%25'}"
+          failed="${failed//$'\n'/'%0A'}"
+          failed="${failed//$'\r'/'%0D'}"
+          echo "summary=$failed" >> "$GITHUB_OUTPUT"
+
+      - name: Post to Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
+          WORKFLOW: ${{ github.event.workflow_run.name }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          REPO: ${{ github.repository }}
+          FAILED_JOBS: ${{ steps.failed-jobs.outputs.summary }}
+        run: |
+          if [ "$CONCLUSION" = "success" ]; then
+            COLOR=3066993
+            EMOJI="✅"
+            TITLE="Workflow succeeded"
+          else
+            COLOR=15158332
+            EMOJI="❌"
+            TITLE="Workflow failed"
+          fi
+
+          DESCRIPTION="**[$REPO]($RUN_URL)**\nWorkflow: \`$WORKFLOW\`\nBranch: \`$BRANCH\`\nResult: $EMOJI $CONCLUSION"
+
+          if [ -n "$FAILED_JOBS" ]; then
+            FAILED_DISPLAY="${FAILED_JOBS//'%0A'/$'\n'}"
+            FAILED_DISPLAY="${FAILED_DISPLAY//'%0D'/}"
+            FAILED_DISPLAY="${FAILED_DISPLAY//'%25'/%}"
+            DESCRIPTION="$DESCRIPTION\n\n**Failed jobs:**\n$FAILED_DISPLAY"
+          fi
+
+          jq -n \
+            --arg content "@CalendarClaw" \
+            --arg title "$EMOJI $TITLE: $WORKFLOW" \
+            --arg description "$DESCRIPTION" \
+            --argjson color "$COLOR" \
+            --arg url "$RUN_URL" \
+            '{
+              content: $content,
+              embeds: [{
+                title: $title,
+                description: $description,
+                color: $color,
+                url: $url
+              }]
+            }' | curl -s -X POST "$WEBHOOK" \
+              -H "Content-Type: application/json" \
+              -d @-
+
+  notify-pr:
+    name: Notify PR event
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Post to Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          ACTION: ${{ github.event.action }}
+          MERGED: ${{ github.event.pull_request.merged }}
+          REPO: ${{ github.repository }}
+        run: |
+          COLOR=3447003  # blue
+
+          case "$ACTION" in
+            opened)
+              LABEL="opened"
+              EMOJI="🔔"
+              ;;
+            synchronize)
+              LABEL="updated (new commits)"
+              EMOJI="🔄"
+              ;;
+            closed)
+              if [ "$MERGED" = "true" ]; then
+                LABEL="merged"
+                EMOJI="🟣"
+                COLOR=10181046  # purple
+              else
+                LABEL="closed (not merged)"
+                EMOJI="🔴"
+                COLOR=15158332  # red
+              fi
+              ;;
+            *)
+              LABEL="$ACTION"
+              EMOJI="📋"
+              ;;
+          esac
+
+          DESCRIPTION="**[$REPO — PR #$PR_NUMBER]($PR_URL)**\n**$PR_TITLE**\nAuthor: @$PR_AUTHOR\nAction: $EMOJI $LABEL"
+
+          jq -n \
+            --arg content "@CalendarClaw" \
+            --arg title "$EMOJI PR $LABEL: #$PR_NUMBER" \
+            --arg description "$DESCRIPTION" \
+            --argjson color "$COLOR" \
+            --arg url "$PR_URL" \
+            '{
+              content: $content,
+              embeds: [{
+                title: $title,
+                description: $description,
+                color: $color,
+                url: $url
+              }]
+            }' | curl -s -X POST "$WEBHOOK" \
+              -H "Content-Type: application/json" \
+              -d @-
+
+  notify-review:
+    name: Notify PR review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request_review'
+    steps:
+      - name: Post to Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          REVIEWER: ${{ github.event.review.user.login }}
+          STATE: ${{ github.event.review.state }}
+          BODY: ${{ github.event.review.body }}
+          REVIEW_URL: ${{ github.event.review.html_url }}
+          REPO: ${{ github.repository }}
+        run: |
+          case "$STATE" in
+            approved)
+              EMOJI="✅"
+              LABEL="approved"
+              COLOR=3066993  # green
+              ;;
+            changes_requested)
+              EMOJI="🔁"
+              LABEL="requested changes"
+              COLOR=15158332  # red
+              ;;
+            *)
+              EMOJI="💬"
+              LABEL="commented"
+              COLOR=10181046  # purple
+              ;;
+          esac
+
+          # Truncate body to ~200 chars
+          PREVIEW=""
+          if [ -n "$BODY" ]; then
+            PREVIEW=$(echo "$BODY" | head -c 200)
+            if [ ${#BODY} -gt 200 ]; then
+              PREVIEW="$PREVIEW…"
+            fi
+            PREVIEW="\n\n> $PREVIEW"
+          fi
+
+          DESCRIPTION="**[$REPO — PR #$PR_NUMBER]($PR_URL)**\n**$PR_TITLE**\nReviewer: @$REVIEWER $EMOJI $LABEL$PREVIEW"
+
+          jq -n \
+            --arg content "@CalendarClaw" \
+            --arg title "$EMOJI Review $LABEL: PR #$PR_NUMBER" \
+            --arg description "$DESCRIPTION" \
+            --argjson color "$COLOR" \
+            --arg url "$REVIEW_URL" \
+            '{
+              content: $content,
+              embeds: [{
+                title: $title,
+                description: $description,
+                color: $color,
+                url: $url
+              }]
+            }' | curl -s -X POST "$WEBHOOK" \
+              -H "Content-Type: application/json" \
+              -d @-
+
+  notify-review-comment:
+    name: Notify PR review comment
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request_review_comment'
+    steps:
+      - name: Post to Discord
+        env:
+          WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          COMMENTER: ${{ github.event.comment.user.login }}
+          BODY: ${{ github.event.comment.body }}
+          COMMENT_URL: ${{ github.event.comment.html_url }}
+          REPO: ${{ github.repository }}
+        run: |
+          COLOR=10181046  # purple
+
+          # Truncate body to ~200 chars
+          PREVIEW=$(echo "$BODY" | head -c 200)
+          if [ ${#BODY} -gt 200 ]; then
+            PREVIEW="$PREVIEW…"
+          fi
+
+          DESCRIPTION="**[$REPO — PR #$PR_NUMBER]($PR_URL)**\n**$PR_TITLE**\nFrom: @$COMMENTER\n\n> $PREVIEW"
+
+          jq -n \
+            --arg content "@CalendarClaw" \
+            --arg title "💬 Review comment on PR #$PR_NUMBER" \
+            --arg description "$DESCRIPTION" \
+            --argjson color "$COLOR" \
+            --arg url "$COMMENT_URL" \
+            '{
+              content: $content,
+              embeds: [{
+                title: $title,
+                description: $description,
+                color: $color,
+                url: $url
+              }]
+            }' | curl -s -X POST "$WEBHOOK" \
+              -H "Content-Type: application/json" \
+              -d @-

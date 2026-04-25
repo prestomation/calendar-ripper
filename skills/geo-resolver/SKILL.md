@@ -201,25 +201,32 @@ API). Refuses to overwrite an `osmId`/`osmType` that is already set.
 
 ### 5. Mark Tier D / F gaps as checked
 
-For rejections, edit the YAML to add a dated marker inside the geo
-block so we don't re-propose the same wrong match every run:
+For rejections, run the apply script in `--reject` mode and pass the
+report indices that should be silenced. The script writes a dated
+`osmChecked` marker into each YAML's `geo` block:
+
+```bash
+node --loader ts-node/esm scripts/apply-osm-ids.ts \
+  --report /tmp/osm-backfill-report.json \
+  --reject 4,9,11
+```
+
+Or, for a one-off, edit the YAML directly:
 
 ```yaml
 geo:
   lat: 47.6134
   lng: -122.3203
   label: "Venue Name, 123 Main St, Seattle, WA"
+  # Brief reason — what came back, why it was wrong.
   osmChecked: "2026-04-24"
 ```
 
-The build skips venues with `osmChecked` within the last ~60 days.
-After that, the skill retries — OSM grows, and venues that weren't
-indexed last quarter may be there now.
-
-*(`osmChecked` is not yet wired into the schema. First time you hit a
-Tier D rejection, extend `geoSchema` in `lib/config/schema.ts` and
-teach `buildOsmGaps` in `lib/discovery.ts` to respect the 60-day
-window. Track as a follow-up to PR #206.)*
+`buildOsmGaps` skips venues whose `osmChecked` is within
+`OSM_CHECKED_COOLDOWN_DAYS` (60 days as of writing — see
+`lib/config/schema.ts`). After the cooldown the venue re-surfaces
+automatically — OSM grows, and venues that weren't indexed last
+quarter may be there now.
 
 ### 6. Rules of thumb
 

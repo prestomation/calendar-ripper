@@ -8,6 +8,9 @@ geo:
   lat: 47.5866
   lng: -122.3362
   label: "Dogwood Play Park, 4323 Rainier Ave S, Seattle, WA 98118"
+  # Nominatim returns a same-named park ~15km away on the name-only fallback —
+  # the indoor dog park doesn't appear to be in OSM yet.
+  osmChecked: "2026-04-24"
 calendars:
   - name: events
     friendlyname: "Dogwood Play Park Events"

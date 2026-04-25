@@ -1,16 +1,23 @@
 /**
- * Apply OSM IDs from a saved backfill report into the source YAMLs.
+ * Apply OSM IDs (or rejections) from a saved backfill report into the
+ * source YAMLs.
  *
- * Reads a report produced by `backfill-osm-ids.ts --report`, applies the
- * entries whose indices appear in --accept, and skips the rest.
+ * Reads a report produced by `backfill-osm-ids.ts --report`. Two modes:
+ *
+ *   --accept <csv>   Write `osmType`/`osmId` for the accepted entries.
+ *   --reject <csv>   Write a dated `osmChecked` marker so the venue is
+ *                    silenced from `osmGaps` for the cooldown window.
+ *
+ * Both flags can be combined in one invocation.
  *
  * Usage:
  *   node --loader ts-node/esm scripts/apply-osm-ids.ts \
  *     --report /tmp/osm-backfill-merged.json \
- *     --accept 1,3,5,6,7,...
+ *     --accept 1,3,5-7 \
+ *     --reject 4,9,11
  *
  * This is intentionally separate from backfill-osm-ids.ts so the
- * decision (which matches to accept) can be made non-interactively
+ * decision (which matches to accept/reject) can be made non-interactively
  * after a human has reviewed the report.
  */
 
@@ -113,51 +120,84 @@ async function main() {
   const args = process.argv.slice(2);
   const reportIdx = args.indexOf("--report");
   const acceptIdx = args.indexOf("--accept");
-  if (reportIdx < 0 || acceptIdx < 0) {
-    console.error("Usage: apply-osm-ids.ts --report <file> --accept <csv-of-indices>");
+  const rejectIdx = args.indexOf("--reject");
+  if (reportIdx < 0 || (acceptIdx < 0 && rejectIdx < 0)) {
+    console.error(
+      "Usage: apply-osm-ids.ts --report <file> [--accept <csv>] [--reject <csv>]",
+    );
     process.exit(2);
   }
   const reportPath = args[reportIdx + 1];
-  const acceptSet = parseAcceptList(args[acceptIdx + 1]);
+  const acceptSet = acceptIdx >= 0 ? parseAcceptList(args[acceptIdx + 1]) : new Set<number>();
+  const rejectSet = rejectIdx >= 0 ? parseAcceptList(args[rejectIdx + 1]) : new Set<number>();
+
+  // Reject set must not overlap accept set — would leave the YAML in a
+  // contradictory state (both osmId and osmChecked) that the schema
+  // doesn't forbid but represents nonsense.
+  const overlap = [...acceptSet].filter(i => rejectSet.has(i));
+  if (overlap.length > 0) {
+    console.error(`--accept and --reject overlap on indices: ${overlap.join(",")}`);
+    process.exit(2);
+  }
 
   const report = JSON.parse(await readFile(reportPath, "utf8")) as ReportEntry[];
+  const today = new Date().toISOString().slice(0, 10);
 
-  // Group accepted entries by file so we only re-parse/write each file once.
-  const byFile = new Map<string, ReportEntry[]>();
+  // Group entries by file so we only re-parse/write each file once.
+  type Action = { entry: ReportEntry; kind: "accept" | "reject" };
+  const byFile = new Map<string, Action[]>();
   for (const entry of report) {
-    if (!acceptSet.has(entry.index)) continue;
-    if (!entry.result || !entry.result.osmId || !entry.result.osmType) {
-      console.warn(`  skip [${entry.index}] ${entry.label} — no OSM result`);
+    let kind: "accept" | "reject" | null = null;
+    if (acceptSet.has(entry.index)) kind = "accept";
+    else if (rejectSet.has(entry.index)) kind = "reject";
+    if (!kind) continue;
+
+    if (kind === "accept" && (!entry.result || !entry.result.osmId || !entry.result.osmType)) {
+      console.warn(`  skip [${entry.index}] ${entry.label} — no OSM result to accept`);
       continue;
     }
     const list = byFile.get(entry.file) ?? [];
-    list.push(entry);
+    list.push({ entry, kind });
     byFile.set(entry.file, list);
   }
 
-  let written = 0;
-  for (const [file, entries] of byFile) {
+  let accepted = 0;
+  let rejected = 0;
+  for (const [file, actions] of byFile) {
     const raw = await readFile(file, "utf8");
     const doc = YAML.parseDocument(raw);
-    for (const entry of entries) {
+    for (const { entry, kind } of actions) {
       const geoNode = findGeoNode(doc, entry.label);
       if (!geoNode) {
         console.warn(`  ✗ [${entry.index}] ${entry.label} — no geo block found`);
         continue;
       }
-      if (geoNode.has("osmId") || geoNode.has("osmType")) {
-        console.warn(`  ⊙ [${entry.index}] ${entry.label} — already has OSM id, skipping`);
-        continue;
+      if (kind === "accept") {
+        if (geoNode.has("osmId") || geoNode.has("osmType")) {
+          console.warn(`  ⊙ [${entry.index}] ${entry.label} — already has OSM id, skipping`);
+          continue;
+        }
+        geoNode.set("osmType", entry.result!.osmType);
+        geoNode.set("osmId", entry.result!.osmId);
+        console.log(`  ✓ [${entry.index}] ${entry.label} → ${entry.result!.osmType}/${entry.result!.osmId}`);
+        accepted++;
+      } else {
+        // reject: write/refresh osmChecked. Don't clobber an existing
+        // osmId — if a venue is already resolved, it shouldn't be in the
+        // reject list at all, and silently overwriting would lose data.
+        if (geoNode.has("osmId") || geoNode.has("osmType")) {
+          console.warn(`  ⊙ [${entry.index}] ${entry.label} — already has OSM id; refusing to mark rejected`);
+          continue;
+        }
+        geoNode.set("osmChecked", today);
+        console.log(`  ✗ [${entry.index}] ${entry.label} → osmChecked=${today}`);
+        rejected++;
       }
-      geoNode.set("osmType", entry.result!.osmType);
-      geoNode.set("osmId", entry.result!.osmId);
-      console.log(`  ✓ [${entry.index}] ${entry.label} → ${entry.result!.osmType}/${entry.result!.osmId}`);
-      written++;
     }
     await writeFile(file, doc.toString({ flowCollectionPadding: false }), "utf8");
   }
 
-  console.log(`\nWrote ${written} OSM IDs across ${byFile.size} file(s).`);
+  console.log(`\nWrote ${accepted} OSM IDs and ${rejected} rejection marker(s) across ${byFile.size} file(s).`);
 }
 
 main().catch(err => {

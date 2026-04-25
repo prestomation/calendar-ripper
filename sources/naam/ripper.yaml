@@ -8,6 +8,9 @@ geo:
   lat: 47.6071
   lng: -122.3034
   label: "NAAM, 2300 S Massachusetts St, Seattle, WA 98144"
+  # Nominatim returns "Naam Thai" (a restaurant) on the name-only fallback —
+  # an unrelated business that happens to share the acronym.
+  osmChecked: "2026-04-24"
 calendars:
   - name: all-events
     friendlyname: "Northwest African American Museum"

@@ -7,6 +7,10 @@ geo:
   lat: 47.6091
   lng: -122.3416
   label: "Pike Place Market, 85 Pike St, Seattle, WA 98101"
+  # Nominatim returns Alibi Room (a bar inside the market) instead of the
+  # market relation itself. Re-check after the cooldown — OSM may add a
+  # better feature for the market over time.
+  osmChecked: "2026-04-24"
 calendars:
   - name: events
     friendlyname: "Pike Place Market Events"

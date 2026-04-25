@@ -4,6 +4,20 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-25 — Source discovery: Outdoors & Community
+- 💡 **Shunpike** — WordPress with The Events Calendar. ICS feed confirmed working (`?post_type=tribe_events&ical=1&eventDisplay=list`). Currently 3 upcoming events (Storefronts art tours, 25th Anniversary Gala at National Nordic Museum). Low volume but unique arts/community events. Easy add to `sources/external.yaml`. Tags: Arts, Community.
+- ❌ **Seattle Parks Foundation** — Already in `sources/external.yaml` as `seattle-parks-foundation`. Not new.
+- ❌ **Communities of Opportunity (COO)** — Squarespace site at `coopartnerships.org/community-events`. `?format=json` works but only ~7 community/volunteer events. Low volume, niche (nonprofit/advocacy events). Not worth the effort. Tags: Community.
+- ❌ **Greater Seattle On The Cheap** — Custom event calendar at `greaterseattleonthecheap.com/events/`. No ICS, no structured API. Would need custom scraper. Low density (only 2 events for current week). Not viable. Tags: Community.
+- ❌ **iLoveSeattle** — Already in external.yaml as `iloveseattle-community` (status: never confirmed working). Not new.
+- ❌ **EverOut** — Already in ⏸️ Blocked section (bot protection, 403). Not new.
+- ❌ **Seattle Southside** — `seattlesouthside.com/events/` — Custom calendar, no ICS or structured API. Not viable.
+- ❌ **Running sites (RunGuides, RacePlace, etc.)** — Aggregator sites, not primary sources. Individual race organizers use various platforms. Not viable as calendar sources.
+- ❌ **Seafair** — Annual summer festival series (June–August). Custom site, events spread across multiple sub-pages. Low year-round volume. Not viable as a continuous source.
+- ❌ **Seattle Center** — Already evaluated and rejected (custom CMS, not Trumba). Not new.
+- ❌ **Seattle Met** — Editorial event listings, no structured feed. Not viable.
+- 💀 **Zero-event calendars**: No change from previous check. All 10 remain in same state.
+
 ### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
 - 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
 - 💡 **Emerald City Comedy Club** — SeatEngine platform (custom ripper needed). 40+ upcoming events, rich schedule at `emeraldcitycomedy.com`. Custom HTML/JSON scraper required (🔴 Low confidence). Tags: Comedy, Capitol Hill.
@@ -121,6 +135,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ### WordPress / Tribe Events ICS
 
 **SeattleDances** — `https://seattledances.com/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (30 events). Tags: Dance, Arts — **New 2026-04-22**
+
+**Shunpike** — `https://shunpike.org/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (3 upcoming events: Storefronts art tours, 25th Anniversary Gala). Low volume but unique arts/community events. Easy add to `sources/external.yaml`. Tags: Arts, Community — **New 2026-04-25**
 
 **Rat City Roller Derby** — `https://ratcityrollerderby.com/events/` — try `?post_type=tribe_events&ical=1` — Tags: Community, Sports
 

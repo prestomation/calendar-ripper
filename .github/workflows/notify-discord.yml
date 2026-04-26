@@ -23,7 +23,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const prs = github.event.workflow_run.pull_requests || [];
+            const prs = context.payload.workflow_run.pull_requests || [];
             if (prs.length > 0) {
               const pr = prs[0];
               const prNumber = pr.number;

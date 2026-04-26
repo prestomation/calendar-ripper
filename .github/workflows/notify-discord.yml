@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify workflow run
-        if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
+        if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || github.event.workflow_run.name == 'Generate Calendars and Publish to GitHub Pages' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
           WORKFLOW_NAME: ${{ github.event.workflow_run.name }}

@@ -44,6 +44,7 @@ export const TAG_CATEGORIES = {
         'Books',
         'Comedy',
         'Cycling',
+        'Dance',
         'Dogs',
         'Education',
         'Events',

@@ -1,14 +1,20 @@
 import { readFile, writeFile } from 'fs/promises';
 import type { GeocodeError } from './config/schema.js';
 
+export type OsmType = 'node' | 'way' | 'relation';
+
 export interface GeoCoords {
   lat: number;
   lng: number;
+  osmId?: number;
+  osmType?: OsmType;
 }
 
 export interface GeoCacheEntry {
   lat?: number;
   lng?: number;
+  osmId?: number;
+  osmType?: OsmType;
   unresolvable?: boolean;
   geocodedAt: string;
   source: 'nominatim' | 'manual';
@@ -507,6 +513,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'the wyncote nw forum, 1119 8th ave, seattle, 98101': { lat: 47.6087, lng: -122.3295 },
   'unexpected productions, 1428 post alley, seattle, wa': { lat: 47.6097, lng: -122.3420 },
   'mill creek city hall north, 15720 main street, mill creek, wa': { lat: 47.8565, lng: -122.2013 },
+  'walls of books, 1025 northwest gilman boulevard, #suite e-3, issaquah, wa': { lat: 47.5446, lng: -122.0535 },
 };
 
 /**
@@ -614,7 +621,13 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
   if (!entry) return null;
   if (entry.unresolvable) return null;
   if (entry.lat !== undefined && entry.lng !== undefined) {
-    return { lat: entry.lat, lng: entry.lng };
+    return {
+      lat: entry.lat,
+      lng: entry.lng,
+      ...(entry.osmId !== undefined && entry.osmType !== undefined
+        ? { osmId: entry.osmId, osmType: entry.osmType }
+        : {}),
+    };
   }
   return null;
 }
@@ -664,7 +677,12 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
       return null;
     }
 
-    const data = await res.json() as Array<{ lat: string; lon: string }>;
+    const data = await res.json() as Array<{
+      lat: string;
+      lon: string;
+      osm_id?: number;
+      osm_type?: string;
+    }>;
     if (!Array.isArray(data) || data.length === 0) {
       return null;
     }
@@ -674,10 +692,24 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
     const lng = parseFloat(first.lon);
     if (isNaN(lat) || isNaN(lng)) return null;
 
-    return { lat, lng };
+    const osmType = normalizeOsmType(first.osm_type);
+    const osmId = typeof first.osm_id === 'number' && Number.isInteger(first.osm_id) && first.osm_id > 0
+      ? first.osm_id
+      : undefined;
+
+    return {
+      lat,
+      lng,
+      ...(osmType && osmId !== undefined ? { osmId, osmType } : {}),
+    };
   } catch {
     return null;
   }
+}
+
+function normalizeOsmType(value: unknown): OsmType | undefined {
+  if (value === 'node' || value === 'way' || value === 'relation') return value;
+  return undefined;
 }
 
 export interface ResolveEventCoordsResult {
@@ -817,6 +849,9 @@ export async function resolveEventCoords(
     const newEntry: GeoCacheEntry = {
       lat: coords.lat,
       lng: coords.lng,
+      ...(coords.osmId !== undefined && coords.osmType !== undefined
+        ? { osmId: coords.osmId, osmType: coords.osmType }
+        : {}),
       geocodedAt: new Date().toISOString().slice(0, 10),
       source: 'nominatim',
       firstSeen: new Date().toISOString().slice(0, 10),

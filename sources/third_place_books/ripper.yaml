@@ -1,0 +1,15 @@
+name: third-place-books
+type: eventbrite
+description: "Third Place Books"
+url: "https://www.thirdplacebooks.com/events"
+friendlyLink: https://www.thirdplacebooks.com/events
+tags: ["Books", "Education"]
+geo: null
+calendars:
+  - name: third-place-books
+    friendlyname: "Third Place Books"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "30353358534"
+      defaultLocation: "Third Place Books"
+      defaultDurationHours: 2

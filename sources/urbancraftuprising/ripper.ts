@@ -18,7 +18,8 @@ const EXCLUDED_SLUGS = [
     'makers', 'apply', 'sponsors', 'contact', 'about',
     'blog', 'greenhouse-program', 'derby-days-vendors',
     'eleventh-hour-vendors', 'port-townsend-handmade-market-vendors',
-    'winter-2025-vendors', 'summer-2025-vendors'
+    'winter-2025-vendors', 'summer-2025-vendors',
+    'winter-2025', 'summer-2025'
 ];
 
 // Known location patterns from the site
@@ -73,15 +74,7 @@ export default class UrbanCraftUprisingRipper extends HTMLRipper {
 
                 const detailHtml = await res.text();
                 const parsed = parseHtml(detailHtml);
-                const event = this.parseEventPage(parsed, link, date.zone() as ZoneRegion);
-
-                if (event) {
-                    if ('type' in event && event.type === 'ParseError') {
-                        events.push(event);
-                    } else {
-                        events.push(event);
-                    }
-                }
+                events.push(this.parseEventPage(parsed, link, date.zone() as ZoneRegion));
             } catch (error) {
                 events.push({
                     type: "ParseError",
@@ -176,7 +169,7 @@ export default class UrbanCraftUprisingRipper extends HTMLRipper {
     /**
      * Parse an individual event page to extract event details.
      */
-    private parseEventPage(html: HTMLElement, url: string, timezone: ZoneRegion): RipperEvent | null {
+    private parseEventPage(html: HTMLElement, url: string, timezone: ZoneRegion): RipperEvent {
         // Get the page title
         const titleEl = html.querySelector('h1');
         const pageTitle = html.querySelector('title')?.innerText || '';

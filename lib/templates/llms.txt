@@ -24,11 +24,18 @@ the canonical machine-readable view of everything the build publishes.
   location. Each entry has geographic coordinates and the hrefs of its
   calendar feeds. Sources without a single fixed location (e.g. community
   calendars, cross-neighborhood art walks) are intentionally not listed.
+  Venues that resolve cleanly to an OpenStreetMap feature include
+  `geo.osmType` (`node` / `way` / `relation`) and `geo.osmId` so you can
+  join against OSM. Build the URL as
+  `https://www.openstreetmap.org/<osmType>/<osmId>` or query Overpass
+  with the same pair. These fields are absent for venues we positioned
+  manually without an OSM lookup.
 - [manifest.json](/manifest.json): full calendar manifest used by the web
   UI. Lists every ripper, external feed, and recurring-event calendar.
 - [events-index.json](/events-index.json): flat array of all events across
   every published calendar, with date, summary, location, and coordinates
-  (when available). Suitable for full-text search and map display.
+  (when available). Events whose location resolved to an OSM feature also
+  carry `osmType` / `osmId`. Suitable for full-text search and map display.
 - [build-errors.json](/build-errors.json): machine-readable error report
   from the most recent build (per-source parse failures, external feed
   fetch failures, zero-event calendars).

@@ -96,21 +96,19 @@ export default class SeattleCenterRipper implements IRipper {
                 if (!eventRow) continue;
 
                 const parsed = this.parseEventSection(eventRow, currentDate, timezone);
-                if (parsed) {
-                    events.push(parsed);
-                }
+                events.push(parsed);
             }
         }
 
         return events;
     }
 
-    private parseEventSection(eventRow: HTMLElement, currentDate: string | null, timezone: ZoneRegion): RipperEvent | null {
+    private parseEventSection(eventRow: HTMLElement, currentDate: string | null, timezone: ZoneRegion): RipperEvent {
         const titleLink = eventRow.querySelector('.event-list__title a');
-        if (!titleLink) return null;
+        if (!titleLink) return { type: "ParseError", reason: "Event row missing title link", context: eventRow.text.substring(0, 100) };
 
         const title = decode(titleLink.text.trim());
-        if (!title) return null;
+        if (!title) return { type: "ParseError", reason: "Event title is empty", context: eventRow.text.substring(0, 100) };
 
         const href = titleLink.getAttribute('href') || '';
         const slug = href.replace(/^.*event-calendar\//, '');

@@ -1,5 +1,11 @@
 import { z } from "zod";
-import { RipperConfig, ExternalCalendar, geoSchema } from "./config/schema.js";
+import {
+  RipperConfig,
+  ExternalCalendar,
+  Geo,
+  OSM_CHECKED_COOLDOWN_DAYS,
+  geoSchema,
+} from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
 import { TAG_CATEGORIES, VALID_TAGS } from "./config/tags.js";
 
@@ -378,6 +384,136 @@ export function buildVenuesJson(opts: {
 
   venues.sort((a, b) => a.friendlyName.localeCompare(b.friendlyName));
   return { generated, venues };
+}
+
+// -----------------------------------------------------------------------------
+// osmGaps — venues whose geo is populated but missing an OSM feature id
+// -----------------------------------------------------------------------------
+
+export const osmGapSchema = z.object({
+  source: z.enum(["ripper", "external", "recurring"]),
+  name: z.string(),
+  label: z.string().optional(),
+  lat: z.number(),
+  lng: z.number(),
+});
+
+export type OsmGap = z.infer<typeof osmGapSchema>;
+
+/**
+ * Enumerate every declared `geo` block that has coords but no OSM feature
+ * identity. Consumers (notably the osm-resolver daily skill) use this to
+ * know which venues to try to reconcile against OpenStreetMap.
+ *
+ * A source appears here iff:
+ *   - it has coords declared (lat+lng numeric), AND
+ *   - either osmId or osmType is missing (Zod enforces both-or-neither
+ *     on the source YAMLs, so in practice this means both are missing), AND
+ *   - it is not currently silenced by a recent `osmChecked` marker
+ *     (Tier D/F rejections cool down for OSM_CHECKED_COOLDOWN_DAYS so the
+ *     same wrong matches don't re-propose every run).
+ *
+ * Ripper-level geo and per-calendar geo overrides are both enumerated;
+ * for multi-branch sources like SPL that set calendar-level geo, each
+ * branch becomes its own gap entry.
+ *
+ * @param opts.now Optional reference date for the cooldown window.
+ *                 Defaults to "today" — exposed so tests can pin time.
+ */
+export function buildOsmGaps(opts: {
+  configs: RipperConfig[];
+  externals: ExternalCalendar[];
+  recurringEvents: RecurringEvent[];
+  now?: Date;
+}): OsmGap[] {
+  const gaps: OsmGap[] = [];
+  const referenceDate = opts.now ?? new Date();
+
+  const isGap = (geo: Geo | null | undefined): boolean => {
+    if (!geo) return false;
+    if (geo.osmId !== undefined && geo.osmType !== undefined) return false;
+    if (isOsmCheckedFresh(geo.osmChecked, referenceDate)) return false;
+    return true;
+  };
+
+  for (const ripper of opts.configs) {
+    if (ripper.disabled) continue;
+    const ripperGeo = ripper.geo;
+    const anyCalendarHasOwnGeo = ripper.calendars.some(c => c.geo !== undefined && c.geo !== null);
+
+    if (ripperGeo && !anyCalendarHasOwnGeo) {
+      if (isGap(ripperGeo)) {
+        gaps.push({
+          source: "ripper",
+          name: ripper.name,
+          label: ripperGeo.label,
+          lat: ripperGeo.lat,
+          lng: ripperGeo.lng,
+        });
+      }
+      continue;
+    }
+    for (const calendar of ripper.calendars) {
+      const resolvedGeo = calendar.geo !== undefined ? calendar.geo : ripperGeo;
+      if (!resolvedGeo) continue;
+      if (!isGap(resolvedGeo)) continue;
+      gaps.push({
+        source: "ripper",
+        name: `${ripper.name}/${calendar.name}`,
+        label: resolvedGeo.label,
+        lat: resolvedGeo.lat,
+        lng: resolvedGeo.lng,
+      });
+    }
+  }
+
+  for (const ext of opts.externals) {
+    if (ext.disabled) continue;
+    if (!ext.geo) continue;
+    if (!isGap(ext.geo)) continue;
+    gaps.push({
+      source: "external",
+      name: ext.name,
+      label: ext.geo.label,
+      lat: ext.geo.lat,
+      lng: ext.geo.lng,
+    });
+  }
+
+  for (const event of opts.recurringEvents) {
+    if (!event.geo) continue;
+    if (!isGap(event.geo)) continue;
+    gaps.push({
+      source: "recurring",
+      name: event.name,
+      label: event.geo.label,
+      lat: event.geo.lat,
+      lng: event.geo.lng,
+    });
+  }
+
+  gaps.sort((a, b) => a.name.localeCompare(b.name));
+  return gaps;
+}
+
+/**
+ * Return true if `osmChecked` is set to a date within the last
+ * OSM_CHECKED_COOLDOWN_DAYS days of `referenceDate`. Malformed values are
+ * treated as not-fresh so a typo can't permanently silence a venue.
+ *
+ * Exported for unit tests; the schema guarantees a YYYY-MM-DD string here.
+ */
+export function isOsmCheckedFresh(
+  osmChecked: string | undefined,
+  referenceDate: Date,
+): boolean {
+  if (!osmChecked) return false;
+  const checked = Date.parse(`${osmChecked}T00:00:00Z`);
+  if (Number.isNaN(checked)) return false;
+  const ageMs = referenceDate.getTime() - checked;
+  if (ageMs < 0) return true; // future date — treat as fresh, don't re-propose
+  const ageDays = ageMs / (24 * 60 * 60 * 1000);
+  return ageDays < OSM_CHECKED_COOLDOWN_DAYS;
 }
 
 // -----------------------------------------------------------------------------

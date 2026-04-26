@@ -95,7 +95,7 @@ describe('Seattle Beer Week Ripper', () => {
     // Check that error messages are informative
     const errorEvent = errorEvents[0];
     expect(errorEvent.type).toBe('ParseError');
-    expect(errorEvent.reason).toContain('Failed to parse event');
+    expect(errorEvent.reason).toContain('Event missing');
   });
   
   test('skips empty events', async () => {

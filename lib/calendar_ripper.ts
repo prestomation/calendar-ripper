@@ -31,6 +31,7 @@ import {
   buildIndexJson,
   buildTagsJson,
   buildVenuesJson,
+  buildOsmGaps,
 } from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
@@ -344,11 +345,18 @@ export const main = async () => {
   // Track event counts per calendar for summary
   const eventCounts: Array<{ name: string; type: string; events: number; expectEmpty: boolean }> = [];
 
-  // Collect all errors for consolidated build-errors.json
+  // Collect all errors for consolidated build-errors.json. Aggregate
+  // (tag-*) calendars are intentionally absent from this list and from
+  // `totalErrorCount` — every error in an aggregate is a duplicate of an
+  // error in one of its source calendars. Counting them inflates the
+  // build's error number by the number of tags each broken source
+  // belongs to (e.g. one Book Larder parse failure shows up under
+  // tag-fremont, tag-food, tag-books, and tag-all). Fixing the upstream
+  // ripper resolves the aggregate "errors" automatically.
   interface BuildErrorEntry {
     source: string;
     calendar: string;
-    type: "Ripper" | "Recurring" | "Aggregate";
+    type: "Ripper" | "Recurring";
     errorCount: number;
     errors: RipperError[];
   }
@@ -620,8 +628,11 @@ export const main = async () => {
     for (const calendar of aggregateCalendars) {
       const icsPath = `${calendar.name}.ics`;
       const errorsPath = `${calendar.name}-errors.txt`;
+      // Aggregate errors are duplicates of upstream ripper errors — they
+      // are written to the per-aggregate `*-errors.txt` file for raw
+      // visibility but deliberately excluded from `totalErrorCount` and
+      // `buildErrors.sources` (see `BuildErrorEntry` comment above).
       const errorCount = calendar.errors.length;
-      totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
       const aggTag = calendar.tags[0];
       const isAggExpectEmpty = aggTag ? (tagExpectEmpty.get(aggTag) ?? false) : false;
@@ -629,15 +640,6 @@ export const main = async () => {
       eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty });
       if (calendar.events.length === 0 && !isAggExpectEmpty) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
-      }
-      if (errorCount > 0) {
-        buildErrors.push({
-          source: calendar.name,
-          calendar: calendar.name,
-          type: "Aggregate",
-          errorCount,
-          errors: calendar.errors,
-        });
       }
 
       aggregateWritePromises.push(writeFile(`output/${icsPath}`, icsString));
@@ -907,6 +909,8 @@ END:VCALENDAR`;
     url?: string;
     lat?: number;
     lng?: number;
+    osmType?: 'node' | 'way' | 'relation';
+    osmId?: number;
     geocodeSource?: 'ripper' | 'cached' | 'none';
   }> = [];
 
@@ -923,6 +927,8 @@ END:VCALENDAR`;
     for (const event of calendar.events) {
       let lat: number | undefined;
       let lng: number | undefined;
+      let osmType: 'node' | 'way' | 'relation' | undefined;
+      let osmId: number | undefined;
       let geocodeSource: 'ripper' | 'cached' | 'none' | undefined;
 
       // Resolve geo: calendar-level config wins over ripper-level.
@@ -938,6 +944,8 @@ END:VCALENDAR`;
         // Use declared coords — no geocoding needed
         lat = resolvedGeo.lat;
         lng = resolvedGeo.lng;
+        osmType = resolvedGeo.osmType;
+        osmId = resolvedGeo.osmId;
         geocodeSource = 'ripper';
       } else {
         const result = await resolveEventCoords(geoCache, event.location, sourceName);
@@ -945,6 +953,8 @@ END:VCALENDAR`;
         if (result.coords) {
           lat = result.coords.lat;
           lng = result.coords.lng;
+          osmType = result.coords.osmType;
+          osmId = result.coords.osmId;
         }
         geocodeSource = result.geocodeSource;
         if (result.error) geocodeErrors.push(result.error);
@@ -960,6 +970,7 @@ END:VCALENDAR`;
         url: event.url,
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
+        ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
         ...(geocodeSource !== undefined ? { geocodeSource } : {}),
       });
     }
@@ -982,9 +993,13 @@ END:VCALENDAR`;
 
           let lat: number | undefined;
           let lng: number | undefined;
+          let osmType: 'node' | 'way' | 'relation' | undefined;
+          let osmId: number | undefined;
           if (result.coords) {
             lat = result.coords.lat;
             lng = result.coords.lng;
+            osmType = result.coords.osmType;
+            osmId = result.coords.osmId;
           }
           if (result.error) geocodeErrors.push(result.error);
 
@@ -998,6 +1013,7 @@ END:VCALENDAR`;
             url: event.url,
             ...(lat !== undefined ? { lat } : {}),
             ...(lng !== undefined ? { lng } : {}),
+            ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
             ...(result.geocodeSource !== undefined ? { geocodeSource: result.geocodeSource } : {}),
           });
         }
@@ -1055,6 +1071,55 @@ END:VCALENDAR`;
   } catch {
     // report not present — no outofband errors to merge
   }
+
+  // Check for new sources with expectEmpty=true that have never appeared in production.
+  // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
+  // it has never produced events and likely has a wrong URL or ripper type.
+  const newZeroEventSources: string[] = [];
+  {
+    const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
+    try {
+      const prodManifestRes = await fetch(`${productionUrl}/manifest.json`, { signal: AbortSignal.timeout(10000) });
+      if (prodManifestRes.ok) {
+        const prodManifest = await prodManifestRes.json() as {
+          rippers?: Array<{ calendars: Array<{ icsUrl: string }> }>;
+          recurringCalendars?: Array<{ icsUrl: string }>;
+          externalCalendars?: Array<{ icsUrl: string }>;
+        };
+        // Build set of known calendar names (icsUrl without .ics suffix)
+        const knownInProduction = new Set<string>();
+        for (const ripper of prodManifest.rippers ?? []) {
+          for (const cal of ripper.calendars) {
+            knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+          }
+        }
+        for (const cal of prodManifest.recurringCalendars ?? []) {
+          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+        }
+        for (const cal of prodManifest.externalCalendars ?? []) {
+          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+        }
+        // For each expectedEmpty calendar, check if it ever appeared in production
+        const expectedEmptyNow = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
+        for (const cal of expectedEmptyNow) {
+          if (!knownInProduction.has(cal.name)) {
+            console.log(`::error::New source "${cal.name}" has 0 events and expectEmpty=true but has never produced events. Remove it or fix the ripper type/URL.`);
+            newZeroEventSources.push(cal.name);
+            finalErrorCount++;
+          }
+        }
+        if (newZeroEventSources.length > 0) {
+          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) with expectEmpty=true that have never appeared in production`);
+        }
+      } else {
+        console.log(`::warning::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — skipping new zero-event source check`);
+      }
+    } catch (err) {
+      console.log(`::warning::Could not fetch production manifest — skipping new zero-event source check: ${err}`);
+    }
+  }
+  await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
+
   await writeFile("errorCount.txt", finalErrorCount.toString());
 
   // Print event count summary
@@ -1075,6 +1140,15 @@ END:VCALENDAR`;
     geocodeErrors: geocodeErrors.length,
   };
 
+  // Enumerate venues whose declared `geo` has coords but no OSM feature id.
+  // Surfaced in build-errors.json so the daily osm-resolver skill has a
+  // deterministic work queue — see skills/osm-resolver/SKILL.md.
+  const osmGaps = buildOsmGaps({
+    configs: configs.map(r => r.config),
+    externals: activeExternalCalendars,
+    recurringEvents: recurringProcessor?.getEvents() ?? [],
+  });
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -1086,7 +1160,9 @@ END:VCALENDAR`;
     geoStats,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    newZeroEventSources,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
+    osmGaps,
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,

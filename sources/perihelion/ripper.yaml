@@ -5,9 +5,11 @@ url: "https://www.perihelion.beer/events"
 friendlyLink: https://www.perihelion.beer/events
 tags: ["Beer", "Beacon Hill"]
 geo:
-  lat: 47.5585
-  lng: -122.3061
-  label: "Perihelion Brewery, 2702 S Columbian Way, Seattle, WA 98108"
+  lat: 47.5785
+  lng: -122.3118
+  label: "Perihelion Brewery, 2800 16th Ave S, Seattle, WA 98144"
+  osmType: node
+  osmId: 2373886375
 calendars:
   - name: all-events
     friendlyname: "Perihelion Brewery"

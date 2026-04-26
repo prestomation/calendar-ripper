@@ -1,13 +1,16 @@
 name: pacific-science-center
 friendlyname: "Pacific Science Center"
-description: "Science museum at Seattle Center with interactive exhibits, laser shows, an IMAX theater, and special events for all ages"
+description: "Science museum at Seattle Center with interactive exhibits, laser
+  shows, an IMAX theater, and special events for all ages"
 url: "https://pacificsciencecenter.org/wp-json/wp/v2/event"
 friendlyLink: https://pacificsciencecenter.org/events/
 tags: ["Education", "Museums"]
 geo:
-  lat: 47.6218
-  lng: -122.3519
+  lat: 47.6194
+  lng: -122.3508
   label: "Pacific Science Center, 200 2nd Ave N, Seattle, WA 98109"
+  osmType: way
+  osmId: 394955903
 calendars:
   - name: special-events
     friendlyname: "Pacific Science Center Special Events"

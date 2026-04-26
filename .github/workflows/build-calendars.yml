@@ -15,6 +15,9 @@ on:
       zero-event-calendars:
         description: "Newline-separated list of calendars with 0 events"
         value: ${{ jobs.build.outputs.zero-event-calendars }}
+      new-zero-event-sources:
+        description: "Newline-separated list of new sources with 0 events that have never appeared in production"
+        value: ${{ jobs.build.outputs.new-zero-event-sources }}
 
 jobs:
   build:
@@ -22,6 +25,7 @@ jobs:
     outputs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
       zero-event-calendars: ${{ steps.generate-calendars.outputs.ZERO_EVENT_CALENDARS }}
+      new-zero-event-sources: ${{ steps.generate-calendars.outputs.NEW_ZERO_EVENT_SOURCES }}
 
     steps:
     - name: Checkout repository
@@ -34,6 +38,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+
+    - name: Check no null returns in rippers
+      run: bash scripts/check_no_null_returns.sh
 
     - name: Run unit tests
       run: npm run test:all
@@ -77,6 +84,14 @@ jobs:
           cat zeroEventCalendars.txt
           echo ""
           echo "${delimiter}"
+        } >> "$GITHUB_OUTPUT"
+        cat newZeroEventSources.txt
+        delimiter2="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "NEW_ZERO_EVENT_SOURCES<<${delimiter2}"
+          cat newZeroEventSources.txt
+          echo ""
+          echo "${delimiter2}"
         } >> "$GITHUB_OUTPUT"
 
     - name: Upload geo-cache to S3

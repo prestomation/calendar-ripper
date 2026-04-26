@@ -5,9 +5,11 @@ url: "https://www.fremontbrewing.com/fremont-ubg-events"
 friendlyLink: https://www.fremontbrewing.com/fremont-ubg-events
 tags: ["Beer", "Fremont"]
 geo:
-  lat: 47.6506
-  lng: -122.3497
+  lat: 47.649
+  lng: -122.3445
   label: "Fremont Brewing Urban Beer Garden, 1050 N 34th St, Seattle, WA 98103"
+  osmType: way
+  osmId: 115683693
 calendars:
   - name: all-events
     friendlyname: "Fremont Brewing - Fremont"

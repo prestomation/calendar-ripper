@@ -20,7 +20,8 @@ jobs:
       - name: Notify workflow run
         if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || github.event.workflow_run.name == 'Generate Calendars and Publish to GitHub Pages' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_CHANNEL_ID: "1482476559465189426"
           WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
           WORKFLOW_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
           WORKFLOW_URL: ${{ github.event.workflow_run.html_url }}
@@ -41,13 +42,18 @@ jobs:
           else
             CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"
           fi
+          
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
+          curl -s --fail -X POST "https://discord.com/api/v10/channels/$DISCORD_CHANNEL_ID/messages" \
+            -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
 
       - name: Notify review
         if: github.event_name == 'pull_request_review'
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+          DISCORD_CHANNEL_ID: "1482476559465189426"
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REVIEWER: ${{ github.event.review.user.login }}
           REVIEW_STATE: ${{ github.event.review.state }}
@@ -68,7 +74,9 @@ jobs:
           else
             CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"[View review](${REVIEW_URL})"
           fi
+          
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
-
-
+          curl -s --fail -X POST "https://discord.com/api/v10/channels/$DISCORD_CHANNEL_ID/messages" \
+            -H "Authorization: Bot $DISCORD_BOT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"

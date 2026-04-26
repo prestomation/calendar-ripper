@@ -109,8 +109,8 @@ export default class SeattleBeerWeekRipper extends JSONRipper {
                                 // Resolve location ID(s) to human-readable name + address
                                 let location = undefined;
                                 const locationIds: string[] = Array.isArray(event.location)
-                                    ? event.location
-                                    : event.location ? [event.location] : [];
+                                    ? event.location.filter((id: any) => typeof id === 'string')
+                                    : typeof event.location === 'string' ? [event.location] : [];
                                 if (locationIds.length > 0) {
                                     const loc = locationMap.get(locationIds[0]);
                                     if (loc) {

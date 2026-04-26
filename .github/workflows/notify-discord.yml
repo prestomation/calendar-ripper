@@ -79,7 +79,7 @@ jobs:
 
           CONTENT=$(printf '%s\n' "${LINES[@]}")
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
+          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD" || exit 1
 
       - name: Notify review
         if: github.event_name == 'pull_request_review'
@@ -112,4 +112,4 @@ jobs:
 
           CONTENT=$(printf '%s\n' "${LINES[@]}")
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
+          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD" || exit 1

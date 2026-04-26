@@ -585,7 +585,7 @@ export const main = async () => {
   );
 
   console.log("Generating aggregate calendars based on tags...");
-  const aggregateCalendars = await createAggregateCalendars(
+  const { calendars: aggregateCalendars, htmlSanitizeErrors } = await createAggregateCalendars(
     allCalendars,
     taggedExternalCalendars,
     externalIcsCache
@@ -986,7 +986,7 @@ END:VCALENDAR`;
     const cachedIcs = externalIcsCache.get(calendar.icsUrl);
     if (cachedIcs) {
       try {
-        const externalEvents = parseExternalCalendarEvents(cachedIcs);
+        const { events: externalEvents } = parseExternalCalendarEvents(cachedIcs, calendar.name);
         for (const event of externalEvents) {
           const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
           geoCache = result.cache;
@@ -1156,6 +1156,9 @@ END:VCALENDAR`;
     configErrors: configErrors.map(e => ({ ...e })),
     sources: buildErrors,
     externalCalendarFailures,
+    // Informational only — HTML stripped from external ICS fields at ingestion.
+    // Not counted in totalErrors; does not fail the build.
+    htmlSanitizeWarnings: htmlSanitizeErrors,
     geocodeErrors: geocodeErrors,
     geoStats,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),

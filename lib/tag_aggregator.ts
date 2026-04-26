@@ -1,5 +1,6 @@
-import { RipperCalendar, RipperCalendarEvent, RipperError, ExternalCalendar, toICS } from './config/schema.js';
+import { RipperCalendar, RipperCalendarEvent, RipperError, HtmlSanitizeError, ExternalCalendar, toICS } from './config/schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
+import { sanitizeEventText } from './html-sanitize.js';
 
 /**
  * Represents a calendar with its associated tags
@@ -42,9 +43,14 @@ export function collectAllTags(
 /**
  * Parses external calendar ICS data into events.
  * Filters events to only include those within the specified time range.
+ * Sanitizes HTML from summary, description, and location fields.
  */
-export function parseExternalCalendarEvents(icsData: string): RipperCalendarEvent[] {
+export function parseExternalCalendarEvents(
+  icsData: string,
+  source: string = 'unknown'
+): { events: RipperCalendarEvent[]; errors: HtmlSanitizeError[] } {
   const events: RipperCalendarEvent[] = [];
+  const errors: HtmlSanitizeError[] = [];
 
   // Define time range: 1 week before now to 3 months in the future
   const now = new Date();
@@ -67,15 +73,58 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
 
       // Extract summary
       const summaryMatch = eventBlock.match(/SUMMARY:(.*?)(?:\r\n|\n)/);
-      const summary = summaryMatch ? summaryMatch[1].trim() : 'Untitled Event';
+      const rawSummary = summaryMatch ? summaryMatch[1].trim() : 'Untitled Event';
 
       // Extract description
       const descriptionMatch = eventBlock.match(/DESCRIPTION:(.*?)(?:\r\n|\n)/);
-      const description = descriptionMatch ? descriptionMatch[1].trim() : undefined;
+      const rawDescription = descriptionMatch ? descriptionMatch[1].trim() : undefined;
 
       // Extract location
       const locationMatch = eventBlock.match(/LOCATION:(.*?)(?:\r\n|\n)/);
-      const location = locationMatch ? locationMatch[1].trim() : undefined;
+      const rawLocation = locationMatch ? locationMatch[1].trim() : undefined;
+
+      // Sanitize HTML from text fields
+      const summarySanitized = sanitizeEventText(rawSummary, source, 'summary');
+      const summary = summarySanitized.text;
+      if (summarySanitized.hadHtml) {
+        errors.push({
+          type: 'HtmlSanitizeError',
+          reason: summarySanitized.details,
+          field: 'summary',
+          original: rawSummary.slice(0, 200),
+          sanitized: summary.slice(0, 200),
+        });
+      }
+
+      let description: string | undefined;
+      if (rawDescription !== undefined) {
+        const descSanitized = sanitizeEventText(rawDescription, source, 'description');
+        description = descSanitized.text;
+        if (descSanitized.hadHtml) {
+          errors.push({
+            type: 'HtmlSanitizeError',
+            reason: descSanitized.details,
+            field: 'description',
+            original: rawDescription.slice(0, 200),
+            sanitized: description.slice(0, 200),
+          });
+        }
+      }
+
+      let location: string | undefined;
+      if (rawLocation !== undefined) {
+        const locSanitized = sanitizeEventText(rawLocation, source, 'location');
+        location = locSanitized.text;
+        if (locSanitized.hadHtml) {
+          errors.push({
+            type: 'HtmlSanitizeError',
+            reason: locSanitized.details,
+            field: 'location',
+            original: rawLocation.slice(0, 200),
+            sanitized: location.slice(0, 200),
+          });
+        }
+      }
 
       // Extract URL
       const urlMatch = eventBlock.match(/URL:(.*?)(?:\r\n|\n)/);
@@ -160,24 +209,27 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
     }
   }
 
-  return events;
+  return { events, errors };
 }
 
 /**
  * Fetches and parses an external calendar from its URL
  * Filters events to only include those within the specified time range
  */
-export async function fetchExternalCalendar(url: string): Promise<RipperCalendarEvent[]> {
+export async function fetchExternalCalendar(
+  url: string,
+  source: string = 'unknown'
+): Promise<{ events: RipperCalendarEvent[]; errors: HtmlSanitizeError[] }> {
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch calendar: ${response.status} ${response.statusText}`);
     }
     const icsData = await response.text();
-    return parseExternalCalendarEvents(icsData);
+    return parseExternalCalendarEvents(icsData, source);
   } catch (error) {
     console.error(`Error fetching external calendar ${url}:`, error);
-    return [];
+    return { events: [], errors: [] };
   }
 }
 
@@ -189,9 +241,10 @@ export async function createAggregateCalendars(
   taggedCalendars: RipperCalendar[],
   taggedExternalCalendars: TaggedExternalCalendar[],
   prefetchedIcsData?: Map<string, string>
-): Promise<RipperCalendar[]> {
+): Promise<{ calendars: RipperCalendar[]; htmlSanitizeErrors: HtmlSanitizeError[] }> {
   const allTags = collectAllTags(taggedCalendars, taggedExternalCalendars);
   const aggregateCalendars: RipperCalendar[] = [];
+  const htmlSanitizeErrors: HtmlSanitizeError[] = [];
 
   // Cache parsed events to avoid re-parsing the same external calendar for multiple tags
   const parsedEventsCache = new Map<string, RipperCalendarEvent[]>();
@@ -243,10 +296,14 @@ export async function createAggregateCalendars(
           } else {
             const cachedIcs = prefetchedIcsData?.get(tec.calendar.icsUrl);
             if (cachedIcs) {
-              externalEvents = parseExternalCalendarEvents(cachedIcs);
+              const parsed = parseExternalCalendarEvents(cachedIcs, tec.calendar.name);
+              externalEvents = parsed.events;
+              htmlSanitizeErrors.push(...parsed.errors);
             } else {
               console.log(`Fetching external calendar: ${tec.calendar.friendlyname}`);
-              externalEvents = await fetchExternalCalendar(tec.calendar.icsUrl);
+              const fetched = await fetchExternalCalendar(tec.calendar.icsUrl, tec.calendar.name);
+              externalEvents = fetched.events;
+              htmlSanitizeErrors.push(...fetched.errors);
             }
             parsedEventsCache.set(tec.calendar.icsUrl, externalEvents);
           }
@@ -281,7 +338,7 @@ export async function createAggregateCalendars(
     aggregateCalendars.push(aggregateCalendar);
   }
 
-  return aggregateCalendars;
+  return { calendars: aggregateCalendars, htmlSanitizeErrors };
 }
 
 /**

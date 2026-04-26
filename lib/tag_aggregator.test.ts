@@ -162,8 +162,8 @@ describe('Tag Aggregator', () => {
       sampleCalendar2.tags = ["Activism"]
       
       // Act
-      const aggregateCalendars = await createAggregateCalendars([sampleCalendar1, sampleCalendar2], taggedExternalCalendars);
-      
+      const { calendars: aggregateCalendars } = await createAggregateCalendars([sampleCalendar1, sampleCalendar2], taggedExternalCalendars);
+
       // Assert - 2 regular tags + 1 "All" tag
       expect(aggregateCalendars).toHaveLength(3);
 
@@ -186,7 +186,7 @@ describe('Tag Aggregator', () => {
       sampleCalendar1.tags = ["Music"];
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
 
-      const aggregateCalendars = await createAggregateCalendars([sampleCalendar1], taggedExternalCalendars);
+      const { calendars: aggregateCalendars } = await createAggregateCalendars([sampleCalendar1], taggedExternalCalendars);
       const event = aggregateCalendars[0].events[0];
 
       expect(event.description).toBe('Test Description 1');
@@ -198,7 +198,7 @@ describe('Tag Aggregator', () => {
       sampleCalendar1.tags = ["Music"];
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
 
-      const aggregateCalendars = await createAggregateCalendars([sampleCalendar1], taggedExternalCalendars);
+      const { calendars: aggregateCalendars } = await createAggregateCalendars([sampleCalendar1], taggedExternalCalendars);
       const event = aggregateCalendars[0].events[0];
 
       expect(event.description).toBeUndefined();
@@ -212,7 +212,7 @@ describe('Tag Aggregator', () => {
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
 
       // Act
-      const aggregateCalendars = await createAggregateCalendars(
+      const { calendars: aggregateCalendars } = await createAggregateCalendars(
         [sampleCalendar1, sampleCalendar2],
         taggedExternalCalendars
       );
@@ -232,7 +232,7 @@ describe('Tag Aggregator', () => {
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
 
       // Act
-      const aggregateCalendars = await createAggregateCalendars(
+      const { calendars: aggregateCalendars } = await createAggregateCalendars(
         [sampleCalendar1],
         taggedExternalCalendars
       );
@@ -269,7 +269,7 @@ END:VCALENDAR`;
       prefetchedIcsData.set(sampleExternalCalendar1.icsUrl, icsData);
 
       // Act
-      const aggregateCalendars = await createAggregateCalendars(
+      const { calendars: aggregateCalendars } = await createAggregateCalendars(
         [sampleCalendar1],
         taggedExternalCalendars,
         prefetchedIcsData
@@ -310,8 +310,8 @@ END:VCALENDAR`;
       const taggedExternalCalendars: TaggedExternalCalendar[] = [];
       
       // Act
-      const aggregateCalendars = await createAggregateCalendars([calendar1, calendar2], taggedExternalCalendars);
-      
+      const { calendars: aggregateCalendars } = await createAggregateCalendars([calendar1, calendar2], taggedExternalCalendars);
+
       // Assert - 1 Music tag + 1 All tag
       expect(aggregateCalendars).toHaveLength(2);
 

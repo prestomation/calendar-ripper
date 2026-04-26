@@ -107,7 +107,7 @@ export const configSchema = z.object({
 
 export type RipperConfig = z.infer<typeof configSchema>;
 
-export type RipperError = FileParseError | InvalidDateError | ImportError | ParseError | GeocodeError;
+export type RipperError = FileParseError | InvalidDateError | ImportError | ParseError | GeocodeError | HtmlSanitizeError;
 type ErrorBase = { type: string, reason: string; };
 
 export type FileParseError = ErrorBase & {
@@ -135,6 +135,13 @@ export type GeocodeError = ErrorBase & {
     location: string;
     source: string;
     reason: string;
+};
+
+export type HtmlSanitizeError = ErrorBase & {
+    type: "HtmlSanitizeError";
+    field: "summary" | "description" | "location";
+    original: string;   // pre-sanitized text (truncated to 200 chars)
+    sanitized: string;  // post-sanitized text (truncated to 200 chars)
 };
 
 

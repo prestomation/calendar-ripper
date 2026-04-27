@@ -4,6 +4,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-27 — Source discovery: Community, Yoga, Jewish organizations
+- ✅ **Jewish Federation of Greater Seattle** — Tribe Events ICS confirmed working (6+ community events including Tot Shabbat, CLE, service projects). Added to `external.yaml` as `jewish-federation-seattle`. Tags: Community, Jewish, Culture.
+- ✅ **Urban League of Metropolitan Seattle** — Tribe Events ICS confirmed working (6+ events: homebuyer workshops, Home Club, housing programs). Seattle-based at 105 14th Ave. Added to `external.yaml` as `urban-league-seattle`. Tags: Community, Housing, Education.
+- ❌ **National Nordic Museum** — Tribe Events site but ICS endpoint redirects to HTML calendar page, not ICS data. REST API `/wp-json/wp/v2/` returns 404. Not viable.
+- ❌ **Neighborhood Farmers Markets** — Squarespace `?format=json` returns site layout metadata, not event data. Events are JS-rendered or off-season. Not viable.
+- ❌ **Stroum JCC** — Tribe Events ICS works but venue is on Mercer Island, outside Seattle city limits. Not viable per Seattle-focused rule.
+- ❌ **Pratt Fine Arts** — Not Tribe Events, primarily classes (not public events). No ICS/API. Not viable.
+- ❌ **Pottery Northwest** — Shopify site, no ICS or structured event API. Not viable.
+- 🔍 **SeattleDances** — Previously marked ❌ (CAPTCHA), but ICS endpoint works fine directly. Already in `external.yaml` — no action needed. The 2026-04-23 ❌ entry was wrong (CAPTCHA only affects HTML page, not ICS feed).
+
 ### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
 - 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
 - 💡 **Emerald City Comedy Club** — SeatEngine platform (custom ripper needed). 40+ upcoming events, rich schedule at `emeraldcitycomedy.com`. Custom HTML/JSON scraper required (🔴 Low confidence). Tags: Comedy, Capitol Hill.
@@ -21,7 +31,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ### 2026-04-23 — Added The Royal Room
 - ✅ **The Royal Room** — WP Event Manager RSS feed (`?feed=event_feed`) confirmed working with 49 events. Each event page has JSON-LD `startDate`. Custom `IRipper` fetches RSS then individual event pages. Tags: Music, Columbia City.
 - ❌ **Ada's Technical Books** — removed; venue is closing permanently.
-- ❌ **SeattleDances** — ICS feed blocked by CAPTCHA (sgcaptcha). Not viable.
+- 🔍 **SeattleDances** — ICS feed was marked ❌ due to CAPTCHA (sgcaptcha) on HTML page, but ICS endpoint works fine. Already in `external.yaml`. Updated 2026-04-27.
 - ❌ **Theatre Off Jackson** — uses venture-event-manager plugin, no working ICS export.
 - ❌ **Rat City Roller Derby** — no Tribe Events ICS, returns HTML.
 - ❌ **Cannonball Arts Center** — REST API returning 503. ~~Updated 2026-04-24: REST API now working (6 events). Moved to 💡 Candidate.~~

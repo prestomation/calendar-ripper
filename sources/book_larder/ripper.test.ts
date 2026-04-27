@@ -241,7 +241,7 @@ describe('BookLarderRipper - parseProduct', () => {
         }
     });
 
-    test('returns ParseError for past events', async () => {
+    test('returns null for past events (silently skipped)', async () => {
         const pastProduct = {
             id: 99999,
             title: 'Past Author Talk',
@@ -251,8 +251,7 @@ describe('BookLarderRipper - parseProduct', () => {
         };
         // January 2nd is always in the past by now (today is April 2026)
         const event = await ripper.parseProduct(pastProduct);
-        expect(event).not.toBeNull();
-        expect(event).toHaveProperty('type', 'ParseError');
+        expect(event).toBeNull();
     });
 
     test('returns null for product with non-Event product_type', async () => {

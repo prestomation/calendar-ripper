@@ -21,7 +21,7 @@ interface ShopifyProduct {
 
 interface ParsedDate {
     month: number; day: number; hour: number; minute: number;
-    endHour?: number; endMinute?: number;
+    endHour?: number; endMinute?: number; year?: number;
 }
 
 interface ShopifyResponse {
@@ -90,7 +90,7 @@ export default class BookLarderRipper implements IRipper {
             };
         }
 
-        const { month, day, hour, minute, endHour, endMinute } = parsed;
+        const { month, day, hour, minute, endHour, endMinute, year: parsedYear } = parsed;
 
         let durationMinutes = DEFAULT_DURATION_MINUTES;
         if (endHour !== undefined) {
@@ -99,8 +99,8 @@ export default class BookLarderRipper implements IRipper {
             if (end > start) durationMinutes = end - start;
         }
 
+        const year = parsedYear ?? new Date().getFullYear();
         const now = new Date();
-        const year = now.getFullYear();
         const eventMidnight = new Date(year, month - 1, day);
         const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         // Book Larder events are one-time; skip past events rather than assuming next-year recurrence.
@@ -230,6 +230,7 @@ export default class BookLarderRipper implements IRipper {
 
             const month = monthIdx + 1;
             const day = parseInt(eveyMatch[2], 10);
+            const eveyYear = parseInt(eveyMatch[3], 10);
             let hour = parseInt(eveyMatch[4], 10);
             const minute = parseInt(eveyMatch[5], 10);
             const ampm = eveyMatch[6].toUpperCase();
@@ -256,7 +257,7 @@ export default class BookLarderRipper implements IRipper {
                 endMinute = finalEndMinute;
             }
 
-            return { month, day, hour, minute, endHour, endMinute };
+            return { month, day, hour, minute, endHour, endMinute, year: eveyYear };
         } catch {
             return null;
         }

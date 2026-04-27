@@ -151,6 +151,17 @@ describe('BookLarderRipper - fetchEveyDate', () => {
         expect(result).toBeNull();
     });
 
+    test('extracts year from Evey date string', async () => {
+        const html = `<input id="event-date" type="hidden" name="properties[Event-Date]" value="Jan 15, 2027 7:00 PM">`;
+        const fetchFn = async () => new Response(html, { status: 200 });
+        const result = await ripper.fetchEveyDate('future-event', fetchFn as any);
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(1);
+        expect(result!.day).toBe(15);
+        expect(result!.year).toBe(2027);
+        expect(result!.hour).toBe(19);
+    });
+
     test('returns null on fetch failure', async () => {
         const fetchFn = async () => new Response('', { status: 500 });
         const result = await ripper.fetchEveyDate('some-product', fetchFn as any);

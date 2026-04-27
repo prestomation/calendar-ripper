@@ -60,6 +60,7 @@ For each search result that looks like a Seattle event source, evaluate:
 4. **Not already covered?** Check `sources/` directory and `sources/external.yaml`
 5. **Not already in candidates?** Check `docs/source-candidates.md`
 6. **Sufficient event volume?** Should have at least a few events, not a one-off
+7. **Not a religious source?** Do not add sources that are primarily religious organizations (churches, synagogues, mosques, religious federations, etc.). Secular community organizations (Urban League, NAACP, etc.) are fine. Cultural events hosted at religious venues are OK if the organization itself is secular.
 
 ### 5. Update candidates file and push to main
 

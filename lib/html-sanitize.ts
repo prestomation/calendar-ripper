@@ -11,10 +11,14 @@ export interface SanitizeResult {
  *
  * Behaviour:
  * - <br> / <br/> / </p> / </div> / </li> → newlines
- * - <a href="..."> kept, all other attributes stripped, empty anchors removed
+ * - <a href="url">text</a> → "text (url)" (or just "url" if text equals url)
+ * - <a href="url"></a> (empty) → "url"
  * - All other HTML tags stripped (inner text preserved)
  * - HTML entities decoded via html-entities
  * - Excessive whitespace collapsed (multiple blank lines → max 2, multiple spaces → 1)
+ *
+ * Result is plain text suitable for ICS, RSS, and plain-text consumers.
+ * The website should linkify bare URLs separately (presentation concern).
  */
 export function sanitizeEventText(
   text: string,
@@ -35,35 +39,38 @@ export function sanitizeEventText(
     .replace(/<\/div\s*>/gi, '\n')
     .replace(/<\/li\s*>/gi, '\n');
 
-  // Step 2: <a href="..."> — keep href only, strip extra attributes.
-  // Empty anchors (no visible text) are collapsed to their inner whitespace
-  // so surrounding text gets a natural space rather than being joined.
+  // Step 2: Convert <a href="url">link text</a> to plain text.
+  // - If link text differs from URL: "link text (url)"
+  // - If link text equals URL: just "url"
+  // - If empty link text: just "url"
+  // Also strips any inner HTML from the link text.
   result = result.replace(
     /<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a\s*>/gi,
-    (_, href, inner) => {
-      const strippedInner = inner.replace(/<[^>]+>/g, '');
-      const cleanInner = strippedInner.trim();
-      // Non-empty text: wrap in clean <a>; empty: return whitespace only (no tag)
-      return cleanInner ? `<a href="${href}">${cleanInner}</a>` : strippedInner;
+    (_match, href, inner) => {
+      const strippedInner = inner.replace(/<[^>]+>/g, '').trim();
+      if (!strippedInner) return href;
+      // Decode entities in both for comparison
+      const decodedHref = decode(href);
+      const decodedInner = decode(strippedInner);
+      if (decodedInner === decodedHref) return decodedHref;
+      return `${strippedInner} (${href})`;
     }
   );
-  // Remaining <a> WITHOUT href — strip tag, keep inner text.
-  // The negative lookahead avoids re-processing the clean <a href> tags above.
+  // <a> WITHOUT href — strip tag, keep inner text
   result = result.replace(
     /<a\b(?![^>]*href=["'])[^>]*>([\s\S]*?)<\/a\s*>/gi,
-    (_, inner) => inner.replace(/<[^>]+>/g, '').trim()
+    (_match, inner) => inner.replace(/<[^>]+>/g, '').trim()
   );
 
   // Collect tag names about to be stripped (for details reporting)
   const strippedTags = new Set<string>();
   result.replace(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*/g, (_, tag) => {
-    const lower = tag.toLowerCase();
-    if (lower !== 'a') strippedTags.add(lower);
+    strippedTags.add(tag.toLowerCase());
     return '';
   });
 
-  // Step 3: Strip all remaining non-<a> tags (keep <a href> and </a>)
-  result = result.replace(/<(?!\/?a\b)[^>]+>/gi, '');
+  // Step 3: Strip all remaining HTML tags (inner text preserved where applicable)
+  result = result.replace(/<[^>]+>/g, '');
 
   // Step 4: Decode HTML entities
   result = decode(result);

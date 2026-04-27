@@ -40,40 +40,50 @@ describe('sanitizeEventText', () => {
     expect(result.hadHtml).toBe(true);
   });
 
-  it('keeps <a href> tag but strips extra attributes', () => {
-    const result = sanitizeEventText(
-      '<a href="https://example.com" id="ow495" __is_owner="true" style="color:red">link text</a>',
-      'test-source',
-      'description'
-    );
-    expect(result.text).toBe('<a href="https://example.com">link text</a>');
-    expect(result.hadHtml).toBe(true);
-  });
-
-  it('keeps clean <a href> unchanged', () => {
+  it('converts <a href="url">link text</a> to "link text (url)"', () => {
     const result = sanitizeEventText(
       'See <a href="https://example.com">this link</a> for details.',
       'test-source',
       'description'
     );
-    expect(result.text).toBe('See <a href="https://example.com">this link</a> for details.');
-    // No stripping occurred — the <a> was already clean
-    expect(result.hadHtml).toBe(false);
+    expect(result.text).toBe('See this link (https://example.com) for details.');
+    expect(result.hadHtml).toBe(true);
   });
 
-  it('removes empty <a> tags', () => {
+  it('converts <a href="url">url</a> to just "url" when text equals href', () => {
+    const result = sanitizeEventText(
+      '<a href="https://example.com">https://example.com</a>',
+      'test-source',
+      'description'
+    );
+    expect(result.text).toBe('https://example.com');
+    expect(result.hadHtml).toBe(true);
+  });
+
+  it('converts empty <a> tags to just the URL', () => {
     const result = sanitizeEventText(
       'Before<a href="https://example.com">  </a>After',
       'test-source',
       'description'
     );
-    expect(result.text).toBe('Before After');
+    // Empty inner text collapses to just the URL; surrounding spaces collapse too
+    expect(result.text).toBe('Beforehttps://example.comAfter');
     expect(result.hadHtml).toBe(true);
   });
 
   it('strips <a> with no href, keeps inner text', () => {
     const result = sanitizeEventText('<a name="anchor">text</a>', 'test-source', 'description');
     expect(result.text).toBe('text');
+    expect(result.hadHtml).toBe(true);
+  });
+
+  it('strips <a> with junk attributes and converts to plain text link', () => {
+    const result = sanitizeEventText(
+      '<a href="https://example.com" id="ow495" __is_owner="true" style="color:red">link text</a>',
+      'test-source',
+      'description'
+    );
+    expect(result.text).toBe('link text (https://example.com)');
     expect(result.hadHtml).toBe(true);
   });
 
@@ -132,16 +142,16 @@ describe('sanitizeEventText', () => {
     expect(result.hadHtml).toBe(true);
   });
 
-  it('preserves Facebook tracking redirect URL href as-is', () => {
+  it('preserves Facebook tracking redirect URL href in plain text output', () => {
     const href = 'https://l.facebook.com/l.php?u=https%3A%2F%2Factual-url.com&h=AT1abc';
     const result = sanitizeEventText(
       `<a href="${href}">See event</a>`,
       'test-source',
       'description'
     );
-    expect(result.text).toBe(`<a href="${href}">See event</a>`);
-    // href was already clean (no extra attributes to strip)
-    expect(result.hadHtml).toBe(false);
+    // Link text differs from href, so output is "See event (href)"
+    expect(result.text).toBe(`See event (${href})`);
+    expect(result.hadHtml).toBe(true);
   });
 
   it('handles mixed HTML: <p>, <br>, <a href>', () => {
@@ -151,8 +161,9 @@ describe('sanitizeEventText', () => {
       'description'
     );
     expect(result.text).toContain('Some text');
-    expect(result.text).toContain('<a href="https://example.com">link</a>');
+    expect(result.text).toContain('link (https://example.com)');
     expect(result.text).not.toContain('<p>');
+    expect(result.text).not.toContain('<a');
     expect(result.hadHtml).toBe(true);
   });
 
@@ -191,6 +202,43 @@ describe('sanitizeEventText', () => {
       'location'
     );
     expect(result.text).toBe('123 Main St, Seattle, WA');
+    expect(result.hadHtml).toBe(true);
+  });
+
+  it('converts mailto links to plain text', () => {
+    const result = sanitizeEventText(
+      '<a href="mailto:info@example.org">RSVP to Lisa.</a>',
+      'test-source',
+      'description'
+    );
+    expect(result.text).toBe('RSVP to Lisa. (mailto:info@example.org)');
+    expect(result.hadHtml).toBe(true);
+  });
+
+  it('handles nested tags inside <a>', () => {
+    const result = sanitizeEventText(
+      '<a href="https://example.com"><strong>Click here</strong></a>',
+      'test-source',
+      'description'
+    );
+    expect(result.text).toBe('Click here (https://example.com)');
+    expect(result.hadHtml).toBe(true);
+  });
+
+  it('handles location with <br> tags from seattle-gov', () => {
+    const result = sanitizeEventText(
+      'Seattle City Hall<br>600 4th Ave',
+      'test-source',
+      'location'
+    );
+    expect(result.text).toBe('Seattle City Hall\n600 4th Ave');
+    expect(result.hadHtml).toBe(true);
+  });
+
+  it('handles deeply nested HTML from email-style descriptions', () => {
+    const input = '<p><span style="color:red"><b>Important:</b></span> Register at <a href="https://example.com/rsvp" id="ow1" __is_owner="true">https://example.com/rsvp</a></p>';
+    const result = sanitizeEventText(input, 'test-source', 'description');
+    expect(result.text).toBe('Important: Register at https://example.com/rsvp');
     expect(result.hadHtml).toBe(true);
   });
 });

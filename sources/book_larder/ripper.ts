@@ -1,6 +1,6 @@
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
-import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const LOCATION = "Book Larder, 4252 Fremont Ave N, Seattle, WA 98103";
@@ -17,6 +17,11 @@ interface ShopifyProduct {
     handle: string;
     body_html: string;
     product_type: string;
+}
+
+interface ParsedDate {
+    month: number; day: number; hour: number; minute: number;
+    endHour?: number; endMinute?: number;
 }
 
 interface ShopifyResponse {
@@ -41,7 +46,7 @@ export default class BookLarderRipper implements IRipper {
         for (const product of data.products) {
             if (product.product_type !== 'Event') continue;
             try {
-                const result = this.parseProduct(product);
+                const result = await this.parseProduct(product, fetchFn);
                 if ('date' in result) {
                     events.push(result);
                 } else {
@@ -66,9 +71,17 @@ export default class BookLarderRipper implements IRipper {
         }];
     }
 
-    parseProduct(product: ShopifyProduct): RipperCalendarEvent | RipperError {
+    async parseProduct(product: ShopifyProduct, fetchFn?: FetchFn): Promise<RipperCalendarEvent | RipperError> {
         const plainText = this.stripHtml(product.body_html);
-        const parsed = this.parseDateFromText(plainText);
+        let parsed = this.parseDateFromText(plainText);
+
+        // If no date found in body text, try fetching the Evey Events product page
+        // which includes structured date/time metadata injected by the Evey Shopify app.
+        // The products.json API doesn't include this data — only the rendered HTML page does.
+        if (!parsed && fetchFn) {
+            parsed = await this.fetchEveyDate(product.handle, fetchFn);
+        }
+
         if (!parsed) {
             return {
                 type: 'ParseError',
@@ -117,10 +130,7 @@ export default class BookLarderRipper implements IRipper {
     }
 
     // Public for testing
-    parseDateFromText(text: string): {
-        month: number; day: number; hour: number; minute: number;
-        endHour?: number; endMinute?: number;
-    } | null {
+    parseDateFromText(text: string): ParsedDate | null {
         const monthNames = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
 
         const dateRe = new RegExp(
@@ -181,6 +191,75 @@ export default class BookLarderRipper implements IRipper {
         }
 
         return { month, day, hour, minute, endHour, endMinute };
+    }
+
+    /**
+     * Fetch the product page HTML and extract the Evey Events date/time.
+     * Evey injects a hidden input like: <input id="event-date" name="properties[Event-Date]" value="May 30, 2026 10:00 AM">
+     * Also visible as: <p><strong>Event Date:</strong></p><p>May 30, 2026</p>
+     *               <p><strong>Event Time:</strong></p><p>10:00 am - 11:00 am</p>
+     */
+    async fetchEveyDate(handle: string, fetchFn: FetchFn): Promise<ParsedDate | null> {
+        const url = `https://booklarder.com/collections/evey-events/products/${handle}`;
+        try {
+            const res = await fetchFn(url, {
+                headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' },
+            });
+            if (!res.ok) return null;
+
+            const html = await res.text();
+
+            // Extract from hidden input: value="May 30, 2026 10:00 AM"
+            const hiddenInputRe = /name="properties\[Event-Date\]"\s+value="([^"]+)"/i;
+            const hiddenMatch = html.match(hiddenInputRe);
+            if (!hiddenMatch) return null;
+
+            const dateStr = hiddenMatch[1];
+            // Parse format like "May 30, 2026 10:00 AM" or "Jun 27, 2026 10:00 AM"
+            const eveyRe = /(\w{3,})\s+(\d{1,2}),?\s+(\d{4})\s+(\d{1,2}):(\d{2})\s*(AM|PM)/i;
+            const eveyMatch = dateStr.match(eveyRe);
+            if (!eveyMatch) return null;
+
+            const eveyMonth = eveyMatch[1].toLowerCase();
+            let monthIdx = MONTHS.findIndex(m => m === eveyMonth);
+            // Evey uses abbreviated months (Jun, Sep) — match by prefix if full name not found
+            if (monthIdx === -1) {
+                monthIdx = MONTHS.findIndex(m => m.startsWith(eveyMonth));
+            }
+            if (monthIdx === -1) return null;
+
+            const month = monthIdx + 1;
+            const day = parseInt(eveyMatch[2], 10);
+            let hour = parseInt(eveyMatch[4], 10);
+            const minute = parseInt(eveyMatch[5], 10);
+            const ampm = eveyMatch[6].toUpperCase();
+
+            if (ampm === 'PM' && hour !== 12) hour += 12;
+            else if (ampm === 'AM' && hour === 12) hour = 0;
+
+            let endHour: number | undefined;
+            let endMinute: number | undefined;
+
+            // Try to get end time from the visible "Event Time" block
+            // Format: Event Time:</strong></p><p>10:00 am - 11:00 am</p>
+            const timeBlockRe = /Event Time:\s*<\/strong>\s*<\/p>\s*<p>(\d{1,2}):(\d{2})\s*(am|pm)\s*[-–]\s*(\d{1,2}):(\d{2})\s*(am|pm)/i;
+            const timeMatch = html.match(timeBlockRe);
+
+            if (timeMatch) {
+                // The range gives us both start and end; use the end time for duration
+                let finalEndHour = parseInt(timeMatch[4], 10);
+                const finalEndMinute = parseInt(timeMatch[5], 10);
+                const finalEndAmpm = timeMatch[6].toLowerCase();
+                if (finalEndAmpm === 'pm' && finalEndHour !== 12) finalEndHour += 12;
+                else if (finalEndAmpm === 'am' && finalEndHour === 12) finalEndHour = 0;
+                endHour = finalEndHour;
+                endMinute = finalEndMinute;
+            }
+
+            return { month, day, hour, minute, endHour, endMinute };
+        } catch {
+            return null;
+        }
     }
 
     // Public for testing

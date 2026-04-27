@@ -42,7 +42,9 @@ export default class BookLarderRipper implements IRipper {
             if (product.product_type !== 'Event') continue;
             try {
                 const result = this.parseProduct(product);
-                if ('date' in result) {
+                if (!result) {
+                    // Silently skipped (e.g. past event)
+                } else if ('date' in result) {
                     events.push(result);
                 } else {
                     errors.push(result);
@@ -66,7 +68,7 @@ export default class BookLarderRipper implements IRipper {
         }];
     }
 
-    parseProduct(product: ShopifyProduct): RipperCalendarEvent | RipperError {
+    parseProduct(product: ShopifyProduct): RipperCalendarEvent | RipperError | null {
         const plainText = this.stripHtml(product.body_html);
         const parsed = this.parseDateFromText(plainText);
         if (!parsed) {
@@ -92,12 +94,9 @@ export default class BookLarderRipper implements IRipper {
         const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
         // Book Larder events are one-time; skip past events rather than assuming next-year recurrence.
         // Compare whole-day midnights so an event at 2pm today (when it's 10am) isn't skipped.
+        // Silently skip — past products are not errors, just expired.
         if (eventMidnight < todayMidnight) {
-            return {
-                type: 'ParseError',
-                reason: `Event date ${year}-${month}-${day} is in the past`,
-                context: product.title,
-            };
+            return null;
         }
 
         const eventDate = ZonedDateTime.of(

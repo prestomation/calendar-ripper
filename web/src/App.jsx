@@ -38,21 +38,86 @@ function formatTagLabel(tag) {
 
 const CONTAINS_HTML = /<[a-z][\s\S]*?>/i
 
-function sanitizeHtml(text) {
-  return DOMPurify.sanitize(text, {
-    ALLOWED_TAGS: ['p', 'br', 'b', 'i', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-    ALLOWED_ATTR: ['href', 'target', 'rel'],
-    ADD_ATTR: ['target'],
-  })
+// Matches http/https/mailto URLs in plain text.
+// Greedy match: stops at whitespace, angle brackets, or quotes.
+// Parenthesized URLs (e.g. Wikipedia-style) are handled by the
+// trailing-punctuation stripping in linkifyUrls().
+const URL_PATTERN = /(https?:\/\/[^\s<>"']+(?:\([^\s<>"']*\)[^\s<>"']*)*|mailto:[^\s<>"']+)/g
+
+/**
+ * Split plain text into segments: [string, {url,text}, string, ...]
+ * Trailing punctuation (.,;:!?) that's likely NOT part of the URL
+ * is excluded from the link but left in the text.
+ * Returns null if no URLs are found (caller should render plain text).
+ */
+function linkifyUrls(text) {
+  const segments = []
+  let lastEnd = 0
+  const regex = new RegExp(URL_PATTERN.source, 'g')
+  let match
+  while ((match = regex.exec(text)) !== null) {
+    let url = match[1]
+    // Strip trailing punctuation that's probably sentence syntax, not URL
+    let clean = url.replace(/[.,;:!]+$/, '')
+    if (clean.includes('(')) {
+      // Parenthesized URL path — keep balanced ) but strip unbalanced trailing )
+      const opens = (clean.match(/\(/g) || []).length
+      const closes = (clean.match(/\)/g) || []).length
+      if (closes > opens) {
+        const excess = closes - opens
+        clean = clean.replace(new RegExp('\\)' + '{' + excess + '}$'), '')
+      }
+    } else {
+      // No parens in URL — strip trailing ) too
+      clean = clean.replace(/\)+$/, '')
+    }
+    if (!clean) continue
+    url = clean
+    // Push preceding text
+    if (match.index > lastEnd) {
+      segments.push(text.slice(lastEnd, match.index))
+    }
+    segments.push({ url, text: url })
+    lastEnd = match.index + url.length
+  }
+  if (segments.length === 0) return null
+  if (lastEnd < text.length) {
+    segments.push(text.slice(lastEnd))
+  }
+  return segments
 }
 
+/**
+ * Render a text value that may contain bare URLs, converting them to clickable links.
+ * If the text contains HTML tags, sanitize with DOMPurify (preserves existing links).
+ * If the text is plain, linkify any bare URLs.
+ */
 function EventDescription({ text }) {
   if (!text) return null
   if (CONTAINS_HTML.test(text)) {
-    const clean = sanitizeHtml(text)
+    const clean = DOMPurify.sanitize(text, {
+      ALLOWED_TAGS: ['p', 'br', 'b', 'i', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      ALLOWED_ATTR: ['href', 'target', 'rel'],
+      ADD_ATTR: ['target'],
+    })
     return <div className="event-details" dangerouslySetInnerHTML={{ __html: clean }} />
   }
-  return <div className="event-details">{text}</div>
+  // Plain text — linkify bare URLs
+  const segments = linkifyUrls(text)
+  if (!segments) {
+    return <div className="event-details">{text}</div>
+  }
+  return (
+    <div className="event-details">
+      {segments.map((seg, i) =>
+        typeof seg === 'string' ? (
+          seg
+        ) : (
+          <a key={i} href={seg.url} target="_blank" rel="noopener noreferrer">{seg.text}</a>
+        )
+      )}
+    </div>
+  )
 }
 
 function stripHtml(html) {

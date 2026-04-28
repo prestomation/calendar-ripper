@@ -1,0 +1,15 @@
+name: cannonball-arts
+description: "Cannonball Arts Center"
+url: "https://cannonballarts.com/wp-json/wp/v2/cba-event"
+friendlyLink: https://cannonballarts.com/cba-events/
+tags: ["Art", "Belltown"]
+geo:
+  lat: 47.6132
+  lng: -122.3455
+  label: "Cannonball Arts Center, 1930 3rd Ave, Seattle, WA 98101"
+  osmType: node
+  osmId: 125248369583
+calendars:
+  - name: all-events
+    friendlyname: "Cannonball Arts Center"
+    timezone: America/Los_Angeles

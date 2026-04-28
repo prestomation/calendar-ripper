@@ -1,0 +1,19 @@
+name: unexpected-productions
+type: eventbrite
+description: "Unexpected Productions"
+url: "https://www.unexpectedproductions.org/"
+friendlyLink: https://www.unexpectedproductions.org/
+tags: ["Comedy", "Pike Place"]
+geo:
+  lat: 47.6097
+  lng: -122.3403
+  label: "Unexpected Productions Market Theater, 1428 Post Alley, Seattle, WA 98101"
+  osmType: way
+  osmId: 23797943
+calendars:
+  - name: all-events
+    friendlyname: "Unexpected Productions"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "6607284485"
+      defaultLocation: "1428 Post Alley, Seattle, WA 98101"

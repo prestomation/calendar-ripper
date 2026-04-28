@@ -1076,6 +1076,9 @@ END:VCALENDAR`;
   // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
   // it has never produced events and likely has a wrong URL or ripper type.
   const newZeroEventSources: string[] = [];
+  // Check for new sources with parse errors that are not yet in production.
+  // This creates back-pressure: you can't merge a new source that's half-broken.
+  const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
   {
     const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
     try {
@@ -1099,6 +1102,7 @@ END:VCALENDAR`;
         for (const cal of prodManifest.externalCalendars ?? []) {
           knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
         }
+
         // For each expectedEmpty calendar, check if it ever appeared in production
         const expectedEmptyNow = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
         for (const cal of expectedEmptyNow) {
@@ -1111,6 +1115,26 @@ END:VCALENDAR`;
         if (newZeroEventSources.length > 0) {
           console.log(`Found ${newZeroEventSources.length} new zero-event source(s) with expectEmpty=true that have never appeared in production`);
         }
+
+        // Check for parse errors in new sources (not yet in production).
+        // This prevents merging half-parsed sources.
+        for (const entry of buildErrors) {
+          const calendarKey = entry.type === "Recurring" ? `recurring-${entry.calendar}` : entry.calendar;
+          // Check if ANY calendar from this source is new
+          if (!knownInProduction.has(calendarKey)) {
+            // Only count ParseError types, not all errors (geocode errors are expected for new sources)
+            const parseErrors = entry.errors.filter(e => e.type === "ParseError" || e.type === "InvalidDateError");
+            if (parseErrors.length > 0) {
+              console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
+              newSourceParseErrors.push({ source: entry.source, calendar: entry.calendar, errorCount: parseErrors.length });
+              finalErrorCount++;
+            }
+          }
+        }
+        if (newSourceParseErrors.length > 0) {
+          const totalNewParseErrors = newSourceParseErrors.reduce((a, e) => a + e.errorCount, 0);
+          console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
+        }
       } else {
         console.log(`::warning::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — skipping new zero-event source check`);
       }
@@ -1119,6 +1143,7 @@ END:VCALENDAR`;
     }
   }
   await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
+  await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
 
   await writeFile("errorCount.txt", finalErrorCount.toString());
 
@@ -1161,6 +1186,7 @@ END:VCALENDAR`;
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
     newZeroEventSources,
+    newSourceParseErrors,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
     osmGaps,
     eventCounts: eventCounts.map(c => ({

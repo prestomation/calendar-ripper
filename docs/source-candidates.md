@@ -4,6 +4,17 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-28 — Source discovery: Zoo, Library, Community
+- ✅ **Woodland Park Zoo** — Tribe Events ICS confirmed working (~30 events: ZooTunes, animal encounters, dining). Adding to external.yaml. Previously marked ❌ (503) but ICS endpoint works fine.
+- ✅ **Seattle Public Library** — Already implemented as `sources/spl/` ripper (Trumba `kalendaro.json`, 24 branch calendars). No action needed.
+- ❌ **We Heart Seattle** — BANNED (per Preston). Not a source we want.
+- ❌ **Seattle Aquarium** — Only 3 upcoming events on Eventbrite. Too low volume.
+- ❌ **Seattle Center Festál** — No ICS, custom CMS. Not viable.
+- ❌ **ACT Theatre / Union Arts Center** — No ICS, Salesforce ticketing. Not viable.
+- ❌ **ArtsWest** — Salesforce ticketing, no ICS. Not viable.
+- ❌ **Nordic Museum** — Tribe Events ICS returns 404. Not viable.
+- ❌ **Wing Luke Museum** — No ICS feed. Not viable.
+
 ### 2026-04-27 — Source discovery: Community, Yoga, Jewish organizations
 - ❌ **Jewish Federation of Greater Seattle** — ICS works but removed: we don't add religious sources.
 - ✅ **Urban League of Metropolitan Seattle** — Tribe Events ICS confirmed working (6+ events: homebuyer workshops, Home Club, housing programs). Seattle-based at 105 14th Ave. Added to `external.yaml` as `urban-league-seattle`. Tags: Community, Education.
@@ -184,7 +195,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **National Nordic Museum** — `https://nordicmuseum.org/calendar` — Tags: Museums, Arts, Ballard
 
-**Woodland Park Zoo** — `https://zoo.org/events/` — Custom (returns 503) — Tags: Community
+**Woodland Park Zoo** — `https://zoo.org/events/` — Tribe Events ICS ✅ (~30 events: ZooTunes concerts, animal encounters, dining) — Tags: Community, Family, Music
 
 **Seattle Aquarium** — `https://www.seattleaquarium.org/events/` — Custom CMS — Tags: Community, Museums
 

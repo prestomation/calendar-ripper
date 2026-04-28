@@ -4,6 +4,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-28 — Source discovery: Improv, Comedy, Arts
+- ✅ **Cannonball Arts Center** — Custom WordPress REST ripper implemented. Fetches from `/wp-json/wp/v2/cba-event`, parses dates from HTML content. 6 events, 19 tests. PR #230.
+- ✅ **Unexpected Productions** — Eventbrite org `6607284485`, 23 upcoming events at Market Theater (Pike Place Market). Built-in EventbriteRipper, 8 tests. PR #231.
+- ❌ **Club Sur** — Eventbrite org `19822842329`, only 9 events. SODO venue. Marginal volume, skip.
+- ❌ **Abbey Arts** — Eventbrite org `11933347765`, only 1 upcoming event. Nonprofit, multi-venue (Fremont Abbey, Ballard Homestead, etc). Too few events.
+- ❌ **Seattle Center** — Custom CMS, no ICS/API, JS-rendered calendar. Still not viable.
+- ❌ **Pioneer Square Alliance** — JS-rendered events page, no structured feed. Not viable.
+- ❌ **Book Love** — Eventbrite org `64943664533`, but located in Plymouth, MA. Not Seattle.
+- 💡 **Emerald City Comedy Club** — Still candidate: SeatEngine platform, 40+ events. Would need custom ripper.
+
 ### 2026-04-27 — Source discovery: Community, Yoga, Jewish organizations
 - ❌ **Jewish Federation of Greater Seattle** — ICS works but removed: we don't add religious sources.
 - ✅ **Urban League of Metropolitan Seattle** — Tribe Events ICS confirmed working (6+ events: homebuyer workshops, Home Club, housing programs). Seattle-based at 105 14th Ave. Added to `external.yaml` as `urban-league-seattle`. Tags: Community, Education.
@@ -138,7 +148,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
 
-**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers
+~~**Cannonball Arts Center**~~ — ✅ Added as `sources/cannonball_arts` (PR #230)
 
 ### Custom HTML/JSON Scraping
 
@@ -231,6 +241,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **The Royal Room** — `sources/royal_room` — WP Event Manager RSS + JSON-LD per-page — 5000 Rainier Ave S, Columbia City — Tags: Music, Columbia City
 
 **Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
+
+**Cannonball Arts Center** — `sources/cannonball_arts` — Custom WordPress REST ripper (`/wp-json/wp/v2/cba-event`) — 1930 3rd Ave, Belltown — Tags: Art, Belltown — PR #230
+
+**Unexpected Productions** — `sources/unexpected_productions` — Eventbrite org `6607284485` — 1428 Post Alley, Pike Place Market — Tags: Comedy, Pike Place — PR #231
 
 ---
 

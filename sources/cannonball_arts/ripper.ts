@@ -171,7 +171,12 @@ export default class CannonballArtsRipper implements IRipper {
         );
         if (!res.ok) throw new Error(`Cannonball Arts API returned ${res.status} ${res.statusText}`);
 
-        const apiEvents: CbaApiEvent[] = await res.json();
+        let apiEvents: CbaApiEvent[];
+        try {
+            apiEvents = await res.json();
+        } catch (e) {
+            throw new Error(`Failed to parse Cannonball Arts API response: ${e instanceof Error ? e.message : String(e)}`);
+        }
 
         const errors: RipperError[] = [];
         const events: RipperCalendarEvent[] = [];
@@ -195,28 +200,27 @@ export default class CannonballArtsRipper implements IRipper {
             // Determine a stable year for each parsed date. Use current year; if that date
             // is already in the past we skip it (not an error — past events are expected).
             const useMultiSuffix = parsedDates.length > 1;
-            let anyFutureDate = false;
 
             for (let i = 0; i < parsedDates.length; i++) {
                 const pd = parsedDates[i];
 
-                // Resolve year: use current year; if month is earlier than current month
-                // and this is a future-looking source, try next year.
+                // Resolve year: use current year; if date is in the past, skip silently.
                 let year = currentYear;
-                const tryDate = LocalDateTime.of(year, pd.month, pd.day, pd.hour, pd.minute);
-                const tryZdt = ZonedDateTime.of(tryDate, zone);
-                if (tryZdt.isBefore(now)) {
-                    // Try next year for events that appear to recur
-                    const nextYearDate = LocalDateTime.of(year + 1, pd.month, pd.day, pd.hour, pd.minute);
-                    const nextYearZdt = ZonedDateTime.of(nextYearDate, zone);
-                    // Only advance the year if the next-year date is actually upcoming —
-                    // don't speculatively future-date one-off events that are simply expired.
-                    // Heuristic: only advance if the post itself is recent (within 60 days).
-                    // For now, just skip past dates silently.
+                let tryZdt: ZonedDateTime;
+                try {
+                    const tryDate = LocalDateTime.of(year, pd.month, pd.day, pd.hour, pd.minute);
+                    tryZdt = ZonedDateTime.of(tryDate, zone);
+                } catch (e) {
+                    errors.push({
+                        type: 'ParseError',
+                        reason: `Invalid date: ${pd.month}/${pd.day}/${year} ${pd.hour}:${pd.minute}`,
+                        context: title,
+                    });
                     continue;
                 }
-
-                anyFutureDate = true;
+                if (tryZdt.isBefore(now)) {
+                    continue;
+                }
 
                 const dateStr = `${year}-${String(pd.month).padStart(2, '0')}-${String(pd.day).padStart(2, '0')}`;
                 const id = useMultiSuffix
@@ -242,7 +246,6 @@ export default class CannonballArtsRipper implements IRipper {
 
             // If all parsed dates were in the past, it's a silently-skipped expired event,
             // not a parse error.
-            void anyFutureDate;
         }
 
         return [{

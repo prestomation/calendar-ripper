@@ -38,6 +38,9 @@ export default class TCCRipper implements IRipper {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
+        if (ripper.config.calendars.length === 0) {
+            throw new Error('No calendars configured');
+        }
         const timezone = ripper.config.calendars[0].timezone;
         const events = this.parseUpcomingEvents(upcomingSection, timezone);
 
@@ -69,9 +72,9 @@ export default class TCCRipper implements IRipper {
                 events.push({ type: 'ParseError', reason: 'No date element found', context: eventId });
                 continue;
             }
-            const parsedDate = this.parseDate(dateEl.textContent.trim(), today);
+            const parsedDate = this.parseDate(dateEl.textContent?.trim() ?? '', today);
             if (!parsedDate) {
-                events.push({ type: 'ParseError', reason: `Could not parse date: "${dateEl.textContent.trim()}"`, context: eventId });
+                events.push({ type: 'ParseError', reason: `Could not parse date: "${dateEl.textContent?.trim() ?? ''}"`, context: eventId });
                 continue;
             }
 
@@ -80,7 +83,7 @@ export default class TCCRipper implements IRipper {
                 events.push({ type: 'ParseError', reason: 'No title link found', context: eventId });
                 continue;
             }
-            const title = titleLink.textContent.trim();
+            const title = titleLink.textContent?.trim() ?? '';
             const eventUrl = titleLink.getAttribute('href') ?? undefined;
 
             const timeEl = div.querySelector('.tcc-event-time-day-of-week');

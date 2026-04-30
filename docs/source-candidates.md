@@ -4,6 +4,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-30 — Added University Book Store
+- ✅ **University Book Store / Barnes & Noble University District** — Eventbrite organizer `30331909434`, 10 events confirmed in CI. Author readings, poetry, story times at 4324 University Way NE. Tags: Books, University District — PR #238
+
 ### 2026-04-28 — Source discovery: Zoo, Library, Community
 - ✅ **Woodland Park Zoo** — Tribe Events ICS confirmed working (~30 events: ZooTunes, animal encounters, dining). Adding to external.yaml. Previously marked ❌ (503) but ICS endpoint works fine.
 - ✅ **Seattle Public Library** — Already implemented as `sources/spl/` ripper (Trumba `kalendaro.json`, 24 branch calendars). No action needed.
@@ -226,6 +229,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ---
 
 ## ✅ Added
+
+**University Book Store / Barnes & Noble University District** — `sources/university_book_store` — Eventbrite organizer `30331909434` — 4324 University Way NE, Seattle — Tags: Books, University District — PR #238
 
 **Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite — 5220 Roosevelt Way NE — Tags: Comedy, University District
 

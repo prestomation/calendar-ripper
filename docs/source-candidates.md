@@ -5,7 +5,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ## Discovery Log
 
 ### 2026-04-30 — Source discovery: Outdoors/Sports, Food/Drink, Theater/Arts, Nightlife, Tech/Meetups
-- ✅ **Populus Seattle** — Tribe Events ICS confirmed working (10 events). Hotel venue at 100 S King St, Pioneer Square with rooftop bar, jazz brunches, silent book club, fashion events. Adding to `external.yaml`. Tags: Nightlife, Music, Downtown.
+- ✅ **Populus Seattle** — Tribe Events ICS, 10 events confirmed. Hotel venue at 100 S King St, Pioneer Square. Implemented in PR #240. Tags: Nightlife, Music, Downtown.
 - ❌ **Theatre Puget Sound** — Tribe Events ICS confirmed working but only 4 events total; community aggregate calendar with events spread across venues including Studio East in Kirkland (outside Seattle). Low volume for Seattle-specific events. Not viable as primary source.
 - ❌ **GeekWire Calendar** — Tribe Events ICS returns Cloudflare block (403). Already in `sources/external.yaml` as `geekwire`. Not a new source.
 - ❌ **Cascade Bicycle Club** — Drupal site, no ICS feed. Events page is `/rides-events`, custom Drupal CMS. Not viable with built-in rippers.

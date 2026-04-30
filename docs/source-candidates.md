@@ -4,6 +4,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-04-30 — Source discovery: Outdoors/Sports, Food/Drink, Theater/Arts, Nightlife, Tech/Meetups
+- ✅ **Populus Seattle** — Tribe Events ICS, 10 events confirmed. Hotel venue at 100 S King St, Pioneer Square. Implemented in PR #240. Tags: Nightlife, Music, Downtown.
+- ❌ **Theatre Puget Sound** — Tribe Events ICS confirmed working but only 4 events total; community aggregate calendar with events spread across venues including Studio East in Kirkland (outside Seattle). Low volume for Seattle-specific events. Not viable as primary source.
+- ❌ **GeekWire Calendar** — Tribe Events ICS returns Cloudflare block (403). Already in `sources/external.yaml` as `geekwire`. Not a new source.
+- ❌ **Cascade Bicycle Club** — Drupal site, no ICS feed. Events page is `/rides-events`, custom Drupal CMS. Not viable with built-in rippers.
+- ❌ **Massive Club** — Webflow + Tixr ticketing, no ICS or structured event API. Not viable.
+- ❌ **Central Saloon** — Uses Modern Events Calendar Lite (MEC) plugin, not Tribe Events. No public ICS export from MEC Lite. Would require custom scraper (HTML parsing). Tags: Music, Pioneer Square. Low priority.
+- 💡 **Emerald City Comedy Club** — SeatEngine platform. JSON-LD schema.org `Event` data embedded in page HTML (confirmed working, 40+ shows visible). 210 Broadway E, Capitol Hill. Custom HTML scraper would parse JSON-LD from `https://www-emeraldcitycomedy-com.seatengine.com/events`. Tags: Comedy, Capitol Hill.
+- ❌ **Cannonball Arts Center** — REST API now only returning 2 events (down from 6 on 2026-04-24). Too low volume; new venue still building programming. Monitor.
+
 ### 2026-04-30 — Source discovery: Bookstores, Music, Arts & Community
 - ✅ **University Book Store / Barnes & Noble University District** — Eventbrite organizer `30331909434`, 10 events. Author readings, story times, poetry events at 4324 University Way NE. Adding as `sources/university_book_store`. Tags: Books, University District.
 - 💡 **Cannonball Arts Center** — WordPress REST API (`/wp-json/wp/v2/cba-event`) confirmed returning 2 events. Only 2 events currently; low volume but new venue (opened Aug 2025) from Bumbershoot producers. Custom ripper needed. Tags: Arts, Belltown.

@@ -4,8 +4,20 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
-### 2026-04-30 — Added University Book Store
-- ✅ **University Book Store / Barnes & Noble University District** — Eventbrite organizer `30331909434`, 10 events confirmed in CI. Author readings, poetry, story times at 4324 University Way NE. Tags: Books, University District — PR #238
+### 2026-04-30 — Source discovery: Bookstores, Music, Arts & Community
+- ✅ **University Book Store / Barnes & Noble University District** — Eventbrite organizer `30331909434`, 10 events. Author readings, story times, poetry events at 4324 University Way NE. Adding as `sources/university_book_store`. Tags: Books, University District.
+- 💡 **Cannonball Arts Center** — WordPress REST API (`/wp-json/wp/v2/cba-event`) confirmed returning 2 events. Only 2 events currently; low volume but new venue (opened Aug 2025) from Bumbershoot producers. Custom ripper needed. Tags: Arts, Belltown.
+- ❌ **Tractor Tavern** — Uses TicketWeb ticketing; no ICS feed or public API. Already covered via seattle-showlists ripper. Not viable as separate source.
+- ❌ **Hugo House** — Already in `sources/external.yaml` as `hugo-house`. Tribe Events ICS confirmed working (31 events). No action needed.
+- ❌ **Rainier Arts Center** — Already has `sources/rainier_arts_center` ripper. No action needed.
+- ❌ **Langston Hughes PAI** — Already in `sources/external.yaml` as `langston`. No action needed.
+- ❌ **Wing Luke Museum** — Already has `sources/wing_luke` Squarespace ripper (itemCount 247, confirmed working). No action needed.
+- ❌ **LANGSTON Seattle** — Only 2 upcoming events. Too low volume.
+- ❌ **Intiman Theatre** — WordPress but no working ICS/Tribe Events feed. Custom scraper would be needed but very low volume. Not viable.
+- ❌ **Cornish College of the Arts** — Uses Events Manager plugin + Ludus ticketing; no ICS/API. Events feed at events.seattleu.edu (not their site). Not viable.
+- ❌ **Columbia City Theater** — WordPress but Tribe Events ICS returns HTML. Not viable without custom ripper.
+- ❌ **Seattle Farmers Markets (seattlefarmersmarkets.org)** — Squarespace `?format=json` returns `itemCount: 0` (off-season). Revisit in May when season opens.
+- ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
 
 ### 2026-04-28 — Source discovery: Zoo, Library, Community
 - ✅ **Woodland Park Zoo** — Tribe Events ICS confirmed working (~30 events: ZooTunes, animal encounters, dining). Adding to external.yaml. Previously marked ❌ (503) but ICS endpoint works fine.
@@ -16,7 +28,6 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **ACT Theatre / Union Arts Center** — No ICS, Salesforce ticketing. Not viable.
 - ❌ **ArtsWest** — Salesforce ticketing, no ICS. Not viable.
 - ❌ **Nordic Museum** — Tribe Events ICS returns 404. Not viable.
-- ❌ **Wing Luke Museum** — No ICS feed. Not viable.
 
 ### 2026-04-27 — Source discovery: Community, Yoga, Jewish organizations
 - ❌ **Jewish Federation of Greater Seattle** — ICS works but removed: we don't add religious sources.
@@ -230,7 +241,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## ✅ Added
 
-**University Book Store / Barnes & Noble University District** — `sources/university_book_store` — Eventbrite organizer `30331909434` — 4324 University Way NE, Seattle — Tags: Books, University District — PR #238
+**University Book Store / Barnes & Noble University District** — `sources/university_book_store` — Eventbrite organizer `30331909434` — 4324 University Way NE, Seattle — Tags: Books, University District
 
 **Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite — 5220 Roosevelt Way NE — Tags: Comedy, University District
 

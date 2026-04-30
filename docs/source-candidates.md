@@ -259,6 +259,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
 
+**Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
+
 ---
 
 ## ⏸️ Blocked

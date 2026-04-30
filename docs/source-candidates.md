@@ -6,13 +6,12 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### 2026-04-30 — Source discovery: Bookstores, Music, Arts & Community
 - ✅ **University Book Store / Barnes & Noble University District** — Eventbrite organizer `30331909434`, 10 events. Author readings, story times, poetry events at 4324 University Way NE. Adding as `sources/university_book_store`. Tags: Books, University District.
-- 💡 **Wing Luke Museum** — Previously marked ❌ (No ICS feed), but Squarespace `?format=json` returns itemCount 247 with confirmed upcoming events. Already has a `sources/wing_luke` ripper — no action needed.
 - 💡 **Cannonball Arts Center** — WordPress REST API (`/wp-json/wp/v2/cba-event`) confirmed returning 2 events. Only 2 events currently; low volume but new venue (opened Aug 2025) from Bumbershoot producers. Custom ripper needed. Tags: Arts, Belltown.
 - ❌ **Tractor Tavern** — Uses TicketWeb ticketing; no ICS feed or public API. Already covered via seattle-showlists ripper. Not viable as separate source.
 - ❌ **Hugo House** — Already in `sources/external.yaml` as `hugo-house`. Tribe Events ICS confirmed working (31 events). No action needed.
 - ❌ **Rainier Arts Center** — Already has `sources/rainier_arts_center` ripper. No action needed.
 - ❌ **Langston Hughes PAI** — Already in `sources/external.yaml` as `langston`. No action needed.
-- ❌ **Wing Luke Museum** — Already has `sources/wing_luke` Squarespace ripper. No action needed.
+- ❌ **Wing Luke Museum** — Already has `sources/wing_luke` Squarespace ripper (itemCount 247, confirmed working). No action needed.
 - ❌ **LANGSTON Seattle** — Only 2 upcoming events. Too low volume.
 - ❌ **Intiman Theatre** — WordPress but no working ICS/Tribe Events feed. Custom scraper would be needed but very low volume. Not viable.
 - ❌ **Cornish College of the Arts** — Uses Events Manager plugin + Ludus ticketing; no ICS/API. Events feed at events.seattleu.edu (not their site). Not viable.
@@ -29,7 +28,6 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **ACT Theatre / Union Arts Center** — No ICS, Salesforce ticketing. Not viable.
 - ❌ **ArtsWest** — Salesforce ticketing, no ICS. Not viable.
 - ❌ **Nordic Museum** — Tribe Events ICS returns 404. Not viable.
-- ❌ **Wing Luke Museum** — No ICS feed. Not viable. *(Updated 2026-04-30: Squarespace ?format=json works and already has a sources/wing_luke ripper — no action needed.)*
 
 ### 2026-04-27 — Source discovery: Community, Yoga, Jewish organizations
 - ❌ **Jewish Federation of Greater Seattle** — ICS works but removed: we don't add religious sources.

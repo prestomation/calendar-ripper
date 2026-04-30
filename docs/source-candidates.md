@@ -313,6 +313,11 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 | `seattle-showlists-hotel-crocodile` | Showlists venue, currently no listings | Monitor |
 | `seattle-showlists-bad-bar` | Showlists venue, currently no listings | Monitor |
 | `tag-seward-park` | Has 5 events but marked `expectEmpty: true` — inconsistent | Review `expectEmpty` flag |
+| `external-seattledances` | ICS was confirmed working 2026-04-22 (30 events) but now 0 events in production — may be intermittent or feed broken again | Investigate |
+| `external-urban-league-seattle` | ICS was confirmed working 2026-04-27 (6+ events) but now 0 events — may be feed issue | Investigate |
+| `crocodile-crocodile-madame-lous` | Crocodile sub-venue, currently no listings | Monitor |
+| `seatoday-seatoday-nightlife` | seatoday nightlife calendar, 0 events — may be no upcoming nightlife events | Monitor |
+| `tag-dance` | Dance tag aggregate shows 0 — likely caused by `external-seattledances` being empty | Resolve seattledances issue |
 
 ### Disabled Sources (revisit periodically)
 

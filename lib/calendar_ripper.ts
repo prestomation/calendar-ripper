@@ -1127,7 +1127,6 @@ END:VCALENDAR`;
             if (parseErrors.length > 0) {
               console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
               newSourceParseErrors.push({ source: entry.source, calendar: entry.calendar, errorCount: parseErrors.length });
-              finalErrorCount++;
             }
           }
         }

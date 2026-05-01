@@ -4,6 +4,18 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-01 — Source discovery: Music venues, Festivals, Arts, Breweries, Neighborhood orgs
+- 💡 **Couth Buzzard Books** — Squarespace confirmed (watermelon-endive-hmky.squarespace.com). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. **Implemented in PR #243 but returned 0 events in CI** — `?format=json` on `/event-calendar` may be the wrong path, or the Squarespace events collection may be empty/unpublished. Try `/events?format=json` or inspect the Squarespace backend. Tags: Books, Music, Greenwood.
+- 💡 **Midwest Coast Brewing** — Squarespace site at `midwestcoastbrewing.com/upcoming`. Extremely active events calendar (trivia, music bingo, live music, dog market, sip & paint, yoga, book club). Tags: Music, Community, Greenwood. Verify: `?format=json`.
+- 💡 **Roosevelt Neighborhood Association** — `rooseveltseattle.org/about/calendar/`. WordPress with Google Calendar embed — likely has webcal:// ICS URL. Monthly trivia nights, community events, Rooted in Roosevelt festival (Sept). Tags: Community. Check page source for webcal or .ics link.
+- 💡 **West Seattle Junction** — `wsjunction.org/event-directory/`. WordPress neighborhood org. Annual events include West Seattle Summer Fest (July 10–12, 2026). Check for Tribe Events ICS: `?post_type=tribe_events&ical=1`. Tags: Community, West Seattle.
+- 💡 **Elliott Bay Brewing** — `elliottbaybrewing.com/events/`. Multi-location WordPress brewery (West Seattle, Burien, Lake City). Weekly karaoke, trivia, live music, seasonal events — highly active. Would need custom ripper or check for ICS. Tags: Beer, Music, West Seattle.
+- ❌ **Abbey Arts / Fremont Abbey** — WordPress site at `fremontabbey.org`. Uses Humanitix for ticketing (`events.humanitix.com/host/abbey-arts-presents`). Humanitix has no public ICS or REST API. HTML scraping only, fragile. Not viable.
+- ❌ **Marymoor Live** — Outdoor summer concert series in Redmond, WA. Outside Seattle city limits.
+- ❌ **Tacoma Comedy Club** — Located in Tacoma. Outside Seattle city limits.
+- ❌ **Phinney Neighborhood Association** — Already in `sources/external.yaml` as `phinney-neighborhood-association`. No action needed.
+- ❌ **SeattleArtists.com** — Already in `sources/external.yaml` as `seattle-artists-art-walks`. No action needed.
+
 ### 2026-05-01 — Source discovery: Comedy, Festivals, Bookstores, Jazz/Music
 - ✅ **Earshot Jazz** — WordPress Tribe Events ICS (`https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list`). 100+ concerts/year at venues throughout Seattle. Added to `sources/external.yaml`. Tags: Music.
 - 💡 **The Rendezvous** — Previously flagged as dead (2026-04-22), now confirmed active with April 2026 events (comedy, music, burlesque). WordPress + Tribe Events (confirmed by URL structure: `/calendar/category/comedy/`). Address: 2322 2nd Ave, Belltown. Tags: Music, Comedy, Nightlife, Belltown. Try ICS: `https://www.therendezvous.rocks/?post_type=tribe_events&ical=1&eventDisplay=list`.
@@ -163,7 +175,15 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### Squarespace (built-in type)
 
-**Couth Buzzard Books** — `https://www.couthbuzzard.com/event-calendar` — Squarespace confirmed (`watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. Verify: `?format=json`. Tags: Books, Music, Greenwood — **New 2026-05-01**
+**Couth Buzzard Books** — `https://www.couthbuzzard.com/event-calendar` — Squarespace confirmed (`watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. **Returned 0 events in CI (PR #243)** — try `/events?format=json` instead of `/event-calendar?format=json`. Tags: Books, Music, Greenwood — **New 2026-05-01**
+
+**Midwest Coast Brewing** — `https://www.midwestcoastbrewing.com/upcoming` — Squarespace. Extremely active events calendar at this Greenwood/Seattle brewery: trivia, music bingo, live music, dog market, sip & paint, yoga, barre, book club. Verify: `?format=json`. Tags: Beer, Music, Greenwood — **New 2026-05-01**
+
+**Roosevelt Neighborhood Association** — `https://rooseveltseattle.org/about/calendar/` — Google Calendar embed (likely public webcal ICS). Monthly trivia nights, litter pickups, clothing swaps, Rooted in Roosevelt festival (Sept 19, 2026). Check page source for `webcal://` or `calendar.google.com/calendar/ical/` URL. Tags: Community — **New 2026-05-01**
+
+**West Seattle Junction** — `https://wsjunction.org/event-directory/` — WordPress neighborhood org. West Seattle Summer Fest (July 10–12, 2026), farmers markets, community events. Try ICS: `?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Community, West Seattle — **New 2026-05-01**
+
+**Elliott Bay Brewing** — `https://elliottbaybrewing.com/events/` — WordPress, multi-location (West Seattle, Burien, Lake City). Weekly karaoke, trivia, live music, seasonal events. Custom ripper likely needed. Tags: Beer, Music, West Seattle — **New 2026-05-01**
 
 **Seattle Farmers Markets** — `https://seattlefarmersmarkets.org/events` — Squarespace (previously ❌ off-season). Season opens May 2026: Capitol Hill (Sun 11am–3pm), West Seattle (Sun 10am–2pm), plus Magnolia/Columbia City/Phinney/Lake City markets in summer. Verify: `?format=json`. Tags: FarmersMarket, Community, Food — **Upgraded 2026-05-01**
 

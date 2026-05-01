@@ -5,7 +5,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ## Discovery Log
 
 ### 2026-05-01 — Source discovery: Music venues, Festivals, Arts, Breweries, Neighborhood orgs
-- 🔍 **Couth Buzzard Books** — Squarespace confirmed (watermelon-endive-hmky.squarespace.com). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. Implementing as `sources/couth_buzzard/`. Tags: Books, Music, Greenwood.
+- 💡 **Couth Buzzard Books** — Squarespace confirmed (watermelon-endive-hmky.squarespace.com). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. **Implemented in PR #243 but returned 0 events in CI** — `?format=json` on `/event-calendar` may be the wrong path, or the Squarespace events collection may be empty/unpublished. Try `/events?format=json` or inspect the Squarespace backend. Tags: Books, Music, Greenwood.
 - 💡 **Midwest Coast Brewing** — Squarespace site at `midwestcoastbrewing.com/upcoming`. Extremely active events calendar (trivia, music bingo, live music, dog market, sip & paint, yoga, book club). Tags: Music, Community, Greenwood. Verify: `?format=json`.
 - 💡 **Roosevelt Neighborhood Association** — `rooseveltseattle.org/about/calendar/`. WordPress with Google Calendar embed — likely has webcal:// ICS URL. Monthly trivia nights, community events, Rooted in Roosevelt festival (Sept). Tags: Community. Check page source for webcal or .ics link.
 - 💡 **West Seattle Junction** — `wsjunction.org/event-directory/`. WordPress neighborhood org. Annual events include West Seattle Summer Fest (July 10–12, 2026). Check for Tribe Events ICS: `?post_type=tribe_events&ical=1`. Tags: Community, West Seattle.
@@ -175,7 +175,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### Squarespace (built-in type)
 
-~~**Couth Buzzard Books** — Squarespace. Being implemented as `sources/couth_buzzard/`. Tags: Books, Music, Greenwood — **New 2026-05-01**~~
+**Couth Buzzard Books** — `https://www.couthbuzzard.com/event-calendar` — Squarespace confirmed (`watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. **Returned 0 events in CI (PR #243)** — try `/events?format=json` instead of `/event-calendar?format=json`. Tags: Books, Music, Greenwood — **New 2026-05-01**
 
 **Midwest Coast Brewing** — `https://www.midwestcoastbrewing.com/upcoming` — Squarespace. Extremely active events calendar at this Greenwood/Seattle brewery: trivia, music bingo, live music, dog market, sip & paint, yoga, barre, book club. Verify: `?format=json`. Tags: Beer, Music, Greenwood — **New 2026-05-01**
 
@@ -308,8 +308,6 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
 
 **Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
-
-**Couth Buzzard Books** — `sources/couth_buzzard` — Squarespace — 8310 Greenwood Ave N, Greenwood — Bookstore + café + performance space with open mic, live music, kids story time — Tags: Books, Music, Greenwood — Added 2026-05-01
 
 ---
 

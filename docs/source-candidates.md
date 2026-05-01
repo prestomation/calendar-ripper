@@ -287,7 +287,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
 
-**Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01
+**Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
 
 ---
 
@@ -346,7 +346,6 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 | `crocodile-crocodile-madame-lous` | Crocodile sub-venue, currently no listings | Monitor |
 | `seatoday-seatoday-nightlife` | seatoday nightlife calendar, 0 events — may be no upcoming nightlife events | Monitor |
 | `tag-dance` | Dance tag aggregate shows 0 — likely caused by `external-seattledances` being empty | Resolve seattledances issue |
-| `earshot-jazz` | Newly added 2026-05-01 — verify ICS returns events in first CI run | Monitor first build |
 
 ### Disabled Sources (revisit periodically)
 

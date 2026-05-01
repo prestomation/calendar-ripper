@@ -17,7 +17,8 @@ describe('parseEventsFromHtml', () => {
     it('extracts Event JSON-LD blocks from the listing page', () => {
         const results = parseEventsFromHtml(loadSampleHtml());
         const events = results.filter(r => !('type' in r));
-        expect(events.length).toBeGreaterThanOrEqual(3);
+        // sample has 4 events: 3 individual blocks + 1 in a root array block
+        expect(events.length).toBeGreaterThanOrEqual(4);
     });
 
     it('skips non-Event JSON-LD types like Organization', () => {
@@ -69,6 +70,39 @@ describe('parseEventsFromHtml', () => {
 
     it('returns empty array for page with no JSON-LD', () => {
         expect(parseEventsFromHtml('<html><body>No events</body></html>')).toEqual([]);
+    });
+
+    it('parses events from a root JSON-LD array', () => {
+        const html = `<script type="application/ld+json">
+        [{"@type":"Event","name":"Array Show","startDate":"2026-07-01T19:00:00-07:00","url":"https://example.com/array-show"}]
+        </script>`;
+        const results = parseEventsFromHtml(html);
+        const events = results.filter(r => !('type' in r)) as any[];
+        expect(events).toHaveLength(1);
+        expect(events[0].name).toBe('Array Show');
+    });
+
+    it('parses events from @graph JSON-LD', () => {
+        const html = `<script type="application/ld+json">
+        {"@context":"https://schema.org","@graph":[
+          {"@type":"Organization","name":"Test Org"},
+          {"@type":"Event","name":"Graph Show","startDate":"2026-07-02T20:00:00-07:00"}
+        ]}
+        </script>`;
+        const results = parseEventsFromHtml(html);
+        const events = results.filter(r => !('type' in r)) as any[];
+        expect(events).toHaveLength(1);
+        expect(events[0].name).toBe('Graph Show');
+    });
+
+    it('handles @type as an array containing Event', () => {
+        const html = `<script type="application/ld+json">
+        {"@type":["Event","ComedyEvent"],"name":"Typed Show","startDate":"2026-07-03T19:00:00-07:00"}
+        </script>`;
+        const results = parseEventsFromHtml(html);
+        const events = results.filter(r => !('type' in r)) as any[];
+        expect(events).toHaveLength(1);
+        expect(events[0].name).toBe('Typed Show');
     });
 
     it('includes the cancelled show in raw parsed results', () => {

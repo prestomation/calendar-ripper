@@ -102,6 +102,26 @@
   }
   </script>
 
+  <!-- Array-style JSON-LD block (tests root array handling) -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Maria Bamford: Weakness Is the Brand",
+      "startDate": "2026-06-05T20:00:00-07:00",
+      "endDate": "2026-06-05T22:00:00-07:00",
+      "location": {
+        "@type": "Place",
+        "name": "Emerald City Comedy Club",
+        "address": "210 Broadway E, Seattle, WA 98102"
+      },
+      "url": "https://www-emeraldcitycomedy-com.seatengine.com/shows/maria-bamford",
+      "eventStatus": "https://schema.org/EventScheduled"
+    }
+  ]
+  </script>
+
 </head>
 <body>
   <main>

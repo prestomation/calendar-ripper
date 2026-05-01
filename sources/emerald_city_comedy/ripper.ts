@@ -19,6 +19,10 @@ export interface SeatEngineEvent {
 
 // Extract all JSON-LD blocks from an HTML page. Returns Event entries and any ParseErrors.
 // Non-Event JSON-LD types (Organization, etc.) are silently skipped.
+// Handles three JSON-LD shapes:
+//   1. Single object: {"@type": "Event", ...}
+//   2. Root array:    [{"@type": "Event", ...}, ...]
+//   3. @graph block:  {"@graph": [{"@type": "Event", ...}, ...]}
 export function parseEventsFromHtml(html: string): Array<SeatEngineEvent | ParseError> {
     const results: Array<SeatEngineEvent | ParseError> = [];
     const scriptRe = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -38,27 +42,48 @@ export function parseEventsFromHtml(html: string): Array<SeatEngineEvent | Parse
             continue;
         }
 
-        const obj = parsed as Record<string, unknown>;
-        if (obj['@type'] !== 'Event') continue;
-
-        if (typeof obj['name'] !== 'string' || !obj['name']) {
-            results.push({ type: 'ParseError', reason: 'Event JSON-LD missing name', context: undefined });
-            continue;
+        // Collect all candidate objects from this JSON-LD block
+        const candidates: unknown[] = [];
+        if (Array.isArray(parsed)) {
+            candidates.push(...parsed);
+        } else if (parsed && typeof parsed === 'object') {
+            const obj = parsed as Record<string, unknown>;
+            if (Array.isArray(obj['@graph'])) {
+                candidates.push(...(obj['@graph'] as unknown[]));
+            } else {
+                candidates.push(parsed);
+            }
         }
-        if (typeof obj['startDate'] !== 'string' || !obj['startDate']) {
-            results.push({ type: 'ParseError', reason: 'Event JSON-LD missing startDate', context: obj['name'] as string });
-            continue;
-        }
 
-        results.push({
-            '@type': 'Event',
-            name: obj['name'] as string,
-            startDate: obj['startDate'] as string,
-            endDate: typeof obj['endDate'] === 'string' ? obj['endDate'] : undefined,
-            url: typeof obj['url'] === 'string' ? obj['url'] : undefined,
-            image: typeof obj['image'] === 'string' ? obj['image'] : undefined,
-            eventStatus: typeof obj['eventStatus'] === 'string' ? obj['eventStatus'] : undefined,
-        });
+        for (const candidate of candidates) {
+            if (!candidate || typeof candidate !== 'object') continue;
+            const obj = candidate as Record<string, unknown>;
+
+            // @type may be a string or an array of strings
+            const typeVal = obj['@type'];
+            const isEvent = typeVal === 'Event' ||
+                (Array.isArray(typeVal) && typeVal.includes('Event'));
+            if (!isEvent) continue;
+
+            if (typeof obj['name'] !== 'string' || !obj['name']) {
+                results.push({ type: 'ParseError', reason: 'Event JSON-LD missing name', context: undefined });
+                continue;
+            }
+            if (typeof obj['startDate'] !== 'string' || !obj['startDate']) {
+                results.push({ type: 'ParseError', reason: 'Event JSON-LD missing startDate', context: obj['name'] as string });
+                continue;
+            }
+
+            results.push({
+                '@type': 'Event',
+                name: obj['name'] as string,
+                startDate: obj['startDate'] as string,
+                endDate: typeof obj['endDate'] === 'string' ? obj['endDate'] : undefined,
+                url: typeof obj['url'] === 'string' ? obj['url'] : undefined,
+                image: typeof obj['image'] === 'string' ? obj['image'] : undefined,
+                eventStatus: typeof obj['eventStatus'] === 'string' ? obj['eventStatus'] : undefined,
+            });
+        }
     }
 
     return results;

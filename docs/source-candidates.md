@@ -11,7 +11,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Cascade Bicycle Club** — Drupal site, no ICS feed. Events page is `/rides-events`, custom Drupal CMS. Not viable with built-in rippers.
 - ❌ **Massive Club** — Webflow + Tixr ticketing, no ICS or structured event API. Not viable.
 - ❌ **Central Saloon** — Uses Modern Events Calendar Lite (MEC) plugin, not Tribe Events. No public ICS export from MEC Lite. Would require custom scraper (HTML parsing). Tags: Music, Pioneer Square. Low priority.
-- 💡 **Emerald City Comedy Club** — SeatEngine platform. JSON-LD schema.org `Event` data embedded in page HTML (confirmed working, 40+ shows visible). 210 Broadway E, Capitol Hill. Custom HTML scraper would parse JSON-LD from `https://www-emeraldcitycomedy-com.seatengine.com/events`. Tags: Comedy, Capitol Hill.
+- ✅ **Emerald City Comedy Club** — SeatEngine platform. JSON-LD schema.org `Event` data embedded in page HTML. 210 Broadway E, Capitol Hill. Implemented as `sources/emerald_city_comedy`. Tags: Comedy, Capitol Hill.
 - ❌ **Cannonball Arts Center** — REST API now only returning 2 events (down from 6 on 2026-04-24). Too low volume; new venue still building programming. Monitor.
 
 ### 2026-04-30 — Source discovery: Bookstores, Music, Arts & Community
@@ -250,6 +250,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ---
 
 ## ✅ Added
+
+**Emerald City Comedy Club** — `sources/emerald_city_comedy` — SeatEngine JSON-LD — 210 Broadway E, Capitol Hill — Tags: Comedy, Capitol Hill
 
 **University Book Store / Barnes & Noble University District** — `sources/university_book_store` — Eventbrite organizer `30331909434` — 4324 University Way NE, Seattle — Tags: Books, University District
 

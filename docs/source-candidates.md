@@ -4,6 +4,14 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-01 — Source discovery: Comedy, Festivals, Bookstores, Jazz/Music
+- ✅ **Earshot Jazz** — WordPress Tribe Events ICS (`https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list`). 100+ concerts/year at venues throughout Seattle. Added to `sources/external.yaml`. Tags: Music.
+- 💡 **The Rendezvous** — Previously flagged as dead (2026-04-22), now confirmed active with April 2026 events (comedy, music, burlesque). WordPress + Tribe Events (confirmed by URL structure: `/calendar/category/comedy/`). Address: 2322 2nd Ave, Belltown. Tags: Music, Comedy, Nightlife, Belltown. Try ICS: `https://www.therendezvous.rocks/?post_type=tribe_events&ical=1&eventDisplay=list`.
+- 💡 **Couth Buzzard Books** — Squarespace site (confirmed via `watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N, Greenwood. Has open mic (Wed), live music (Fri–Sat), kids story time. Tags: Books, Music, Greenwood. Verify: `https://www.couthbuzzard.com/event-calendar?format=json`.
+- 💡 **Seattle Farmers Markets** — Squarespace (seattlefarmersmarkets.org). Previously ❌ off-season. Markets are now opening for May 2026: Capitol Hill (Sundays 11am–3pm), West Seattle (Sundays 10am–2pm), Lake City (Aug), Magnolia (Jul), Columbia City (Jul), Phinney (Aug). Verify: `https://seattlefarmersmarkets.org/events?format=json`. Tags: FarmersMarket, Community, Food.
+- 💡 **New Tech Northwest** — newtechnorthwest.com. WordPress + Tribe Events. Monthly tech meetups in Seattle with 60k+ member community (uses Luma as primary platform too). Tags: Community, Education. Try ICS: `https://www.newtechnorthwest.com/?post_type=tribe_events&ical=1&eventDisplay=list`.
+- ❌ **The Rendezvous (dead source flag removed)** — Moved from 💀 Dead Source Investigation to 💡 Candidate above; confirmed active 2026.
+
 ### 2026-04-30 — Source discovery: Outdoors/Sports, Food/Drink, Theater/Arts, Nightlife, Tech/Meetups
 - ✅ **Populus Seattle** — Tribe Events ICS, 10 events confirmed. Hotel venue at 100 S King St, Pioneer Square. Implemented in PR #240. Tags: Nightlife, Music, Downtown.
 - ❌ **Theatre Puget Sound** — Tribe Events ICS confirmed working but only 4 events total; community aggregate calendar with events spread across venues including Studio East in Kirkland (outside Seattle). Low volume for Seattle-specific events. Not viable as primary source.
@@ -155,6 +163,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### Squarespace (built-in type)
 
+**Couth Buzzard Books** — `https://www.couthbuzzard.com/event-calendar` — Squarespace confirmed (`watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. Verify: `?format=json`. Tags: Books, Music, Greenwood — **New 2026-05-01**
+
+**Seattle Farmers Markets** — `https://seattlefarmersmarkets.org/events` — Squarespace (previously ❌ off-season). Season opens May 2026: Capitol Hill (Sun 11am–3pm), West Seattle (Sun 10am–2pm), plus Magnolia/Columbia City/Phinney/Lake City markets in summer. Verify: `?format=json`. Tags: FarmersMarket, Community, Food — **Upgraded 2026-05-01**
+
 **Seattle Public Theater** — `https://www.seattlepublictheater.org/current-season` — Green Lake Bathhouse — Note: may not work with SquarespaceRipper (page vs events collection)
 
 **Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle — Note: site is on **Webflow** (not Squarespace); uses Eventbrite for ticketed events — need to find correct Eventbrite organizer ID or write custom scraper
@@ -164,6 +176,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Seattle Thunderbirds** — `https://chl.ca/whl-thunderbirds/schedule/` — accesso ShoWare Center, Kent — Tags: Sports — Note: Kent is outside Seattle city limits
 
 ### WordPress / Tribe Events ICS
+
+**The Rendezvous** — `https://www.therendezvous.rocks/calendar/` — WordPress + Tribe Events (confirmed by URL structure). Historic Belltown arts venue at 2322 2nd Ave — comedy, music, burlesque, theater. Confirmed active with April 2026 events. ICS: `https://www.therendezvous.rocks/?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Music, Comedy, Nightlife, Belltown — **New 2026-05-01**
+
+**New Tech Northwest** — `https://www.newtechnorthwest.com/events/` — WordPress + Tribe Events. Monthly tech meetups for Seattle's 60k+ member tech community. Also on Luma. ICS: `https://www.newtechnorthwest.com/?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Community, Education — **New 2026-05-01**
 
 **SeattleDances** — `https://seattledances.com/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (30 events). Tags: Dance, Arts — **New 2026-04-22**
 
@@ -271,6 +287,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
 
+**Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01
+
 ---
 
 ## ⏸️ Blocked
@@ -328,6 +346,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 | `crocodile-crocodile-madame-lous` | Crocodile sub-venue, currently no listings | Monitor |
 | `seatoday-seatoday-nightlife` | seatoday nightlife calendar, 0 events — may be no upcoming nightlife events | Monitor |
 | `tag-dance` | Dance tag aggregate shows 0 — likely caused by `external-seattledances` being empty | Resolve seattledances issue |
+| `earshot-jazz` | Newly added 2026-05-01 — verify ICS returns events in first CI run | Monitor first build |
 
 ### Disabled Sources (revisit periodically)
 

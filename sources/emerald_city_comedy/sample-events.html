@@ -122,6 +122,34 @@
   ]
   </script>
 
+  <!-- SeatEngine Place.Events block (tests nested Events key handling) -->
+  <script type="application/ld+json">
+  {
+    ":@context": "http://schema.org",
+    "@type": "Place",
+    "name": "Emerald City Comedy Club",
+    "Events": [
+      {
+        "@type": "Event",
+        "name": "Kyle Kinane: Trampoline",
+        "startDate": "2026-06-12T20:00:00-07:00",
+        "endDate": "2026-06-12T22:00:00-07:00",
+        "url": "https://www-emeraldcitycomedy-com.seatengine.com/shows/kyle-kinane",
+        "image": "https://cdn.seatengine.com/images/kyle-kinane.jpg",
+        "eventStatus": "https://schema.org/EventScheduled"
+      },
+      {
+        "@type": "Event",
+        "name": "Nate Bargatze: The Be Funny Tour",
+        "startDate": "2026-06-19T19:00:00-07:00",
+        "endDate": "2026-06-19T21:30:00-07:00",
+        "url": "https://www-emeraldcitycomedy-com.seatengine.com/shows/nate-bargatze",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
   <main>

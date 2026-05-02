@@ -17,8 +17,8 @@ describe('parseEventsFromHtml', () => {
     it('extracts Event JSON-LD blocks from the listing page', () => {
         const results = parseEventsFromHtml(loadSampleHtml());
         const events = results.filter(r => !('type' in r));
-        // sample has 4 events: 3 individual blocks + 1 in a root array block
-        expect(events.length).toBeGreaterThanOrEqual(4);
+        // sample has 6 events: 3 individual blocks + 1 cancelled + 1 in root array + 2 in Place.Events
+        expect(events.length).toBeGreaterThanOrEqual(6);
     });
 
     it('skips non-Event JSON-LD types like Organization', () => {
@@ -93,6 +93,46 @@ describe('parseEventsFromHtml', () => {
         const events = results.filter(r => !('type' in r)) as any[];
         expect(events).toHaveLength(1);
         expect(events[0].name).toBe('Graph Show');
+    });
+
+    it('extracts events from Place.Events nested array (SeatEngine format)', () => {
+        const html = `<script type="application/ld+json">
+        {
+          ":@context": "http://schema.org",
+          "@type": "Place",
+          "name": "Emerald City Comedy Club",
+          "Events": [
+            {"@type":"Event","name":"Place Events Show 1","startDate":"2026-07-10T19:00:00-07:00","url":"https://example.com/show-1"},
+            {"@type":"Event","name":"Place Events Show 2","startDate":"2026-07-11T20:00:00-07:00","url":"https://example.com/show-2"}
+          ]
+        }
+        </script>`;
+        const results = parseEventsFromHtml(html);
+        const events = results.filter(r => !('type' in r)) as any[];
+        expect(events).toHaveLength(2);
+        expect(events[0].name).toBe('Place Events Show 1');
+        expect(events[1].name).toBe('Place Events Show 2');
+    });
+
+    it('extracts events from lowercase events key on parent object', () => {
+        const html = `<script type="application/ld+json">
+        {"@type":"Place","name":"Some Venue","events":[
+          {"@type":"Event","name":"Lowercase Events Show","startDate":"2026-08-01T19:00:00-07:00"}
+        ]}
+        </script>`;
+        const results = parseEventsFromHtml(html);
+        const events = results.filter(r => !('type' in r)) as any[];
+        expect(events).toHaveLength(1);
+        expect(events[0].name).toBe('Lowercase Events Show');
+    });
+
+    it('extracts Place.Events events from sample HTML', () => {
+        const results = parseEventsFromHtml(loadSampleHtml());
+        const events = results.filter(r => !('type' in r)) as any[];
+        const kinane = events.find(e => e.name.includes('Kyle Kinane'));
+        expect(kinane).toBeDefined();
+        expect(kinane.startDate).toBe('2026-06-12T20:00:00-07:00');
+        expect(kinane.url).toContain('kyle-kinane');
     });
 
     it('handles @type as an array containing Event', () => {

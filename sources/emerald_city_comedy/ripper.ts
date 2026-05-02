@@ -19,10 +19,11 @@ export interface SeatEngineEvent {
 
 // Extract all JSON-LD blocks from an HTML page. Returns Event entries and any ParseErrors.
 // Non-Event JSON-LD types (Organization, etc.) are silently skipped.
-// Handles three JSON-LD shapes:
+// Handles four JSON-LD shapes:
 //   1. Single object: {"@type": "Event", ...}
 //   2. Root array:    [{"@type": "Event", ...}, ...]
 //   3. @graph block:  {"@graph": [{"@type": "Event", ...}, ...]}
+//   4. Place.Events:  {"@type": "Place", "Events": [{"@type": "Event", ...}, ...]} (SeatEngine)
 export function parseEventsFromHtml(html: string): Array<SeatEngineEvent | ParseError> {
     const results: Array<SeatEngineEvent | ParseError> = [];
     const scriptRe = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -52,6 +53,12 @@ export function parseEventsFromHtml(html: string): Array<SeatEngineEvent | Parse
                 candidates.push(...(obj['@graph'] as unknown[]));
             } else {
                 candidates.push(parsed);
+                // Also check for Events/events nested array (SeatEngine Place.Events pattern)
+                for (const key of ['Events', 'events']) {
+                    if (Array.isArray(obj[key])) {
+                        candidates.push(...(obj[key] as unknown[]));
+                    }
+                }
             }
         }
 

@@ -3034,3 +3034,174 @@ body {
 .cluster-small  { background: #4caf50; width: 36px; height: 36px; }
 .cluster-medium { background: #ff9800; width: 44px; height: 44px; }
 .cluster-large  { background: #f44336; width: 52px; height: 52px; }
+
+/* Date-window slider */
+.date-window-slider {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 14px 12px;
+  margin: 8px 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.date-window-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.date-window-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.date-window-range-text {
+  font-weight: 600;
+}
+
+.date-window-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.date-window-presets {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.date-window-preset {
+  background: var(--bg-muted);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.date-window-preset:hover {
+  border-color: var(--text-secondary);
+}
+
+.date-window-preset.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.date-window-track-wrap {
+  position: relative;
+  padding: 0 10px;
+}
+
+.date-window-histogram {
+  display: block;
+  width: 100%;
+  height: 22px;
+  margin-bottom: 2px;
+}
+
+.date-window-bar.in {
+  fill: var(--color-primary);
+  opacity: 0.7;
+}
+
+.date-window-bar.out {
+  fill: var(--text-muted);
+  opacity: 0.25;
+}
+
+.date-window-track {
+  position: relative;
+  height: 6px;
+  background: var(--bg-muted);
+  border-radius: 3px;
+  margin: 14px 0 6px;
+}
+
+.date-window-track-active {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: var(--color-primary);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.date-window-handle {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transform: translateY(-50%);
+  cursor: grab;
+  padding: 0;
+  touch-action: none;
+}
+
+.date-window-handle:active {
+  cursor: grabbing;
+}
+
+.date-window-handle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.date-window-handle-tooltip {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-primary);
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.date-window-handle:hover .date-window-handle-tooltip,
+.date-window-handle:active .date-window-handle-tooltip,
+.date-window-handle:focus-visible .date-window-handle-tooltip {
+  opacity: 1;
+}
+
+.date-window-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .date-window-slider {
+    padding: 8px 10px 10px;
+    margin: 6px 0 10px;
+  }
+  .date-window-presets {
+    width: 100%;
+  }
+  .date-window-histogram {
+    height: 18px;
+  }
+}

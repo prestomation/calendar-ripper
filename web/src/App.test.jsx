@@ -220,8 +220,11 @@ describe('App', () => {
     })
 
     expect(screen.getByText('Tomorrow Movie')).toBeInTheDocument()
-    expect(screen.getByText('Today')).toBeInTheDocument()
-    expect(screen.getByText('Tomorrow')).toBeInTheDocument()
+    // Scope to day-group headers since the date-window slider also has a "Today" preset button
+    const dayLabels = document.querySelectorAll('.day-group-label')
+    const labels = Array.from(dayLabels).map(el => el.textContent)
+    expect(labels).toContain('Today')
+    expect(labels).toContain('Tomorrow')
 
     vi.useRealTimers()
   })

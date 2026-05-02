@@ -93,6 +93,14 @@ jobs:
           echo ""
           echo "${delimiter2}"
         } >> "$GITHUB_OUTPUT"
+        cat newSourceParseErrors.txt
+        delimiter3="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "NEW_SOURCE_PARSE_ERRORS<<${delimiter3}"
+          cat newSourceParseErrors.txt
+          echo ""
+          echo "${delimiter3}"
+        } >> "$GITHUB_OUTPUT"
 
     - name: Upload geo-cache to S3
       if: always()

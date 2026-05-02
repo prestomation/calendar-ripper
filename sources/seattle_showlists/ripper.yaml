@@ -47,6 +47,7 @@ calendars:
       lng: -122.3193
       label: "Vermillion, 1508 11th Ave, Seattle, WA 98122"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Small venue with intermittent programming
     tags: ["Capitol Hill"]
     config:
       venue: "Vermillion"
@@ -203,6 +204,7 @@ calendars:
       lng: -122.3474
       label: "Bad Bar, 819 5th Ave N, Seattle, WA 98109"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Small venue with intermittent programming
     tags: ["QueenAnne"]
     config:
       venue: "Bad Bar"
@@ -241,6 +243,7 @@ calendars:
       lng: -122.3525
       label: "Skylark, 3803 Delridge Way SW, Seattle, WA 98106"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Small venue with intermittent programming
     tags: ["West Seattle"]
     config:
       venue: "Skylark"

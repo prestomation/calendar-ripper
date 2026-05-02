@@ -17,6 +17,27 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve PR context for workflow_run
+        if: github.event_name == 'workflow_run'
+        id: pr-context
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prs = context.payload.workflow_run.pull_requests || [];
+            if (prs.length > 0) {
+              const pr = prs[0];
+              const prNumber = pr.number;
+              core.setOutput('pr_number', String(prNumber));
+              core.setOutput('pr_url', pr.html_url);
+              core.setOutput('preview_url', `https://pr-${prNumber}.206events.pages.dev`);
+              core.setOutput('has_pr', 'true');
+            } else {
+              core.setOutput('has_pr', 'false');
+              core.setOutput('pr_number', '');
+              core.setOutput('pr_url', '');
+              core.setOutput('preview_url', '');
+            }
+
       - name: Notify workflow run
         if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || github.event.workflow_run.name == 'Generate Calendars and Publish to GitHub Pages' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
         env:
@@ -26,6 +47,10 @@ jobs:
           WORKFLOW_URL: ${{ github.event.workflow_run.html_url }}
           BRANCH: ${{ github.event.workflow_run.head_branch }}
           REPO: ${{ github.repository }}
+          HAS_PR: ${{ steps.pr-context.outputs.has_pr }}
+          PR_NUMBER: ${{ steps.pr-context.outputs.pr_number }}
+          PR_URL: ${{ steps.pr-context.outputs.pr_url }}
+          PREVIEW_URL: ${{ steps.pr-context.outputs.preview_url }}
         run: |
           case "$WORKFLOW_CONCLUSION" in
             success)   EMOJI="✅" ;;
@@ -35,24 +60,38 @@ jobs:
             *)         EMOJI="⚠️" ;;
           esac
 
+          LINES=()
+          LINES+=("<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**")
+
+          # Add PR link and preview link if this is associated with a PR
+          if [ "$HAS_PR" = "true" ]; then
+            LINES+=("[PR #${PR_NUMBER}](${PR_URL})")
+            LINES+=("[Preview](${PREVIEW_URL})")
+          fi
+
+          LINES+=("[View run](${WORKFLOW_URL})")
+
           # For the main build workflow, include skill run instructions
           if [ "$WORKFLOW_NAME" = "Generate Calendars and Publish to GitHub Pages" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"$'\n\n'"📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
-          else
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"
+            LINES+=("")
+            LINES+=("📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy.")
           fi
+
+          CONTENT=$(printf '%s\n' "${LINES[@]}")
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
+          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD" || exit 1
 
       - name: Notify review
         if: github.event_name == 'pull_request_review'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
           REVIEWER: ${{ github.event.review.user.login }}
           REVIEW_STATE: ${{ github.event.review.state }}
           REVIEW_BODY: ${{ github.event.review.body }}
           REVIEW_URL: ${{ github.event.review.html_url }}
+          PREVIEW_URL: "https://pr-${{ github.event.pull_request.number }}.206events.pages.dev"
         run: |
           case "$REVIEW_STATE" in
             approved)          EMOJI="✅" LABEL="approved" ;;
@@ -63,12 +102,14 @@ jobs:
           esac
 
           PREVIEW=$(echo "$REVIEW_BODY" | head -c 600 | iconv -c -t UTF-8 | head -c 200 | tr '\n' ' ')
+          LINES=()
+          LINES+=("<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} [PR #${PR_NUMBER}](${PR_URL})")
           if [ -n "$PREVIEW" ]; then
-            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"[View review](${REVIEW_URL})"
-          else
-            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"[View review](${REVIEW_URL})"
+            LINES+=("> ${PREVIEW}")
           fi
+          LINES+=("[View review](${REVIEW_URL})")
+          LINES+=("[Preview](${PREVIEW_URL})")
+
+          CONTENT=$(printf '%s\n' "${LINES[@]}")
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
-          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
-
-
+          curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD" || exit 1

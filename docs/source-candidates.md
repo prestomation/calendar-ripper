@@ -69,6 +69,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Pottery Northwest** — Shopify site, no ICS or structured event API. Not viable.
 - 🔍 **SeattleDances** — Previously marked ❌ (CAPTCHA), but ICS endpoint works fine directly. Already in `external.yaml` — no action needed. The 2026-04-23 ❌ entry was wrong (CAPTCHA only affects HTML page, not ICS feed).
 
+
 ### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
 - 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
 - 💡 **Emerald City Comedy Club** — SeatEngine platform (custom ripper needed). 40+ upcoming events, rich schedule at `emeraldcitycomedy.com`. Custom HTML/JSON scraper required (🔴 Low confidence). Tags: Comedy, Capitol Hill.
@@ -202,6 +203,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **New Tech Northwest** — `https://www.newtechnorthwest.com/events/` — WordPress + Tribe Events. Monthly tech meetups for Seattle's 60k+ member tech community. Also on Luma. ICS: `https://www.newtechnorthwest.com/?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Community, Education — **New 2026-05-01**
 
 **SeattleDances** — `https://seattledances.com/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (30 events). Tags: Dance, Arts — **New 2026-04-22**
+
+**Shunpike** — `https://shunpike.org/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (3 upcoming events: Storefronts art tours, 25th Anniversary Gala). Low volume but unique arts/community events. Easy add to `sources/external.yaml`. Tags: Arts, Community — **New 2026-04-25**
 
 **Rat City Roller Derby** — `https://ratcityrollerderby.com/events/` — try `?post_type=tribe_events&ical=1` — Tags: Community, Sports
 

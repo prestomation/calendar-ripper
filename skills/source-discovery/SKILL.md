@@ -97,14 +97,38 @@ From the 💡 Candidate list, **always pick the source with the highest confiden
 
 To implement:
 1. **Cut a feature branch**: `scripts/new_feature_branch.sh`
-2. **Spawn a coding agent**: `sessions_spawn(runtime="acp", agentId="claude", cwd=<repo_path>)` with the full implementation spec including ripper type, URL, config details, geo coordinates, and tags
-3. **Push and open PR**: `scripts/push_and_pr.sh`
+2. **Pre-implementation fetch validation** — Before writing a line of parser code, attempt a live fetch of the source URL:
+   ```bash
+   curl -sI -A "Mozilla/5.0 (compatible; 206events/1.0)" "<source-url>"
+   ```
+   Then act based on the response:
+
+   | Response | Meaning | Action |
+   |---|---|---|
+   | **200 + events found** | Source works | Proceed with implementation |
+   | **200 + 0 events** | Source exists but is empty | Do not implement. Keep in `💡 Candidate` with a note that it was empty at time of check; re-evaluate next cycle |
+   | **404 / 410 / DNS failure** | Our URL was wrong or the source has moved | Do not implement yet. Update the candidate entry to `🔍 Investigating` and search for the correct URL. Only mark `❌ Not Viable` once no working URL can be found. |
+   | **403 / 429 / connection reset** | Blocked — but by what? | See below |
+
+   **Diagnosing a 403:** This is ambiguous. To distinguish a sandbox-only block from a permanent one:
+   - Does the domain resolve and do other pages load? (DNS works, site is live)
+   - Does the response body look like a normal website, or a Cloudflare/CAPTCHA challenge page?
+   - Is the venue clearly active (social media, Google Maps, etc.)?
+
+   If the block appears **sandbox-only** (site is clearly live, domain resolves, no Cloudflare challenge): the outofband Lambda proxy can likely reach it. Add to the `⚙️ Requires Proxy` section of `docs/source-candidates.md` and proceed with implementation using `proxy: "outofband"` in `ripper.yaml`. Note in the PR that live event count can only be confirmed from outofband build logs.
+
+   If the block appears **permanent** (Cloudflare JS challenge, CAPTCHA, applies to real browsers too): mark `⏸️ Blocked` as usual.
+
+   **Do not guess at the data shape** if you cannot fetch the source. An implementation written against an inaccessible URL is a guess — it will either produce 0 events or parse errors in CI. Only write parser code once you have seen a real sample response.
+
+3. **Spawn a coding agent**: `sessions_spawn(runtime="acp", agentId="claude", cwd=<repo_path>)` with the full implementation spec including ripper type, URL, config details, geo coordinates, tags, and (if applicable) `proxy: "outofband"` requirement
+4. **Push and open PR**: `scripts/push_and_pr.sh`
 
 ### 7. Verify events and iterate with Q
 
 After the PR is open:
 
-1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events**, revert the source addition, move it to `❌ Not Viable` in `source-candidates.md`, and stop — do not request human review for a dead source.
+1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events** (and the source was not flagged as proxy-required), keep searching for the correct URL or source format. Update the candidate entry to `🔍 Investigating`. Do not mark `❌ Not Viable` unless you are confident no working URL exists.
 
 2. **Poll for Amazon Q review** — Check the PR for Amazon Q code review comments.
 
@@ -141,7 +165,9 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Check `docs/source-candidates.md` first** — avoid re-proposing evaluated sources
 - **Flag dead sources** — but don't disable them without human approval
 - **Respect the existing tag system** — check `lib/config/tags.ts` before proposing new tags
-- **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. A source with 0 events has no proven data pipeline and may have the wrong ripper type, wrong URL, or a dead API. Sources that go from events→0 later are fine (they may recover), but a source that has never produced events should not be added.
-- **Verify events in CI before requesting review** — check the PR build log for the source's event count. If 0 events, move the source to `❌ Not Viable` instead of requesting review.
+- **Validate the live source before implementing** — always attempt a fetch before writing parser code. A 200 with events is the only green light to implement. A 404 means the URL was wrong — keep searching. A 403 from the sandbox may mean outofband proxy is needed, not that the source is dead. Never implement a source you cannot fetch; an implementation written against an inaccessible URL is a guess.
+- **Never add a source that returns 0 events** — new sources must produce at least 1 event in CI before merging. The build now fails on new sources with 0 events (no `expectEmpty` exemption for brand-new sources). A source with 0 events has no proven data pipeline. Keep as `🔍 Investigating` until the correct URL or data shape is found.
+- **Proxy-blocked sources go in `⚙️ Requires Proxy`** — if a source is blocked from the sandbox but is clearly live (domain resolves, site is active), implement with `proxy: "outofband"` and add to the `⚙️ Requires Proxy` section of `docs/source-candidates.md`. Validate event count from outofband build logs, not PR preview.
+- **A 404 is not "not viable"** — it means the URL was wrong. Update the candidate to `🔍 Investigating` and keep searching for the correct URL. Only mark `❌ Not Viable` when no working URL can be found after investigation.
 - **Iterate with Q until clean** — don't request human review until Amazon Q has no blocking comments.
 - **Parse methods must never return null** — new custom rippers must have parse methods that return `RipperCalendarEvent | RipperError` (never `null`). Filters and dedup belong in the caller, not the parse method. TypeScript enforces this at compile time. See AGENTS.md "Parse Methods Must Never Return Null" for the required pattern.

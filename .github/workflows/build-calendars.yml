@@ -18,6 +18,9 @@ on:
       new-zero-event-sources:
         description: "Newline-separated list of new sources with 0 events that have never appeared in production"
         value: ${{ jobs.build.outputs.new-zero-event-sources }}
+      new-source-summary:
+        description: "JSON summary of new sources not in production (event counts + sample events)"
+        value: ${{ jobs.build.outputs.new-source-summary }}
 
 jobs:
   build:
@@ -26,6 +29,7 @@ jobs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
       zero-event-calendars: ${{ steps.generate-calendars.outputs.ZERO_EVENT_CALENDARS }}
       new-zero-event-sources: ${{ steps.generate-calendars.outputs.NEW_ZERO_EVENT_SOURCES }}
+      new-source-summary: ${{ steps.generate-calendars.outputs.NEW_SOURCE_SUMMARY }}
 
     steps:
     - name: Checkout repository
@@ -100,6 +104,13 @@ jobs:
           cat newSourceParseErrors.txt
           echo ""
           echo "${delimiter3}"
+        } >> "$GITHUB_OUTPUT"
+        delimiter4="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "NEW_SOURCE_SUMMARY<<${delimiter4}"
+          cat output/new-source-summary.json
+          echo ""
+          echo "${delimiter4}"
         } >> "$GITHUB_OUTPUT"
 
     - name: Upload geo-cache to S3

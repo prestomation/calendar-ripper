@@ -1079,6 +1079,8 @@ END:VCALENDAR`;
   // Check for new sources with parse errors that are not yet in production.
   // This creates back-pressure: you can't merge a new source that's half-broken.
   const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
+  // Track calendars known in production for new-source-summary generation
+  const knownInProduction = new Set<string>();
   {
     const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
     try {
@@ -1090,7 +1092,6 @@ END:VCALENDAR`;
           externalCalendars?: Array<{ icsUrl: string }>;
         };
         // Build set of known calendar names (icsUrl without .ics suffix)
-        const knownInProduction = new Set<string>();
         for (const ripper of prodManifest.rippers ?? []) {
           for (const cal of ripper.calendars) {
             knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
@@ -1140,14 +1141,75 @@ END:VCALENDAR`;
           console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
         }
       } else {
-        console.log(`::warning::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — skipping new zero-event source check`);
+        console.log(`::error::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — failing build`);
+        finalErrorCount++;
       }
     } catch (err) {
-      console.log(`::warning::Could not fetch production manifest — skipping new zero-event source check: ${err}`);
+      console.log(`::error::Could not fetch production manifest — failing build: ${err}`);
+      finalErrorCount++;
     }
   }
   await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
   await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
+
+  // --- New source summary: event counts and sample events for sources not in production ---
+  const newSourceSummary: Array<{
+    source: string;
+    calendar: string;
+    type: string;
+    eventCount: number;
+    sampleEvents: Array<{ summary: string; date: string; location: string }>;
+  }> = [];
+  if (knownInProduction.size > 0) {
+    // Group events from eventsIndex by their calendar (icsUrl without .ics suffix = calendar key)
+    const eventsByCalendar = new Map<string, Array<{ summary: string; date: string; location: string }>>();
+    for (const evt of eventsIndex) {
+      const calKey = evt.icsUrl.replace(/\.ics$/, "");
+      if (!eventsByCalendar.has(calKey)) {
+        eventsByCalendar.set(calKey, []);
+      }
+      eventsByCalendar.get(calKey)!.push({
+        summary: evt.summary,
+        date: evt.date,
+        location: evt.location || "",
+      });
+    }
+    // Sort events within each calendar by date
+    for (const [, evts] of eventsByCalendar) {
+      evts.sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    // Check eventCounts for calendars not in production
+    const newCalendars = eventCounts.filter(
+      c => !knownInProduction.has(c.name) && c.type !== "Aggregate"
+    );
+    for (const cal of newCalendars.slice(0, 10)) {
+      // Derive source name from calendar key
+      let source = cal.name;
+      if (cal.type === "External") {
+        source = cal.name.replace(/^external-/, "");
+      } else if (cal.type === "Recurring") {
+        source = cal.name.replace(/^recurring-/, "");
+      } else {
+        // Ripper: "sourceName-calendarName" → sourceName
+        const dashIdx = cal.name.indexOf("-");
+        if (dashIdx !== -1) source = cal.name.substring(0, dashIdx);
+      }
+
+      const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+        .slice(0, 5)
+        .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+
+      newSourceSummary.push({
+        source,
+        calendar: cal.name,
+        type: cal.type,
+        eventCount: cal.events,
+        sampleEvents,
+      });
+    }
+  }
+  await writeFile("output/new-source-summary.json", JSON.stringify(newSourceSummary, null, 2));
 
   await writeFile("errorCount.txt", finalErrorCount.toString());
 

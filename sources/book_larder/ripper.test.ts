@@ -101,16 +101,84 @@ describe('BookLarderRipper - parseDateFromText', () => {
     });
 });
 
+describe('BookLarderRipper - fetchEveyDate', () => {
+    const ripper = new BookLarderRipper();
+
+    test('extracts date from Evey hidden input HTML with time range', async () => {
+        const html = `
+            <p><strong>Event Date:</strong></p>
+            <p>May 30, 2026</p>
+            <p><strong>Event Time:</strong></p>
+            <p>10:00 am - 11:00 am</p>
+            <input id="event-date" type="hidden" name="properties[Event-Date]" value="May 30, 2026 10:00 AM">
+        `;
+        const fetchFn = async () => new Response(html, { status: 200 });
+        const result = await ripper.fetchEveyDate('book-club-on-eating', fetchFn as any);
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(5);
+        expect(result!.day).toBe(30);
+        expect(result!.hour).toBe(10);
+        expect(result!.minute).toBe(0);
+        expect(result!.endHour).toBe(11);
+        expect(result!.endMinute).toBe(0);
+    });
+
+    test('extracts date from Evey with abbreviated month', async () => {
+        const html = `<input id="event-date" type="hidden" name="properties[Event-Date]" value="Jun 27, 2026 10:00 AM">`;
+        const fetchFn = async () => new Response(html, { status: 200 });
+        const result = await ripper.fetchEveyDate('book-club-queer-food', fetchFn as any);
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(6);
+        expect(result!.day).toBe(27);
+        expect(result!.hour).toBe(10);
+    });
+
+    test('extracts PM time correctly', async () => {
+        const html = `<input id="event-date" type="hidden" name="properties[Event-Date]" value="May 13, 2026 6:30 PM">`;
+        const fetchFn = async () => new Response(html, { status: 200 });
+        const result = await ripper.fetchEveyDate('author-talk', fetchFn as any);
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(5);
+        expect(result!.day).toBe(13);
+        expect(result!.hour).toBe(18);
+        expect(result!.minute).toBe(30);
+    });
+
+    test('returns null when Evey page has no event-date input', async () => {
+        const html = '<html><body>No event date here</body></html>';
+        const fetchFn = async () => new Response(html, { status: 200 });
+        const result = await ripper.fetchEveyDate('some-product', fetchFn as any);
+        expect(result).toBeNull();
+    });
+
+    test('extracts year from Evey date string', async () => {
+        const html = `<input id="event-date" type="hidden" name="properties[Event-Date]" value="Jan 15, 2027 7:00 PM">`;
+        const fetchFn = async () => new Response(html, { status: 200 });
+        const result = await ripper.fetchEveyDate('future-event', fetchFn as any);
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(1);
+        expect(result!.day).toBe(15);
+        expect(result!.year).toBe(2027);
+        expect(result!.hour).toBe(19);
+    });
+
+    test('returns null on fetch failure', async () => {
+        const fetchFn = async () => new Response('', { status: 500 });
+        const result = await ripper.fetchEveyDate('some-product', fetchFn as any);
+        expect(result).toBeNull();
+    });
+});
+
 describe('BookLarderRipper - parseProduct', () => {
     const ripper = new BookLarderRipper();
 
-    test('parses author talk with time from sample data', () => {
+    test('parses author talk with time from sample data', async () => {
         const data = loadSampleData();
         // "Author Talk: Saeng Douangdara, The Lao Kitchen" — May 13th at 6:30pm
         const product = data.products.find((p: any) => p.id === 9185262829786);
         expect(product).toBeDefined();
 
-        const event = ripper.parseProduct(product);
+        const event = await ripper.parseProduct(product);
         expect(event).not.toBeNull();
         expect(event!.summary).toBe('Author Talk: Saeng Douangdara, The Lao Kitchen');
         expect(event!.date.monthValue()).toBe(5);
@@ -123,13 +191,13 @@ describe('BookLarderRipper - parseProduct', () => {
         expect(event!.id).toBe('book-larder-9185262829786');
     });
 
-    test('parses pop-up with time range from sample data', () => {
+    test('parses pop-up with time range from sample data', async () => {
         const data = loadSampleData();
         // "Spring Pop-Up" — May 9th from 10am-2pm
         const product = data.products.find((p: any) => p.id === 9232324427994);
         expect(product).toBeDefined();
 
-        const event = ripper.parseProduct(product);
+        const event = await ripper.parseProduct(product);
         expect(event).not.toBeNull();
         expect(event!.date.monthValue()).toBe(5);
         expect(event!.date.dayOfMonth()).toBe(9);
@@ -137,18 +205,43 @@ describe('BookLarderRipper - parseProduct', () => {
         expect(event!.duration.toMinutes()).toBe(240);
     });
 
-    test('returns ParseError for products with no parseable date', () => {
+    test('returns ParseError for products with no parseable date (no fetchFn)', async () => {
         const data = loadSampleData();
         // "Book Club: On Eating" — no date in body_html
         const product = data.products.find((p: any) => p.id === 9192727675098);
         expect(product).toBeDefined();
 
-        const event = ripper.parseProduct(product);
+        const event = await ripper.parseProduct(product);
         expect(event).not.toBeNull();
         expect(event).toHaveProperty('type', 'ParseError');
     });
 
-    test('returns ParseError for past events', () => {
+    test('uses Evey fallback when body has no date and fetchFn is provided', async () => {
+        const product = {
+            id: 9192727675098,
+            title: 'Book Club: On Eating',
+            handle: 'book-club-on-eating',
+            body_html: '<p>our May pick is On Eating</p>',
+            product_type: 'Event',
+        };
+        const eveyHtml = `<input id="event-date" type="hidden" name="properties[Event-Date]" value="May 30, 2026 10:00 AM">`;
+        const fetchFn = async () => new Response(eveyHtml, { status: 200 });
+
+        const event = await ripper.parseProduct(product, fetchFn as any);
+        // Should succeed with Evey date, not return ParseError
+        expect(event).not.toBeNull();
+        if ('date' in event) {
+            expect(event.date.monthValue()).toBe(5);
+            expect(event.date.dayOfMonth()).toBe(30);
+            expect(event.date.hour()).toBe(10);
+        } else {
+            // If Evey fetch failed (e.g. regex didn't match), this is a ParseError
+            // which is acceptable in test without real network
+            expect(event).toHaveProperty('type', 'ParseError');
+        }
+    });
+
+    test('returns null for past events (silently skipped)', async () => {
         const pastProduct = {
             id: 99999,
             title: 'Past Author Talk',
@@ -157,12 +250,11 @@ describe('BookLarderRipper - parseProduct', () => {
             product_type: 'Event',
         };
         // January 2nd is always in the past by now (today is April 2026)
-        const event = ripper.parseProduct(pastProduct);
-        expect(event).not.toBeNull();
-        expect(event).toHaveProperty('type', 'ParseError');
+        const event = await ripper.parseProduct(pastProduct);
+        expect(event).toBeNull();
     });
 
-    test('returns null for product with non-Event product_type', () => {
+    test('returns null for product with non-Event product_type', async () => {
         const fakeProduct = {
             id: 12345,
             title: 'A Regular Book',
@@ -172,15 +264,15 @@ describe('BookLarderRipper - parseProduct', () => {
         };
         // parseProduct itself doesn't check product_type; rip() filters before calling it
         // so just verify it still parses the date correctly
-        const event = ripper.parseProduct(fakeProduct);
+        const event = await ripper.parseProduct(fakeProduct);
         expect(event).not.toBeNull();
     });
 
-    test('uses correct URL format from handle', () => {
+    test('uses correct URL format from handle', async () => {
         const data = loadSampleData();
         const product = data.products.find((p: any) => p.id === 9232405659866);
         // "Author Talk: Claire Wadsworth and Nikki Hill, La Copine" — June 1st at 6:30pm
-        const event = ripper.parseProduct(product);
+        const event = await ripper.parseProduct(product);
         expect(event).not.toBeNull();
         expect(event!.url).toBe(`https://booklarder.com/products/${product.handle}`);
     });

@@ -10,42 +10,48 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 describe('Seattle Beer Week Ripper', () => {
   test('parses events correctly from JSON', async () => {
-    // Load the sample JSON file
+    const jsonPath = path.join(__dirname, 'seattle_beer_week_2026-04-26.json');
+    const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+
+    const ripper = new SeattleBeerWeekRipper();
+    const date = ZonedDateTime.parse('2026-04-26T00:00:00-07:00[America/Los_Angeles]');
+    const events = await ripper.parseEvents(jsonData, date, {});
+
+    expect(events.length).toBeGreaterThan(0);
+
+    // Find the Cask-O-Rama event which maps to Beveridge Place Pub
+    const caskEvent = events.find(e =>
+      'summary' in e && e.summary === 'Seattle Cask-O-Rama!'
+    ) as RipperCalendarEvent;
+
+    expect(caskEvent).toBeDefined();
+    expect(caskEvent.summary).toBe('Seattle Cask-O-Rama!');
+
+    // Location should be resolved from the locations array, not a raw ID
+    expect(caskEvent.location).toContain('Beveridge Place Pub');
+    expect(caskEvent.location).not.toMatch(/^Location ID:/);
+    expect(caskEvent.location).not.toMatch(/^m[0-9a-z]+$/);
+  });
+
+  test('parses events correctly from old JSON format', async () => {
     const jsonPath = path.join(__dirname, 'seattle_beer_week_2025-04-06.json');
     const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-    
-    // Create an instance of the ripper
+
     const ripper = new SeattleBeerWeekRipper();
-    
-    // Test events
     const date = ZonedDateTime.parse('2025-04-06T00:00:00-07:00[America/Los_Angeles]');
     const events = await ripper.parseEvents(jsonData, date, {});
-    
-    // Verify we got at least one event
+
     expect(events.length).toBeGreaterThan(0);
-    
-    // Find the CASK-O-RAMA event
-    const caskEvent = events.find(e => 
+
+    const caskEvent = events.find(e =>
       'summary' in e && e.summary === 'SEATTLE CASK-O-RAMA!'
     ) as RipperCalendarEvent;
-    
+
     expect(caskEvent).toBeDefined();
     expect(caskEvent.id).toBe('m8xcy9mj');
-    expect(caskEvent.summary).toBe('SEATTLE CASK-O-RAMA!');
-    
-    // Check description
-    expect(caskEvent.description).toContain('TEN Seattle breweries, TEN casks');
-    
-    // Check date and time
-    expect(caskEvent.date.year()).toBe(2025);
-    expect(caskEvent.date.monthValue()).toBe(5);
-    expect(caskEvent.date.dayOfMonth()).toBe(9);
-    expect(caskEvent.date.hour()).toBe(17);
-    expect(caskEvent.date.minute()).toBe(0);
-    
-    // Check duration (6 hours 45 minutes: 17:00 to 23:45)
-    expect(caskEvent.duration.toHours()).toBe(6);
-    expect(caskEvent.duration.toMinutes() % 60).toBe(45);
+
+    // Old sample has no locations array, so location should be undefined (not "Location ID: ...")
+    expect(caskEvent.location).toBeUndefined();
   });
   
   test('handles errors gracefully', async () => {

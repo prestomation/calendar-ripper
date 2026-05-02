@@ -34,6 +34,14 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Fetch base ref for new source detection
+      if: github.base_ref != ''
+      run: |
+        git fetch origin ${{ github.base_ref }}
+        echo "GITHUB_BASE_REF=${{ github.base_ref }}" >> $GITHUB_ENV
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4

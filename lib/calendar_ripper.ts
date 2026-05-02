@@ -1140,14 +1140,145 @@ END:VCALENDAR`;
           console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
         }
       } else {
-        console.log(`::warning::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — skipping new zero-event source check`);
+        console.log(`::error::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — failing build`);
+        finalErrorCount++;
       }
     } catch (err) {
-      console.log(`::warning::Could not fetch production manifest — skipping new zero-event source check: ${err}`);
+      console.log(`::error::Could not fetch production manifest — failing build: ${err}`);
+      finalErrorCount++;
     }
   }
   await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
   await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
+
+  // --- New source summary: event counts and sample events for sources added in this PR ---
+  // Detect new sources by checking git diff against the merge base.
+  // This is more accurate than comparing against the production manifest,
+  // because manifest-based detection flags existing-but-empty sources as "new".
+  const newSourceNames = new Set<string>();
+  const gitBaseRef = process.env.GITHUB_BASE_REF;
+  if (gitBaseRef) {
+    try {
+      const { execSync } = await import("child_process");
+      // Find new ripper source directories added in this PR
+      const ripperDiff = execSync(
+        `git diff --diff-filter=A --name-only origin/${gitBaseRef} -- sources/`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      for (const line of ripperDiff.split("\n").filter(Boolean)) {
+        // sources/sourceName/...  →  sourceName
+        const match = line.match(/^sources\/([^/]+)\//);
+        if (match) newSourceNames.add(match[1]);
+      }
+      // Find new entries in external.yaml by parsing the diff
+      const externalDiff = execSync(
+        `git diff origin/${gitBaseRef} -- external.yaml`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      if (externalDiff) {
+        // Look for added lines containing "- name:" under sources in external.yaml
+        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
+        let match: RegExpExecArray | null;
+        while ((match = addedNameRegex.exec(externalDiff)) !== null) {
+          newSourceNames.add(`external:${match[1].trim()}`);
+        }
+      }
+      // Find new entries in recurring.yaml
+      const recurringDiff = execSync(
+        `git diff origin/${gitBaseRef} -- recurring.yaml`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      if (recurringDiff) {
+        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
+        let match: RegExpExecArray | null;
+        while ((match = addedNameRegex.exec(recurringDiff)) !== null) {
+          newSourceNames.add(`recurring:${match[1].trim()}`);
+        }
+      }
+    } catch (err) {
+      console.log(`::warning::Could not detect new sources via git diff: ${err}`);
+    }
+  }
+
+  const newSourceSummary: Array<{
+    source: string;
+    calendar: string;
+    type: string;
+    eventCount: number;
+    sampleEvents: Array<{ summary: string; date: string; location: string }>;
+  }> = [];
+
+  if (newSourceNames.size > 0) {
+    // Group events from eventsIndex by their calendar (icsUrl without .ics suffix = calendar key)
+    const eventsByCalendar = new Map<string, Array<{ summary: string; date: string; location: string }>>();
+    for (const evt of eventsIndex) {
+      const calKey = evt.icsUrl.replace(/\.ics$/, "");
+      if (!eventsByCalendar.has(calKey)) {
+        eventsByCalendar.set(calKey, []);
+      }
+      eventsByCalendar.get(calKey)!.push({
+        summary: evt.summary,
+        date: evt.date,
+        location: evt.location || "",
+      });
+    }
+    // Sort events within each calendar by date
+    for (const [, evts] of eventsByCalendar) {
+      evts.sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    // Match new source names to calendars in eventCounts
+    for (const sourceKey of newSourceNames) {
+      if (sourceKey.startsWith("external:")) {
+        // External source: match by external-{name}*
+        const extName = sourceKey.replace("external:", "");
+        const matchingCals = eventCounts.filter(c => c.type === "External" && c.name === `external-${extName}`);
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: extName,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      } else if (sourceKey.startsWith("recurring:")) {
+        const recName = sourceKey.replace("recurring:", "");
+        const matchingCals = eventCounts.filter(c => c.type === "Recurring" && c.name === `recurring-${recName}`);
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: recName,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      } else {
+        // Ripper source: match calendars starting with sourceName-
+        const matchingCals = eventCounts.filter(c => c.type === "Ripper" && c.name.startsWith(`${sourceKey}-`));
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: sourceKey,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      }
+    }
+  }
+  await writeFile("output/new-source-summary.json", JSON.stringify(newSourceSummary, null, 2));
 
   await writeFile("errorCount.txt", finalErrorCount.toString());
 

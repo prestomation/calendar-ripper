@@ -313,6 +313,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ---
 
+## ⚙️ Requires Proxy
+
+Sources that return 403 from the sandbox/dev environment but are reachable via the outofband Lambda proxy. Implement with `proxy: "outofband"` in `ripper.yaml`. Validate event count from outofband build logs, not PR preview CI.
+
+**Emerald City Comedy Club** — `https://www-emeraldcitycomedy-com.seatengine.com/events` — 403 from sandbox; venue is clearly active. SeatEngine JSON-LD. Tags: Comedy, Capitol Hill. Implemented in PR #242 with `proxy: "outofband"` needed.
+
+**Jazz Alley** — `https://www.jazzalley.com/www-home/calendar.jsp` — 503 from CI IPs (noted in candidates). Custom JSP calendar. Tags: Music, Belltown.
+
+---
+
 ## ⏸️ Blocked
 
 **AXS Venues (5th Avenue Theatre, Barboza, Clock-Out Lounge, Neumos)** — Cloudflare bot protection blocks both direct and proxy requests. Need residential proxy or headless browser. — Tags: Theatre, Music

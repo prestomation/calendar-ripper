@@ -1103,17 +1103,22 @@ END:VCALENDAR`;
           knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
         }
 
-        // For each expectedEmpty calendar, check if it ever appeared in production
-        const expectedEmptyNow = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
-        for (const cal of expectedEmptyNow) {
-          if (!knownInProduction.has(cal.name)) {
-            console.log(`::error::New source "${cal.name}" has 0 events and expectEmpty=true but has never produced events. Remove it or fix the ripper type/URL.`);
-            newZeroEventSources.push(cal.name);
-            finalErrorCount++;
-          }
+        // Any new source (never in production) with 0 events fails the build.
+        // expectEmpty is not an exemption for brand-new sources — it only makes sense
+        // for sources that have previously shipped and then went quiet. A new source
+        // with 0 events has no proven data pipeline; fix the URL/type or remove it.
+        // Aggregate tag calendars are excluded — their emptiness is always downstream
+        // of a ripper failure already caught above.
+        const newZeroEvent = eventCounts.filter(
+          c => c.events === 0 && !knownInProduction.has(c.name) && c.type !== "Aggregate"
+        );
+        for (const cal of newZeroEvent) {
+          console.log(`::error::New source "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
+          newZeroEventSources.push(cal.name);
+          finalErrorCount++;
         }
         if (newZeroEventSources.length > 0) {
-          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) with expectEmpty=true that have never appeared in production`);
+          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) that have never appeared in production`);
         }
 
         // Check for parse errors in new sources (not yet in production).

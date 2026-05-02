@@ -17,6 +17,13 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Download build artifact for new source summary
+        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'PR Preview' && github.event.workflow_run.conclusion == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          path: artifact-download
+
       - name: Notify workflow run
         if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || github.event.workflow_run.name == 'Generate Calendars and Publish to GitHub Pages' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
         env:
@@ -39,7 +46,33 @@ jobs:
           if [ "$WORKFLOW_NAME" = "Generate Calendars and Publish to GitHub Pages" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
             CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"$'\n\n'"📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"
+            # For PR Preview success, include new source summary if available
+            NEW_SOURCE_LINE=""
+            if [ "$WORKFLOW_NAME" = "PR Preview" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
+              SUMMARY_FILE=$(find artifact-download -name new-source-summary.json -type f 2>/dev/null | head -1)
+              if [ -n "$SUMMARY_FILE" ]; then
+                SOURCE_COUNT=$(jq 'length' "$SUMMARY_FILE" 2>/dev/null || echo "0")
+                if [ "$SOURCE_COUNT" -gt 0 ] 2>/dev/null; then
+                  NEW_SOURCE_LINE=$'\n'"🆕 ${SOURCE_COUNT} new source(s)"
+                  for i in $(seq 0 $((SOURCE_COUNT - 1))); do
+                    SRC_NAME=$(jq -r ".[$i].source" "$SUMMARY_FILE" 2>/dev/null)
+                    SRC_EVENTS=$(jq -r ".[$i].eventCount" "$SUMMARY_FILE" 2>/dev/null)
+                    EVT_SUMMARY=$(jq -r ".[$i].sampleEvents[0].summary // empty" "$SUMMARY_FILE" 2>/dev/null)
+                    EVT_DATE=$(jq -r ".[$i].sampleEvents[0].date // empty" "$SUMMARY_FILE" 2>/dev/null)
+                    EVT_LOCATION=$(jq -r ".[$i].sampleEvents[0].location // empty" "$SUMMARY_FILE" 2>/dev/null)
+                    if [ -n "$EVT_SUMMARY" ]; then
+                      FORMATTED_DATE=$(date -d "$EVT_DATE" "+%a %b %d, %I:%M %p" 2>/dev/null || echo "$EVT_DATE")
+                      LOCATION_PART=""
+                      if [ -n "$EVT_LOCATION" ]; then
+                        LOCATION_PART=" at ${EVT_LOCATION}"
+                      fi
+                      NEW_SOURCE_LINE="${NEW_SOURCE_LINE}"$'\n'"   📌 ${EVT_SUMMARY} — ${FORMATTED_DATE}${LOCATION_PART}"
+                    fi
+                  done
+                fi
+              fi
+            fi
+            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**${NEW_SOURCE_LINE}"$'\n'"[View run](${WORKFLOW_URL})"
           fi
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
@@ -70,5 +103,3 @@ jobs:
           fi
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
-
-

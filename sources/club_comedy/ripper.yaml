@@ -5,16 +5,15 @@ url: "https://www.clubcomedyseattle.com/"
 friendlyLink: https://www.clubcomedyseattle.com/
 tags: ["Comedy", "Capitol Hill"]
 geo:
-  lat: 47.62756
-  lng: -122.31478
-  label: "Club Comedy Seattle, 2100 Harvard Ave E, Seattle, WA 98102"
-  osmType: node
-  osmId: 2384428143
+  lat: 47.6214
+  lng: -122.3124
+  label: "Club Comedy Seattle, 328 15th Ave E, Seattle, WA 98112"
+  osmChecked: "2026-04-25"
 calendars:
   - name: club-comedy
     friendlyname: "Club Comedy Seattle"
     timezone: America/Los_Angeles
     config:
       organizerId: "18936516174"
-      defaultLocation: "2100 Harvard Ave E, Seattle, WA 98102"
+      defaultLocation: "328 15th Ave E, Seattle, WA 98112"
       defaultDurationHours: 2

@@ -425,6 +425,7 @@ export function lookupUWBuilding(location: string): GeoCoords | null {
 const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'aladdin theater (portland)': { lat: 45.5098, lng: -122.6227 },
   'arts at king street station': { lat: 47.5983, lng: -122.3303 },
+  'bell street park': { lat: 47.6149, lng: -122.3445 },
   'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
   'bitterlake community center': { lat: 47.7201, lng: -122.3473 },
   'block 41': { lat: 47.6038, lng: -122.3301 },

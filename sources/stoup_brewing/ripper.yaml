@@ -4,9 +4,11 @@ url: "https://www.stoupbrewing.com/templates/sections/google-upcoming-events.aja
 friendlyLink: https://stoupbrewing.com/stoup-events/
 tags: ["Beer"]
 geo:
-  lat: 47.6652
-  lng: -122.3841
-  label: "Stoup Brewing, 1101 NW 52nd St, Seattle, WA 98107"
+  lat: 47.6666
+  lng: -122.3712
+  label: "Stoup Brewing, 1108 NW 52nd St, Seattle, WA 98107"
+  osmType: node
+  osmId: 2136792042
 calendars:
   - name: ballard
     friendlyname: "Stoup Brewing - Ballard"

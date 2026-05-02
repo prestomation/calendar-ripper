@@ -4,19 +4,71 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
-### 2026-04-25 — Source discovery: Outdoors & Community
-- 💡 **Shunpike** — WordPress with The Events Calendar. ICS feed confirmed working (`?post_type=tribe_events&ical=1&eventDisplay=list`). Currently 3 upcoming events (Storefronts art tours, 25th Anniversary Gala at National Nordic Museum). Low volume but unique arts/community events. Easy add to `sources/external.yaml`. Tags: Arts, Community.
-- ❌ **Seattle Parks Foundation** — Already in `sources/external.yaml` as `seattle-parks-foundation`. Not new.
-- ❌ **Communities of Opportunity (COO)** — Squarespace site at `coopartnerships.org/community-events`. `?format=json` works but only ~7 community/volunteer events. Low volume, niche (nonprofit/advocacy events). Not worth the effort. Tags: Community.
-- ❌ **Greater Seattle On The Cheap** — Custom event calendar at `greaterseattleonthecheap.com/events/`. No ICS, no structured API. Would need custom scraper. Low density (only 2 events for current week). Not viable. Tags: Community.
-- ❌ **iLoveSeattle** — Already in external.yaml as `iloveseattle-community` (status: never confirmed working). Not new.
-- ❌ **EverOut** — Already in ⏸️ Blocked section (bot protection, 403). Not new.
-- ❌ **Seattle Southside** — `seattlesouthside.com/events/` — Custom calendar, no ICS or structured API. Not viable.
-- ❌ **Running sites (RunGuides, RacePlace, etc.)** — Aggregator sites, not primary sources. Individual race organizers use various platforms. Not viable as calendar sources.
-- ❌ **Seafair** — Annual summer festival series (June–August). Custom site, events spread across multiple sub-pages. Low year-round volume. Not viable as a continuous source.
-- ❌ **Seattle Center** — Already evaluated and rejected (custom CMS, not Trumba). Not new.
-- ❌ **Seattle Met** — Editorial event listings, no structured feed. Not viable.
-- 💀 **Zero-event calendars**: No change from previous check. All 10 remain in same state.
+### 2026-05-01 — Source discovery: Music venues, Festivals, Arts, Breweries, Neighborhood orgs
+- 💡 **Couth Buzzard Books** — Squarespace confirmed (watermelon-endive-hmky.squarespace.com). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. **Implemented in PR #243 but returned 0 events in CI** — `?format=json` on `/event-calendar` may be the wrong path, or the Squarespace events collection may be empty/unpublished. Try `/events?format=json` or inspect the Squarespace backend. Tags: Books, Music, Greenwood.
+- 💡 **Midwest Coast Brewing** — Squarespace site at `midwestcoastbrewing.com/upcoming`. Extremely active events calendar (trivia, music bingo, live music, dog market, sip & paint, yoga, book club). Tags: Music, Community, Greenwood. Verify: `?format=json`.
+- 💡 **Roosevelt Neighborhood Association** — `rooseveltseattle.org/about/calendar/`. WordPress with Google Calendar embed — likely has webcal:// ICS URL. Monthly trivia nights, community events, Rooted in Roosevelt festival (Sept). Tags: Community. Check page source for webcal or .ics link.
+- 💡 **West Seattle Junction** — `wsjunction.org/event-directory/`. WordPress neighborhood org. Annual events include West Seattle Summer Fest (July 10–12, 2026). Check for Tribe Events ICS: `?post_type=tribe_events&ical=1`. Tags: Community, West Seattle.
+- 💡 **Elliott Bay Brewing** — `elliottbaybrewing.com/events/`. Multi-location WordPress brewery (West Seattle, Burien, Lake City). Weekly karaoke, trivia, live music, seasonal events — highly active. Would need custom ripper or check for ICS. Tags: Beer, Music, West Seattle.
+- ❌ **Abbey Arts / Fremont Abbey** — WordPress site at `fremontabbey.org`. Uses Humanitix for ticketing (`events.humanitix.com/host/abbey-arts-presents`). Humanitix has no public ICS or REST API. HTML scraping only, fragile. Not viable.
+- ❌ **Marymoor Live** — Outdoor summer concert series in Redmond, WA. Outside Seattle city limits.
+- ❌ **Tacoma Comedy Club** — Located in Tacoma. Outside Seattle city limits.
+- ❌ **Phinney Neighborhood Association** — Already in `sources/external.yaml` as `phinney-neighborhood-association`. No action needed.
+- ❌ **SeattleArtists.com** — Already in `sources/external.yaml` as `seattle-artists-art-walks`. No action needed.
+
+### 2026-05-01 — Source discovery: Comedy, Festivals, Bookstores, Jazz/Music
+- ✅ **Earshot Jazz** — WordPress Tribe Events ICS (`https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list`). 100+ concerts/year at venues throughout Seattle. Added to `sources/external.yaml`. Tags: Music.
+- 💡 **The Rendezvous** — Previously flagged as dead (2026-04-22), now confirmed active with April 2026 events (comedy, music, burlesque). WordPress + Tribe Events (confirmed by URL structure: `/calendar/category/comedy/`). Address: 2322 2nd Ave, Belltown. Tags: Music, Comedy, Nightlife, Belltown. Try ICS: `https://www.therendezvous.rocks/?post_type=tribe_events&ical=1&eventDisplay=list`.
+- 💡 **Couth Buzzard Books** — Squarespace site (confirmed via `watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N, Greenwood. Has open mic (Wed), live music (Fri–Sat), kids story time. Tags: Books, Music, Greenwood. Verify: `https://www.couthbuzzard.com/event-calendar?format=json`.
+- 💡 **Seattle Farmers Markets** — Squarespace (seattlefarmersmarkets.org). Previously ❌ off-season. Markets are now opening for May 2026: Capitol Hill (Sundays 11am–3pm), West Seattle (Sundays 10am–2pm), Lake City (Aug), Magnolia (Jul), Columbia City (Jul), Phinney (Aug). Verify: `https://seattlefarmersmarkets.org/events?format=json`. Tags: FarmersMarket, Community, Food.
+- 💡 **New Tech Northwest** — newtechnorthwest.com. WordPress + Tribe Events. Monthly tech meetups in Seattle with 60k+ member community (uses Luma as primary platform too). Tags: Community, Education. Try ICS: `https://www.newtechnorthwest.com/?post_type=tribe_events&ical=1&eventDisplay=list`.
+- ❌ **The Rendezvous (dead source flag removed)** — Moved from 💀 Dead Source Investigation to 💡 Candidate above; confirmed active 2026.
+
+### 2026-04-30 — Source discovery: Outdoors/Sports, Food/Drink, Theater/Arts, Nightlife, Tech/Meetups
+- ✅ **Populus Seattle** — Tribe Events ICS, 10 events confirmed. Hotel venue at 100 S King St, Pioneer Square. Implemented in PR #240. Tags: Nightlife, Music, Downtown.
+- ❌ **Theatre Puget Sound** — Tribe Events ICS confirmed working but only 4 events total; community aggregate calendar with events spread across venues including Studio East in Kirkland (outside Seattle). Low volume for Seattle-specific events. Not viable as primary source.
+- ❌ **GeekWire Calendar** — Tribe Events ICS returns Cloudflare block (403). Already in `sources/external.yaml` as `geekwire`. Not a new source.
+- ❌ **Cascade Bicycle Club** — Drupal site, no ICS feed. Events page is `/rides-events`, custom Drupal CMS. Not viable with built-in rippers.
+- ❌ **Massive Club** — Webflow + Tixr ticketing, no ICS or structured event API. Not viable.
+- ❌ **Central Saloon** — Uses Modern Events Calendar Lite (MEC) plugin, not Tribe Events. No public ICS export from MEC Lite. Would require custom scraper (HTML parsing). Tags: Music, Pioneer Square. Low priority.
+- ✅ **Emerald City Comedy Club** — SeatEngine platform. JSON-LD schema.org `Event` data embedded in page HTML. 210 Broadway E, Capitol Hill. Implemented as `sources/emerald_city_comedy`. Tags: Comedy, Capitol Hill.
+- ❌ **Cannonball Arts Center** — REST API now only returning 2 events (down from 6 on 2026-04-24). Too low volume; new venue still building programming. Monitor.
+
+### 2026-04-30 — Source discovery: Bookstores, Music, Arts & Community
+- ✅ **University Book Store / Barnes & Noble University District** — Eventbrite organizer `30331909434`, 10 events. Author readings, story times, poetry events at 4324 University Way NE. Adding as `sources/university_book_store`. Tags: Books, University District.
+- 💡 **Cannonball Arts Center** — WordPress REST API (`/wp-json/wp/v2/cba-event`) confirmed returning 2 events. Only 2 events currently; low volume but new venue (opened Aug 2025) from Bumbershoot producers. Custom ripper needed. Tags: Arts, Belltown.
+- ❌ **Tractor Tavern** — Uses TicketWeb ticketing; no ICS feed or public API. Already covered via seattle-showlists ripper. Not viable as separate source.
+- ❌ **Hugo House** — Already in `sources/external.yaml` as `hugo-house`. Tribe Events ICS confirmed working (31 events). No action needed.
+- ❌ **Rainier Arts Center** — Already has `sources/rainier_arts_center` ripper. No action needed.
+- ❌ **Langston Hughes PAI** — Already in `sources/external.yaml` as `langston`. No action needed.
+- ❌ **Wing Luke Museum** — Already has `sources/wing_luke` Squarespace ripper (itemCount 247, confirmed working). No action needed.
+- ❌ **LANGSTON Seattle** — Only 2 upcoming events. Too low volume.
+- ❌ **Intiman Theatre** — WordPress but no working ICS/Tribe Events feed. Custom scraper would be needed but very low volume. Not viable.
+- ❌ **Cornish College of the Arts** — Uses Events Manager plugin + Ludus ticketing; no ICS/API. Events feed at events.seattleu.edu (not their site). Not viable.
+- ❌ **Columbia City Theater** — WordPress but Tribe Events ICS returns HTML. Not viable without custom ripper.
+- ❌ **Seattle Farmers Markets (seattlefarmersmarkets.org)** — Squarespace `?format=json` returns `itemCount: 0` (off-season). Revisit in May when season opens.
+- ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
+
+### 2026-04-28 — Source discovery: Zoo, Library, Community
+- ✅ **Woodland Park Zoo** — Tribe Events ICS confirmed working (~30 events: ZooTunes, animal encounters, dining). Adding to external.yaml. Previously marked ❌ (503) but ICS endpoint works fine.
+- ✅ **Seattle Public Library** — Already implemented as `sources/spl/` ripper (Trumba `kalendaro.json`, 24 branch calendars). No action needed.
+- ❌ **We Heart Seattle** — BANNED (per Preston). Not a source we want.
+- ❌ **Seattle Aquarium** — Only 3 upcoming events on Eventbrite. Too low volume.
+- ❌ **Seattle Center Festál** — No ICS, custom CMS. Not viable.
+- ❌ **ACT Theatre / Union Arts Center** — No ICS, Salesforce ticketing. Not viable.
+- ❌ **ArtsWest** — Salesforce ticketing, no ICS. Not viable.
+- ❌ **Nordic Museum** — Tribe Events ICS returns 404. Not viable.
+
+### 2026-04-27 — Source discovery: Community, Yoga, Jewish organizations
+- ❌ **Jewish Federation of Greater Seattle** — ICS works but removed: we don't add religious sources.
+- ✅ **Urban League of Metropolitan Seattle** — Tribe Events ICS confirmed working (6+ events: homebuyer workshops, Home Club, housing programs). Seattle-based at 105 14th Ave. Added to `external.yaml` as `urban-league-seattle`. Tags: Community, Education.
+- ❌ **National Nordic Museum** — Tribe Events site but ICS endpoint redirects to HTML calendar page, not ICS data. REST API `/wp-json/wp/v2/` returns 404. Not viable.
+- ❌ **Neighborhood Farmers Markets** — Squarespace `?format=json` returns site layout metadata, not event data. Events are JS-rendered or off-season. Not viable.
+- ❌ **Stroum JCC** — Tribe Events ICS works but venue is on Mercer Island, outside Seattle city limits. Not viable per Seattle-focused rule.
+- ❌ **Pratt Fine Arts** — Not Tribe Events, primarily classes (not public events). No ICS/API. Not viable.
+- ❌ **Pottery Northwest** — Shopify site, no ICS or structured event API. Not viable.
+- 🔍 **SeattleDances** — Previously marked ❌ (CAPTCHA), but ICS endpoint works fine directly. Already in `external.yaml` — no action needed. The 2026-04-23 ❌ entry was wrong (CAPTCHA only affects HTML page, not ICS feed).
+
 
 ### 2026-04-24 — Source discovery: Food & Drink, Comedy, Arts
 - 💡 **Cannonball Arts Center** — Previously ❌ (503), now ✅ REST API returning 6 events at `/wp-json/wp/v2/cba-event`. New venue from Bumbershoot producers at 1930 3rd Ave (Downtown/Belltown). Custom WordPress REST endpoint — would need custom ripper (🔴 Low confidence). Tags: Arts, Downtown.
@@ -35,7 +87,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ### 2026-04-23 — Added The Royal Room
 - ✅ **The Royal Room** — WP Event Manager RSS feed (`?feed=event_feed`) confirmed working with 49 events. Each event page has JSON-LD `startDate`. Custom `IRipper` fetches RSS then individual event pages. Tags: Music, Columbia City.
 - ❌ **Ada's Technical Books** — removed; venue is closing permanently.
-- ❌ **SeattleDances** — ICS feed blocked by CAPTCHA (sgcaptcha). Not viable.
+- 🔍 **SeattleDances** — ICS feed was marked ❌ due to CAPTCHA (sgcaptcha) on HTML page, but ICS endpoint works fine. Already in `external.yaml`. Updated 2026-04-27.
 - ❌ **Theatre Off Jackson** — uses venture-event-manager plugin, no working ICS export.
 - ❌ **Rat City Roller Derby** — no Tribe Events ICS, returns HTML.
 - ❌ **Cannonball Arts Center** — REST API returning 503. ~~Updated 2026-04-24: REST API now working (6 events). Moved to 💡 Candidate.~~
@@ -124,6 +176,18 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### Squarespace (built-in type)
 
+**Couth Buzzard Books** — `https://www.couthbuzzard.com/event-calendar` — Squarespace confirmed (`watermelon-endive-hmky.squarespace.com`). Bookstore + café + performance space at 8310 Greenwood Ave N. Open mic Wed, live music Fri–Sat, kids story time. **Returned 0 events in CI (PR #243)** — try `/events?format=json` instead of `/event-calendar?format=json`. Tags: Books, Music, Greenwood — **New 2026-05-01**
+
+**Midwest Coast Brewing** — `https://www.midwestcoastbrewing.com/upcoming` — Squarespace. Extremely active events calendar at this Greenwood/Seattle brewery: trivia, music bingo, live music, dog market, sip & paint, yoga, barre, book club. Verify: `?format=json`. Tags: Beer, Music, Greenwood — **New 2026-05-01**
+
+**Roosevelt Neighborhood Association** — `https://rooseveltseattle.org/about/calendar/` — Google Calendar embed (likely public webcal ICS). Monthly trivia nights, litter pickups, clothing swaps, Rooted in Roosevelt festival (Sept 19, 2026). Check page source for `webcal://` or `calendar.google.com/calendar/ical/` URL. Tags: Community — **New 2026-05-01**
+
+**West Seattle Junction** — `https://wsjunction.org/event-directory/` — WordPress neighborhood org. West Seattle Summer Fest (July 10–12, 2026), farmers markets, community events. Try ICS: `?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Community, West Seattle — **New 2026-05-01**
+
+**Elliott Bay Brewing** — `https://elliottbaybrewing.com/events/` — WordPress, multi-location (West Seattle, Burien, Lake City). Weekly karaoke, trivia, live music, seasonal events. Custom ripper likely needed. Tags: Beer, Music, West Seattle — **New 2026-05-01**
+
+**Seattle Farmers Markets** — `https://seattlefarmersmarkets.org/events` — Squarespace (previously ❌ off-season). Season opens May 2026: Capitol Hill (Sun 11am–3pm), West Seattle (Sun 10am–2pm), plus Magnolia/Columbia City/Phinney/Lake City markets in summer. Verify: `?format=json`. Tags: FarmersMarket, Community, Food — **Upgraded 2026-05-01**
+
 **Seattle Public Theater** — `https://www.seattlepublictheater.org/current-season` — Green Lake Bathhouse — Note: may not work with SquarespaceRipper (page vs events collection)
 
 **Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle — Note: site is on **Webflow** (not Squarespace); uses Eventbrite for ticketed events — need to find correct Eventbrite organizer ID or write custom scraper
@@ -133,6 +197,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Seattle Thunderbirds** — `https://chl.ca/whl-thunderbirds/schedule/` — accesso ShoWare Center, Kent — Tags: Sports — Note: Kent is outside Seattle city limits
 
 ### WordPress / Tribe Events ICS
+
+**The Rendezvous** — `https://www.therendezvous.rocks/calendar/` — WordPress + Tribe Events (confirmed by URL structure). Historic Belltown arts venue at 2322 2nd Ave — comedy, music, burlesque, theater. Confirmed active with April 2026 events. ICS: `https://www.therendezvous.rocks/?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Music, Comedy, Nightlife, Belltown — **New 2026-05-01**
+
+**New Tech Northwest** — `https://www.newtechnorthwest.com/events/` — WordPress + Tribe Events. Monthly tech meetups for Seattle's 60k+ member tech community. Also on Luma. ICS: `https://www.newtechnorthwest.com/?post_type=tribe_events&ical=1&eventDisplay=list`. Tags: Community, Education — **New 2026-05-01**
 
 **SeattleDances** — `https://seattledances.com/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (30 events). Tags: Dance, Arts — **New 2026-04-22**
 
@@ -190,7 +258,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **National Nordic Museum** — `https://nordicmuseum.org/calendar` — Tags: Museums, Arts, Ballard
 
-**Woodland Park Zoo** — `https://zoo.org/events/` — Custom (returns 503) — Tags: Community
+**Woodland Park Zoo** — `https://zoo.org/events/` — Tribe Events ICS ✅ (~30 events: ZooTunes concerts, animal encounters, dining) — Tags: Community, Family, Music
 
 **Seattle Aquarium** — `https://www.seattleaquarium.org/events/` — Custom CMS — Tags: Community, Museums
 
@@ -222,6 +290,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## ✅ Added
 
+**Emerald City Comedy Club** — `sources/emerald_city_comedy` — SeatEngine JSON-LD — 210 Broadway E, Capitol Hill — Tags: Comedy, Capitol Hill
+
+**University Book Store / Barnes & Noble University District** — `sources/university_book_store` — Eventbrite organizer `30331909434` — 4324 University Way NE, Seattle — Tags: Books, University District
+
 **Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite — 5220 Roosevelt Way NE — Tags: Comedy, University District
 
 **CSz Seattle (ComedySportz)** — `sources/csz_seattle` — Eventbrite — 3509 Fremont Ave N — Tags: Comedy, Fremont
@@ -237,6 +309,20 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **The Royal Room** — `sources/royal_room` — WP Event Manager RSS + JSON-LD per-page — 5000 Rainier Ave S, Columbia City — Tags: Music, Columbia City
 
 **Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
+
+**Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
+
+**Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
+
+---
+
+## ⚙️ Requires Proxy
+
+Sources that return 403 from the sandbox/dev environment but are reachable via the outofband Lambda proxy. Implement with `proxy: "outofband"` in `ripper.yaml`. Validate event count from outofband build logs, not PR preview CI.
+
+**Emerald City Comedy Club** — `https://www-emeraldcitycomedy-com.seatengine.com/events` — 403 from sandbox; venue is clearly active. SeatEngine JSON-LD. Tags: Comedy, Capitol Hill. Implemented in PR #242 with `proxy: "outofband"` needed.
+
+**Jazz Alley** — `https://www.jazzalley.com/www-home/calendar.jsp` — 503 from CI IPs (noted in candidates). Custom JSP calendar. Tags: Music, Belltown.
 
 ---
 
@@ -290,6 +376,11 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 | `seattle-showlists-hotel-crocodile` | Showlists venue, currently no listings | Monitor |
 | `seattle-showlists-bad-bar` | Showlists venue, currently no listings | Monitor |
 | `tag-seward-park` | Has 5 events but marked `expectEmpty: true` — inconsistent | Review `expectEmpty` flag |
+| `external-seattledances` | ICS was confirmed working 2026-04-22 (30 events) but now 0 events in production — may be intermittent or feed broken again | Investigate |
+| `external-urban-league-seattle` | ICS was confirmed working 2026-04-27 (6+ events) but now 0 events — may be feed issue | Investigate |
+| `crocodile-crocodile-madame-lous` | Crocodile sub-venue, currently no listings | Monitor |
+| `seatoday-seatoday-nightlife` | seatoday nightlife calendar, 0 events — may be no upcoming nightlife events | Monitor |
+| `tag-dance` | Dance tag aggregate shows 0 — likely caused by `external-seattledances` being empty | Resolve seattledances issue |
 
 ### Disabled Sources (revisit periodically)
 

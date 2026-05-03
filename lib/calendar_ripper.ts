@@ -907,6 +907,7 @@ END:VCALENDAR`;
     date: string;
     endDate?: string;
     url?: string;
+    image?: string;
     lat?: number;
     lng?: number;
     osmType?: 'node' | 'way' | 'relation';
@@ -968,6 +969,7 @@ END:VCALENDAR`;
         date: event.date.toString(),
         endDate: event.date.plus(event.duration).toString(),
         url: event.url,
+        ...(event.image !== undefined ? { image: event.image } : {}),
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
         ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),

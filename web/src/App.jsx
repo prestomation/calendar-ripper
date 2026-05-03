@@ -2892,6 +2892,15 @@ function App() {
                   </div>
                   {group.events.map((event, idx) => (
                     <div key={`${event.icsUrl}-${event.summary}-${idx}`} className="event-item">
+                      {event.image && (
+                        <img
+                          src={event.image}
+                          alt={event.summary}
+                          className="event-image"
+                          loading="lazy"
+                          onError={e => { e.currentTarget.style.display = 'none' }}
+                        />
+                      )}
                       <div className="event-date">
                         {(() => {
                           const timeOpts = { hour: '2-digit', minute: '2-digit' }
@@ -3172,6 +3181,15 @@ function App() {
                   </div>
                   {group.events.map((event, idx) => (
                     <div key={`${event.icsUrl}-${event.summary}-${idx}`} className="event-item">
+                      {event.image && (
+                        <img
+                          src={event.image}
+                          alt={event.summary}
+                          className="event-image"
+                          loading="lazy"
+                          onError={e => { e.currentTarget.style.display = 'none' }}
+                        />
+                      )}
                       <div className="event-date">
                         {(() => {
                           const timeOpts = { hour: '2-digit', minute: '2-digit' }

@@ -233,7 +233,7 @@ describe('parsePost', () => {
         expect('type' in result!).toBe(true);
         expect((result as any).type).toBe('ParseError');
         expect((result as any).reason).toContain('No parseable date');
-        expect((result as any).context).toBe('Event Without Date');
+        expect((result as any).context).toContain('Event Without Date');
     });
 
     it('decodes HTML entities in title', () => {

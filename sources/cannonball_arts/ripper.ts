@@ -121,34 +121,55 @@ export function parseDateFromText(text: string): ParsedDateTime | null {
     };
 }
 
-// Try common ACF / custom-meta field names that WordPress event CPTs use for dates.
-// Returns a ParsedDateTime using the first field that contains a parseable ISO date,
-// or null if none are found.
+const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/;
+
+function parsedDateTimeFromIso(val: string): ParsedDateTime | null {
+    const m = val.match(ISO_DATE_RE);
+    if (!m) return null;
+    return {
+        year: parseInt(m[1], 10),
+        month: parseInt(m[2], 10),
+        day: parseInt(m[3], 10),
+        hour: m[4] !== undefined ? parseInt(m[4], 10) : DEFAULT_START_HOUR,
+        minute: m[5] !== undefined ? parseInt(m[5], 10) : 0,
+    };
+}
+
+// Try common ACF / meta field names AND any top-level string field that looks like
+// an ISO date (custom register_rest_field entries vary by site).
 export function parseDateFromFields(post: WpPost): ParsedDateTime | null {
-    const DATE_KEYS = [
+    const NAMED_KEYS = [
         'event_date', 'cba_event_date', 'cba_date',
         'start_date', 'event_start_date', '_event_start_date',
         'date', 'start', 'event_start',
     ];
-    const sources: Array<Record<string, unknown> | undefined> = [post.acf, post.meta];
-    for (const source of sources) {
+
+    // Check acf and meta objects for known date field names
+    for (const source of [post.acf, post.meta]) {
         if (!source) continue;
-        for (const key of DATE_KEYS) {
+        for (const key of NAMED_KEYS) {
             const val = source[key];
             if (typeof val !== 'string') continue;
-            // Accept ISO 8601: "2026-05-10", "2026-05-10T19:30", "2026-05-10T19:30:00"
-            const m = val.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/);
-            if (m) {
-                return {
-                    year: parseInt(m[1], 10),
-                    month: parseInt(m[2], 10),
-                    day: parseInt(m[3], 10),
-                    hour: m[4] !== undefined ? parseInt(m[4], 10) : DEFAULT_START_HOUR,
-                    minute: m[5] !== undefined ? parseInt(m[5], 10) : 0,
-                };
-            }
+            const result = parsedDateTimeFromIso(val);
+            if (result) return result;
         }
     }
+
+    // Check top-level string fields on the raw post for any ISO date value.
+    // WordPress register_rest_field() can expose event dates directly on the
+    // post object (not nested under meta/acf).
+    // Skip standard WP fields: "date" and "modified" are publish times, not event times.
+    const WP_STANDARD_FIELDS = new Set(['date', 'date_gmt', 'modified', 'modified_gmt', 'slug', 'link', 'guid', 'type', 'status', 'template']);
+    const raw = post as Record<string, unknown>;
+    for (const [key, val] of Object.entries(raw)) {
+        if (WP_STANDARD_FIELDS.has(key)) continue;
+        if (typeof val !== 'string') continue;
+        // Only consider fields whose name suggests a date/time
+        if (!/date|start|time|when/i.test(key)) continue;
+        const result = parsedDateTimeFromIso(val);
+        if (result) return result;
+    }
+
     return null;
 }
 
@@ -166,10 +187,11 @@ export function parsePost(
         parseDateFromFields(post);
 
     if (!parsed) {
+        const snippet = stripHtml(rawHtml).slice(0, 150).trim();
         return {
             type: 'ParseError',
             reason: 'No parseable date found in event content',
-            context: post.title.rendered,
+            context: `${post.title.rendered} | content: ${snippet || '(empty)'}`,
         };
     }
 

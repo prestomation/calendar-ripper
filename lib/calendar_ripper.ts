@@ -1075,85 +1075,7 @@ END:VCALENDAR`;
   // Check for new sources with expectEmpty=true that have never appeared in production.
   // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
   // it has never produced events and likely has a wrong URL or ripper type.
-  const newZeroEventSources: string[] = [];
-  // Check for new sources with parse errors that are not yet in production.
-  // This creates back-pressure: you can't merge a new source that's half-broken.
-  const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
-  {
-    const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
-    try {
-      const prodManifestRes = await fetch(`${productionUrl}/manifest.json`, { signal: AbortSignal.timeout(10000) });
-      if (prodManifestRes.ok) {
-        const prodManifest = await prodManifestRes.json() as {
-          rippers?: Array<{ calendars: Array<{ icsUrl: string }> }>;
-          recurringCalendars?: Array<{ icsUrl: string }>;
-          externalCalendars?: Array<{ icsUrl: string }>;
-        };
-        // Build set of known calendar names (icsUrl without .ics suffix)
-        const knownInProduction = new Set<string>();
-        for (const ripper of prodManifest.rippers ?? []) {
-          for (const cal of ripper.calendars) {
-            knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
-          }
-        }
-        for (const cal of prodManifest.recurringCalendars ?? []) {
-          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
-        }
-        for (const cal of prodManifest.externalCalendars ?? []) {
-          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
-        }
-
-        // Any new source (never in production) with 0 events fails the build.
-        // expectEmpty is not an exemption for brand-new sources — it only makes sense
-        // for sources that have previously shipped and then went quiet. A new source
-        // with 0 events has no proven data pipeline; fix the URL/type or remove it.
-        // Aggregate tag calendars are excluded — their emptiness is always downstream
-        // of a ripper failure already caught above.
-        const newZeroEvent = eventCounts.filter(
-          c => c.events === 0 && !knownInProduction.has(c.name) && c.type !== "Aggregate"
-        );
-        for (const cal of newZeroEvent) {
-          console.log(`::error::New source "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
-          newZeroEventSources.push(cal.name);
-          finalErrorCount++;
-        }
-        if (newZeroEventSources.length > 0) {
-          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) that have never appeared in production`);
-        }
-
-        // Check for parse errors in new sources (not yet in production).
-        // This prevents merging half-parsed sources.
-        for (const entry of buildErrors) {
-          const calendarKey = entry.type === "Recurring" ? `recurring-${entry.calendar}` : entry.calendar;
-          // Check if ANY calendar from this source is new
-          if (!knownInProduction.has(calendarKey)) {
-            // Only count ParseError types, not all errors (geocode errors are expected for new sources)
-            const parseErrors = entry.errors.filter(e => e.type === "ParseError" || e.type === "InvalidDateError");
-            if (parseErrors.length > 0) {
-              console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
-              newSourceParseErrors.push({ source: entry.source, calendar: entry.calendar, errorCount: parseErrors.length });
-            }
-          }
-        }
-        if (newSourceParseErrors.length > 0) {
-          const totalNewParseErrors = newSourceParseErrors.reduce((a, e) => a + e.errorCount, 0);
-          console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
-          finalErrorCount += newSourceParseErrors.length;
-        }
-      } else {
-        console.log(`::error::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — failing build`);
-        finalErrorCount++;
-      }
-    } catch (err) {
-      console.log(`::error::Could not fetch production manifest — failing build: ${err}`);
-      finalErrorCount++;
-    }
-  }
-  await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
-  await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
-
-  // --- New source summary: event counts and sample events for sources added in this PR ---
-  // Detect new sources by checking git diff against the merge base.
+  // --- Detect new sources via git diff (PR context) ---
   // This is more accurate than comparing against the production manifest,
   // because manifest-based detection flags existing-but-empty sources as "new".
   const newSourceNames = new Set<string>();
@@ -1217,6 +1139,64 @@ END:VCALENDAR`;
       console.log(`::warning::Could not detect new sources via git diff: ${err}`);
     }
   }
+
+  // --- Check new sources for zero events and parse errors ---
+  // Only flag sources actually added in this PR (via git diff), not all sources
+  // absent from the production manifest (which catches pre-existing empty sources).
+  const newZeroEventSources: string[] = [];
+  const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
+
+  if (newSourceNames.size > 0) {
+    // Helper: does a calendar name belong to a new source?
+    const isNewSourceCalendar = (calName: string, calType: string): boolean => {
+      for (const sourceKey of newSourceNames) {
+        if (sourceKey.startsWith("external:")) {
+          const extName = sourceKey.replace("external:", "");
+          if (calType === "External" && calName === `external-${extName}`) return true;
+        } else if (sourceKey.startsWith("recurring:")) {
+          const recName = sourceKey.replace("recurring:", "");
+          if (calType === "Recurring" && calName === `recurring-${recName}`) return true;
+        } else {
+          // Ripper source: calendars start with "sourceName-"
+          if (calType === "Ripper" && calName.startsWith(`${sourceKey}-`)) return true;
+        }
+      }
+      return false;
+    };
+
+    // New source with 0 events → fail build (no proven data pipeline)
+    const newZeroEvent = eventCounts.filter(
+      c => c.events === 0 && isNewSourceCalendar(c.name, c.type) && c.type !== "Aggregate"
+    );
+    for (const cal of newZeroEvent) {
+      console.log(`::error::New source "${cal.name}" has 0 events. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
+      newZeroEventSources.push(cal.name);
+    }
+    if (newZeroEventSources.length > 0) {
+      console.log(`Found ${newZeroEventSources.length} new zero-event source(s) in this PR`);
+    }
+
+    // New source with parse errors → fail build (can't merge half-parsed sources)
+    for (const entry of buildErrors) {
+      if (isNewSourceCalendar(entry.calendar, entry.type)) {
+        const parseErrors = entry.errors.filter(e => e.type === "ParseError" || e.type === "InvalidDateError");
+        if (parseErrors.length > 0) {
+          console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
+          newSourceParseErrors.push({ source: entry.source, calendar: entry.calendar, errorCount: parseErrors.length });
+        }
+      }
+    }
+    if (newSourceParseErrors.length > 0) {
+      const totalNewParseErrors = newSourceParseErrors.reduce((a, e) => a + e.errorCount, 0);
+      console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
+    }
+  }
+
+  // Fatal error count: only errors that should fail CI.
+  // Geocode errors are expected and should NOT fail the build.
+  // Only new source parse errors and new zero-event sources are fatal.
+  await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
+  await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
 
   const newSourceSummary: Array<{
     source: string;

@@ -9,12 +9,15 @@ const ICM_URL = "https://icm.museum/?events";
 
 function decodeHtmlEntities(text: string): string {
     return text
+        .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)))
+        .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)))
         .replace(/&amp;/g, '&')
         .replace(/&lt;/g, '<')
         .replace(/&gt;/g, '>')
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'")
-        .replace(/&apos;/g, "'");
+        .replace(/&apos;/g, "'")
+        .replace(/&nbsp;/g, ' ');
 }
 
 const MONTH_MAP: Record<string, number> = {
@@ -53,6 +56,7 @@ function parseDateText(text: string): ParsedDate | null {
     const dayMatch = afterMonth.match(/^\s+(\d{1,2})/);
     if (!dayMatch) return null;
     const day = parseInt(dayMatch[1]);
+    if (day < 1 || day > 31) return null;
 
     let startHour = 10;
     let startMinute = 0;
@@ -76,7 +80,8 @@ function parseDateText(text: string): ParsedDate | null {
         const endMinute = em;
 
         const diffMinutes = (endHour * 60 + endMinute) - (startHour * 60 + startMinute);
-        if (diffMinutes > 0) durationHours = diffMinutes / 60;
+        // Handle overnight events (negative diff wraps around midnight)
+        durationHours = diffMinutes > 0 ? diffMinutes / 60 : (1440 + diffMinutes) / 60;
     } else {
         // Single time: "7pm", "10:30am"
         const singleTimeMatch = normalized.match(/\b(\d{1,2})(?::(\d{2}))?\s*(am|pm)\b/i);

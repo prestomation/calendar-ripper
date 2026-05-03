@@ -1165,14 +1165,31 @@ END:VCALENDAR`;
         `git diff --diff-filter=A --name-only origin/${gitBaseRef} -- sources/`,
         { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
       ).trim();
+      const newDirs = new Set<string>();
       for (const line of ripperDiff.split("\n").filter(Boolean)) {
-        // sources/sourceName/...  →  sourceName
+        // sources/sourceName/...  →  sourceName (directory)
         const match = line.match(/^sources\/([^/]+)\//);
-        if (match) newSourceNames.add(match[1]);
+        if (match) newDirs.add(match[1]);
+      }
+      // Resolve each directory name to the ripper's `name` field from ripper.yaml
+      const { readFileSync, existsSync } = await import("fs");
+      for (const dir of newDirs) {
+        const ripperYamlPath = `sources/${dir}/ripper.yaml`;
+        if (existsSync(ripperYamlPath)) {
+          const yamlText = readFileSync(ripperYamlPath, "utf8");
+          const nameMatch = yamlText.match(/^name:\s*(.+)$/m);
+          if (nameMatch) {
+            newSourceNames.add(nameMatch[1].trim());
+          } else {
+            newSourceNames.add(dir);
+          }
+        } else {
+          newSourceNames.add(dir);
+        }
       }
       // Find new entries in external.yaml by parsing the diff
       const externalDiff = execSync(
-        `git diff origin/${gitBaseRef} -- external.yaml`,
+        `git diff origin/${gitBaseRef} -- sources/external.yaml`,
         { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
       ).trim();
       if (externalDiff) {
@@ -1185,7 +1202,7 @@ END:VCALENDAR`;
       }
       // Find new entries in recurring.yaml
       const recurringDiff = execSync(
-        `git diff origin/${gitBaseRef} -- recurring.yaml`,
+        `git diff origin/${gitBaseRef} -- sources/recurring.yaml`,
         { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
       ).trim();
       if (recurringDiff) {

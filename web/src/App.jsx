@@ -4,9 +4,11 @@ import Fuse from 'fuse.js'
 import { TAG_CATEGORIES } from '../../lib/config/tags.ts'
 import { GeoFiltersSection } from './GeoFiltersSection.jsx'
 import { EventsMap } from './EventsMap.jsx'
+import { DateWindowSlider } from './DateWindowSlider.jsx'
 import { haversineKm } from './lib/haversine.js'
 import { deduplicateEvents } from './lib/event-dedup.js'
 import { eventKey } from './lib/eventKey.js'
+import { parseEventDate } from './lib/parseEventDate.js'
 import { AttributionChips } from './AttributionChips.jsx'
 
 const FUSE_THRESHOLD = 0.1
@@ -471,6 +473,31 @@ function App() {
       return stored ? JSON.parse(stored) : []
     } catch { return [] }
   })
+
+  // Date window filter — persisted as ISO date strings; null means "open" on that side.
+  // NOTE: Intentionally client-only. The Cloudflare Worker / personal ICS feed is not
+  // mirrored, so this filter does not affect what subscribers see in their calendar app.
+  const [dateWindow, setDateWindow] = useState(() => {
+    try {
+      const stored = localStorage.getItem('calendar-ripper-date-window')
+      if (!stored) return { start: null, end: null }
+      const parsed = JSON.parse(stored)
+      return {
+        start: parsed.start ? new Date(parsed.start) : null,
+        end: parsed.end ? new Date(parsed.end) : null,
+      }
+    } catch { return { start: null, end: null } }
+  })
+
+  const updateDateWindow = useCallback((next) => {
+    setDateWindow(next)
+    try {
+      localStorage.setItem('calendar-ripper-date-window', JSON.stringify({
+        start: next.start ? next.start.toISOString() : null,
+        end: next.end ? next.end.toISOString() : null,
+      }))
+    } catch {}
+  }, [])
 
   // Map view toggle (for events panel)
   const [showMapView, setShowMapView] = useState(false)
@@ -1417,6 +1444,63 @@ function App() {
     return counts
   }, [eventsIndex])
 
+  // Pre-parsed timestamps from eventsIndex — drives the date-window slider's
+  // histogram and "last event" max.
+  const eventTimestamps = useMemo(() => {
+    const out = []
+    for (const event of eventsIndex) {
+      const { parsedDate } = parseEventDate(event)
+      if (parsedDate) out.push(parsedDate.getTime())
+    }
+    return out
+  }, [eventsIndex])
+
+  // Range bounds for the date window: [today, last upcoming event]
+  const dateWindowBounds = useMemo(() => {
+    const now = new Date()
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    let lastMs = todayStart.getTime()
+    for (const t of eventTimestamps) {
+      if (t > lastMs) lastMs = t
+    }
+    const lastDate = new Date(lastMs)
+    const lastEventDay = new Date(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate())
+    return { todayStart, lastEventDay }
+  }, [eventTimestamps])
+
+  // Predicate: does an event with these parsed dates fall inside the active
+  // date window? Both bounds inclusive, day-granular. A null bound means "open".
+  const dateWindowFilter = useMemo(() => {
+    const startMs = dateWindow.start
+      ? new Date(dateWindow.start.getFullYear(), dateWindow.start.getMonth(), dateWindow.start.getDate()).getTime()
+      : null
+    const endMs = dateWindow.end
+      ? new Date(dateWindow.end.getFullYear(), dateWindow.end.getMonth(), dateWindow.end.getDate(), 23, 59, 59, 999).getTime()
+      : null
+    return (parsedDate, parsedEndDate) => {
+      if (!parsedDate) return true
+      const t = parsedDate.getTime()
+      const effectiveEnd = parsedEndDate ? parsedEndDate.getTime() : t
+      // Overlap test: event interval [t, effectiveEnd] overlaps window [startMs, endMs]
+      if (startMs != null && effectiveEnd < startMs) return false
+      if (endMs != null && t > endMs) return false
+      return true
+    }
+  }, [dateWindow])
+
+  const dateWindowActive = dateWindow.start != null || dateWindow.end != null
+
+  // Date-window-filtered events-index for the map and any other consumers
+  // that take the raw index directly. When the window is open, this is the
+  // identity — keep referential equality so downstream memos don't churn.
+  const windowedEventsIndex = useMemo(() => {
+    if (!dateWindowActive) return eventsIndex
+    return eventsIndex.filter(event => {
+      const { parsedDate, parsedEndDate } = parseEventDate(event)
+      return dateWindowFilter(parsedDate, parsedEndDate)
+    })
+  }, [eventsIndex, dateWindowActive, dateWindowFilter])
+
   // Helper: look up a calendar's tags from its icsUrl
   const calendarTagsByIcsUrl = useMemo(() => {
     const map = {}
@@ -1440,20 +1524,9 @@ function App() {
     // Parse and filter events to the next 7 days
     let upcoming = eventsIndex
       .map(event => {
-        // js-joda toString() format: "2026-02-15T19:00-08:00[America/Los_Angeles]"
-        // Extract the IANA timezone from brackets for display, then strip for Date parsing
-        const tzMatch = event.date.match(/\[(.+)\]$/)
-        const eventTimezone = tzMatch ? tzMatch[1] : undefined
-        const dateStr = event.date.replace(/\[.*\]$/, '')
-        const parsed = new Date(dateStr)
-        if (isNaN(parsed.getTime())) return null
-        let parsedEndDate = null
-        if (event.endDate) {
-          const endDateStr = event.endDate.replace(/\[.*\]$/, '')
-          const parsedEnd = new Date(endDateStr)
-          if (!isNaN(parsedEnd.getTime())) parsedEndDate = parsedEnd
-        }
-        return { ...event, parsedDate: parsed, parsedEndDate, eventTimezone }
+        const { parsedDate, parsedEndDate, eventTimezone } = parseEventDate(event)
+        if (!parsedDate) return null
+        return { ...event, parsedDate, parsedEndDate, eventTimezone }
       })
       .filter(event => {
         if (!event) return false
@@ -1462,6 +1535,7 @@ function App() {
         // Filter out events whose end time has already passed
         const effectiveEnd = event.parsedEndDate || event.parsedDate
         if (effectiveEnd <= now) return false
+        if (!dateWindowFilter(event.parsedDate, event.parsedEndDate)) return false
         return true
       })
 
@@ -1527,7 +1601,7 @@ function App() {
       .map(([, group]) => group)
 
     return groups
-  }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet])
+  }, [eventsIndex, selectedTag, searchTerm, calendarTagsByIcsUrl, favoritesSet, dateWindowFilter])
 
   // Per-filter match counts and match sets for view mode filtering
   const perFilterMatches = useMemo(() => {
@@ -1641,18 +1715,9 @@ function App() {
 
     let upcoming = eventsIndex
       .map(event => {
-        const tzMatch = event.date.match(/\[(.+)\]$/)
-        const eventTimezone = tzMatch ? tzMatch[1] : undefined
-        const dateStr = event.date.replace(/\[.*\]$/, '')
-        const parsed = new Date(dateStr)
-        if (isNaN(parsed.getTime())) return null
-        let parsedEndDate = null
-        if (event.endDate) {
-          const endDateStr = event.endDate.replace(/\[.*\]$/, '')
-          const parsedEnd = new Date(endDateStr)
-          if (!isNaN(parsedEnd.getTime())) parsedEndDate = parsedEnd
-        }
-        return { ...event, parsedDate: parsed, parsedEndDate, eventTimezone }
+        const { parsedDate, parsedEndDate, eventTimezone } = parseEventDate(event)
+        if (!parsedDate) return null
+        return { ...event, parsedDate, parsedEndDate, eventTimezone }
       })
       .filter(event => {
         if (!event) return false
@@ -1660,6 +1725,7 @@ function App() {
         if (event.parsedDate < todayStart) return false
         const effectiveEnd = event.parsedEndDate || event.parsedDate
         if (effectiveEnd <= now) return false
+        if (!dateWindowFilter(event.parsedDate, event.parsedEndDate)) return false
 
         const isFavorited = favoritesSet.has(event.icsUrl)
         const key = eventKey(event)
@@ -1736,7 +1802,7 @@ function App() {
       .map(([, group]) => group)
 
     return groups
-  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters])
+  }, [eventsIndex, favorites, favoritesSet, selectedTag, searchTerm, searchFilters, searchFilterMatchSummaries, favoritesViewMode, perFilterMatches, geoFilters, dateWindowFilter])
 
   // Flat list of favorites events for the map (EventsMap expects a flat array, not day groups)
   const favoritesEventsFlat = useMemo(
@@ -2873,9 +2939,17 @@ function App() {
               </div>
             )}
 
+            {eventsIndex.length > 0 && (
+              <DateWindowSlider
+                eventTimestamps={eventTimestamps}
+                value={dateWindow}
+                onChange={updateDateWindow}
+              />
+            )}
+
             {showMapView ? (
               <EventsMap
-                eventsIndex={eventsIndex}
+                eventsIndex={windowedEventsIndex}
                 geoFilters={geoFilters}
                 calendarFilter={null}
                 calendarTagsByIcsUrl={calendarTagsByIcsUrl}
@@ -3106,6 +3180,14 @@ function App() {
               onEdit={editGeoFilter}
               isMobile={isMobile}
             />
+
+            {eventsIndex.length > 0 && (
+              <DateWindowSlider
+                eventTimestamps={eventTimestamps}
+                value={dateWindow}
+                onChange={updateDateWindow}
+              />
+            )}
 
             {searchTerm && (
               <div className="search-filter-banner">
@@ -3396,9 +3478,17 @@ function App() {
               </div>
             )}
 
+            {events.length > 0 && (
+              <DateWindowSlider
+                eventTimestamps={events.map(e => e.startDate?.getTime?.()).filter(Boolean)}
+                value={dateWindow}
+                onChange={updateDateWindow}
+              />
+            )}
+
             {showMapView ? (
               <EventsMap
-                eventsIndex={eventsIndex}
+                eventsIndex={windowedEventsIndex}
                 geoFilters={geoFilters}
                 calendarFilter={selectedCalendar.icsUrl}
                 calendarTagsByIcsUrl={calendarTagsByIcsUrl}
@@ -3438,7 +3528,10 @@ function App() {
                   </div>
                 )}
                 {(() => {
-                  const displayEvents = searchTerm ? filteredEvents : events
+                  const baseEvents = searchTerm ? filteredEvents : events
+                  const displayEvents = dateWindowActive
+                    ? baseEvents.filter(e => dateWindowFilter(e.startDate, e.endDate))
+                    : baseEvents
                   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
                   const now = new Date()
                   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())

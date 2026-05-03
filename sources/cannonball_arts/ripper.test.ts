@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId, ZonedDateTime, LocalDateTime } from '@js-joda/core';
 import '@js-joda/timezone';
-import { stripHtml, decodeTitle, parseDateFromText, parsePost } from './ripper.js';
+import { stripHtml, decodeTitle, parseDateFromText, parseDateFromFields, parsePost } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PACIFIC = ZoneId.of('America/Los_Angeles');
@@ -124,6 +124,39 @@ describe('parseDateFromText', () => {
     });
 });
 
+describe('parseDateFromFields', () => {
+    it('reads event_date from meta', () => {
+        const post = { id: 1, slug: 'x', link: '', title: { rendered: '' }, content: { rendered: '' }, meta: { event_date: '2026-09-01T20:00' } };
+        const result = parseDateFromFields(post);
+        expect(result).not.toBeNull();
+        expect(result!.year).toBe(2026);
+        expect(result!.month).toBe(9);
+        expect(result!.day).toBe(1);
+        expect(result!.hour).toBe(20);
+    });
+
+    it('reads ISO date from a non-standard top-level field', () => {
+        const post = { id: 1, slug: 'x', link: '', title: { rendered: '' }, content: { rendered: '' }, cba_event_start: '2026-10-05T18:30' } as any;
+        const result = parseDateFromFields(post);
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(5);
+        expect(result!.hour).toBe(18);
+    });
+
+    it('ignores standard WP date fields', () => {
+        const post = { id: 1, slug: 'x', link: '', title: { rendered: '' }, content: { rendered: '' }, date: '2026-04-20T12:00:00', modified: '2026-04-21T08:00:00' };
+        const result = parseDateFromFields(post);
+        expect(result).toBeNull();
+    });
+
+    it('returns null when no structured date found', () => {
+        const post = { id: 1, slug: 'x', link: '', title: { rendered: '' }, content: { rendered: '' } };
+        const result = parseDateFromFields(post);
+        expect(result).toBeNull();
+    });
+});
+
 describe('parsePost', () => {
     it('returns a future event from a well-formed post', () => {
         const post = {
@@ -197,6 +230,24 @@ describe('parsePost', () => {
         };
         const result = parsePost(post, NOW, PACIFIC);
         expect(result && 'date' in result ? result.duration.toMinutes() : null).toBe(360);
+    });
+
+    it('falls back to parseDateFromFields when content has no text date', () => {
+        const post = {
+            id: 1020,
+            slug: 'iso-date-in-meta',
+            link: 'https://cannonballarts.com/cba-events/iso-date-in-meta/',
+            title: { rendered: 'Event With ISO Meta Date' },
+            content: { rendered: '<p>Details coming soon.</p>' },
+            meta: { event_date: '2026-08-15T19:00' },
+        };
+        const result = parsePost(post, NOW, PACIFIC);
+        expect(result).not.toBeNull();
+        if (result && 'date' in result) {
+            expect(result.date.monthValue()).toBe(8);
+            expect(result.date.dayOfMonth()).toBe(15);
+            expect(result.date.hour()).toBe(19);
+        }
     });
 
     it('processes sample-data.json: 3 events, 1 error, 1 past skip', () => {

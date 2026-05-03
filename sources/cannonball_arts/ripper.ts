@@ -13,6 +13,8 @@ interface WpPost {
     link: string;
     title: { rendered: string };
     content: { rendered: string };
+    acf?: Record<string, unknown>;
+    meta?: Record<string, unknown>;
 }
 
 interface ParsedDateTime {
@@ -163,11 +165,10 @@ export function parsePost(
     zone: ZoneId
 ): RipperCalendarEvent | ParseError | null {
     const text = stripHtml(post.content.rendered);
-    const parsed = parseDateFromText(text);
+    const parsed = parseDateFromText(text) ?? parseDateFromFields(post);
 
     if (!parsed) {
-        // No date found in content — skip silently. This is common for
-        // venues with placeholder/stub events that haven't announced dates yet.
+        // No date found in content or structured fields — skip silently.
         return null;
     }
 

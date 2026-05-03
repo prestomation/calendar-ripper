@@ -1138,6 +1138,7 @@ END:VCALENDAR`;
         if (newSourceParseErrors.length > 0) {
           const totalNewParseErrors = newSourceParseErrors.reduce((a, e) => a + e.errorCount, 0);
           console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
+          finalErrorCount += newSourceParseErrors.length;
         }
       } else {
         console.log(`::error::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — failing build`);

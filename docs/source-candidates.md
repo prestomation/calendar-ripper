@@ -4,6 +4,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-02 — Added UW College of Arts & Sciences
+- ✅ **UW College of Arts & Sciences** — Trumba ICS (`https://www.trumba.com/calendars/sea_artsci.ics`). UW's largest college; calendar includes public lectures, performances, gallery shows, and events from departments covering arts, sciences, humanities, and social sciences. Added to `sources/external.yaml`. Tags: Arts, Education, University District.
+
 ### 2026-05-01 — Source discovery: Comedy, Festivals, Bookstores, Jazz/Music
 - ✅ **Earshot Jazz** — WordPress Tribe Events ICS (`https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list`). 100+ concerts/year at venues throughout Seattle. Added to `sources/external.yaml`. Tags: Music.
 - ✅ **Couth Buzzard Books** — Uses StyledCalendar (not plain Squarespace) at 8310 Greenwood Ave N, Greenwood. Open mic (Wed), live music (Fri–Sat), kids story time. Added as StyledCalendar ripper in PR #246. Tags: Books, Music, Greenwood.
@@ -148,7 +151,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Seattle.Gov City-Wide** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — 500 events. City meetings, community events, parks volunteer events, commission meetings. Tags: Community, Government, Parks — **New 2026-04-22**
 
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
-- `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
+- ~~`sea_artsci` — UW College of Arts & Sciences~~ — Added 2026-05-02
 - `sea_info` — UW Information School — `https://www.trumba.com/calendars/sea_info.ics`
 - `sea_lib` — UW Libraries Seattle — `https://www.trumba.com/calendars/sea_lib.ics`
 - `sea_law` — UW School of Law — `https://www.trumba.com/calendars/sea_law.ics`
@@ -285,6 +288,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
 
 **Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
+
+**UW College of Arts & Sciences** — `sources/external.yaml` — Trumba ICS (`sea_artsci.ics`) — UW's largest college; public lectures, performances, gallery shows — Tags: Arts, Education, University District — Added 2026-05-02
 
 **Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
 

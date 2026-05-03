@@ -14,3 +14,4 @@ calendars:
   - name: all-events
     friendlyname: "Japanese Cultural & Community Center of Washington"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Last events were in 2022; calendar may be abandoned

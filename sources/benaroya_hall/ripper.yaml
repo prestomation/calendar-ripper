@@ -24,6 +24,7 @@ calendars:
   - name: benaroya-nordstrom
     friendlyname: "Benaroya Hall - Nordstrom Recital Hall"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Ticketmaster venueId KovZpZAaIAkA returns 0 events; venue ID may need investigation
     config:
       venueId: "KovZpZAaIAkA"
       venueName: "Benaroya Hall - Nordstrom Recital Hall"

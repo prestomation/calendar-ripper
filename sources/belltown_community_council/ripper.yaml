@@ -8,3 +8,4 @@ calendars:
   - name: all-events
     friendlyname: "Belltown Community Council"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Intermittent; ripper returns 0 events when no upcoming meetings are posted

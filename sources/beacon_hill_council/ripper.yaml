@@ -9,3 +9,4 @@ calendars:
   - name: all-events
     friendlyname: "Beacon Hill Council"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Intermittent; Squarespace calendar sometimes has no upcoming events

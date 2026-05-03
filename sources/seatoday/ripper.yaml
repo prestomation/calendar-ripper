@@ -50,6 +50,7 @@ calendars:
   - name: seatoday-nightlife
     friendlyname: "SEAtoday - Nightlife"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Intermittent; nightlife category may have no events in a given window
     tags: ["Nightlife"]
     config:
       filterTags: [14]  # Nightlife

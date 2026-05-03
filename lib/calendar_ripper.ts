@@ -1300,6 +1300,12 @@ END:VCALENDAR`;
 
   await writeFile("errorCount.txt", finalErrorCount.toString());
 
+  // Fatal error count: only errors that should fail CI.
+  // Geocode errors are expected for new/existing sources and should NOT fail the build.
+  // Only config errors, new source parse errors, and new zero-event sources are fatal.
+  const fatalErrorCount = newZeroEventSources.length + newSourceParseErrors.length;
+  await writeFile("fatalErrorCount.txt", fatalErrorCount.toString());
+
   // Print event count summary
   const zeroEventCalendars = eventCounts.filter(c => c.events === 0 && !c.expectEmpty);
   const expectedEmptyCalendars = eventCounts.filter(c => c.events === 0 && c.expectEmpty);

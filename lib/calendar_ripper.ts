@@ -1076,6 +1076,9 @@ END:VCALENDAR`;
   // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
   // it has never produced events and likely has a wrong URL or ripper type.
   const newZeroEventSources: string[] = [];
+  // Check for new sources with parse errors that are not yet in production.
+  // This creates back-pressure: you can't merge a new source that's half-broken.
+  const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
   {
     const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
     try {
@@ -1099,26 +1102,200 @@ END:VCALENDAR`;
         for (const cal of prodManifest.externalCalendars ?? []) {
           knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
         }
-        // For each expectedEmpty calendar, check if it ever appeared in production
-        const expectedEmptyNow = eventCounts.filter(c => c.events === 0 && c.expectEmpty);
-        for (const cal of expectedEmptyNow) {
-          if (!knownInProduction.has(cal.name)) {
-            console.log(`::error::New source "${cal.name}" has 0 events and expectEmpty=true but has never produced events. Remove it or fix the ripper type/URL.`);
-            newZeroEventSources.push(cal.name);
-            finalErrorCount++;
-          }
+
+        // Any new source (never in production) with 0 events fails the build.
+        // expectEmpty is not an exemption for brand-new sources — it only makes sense
+        // for sources that have previously shipped and then went quiet. A new source
+        // with 0 events has no proven data pipeline; fix the URL/type or remove it.
+        // Aggregate tag calendars are excluded — their emptiness is always downstream
+        // of a ripper failure already caught above.
+        const newZeroEvent = eventCounts.filter(
+          c => c.events === 0 && !knownInProduction.has(c.name) && c.type !== "Aggregate"
+        );
+        for (const cal of newZeroEvent) {
+          console.log(`::error::New source "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
+          newZeroEventSources.push(cal.name);
+          finalErrorCount++;
         }
         if (newZeroEventSources.length > 0) {
-          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) with expectEmpty=true that have never appeared in production`);
+          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) that have never appeared in production`);
+        }
+
+        // Check for parse errors in new sources (not yet in production).
+        // This prevents merging half-parsed sources.
+        for (const entry of buildErrors) {
+          const calendarKey = entry.type === "Recurring" ? `recurring-${entry.calendar}` : entry.calendar;
+          // Check if ANY calendar from this source is new
+          if (!knownInProduction.has(calendarKey)) {
+            // Only count ParseError types, not all errors (geocode errors are expected for new sources)
+            const parseErrors = entry.errors.filter(e => e.type === "ParseError" || e.type === "InvalidDateError");
+            if (parseErrors.length > 0) {
+              console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
+              newSourceParseErrors.push({ source: entry.source, calendar: entry.calendar, errorCount: parseErrors.length });
+            }
+          }
+        }
+        if (newSourceParseErrors.length > 0) {
+          const totalNewParseErrors = newSourceParseErrors.reduce((a, e) => a + e.errorCount, 0);
+          console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
         }
       } else {
-        console.log(`::warning::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — skipping new zero-event source check`);
+        console.log(`::error::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — failing build`);
+        finalErrorCount++;
       }
     } catch (err) {
-      console.log(`::warning::Could not fetch production manifest — skipping new zero-event source check: ${err}`);
+      console.log(`::error::Could not fetch production manifest — failing build: ${err}`);
+      finalErrorCount++;
     }
   }
   await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
+  await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
+
+  // --- New source summary: event counts and sample events for sources added in this PR ---
+  // Detect new sources by checking git diff against the merge base.
+  // This is more accurate than comparing against the production manifest,
+  // because manifest-based detection flags existing-but-empty sources as "new".
+  const newSourceNames = new Set<string>();
+  const gitBaseRef = process.env.GITHUB_BASE_REF;
+  if (gitBaseRef) {
+    try {
+      const { execSync } = await import("child_process");
+      // Find new ripper source directories added in this PR
+      const ripperDiff = execSync(
+        `git diff --diff-filter=A --name-only origin/${gitBaseRef} -- sources/`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      const newDirs = new Set<string>();
+      for (const line of ripperDiff.split("\n").filter(Boolean)) {
+        // sources/sourceName/...  →  sourceName (directory)
+        const match = line.match(/^sources\/([^/]+)\//);
+        if (match) newDirs.add(match[1]);
+      }
+      // Resolve each directory name to the ripper's `name` field from ripper.yaml
+      const { readFileSync, existsSync } = await import("fs");
+      for (const dir of newDirs) {
+        const ripperYamlPath = `sources/${dir}/ripper.yaml`;
+        if (existsSync(ripperYamlPath)) {
+          const yamlText = readFileSync(ripperYamlPath, "utf8");
+          const nameMatch = yamlText.match(/^name:\s*(.+)$/m);
+          if (nameMatch) {
+            newSourceNames.add(nameMatch[1].trim());
+          } else {
+            newSourceNames.add(dir);
+          }
+        } else {
+          newSourceNames.add(dir);
+        }
+      }
+      // Find new entries in external.yaml by parsing the diff
+      const externalDiff = execSync(
+        `git diff origin/${gitBaseRef} -- sources/external.yaml`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      if (externalDiff) {
+        // Look for added lines containing "- name:" under sources in external.yaml
+        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
+        let match: RegExpExecArray | null;
+        while ((match = addedNameRegex.exec(externalDiff)) !== null) {
+          newSourceNames.add(`external:${match[1].trim()}`);
+        }
+      }
+      // Find new entries in recurring.yaml
+      const recurringDiff = execSync(
+        `git diff origin/${gitBaseRef} -- sources/recurring.yaml`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      if (recurringDiff) {
+        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
+        let match: RegExpExecArray | null;
+        while ((match = addedNameRegex.exec(recurringDiff)) !== null) {
+          newSourceNames.add(`recurring:${match[1].trim()}`);
+        }
+      }
+    } catch (err) {
+      console.log(`::warning::Could not detect new sources via git diff: ${err}`);
+    }
+  }
+
+  const newSourceSummary: Array<{
+    source: string;
+    calendar: string;
+    type: string;
+    eventCount: number;
+    sampleEvents: Array<{ summary: string; date: string; location: string }>;
+  }> = [];
+
+  if (newSourceNames.size > 0) {
+    // Group events from eventsIndex by their calendar (icsUrl without .ics suffix = calendar key)
+    const eventsByCalendar = new Map<string, Array<{ summary: string; date: string; location: string }>>();
+    for (const evt of eventsIndex) {
+      const calKey = evt.icsUrl.replace(/\.ics$/, "");
+      if (!eventsByCalendar.has(calKey)) {
+        eventsByCalendar.set(calKey, []);
+      }
+      eventsByCalendar.get(calKey)!.push({
+        summary: evt.summary,
+        date: evt.date,
+        location: evt.location || "",
+      });
+    }
+    // Sort events within each calendar by date
+    for (const [, evts] of eventsByCalendar) {
+      evts.sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    // Match new source names to calendars in eventCounts
+    for (const sourceKey of newSourceNames) {
+      if (sourceKey.startsWith("external:")) {
+        // External source: match by external-{name}*
+        const extName = sourceKey.replace("external:", "");
+        const matchingCals = eventCounts.filter(c => c.type === "External" && c.name === `external-${extName}`);
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: extName,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      } else if (sourceKey.startsWith("recurring:")) {
+        const recName = sourceKey.replace("recurring:", "");
+        const matchingCals = eventCounts.filter(c => c.type === "Recurring" && c.name === `recurring-${recName}`);
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: recName,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      } else {
+        // Ripper source: match calendars starting with sourceName-
+        const matchingCals = eventCounts.filter(c => c.type === "Ripper" && c.name.startsWith(`${sourceKey}-`));
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: sourceKey,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      }
+    }
+  }
+  await writeFile("output/new-source-summary.json", JSON.stringify(newSourceSummary, null, 2));
 
   await writeFile("errorCount.txt", finalErrorCount.toString());
 
@@ -1161,6 +1338,7 @@ END:VCALENDAR`;
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
     newZeroEventSources,
+    newSourceParseErrors,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
     osmGaps,
     eventCounts: eventCounts.map(c => ({

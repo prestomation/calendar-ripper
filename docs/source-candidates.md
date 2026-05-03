@@ -6,6 +6,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### 2026-05-03 — Source discovery: Food/Drink, Arts, Outdoors
 - ✅ **Henry Art Gallery** — Eventbrite organizer `775590393`, 5 upcoming events (May–June 2026). Contemporary art museum on UW campus. Tags: Arts, Museums, University District. Implementing in this PR.
+- ✅ **Cannonball Arts Center** — WordPress custom REST API (`/wp-json/wp/v2/cba-event`). New Belltown venue from Bumbershoot producers at 1930 3rd Ave. Custom ripper parses dates from content HTML. Tags: Arts, Belltown. `expectEmpty: true` since venue is still building programming.
 - ❌ **The Triple Door** — Bandzoogle site, returns 403 from sandbox. Bandzoogle has no structured API. Not viable.
 - ❌ **Museum of Flight** — Custom CMS (no Eventbrite/ICS). Located at 9404 E Marginal Way S (Tukwila, outside Seattle). Not viable.
 - ❌ **Jazz Alley** — Custom JSP calendar, no ICS/Eventbrite found. Bandsintown/Songkick listings only (aggregators, not primary sources). Not viable with built-in rippers; would need custom JSP scraper.
@@ -195,7 +196,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
 
-**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers
+~~**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers~~
 
 ### Custom HTML/JSON Scraping
 
@@ -298,6 +299,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
 
 **Couth Buzzard Books** — StyledCalendar ripper — 8310 Greenwood Ave N, Greenwood — Tags: Books, Music, Greenwood — Added PR #246
+
+**Cannonball Arts Center** — `sources/cannonball_arts` — WordPress custom REST API (`/wp-json/wp/v2/cba-event`), dates parsed from content HTML — 1930 3rd Ave, Seattle, WA 98101 (Belltown) — Tags: Arts, Belltown — Added 2026-05-03
 
 ---
 

@@ -1,14 +1,20 @@
 import { readFile, writeFile } from 'fs/promises';
 import type { GeocodeError } from './config/schema.js';
 
+export type OsmType = 'node' | 'way' | 'relation';
+
 export interface GeoCoords {
   lat: number;
   lng: number;
+  osmId?: number;
+  osmType?: OsmType;
 }
 
 export interface GeoCacheEntry {
   lat?: number;
   lng?: number;
+  osmId?: number;
+  osmType?: OsmType;
   unresolvable?: boolean;
   geocodedAt: string;
   source: 'nominatim' | 'manual';
@@ -417,50 +423,98 @@ export function lookupUWBuilding(location: string): GeoCoords | null {
  * Keys are lowercased venue names.
  */
 const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
-  'the museum of flight': { lat: 47.5186, lng: -122.2967 },
-  'museum of flight': { lat: 47.5186, lng: -122.2967 },
-  'langston hughes performing arts institute': { lat: 47.5969, lng: -122.3165 },
+  'aladdin theater (portland)': { lat: 45.5098, lng: -122.6227 },
   'arts at king street station': { lat: 47.5983, lng: -122.3303 },
+  'bell street park': { lat: 47.6149, lng: -122.3445 },
+  'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
+  'bitterlake community center': { lat: 47.7201, lng: -122.3473 },
+  'block 41': { lat: 47.6038, lng: -122.3301 },
+  "bubba's roadhouse (sultan)": { lat: 47.8608, lng: -121.8041 },
+  'cap hill (rsvp for details)': { lat: 47.6253, lng: -122.3222 },
+  'center for urban horticulture': { lat: 47.6573, lng: -122.2904 },
+  'central saloon': { lat: 47.6007, lng: -122.3321 },
+  'centennial park, 1130 208th street southeast, bothell, wa': { lat: 47.7610, lng: -122.2218 },
+  'club comedy seattle': { lat: 47.6176, lng: -122.3499 },
+  'culture yard': { lat: 47.6165, lng: -122.3456 },
+  'cwb boathouse': { lat: 47.6259, lng: -122.3392 },
+  'discovery park, north parking lot': { lat: 47.6617, lng: -122.4077 },
+  'duwamish longhouse': { lat: 47.5612, lng: -122.3598 },
+  'fremont studios': { lat: 47.6513746, lng: -122.3556160 },
+  'glasswing shop': { lat: 47.6175, lng: -122.3251 },
+  'gard vintners, 19151 144th ave. ne unit d, woodinville, wa': { lat: 47.7553, lng: -122.1516 },
+  'gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
+  'gould gallery': { lat: 47.6092, lng: -122.3321 },
+  'green lake community center': { lat: 47.6803, lng: -122.3285 },
   'hazard factory': { lat: 47.6138, lng: -122.3204 },
-  'volunteer park amphitheater': { lat: 47.6372, lng: -122.3150 },
+  'husky ballpark': { lat: 47.6515, lng: -122.3011 },
+  'husky softball stadium': { lat: 47.6555, lng: -122.3009 },
+  'husky soccer stadium': { lat: 47.6499, lng: -122.2637 },
+  'husky softball stadium, university of washington': { lat: 47.6555, lng: -122.3009 },
+  'j. rinehart gallery': { lat: 47.5994, lng: -122.3305 },
+  'j rinehart gallery': { lat: 47.5994, lng: -122.3305 },
+  'kangaroo & kiwi': { lat: 47.6689, lng: -122.3834 },
+  'seattle central college': { lat: 47.6163, lng: -122.3219 },
   'kremwerk': { lat: 47.6202, lng: -122.3374 },
   'kremwerk-timbre room-cherry complex': { lat: 47.6202, lng: -122.3374 },
-  'bitterlake community center': { lat: 47.7201, lng: -122.3473 },
-  'discovery park, north parking lot': { lat: 47.6617, lng: -122.4077 },
-  'gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
-  'the gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
+  'kane hall, university of washington, 4069 spokane ln, seattle, 98105, united states': { lat: 47.6566, lng: -122.3092 },
+  'langston hughes performing arts institute': { lat: 47.5969, lng: -122.3165 },
   'meadowbrook community center': { lat: 47.7133, lng: -122.2989 },
-  'worksource north seattle': { lat: 47.7097, lng: -122.3359 },
-  'worksource north seattle computer lab': { lat: 47.7097, lng: -122.3359 },
-  'duwamish longhouse': { lat: 47.5612, lng: -122.3598 },
-  'cwb boathouse': { lat: 47.6259, lng: -122.3392 },
-  'the taproom at pike place': { lat: 47.6097, lng: -122.3425 },
-  'gould gallery': { lat: 47.6092, lng: -122.3321 },
-  'culture yard': { lat: 47.6165, lng: -122.3456 },
-  'neumos & barboza': { lat: 47.6134, lng: -122.3203 },
+  'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
+  'mount vernon downtown association': { lat: 48.4206767, lng: -122.337333 },
+  'museum of flight': { lat: 47.5186, lng: -122.2967 },
   'neumos': { lat: 47.6134, lng: -122.3203 },
-  'the moore theatre': { lat: 47.6120, lng: -122.3425 },
-  'the paramount theatre': { lat: 47.6120, lng: -122.3321 },
-  'club comedy seattle': { lat: 47.6176, lng: -122.3499 },
-  'vue lounge': { lat: 47.6134, lng: -122.3203 },
-  'shibuya hi-fi': { lat: 47.6134, lng: -122.3203 },
+  'neumos & barboza': { lat: 47.6134, lng: -122.3203 },
   'ohm nightclub': { lat: 47.6134, lng: -122.3203 },
-  'the new frontier lounge': { lat: 47.6677, lng: -122.3829 },
-  'glasswing shop': { lat: 47.6175, lng: -122.3251 },
   'orient express restaurant & lounge': { lat: 47.5983, lng: -122.3237 },
-  'central saloon': { lat: 47.6007, lng: -122.3321 },
+  'overlake village station pedestrian bridge': { lat: 47.6363, lng: -122.1389 },
+  'pacave pizza (spokane)': { lat: 47.6587, lng: -117.4260 },
+  'peace of mind brewing': { lat: 47.8316011, lng: -122.3053788 },
+  'ravenna-eckstein community center': { lat: 47.6770, lng: -122.3044 },
+  'seattle center armory': { lat: 47.6215, lng: -122.3509 },
+  'shibuya hi-fi': { lat: 47.6134, lng: -122.3203 },
   'spanish ballroom at mcmenamins elks temple': { lat: 47.6120, lng: -122.3321 },
   'the church cantina': { lat: 47.6253, lng: -122.3222 },
-  'mercury @ machinewerks': { lat: 47.5983, lng: -122.3237 },
-  'husky ballpark': { lat: 47.6515, lng: -122.3011 },
-  'fremont studios': { lat: 47.6513746, lng: -122.3556160 },
-  'mount vernon downtown association': { lat: 48.4206767, lng: -122.337333 },
-  'peace of mind brewing': { lat: 47.8316011, lng: -122.3053788 },
-  'cap hill (rsvp for details)': { lat: 47.6253, lng: -122.3222 },
-  'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
-  'centennial park, 1130 208th street southeast, bothell, wa': { lat: 47.7610, lng: -122.2218 },
-  'husky softball stadium': { lat: 47.6555, lng: -122.3009 },
-  'husky softball stadium, university of washington': { lat: 47.6555, lng: -122.3009 },
+  'the astoria (vancouver bc)': { lat: 49.2643, lng: -123.1036 },
+  'the crypt (olympia)': { lat: 47.0449, lng: -122.8986 },
+  'the gorge amphitheatre': { lat: 47.0801, lng: -119.9947 },
+  'the great hall at union station': { lat: 47.6001, lng: -122.3298 },
+  'the moore theatre': { lat: 47.6120, lng: -122.3425 },
+  'the museum of flight': { lat: 47.5186, lng: -122.2967 },
+  'the new frontier lounge': { lat: 47.6677, lng: -122.3829 },
+  'the paramount theatre': { lat: 47.6120, lng: -122.3321 },
+  'the taproom at pike place': { lat: 47.6097, lng: -122.3425 },
+  'twilight cafe & bar': { lat: 45.5886, lng: -122.7319 },
+  'vue lounge': { lat: 47.6134, lng: -122.3203 },
+  'volunteer park amphitheater': { lat: 47.6372, lng: -122.3150 },
+  'wallingford community senior center': { lat: 47.6639, lng: -122.3312 },
+  'worksource north seattle': { lat: 47.7097, lng: -122.3359 },
+  'worksource north seattle computer lab': { lat: 47.7097, lng: -122.3359 },
+  // --- Added known venues for Nominatim failure fallback ---
+  'armistice coffee roosevelt, 6717 roosevelt ave ne, seattle, wa': { lat: 47.6717, lng: -122.3176 },
+  'black panther park, seattle, wa': { lat: 47.5280, lng: -122.2690 },
+  'eastlake performing arts center, sammamish, wa': { lat: 47.5693, lng: -122.0282 },
+  'faye g. allen grand atrium, mohai, 860 terry ave n, seattle, wa, 98109': { lat: 47.6198, lng: -122.3485 },
+  'hilltop ale house, 2129 queen anne ave n, seattle, wa 98109': { lat: 47.6402, lng: -122.3570 },
+  'kane hall, university of washington, seattle, wa': { lat: 47.6566, lng: -122.3092 },
+  'kirkland rotary central station, 1 railroad ave, kirkland, wa': { lat: 47.6768, lng: -122.2057 },
+  'lincoln high school theater, seattle, wa': { lat: 47.6663, lng: -122.3275 },
+  'meridian playground, 4800 meridian ave n, seattle, wa': { lat: 47.6627, lng: -122.3310 },
+  'microsoft lakefront pavilion, mohai, 860 terry ave n, seattle, wa, 98109': { lat: 47.6198, lng: -122.3485 },
+  'mohai': { lat: 47.6198, lng: -122.3485 },
+  'mohai, 860 terry ave n, seattle, wa, 98109': { lat: 47.6198, lng: -122.3485 },
+  'norcliffe conference room, mohai, 860 terry ave n, seattle, wa, 98109': { lat: 47.6198, lng: -122.3485 },
+  'occidental square, 117 s washington st, seattle, wa': { lat: 47.6011, lng: -122.3323 },
+  'oxbow farm & conservation center, 10819 carnation duvall road northeast, carnation, wa': { lat: 47.5699, lng: -121.9010 },
+  'phinney center campus: blue (upper) building, 6532 phinney ave. n., seattle, wa': { lat: 47.6797, lng: -122.3549 },
+  'phinney center campus: brick (lower) building, 6532 phinney ave. n., seattle': { lat: 47.6797, lng: -122.3549 },
+  'pud auditorium theater, 2320 california st, everett, wa': { lat: 47.9784, lng: -122.2071 },
+  'stottle winery covington tasting room, 16783 southeast 272nd street, covington, wa': { lat: 47.3628, lng: -122.1151 },
+  'the great hall, 1119 eighth avenue, seattle, 98101': { lat: 47.6087, lng: -122.3295 },
+  'the toad house, 1405 northeast mcwilliams road, bremerton, wa': { lat: 47.5824, lng: -122.6229 },
+  'the wyncote nw forum, 1119 8th ave, seattle, 98101': { lat: 47.6087, lng: -122.3295 },
+  'unexpected productions, 1428 post alley, seattle, wa': { lat: 47.6097, lng: -122.3420 },
+  'mill creek city hall north, 15720 main street, mill creek, wa': { lat: 47.8565, lng: -122.2013 },
+  'walls of books, 1025 northwest gilman boulevard, #suite e-3, issaquah, wa': { lat: 47.5446, lng: -122.0535 },
 };
 
 /**
@@ -568,7 +622,13 @@ export function lookupGeoCache(cache: Readonly<GeoCache>, location: string): Geo
   if (!entry) return null;
   if (entry.unresolvable) return null;
   if (entry.lat !== undefined && entry.lng !== undefined) {
-    return { lat: entry.lat, lng: entry.lng };
+    return {
+      lat: entry.lat,
+      lng: entry.lng,
+      ...(entry.osmId !== undefined && entry.osmType !== undefined
+        ? { osmId: entry.osmId, osmType: entry.osmType }
+        : {}),
+    };
   }
   return null;
 }
@@ -618,7 +678,12 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
       return null;
     }
 
-    const data = await res.json() as Array<{ lat: string; lon: string }>;
+    const data = await res.json() as Array<{
+      lat: string;
+      lon: string;
+      osm_id?: number;
+      osm_type?: string;
+    }>;
     if (!Array.isArray(data) || data.length === 0) {
       return null;
     }
@@ -628,10 +693,24 @@ export async function geocodeLocation(location: string): Promise<GeoCoords | nul
     const lng = parseFloat(first.lon);
     if (isNaN(lat) || isNaN(lng)) return null;
 
-    return { lat, lng };
+    const osmType = normalizeOsmType(first.osm_type);
+    const osmId = typeof first.osm_id === 'number' && Number.isInteger(first.osm_id) && first.osm_id > 0
+      ? first.osm_id
+      : undefined;
+
+    return {
+      lat,
+      lng,
+      ...(osmType && osmId !== undefined ? { osmId, osmType } : {}),
+    };
   } catch {
     return null;
   }
+}
+
+function normalizeOsmType(value: unknown): OsmType | undefined {
+  if (value === 'node' || value === 'way' || value === 'relation') return value;
+  return undefined;
 }
 
 export interface ResolveEventCoordsResult {
@@ -771,6 +850,9 @@ export async function resolveEventCoords(
     const newEntry: GeoCacheEntry = {
       lat: coords.lat,
       lng: coords.lng,
+      ...(coords.osmId !== undefined && coords.osmType !== undefined
+        ? { osmId: coords.osmId, osmType: coords.osmType }
+        : {}),
       geocodedAt: new Date().toISOString().slice(0, 10),
       source: 'nominatim',
       firstSeen: new Date().toISOString().slice(0, 10),

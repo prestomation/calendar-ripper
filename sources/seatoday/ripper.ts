@@ -145,6 +145,11 @@ export default class SEAtodayRipper implements IRipper {
                 const dateString = eventData.StartUTC || eventData.DateStart;
                 const startDate = this.parseDate(dateString, timezone);
                 if (!startDate) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Could not parse event date: "${dateString}"`,
+                        context: eventData.Name || JSON.stringify(eventData).substring(0, 100)
+                    });
                     continue;
                 }
 

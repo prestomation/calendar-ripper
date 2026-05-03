@@ -5,30 +5,48 @@ import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
 export default class SeattleBeerWeekRipper extends JSONRipper {
     public async parseEvents(jsonData: any, date: ZonedDateTime, config: any): Promise<RipperEvent[]> {
         const events: RipperEvent[] = [];
-        
+
         try {
             // Extract events from the widgets structure
             if (jsonData?.data?.widgets) {
                 const widgetKeys = Object.keys(jsonData.data.widgets);
-                
+
                 for (const key of widgetKeys) {
                     const widget = jsonData.data.widgets[key];
-                    
+
                     if (widget?.data?.settings?.events) {
                         const eventsList = widget.data.settings.events;
+
+                        // Build a lookup map from location ID -> location object
+                        const locationMap = new Map<string, { name: string; address?: string }>();
+                        for (const loc of (widget.data.settings.locations ?? [])) {
+                            if (loc.id) locationMap.set(loc.id, loc);
+                        }
                         
                         for (const event of eventsList) {
                             try {
                                 // Skip empty events (the JSON has some empty objects)
                                 if (!event.id || !event.name || !event.start) {
+                                    if (event.id || event.name) {
+                                        events.push({
+                                            type: "ParseError",
+                                            reason: `Event missing id, name, or start`,
+                                            context: JSON.stringify(event).substring(0, 100) + "..."
+                                        });
+                                    }
                                     continue;
                                 }
-                                
+
                                 // Parse start date and time
                                 const startDate = event.start.date;
                                 const startTime = event.start.time;
-                                
+
                                 if (!startDate || !startTime) {
+                                    events.push({
+                                        type: "ParseError",
+                                        reason: `Event "${event.name}" missing start.date or start.time`,
+                                        context: JSON.stringify(event).substring(0, 100) + "..."
+                                    });
                                     continue;
                                 }
                                 
@@ -88,14 +106,18 @@ export default class SeattleBeerWeekRipper extends JSONRipper {
                                     description = this.stripHtml(description);
                                 }
                                 
-                                // Get location information
-                                // In this data format, location is just an ID reference
-                                // We could look it up in the locations array if needed
+                                // Resolve location ID(s) to human-readable name + address
                                 let location = undefined;
-                                if (event.location) {
-                                    // For now, just use the location ID as a placeholder
-                                    // In a real implementation, we would look up the location details
-                                    location = `Location ID: ${event.location}`;
+                                const locationIds: string[] = Array.isArray(event.location)
+                                    ? event.location.filter((id: any) => typeof id === 'string')
+                                    : typeof event.location === 'string' ? [event.location] : [];
+                                if (locationIds.length > 0) {
+                                    const loc = locationMap.get(locationIds[0]);
+                                    if (loc) {
+                                        location = loc.address
+                                            ? `${loc.name}, ${loc.address.trim()}`
+                                            : loc.name;
+                                    }
                                 }
                                 
                                 // Get URL from button link if available

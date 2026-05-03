@@ -15,6 +15,12 @@ on:
       zero-event-calendars:
         description: "Newline-separated list of calendars with 0 events"
         value: ${{ jobs.build.outputs.zero-event-calendars }}
+      new-zero-event-sources:
+        description: "Newline-separated list of new sources with 0 events that have never appeared in production"
+        value: ${{ jobs.build.outputs.new-zero-event-sources }}
+      new-source-summary:
+        description: "JSON summary of new sources not in production (event counts + sample events)"
+        value: ${{ jobs.build.outputs.new-source-summary }}
 
 jobs:
   build:
@@ -22,10 +28,20 @@ jobs:
     outputs:
       error-count: ${{ steps.generate-calendars.outputs.ERROR_COUNT }}
       zero-event-calendars: ${{ steps.generate-calendars.outputs.ZERO_EVENT_CALENDARS }}
+      new-zero-event-sources: ${{ steps.generate-calendars.outputs.NEW_ZERO_EVENT_SOURCES }}
+      new-source-summary: ${{ steps.generate-calendars.outputs.NEW_SOURCE_SUMMARY }}
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Fetch base ref for new source detection
+      if: github.base_ref != ''
+      run: |
+        git fetch origin ${{ github.base_ref }}
+        echo "GITHUB_BASE_REF=${{ github.base_ref }}" >> $GITHUB_ENV
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
@@ -34,6 +50,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+
+    - name: Check no null returns in rippers
+      run: bash scripts/check_no_null_returns.sh
 
     - name: Run unit tests
       run: npm run test:all
@@ -77,6 +96,29 @@ jobs:
           cat zeroEventCalendars.txt
           echo ""
           echo "${delimiter}"
+        } >> "$GITHUB_OUTPUT"
+        cat newZeroEventSources.txt
+        delimiter2="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "NEW_ZERO_EVENT_SOURCES<<${delimiter2}"
+          cat newZeroEventSources.txt
+          echo ""
+          echo "${delimiter2}"
+        } >> "$GITHUB_OUTPUT"
+        cat newSourceParseErrors.txt
+        delimiter3="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "NEW_SOURCE_PARSE_ERRORS<<${delimiter3}"
+          cat newSourceParseErrors.txt
+          echo ""
+          echo "${delimiter3}"
+        } >> "$GITHUB_OUTPUT"
+        delimiter4="ghadelim_$(openssl rand -hex 8)"
+        {
+          echo "NEW_SOURCE_SUMMARY<<${delimiter4}"
+          cat output/new-source-summary.json
+          echo ""
+          echo "${delimiter4}"
         } >> "$GITHUB_OUTPUT"
 
     - name: Upload geo-cache to S3

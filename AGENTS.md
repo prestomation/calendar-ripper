@@ -1,5 +1,24 @@
 # AI Agent Guidelines
 
+## Skills
+
+Agent skills live in `skills/` in this repo. These define the operational procedures for maintaining 206.events:
+
+- **`skills/build-report/SKILL.md`** — Daily build health check, error fixing, and geo error resolution
+- **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
+- **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
+
+## Source Candidate Tracking
+
+All source discovery findings live in **`docs/source-candidates.md`**. This file tracks:
+- Candidate sources to investigate (with status: 💡 Candidate, 🔍 Investigating, ✅ Added, ❌ Not Viable, ⏸️ Blocked)
+- Discovery log (date-stamped entries from daily scans)
+- Dead source investigations
+
+When implementing a source from the candidates file, update its status entry. The daily cron reads this file to avoid re-proposing the same sources.
+
+**Feature ideas** (not source-specific) live in `ideas.md` in the repo root.
+
 ## Project Context
 
 This repository contains steering files to help AI agents understand the project structure and architecture:
@@ -108,7 +127,7 @@ Only implement HTML parsing if no ICS feed or API is available:
 ### Investigation Process
 
 Before implementing, always:
-1. Check **`ideas.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
+1. Check **`docs/source-candidates.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
 2. Check the website for ICS/calendar export options
 3. Inspect network traffic for API endpoints
 4. Search for the calendar platform being used (e.g., CitySpark, Localist)
@@ -321,6 +340,33 @@ When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch ca
 - Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
 - Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
 
+## Parse Methods Must Never Return Null
+
+Parse methods (like `parseProduct`, `parseProductHtml`, `parseEventPage`) **must return `RipperCalendarEvent | RipperError`** — never `null`.
+
+TypeScript enforces this at compile time: if a parse method's return type doesn't include `null`, the compiler will catch any code path that silently drops an item.
+
+**Required pattern — parse method signature:**
+```typescript
+parseProductHtml(html: string, url: string): RipperCalendarEvent | RipperError
+```
+
+**Required pattern — caller:**
+```typescript
+const result = this.parseProductHtml(html, url);
+if ('date' in result) events.push(result);
+else errors.push(result); // It's a ParseError
+```
+
+**Filters and dedup belong in the caller, not the parse method.** Move these out:
+- **Deduplication** (`seen.has(key)`) — check after parsing, skip in caller
+- **Intentional content filters** (e.g., "members free RSVP" titles) — check before calling parse, skip in caller
+- **Type checks** (e.g., `@type !== 'Event'`) — check in caller or return ParseError with clear reason
+
+**Why:** If parse methods can return `null`, someone will forget to check it, and items get silently dropped. By making the return type `RipperCalendarEvent | RipperError`, TypeScript guarantees every code path either produces an event or reports why it couldn't. The build report then surfaces every gap: "8 events, 2 errors" instead of "8 events, 0 errors".
+
+**Existing rippers still returning `null`** (events12, dogwoodplaypark, spectrum_dance, etc.) should be migrated to this pattern incrementally.
+
 ## Writing Descriptions
 
 The `description` field in `ripper.yaml` is used as the `<h2>` section heading on the website. It should be **just the name** of the venue or organization — not a sentence describing what they do.
@@ -406,7 +452,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
     {
       "source": "ripper-name",
       "calendar": "calendar-name",
-      "type": "Ripper | Recurring | Aggregate",
+      "type": "Ripper | Recurring",
       "errorCount": 3,
       "errors": [
         { "type": "ParseError", "reason": "...", "context": "..." }
@@ -427,7 +473,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 ```
 
 - **`configErrors`** — errors loading ripper configs (missing `ripper.yaml`, import failures)
-- **`sources`** — per-calendar parse errors from Ripper, Recurring, and Aggregate calendars (only entries with errors are included)
+- **`sources`** — per-calendar parse errors from Ripper and Recurring calendars (only entries with errors are included). Aggregate (`tag-*`) calendars are intentionally excluded — every error there is a duplicate of an upstream ripper error, and counting them inflates the build error count by the number of tags each broken source belongs to.
 - **`externalCalendarFailures`** — external ICS feeds that failed to fetch
 - **`zeroEventCalendars`** — calendar names that produced 0 events **unexpectedly** (may indicate a problem)
 - **`expectedEmptyCalendars`** — calendar names with `expectEmpty: true` that produced 0 events (not a problem)
@@ -505,6 +551,8 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 **Symptom:** Errors in `tag-*` aggregate calendars
 
 **Cause:** These are always downstream from ripper errors. Fix the underlying ripper and the tag errors resolve automatically.
+
+**Reporting:** Aggregate errors are intentionally excluded from `totalErrors`, `errorCount.txt`, and `build-errors.json#sources`. The per-aggregate `<calendar>-errors.txt` file is still written if you want the raw list, but the headline error count tracks only the upstream rippers that need fixing.
 
 ## Favorites Filter Parity Rule
 

@@ -336,6 +336,19 @@ describe('PacificScienceCenterRipper', () => {
             expect(result!.startDate.hour()).toBe(10);
         });
 
+        it('parses time in "p.m." format (with periods)', () => {
+            const result = ripper.parseShowtime('Friday, May 1, 2026', '10:30 p.m.', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.hour()).toBe(22);
+            expect(result!.startDate.minute()).toBe(30);
+        });
+
+        it('parses time in "a.m." format (with periods)', () => {
+            const result = ripper.parseShowtime('Saturday, May 2, 2026', '10:00 a.m.', timezone);
+            expect(result).not.toBeNull();
+            expect(result!.startDate.hour()).toBe(10);
+        });
+
         it('returns null for invalid date', () => {
             const result = ripper.parseShowtime('Invalid date', '10:30 pm', timezone);
             expect(result).toBeNull();

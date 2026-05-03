@@ -5,9 +5,11 @@ url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://climatepledgearena.com
 tags: ["Music", "Sports"]
 geo:
-  lat: 47.6222
-  lng: -122.3543
+  lat: 47.6219
+  lng: -122.354
   label: "Climate Pledge Arena, 334 1st Ave N, Seattle, WA 98109"
+  osmType: way
+  osmId: 25123756
 calendars:
   - name: climate-pledge-arena
     friendlyname: "Climate Pledge Arena"

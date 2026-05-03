@@ -41,7 +41,10 @@ export const TAG_CATEGORIES = {
         'Arts',
         'Artwalk',
         'Beer',
+        'Books',
+        'Comedy',
         'Cycling',
+        'Dance',
         'Dogs',
         'Education',
         'Events',
@@ -63,6 +66,7 @@ export const TAG_CATEGORIES = {
     'Community': [
         'Activism',
         'Community',
+        'Parks',
         'Volunteer',
     ],
     'Special': [

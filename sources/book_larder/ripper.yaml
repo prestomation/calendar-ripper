@@ -1,0 +1,13 @@
+name: book-larder
+description: "Book Larder"
+url: "https://booklarder.com/collections/evey-events/products.json"
+friendlyLink: https://booklarder.com/collections/evey-events
+tags: ["Books", "Food", "Fremont"]
+geo:
+  lat: 47.6588
+  lng: -122.3499
+  label: "Book Larder, 4252 Fremont Ave N, Seattle, WA 98103"
+calendars:
+  - name: all-events
+    friendlyname: "Book Larder"
+    timezone: America/Los_Angeles

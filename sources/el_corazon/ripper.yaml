@@ -5,9 +5,11 @@ url: "https://www.elcorazonseattle.com/calendar"
 friendlyLink: https://www.elcorazonseattle.com
 tags: ["Music"]
 geo:
-  lat: 47.6234
-  lng: -122.3328
+  lat: 47.6187
+  lng: -122.3293
   label: "El Corazón, 109 Eastlake Ave E, Seattle, WA 98109"
+  osmType: node
+  osmId: 818597264
 calendars:
   - name: el-corazon
     friendlyname: "El Corazón"

@@ -103,6 +103,59 @@ export function parseDateFromText(text: string): ParsedDateTime | null {
     };
 }
 
+const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/;
+
+function parsedDateTimeFromIso(val: string): ParsedDateTime | null {
+    const m = val.match(ISO_DATE_RE);
+    if (!m) return null;
+    return {
+        year: parseInt(m[1], 10),
+        month: parseInt(m[2], 10),
+        day: parseInt(m[3], 10),
+        hour: m[4] !== undefined ? parseInt(m[4], 10) : DEFAULT_START_HOUR,
+        minute: m[5] !== undefined ? parseInt(m[5], 10) : 0,
+    };
+}
+
+// Try common ACF / meta field names AND any top-level string field that looks like
+// an ISO date (custom register_rest_field entries vary by site).
+export function parseDateFromFields(post: WpPost): ParsedDateTime | null {
+    const NAMED_KEYS = [
+        'event_date', 'cba_event_date', 'cba_date',
+        'start_date', 'event_start_date', '_event_start_date',
+        'date', 'start', 'event_start',
+    ];
+
+    // Check acf and meta objects for known date field names
+    for (const source of [post.acf, post.meta]) {
+        if (!source) continue;
+        for (const key of NAMED_KEYS) {
+            const val = source[key];
+            if (typeof val !== 'string') continue;
+            const result = parsedDateTimeFromIso(val);
+            if (result) return result;
+        }
+    }
+
+    // Scan ALL top-level string fields on the raw post for ISO date values.
+    // WordPress register_rest_field() can expose event dates directly on the post
+    // object under any field name. Skip standard WP fields (publish time, not event).
+    const WP_STANDARD_FIELDS = new Set([
+        'date', 'date_gmt', 'modified', 'modified_gmt',
+        'slug', 'link', 'guid', 'type', 'status', 'template', 'excerpt',
+    ]);
+    const raw = post as Record<string, unknown>;
+    for (const [key, val] of Object.entries(raw)) {
+        if (WP_STANDARD_FIELDS.has(key)) continue;
+        if (typeof val !== 'string') continue;
+        const result = parsedDateTimeFromIso(val);
+        if (result) return result;
+    }
+
+    return null;
+}
+
+
 // Parse a single WordPress post into a RipperCalendarEvent, ParseError, or null (past event).
 export function parsePost(
     post: WpPost,

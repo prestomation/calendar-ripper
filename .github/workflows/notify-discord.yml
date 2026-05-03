@@ -58,20 +58,33 @@ jobs:
             *)         EMOJI="⚠️" ;;
           esac
 
-          # Build the link — prefer PR link when available, otherwise fall back to run link
+          # Build the link — always link to the PR when available
           if [ -n "$PR_URL" ]; then
             VIEW_LINK="[View PR #${PR_NUMBER}](${PR_URL})"
           else
-            VIEW_LINK="[View run](${WORKFLOW_URL})"
+            # For non-PR workflows (e.g. cron), link to the repo
+            VIEW_LINK="[View repo](https://github.com/${REPO})"
           fi
 
           # For the main build workflow, include skill run instructions
           if [ "$WORKFLOW_NAME" = "Generate Calendars and Publish to GitHub Pages" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
             CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"${VIEW_LINK}"$'\n\n'"📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
-            # For PR Preview success, include new source summary if available
+            # For PR Preview success, include preview link and new source summary
+            PREVIEW_LINE=""
             NEW_SOURCE_LINE=""
             if [ "$WORKFLOW_NAME" = "PR Preview" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
+              # Try to extract the preview deployment URL from the artifact
+              DEPLOY_URL_FILE=$(find artifact-download -name deployment-url.txt -type f 2>/dev/null | head -1)
+              if [ -n "$DEPLOY_URL_FILE" ]; then
+                DEPLOY_URL=$(cat "$DEPLOY_URL_FILE" 2>/dev/null | tr -d '[:space:]')
+                if [ -n "$DEPLOY_URL" ]; then
+                  PREVIEW_LINE=$'\n'"🔗 **Preview:** [${DEPLOY_URL}](${DEPLOY_URL})"
+                fi
+              elif [ -n "$PR_NUMBER" ]; then
+                # Fallback: construct the expected preview URL
+                PREVIEW_LINE=$'\n'"🔗 **Preview:** [https://pr-${PR_NUMBER}.206events.pages.dev](https://pr-${PR_NUMBER}.206events.pages.dev)"
+              fi
               SUMMARY_FILE=$(find artifact-download -name new-source-summary.json -type f 2>/dev/null | head -1)
               if [ -n "$SUMMARY_FILE" ]; then
                 SOURCE_COUNT=$(jq 'length' "$SUMMARY_FILE" 2>/dev/null || echo "0")
@@ -95,7 +108,7 @@ jobs:
                 fi
               fi
             fi
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**${NEW_SOURCE_LINE}"$'\n'"${VIEW_LINK}"
+            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**${PREVIEW_LINE}${NEW_SOURCE_LINE}"$'\n'"${VIEW_LINK}"
           fi
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"

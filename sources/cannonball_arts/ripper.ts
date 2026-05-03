@@ -146,7 +146,7 @@ export function parseDateFromFields(post: WpPost): ParsedDateTime | null {
         'date', 'date_gmt', 'modified', 'modified_gmt',
         'slug', 'link', 'guid', 'type', 'status', 'template', 'excerpt',
     ]);
-    const raw = post as Record<string, unknown>;
+    const raw = post as unknown as Record<string, unknown>;
     for (const [key, val] of Object.entries(raw)) {
         if (WP_STANDARD_FIELDS.has(key)) continue;
         if (typeof val !== 'string') continue;

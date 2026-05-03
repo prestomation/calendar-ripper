@@ -1,0 +1,20 @@
+name: university-book-store
+type: eventbrite
+description: "University Book Store"
+url: "https://ubookstore.com/events"
+friendlyLink: https://ubookstore.com/events
+tags: ["Books", "University District"]
+geo:
+  lat: 47.6602425
+  lng: -122.3127809
+  label: "University Book Store, 4324 University Way NE, Seattle, WA 98105"
+  osmType: node
+  osmId: 2323790025
+calendars:
+  - name: university-book-store
+    friendlyname: "University Book Store"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "30331909434"
+      defaultLocation: "4324 University Way NE, Seattle, WA 98105"
+      defaultDurationHours: 2

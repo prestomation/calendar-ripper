@@ -290,6 +290,17 @@
   - Arts
   - University District
 
+- geo: null
+  name: uw-sustainability
+  friendlyname: "University of Washington — Sustainability"
+  description: "UW College of the Environment sustainability events, lectures, and community engagement"
+  icsUrl: "https://www.trumba.com/calendars/sea_essuw.ics"
+  infoUrl: "https://www.washington.edu/sustainability/"
+  tags:
+  - Community
+  - Education
+  - University District
+
 # WorkSource (Trumba)
 - geo: null
   name: worksource-north-seattle
@@ -451,6 +462,15 @@
   tags:
   - Theatre
   - Capitol Hill
+- geo: null
+  name: shunpike
+  friendlyname: "Shunpike"
+  description: "Seattle arts organization supporting artists and cultural events through Storefronts and other programs"
+  icsUrl: "https://shunpike.org/events/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://shunpike.org/events/"
+  tags:
+  - Arts
+  - Community
 
 - geo: null
   name: seattledances
@@ -470,3 +490,43 @@
   tags:
   - Community
   - Education
+- geo:
+    lat: 47.6685
+    lng: -122.3543
+    label: "Woodland Park Zoo, 5500 Phinney Ave N, Seattle, WA 98103"
+    osmId: 247154840
+    osmType: way
+    osmChecked: "2026-04-28"
+  name: woodland-park-zoo
+  friendlyname: "Woodland Park Zoo"
+  description: "Zoo events, ZooTunes concerts, animal encounters, and dining experiences"
+  icsUrl: "https://zoo.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://zoo.org/events/"
+  tags:
+  - Community
+  - Music
+- geo:
+    lat: 47.5984171
+    lng: -122.3338243
+    label: "Populus Seattle, 100 S King St, Seattle, WA 98104"
+    osmId: 13458644701
+    osmType: node
+    osmChecked: "2026-04-30"
+  name: populus-seattle
+  friendlyname: "Populus Seattle"
+  description: "Populus Seattle"
+  icsUrl: "https://populusseattle.com/events-calendar/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://populusseattle.com/events-calendar/"
+  tags:
+  - Nightlife
+  - Music
+  - Downtown
+- geo: null
+  name: earshot-jazz
+  friendlyname: "Earshot Jazz"
+  description: "Earshot Jazz"
+  icsUrl: "https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.earshot.org/events/"
+  tags:
+  - Music
+

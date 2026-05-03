@@ -176,7 +176,12 @@ export default class CannonballArtsRipper implements IRipper {
             throw new Error(`WordPress API returned ${res.status} ${res.statusText}`);
         }
 
-        const posts: WpPost[] = await res.json();
+        let posts: WpPost[];
+        try {
+            posts = await res.json();
+        } catch (err) {
+            throw new Error(`WordPress API returned invalid JSON: ${err instanceof Error ? err.message : String(err)}`);
+        }
 
         const errors: RipperError[] = [];
         const events: RipperCalendarEvent[] = [];

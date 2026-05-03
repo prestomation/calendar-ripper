@@ -1187,29 +1187,42 @@ END:VCALENDAR`;
           newSourceNames.add(dir);
         }
       }
-      // Find new entries in external.yaml by parsing the diff
-      const externalDiff = execSync(
-        `git diff origin/${gitBaseRef} -- sources/external.yaml`,
-        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
-      ).trim();
-      if (externalDiff) {
-        // Look for added lines containing "- name:" under sources in external.yaml
-        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
-        let match: RegExpExecArray | null;
-        while ((match = addedNameRegex.exec(externalDiff)) !== null) {
-          newSourceNames.add(`external:${match[1].trim()}`);
+      // Find new entries in external.yaml by comparing parsed YAML name lists
+      // between the base ref and the current HEAD. This avoids fragile regex
+      // parsing of diff text (which broke 3 times on YAML formatting edge cases).
+      const { readFileSync: readBaseSync } = await import("fs");
+      for (const [yamlFile, prefix] of [["sources/external.yaml", "external"] as const, ["sources/recurring.yaml", "recurring"] as const]) {
+        let baseContent: string | null = null;
+        try {
+          baseContent = execSync(
+            `git show origin/${gitBaseRef}:${yamlFile}`,
+            { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+          ).trim();
+        } catch {
+          // File doesn't exist on base ref — all entries are new
         }
-      }
-      // Find new entries in recurring.yaml
-      const recurringDiff = execSync(
-        `git diff origin/${gitBaseRef} -- sources/recurring.yaml`,
-        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
-      ).trim();
-      if (recurringDiff) {
-        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
-        let match: RegExpExecArray | null;
-        while ((match = addedNameRegex.exec(recurringDiff)) !== null) {
-          newSourceNames.add(`recurring:${match[1].trim()}`);
+        const headContent = readFileSync(yamlFile, "utf8").trim();
+        // Extract all "name:" values from each version
+        const extractNames = (yamlText: string): Set<string> => {
+          const names = new Set<string>();
+          const parsed = parse(yamlText);
+          if (Array.isArray(parsed)) {
+            for (const entry of parsed) {
+              if (entry?.name) names.add(entry.name);
+            }
+          } else if (parsed?.events && Array.isArray(parsed.events)) {
+            for (const entry of parsed.events) {
+              if (entry?.name) names.add(entry.name);
+            }
+          }
+          return names;
+        };
+        const baseNames = baseContent ? extractNames(baseContent) : new Set<string>();
+        const headNames = extractNames(headContent);
+        for (const name of headNames) {
+          if (!baseNames.has(name)) {
+            newSourceNames.add(`${prefix}:${name}`);
+          }
         }
       }
     } catch (err) {

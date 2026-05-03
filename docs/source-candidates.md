@@ -4,6 +4,13 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-03 — Source discovery: Food/Drink, Arts, Outdoors
+- ✅ **Henry Art Gallery** — Eventbrite organizer `775590393`, 5 upcoming events (May–June 2026). Contemporary art museum on UW campus. Tags: Arts, Museums, University District. Implementing in this PR.
+- ❌ **The Triple Door** — Bandzoogle site, returns 403 from sandbox. Bandzoogle has no structured API. Not viable.
+- ❌ **Museum of Flight** — Custom CMS (no Eventbrite/ICS). Located at 9404 E Marginal Way S (Tukwila, outside Seattle). Not viable.
+- ❌ **Jazz Alley** — Custom JSP calendar, no ICS/Eventbrite found. Bandsintown/Songkick listings only (aggregators, not primary sources). Not viable with built-in rippers; would need custom JSP scraper.
+- 💡 **Seattle Mountaineers** — Custom CMS at mountaineers.org, individual events have iCal download links but no bulk ICS feed. Would need custom scraper. Tags: Outdoors, Community.
+
 ### 2026-05-01 — Source discovery: Comedy, Festivals, Bookstores, Jazz/Music
 - ✅ **Earshot Jazz** — WordPress Tribe Events ICS (`https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list`). 100+ concerts/year at venues throughout Seattle. Added to `sources/external.yaml`. Tags: Music.
 - ✅ **Couth Buzzard Books** — Uses StyledCalendar (not plain Squarespace) at 8310 Greenwood Ave N, Greenwood. Open mic (Wed), live music (Fri–Sat), kids story time. Added as StyledCalendar ripper in PR #246. Tags: Books, Music, Greenwood.
@@ -230,7 +237,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **University Book Store** — `https://ubookstore.com/` — Tags: Books, University District
 
-**Henry Art Gallery** — `https://henryart.org/programs/all` — Tags: Arts, Museums, University District
+~~**Henry Art Gallery**~~ — Added as Eventbrite ripper (organizer `775590393`) — see ✅ Added section
 
 **National Nordic Museum** — `https://nordicmuseum.org/calendar` — Tags: Museums, Arts, Ballard
 
@@ -285,6 +292,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
 
 **Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
+
+**Henry Art Gallery** — `sources/henry_art_gallery` — Eventbrite organizer `775590393` — 4100 15th Ave NE, Seattle, WA 98105 (UW campus) — Tags: Arts, Museums, University District — Added 2026-05-03
 
 **Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
 

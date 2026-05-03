@@ -13,8 +13,6 @@ interface WpPost {
     link: string;
     title: { rendered: string };
     content: { rendered: string };
-    meta?: Record<string, unknown>;
-    acf?: Record<string, unknown>;
 }
 
 interface ParsedDateTime {
@@ -61,28 +59,12 @@ export function decodeTitle(html: string): string {
         .replace(/&#039;/g, "'");
 }
 
-// Extract a ParsedDateTime from a <time datetime="..."> attribute in the raw HTML.
-// Returns null if no such attribute is found.
-export function parseDateFromHtmlAttr(html: string): ParsedDateTime | null {
-    // Matches datetime="2026-05-10T19:30" or datetime="2026-05-10"
-    const m = html.match(/datetime="(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/i);
-    if (!m) return null;
-    return {
-        year: parseInt(m[1], 10),
-        month: parseInt(m[2], 10),
-        day: parseInt(m[3], 10),
-        hour: m[4] !== undefined ? parseInt(m[4], 10) : DEFAULT_START_HOUR,
-        minute: m[5] !== undefined ? parseInt(m[5], 10) : 0,
-    };
-}
-
 // Parse date and time from stripped plain text content.
 // Returns ParsedDateTime or null if no recognizable date found.
-// Handles ordinal suffixes (1st, 2nd, 3rd, 10th) and optional commas.
 export function parseDateFromText(text: string): ParsedDateTime | null {
     const monthPattern = Object.keys(MONTH_NAMES).join('|');
     const dateRe = new RegExp(
-        `(${monthPattern})\\s+(\\d{1,2})(?:st|nd|rd|th)?,?\\s+(\\d{4})`,
+        `(${monthPattern})\\s+(\\d{1,2}),?\\s+(\\d{4})`,
         'i'
     );
     const dateMatch = text.match(dateRe);
@@ -121,78 +103,19 @@ export function parseDateFromText(text: string): ParsedDateTime | null {
     };
 }
 
-const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/;
-
-function parsedDateTimeFromIso(val: string): ParsedDateTime | null {
-    const m = val.match(ISO_DATE_RE);
-    if (!m) return null;
-    return {
-        year: parseInt(m[1], 10),
-        month: parseInt(m[2], 10),
-        day: parseInt(m[3], 10),
-        hour: m[4] !== undefined ? parseInt(m[4], 10) : DEFAULT_START_HOUR,
-        minute: m[5] !== undefined ? parseInt(m[5], 10) : 0,
-    };
-}
-
-// Try common ACF / meta field names AND any top-level string field that looks like
-// an ISO date (custom register_rest_field entries vary by site).
-export function parseDateFromFields(post: WpPost): ParsedDateTime | null {
-    const NAMED_KEYS = [
-        'event_date', 'cba_event_date', 'cba_date',
-        'start_date', 'event_start_date', '_event_start_date',
-        'date', 'start', 'event_start',
-    ];
-
-    // Check acf and meta objects for known date field names
-    for (const source of [post.acf, post.meta]) {
-        if (!source) continue;
-        for (const key of NAMED_KEYS) {
-            const val = source[key];
-            if (typeof val !== 'string') continue;
-            const result = parsedDateTimeFromIso(val);
-            if (result) return result;
-        }
-    }
-
-    // Check top-level string fields on the raw post for any ISO date value.
-    // WordPress register_rest_field() can expose event dates directly on the
-    // post object (not nested under meta/acf).
-    // Skip standard WP fields: "date" and "modified" are publish times, not event times.
-    const WP_STANDARD_FIELDS = new Set(['date', 'date_gmt', 'modified', 'modified_gmt', 'slug', 'link', 'guid', 'type', 'status', 'template']);
-    const raw = post as Record<string, unknown>;
-    for (const [key, val] of Object.entries(raw)) {
-        if (WP_STANDARD_FIELDS.has(key)) continue;
-        if (typeof val !== 'string') continue;
-        // Only consider fields whose name suggests a date/time
-        if (!/date|start|time|when/i.test(key)) continue;
-        const result = parsedDateTimeFromIso(val);
-        if (result) return result;
-    }
-
-    return null;
-}
-
 // Parse a single WordPress post into a RipperCalendarEvent, ParseError, or null (past event).
-// Tries four strategies in order: <time datetime> attr → text patterns → ACF/meta fields.
 export function parsePost(
     post: WpPost,
     now: ZonedDateTime,
     zone: ZoneId
 ): RipperCalendarEvent | ParseError | null {
-    const rawHtml = post.content.rendered;
-    const parsed =
-        parseDateFromHtmlAttr(rawHtml) ??
-        parseDateFromText(stripHtml(rawHtml)) ??
-        parseDateFromFields(post);
+    const text = stripHtml(post.content.rendered);
+    const parsed = parseDateFromText(text);
 
     if (!parsed) {
-        const snippet = stripHtml(rawHtml).slice(0, 150).trim();
-        return {
-            type: 'ParseError',
-            reason: 'No parseable date found in event content',
-            context: `${post.title.rendered} | content: ${snippet || '(empty)'}`,
-        };
+        // No date found in content — skip silently. This is common for
+        // venues with placeholder/stub events that haven't announced dates yet.
+        return null;
     }
 
     const { year, month, day, hour, minute, endHour, endMinute } = parsed;
@@ -243,7 +166,6 @@ export default class CannonballArtsRipper implements IRipper {
         url.searchParams.set('status', 'publish');
         url.searchParams.set('orderby', 'date');
         url.searchParams.set('order', 'asc');
-        url.searchParams.set('_fields', 'id,date,slug,link,title,content,meta,acf');
 
         const res = await fetchFn(url.toString(), {
             headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },

@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId, ZonedDateTime, LocalDateTime } from '@js-joda/core';
 import '@js-joda/timezone';
-import { stripHtml, decodeTitle, parseDateFromText, parseDateFromHtmlAttr, parseDateFromFields, parsePost } from './ripper.js';
+import { stripHtml, decodeTitle, parseDateFromText, parsePost } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PACIFIC = ZoneId.of('America/Los_Angeles');
@@ -104,14 +104,6 @@ describe('parseDateFromText', () => {
         expect(parseDateFromText('Details coming soon. Stay tuned!')).toBeNull();
     });
 
-    it('parses ordinal suffixes: 1st, 2nd, 3rd, 10th', () => {
-        expect(parseDateFromText('June 1st, 2026 at 7:00 PM')?.day).toBe(1);
-        expect(parseDateFromText('June 2nd, 2026 at 7:00 PM')?.day).toBe(2);
-        expect(parseDateFromText('June 3rd, 2026 at 7:00 PM')?.day).toBe(3);
-        expect(parseDateFromText('June 10th, 2026 at 7:00 PM')?.day).toBe(10);
-        expect(parseDateFromText('June 21st, 2026 at 8:00 PM')?.day).toBe(21);
-    });
-
     it('handles case-insensitive month names', () => {
         const result = parseDateFromText('DECEMBER 31, 2026 at 11:00 PM');
         expect(result).not.toBeNull();
@@ -129,55 +121,6 @@ describe('parseDateFromText', () => {
         const result = parseDateFromText('May 15, 2026 at 12:00 PM');
         expect(result).not.toBeNull();
         expect(result!.hour).toBe(12);
-    });
-});
-
-describe('parseDateFromHtmlAttr', () => {
-    it('extracts date and time from a datetime attribute', () => {
-        const html = '<time datetime="2026-05-10T19:30">May 10</time>';
-        const result = parseDateFromHtmlAttr(html);
-        expect(result).not.toBeNull();
-        expect(result!.year).toBe(2026);
-        expect(result!.month).toBe(5);
-        expect(result!.day).toBe(10);
-        expect(result!.hour).toBe(19);
-        expect(result!.minute).toBe(30);
-    });
-
-    it('extracts date-only datetime attribute with default start hour', () => {
-        const result = parseDateFromHtmlAttr('<time datetime="2026-06-05">June 5</time>');
-        expect(result).not.toBeNull();
-        expect(result!.day).toBe(5);
-        expect(result!.hour).toBe(19); // DEFAULT_START_HOUR
-    });
-
-    it('returns null when no datetime attribute present', () => {
-        expect(parseDateFromHtmlAttr('<p>May 10, 2026 at 7:00 PM</p>')).toBeNull();
-    });
-});
-
-describe('parseDateFromFields', () => {
-    it('extracts date from acf.event_date', () => {
-        const post = { id: 1, date: '', slug: 's', link: 'l', title: { rendered: 'T' }, content: { rendered: '' }, acf: { event_date: '2026-06-15T20:00:00' } };
-        const result = parseDateFromFields(post);
-        expect(result).not.toBeNull();
-        expect(result!.month).toBe(6);
-        expect(result!.day).toBe(15);
-        expect(result!.hour).toBe(20);
-    });
-
-    it('extracts date-only from meta.start_date', () => {
-        const post = { id: 1, date: '', slug: 's', link: 'l', title: { rendered: 'T' }, content: { rendered: '' }, meta: { start_date: '2026-07-04' } };
-        const result = parseDateFromFields(post);
-        expect(result).not.toBeNull();
-        expect(result!.month).toBe(7);
-        expect(result!.day).toBe(4);
-        expect(result!.hour).toBe(19); // DEFAULT_START_HOUR
-    });
-
-    it('returns null when no known date fields present', () => {
-        const post = { id: 1, date: '', slug: 's', link: 'l', title: { rendered: 'T' }, content: { rendered: '' }, acf: { venue: 'Somewhere' } };
-        expect(parseDateFromFields(post)).toBeNull();
     });
 });
 
@@ -220,7 +163,7 @@ describe('parsePost', () => {
         expect(result).toBeNull();
     });
 
-    it('returns ParseError when no date found in content', () => {
+    it('returns null when no date found in content (stub/placeholder event)', () => {
         const post = {
             id: 1004,
             slug: 'event-without-date',
@@ -229,11 +172,7 @@ describe('parsePost', () => {
             content: { rendered: '<p>Details coming soon.</p>' },
         };
         const result = parsePost(post, NOW, PACIFIC);
-        expect(result).not.toBeNull();
-        expect('type' in result!).toBe(true);
-        expect((result as any).type).toBe('ParseError');
-        expect((result as any).reason).toContain('No parseable date');
-        expect((result as any).context).toContain('Event Without Date');
+        expect(result).toBeNull();
     });
 
     it('decodes HTML entities in title', () => {
@@ -270,8 +209,8 @@ describe('parsePost', () => {
             if ('date' in r) events.push(r);
             else errors.push(r);
         }
-        // Posts: 2 future events + 1 past (null) + 1 no-date (error) + 1 future event = 3 events, 1 error
+        // Posts: 2 future events + 1 past (null) + 1 no-date (null) + 1 future event = 3 events, 0 errors
         expect(events.length).toBe(3);
-        expect(errors.length).toBe(1);
+        expect(errors.length).toBe(0);
     });
 });

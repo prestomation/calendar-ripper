@@ -299,14 +299,14 @@ export default class PacificScienceCenterRipper implements IRipper {
         const day = parseInt(dateMatch[2]);
         const year = parseInt(dateMatch[3]);
 
-        // Parse time: "10:30 pm" or "2:10 pm"
-        const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*(am|pm)/i);
+        // Parse time: "10:30 pm", "2:10 pm", "10:30 p.m.", "2:10 p.m."
+        const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*(a\.?m\.?|p\.?m\.?)/i);
         if (!timeMatch) return null;
 
         let hour = parseInt(timeMatch[1]);
         const minute = parseInt(timeMatch[2]);
-        const isPM = /pm/i.test(timeMatch[3]);
-        const isAM = /am/i.test(timeMatch[3]);
+        const isPM = /^p/i.test(timeMatch[3]);
+        const isAM = /^a/i.test(timeMatch[3]);
 
         if (isPM && hour !== 12) hour += 12;
         if (isAM && hour === 12) hour = 0;

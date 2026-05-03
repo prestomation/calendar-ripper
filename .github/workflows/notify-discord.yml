@@ -17,6 +17,27 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Download build artifact for new source summary
+        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'PR Preview' && github.event.workflow_run.conclusion == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
+          path: artifact-download
+
+      - name: Extract PR link for workflow_run
+        if: github.event_name == 'workflow_run'
+        id: pr-link
+        run: |
+          # Extract PR number and URL from the workflow_run event's associated pull_requests
+          PR_NUMBER=""
+          PR_URL=""
+          if [ "${{ github.event.workflow_run.pull_requests[0].number }}" != "" ]; then
+            PR_NUMBER="${{ github.event.workflow_run.pull_requests[0].number }}"
+            PR_URL="${{ github.event.workflow_run.pull_requests[0].html_url }}"
+          fi
+          echo "pr_number=${PR_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "pr_url=${PR_URL}" >> "$GITHUB_OUTPUT"
+
       - name: Notify workflow run
         if: github.event_name == 'workflow_run' && (github.event.workflow_run.conclusion == 'failure' || github.event.workflow_run.name == 'PR Preview' || github.event.workflow_run.name == 'Generate Calendars and Publish to GitHub Pages' || contains(github.event.workflow_run.name, 'cron') || contains(github.event.workflow_run.name, 'schedule'))
         env:
@@ -26,6 +47,8 @@ jobs:
           WORKFLOW_URL: ${{ github.event.workflow_run.html_url }}
           BRANCH: ${{ github.event.workflow_run.head_branch }}
           REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.pr-link.outputs.pr_number }}
+          PR_URL: ${{ steps.pr-link.outputs.pr_url }}
         run: |
           case "$WORKFLOW_CONCLUSION" in
             success)   EMOJI="✅" ;;
@@ -35,11 +58,44 @@ jobs:
             *)         EMOJI="⚠️" ;;
           esac
 
+          # Build the link — prefer PR link when available, otherwise fall back to run link
+          if [ -n "$PR_URL" ]; then
+            VIEW_LINK="[View PR #${PR_NUMBER}](${PR_URL})"
+          else
+            VIEW_LINK="[View run](${WORKFLOW_URL})"
+          fi
+
           # For the main build workflow, include skill run instructions
           if [ "$WORKFLOW_NAME" = "Generate Calendars and Publish to GitHub Pages" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"$'\n\n'"📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"${VIEW_LINK}"$'\n\n'"📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"[View run](${WORKFLOW_URL})"
+            # For PR Preview success, include new source summary if available
+            NEW_SOURCE_LINE=""
+            if [ "$WORKFLOW_NAME" = "PR Preview" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
+              SUMMARY_FILE=$(find artifact-download -name new-source-summary.json -type f 2>/dev/null | head -1)
+              if [ -n "$SUMMARY_FILE" ]; then
+                SOURCE_COUNT=$(jq 'length' "$SUMMARY_FILE" 2>/dev/null || echo "0")
+                if [ "$SOURCE_COUNT" -gt 0 ] 2>/dev/null; then
+                  NEW_SOURCE_LINE=$'\n'"🆕 ${SOURCE_COUNT} new source(s)"
+                  for i in $(seq 0 $((SOURCE_COUNT - 1))); do
+                    SRC_NAME=$(jq -r ".[$i].source" "$SUMMARY_FILE" 2>/dev/null)
+                    SRC_EVENTS=$(jq -r ".[$i].eventCount" "$SUMMARY_FILE" 2>/dev/null)
+                    EVT_SUMMARY=$(jq -r ".[$i].sampleEvents[0].summary // empty" "$SUMMARY_FILE" 2>/dev/null)
+                    EVT_DATE=$(jq -r ".[$i].sampleEvents[0].date // empty" "$SUMMARY_FILE" 2>/dev/null)
+                    EVT_LOCATION=$(jq -r ".[$i].sampleEvents[0].location // empty" "$SUMMARY_FILE" 2>/dev/null)
+                    if [ -n "$EVT_SUMMARY" ]; then
+                      FORMATTED_DATE=$(date -d "$EVT_DATE" "+%a %b %d, %I:%M %p" 2>/dev/null || echo "$EVT_DATE")
+                      LOCATION_PART=""
+                      if [ -n "$EVT_LOCATION" ]; then
+                        LOCATION_PART=" at ${EVT_LOCATION}"
+                      fi
+                      NEW_SOURCE_LINE="${NEW_SOURCE_LINE}"$'\n'"   📌 ${EVT_SUMMARY} — ${FORMATTED_DATE}${LOCATION_PART}"
+                    fi
+                  done
+                fi
+              fi
+            fi
+            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**${NEW_SOURCE_LINE}"$'\n'"${VIEW_LINK}"
           fi
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
@@ -53,6 +109,7 @@ jobs:
           REVIEW_STATE: ${{ github.event.review.state }}
           REVIEW_BODY: ${{ github.event.review.body }}
           REVIEW_URL: ${{ github.event.review.html_url }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
           case "$REVIEW_STATE" in
             approved)          EMOJI="✅" LABEL="approved" ;;
@@ -62,13 +119,14 @@ jobs:
             *)                 EMOJI="ℹ️" LABEL="reviewed" ;;
           esac
 
+          # Use the PR link instead of the specific review link
+          VIEW_LINK="[View PR #${PR_NUMBER}](${PR_URL})"
+
           PREVIEW=$(echo "$REVIEW_BODY" | head -c 600 | iconv -c -t UTF-8 | head -c 200 | tr '\n' ' ')
           if [ -n "$PREVIEW" ]; then
-            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"[View review](${REVIEW_URL})"
+            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"${VIEW_LINK}"
           else
-            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"[View review](${REVIEW_URL})"
+            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"${VIEW_LINK}"
           fi
           PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
-
-

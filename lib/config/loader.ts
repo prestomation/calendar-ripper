@@ -8,6 +8,7 @@ import { TicketmasterRipper } from './ticketmaster.js';
 import { AXSRipper } from './axs.js';
 import { EventbriteRipper } from './eventbrite.js';
 import { DICERipper } from './dice.js';
+import { StyledCalendarRipper } from './styledcalendar.js';
 
 const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     squarespace: SquarespaceRipper,
@@ -15,6 +16,7 @@ const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     axs: AXSRipper,
     eventbrite: EventbriteRipper,
     dice: DICERipper,
+    styledcalendar: StyledCalendarRipper,
 };
 
 // Given a directory, assume each subdirectory is a calendar package

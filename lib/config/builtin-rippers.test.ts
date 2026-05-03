@@ -7,6 +7,7 @@ import { TicketmasterRipper } from './ticketmaster.js';
 import { AXSRipper } from './axs.js';
 import { EventbriteRipper } from './eventbrite.js';
 import { DICERipper } from './dice.js';
+import { StyledCalendarRipper } from './styledcalendar.js';
 
 const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     squarespace: SquarespaceRipper,
@@ -14,6 +15,7 @@ const BUILTIN_RIPPERS: Record<string, new () => IRipper> = {
     axs: AXSRipper,
     eventbrite: EventbriteRipper,
     dice: DICERipper,
+    styledcalendar: StyledCalendarRipper,
 };
 
 function makeMinimalRipper(type: string): Ripper {
@@ -45,9 +47,9 @@ describe('built-in rippers: missing environment variables', () => {
         }
     });
 
-    // Squarespace has no API key requirement so it doesn't belong in this suite —
-    // its network-error handling is covered in squarespace.test.ts instead.
-    const RIPPERS_WITH_ENV_VARS = BUILTIN_RIPPER_TYPES.filter(t => t !== 'squarespace');
+    // Squarespace and styledcalendar have no API key requirement so they don't belong
+    // in this suite — their network-error handling is covered in their own test files.
+    const RIPPERS_WITH_ENV_VARS = BUILTIN_RIPPER_TYPES.filter(t => t !== 'squarespace' && t !== 'styledcalendar');
 
     for (const type of RIPPERS_WITH_ENV_VARS) {
         it(`${type} ripper does not throw from rip() when env vars are missing`, async () => {

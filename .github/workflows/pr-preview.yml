@@ -103,6 +103,35 @@ jobs:
                 (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
               : '';
 
+            // New source summary — event counts and sample events for sources not in production
+            let newSourceSection = '\n\n✅ No new sources in this PR';
+            try {
+              const newSourceSummary = JSON.parse(fs.readFileSync('output/new-source-summary.json', 'utf8'));
+              if (newSourceSummary.length > 0) {
+                const typeLabel = (t) => t === 'External' ? 'External' : t === 'Recurring' ? 'Recurring' : 'Ripper';
+                const formatDate = (dateStr) => {
+                  try {
+                    const d = new Date(dateStr);
+                    if (isNaN(d.getTime())) return dateStr;
+                    return d.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
+                  } catch { return dateStr; }
+                };
+                const parts = newSourceSummary.map(s => {
+                  const header = `**${s.source}** (${typeLabel(s.type)}) — ${s.eventCount} events`;
+                  if (s.sampleEvents.length > 0) {
+                    const rows = s.sampleEvents.map(e =>
+                      `| ${e.summary} | ${formatDate(e.date)} | ${e.location || '—'} |`
+                    ).join('\n');
+                    return `${header}\n<details>\n<summary>Sample events</summary>\n\n| Event | Date | Location |\n|-------|------|----------|\n${rows}\n\n</details>`;
+                  }
+                  return header;
+                });
+                newSourceSection = `\n\n## 🆕 New Sources in This PR\n\n${parts.join('\n\n')}`;
+              }
+            } catch (e) {
+              // new-source-summary.json not available — show default
+            }
+
             let errorSection = '';
             if (parseInt(errorCount) > 0) {
               const lines = [];
@@ -147,6 +176,7 @@ jobs:
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
+              newSourceSection,
               errorSection,
               zeroEventSection,
               unexpectedNonEmptySection,

@@ -8,6 +8,38 @@ import '@js-joda/timezone'
 const createICSEvents = promisify(icsOriginal.createEvents);
 
 
+export const geoSchema = z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+    label: z.string().optional(),
+    // OpenStreetMap feature identity. Both must be set together or neither —
+    // consumers key off the (osmType, osmId) pair. Absent means "we positioned
+    // this venue manually, no OSM join available."
+    osmType: z.enum(["node", "way", "relation"]).optional(),
+    osmId: z.number().int().positive().optional(),
+    // ISO date (YYYY-MM-DD) recording the last time the OSM-resolver skill
+    // looked at this venue and rejected every Nominatim candidate (a Tier D/F
+    // verdict — wrong feature, or no feature at all). `buildOsmGaps` skips
+    // venues whose `osmChecked` is within the last ~60 days so the same
+    // wrong matches don't re-propose every day. After the cooldown, the
+    // skill retries — OSM grows, and venues that weren't indexed last
+    // quarter may be there now.
+    osmChecked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+}).strict().refine(
+    g => (g.osmId === undefined) === (g.osmType === undefined),
+    { message: "osmId and osmType must be set together or both omitted" },
+);
+
+export type Geo = z.infer<typeof geoSchema>;
+
+/**
+ * How many days a Tier D/F rejection (recorded as `osmChecked`) silences a
+ * venue from `osmGaps`. After the cooldown the venue surfaces again so the
+ * skill can retry — OSM grows over time and a feature missing six months
+ * ago may exist today.
+ */
+export const OSM_CHECKED_COOLDOWN_DAYS = 60;
+
 export const calendarConfigSchema = z.object({
     name: z.string().regex(/^[a-zA-Z0-9.-]+$/),
     config: z.object({}).passthrough().optional(),
@@ -15,6 +47,10 @@ export const calendarConfigSchema = z.object({
     friendlyname: z.string(),
     tags: z.array(z.string()).optional(),
     expectEmpty: z.boolean().optional(),
+    // Optional per-calendar override for multi-branch sources (e.g. SPL).
+    // When present, this wins over ripper-level `geo`. When absent, the
+    // calendar inherits `geo` from its parent ripper.
+    geo: geoSchema.nullable().optional(),
 });
 
 export const externalCalendarSchema = z.object({
@@ -25,19 +61,18 @@ export const externalCalendarSchema = z.object({
     description: z.string().optional(),
     disabled: z.boolean().default(false),
     expectEmpty: z.boolean().default(false),
-    tags: z.array(z.string()).optional()
+    tags: z.array(z.string()).optional(),
+    // Required: every external calendar must explicitly state whether it is
+    // a single-location venue (geo object) or not (null). Single-venue feeds
+    // like a brewery's Google Calendar are venues; multi-location feeds
+    // (aggregators, cross-city calendars) are not.
+    geo: geoSchema.nullable(),
 });
 
 export const externalConfigSchema = z.array(externalCalendarSchema);
 
-export const BUILTIN_RIPPER_TYPES = ["squarespace", "ticketmaster", "axs", "eventbrite", "dice"] as const;
+export const BUILTIN_RIPPER_TYPES = ["squarespace", "ticketmaster", "axs", "eventbrite", "dice", "styledcalendar"] as const;
 export type BuiltinRipperType = typeof BUILTIN_RIPPER_TYPES[number];
-
-export const geoSchema = z.object({
-    lat: z.number().min(-90).max(90),
-    lng: z.number().min(-180).max(180),
-    label: z.string().optional(),
-}).strict();
 
 export const configSchema = z.object({
     name: z.string(),
@@ -61,7 +96,12 @@ export const configSchema = z.object({
         }
         catch (e) { return false; }
     }, { message: "Must parse as valid ISO-8601 period. e.g. P1M" }).transform(p => Period.parse(p)).optional(),
-    geo: geoSchema.optional(),
+    // Required: every ripper must explicitly declare whether it is a
+    // venue (single fixed location, `geo: {lat, lng, label}`) or not
+    // (`geo: null`, e.g. community calendars / multi-location sources).
+    // Multi-branch rippers like SPL can declare ripper-level `geo: null`
+    // and set `geo` per calendar instead.
+    geo: geoSchema.nullable(),
 }).strict();
 
 
@@ -167,7 +207,7 @@ export const toICS = async (calendar: RipperCalendar): Promise<string> => {
                 return desc;
             })(),
             location: e.location,
-            productId: "CalendarRipper",
+            productId: "206.events",
             transp: "TRANSPARENT",
             calName: calendar.friendlyname,
             url: e.url?.startsWith('http') ? safeUrl(e.url) : undefined,

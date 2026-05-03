@@ -29,7 +29,8 @@ describe('normalizeLocation', () => {
   });
 
   it('strips HTML tags and takes only first line (br-separated)', () => {
-    expect(normalizeLocation('Council Chambers<br>600 4th Ave.\\, Floor 2<br>Seattle\\, WA 98104')).toBe('Council Chambers');
+    // When venue<br>address format is detected, extract the address line (starts with digit)
+    expect(normalizeLocation('Council Chambers<br>600 4th Ave.\\, Floor 2<br>Seattle\\, WA 98104')).toBe('600 4th Ave., Floor 2');
   });
 
   it('handles self-closing br tags', () => {
@@ -256,7 +257,7 @@ describe('resolveEventCoords', () => {
   });
 
   it('normalizes HTML tags before geocoding and cache lookup', async () => {
-    // Location with HTML — normalized to first line only: "Council Chambers"
+    // Location with HTML — normalized extracts address line starting with digit: "600 4th Ave., Floor 2"
     // Cache miss → Nominatim call
     mockFetch.mockResolvedValue({
       ok: true,
@@ -270,8 +271,8 @@ describe('resolveEventCoords', () => {
     );
     expect(result.coords).toEqual({ lat: 47.6050, lng: -122.3295 });
     expect(result.geocodeSource).toBe('ripper');
-    // The cache key should be the normalized version
-    expect(result.cache.entries['council chambers']).toBeDefined();
+    // The cache key should be the normalized version (address line extracted from HTML)
+    expect(result.cache.entries['600 4th ave., floor 2']).toBeDefined();
   });
 
   it('falls back to address-only when venue prefix present', async () => {
@@ -314,35 +315,40 @@ describe('resolveEventCoords', () => {
 });
 
 describe('extractFromGoogleMapsUrl', () => {
-  it('extracts query from a Google Maps search URL', () => {
+  it('extracts query from a Google Maps search URL', async () => {
     const url = 'https://www.google.com/maps/search/?api=1&query=Seattle%20City%20Hall%2C%20600%204th%20Ave%2C%20Seattle%2C%20WA%2098104';
-    expect(extractFromGoogleMapsUrl(url)).toBe('Seattle City Hall, 600 4th Ave, Seattle, WA 98104');
+    expect(await extractFromGoogleMapsUrl(url)).toBe('Seattle City Hall, 600 4th Ave, Seattle, WA 98104');
   });
 
-  it('extracts query when query param comes first', () => {
+  it('extracts query when query param comes first', async () => {
     const url = 'https://www.google.com/maps/search/?query=1000+Aloha+St+Seattle+WA&api=1';
-    expect(extractFromGoogleMapsUrl(url)).toBe('1000 Aloha St Seattle WA');
+    expect(await extractFromGoogleMapsUrl(url)).toBe('1000 Aloha St Seattle WA');
   });
 
-  it('returns null for a plain address (not a URL)', () => {
-    expect(extractFromGoogleMapsUrl('600 4th Ave, Seattle, WA 98104')).toBeNull();
+  it('returns null for a plain address (not a URL)', async () => {
+    expect(await extractFromGoogleMapsUrl('600 4th Ave, Seattle, WA 98104')).toBeNull();
   });
 
-  it('returns null for a non-maps Google URL', () => {
-    expect(extractFromGoogleMapsUrl('https://www.google.com/search?q=seattle')).toBeNull();
+  it('returns null for a non-maps Google URL', async () => {
+    expect(await extractFromGoogleMapsUrl('https://www.google.com/search?q=seattle')).toBeNull();
   });
 
-  it('returns null for empty string', () => {
-    expect(extractFromGoogleMapsUrl('')).toBeNull();
+  it('returns null for empty string', async () => {
+    expect(await extractFromGoogleMapsUrl('')).toBeNull();
   });
 
-  it('handles URL without query parameter', () => {
-    expect(extractFromGoogleMapsUrl('https://www.google.com/maps/search/?api=1')).toBeNull();
+  it('handles URL without query parameter', async () => {
+    expect(await extractFromGoogleMapsUrl('https://www.google.com/maps/search/?api=1')).toBeNull();
   });
 
-  it('handles http (non-https) Maps URLs', () => {
+  it('handles http (non-https) Maps URLs', async () => {
     const url = 'http://www.google.com/maps/search/?api=1&query=Fremont+Brewing%2C+Seattle';
-    expect(extractFromGoogleMapsUrl(url)).toBe('Fremont Brewing, Seattle');
+    expect(await extractFromGoogleMapsUrl(url)).toBe('Fremont Brewing, Seattle');
+  });
+
+  it('returns null for Google Maps short URLs (maps.app.goo.gl)', async () => {
+    const url = 'https://maps.app.goo.gl/JKdvwN7V5BEi5VrZ8';
+    expect(await extractFromGoogleMapsUrl(url)).toBeNull();
   });
 });
 

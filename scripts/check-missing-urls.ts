@@ -186,6 +186,38 @@ async function main() {
     }
   }
 
+  // Required non-ICS data files. These are part of the public contract
+  // that LLM crawlers and downstream consumers rely on, so the build must
+  // fail if any of them go missing. Kept in sync with `index.json`'s links.
+  const REQUIRED_DATA_FILES = [
+    "index.json",
+    "llms.txt",
+    "tags.json",
+    "venues.json",
+    "manifest.json",
+    "events-index.json",
+    "build-errors.json",
+    "geo-cache.json",
+    "sitemap.xml",
+  ];
+  const missingDataFiles: string[] = [];
+  for (const file of REQUIRED_DATA_FILES) {
+    if (!existsSync(resolve(outputDir, file))) {
+      missingDataFiles.push(file);
+    }
+  }
+  if (missingDataFiles.length > 0) {
+    console.error("\n❌ Required data files missing from new build:");
+    for (const f of missingDataFiles.sort()) {
+      console.error(`  - ${f}`);
+    }
+    console.error(
+      "\nThese files are part of the published discovery API contract " +
+      "and must exist in every build.",
+    );
+    process.exit(1);
+  }
+
   // Extract ICS URLs from deployed manifest
   const deployedUrls = extractIcsUrls(deployedManifest);
 

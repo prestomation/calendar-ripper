@@ -1,4 +1,4 @@
-# iCalendar Ripper
+# 206.events
 
 Subscribe to Seattle-area event calendars in your favorite calendar app. This project scrapes event data from dozens of local websites, ICS feeds, and APIs, then publishes them as standard iCalendar (.ics) files you can add to Google Calendar, Apple Calendar, Outlook, or any other calendar application.
 
@@ -6,7 +6,7 @@ Subscribe to Seattle-area event calendars in your favorite calendar app. This pr
 
 Visit the web interface to search, filter by tag, and preview upcoming events:
 
-**https://prestomation.github.io/calendar-ripper/**
+**https://206.events/**
 
 From there you can:
 - Search for calendars by name or keyword
@@ -20,7 +20,7 @@ From there you can:
 
 Each calendar is available as a `.ics` file. To subscribe:
 
-1. Find the calendar you want on the [web interface](https://prestomation.github.io/calendar-ripper/)
+1. Find the calendar you want on the [web interface](https://206.events/)
 2. Copy its subscription URL
 3. Add it to your calendar app:
    - **Google Calendar**: Settings > Add other calendars > From URL
@@ -68,7 +68,7 @@ Issues are the best way to report problems or request new calendars. The more de
 
 ### Report a Bug
 
-If a calendar has incorrect data, is missing events, or is broken, [open a bug report](https://github.com/prestomation/calendar-ripper/issues/new) with:
+If a calendar has incorrect data, is missing events, or is broken, [open a bug report](https://github.com/prestomation/206events/issues/new) with:
 
 - **Which calendar** is affected (name or URL)
 - **What you expected** to see vs. what actually appeared
@@ -77,7 +77,7 @@ If a calendar has incorrect data, is missing events, or is broken, [open a bug r
 
 ### Request a New Calendar
 
-Want to see a new Seattle-area event source added? [Open a request](https://github.com/prestomation/calendar-ripper/issues/new) with:
+Want to see a new Seattle-area event source added? [Open a request](https://github.com/prestomation/206events/issues/new) with:
 
 - **The website URL** where the events are listed
 - **What kind of events** the source covers (music, art, food, community, etc.)
@@ -86,7 +86,7 @@ Want to see a new Seattle-area event source added? [Open a request](https://gith
 
 ### Report a Stale or Dead Calendar
 
-If a calendar source has shut down, changed its website, or is consistently returning errors, [let us know](https://github.com/prestomation/calendar-ripper/issues/new) with:
+If a calendar source has shut down, changed its website, or is consistently returning errors, [let us know](https://github.com/prestomation/206events/issues/new) with:
 
 - **Which calendar** is affected
 - **What changed**: did the website move, shut down, or start blocking requests?

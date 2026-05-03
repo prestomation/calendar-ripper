@@ -65,15 +65,19 @@ describe('Tag Aggregator', () => {
       friendlyname: 'External Calendar 1',
       icsUrl: 'https://example.com/calendar1.ics',
       disabled: false,
-      tags: ['Music', 'Entertainment']
+      expectEmpty: false,
+      tags: ['Music', 'Entertainment'],
+      geo: null
     };
-    
+
     sampleExternalCalendar2 = {
       name: 'external2',
       friendlyname: 'External Calendar 2',
       icsUrl: 'https://example.com/calendar2.ics',
       disabled: false,
-      tags: ['Activism', 'Community']
+      expectEmpty: false,
+      tags: ['Activism', 'Community'],
+      geo: null
     };
   });
   

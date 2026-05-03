@@ -5,11 +5,18 @@ description: "Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.stgpresents.org
 tags: ["Theatre"]
+geo: null
 calendars:
   - name: stg-paramount
     friendlyname: "STG - Paramount Theatre"
     timezone: America/Los_Angeles
     tags: ["Downtown"]
+    geo:
+      lat: 47.6133
+      lng: -122.3327
+      label: "Paramount Theatre, 911 Pine St, Seattle, WA 98101"
+      osmType: way
+      osmId: 115042486
     config:
       venueId: "KovZpZAFkvEA"
       venueName: "Paramount Theatre"
@@ -19,6 +26,10 @@ calendars:
     friendlyname: "STG - Moore Theatre"
     timezone: America/Los_Angeles
     tags: ["Belltown"]
+    geo:
+      lat: 47.6130
+      lng: -122.3445
+      label: "Moore Theatre, 1932 2nd Ave, Seattle, WA 98101"
     config:
       venueId: "KovZpZA1vFJA"
       venueName: "Moore Theatre"
@@ -28,8 +39,13 @@ calendars:
     friendlyname: "STG - Neptune Theatre"
     timezone: America/Los_Angeles
     tags: ["University District"]
+    geo:
+      lat: 47.6608
+      lng: -122.3133
+      label: "Neptune Theatre, 1303 NE 45th St, Seattle, WA 98105"
+      osmType: node
+      osmId: 31368542
     config:
       venueId: "KovZpZAFnltA"
       venueName: "Neptune Theatre"
       venueAddress: "1303 NE 45th St, Seattle, WA 98105"
-

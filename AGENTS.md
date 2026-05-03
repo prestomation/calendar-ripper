@@ -1,5 +1,24 @@
 # AI Agent Guidelines
 
+## Skills
+
+Agent skills live in `skills/` in this repo. These define the operational procedures for maintaining 206.events:
+
+- **`skills/build-report/SKILL.md`** — Daily build health check, error fixing, and geo error resolution
+- **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
+- **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
+
+## Source Candidate Tracking
+
+All source discovery findings live in **`docs/source-candidates.md`**. This file tracks:
+- Candidate sources to investigate (with status: 💡 Candidate, 🔍 Investigating, ✅ Added, ❌ Not Viable, ⏸️ Blocked)
+- Discovery log (date-stamped entries from daily scans)
+- Dead source investigations
+
+When implementing a source from the candidates file, update its status entry. The daily cron reads this file to avoid re-proposing the same sources.
+
+**Feature ideas** (not source-specific) live in `ideas.md` in the repo root.
+
 ## Project Context
 
 This repository contains steering files to help AI agents understand the project structure and architecture:
@@ -108,7 +127,7 @@ Only implement HTML parsing if no ICS feed or API is available:
 ### Investigation Process
 
 Before implementing, always:
-1. Check **`ideas.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
+1. Check **`docs/source-candidates.md`** first — it contains pre-researched calendar sources with feed URLs, platform details, and implementation notes
 2. Check the website for ICS/calendar export options
 3. Inspect network traffic for API endpoints
 4. Search for the calendar platform being used (e.g., CitySpark, Localist)
@@ -208,6 +227,57 @@ The CI runs `scripts/check-missing-urls.ts` which compares the new build's manif
 
 To intentionally remove a URL, add the filename to `allowed-removals.txt` in the repo root. Remove the entry from the file after the change has been deployed.
 
+## Discovery API
+
+Every build publishes a set of HATEOAS-style JSON files under `output/` that
+programmatic consumers (LLMs, scripts, downstream apps) can use to enumerate
+everything without scraping the HTML site. The builders live in
+`lib/discovery.ts` (pure functions, unit-tested in `lib/discovery.test.ts`)
+and are invoked from `lib/calendar_ripper.ts` near the end of the build.
+
+### Files
+
+- **`index.json`** — entry point. Contains a `links` object pointing at every
+  other data file with a relative href.
+- **`tags.json`** — one entry per tag with its category, event count,
+  calendar count, and the hrefs of its `tag-<slug>.ics` / `.rss` aggregate
+  feeds.
+- **`venues.json`** — one entry per source with a fixed physical `geo`.
+  Includes rippers, external feeds, and recurring events whose `geo` is
+  not `null`. The way events are sourced is orthogonal to whether the
+  place is a venue.
+- **`llms.txt`** — static usage info at the site root following the
+  llmstxt.org convention. Source lives at `lib/templates/llms.txt`.
+- **`sitemap.xml`** — points crawlers at the discovery entry points.
+
+### The required `geo` field
+
+Every ripper (`configSchema.geo`), external calendar (`externalCalendarSchema.geo`),
+and recurring event (`recurringEventSchema.geo`) must explicitly declare
+`geo` as either a `{lat, lng, label?}` object (the source has a single
+fixed physical location) or `null` (the source is a community calendar,
+multi-neighborhood art walk, or other non-venue). There is no default —
+the build fails if `geo` is missing, so every source is an explicit
+decision about whether it belongs in `venues.json`.
+
+Multi-branch rippers like `spl` may set ripper-level `geo: null` and then
+provide a per-calendar `geo` on each branch that resolves to a non-null
+object. The venues builder emits one venue entry per branch in that case.
+
+### Validation
+
+`scripts/check-discovery-api.ts` runs in CI after the build. It parses
+each discovery doc against its Zod schema, crawls every href to assert
+the target exists on disk, enforces PNW bounding-box sanity on venue
+coordinates, budgets `venues.json` at 100 KB, and asserts tag-slug
+parity with `lib/tag_aggregator.ts`. Run locally with
+`npm run check-discovery-api`.
+
+`scripts/check-missing-urls.ts` additionally enforces that the set of
+required discovery data files (`index.json`, `llms.txt`, `tags.json`,
+`venues.json`, `manifest.json`, `events-index.json`, `build-errors.json`,
+`geo-cache.json`, `sitemap.xml`) is present on disk.
+
 ## Unit Tests
 
 Unit tests for rippers are located in the individual ripper directories alongside the implementation files:
@@ -269,6 +339,33 @@ When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch ca
 - `lib/config/proxy-fetch.ts` exports `proxyFetch` and `getFetchForConfig` utilities
 - Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
 - Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
+
+## Parse Methods Must Never Return Null
+
+Parse methods (like `parseProduct`, `parseProductHtml`, `parseEventPage`) **must return `RipperCalendarEvent | RipperError`** — never `null`.
+
+TypeScript enforces this at compile time: if a parse method's return type doesn't include `null`, the compiler will catch any code path that silently drops an item.
+
+**Required pattern — parse method signature:**
+```typescript
+parseProductHtml(html: string, url: string): RipperCalendarEvent | RipperError
+```
+
+**Required pattern — caller:**
+```typescript
+const result = this.parseProductHtml(html, url);
+if ('date' in result) events.push(result);
+else errors.push(result); // It's a ParseError
+```
+
+**Filters and dedup belong in the caller, not the parse method.** Move these out:
+- **Deduplication** (`seen.has(key)`) — check after parsing, skip in caller
+- **Intentional content filters** (e.g., "members free RSVP" titles) — check before calling parse, skip in caller
+- **Type checks** (e.g., `@type !== 'Event'`) — check in caller or return ParseError with clear reason
+
+**Why:** If parse methods can return `null`, someone will forget to check it, and items get silently dropped. By making the return type `RipperCalendarEvent | RipperError`, TypeScript guarantees every code path either produces an event or reports why it couldn't. The build report then surfaces every gap: "8 events, 2 errors" instead of "8 events, 0 errors".
+
+**Existing rippers still returning `null`** (events12, dogwoodplaypark, spectrum_dance, etc.) should be migrated to this pattern incrementally.
 
 ## Writing Descriptions
 
@@ -355,7 +452,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
     {
       "source": "ripper-name",
       "calendar": "calendar-name",
-      "type": "Ripper | Recurring | Aggregate",
+      "type": "Ripper | Recurring",
       "errorCount": 3,
       "errors": [
         { "type": "ParseError", "reason": "...", "context": "..." }
@@ -376,7 +473,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 ```
 
 - **`configErrors`** — errors loading ripper configs (missing `ripper.yaml`, import failures)
-- **`sources`** — per-calendar parse errors from Ripper, Recurring, and Aggregate calendars (only entries with errors are included)
+- **`sources`** — per-calendar parse errors from Ripper and Recurring calendars (only entries with errors are included). Aggregate (`tag-*`) calendars are intentionally excluded — every error there is a duplicate of an upstream ripper error, and counting them inflates the build error count by the number of tags each broken source belongs to.
 - **`externalCalendarFailures`** — external ICS feeds that failed to fetch
 - **`zeroEventCalendars`** — calendar names that produced 0 events **unexpectedly** (may indicate a problem)
 - **`expectedEmptyCalendars`** — calendar names with `expectEmpty: true` that produced 0 events (not a problem)
@@ -389,7 +486,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 The production `build-errors.json` is deployed with the site at:
 
 ```
-https://prestomation.github.io/calendar-ripper/build-errors.json
+https://206.events/build-errors.json
 ```
 
 For PR previews, use:
@@ -454,6 +551,8 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 **Symptom:** Errors in `tag-*` aggregate calendars
 
 **Cause:** These are always downstream from ripper errors. Fix the underlying ripper and the tag errors resolve automatically.
+
+**Reporting:** Aggregate errors are intentionally excluded from `totalErrors`, `errorCount.txt`, and `build-errors.json#sources`. The per-aggregate `<calendar>-errors.txt` file is still written if you want the raw list, but the headline error count tracks only the upstream rippers that need fixing.
 
 ## Favorites Filter Parity Rule
 

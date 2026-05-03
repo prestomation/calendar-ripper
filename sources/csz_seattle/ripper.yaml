@@ -1,0 +1,19 @@
+name: csz-seattle
+type: eventbrite
+description: "CSz Seattle (ComedySportz)"
+url: "https://cszseattle.com/"
+friendlyLink: https://cszseattle.com/
+tags: ["Comedy", "Fremont"]
+geo:
+  lat: 47.6509
+  lng: -122.3501
+  label: "CSz Seattle, 3509 Fremont Ave N, Seattle, WA 98103"
+  osmChecked: "2026-04-25"
+calendars:
+  - name: csz-seattle
+    friendlyname: "CSz Seattle (ComedySportz)"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "18822177366"
+      defaultLocation: "3509 Fremont Ave N, Seattle, WA 98103"
+      defaultDurationHours: 2

@@ -170,7 +170,14 @@ export default class SeattleFoodTruckRipper implements IRipper {
 
                 const startDt = this.parseZonedDateTime(ev.start_time, timezone);
                 const endDt = this.parseZonedDateTime(ev.end_time, timezone);
-                if (!startDt || !endDt) continue;
+                if (!startDt || !endDt) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Could not parse booking time: start="${ev.start_time}" end="${ev.end_time}"`,
+                        context: `sft-${ev.id}`
+                    });
+                    continue;
+                }
 
                 const durationMinutes = startDt.until(endDt, ChronoUnit.MINUTES);
                 const duration = Duration.ofMinutes(Math.max(durationMinutes, 0));

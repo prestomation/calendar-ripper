@@ -14,7 +14,8 @@ describe('RecurringEventProcessor', () => {
     it('should parse valid YAML configuration', () => {
       const mockYaml = `
 events:
-  - name: test-event
+  - geo: null
+    name: test-event
     friendlyname: "Test Event"
     description: "Test Description"
     schedule: "2nd Thursday"
@@ -37,7 +38,8 @@ events:
     it('should generate calendars from recurring events', () => {
       const mockYaml = `
 events:
-  - name: test-event
+  - geo: null
+    name: test-event
     friendlyname: "Test Event"
     description: "Test Description"
     schedule: "2nd Thursday"
@@ -65,7 +67,8 @@ events:
     it('should generate weekly recurring events with "every <day>" schedule', () => {
       const mockYaml = `
 events:
-  - name: weekly-market
+  - geo: null
+    name: weekly-market
     friendlyname: "Weekly Sunday Market"
     description: "A weekly market every Sunday"
     schedule: "every Sunday"
@@ -99,7 +102,8 @@ events:
     it('should generate seasonal weekly recurring events with DTSTART in allowed month', () => {
       const mockYaml = `
 events:
-  - name: seasonal-market
+  - geo: null
+    name: seasonal-market
     friendlyname: "Summer Wednesday Market"
     description: "A seasonal weekly market"
     schedule: "every Wednesday"
@@ -131,7 +135,8 @@ events:
     it('should set DTSTART in first allowed month when start date is outside months range', () => {
       const mockYaml = `
 events:
-  - name: columbia-city-market
+  - geo: null
+    name: columbia-city-market
     friendlyname: "Columbia City Farmers Market"
     description: "Runs May through October"
     schedule: "every Wednesday"
@@ -163,7 +168,8 @@ events:
     it('should set DTSTART in allowed month for monthly schedule with months restriction', () => {
       const mockYaml = `
 events:
-  - name: summer-artwalk
+  - geo: null
+    name: summer-artwalk
     friendlyname: "Summer Art Walk"
     description: "Art walk May through September"
     schedule: "2nd Wednesday"
@@ -194,7 +200,8 @@ events:
     it('should use explicit months array for BYMONTH in RRULE', () => {
       const mockYaml = `
 events:
-  - name: custom-months-market
+  - geo: null
+    name: custom-months-market
     friendlyname: "May-October Market"
     description: "A market running May through October"
     schedule: "every Wednesday"
@@ -222,7 +229,8 @@ events:
     it('should use explicit months for monthly recurring events', () => {
       const mockYaml = `
 events:
-  - name: custom-months-artwalk
+  - geo: null
+    name: custom-months-artwalk
     friendlyname: "May-September Art Walk"
     description: "An art walk running May through September"
     schedule: "2nd Wednesday"
@@ -250,7 +258,8 @@ events:
     it('should generate compound schedule with "1st and 3rd Tuesday"', () => {
       const mockYaml = `
 events:
-  - name: open-mic
+  - geo: null
+    name: open-mic
     friendlyname: "Open Mic Night"
     description: "Twice-monthly open mic"
     schedule: "1st and 3rd Tuesday"
@@ -284,7 +293,8 @@ events:
     it('should pick earliest ordinal for DTSTART with compound schedule', () => {
       const mockYaml = `
 events:
-  - name: open-mic
+  - geo: null
+    name: open-mic
     friendlyname: "Open Mic Night"
     description: "Twice-monthly open mic"
     schedule: "1st and 3rd Tuesday"
@@ -316,7 +326,8 @@ events:
     it('should support compound schedule with month restriction', () => {
       const mockYaml = `
 events:
-  - name: summer-open-mic
+  - geo: null
+    name: summer-open-mic
     friendlyname: "Summer Open Mic"
     description: "Twice-monthly open mic in summer"
     schedule: "2nd and 4th Friday"
@@ -346,7 +357,8 @@ events:
     it('should prefer explicit months over seasonal when both are provided', () => {
       const mockYaml = `
 events:
-  - name: override-event
+  - geo: null
+    name: override-event
     friendlyname: "Override Event"
     description: "Event with both seasonal and months"
     schedule: "every Thursday"
@@ -387,7 +399,8 @@ describe('recurringEventSchema', () => {
       start_time: '19:00',
       location: 'Test Location',
       url: 'https://example.com',
-      tags: ['test']
+      tags: ['test'],
+      geo: null
     };
 
     const result = recurringEventSchema.safeParse(validEvent);
@@ -406,7 +419,8 @@ describe('recurringEventSchema', () => {
       location: 'Test Location',
       url: 'https://example.com',
       tags: ['test'],
-      months: [5, 6, 7, 8, 9]
+      months: [5, 6, 7, 8, 9],
+      geo: null
     };
 
     const result = recurringEventSchema.safeParse(validEvent);

@@ -4,6 +4,12 @@ description: "Wing Luke Museum events calendar"
 url: "https://www.wingluke.org/eventscalendar"
 friendlyLink: https://www.wingluke.org/eventscalendar
 tags: ["Museums", "Arts", "Community", "International District"]
+geo:
+  lat: 47.5982
+  lng: -122.3229
+  label: "Wing Luke Museum, 719 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2965374552
 calendars:
   - name: all-events
     friendlyname: "Wing Luke Museum"

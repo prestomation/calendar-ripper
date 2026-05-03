@@ -4,6 +4,10 @@ description: "Seattle's premier convention and event venue hosting conferences, 
 url: "https://scc-web.ungerboeck.net/coe/coe_p1_all.aspx?oc=01&cc=COESOP"
 friendlyLink: https://seattlecc.com
 tags: ["Downtown", "Events"]
+geo:
+  lat: 47.6137
+  lng: -122.332
+  label: "Seattle Convention Center, 900 Pine St, Seattle, WA 98101"
 calendars:
   - name: all-events
     friendlyname: "Seattle Convention Center"

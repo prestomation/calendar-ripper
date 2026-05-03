@@ -18,69 +18,32 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     permissions:
-      contents: write
+      contents: read
       pull-requests: write
     concurrency:
-      group: gh-pages-deploy
-      cancel-in-progress: false
+      group: cf-pages-preview-${{ github.event.number }}
+      cancel-in-progress: true
+    outputs:
+      deployment-url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: pr-preview-${{ github.event.number }}
-          path: /tmp/preview-content
+          path: output
 
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 1
-        continue-on-error: true
-        id: checkout-ghpages
-
-      - name: Create gh-pages branch if needed
-        if: steps.checkout-ghpages.outcome == 'failure'
+      - name: Deploy preview to Cloudflare Pages
+        id: deploy
         run: |
-          mkdir gh-pages && cd gh-pages
-          git init
-          git checkout --orphan gh-pages
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          touch .nojekyll
-          git add .nojekyll
-          git commit -m "Initialize gh-pages"
-          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          git push -u origin gh-pages
-
-      - name: Deploy preview to gh-pages
-        run: |
-          cd gh-pages
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-
-          # Remove old preview for this PR if it exists
-          rm -rf preview/${{ github.event.number }}
-          mkdir -p preview/${{ github.event.number }}
-
-          # Copy new preview content
-          cp -r /tmp/preview-content/* preview/${{ github.event.number }}/
-
-          git add -A
-          git commit -m "Update PR #${{ github.event.number }} preview" || exit 0
-
-          # Retry push with rebase in case gh-pages advanced
-          PUSHED=false
-          for i in 1 2 3 4; do
-            if git pull --rebase origin gh-pages && git push; then
-              PUSHED=true
-              break
-            fi
-            echo "Push attempt $i failed, retrying in ${i}s..."
-            sleep "$i"
-          done
-          $PUSHED || { echo "ERROR: failed to push to gh-pages after 4 attempts"; exit 1; }
+          DEPLOYMENT_URL=$(npx wrangler pages deploy output/ --project-name=206events --branch="pr-${{ github.event.number }}" 2>&1 | tee /dev/stderr | grep -oE 'https://[a-z0-9-]+\.206events\.pages\.dev' | head -1)
+          if [ -z "$DEPLOYMENT_URL" ]; then
+            echo "ERROR: Failed to extract deployment URL from wrangler output"
+            exit 1
+          fi
+          echo "deployment-url=${DEPLOYMENT_URL}" >> "$GITHUB_OUTPUT"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Comment PR with preview link
         uses: actions/github-script@v7
@@ -99,7 +62,7 @@ jobs:
 
             const errorCount = '${{ needs.build.outputs.error-count }}';
             const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
-            const previewUrl = `https://prestomation.github.io/calendar-ripper/preview/${{ github.event.number }}/`;
+            const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.206events.pages.dev`;
 
             const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
             const zeroEventCalendars = zeroEventCalendarsRaw.trim().split('\n').filter(Boolean);
@@ -110,7 +73,7 @@ jobs:
             // Read build-errors.json for detailed error breakdown
             let buildErrors = { configErrors: [], sources: [], externalCalendarFailures: [] };
             try {
-              buildErrors = JSON.parse(fs.readFileSync('/tmp/preview-content/build-errors.json', 'utf8'));
+              buildErrors = JSON.parse(fs.readFileSync('output/build-errors.json', 'utf8'));
             } catch (e) {
               // File unavailable or parse failed — skip detailed breakdown
             }
@@ -120,12 +83,54 @@ jobs:
               ? `\n\n<details>\n<summary>ℹ️ ${unexpectedNonEmpty.length} calendar(s) marked expectEmpty but have events</summary>\n\n${unexpectedNonEmpty.map(c => `- \`${c.name}\`: ${c.events} events — consider removing expectEmpty`).join('\n')}\n\n</details>`
               : '';
 
+            // New zero-event sources that have never appeared in production
+            const newZeroEventSourcesRaw = `${{ needs.build.outputs.new-zero-event-sources }}`;
+            const newZeroEventSources = newZeroEventSourcesRaw.trim().split('\n').filter(Boolean);
+            const newZeroEventSourcesSection = newZeroEventSources.length > 0
+              ? `\n\n🚫 **${newZeroEventSources.length} new source(s) with 0 events that have never appeared in production.** These will fail the build:\n${newZeroEventSources.map(s => `- \`${s}\``).join('\n')}\n\nRemove them or fix the ripper type/URL.`
+              : '';
+
+            // New sources with parse errors that are not yet in production
+            const newSourceParseErrors = buildErrors.newSourceParseErrors || [];
+            const newSourceParseErrorsSection = newSourceParseErrors.length > 0
+              ? `\n\n🚫 **${newSourceParseErrors.length} new source(s) with parse errors.** These must be fixed before merging:\n${newSourceParseErrors.map(s => `- \`${s.source}/${s.calendar}\`: ${s.errorCount} parse error(s)`).join('\n')}`
+              : '';
+
             // Geo coverage stats
             const geoStats = buildErrors.geoStats;
             const geoSection = geoStats
               ? `\n\n**🗺️ Geo coverage:** ${geoStats.eventsWithGeo.toLocaleString()} / ${geoStats.totalEvents.toLocaleString()} events (${Math.round(geoStats.eventsWithGeo / geoStats.totalEvents * 100)}%)` +
                 (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
               : '';
+
+            // New source summary — event counts and sample events for sources not in production
+            let newSourceSection = '\n\n✅ No new sources in this PR';
+            try {
+              const newSourceSummary = JSON.parse(fs.readFileSync('output/new-source-summary.json', 'utf8'));
+              if (newSourceSummary.length > 0) {
+                const typeLabel = (t) => t === 'External' ? 'External' : t === 'Recurring' ? 'Recurring' : 'Ripper';
+                const formatDate = (dateStr) => {
+                  try {
+                    const d = new Date(dateStr);
+                    if (isNaN(d.getTime())) return dateStr;
+                    return d.toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true });
+                  } catch { return dateStr; }
+                };
+                const parts = newSourceSummary.map(s => {
+                  const header = `**${s.source}** (${typeLabel(s.type)}) — ${s.eventCount} events`;
+                  if (s.sampleEvents.length > 0) {
+                    const rows = s.sampleEvents.map(e =>
+                      `| ${e.summary} | ${formatDate(e.date)} | ${e.location || '—'} |`
+                    ).join('\n');
+                    return `${header}\n<details>\n<summary>Sample events</summary>\n\n| Event | Date | Location |\n|-------|------|----------|\n${rows}\n\n</details>`;
+                  }
+                  return header;
+                });
+                newSourceSection = `\n\n## 🆕 New Sources in This PR\n\n${parts.join('\n\n')}`;
+              }
+            } catch (e) {
+              // new-source-summary.json not available — show default
+            }
 
             let errorSection = '';
             if (parseInt(errorCount) > 0) {
@@ -171,11 +176,14 @@ jobs:
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
+              newSourceSection,
               errorSection,
               zeroEventSection,
               unexpectedNonEmptySection,
+              newZeroEventSourcesSection,
+              newSourceParseErrorsSection,
               '',
-              '> 🔗 Preview deployed to GitHub Pages — sign-in works in previews'
+              '> 🔗 Preview deployed to Cloudflare Pages'
             ].join('\n');
 
             if (botComment) {

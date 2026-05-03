@@ -3,6 +3,7 @@ friendlyname: "Downtown Seattle Association"
 description: "Downtown Seattle Association Events Calendar"
 url: "https://downtownseattle.org/wp-json/tribe/events/v1/events"
 friendlyLink: https://downtownseattle.org
+geo: null
 calendars:
   - name: pioneer-park
     friendlyname: "Pioneer Park Events"
@@ -19,3 +20,21 @@ calendars:
     timezone: America/Los_Angeles
     config:
       venue_id: 53729
+  - name: bell-street-park
+    friendlyname: "Bell Street Park Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 53974
+    geo:
+      lat: 47.6149
+      lng: -122.3445
+      osmType: way
+      osmId: 460084962
+  - name: first-and-pike
+    friendlyname: "First & Pike Events"
+    timezone: America/Los_Angeles
+    config:
+      venue_id: 56426
+    geo:
+      lat: 47.6089
+      lng: -122.3403

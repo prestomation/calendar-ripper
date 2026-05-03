@@ -27,6 +27,12 @@ import {
 import { RecurringEventProcessor } from "./config/recurring.js";
 import { LocalDate } from "@js-joda/core";
 import { validateTags, TAG_CATEGORIES } from "./config/tags.js";
+import {
+  buildIndexJson,
+  buildTagsJson,
+  buildVenuesJson,
+  buildOsmGaps,
+} from "./discovery.js";
 // @ts-ignore — ical.js has no type declarations
 import ICAL from "ical.js";
 
@@ -34,7 +40,7 @@ import ICAL from "ical.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const SITE_BASE_URL = process.env.SITE_BASE_URL || "https://prestomation.github.io/calendar-ripper/";
+const SITE_BASE_URL = process.env.SITE_BASE_URL || "https://206.events/";
 
 /**
  * Check if ICS content contains any events with a start date on or after today.
@@ -305,15 +311,16 @@ export const main = async () => {
 
   // Load recurring events
   let recurringCalendars: RipperCalendar[] = [];
+  let recurringProcessor: RecurringEventProcessor | null = null;
   try {
     const recurringPath = join("sources", "recurring.yaml");
-    const processor = new RecurringEventProcessor(recurringPath);
-    
+    recurringProcessor = new RecurringEventProcessor(recurringPath);
+
     // Generate events for the next 12 months
     const startDate = LocalDate.now();
     const endDate = startDate.plusMonths(12);
-    
-    recurringCalendars = processor.generateCalendars(startDate, endDate);
+
+    recurringCalendars = recurringProcessor.generateCalendars(startDate, endDate);
     console.log(`Generated ${recurringCalendars.length} recurring event calendars`);
   } catch (error) {
     if ((error as any).code !== "ENOENT") {
@@ -338,11 +345,18 @@ export const main = async () => {
   // Track event counts per calendar for summary
   const eventCounts: Array<{ name: string; type: string; events: number; expectEmpty: boolean }> = [];
 
-  // Collect all errors for consolidated build-errors.json
+  // Collect all errors for consolidated build-errors.json. Aggregate
+  // (tag-*) calendars are intentionally absent from this list and from
+  // `totalErrorCount` — every error in an aggregate is a duplicate of an
+  // error in one of its source calendars. Counting them inflates the
+  // build's error number by the number of tags each broken source
+  // belongs to (e.g. one Book Larder parse failure shows up under
+  // tag-fremont, tag-food, tag-books, and tag-all). Fixing the upstream
+  // ripper resolves the aggregate "errors" automatically.
   interface BuildErrorEntry {
     source: string;
     calendar: string;
-    type: "Ripper" | "Recurring" | "Aggregate";
+    type: "Ripper" | "Recurring";
     errorCount: number;
     errors: RipperError[];
   }
@@ -614,8 +628,11 @@ export const main = async () => {
     for (const calendar of aggregateCalendars) {
       const icsPath = `${calendar.name}.ics`;
       const errorsPath = `${calendar.name}-errors.txt`;
+      // Aggregate errors are duplicates of upstream ripper errors — they
+      // are written to the per-aggregate `*-errors.txt` file for raw
+      // visibility but deliberately excluded from `totalErrorCount` and
+      // `buildErrors.sources` (see `BuildErrorEntry` comment above).
       const errorCount = calendar.errors.length;
-      totalErrorCount += errorCount;
       const icsString = await toICS(calendar);
       const aggTag = calendar.tags[0];
       const isAggExpectEmpty = aggTag ? (tagExpectEmpty.get(aggTag) ?? false) : false;
@@ -623,15 +640,6 @@ export const main = async () => {
       eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty });
       if (calendar.events.length === 0 && !isAggExpectEmpty) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
-      }
-      if (errorCount > 0) {
-        buildErrors.push({
-          source: calendar.name,
-          calendar: calendar.name,
-          type: "Aggregate",
-          errorCount,
-          errors: calendar.errors,
-        });
       }
 
       aggregateWritePromises.push(writeFile(`output/${icsPath}`, icsString));
@@ -677,7 +685,7 @@ export const main = async () => {
       // Create empty calendar file as fallback
       const emptyCalendar = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//iCalendar Ripper//External Calendar Error//EN
+PRODID:-//206.events//External Calendar Error//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:${calendar.friendlyname} (Error)
@@ -901,6 +909,8 @@ END:VCALENDAR`;
     url?: string;
     lat?: number;
     lng?: number;
+    osmType?: 'node' | 'way' | 'relation';
+    osmId?: number;
     geocodeSource?: 'ripper' | 'cached' | 'none';
   }> = [];
 
@@ -917,12 +927,25 @@ END:VCALENDAR`;
     for (const event of calendar.events) {
       let lat: number | undefined;
       let lng: number | undefined;
+      let osmType: 'node' | 'way' | 'relation' | undefined;
+      let osmId: number | undefined;
       let geocodeSource: 'ripper' | 'cached' | 'none' | undefined;
 
-      if (calendar.parent?.geo) {
-        // Use ripper-level coords — no geocoding needed
-        lat = calendar.parent.geo.lat;
-        lng = calendar.parent.geo.lng;
+      // Resolve geo: calendar-level config wins over ripper-level.
+      // `geo` is now required-nullable at the ripper level; a ripper with
+      // `geo: null` plus per-calendar overrides is how multi-branch
+      // sources like SPL opt in to branch-level coords.
+      const calendarCfg = calendar.parent?.calendars.find(c => c.name === calendar.name);
+      const resolvedGeo = calendarCfg?.geo !== undefined
+        ? calendarCfg.geo
+        : (calendar.parent?.geo ?? null);
+
+      if (resolvedGeo) {
+        // Use declared coords — no geocoding needed
+        lat = resolvedGeo.lat;
+        lng = resolvedGeo.lng;
+        osmType = resolvedGeo.osmType;
+        osmId = resolvedGeo.osmId;
         geocodeSource = 'ripper';
       } else {
         const result = await resolveEventCoords(geoCache, event.location, sourceName);
@@ -930,6 +953,8 @@ END:VCALENDAR`;
         if (result.coords) {
           lat = result.coords.lat;
           lng = result.coords.lng;
+          osmType = result.coords.osmType;
+          osmId = result.coords.osmId;
         }
         geocodeSource = result.geocodeSource;
         if (result.error) geocodeErrors.push(result.error);
@@ -945,6 +970,7 @@ END:VCALENDAR`;
         url: event.url,
         ...(lat !== undefined ? { lat } : {}),
         ...(lng !== undefined ? { lng } : {}),
+        ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
         ...(geocodeSource !== undefined ? { geocodeSource } : {}),
       });
     }
@@ -967,9 +993,13 @@ END:VCALENDAR`;
 
           let lat: number | undefined;
           let lng: number | undefined;
+          let osmType: 'node' | 'way' | 'relation' | undefined;
+          let osmId: number | undefined;
           if (result.coords) {
             lat = result.coords.lat;
             lng = result.coords.lng;
+            osmType = result.coords.osmType;
+            osmId = result.coords.osmId;
           }
           if (result.error) geocodeErrors.push(result.error);
 
@@ -983,6 +1013,7 @@ END:VCALENDAR`;
             url: event.url,
             ...(lat !== undefined ? { lat } : {}),
             ...(lng !== undefined ? { lng } : {}),
+            ...(osmType !== undefined && osmId !== undefined ? { osmType, osmId } : {}),
             ...(result.geocodeSource !== undefined ? { geocodeSource: result.geocodeSource } : {}),
           });
         }
@@ -1040,6 +1071,232 @@ END:VCALENDAR`;
   } catch {
     // report not present — no outofband errors to merge
   }
+
+  // Check for new sources with expectEmpty=true that have never appeared in production.
+  // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
+  // it has never produced events and likely has a wrong URL or ripper type.
+  const newZeroEventSources: string[] = [];
+  // Check for new sources with parse errors that are not yet in production.
+  // This creates back-pressure: you can't merge a new source that's half-broken.
+  const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
+  {
+    const productionUrl = (process.env.PRODUCTION_URL || "https://206.events").replace(/\/$/, "");
+    try {
+      const prodManifestRes = await fetch(`${productionUrl}/manifest.json`, { signal: AbortSignal.timeout(10000) });
+      if (prodManifestRes.ok) {
+        const prodManifest = await prodManifestRes.json() as {
+          rippers?: Array<{ calendars: Array<{ icsUrl: string }> }>;
+          recurringCalendars?: Array<{ icsUrl: string }>;
+          externalCalendars?: Array<{ icsUrl: string }>;
+        };
+        // Build set of known calendar names (icsUrl without .ics suffix)
+        const knownInProduction = new Set<string>();
+        for (const ripper of prodManifest.rippers ?? []) {
+          for (const cal of ripper.calendars) {
+            knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+          }
+        }
+        for (const cal of prodManifest.recurringCalendars ?? []) {
+          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+        }
+        for (const cal of prodManifest.externalCalendars ?? []) {
+          knownInProduction.add(cal.icsUrl.replace(/\.ics$/, ""));
+        }
+
+        // Any new source (never in production) with 0 events fails the build.
+        // expectEmpty is not an exemption for brand-new sources — it only makes sense
+        // for sources that have previously shipped and then went quiet. A new source
+        // with 0 events has no proven data pipeline; fix the URL/type or remove it.
+        // Aggregate tag calendars are excluded — their emptiness is always downstream
+        // of a ripper failure already caught above.
+        const newZeroEvent = eventCounts.filter(
+          c => c.events === 0 && !knownInProduction.has(c.name) && c.type !== "Aggregate"
+        );
+        for (const cal of newZeroEvent) {
+          console.log(`::error::New source "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
+          newZeroEventSources.push(cal.name);
+          finalErrorCount++;
+        }
+        if (newZeroEventSources.length > 0) {
+          console.log(`Found ${newZeroEventSources.length} new zero-event source(s) that have never appeared in production`);
+        }
+
+        // Check for parse errors in new sources (not yet in production).
+        // This prevents merging half-parsed sources.
+        for (const entry of buildErrors) {
+          const calendarKey = entry.type === "Recurring" ? `recurring-${entry.calendar}` : entry.calendar;
+          // Check if ANY calendar from this source is new
+          if (!knownInProduction.has(calendarKey)) {
+            // Only count ParseError types, not all errors (geocode errors are expected for new sources)
+            const parseErrors = entry.errors.filter(e => e.type === "ParseError" || e.type === "InvalidDateError");
+            if (parseErrors.length > 0) {
+              console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
+              newSourceParseErrors.push({ source: entry.source, calendar: entry.calendar, errorCount: parseErrors.length });
+            }
+          }
+        }
+        if (newSourceParseErrors.length > 0) {
+          const totalNewParseErrors = newSourceParseErrors.reduce((a, e) => a + e.errorCount, 0);
+          console.log(`Found ${newSourceParseErrors.length} new source(s) with parse errors (${totalNewParseErrors} total errors). These must be fixed before merging.`);
+        }
+      } else {
+        console.log(`::error::Could not fetch production manifest (HTTP ${prodManifestRes.status}) — failing build`);
+        finalErrorCount++;
+      }
+    } catch (err) {
+      console.log(`::error::Could not fetch production manifest — failing build: ${err}`);
+      finalErrorCount++;
+    }
+  }
+  await writeFile("newZeroEventSources.txt", newZeroEventSources.join("\n"));
+  await writeFile("newSourceParseErrors.txt", newSourceParseErrors.map(e => `${e.source}/${e.calendar}:${e.errorCount}`).join("\n"));
+
+  // --- New source summary: event counts and sample events for sources added in this PR ---
+  // Detect new sources by checking git diff against the merge base.
+  // This is more accurate than comparing against the production manifest,
+  // because manifest-based detection flags existing-but-empty sources as "new".
+  const newSourceNames = new Set<string>();
+  const gitBaseRef = process.env.GITHUB_BASE_REF;
+  if (gitBaseRef) {
+    try {
+      const { execSync } = await import("child_process");
+      // Find new ripper source directories added in this PR
+      const ripperDiff = execSync(
+        `git diff --diff-filter=A --name-only origin/${gitBaseRef} -- sources/`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      const newDirs = new Set<string>();
+      for (const line of ripperDiff.split("\n").filter(Boolean)) {
+        // sources/sourceName/...  →  sourceName (directory)
+        const match = line.match(/^sources\/([^/]+)\//);
+        if (match) newDirs.add(match[1]);
+      }
+      // Resolve each directory name to the ripper's `name` field from ripper.yaml
+      const { readFileSync, existsSync } = await import("fs");
+      for (const dir of newDirs) {
+        const ripperYamlPath = `sources/${dir}/ripper.yaml`;
+        if (existsSync(ripperYamlPath)) {
+          const yamlText = readFileSync(ripperYamlPath, "utf8");
+          const nameMatch = yamlText.match(/^name:\s*(.+)$/m);
+          if (nameMatch) {
+            newSourceNames.add(nameMatch[1].trim());
+          } else {
+            newSourceNames.add(dir);
+          }
+        } else {
+          newSourceNames.add(dir);
+        }
+      }
+      // Find new entries in external.yaml by parsing the diff
+      const externalDiff = execSync(
+        `git diff origin/${gitBaseRef} -- sources/external.yaml`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      if (externalDiff) {
+        // Look for added lines containing "- name:" under sources in external.yaml
+        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
+        let match: RegExpExecArray | null;
+        while ((match = addedNameRegex.exec(externalDiff)) !== null) {
+          newSourceNames.add(`external:${match[1].trim()}`);
+        }
+      }
+      // Find new entries in recurring.yaml
+      const recurringDiff = execSync(
+        `git diff origin/${gitBaseRef} -- sources/recurring.yaml`,
+        { encoding: "utf8", stdio: ["pipe", "pipe", "pipe"] }
+      ).trim();
+      if (recurringDiff) {
+        const addedNameRegex = /^\+\s+- name:\s+(.+)$/m;
+        let match: RegExpExecArray | null;
+        while ((match = addedNameRegex.exec(recurringDiff)) !== null) {
+          newSourceNames.add(`recurring:${match[1].trim()}`);
+        }
+      }
+    } catch (err) {
+      console.log(`::warning::Could not detect new sources via git diff: ${err}`);
+    }
+  }
+
+  const newSourceSummary: Array<{
+    source: string;
+    calendar: string;
+    type: string;
+    eventCount: number;
+    sampleEvents: Array<{ summary: string; date: string; location: string }>;
+  }> = [];
+
+  if (newSourceNames.size > 0) {
+    // Group events from eventsIndex by their calendar (icsUrl without .ics suffix = calendar key)
+    const eventsByCalendar = new Map<string, Array<{ summary: string; date: string; location: string }>>();
+    for (const evt of eventsIndex) {
+      const calKey = evt.icsUrl.replace(/\.ics$/, "");
+      if (!eventsByCalendar.has(calKey)) {
+        eventsByCalendar.set(calKey, []);
+      }
+      eventsByCalendar.get(calKey)!.push({
+        summary: evt.summary,
+        date: evt.date,
+        location: evt.location || "",
+      });
+    }
+    // Sort events within each calendar by date
+    for (const [, evts] of eventsByCalendar) {
+      evts.sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    // Match new source names to calendars in eventCounts
+    for (const sourceKey of newSourceNames) {
+      if (sourceKey.startsWith("external:")) {
+        // External source: match by external-{name}*
+        const extName = sourceKey.replace("external:", "");
+        const matchingCals = eventCounts.filter(c => c.type === "External" && c.name === `external-${extName}`);
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: extName,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      } else if (sourceKey.startsWith("recurring:")) {
+        const recName = sourceKey.replace("recurring:", "");
+        const matchingCals = eventCounts.filter(c => c.type === "Recurring" && c.name === `recurring-${recName}`);
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: recName,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      } else {
+        // Ripper source: match calendars starting with sourceName-
+        const matchingCals = eventCounts.filter(c => c.type === "Ripper" && c.name.startsWith(`${sourceKey}-`));
+        for (const cal of matchingCals.slice(0, 10)) {
+          const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+            .slice(0, 5)
+            .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+          newSourceSummary.push({
+            source: sourceKey,
+            calendar: cal.name,
+            type: cal.type,
+            eventCount: cal.events,
+            sampleEvents,
+          });
+        }
+      }
+    }
+  }
+  await writeFile("output/new-source-summary.json", JSON.stringify(newSourceSummary, null, 2));
+
   await writeFile("errorCount.txt", finalErrorCount.toString());
 
   // Print event count summary
@@ -1060,6 +1317,15 @@ END:VCALENDAR`;
     geocodeErrors: geocodeErrors.length,
   };
 
+  // Enumerate venues whose declared `geo` has coords but no OSM feature id.
+  // Surfaced in build-errors.json so the daily osm-resolver skill has a
+  // deterministic work queue — see skills/osm-resolver/SKILL.md.
+  const osmGaps = buildOsmGaps({
+    configs: configs.map(r => r.config),
+    externals: activeExternalCalendars,
+    recurringEvents: recurringProcessor?.getEvents() ?? [],
+  });
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
@@ -1071,7 +1337,10 @@ END:VCALENDAR`;
     geoStats,
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
+    newZeroEventSources,
+    newSourceParseErrors,
     unexpectedNonEmptyCalendars: unexpectedNonEmptyCalendars.map(c => ({ name: c.name, events: c.events })),
+    osmGaps,
     eventCounts: eventCounts.map(c => ({
       name: c.name,
       type: c.type,
@@ -1083,6 +1352,88 @@ END:VCALENDAR`;
     "output/build-errors.json",
     JSON.stringify(buildErrorsReport, null, 2)
   );
+
+  // -------------------------------------------------------------------------
+  // Discovery API — HATEOAS-style data files under output/
+  // See docs/design-discovery-api.md. Every href in these docs is relative
+  // so PR previews, local dev, and production all Just Work.
+  // -------------------------------------------------------------------------
+  {
+    const generated = new Date().toISOString();
+    const siteUrl = SITE_BASE_URL.replace(/\/$/, "");
+
+    const ripperConfigsForDiscovery = configs.map(r => r.config);
+    const recurringEventsForDiscovery = recurringProcessor?.getEvents() ?? [];
+
+    // index.json — entry point
+    const indexDoc = buildIndexJson({ generated, site: siteUrl });
+    await writeFile("output/index.json", JSON.stringify(indexDoc, null, 2));
+
+    // tags.json — one entry per tag with counts + aggregate-feed hrefs
+    const tagsDoc = buildTagsJson({
+      manifest: {
+        rippers: manifest.rippers.map(r => ({ calendars: r.calendars.map(c => ({ tags: c.tags })) })),
+        recurringCalendars: manifest.recurringCalendars.map(c => ({ tags: c.tags })),
+        externalCalendars: manifest.externalCalendars.map(c => ({ tags: c.tags })),
+      },
+      eventCounts: eventCounts.map(c => ({ name: c.name, type: c.type, events: c.events })),
+      generated,
+    });
+    await writeFile("output/tags.json", JSON.stringify(tagsDoc, null, 2));
+
+    // venues.json — one entry per source with a fixed physical geo
+    const venuesDoc = buildVenuesJson({
+      configs: ripperConfigsForDiscovery,
+      externals: activeExternalCalendars,
+      recurringEvents: recurringEventsForDiscovery,
+      calendarsWithFutureEvents,
+      generated,
+    });
+    await writeFile("output/venues.json", JSON.stringify(venuesDoc, null, 2));
+
+    // geo-cache.json — copied into output/ so downstream consumers can
+    // fetch it through the discovery API. The source of truth lives at
+    // the repo root (S3-synced); the build output is a published mirror.
+    try {
+      const geoCacheRaw = await readFile("geo-cache.json", "utf8");
+      await writeFile("output/geo-cache.json", geoCacheRaw);
+    } catch (e) {
+      console.warn(`Warning: could not mirror geo-cache.json into output/: ${(e as Error).message}`);
+    }
+
+    // llms.txt — static usage info for LLM crawlers (llmstxt.org convention)
+    const llmsTxtPath = join(__dirname, "templates", "llms.txt");
+    try {
+      const llmsTxt = await readFile(llmsTxtPath, "utf8");
+      await writeFile("output/llms.txt", llmsTxt);
+    } catch (e) {
+      console.warn(`Warning: could not read llms.txt template at ${llmsTxtPath}: ${(e as Error).message}`);
+    }
+
+    // sitemap.xml — point crawlers at the discovery entry points
+    const sitemapUrls = [
+      `${siteUrl}/`,
+      `${siteUrl}/index.json`,
+      `${siteUrl}/llms.txt`,
+      `${siteUrl}/tags.json`,
+      `${siteUrl}/venues.json`,
+      `${siteUrl}/manifest.json`,
+      `${siteUrl}/events-index.json`,
+    ];
+    const sitemapXml =
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+      `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+      sitemapUrls
+        .map(u => `  <url><loc>${u}</loc><lastmod>${generated.slice(0, 10)}</lastmod></url>`)
+        .join("\n") +
+      `\n</urlset>\n`;
+    await writeFile("output/sitemap.xml", sitemapXml);
+
+    console.log(
+      `Discovery API: ${tagsDoc.tags.length} tags, ${venuesDoc.venues.length} venues → ` +
+      `index.json, tags.json, venues.json, llms.txt, sitemap.xml`
+    );
+  }
 
   console.log("\n=== Event Count Summary ===");
   for (const entry of eventCounts) {

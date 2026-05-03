@@ -5,6 +5,10 @@ description: "Versatile indoor concert venue inside the Lumen Field Event Center
 url: "https://app.ticketmaster.com/discovery/v2/events.json"
 friendlyLink: https://www.wamutheater.com
 tags: ["Music"]
+geo:
+  lat: 47.5932
+  lng: -122.3329
+  label: "WaMu Theater, 800 Occidental Ave S, Seattle, WA 98134"
 calendars:
   - name: wamu-theater
     friendlyname: "WAMU Theater"

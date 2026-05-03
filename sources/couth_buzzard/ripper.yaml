@@ -1,0 +1,17 @@
+name: couth-buzzard
+type: styledcalendar
+description: "Couth Buzzard"
+url: "https://www.couthbuzzard.com/event-calendar"
+friendlyLink: https://www.couthbuzzard.com
+tags: ["Music", "Books", "Greenwood"]
+geo:
+  lat: 47.6702
+  lng: -122.3534
+  label: "The Couth Buzzard, 5282 Greenwood Ave N, Seattle, WA 98103"
+  osmChecked: "2026-05-02"
+calendars:
+  - name: all-events
+    friendlyname: "Couth Buzzard"
+    timezone: America/Los_Angeles
+    config:
+      styledCalendarId: "6zSi2iv2v2LD2ooZbwEh"

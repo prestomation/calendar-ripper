@@ -1,13 +1,15 @@
 name: fremont-brewing-columbia-city
 type: squarespace
-description: "Fremont Brewing's Columbia City Urban Beer Garden with food trucks, art walks, and neighborhood events"
+description: "Fremont Brewing - Columbia City"
 url: "https://www.fremontbrewing.com/columbia-city-ubg-events"
 friendlyLink: https://www.fremontbrewing.com/columbia-city-ubg-events
-tags: ["Beer"]
+tags: ["Beer", "Columbia City"]
 geo:
-  lat: 47.5596
-  lng: -122.2905
-  label: "Fremont Brewing Columbia City, 4920 Rainier Ave S, Seattle, WA 98118"
+  lat: 47.5572
+  lng: -122.2844
+  label: "Fremont Brewing Columbia City, 3808 S Edmunds St, Seattle, WA 98118"
+  osmType: node
+  osmId: 2429623323
 calendars:
   - name: all-events
     friendlyname: "Fremont Brewing - Columbia City"

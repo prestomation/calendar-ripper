@@ -4,9 +4,11 @@ url: "https://fryemuseum.org/calendar"
 friendlyLink: "https://fryemuseum.org/calendar"
 tags: ["Arts", "Museums"]
 geo:
-  lat: 47.6083
-  lng: -122.315
+  lat: 47.6072
+  lng: -122.3241
   label: "Frye Art Museum, 704 Terry Ave, Seattle, WA 98104"
+  osmType: relation
+  osmId: 3185569
 calendars:
   - name: frye-art-museum
     friendlyname: "Frye Art Museum"

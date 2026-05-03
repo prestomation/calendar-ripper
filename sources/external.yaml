@@ -1,11 +1,13 @@
-- name: seattle-streets-alliance
+- geo: null
+  name: seattle-streets-alliance
   friendlyname: "Seattle Streets Alliance Events"
   description: "Seattle Streets Alliance"
   icsUrl: "https://calendar.google.com/calendar/ical/lt0lmiorecihqc99od0hnrtl54%40group.calendar.google.com/public/basic.ics"
   infoUrl: "https://www.streetsalliance.org/get-involved/calendar/"
   tags:
   - Activism
-- name: transit-riders-union
+- geo: null
+  name: transit-riders-union
   friendlyname: "Transit Riders Union"
   description: "Events with the Transit Riders Union"
   icsUrl: "https://transitriders.org/?rhc_action=get_icalendar_events&post_type[]=events&calendar=featured"
@@ -13,28 +15,32 @@
   disabled: true  # ICS endpoint returns HTML instead of calendar data
   tags: 
   - Activism
-- name: the-urbanist
+- geo: null
+  name: the-urbanist
   friendlyname: "The Urbanist's Local Events"
   description: "Events with The Urbanist"
   icsUrl: "https://calendar.google.com/calendar/ical/d80bfc1d68b67201a0040905022054725954d631248c49a12df12924f5f7293d%40group.calendar.google.com/public/basic.ics"
   infoUrl: "https://www.theurbanist.org/upcoming-events/"
   tags:
   - Activism
-- name: 350-seattle
+- geo: null
+  name: 350-seattle
   friendlyname: "350 Seattle"
   description: "Grassroots climate justice organization focused on climate action in the Seattle area"
   icsUrl: "https://calendar.google.com/calendar/ical/npg8h9l5gq75uvi8hb4dinbhh0%40group.calendar.google.com/public/basic.ics"
   infoUrl: "https://350seattle.org/calendar/"
   tags:
   - Activism
-- name: seattle-dsa
+- geo: null
+  name: seattle-dsa
   friendlyname: "Seattle DSA"
   description: "Seattle chapter of the Democratic Socialists of America organizing around housing, transit, and social justice"
   icsUrl: "https://seattledsa.org/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://seattledsa.org/events/"
   tags:
   - Activism
-- name: cascadia-climate-action
+- geo: null
+  name: cascadia-climate-action
   friendlyname: "Cascadia Climate Action"
   description: "Aggregated calendar of climate and clean energy action events across the Pacific Northwest"
   icsUrl: "https://calendar.google.com/calendar/ical/72dh5ehol3oufbkusqagta0qf8%40group.calendar.google.com/public/basic.ics"
@@ -42,7 +48,8 @@
   tags:
   - Activism
 
-- name: seattle-parks-foundation
+- geo: null
+  name: seattle-parks-foundation
   friendlyname: "The Seattle Parks Foundation"
   description: "Seattle Parks Foundation"
   icsUrl: "https://www.seattleparksfoundation.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -51,7 +58,8 @@
   - Volunteer
 
 # Chuck's Hop Shop locations
-- name: chucks-hop-shop-central-district
+- geo: null
+  name: chucks-hop-shop-central-district
   friendlyname: "Chuck's Hop Shop - Central District"
   description: "Chuck's Hop Shop Central District location events - craft beer, food trucks, and community events"
   icsUrl: "https://calendar.google.com/calendar/ical/gpa2fn017a4ttjbdk3acgo4ks0%40group.calendar.google.com/public/basic.ics"
@@ -60,7 +68,8 @@
   - Beer
   - Central District
 
-- name: chucks-hop-shop-greenwood
+- geo: null
+  name: chucks-hop-shop-greenwood
   friendlyname: "Chuck's Hop Shop - Greenwood"
   description: "Chuck's Hop Shop Greenwood location events - craft beer, food trucks, and community events"
   icsUrl: "https://calendar.google.com/calendar/ical/qfkej3ne0281epth4r5bqdb8gg%40group.calendar.google.com/public/basic.ics"
@@ -69,7 +78,8 @@
   - Beer
   - Greenwood
 
-- name: chucks-hop-shop-seward-park
+- geo: null
+  name: chucks-hop-shop-seward-park
   friendlyname: "Chuck's Hop Shop - Seward Park"
   description: "Chuck's Hop Shop Seward Park location events - craft beer, food trucks, and community events"
   icsUrl: "https://calendar.google.com/calendar/ical/c_4abs9f65281tp530jsbhkb3vjg%40group.calendar.google.com/public/basic.ics"
@@ -78,7 +88,8 @@
   - Beer
   - Seward Park
 
-- name: teku-tavern
+- geo: null
+  name: teku-tavern
   friendlyname: "TeKu Tavern"
   description: "Beer bar and bottle shop in South Lake Union with 56 taps, 1,500+ bottles, trivia nights, and specialty beer events"
   icsUrl: "https://calendar.google.com/calendar/ical/1f3b1c679eb86b0463f72c90fb1f3b38f37ea9521a4ba709e819a5249a58e6f7%40group.calendar.google.com/public/basic.ics"
@@ -86,21 +97,24 @@
   tags:
   - Beer
   - South Lake Union
-- name: washington-beer-blog
+- geo: null
+  name: washington-beer-blog
   friendlyname: "Washington Beer Blog Events"
   description: "Washington Beer Blog"
   icsUrl: "https://calendar.google.com/calendar/ical/beerchurch%40gmail.com/public/basic.ics"
   infoUrl: "https://washingtonbeerblog.com/wa-beer-events/"
   tags:
   - Beer
-- name: Geekwire
+- geo: null
+  name: Geekwire
   friendlyname: "Geekwire Events"
   description: "GeekWire Events attract thousands of people to network, learn, recruit, do business, and make valuable connections with other members of the business, tech, life sciences, and innovation communities."
   icsUrl: "https://www.geekwire.com/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://www.geekwire.com/events/"
 
 # Seattle Arthouse Cinemas (from seattle-movies.innocence.com)
-- name: the-beacon-cinema
+- geo: null
+  name: the-beacon-cinema
   friendlyname: "The Beacon Cinema"
   description: "Independent arthouse cinema in Columbia City showing curated films, repertory screenings, and special events"
   icsUrl: "https://seattle-movies.innocence.com/thebeacon.ics"
@@ -109,7 +123,8 @@
   - Movies
   - Community
 
-- name: central-cinema
+- geo: null
+  name: central-cinema
   friendlyname: "Central Cinema"
   description: "Dinner theater showing classic, cult, and independent films with food and drinks on Capitol Hill"
   icsUrl: "https://seattle-movies.innocence.com/centralcinema.ics"
@@ -118,7 +133,8 @@
   - Movies
   - Capitol Hill
 
-- name: grand-illusion-cinema
+- geo: null
+  name: grand-illusion-cinema
   friendlyname: "Grand Illusion Cinema"
   description: "Nonprofit microcinema in the University District showing independent, experimental, and classic films"
   icsUrl: "https://seattle-movies.innocence.com/grandillusion.ics"
@@ -126,7 +142,8 @@
   tags:
   - Movies
 
-- name: nw-film-forum
+- geo: null
+  name: nw-film-forum
   friendlyname: "Northwest Film Forum"
   description: "Nonprofit film arts center on Capitol Hill presenting independent, international, and local films"
   icsUrl: "https://seattle-movies.innocence.com/nwff.ics"
@@ -137,7 +154,8 @@
   - Capitol Hill
 
 # Museums
-- name: mohai
+- geo: null
+  name: mohai
   friendlyname: "MOHAI - Museum of History & Industry"
   description: "Events at the Museum of History & Industry in South Lake Union including exhibits, talks, and community programs"
   icsUrl: "https://mohai.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -148,7 +166,8 @@
   - South Lake Union
 
 # Neighborhood Community Councils and Associations
-- name: phinney-neighborhood-association
+- geo: null
+  name: phinney-neighborhood-association
   friendlyname: "Phinney Neighborhood Association (PNA)"
   description: "Phinney Neighborhood Association"
   icsUrl: "https://www.phinneycenter.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -158,7 +177,8 @@
   - Phinney
   - Greenwood
 
-- name: discover-magnolia
+- geo: null
+  name: discover-magnolia
   friendlyname: "Discover Magnolia"
   description: "Discover Magnolia"
   icsUrl: "https://discovermagnolia.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -167,7 +187,8 @@
   - Community
   - Magnolia
 
-- name: seed-seattle
+- geo: null
+  name: seed-seattle
   friendlyname: "SEED — SouthEast Effective Development"
   description: "SEED — SouthEast Effective Development"
   icsUrl: "https://www.seedseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -176,7 +197,8 @@
   - Community
   - Columbia City
 
-- name: myballard
+- geo: null
+  name: myballard
   friendlyname: "My Ballard"
   description: "My Ballard"
   icsUrl: "https://myballard.com/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -186,7 +208,8 @@
   - Community
   - Ballard
 
-- name: wallyhood
+- geo: null
+  name: wallyhood
   friendlyname: "Wallyhood — Wallingford's Neighborhood Blog"
   description: "Wallyhood"
   icsUrl: "https://calendar.google.com/calendar/ical/wallyhood.blog%40gmail.com/public/basic.ics"
@@ -196,7 +219,8 @@
   - Wallingford
 
 # City of Seattle
-- name: seattle-gov-city-wide
+- geo: null
+  name: seattle-gov-city-wide
   friendlyname: "City of Seattle Events"
   description: "City of Seattle city-wide event calendar including public meetings, community events, volunteer opportunities, and civic engagement"
   icsUrl: "https://www.trumba.com/calendars/seattlegov-city-wide.ics"
@@ -204,7 +228,8 @@
   tags:
   - Community
 
-- name: seattle-gov-neighborhoods
+- geo: null
+  name: seattle-gov-neighborhoods
   friendlyname: "City of Seattle — Department of Neighborhoods"
   description: "City of Seattle Department of Neighborhoods"
   icsUrl: "https://www.trumba.com/calendars/neighborhoods.ics"
@@ -212,7 +237,8 @@
   tags:
   - Community
 
-- name: seattle-gov-arts
+- geo: null
+  name: seattle-gov-arts
   friendlyname: "City of Seattle — Office of Arts & Cultural Affairs"
   description: "Seattle Office of Arts & Culture"
   icsUrl: "https://www.trumba.com/calendars/arts-and-cultural-affairs.ics"
@@ -221,7 +247,8 @@
   - Arts
   - Community
 
-- name: seattle-gov-special-events
+- geo: null
+  name: seattle-gov-special-events
   friendlyname: "City of Seattle — Special Events Planning Calendar"
   description: "City of Seattle Special Events Planning Calendar"
   icsUrl: "https://www.trumba.com/calendars/SpecialEventsPlanningCalendar.ics"
@@ -231,7 +258,8 @@
   - Community
 
 # University of Washington (Trumba)
-- name: uw-campus-events
+- geo: null
+  name: uw-campus-events
   friendlyname: "University of Washington — Campus Events"
   description: "University of Washington"
   icsUrl: "https://www.trumba.com/calendars/sea_campus.ics"
@@ -242,7 +270,8 @@
   - Music
   - University District
 
-- name: uw-school-of-music
+- geo: null
+  name: uw-school-of-music
   friendlyname: "University of Washington — School of Music"
   description: "UW School of Music"
   icsUrl: "https://www.trumba.com/calendars/sea_music.ics"
@@ -251,7 +280,8 @@
   - Music
   - University District
 
-- name: uw-school-of-art
+- geo: null
+  name: uw-school-of-art
   friendlyname: "University of Washington — School of Art + Art History + Design"
   description: "UW School of Art + Art History + Design"
   icsUrl: "https://www.trumba.com/calendars/sea_art.ics"
@@ -260,8 +290,20 @@
   - Arts
   - University District
 
+- geo: null
+  name: uw-sustainability
+  friendlyname: "University of Washington — Sustainability"
+  description: "UW College of the Environment sustainability events, lectures, and community engagement"
+  icsUrl: "https://www.trumba.com/calendars/sea_essuw.ics"
+  infoUrl: "https://www.washington.edu/sustainability/"
+  tags:
+  - Community
+  - Education
+  - University District
+
 # WorkSource (Trumba)
-- name: worksource-north-seattle
+- geo: null
+  name: worksource-north-seattle
   friendlyname: "WorkSource North Seattle"
   description: "WorkSource North Seattle"
   icsUrl: "https://www.trumba.com/calendars/worksource-north-seattle.ics"
@@ -270,7 +312,8 @@
   - Community
   - Education
 
-- name: worksource-downtown-seattle
+- geo: null
+  name: worksource-downtown-seattle
   friendlyname: "WorkSource Downtown Seattle"
   description: "WorkSource Downtown Seattle"
   icsUrl: "https://www.trumba.com/calendars/worksource-downtown-seattle.ics"
@@ -280,7 +323,8 @@
   - Education
 
 # Regional Theatre Calendars
-- name: nwtheatre
+- geo: null
+  name: nwtheatre
   friendlyname: "NWTheatre.org Regional Theatre Calendar"
   description: "NWTheatre.org Regional Theatre Calendar"
   icsUrl: "https://www.nwtheatre.org/?plugin=all-in-one-event-calendar&controller=ai1ec_exporter_controller&action=export_events&no_html=true"
@@ -290,7 +334,8 @@
   - Theatre
 
 # Performing Arts & Music Venues (Confirmed ICS Feeds)
-- name: hugo-house
+- geo: null
+  name: hugo-house
   friendlyname: "Hugo House"
   description: "Hugo House"
   icsUrl: "https://hugohouse.org/programs-events/?ical=1&tribe_display=list"
@@ -300,7 +345,8 @@
   - Community
   - Capitol Hill
 
-- name: unexpected-productions
+- geo: null
+  name: unexpected-productions
   friendlyname: "Unexpected Productions"
   description: "Seattle's oldest improv theater in Pike Place Market - 10+ shows per week including Theatresports"
   icsUrl: "https://www.unexpectedproductions.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -309,7 +355,8 @@
   - Theatre
   - Pike Place
 
-- name: clock-out-lounge
+- geo: null
+  name: clock-out-lounge
   friendlyname: "Clock-Out Lounge"
   description: "Intimate 99-capacity music venue in Beacon Hill - the only live music venue in the neighborhood"
   icsUrl: "https://clockoutlounge.com/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -318,7 +365,8 @@
   - Music
   - Beacon Hill
 
-- name: town-hall-seattle
+- geo: null
+  name: town-hall-seattle
   friendlyname: "Town Hall Seattle"
   description: "Nonprofit civic venue hosting 350+ events per year - talks, performances, and civic discourse"
   icsUrl: "https://townhallseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -327,7 +375,8 @@
   - Community
   - Arts
 
-- name: langston
+- geo: null
+  name: langston
   friendlyname: "Langston Hughes Performing Arts Institute"
   description: "Events at Langston Hughes Performing Arts Institute in the Central District"
   icsUrl: "https://www.langstonseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -337,7 +386,8 @@
   - Community
   - Central District
 
-- name: united-indians-daybreak-star
+- geo: null
+  name: united-indians-daybreak-star
   friendlyname: "United Indians / Daybreak Star"
   description: "Cultural center in Discovery Park - events include Seafair Indian Days Powwow, Native Art Market, and cultural celebrations"
   icsUrl: "https://unitedindians.org/?post_type=tribe_events&ical=1"
@@ -347,7 +397,8 @@
   - Arts
 
 # ICS Feeds (Needs Investigation - disabled)
-- name: comedy-underground
+- geo: null
+  name: comedy-underground
   friendlyname: "Comedy Underground"
   description: "Comedy Underground"
   icsUrl: "https://comedyunderground.com/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -357,7 +408,8 @@
   - Arts
   - Pioneer Square
 
-- name: gba-georgetown
+- geo: null
+  name: gba-georgetown
   friendlyname: "Georgetown Arts & Cultural Alliance"
   description: "Georgetown Arts & Cultural Alliance"
   icsUrl: "https://georgetownseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -368,7 +420,8 @@
   - Community
   - Georgetown
 
-- name: seattle-artists-art-walks
+- geo: null
+  name: seattle-artists-art-walks
   friendlyname: "SeattleArtists.com Art Walks"
   description: "Art walks and gallery events across Seattle neighborhoods"
   icsUrl: "https://www.seattleartists.com/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -378,7 +431,8 @@
   - Arts
   - Artwalk
 
-- name: climate-pledge-arena
+- geo: null
+  name: climate-pledge-arena
   friendlyname: "Climate Pledge Arena"
   description: "Major event venue at Seattle Center hosting concerts, sports, and community events"
   icsUrl: "https://climatepledgearena.com/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -388,7 +442,8 @@
   - Music
   - Community
 
-- name: iloveseattle-community
+- geo: null
+  name: iloveseattle-community
   friendlyname: "iLoveSeattle.org Community Calendar"
   description: "Community events calendar for Seattle"
   icsUrl: "https://iloveseattle.org/?post_type=tribe_events&ical=1&eventDisplay=list"
@@ -397,7 +452,8 @@
   tags:
   - Community
 
-- name: washington-ensemble-theatre
+- geo: null
+  name: washington-ensemble-theatre
   friendlyname: "Washington Ensemble Theatre"
   description: "Experimental theater collective at 12th Avenue Arts on Capitol Hill"
   icsUrl: "https://washingtonensemble.org/events/?ical=1"
@@ -406,3 +462,71 @@
   tags:
   - Theatre
   - Capitol Hill
+- geo: null
+  name: shunpike
+  friendlyname: "Shunpike"
+  description: "Seattle arts organization supporting artists and cultural events through Storefronts and other programs"
+  icsUrl: "https://shunpike.org/events/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://shunpike.org/events/"
+  tags:
+  - Arts
+  - Community
+
+- geo: null
+  name: seattledances
+  friendlyname: "SeattleDances"
+  description: "Seattle's online hub for dance events, classes, and performances - covering contemporary, ballet, hip-hop, and more"
+  icsUrl: "https://seattledances.com/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://seattledances.com/events/"
+  tags:
+  - Dance
+  - Arts
+- geo: null
+  name: urban-league-seattle
+  friendlyname: "Urban League of Metropolitan Seattle"
+  description: "Community events from the Urban League of Metropolitan Seattle - housing workshops, education, and community programs"
+  icsUrl: "https://urbanleague.org/events-calendar/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://urbanleague.org/events-calendar/"
+  tags:
+  - Community
+  - Education
+- geo:
+    lat: 47.6685
+    lng: -122.3543
+    label: "Woodland Park Zoo, 5500 Phinney Ave N, Seattle, WA 98103"
+    osmId: 247154840
+    osmType: way
+    osmChecked: "2026-04-28"
+  name: woodland-park-zoo
+  friendlyname: "Woodland Park Zoo"
+  description: "Zoo events, ZooTunes concerts, animal encounters, and dining experiences"
+  icsUrl: "https://zoo.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://zoo.org/events/"
+  tags:
+  - Community
+  - Music
+- geo:
+    lat: 47.5984171
+    lng: -122.3338243
+    label: "Populus Seattle, 100 S King St, Seattle, WA 98104"
+    osmId: 13458644701
+    osmType: node
+    osmChecked: "2026-04-30"
+  name: populus-seattle
+  friendlyname: "Populus Seattle"
+  description: "Populus Seattle"
+  icsUrl: "https://populusseattle.com/events-calendar/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://populusseattle.com/events-calendar/"
+  tags:
+  - Nightlife
+  - Music
+  - Downtown
+- geo: null
+  name: earshot-jazz
+  friendlyname: "Earshot Jazz"
+  description: "Earshot Jazz"
+  icsUrl: "https://www.earshot.org/?post_type=tribe_events&ical=1&eventDisplay=list"
+  infoUrl: "https://www.earshot.org/events/"
+  tags:
+  - Music
+

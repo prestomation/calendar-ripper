@@ -121,6 +121,14 @@ jobs:
           echo "${delimiter4}"
         } >> "$GITHUB_OUTPUT"
 
+    - name: Check for build errors
+      run: |
+        FATAL_ERROR_COUNT=$(cat fatalErrorCount.txt)
+        if [ "$FATAL_ERROR_COUNT" -gt 0 ]; then
+          echo "::error::Build failed with $FATAL_ERROR_COUNT fatal error(s) (new source parse errors or zero-event sources)"
+          exit 1
+        fi
+
     - name: Upload geo-cache to S3
       if: always()
       env:

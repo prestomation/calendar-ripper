@@ -44,6 +44,16 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Seattle Farmers Markets (seattlefarmersmarkets.org)** — Squarespace `?format=json` returns 0 events even in-season. SquarespaceRipper not viable; existing recurring.yaml entries already cover these markets.
 - ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
 
+### 2026-05-05 — Source discovery: Seattle Tech Event Aggregators
+- ✅ **GeekWire** (`Geekwire` in external.yaml) — Already existed; added `Tech` tag so events flow into aggregate calendars. Also fixed external calendar fetcher to send browser User-Agent header.
+- ❌ **ctrlaltcreate.live** — Uses Luma platform. No free ICS feed (Luma Plus paid API required). Monthly in-person + weekly livestream AI/vibe coding events hosted at "Foundations" (1605 Boylston Ave, Capitol Hill). Not addable without paid Luma API key or direct organizer partnership.
+- ❌ **IEEE Seattle Section** (`ieee-seattle.org/calendar/?ical=1`) — ICS works, but events span well beyond Seattle: Vancouver BC, California, Everett, Ellensburg, mostly virtual. Not a good fit for a Seattle-focused site.
+- ❌ **WTIA** (`washingtontechnology.org/events-calendar/?ical=1`) — CAPTCHA-protected (sgcaptcha). Cannot fetch programmatically. Not viable.
+- ❌ **Calagator** — Portland-only tech calendar. Not relevant.
+- ❌ **Luma Seattle tech calendars** (SeattleJS, YoungTech Seattle, Seattle AI Week, DWeb Seattle) — No free ICS feeds; Luma Plus paid API required. Not addable.
+- ❌ **Startup Grind Seattle** — Bevy platform, low event volume (~1/month), no ICS. Not viable.
+- ❌ **Meetup.com** — Removed free ICS feed years ago. Not viable.
+
 ### 2026-04-28 — Source discovery: Zoo, Library, Community
 - ✅ **Woodland Park Zoo** — Tribe Events ICS confirmed working (~30 events: ZooTunes, animal encounters, dining). Adding to external.yaml. Previously marked ❌ (503) but ICS endpoint works fine.
 - ✅ **Seattle Public Library** — Already implemented as `sources/spl/` ripper (Trumba `kalendaro.json`, 24 branch calendars). No action needed.

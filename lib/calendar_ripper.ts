@@ -479,7 +479,9 @@ export const main = async () => {
       async (calendar): Promise<ExternalFetchResult> => {
         try {
           console.log(`Fetching external calendar: ${calendar.friendlyname}`);
-          const response = await fetch(calendar.icsUrl);
+          const response = await fetch(calendar.icsUrl, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events-calendar-ripper/1.0; +https://206.events)' }
+          });
           if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
           }

@@ -425,10 +425,9 @@
 - geo: null
   name: seattle-artists-art-walks
   friendlyname: "SeattleArtists.com Art Walks"
-  description: "Art walks and gallery events across Seattle neighborhoods"
+  description: "Art walks and gallery events across Seattle neighborhoods, including Pioneer Square First Thursday, Capitol Hill Art Walk, Central District Art Walk, and more"
   icsUrl: "https://www.seattleartists.com/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://www.seattleartists.com/calendar/"
-  disabled: true  # Returns 406 without browser-like User-Agent header
   tags:
   - Arts
   - Artwalk

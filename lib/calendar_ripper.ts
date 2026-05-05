@@ -1077,26 +1077,77 @@ END:VCALENDAR`;
   // Check for new sources with expectEmpty=true that have never appeared in production.
   // If a source has 0 events + expectEmpty=true but is NOT in the production manifest,
   // it has never produced events and likely has a wrong URL or ripper type.
-  // --- Detect new sources via deployed-site HEAD check ---
-  // A calendar that exists on 206.events has been deployed before — even if it
-  // currently has 0 events, the ICS file is still served (empty but valid).
-  // A calendar NOT on 206.events is brand new; 0 events or parse errors are fatal.
+  // --- Detect new sources via deployed-site manifest check ---
+  // 206.events is a Cloudflare Pages SPA that returns HTTP 200 with text/html for ANY
+  // path — including non-existent ICS files. A plain HEAD + res.ok check therefore
+  // marks every calendar as "already deployed", breaking new-source detection.
+  //
+  // Strategy: fetch the production manifest.json (a real data file, not an SPA route)
+  // to get the set of currently-deployed calendar ICS URLs. Then, for any calendar not
+  // in the manifest (e.g. a calendar that exists but has no future events right now),
+  // fall back to a content-type HEAD check: actual ICS files are served as
+  // "text/calendar"; the SPA catch-all always returns "text/html".
   const knownDeployed = new Set<string>();
   const productionUrl = process.env.PRODUCTION_URL || "https://206.events";
   const allCalendarNames = eventCounts.map(c => c.name);
-  console.log(`Checking ${allCalendarNames.length} calendars against deployed site for new-source detection...`);
-  const headChecks = await Promise.all(
-    allCalendarNames.map(async (name) => {
-      try {
-        const res = await fetch(`${productionUrl}/${name}.ics`, { method: "HEAD", signal: AbortSignal.timeout(5000) });
-        if (res.ok) {
-          knownDeployed.add(name);
+
+  // Step 1: fetch production manifest.json to get all deployed ICS URLs
+  const manifestDeployedIcsUrls = new Set<string>();
+  try {
+    const manifestRes = await fetch(`${productionUrl}/manifest.json`, { signal: AbortSignal.timeout(10000) });
+    if (manifestRes.ok) {
+      const manifest = await manifestRes.json() as {
+        rippers?: Array<{ calendars: Array<{ icsUrl: string }> }>;
+        recurringCalendars?: Array<{ icsUrl: string }>;
+        externalCalendars?: Array<{ icsUrl: string }>;
+      };
+      for (const ripper of manifest.rippers ?? []) {
+        for (const cal of ripper.calendars ?? []) {
+          if (cal.icsUrl) manifestDeployedIcsUrls.add(cal.icsUrl.replace(/\.ics$/, ""));
         }
-      } catch {
-        // Network error or timeout — treat as "not deployed" (conservative)
       }
-    })
-  );
+      for (const cal of manifest.recurringCalendars ?? []) {
+        if (cal.icsUrl) manifestDeployedIcsUrls.add(cal.icsUrl.replace(/\.ics$/, ""));
+      }
+      for (const cal of manifest.externalCalendars ?? []) {
+        if (cal.icsUrl) manifestDeployedIcsUrls.add(cal.icsUrl.replace(/\.ics$/, ""));
+      }
+      console.log(`Fetched production manifest: ${manifestDeployedIcsUrls.size} deployed calendar(s) found`);
+    } else {
+      console.warn(`Could not fetch production manifest (HTTP ${manifestRes.status}) — falling back to content-type HEAD checks`);
+    }
+  } catch (err: any) {
+    console.warn(`Could not fetch production manifest (${err?.message ?? err}) — falling back to content-type HEAD checks`);
+  }
+
+  // Step 2: mark manifest-listed calendars as known-deployed; for the rest, do a
+  // content-type HEAD check to catch calendars that exist on production but have no
+  // future events (and are thus omitted from the manifest).
+  const calendarsNotInManifest = allCalendarNames.filter(name => !manifestDeployedIcsUrls.has(name));
+  for (const name of allCalendarNames) {
+    if (manifestDeployedIcsUrls.has(name)) {
+      knownDeployed.add(name);
+    }
+  }
+
+  console.log(`Checking ${allCalendarNames.length} calendars against deployed site for new-source detection...`);
+  if (calendarsNotInManifest.length > 0) {
+    console.log(`${calendarsNotInManifest.length} calendar(s) not in manifest — checking content-type via HEAD...`);
+    await Promise.all(
+      calendarsNotInManifest.map(async (name) => {
+        try {
+          const res = await fetch(`${productionUrl}/${name}.ics`, { method: "HEAD", signal: AbortSignal.timeout(5000) });
+          // SPA catch-all returns text/html for any path; real ICS files are text/calendar.
+          // Only mark as deployed if the content-type confirms it's a real calendar file.
+          if (res.ok && res.headers.get("content-type")?.includes("text/calendar")) {
+            knownDeployed.add(name);
+          }
+        } catch {
+          // Network error or timeout — treat as "not deployed" (conservative)
+        }
+      })
+    );
+  }
   console.log(`${knownDeployed.size} of ${allCalendarNames.length} calendars already deployed; ${allCalendarNames.length - knownDeployed.size} are new.`);
 
   // --- Check new sources for zero events and parse errors ---

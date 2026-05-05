@@ -373,12 +373,17 @@ else errors.push(result); // It's a ParseError
 
 ## Writing Descriptions
 
-The `description` field in `ripper.yaml` is used as the `<h2>` section heading on the website. It should be **just the name** of the venue or organization — not a sentence describing what they do.
+The `description` field is used as the `<h2>` section heading on the website for rippers, and as supplementary info for external calendars.
 
-- **Good:** `"Stoup Brewing"`, `"BBYC Ballard (Bale Breaker & Yonder Cider)"`, `"Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"`
-- **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events at the Urban Beer Garden"`
+- **`ripper.yaml`** — Use just the name of the venue or organization. The heading should be short and recognizable.
+  - **Good:** `"Stoup Brewing"`, `"BBYC Ballard (Bale Breaker & Yonder Cider)"`, `"Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"`
+  - **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events"`
 
-Don't mention APIs, scraping methods, or other implementation details.
+- **`external.yaml`** — A sentence or two describing what the source covers is appropriate and encouraged. Help a reader understand what kinds of events to expect.
+  - **Good:** `"GeekWire Events attract thousands of people to network, learn, recruit, and do business across the Pacific Northwest tech community"`
+  - **Good:** `"Seattle's online hub for dance events, classes, and performances - covering contemporary, ballet, hip-hop, and more"`
+
+Don't mention APIs, scraping methods, or other implementation details in either case.
 
 ## Geo-Cache (`geo-cache.json`)
 

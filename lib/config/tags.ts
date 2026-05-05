@@ -51,6 +51,7 @@ export const TAG_CATEGORIES = {
         'Food',
         'Movies',
         'Music',
+        'Tech',
         'Museums',
         'Nightlife',
         'OpenMic',

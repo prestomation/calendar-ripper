@@ -8,6 +8,10 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
 - **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
 
+## Adding New Calendar Sources
+
+**Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists in `sources/external.yaml` or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).
+
 ## Source Candidate Tracking
 
 All source discovery findings live in **`docs/source-candidates.md`**. This file tracks:
@@ -369,12 +373,19 @@ else errors.push(result); // It's a ParseError
 
 ## Writing Descriptions
 
-The `description` field in `ripper.yaml` is used as the `<h2>` section heading on the website. It should be **just the name** of the venue or organization — not a sentence describing what they do.
+The `description` field is used as the `<h2>` section heading on the website for rippers, and as supplementary info for external calendars.
 
-- **Good:** `"Stoup Brewing"`, `"BBYC Ballard (Bale Breaker & Yonder Cider)"`, `"Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"`
-- **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events at the Urban Beer Garden"`
+- **`ripper.yaml`** — Use just the name of the venue or organization. The heading should be short and recognizable.
+  - **Good:** `"Stoup Brewing"`, `"BBYC Ballard (Bale Breaker & Yonder Cider)"`, `"Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"`
+  - **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events"`
 
-Don't mention APIs, scraping methods, or other implementation details.
+- **`external.yaml`** — A sentence or two describing what the source covers is appropriate and encouraged. Help a reader understand what kinds of events to expect.
+  - **Good:** `"GeekWire Events attract thousands of people to network, learn, recruit, and do business across the Pacific Northwest tech community"`
+  - **Good:** `"Seattle's online hub for dance events, classes, and performances - covering contemporary, ballet, hip-hop, and more"`
+
+Don't mention APIs, scraping methods, or other implementation details in either case.
+
+**Never rename or reformat the `name` field of an existing source.** The `name` drives the output filename (e.g. `external-Geekwire.ics`). Changing it silently removes the old URL from the deployed site, requiring an `allowed-removals.txt` entry and breaking any subscribers. If you think a name is wrong, ask first.
 
 ## Geo-Cache (`geo-cache.json`)
 

@@ -428,6 +428,7 @@
   description: "Art walks and gallery events across Seattle neighborhoods, including Pioneer Square First Thursday, Capitol Hill Art Walk, Central District Art Walk, and more"
   icsUrl: "https://www.seattleartists.com/?post_type=tribe_events&ical=1&eventDisplay=list"
   infoUrl: "https://www.seattleartists.com/calendar/"
+  disabled: true  # ICS returns 0 events from CI: browser UA causes HTML redirect, non-browser UA causes 406
   tags:
   - Arts
   - Artwalk

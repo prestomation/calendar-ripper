@@ -44,8 +44,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Seattle Farmers Markets (seattlefarmersmarkets.org)** — Squarespace `?format=json` returns 0 events even in-season. SquarespaceRipper not viable; existing recurring.yaml entries already cover these markets.
 - ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
 
-### 2026-05-05 — Re-enable seattle-artists-art-walks + new candidates
-- ✅ **SeattleArtists.com Art Walks** (`seattle-artists-art-walks`) — Re-enabled after User-Agent fix in PR #258 resolved the HTTP 406 blocker. Tribe Events ICS with art walks and gallery events across Seattle neighborhoods (Pioneer Square First Thursday, Capitol Hill Art Walk, Central District Art Walk, etc.).
+### 2026-05-05 — Re-enable seattle-artists-art-walks investigation + new candidates
+- ❌ **SeattleArtists.com Art Walks** (`seattle-artists-art-walks`) — Re-enable attempted in PR #260 but CI confirmed ICS returns 0 events. Catch-22: browser UA → 200 + HTML (0 events); non-browser UA → 406. Chrome User-Agent fix committed to external fetcher (benefits other sources). Source re-disabled with updated notes. Try `/calendar/?ical=1` as alternative URL next cycle.
 - 💡 **United Indians of All Tribes / Daybreak Star** — WordPress + The Events Calendar at unitedindians.org. Multiple 2026 events confirmed: Indian Days Powwow (July), Art Market (May), Monthly 5K runs, Gala. Address: 5011 Bernie Whitebear Way NW, Seattle, WA 98199 (Discovery Park). Tags: Community, Parks. ICS URL to try: `https://unitedindians.org/?post_type=tribe_events&ical=1&eventDisplay=list`
 
 ### 2026-05-05 — Source discovery: LGBTQ, Dance, Outdoors, Breweries
@@ -401,7 +401,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 | `transit-riders-union` | Returns HTML instead of ICS — endpoint broken |
 | `comedy-underground` | HTTP 200 with empty body — Tribe Events ICS returns no data |
 | `gba-georgetown` | HTTP 503 — site was down, may be temporary |
-| ~~`seattle-artists-art-walks`~~ | ~~HTTP 406 without browser User-Agent~~ — **Fixed**: re-enabled after PR #258 added browser User-Agent to external fetcher |
+| `seattle-artists-art-walks` | Catch-22: browser UA returns 200 + 0 events (likely HTML redirect); non-browser UA returns 406. Site is active but ICS export appears to be blocked/broken. Needs investigation with `curl` from a real IP or alternative URL (try `/calendar/?ical=1`). |
 | `washington-ensemble-theatre` | ai1ec plugin, needs investigation |
 | `iloveseattle-community` | Never confirmed working |
 

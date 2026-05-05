@@ -8,6 +8,10 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
 - **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
 
+## Adding New Calendar Sources
+
+**Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists in `sources/external.yaml` or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).
+
 ## Source Candidate Tracking
 
 All source discovery findings live in **`docs/source-candidates.md`**. This file tracks:

@@ -343,7 +343,7 @@ export const main = async () => {
   let totalErrorCount = 0;
 
   // Track event counts per calendar for summary
-  const eventCounts: Array<{ name: string; type: string; events: number; expectEmpty: boolean }> = [];
+  const eventCounts: Array<{ name: string; type: string; events: number; expectEmpty: boolean; source: string }> = [];
 
   // Collect all errors for consolidated build-errors.json. Aggregate
   // (tag-*) calendars are intentionally absent from this list and from
@@ -391,7 +391,7 @@ export const main = async () => {
     totalErrorCount += errorCount;
     const icsString = await toICS(calendar);
     console.log(`${calendar.events.length} events for recurring-${calendar.name}`);
-    eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length, expectEmpty: false });
+    eventCounts.push({ name: `recurring-${calendar.name}`, type: "Recurring", events: calendar.events.length, expectEmpty: false, source: calendar.name });
     if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
       calendarsWithFutureEvents.add(`recurring-${calendar.name}.ics`);
     }
@@ -519,7 +519,7 @@ export const main = async () => {
       const calConfig = config.config.calendars.find(c => c.name === calendar.name);
       const isExpectEmpty = calConfig?.expectEmpty ?? config.config.expectEmpty ?? false;
       console.log(`${calendar.events.length} events for ${config.config.name}-${calendar.name}`);
-      eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length, expectEmpty: isExpectEmpty });
+      eventCounts.push({ name: `${config.config.name}-${calendar.name}`, type: "Ripper", events: calendar.events.length, expectEmpty: isExpectEmpty, source: config.config.name });
       if (calendar.events.some(e => e.date.toLocalDate().compareTo(todayLocal) >= 0)) {
         calendarsWithFutureEvents.add(icsPath);
       }
@@ -639,7 +639,7 @@ export const main = async () => {
       const aggTag = calendar.tags[0];
       const isAggExpectEmpty = aggTag ? (tagExpectEmpty.get(aggTag) ?? false) : false;
       console.log(`${calendar.events.length} events for ${calendar.name}`);
-      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty });
+      eventCounts.push({ name: calendar.name, type: "Aggregate", events: calendar.events.length, expectEmpty: isAggExpectEmpty, source: calendar.name });
       if (calendar.events.length === 0 && !isAggExpectEmpty) {
         console.log(`::warning::Aggregate calendar ${calendar.name} has 0 events — this may indicate a problem`);
       }
@@ -673,7 +673,7 @@ export const main = async () => {
       externalWritePromises.push(writeFile(`output/${localFileName}`, icsContent));
       const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
       console.log(`${eventCount} events for external-${calendar.name}`);
-      eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount, expectEmpty: calendar.expectEmpty });
+      eventCounts.push({ name: `external-${calendar.name}`, type: "External", events: eventCount, expectEmpty: calendar.expectEmpty, source: calendar.name });
       if (hasFutureEventsInICS(icsContent)) {
         calendarsWithFutureEvents.add(localFileName);
       }
@@ -1100,27 +1100,42 @@ END:VCALENDAR`;
   console.log(`${knownDeployed.size} of ${allCalendarNames.length} calendars already deployed; ${allCalendarNames.length - knownDeployed.size} are new.`);
 
   // --- Check new sources for zero events and parse errors ---
-  // A calendar is "new" if it doesn't exist on the deployed site (HTTP HEAD returns 404).
-  // New sources with 0 events or parse errors fail the build.
+  // A SOURCE is "new" only if NONE of its calendars are deployed to 206.events.
+  // This prevents a new branch (e.g. a new SPL location) from making an existing
+  // source appear "new" just because that one calendar ICS is missing.
+  const knownDeployedSources = new Set<string>();
+  for (const cal of eventCounts) {
+    if (knownDeployed.has(cal.name)) {
+      knownDeployedSources.add(cal.source);
+    }
+  }
+  const newSources = new Set<string>();
+  for (const cal of eventCounts) {
+    if (!knownDeployedSources.has(cal.source) && cal.type !== "Aggregate") {
+      newSources.add(cal.source);
+    }
+  }
+  const newCalendarEntries = eventCounts.filter(c => newSources.has(c.source) && c.type !== "Aggregate");
+  console.log(`${newSources.size} new source(s) detected (${knownDeployedSources.size} known-deployed source(s)).`);
+
   const newZeroEventSources: string[] = [];
   const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
 
   // New source with 0 events → fail build (no proven data pipeline)
-  const newZeroEvent = eventCounts.filter(
-    c => c.events === 0 && !knownDeployed.has(c.name) && c.type !== "Aggregate" && !c.expectEmpty
-  );
+  const newZeroEvent = newCalendarEntries.filter(c => c.events === 0 && !c.expectEmpty);
   for (const cal of newZeroEvent) {
-    console.log(`::error::New source "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
+    console.log(`::error::New source "${cal.source}" calendar "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
     newZeroEventSources.push(cal.name);
   }
   if (newZeroEventSources.length > 0) {
-    console.log(`Found ${newZeroEventSources.length} new zero-event source(s) in this build`);
+    console.log(`Found ${newZeroEventSources.length} new zero-event calendar(s) in this build`);
   }
 
   // New source with parse errors → fail build (can't merge half-parsed sources)
   for (const entry of buildErrors) {
     const calName = entry.type === "Recurring" ? `recurring-${entry.calendar}` : `${entry.source}-${entry.calendar}`;
-    if (!knownDeployed.has(calName)) {
+    const calEntry = eventCounts.find(c => c.name === calName);
+    if (calEntry && newSources.has(calEntry.source)) {
       const parseErrors = entry.errors.filter(e => e.type === "ParseError" || e.type === "InvalidDateError");
       if (parseErrors.length > 0) {
         console.log(`::error::New source "${entry.source}" calendar "${entry.calendar}" has ${parseErrors.length} parse error(s). Fix the ripper or external config before merging.`);
@@ -1147,9 +1162,8 @@ END:VCALENDAR`;
     sampleEvents: Array<{ summary: string; date: string; location: string }>;
   }> = [];
 
-  // New-source summary: list calendars not yet deployed to production
-  const newCalendarNames = eventCounts.filter(c => !knownDeployed.has(c.name) && c.type !== "Aggregate").map(c => c.name);
-  if (newCalendarNames.length > 0) {
+  // New-source summary: list calendars belonging to genuinely new sources
+  if (newCalendarEntries.length > 0) {
     // Group events from eventsIndex by their calendar (icsUrl without .ics suffix = calendar key)
     const eventsByCalendar = new Map<string, Array<{ summary: string; date: string; location: string }>>();
     for (const evt of eventsIndex) {
@@ -1168,23 +1182,17 @@ END:VCALENDAR`;
       evts.sort((a, b) => a.date.localeCompare(b.date));
     }
 
-    // Match new calendar names to eventCounts
-    for (const calName of newCalendarNames) {
-      const cal = eventCounts.find(c => c.name === calName);
-      if (cal) {
-        const sampleEvents = (eventsByCalendar.get(cal.name) || [])
-          .slice(0, 5)
-          .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
-        // Extract source name from calendar name
-        const sourceName = cal.type === "External" ? cal.name.replace(/^external-/, "") : cal.type === "Recurring" ? cal.name.replace(/^recurring-/, "") : cal.name.replace(/-[^-]+$/, "");
-        newSourceSummary.push({
-          source: sourceName,
-          calendar: cal.name,
-          type: cal.type,
-          eventCount: cal.events,
-          sampleEvents,
-        });
-      }
+    for (const cal of newCalendarEntries) {
+      const sampleEvents = (eventsByCalendar.get(cal.name) || [])
+        .slice(0, 5)
+        .map(e => ({ summary: e.summary, date: e.date, location: e.location }));
+      newSourceSummary.push({
+        source: cal.source,
+        calendar: cal.name,
+        type: cal.type,
+        eventCount: cal.events,
+        sampleEvents,
+      });
     }
   }
   await writeFile("output/new-source-summary.json", JSON.stringify(newSourceSummary, null, 2));
@@ -1244,6 +1252,7 @@ END:VCALENDAR`;
       type: c.type,
       events: c.events,
       expectEmpty: c.expectEmpty || false,
+      source: c.source,
     })),
   };
   await writeFile(

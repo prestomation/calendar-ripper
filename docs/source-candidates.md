@@ -44,6 +44,15 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Seattle Farmers Markets (seattlefarmersmarkets.org)** — Squarespace `?format=json` returns 0 events even in-season. SquarespaceRipper not viable; existing recurring.yaml entries already cover these markets.
 - ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
 
+### 2026-05-05 — Source discovery: LGBTQ, Dance, Outdoors, Breweries
+- ✅ **UW Libraries Seattle** — Trumba ICS (`sea_lib.ics`), same proven pattern as existing `uw-campus-events`. Public lectures, author talks, exhibitions, and community events. Added to `sources/external.yaml`. Tags: Books, Education, University District.
+- 💡 **Swing It Seattle** — Lindy Hop/swing dance org at swingitseattle.com. Regular socials at South Park Hall and Russian Community Center. Has calendar at `/calendar`. Platform unknown (sandbox blocked). Tags: Dance.
+- 💡 **Queer/Bar** — LGBTQ venue at 1426 Broadway, Capitol Hill. Regular drag shows, DJ nights. Events at thequeerbar.com/calendar. Uses Fever for ticketing. Platform (Squarespace vs Webflow) unknown. Tags: Nightlife, Capitol Hill.
+- 💡 **Elliott Bay Brewing** — Seattle brewery with West Seattle (4720 California Ave SW) and SoDo locations. Has events page (karaoke, trivia, tastings, community nights). Platform unknown. Tags: Beer, West Seattle.
+- ❌ **MOHAI** — Already in `sources/external.yaml` as `mohai` (Tribe Events ICS). No action needed.
+- ❌ **Rat City Roller Derby** — Calendar page appears password-protected. ICS endpoint likely returns HTML (previously noted). Not viable without direct verification.
+- ❌ **Uplift Climbing** — Returns 403 from sandbox and WebFetch. Cloudflare-protected. Not viable.
+
 ### 2026-05-05 — Source discovery: Seattle Tech Event Aggregators
 - ✅ **GeekWire** (`Geekwire` in external.yaml) — Already existed; added `Tech` tag so events flow into aggregate calendars. Also fixed external calendar fetcher to send browser User-Agent header.
 - ❌ **ctrlaltcreate.live** — Uses Luma platform. No free ICS feed (Luma Plus paid API required). Monthly in-person + weekly livestream AI/vibe coding events hosted at "Foundations" (1605 Boylston Ave, Capitol Hill). Not addable without paid Luma API key or direct organizer partnership.
@@ -176,7 +185,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - `sea_comp_lit` — UW Cinema & Media Studies — `https://www.trumba.com/calendars/sea_comp_lit.ics`
 - `sea_evans-hub` — UW Evans School Community Hub — `https://www.trumba.com/calendars/sea_evans-hub.ics`
 
-**MOHAI** — `https://mohai.org/events/` — WordPress with Tribe Events (try `?post_type=tribe_events&ical=1`) — Tags: Museums, Community
+~~**MOHAI**~~ — Already in `sources/external.yaml` as `mohai` (ICS: `?post_type=tribe_events&ical=1&eventDisplay=list`) — No action needed.
 
 ### Squarespace (built-in type)
 
@@ -209,6 +218,12 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ~~**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers~~
 
 ### Custom HTML/JSON Scraping
+
+**Swing It Seattle** — `https://www.swingitseattle.com/calendar` — Swing/Lindy hop dance org. Regular socials at South Park Hall and Russian Community Center. Platform unknown (sandbox blocked). — Tags: Dance — **New 2026-05-05**
+
+**Queer/Bar** — `https://www.thequeerbar.com/events-one` — LGBTQ+ venue at 1426 Broadway, Capitol Hill. Regular drag shows, DJ nights, comedy. Uses Fever for some ticketing. Platform (Squarespace vs Webflow) unknown — Tags: Nightlife, Capitol Hill — **New 2026-05-05**
+
+**Elliott Bay Brewing** — `https://elliottbaybrewing.com/events/` — Seattle brewery with West Seattle (4720 California Ave SW) and SoDo locations. Events: karaoke, trivia, tastings, community nights. Platform unknown — Tags: Beer, West Seattle — **New 2026-05-05**
 
 **ACT Theatre / Union Arts Center** — `https://acttheatre.org/whats-on/` (redirects to unionartscenter.org) — WordPress with Avada — Tags: Theatre, Downtown
 

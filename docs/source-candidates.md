@@ -45,7 +45,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
 
 ### 2026-05-05 — Source discovery: LGBTQ, Dance, Outdoors, Breweries
-- ✅ **UW Libraries Seattle** — Trumba ICS (`sea_lib.ics`), same proven pattern as existing `uw-campus-events`. Public lectures, author talks, exhibitions, and community events. Added to `sources/external.yaml`. Tags: Books, Education, University District.
+- 🔍 **UW Libraries Seattle** — Trumba ICS (`sea_lib.ics`) attempted but removed: could not verify events from sandbox (all Trumba fetches blocked). CI build fails on new zero-event sources. Moved back to 💡 Candidate pending out-of-band verification.
 - 💡 **Swing It Seattle** — Lindy Hop/swing dance org at swingitseattle.com. Regular socials at South Park Hall and Russian Community Center. Has calendar at `/calendar`. Platform unknown (sandbox blocked). Tags: Dance.
 - 💡 **Queer/Bar** — LGBTQ venue at 1426 Broadway, Capitol Hill. Regular drag shows, DJ nights. Events at thequeerbar.com/calendar. Uses Fever for ticketing. Platform (Squarespace vs Webflow) unknown. Tags: Nightlife, Capitol Hill.
 - 💡 **Elliott Bay Brewing** — Seattle brewery with West Seattle (4720 California Ave SW) and SoDo locations. Has events page (karaoke, trivia, tastings, community nights). Platform unknown. Tags: Beer, West Seattle.
@@ -177,7 +177,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
 - `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
 - `sea_info` — UW Information School — `https://www.trumba.com/calendars/sea_info.ics`
-- `sea_lib` — UW Libraries Seattle — `https://www.trumba.com/calendars/sea_lib.ics`
+- `sea_lib` — UW Libraries Seattle — `https://www.trumba.com/calendars/sea_lib.ics` — 🔍 Attempted 2026-05-05: removed from PR due to unverifiable event count from sandbox. Must confirm > 0 events before re-adding.
 - `sea_law` — UW School of Law — `https://www.trumba.com/calendars/sea_law.ics`
 - `sea_foster` — UW Foster School of Business — `https://www.trumba.com/calendars/sea_foster.ics`
 - `sea_nursing` — UW School of Nursing — `https://www.trumba.com/calendars/sea_nursing.ics`

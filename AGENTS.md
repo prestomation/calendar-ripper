@@ -385,6 +385,8 @@ The `description` field is used as the `<h2>` section heading on the website for
 
 Don't mention APIs, scraping methods, or other implementation details in either case.
 
+**Never rename or reformat the `name` field of an existing source.** The `name` drives the output filename (e.g. `external-Geekwire.ics`). Changing it silently removes the old URL from the deployed site, requiring an `allowed-removals.txt` entry and breaking any subscribers. If you think a name is wrong, ask first.
+
 ## Geo-Cache (`geo-cache.json`)
 
 `geo-cache.json` is committed to the repository and stores resolved geographic coordinates for event locations. It is the source of truth for geocoding and is used by both the main calendar build and the out-of-band ripper.

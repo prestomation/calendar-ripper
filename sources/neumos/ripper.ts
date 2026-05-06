@@ -141,9 +141,6 @@ export default class NeumosRipper implements IRipper {
         }
         const html = await res.text();
 
-        const events: RipperCalendarEvent[] = [];
-        const errors: RipperError[] = [];
-
         return ripper.config.calendars.map(cal => {
             const zone = ZoneId.of(cal.timezone.toString());
             const now = ZonedDateTime.now(zone);

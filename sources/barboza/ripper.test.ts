@@ -12,6 +12,8 @@ function loadSample(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
 }
 
+const LOCATION = "Barboza, 925 E Pike St, Seattle, WA 98122";
+
 const ZONE = ZoneId.of('America/Los_Angeles');
 
 describe('Barboza parseEvents', () => {
@@ -68,5 +70,3 @@ describe('Barboza parseEvents', () => {
         expect(nonCanceledErrors.length).toBe(0);
     });
 });
-
-const LOCATION = "Barboza, 925 E Pike St, Seattle, WA 98122";

@@ -64,7 +64,7 @@ export function parseEvent(item: HTMLElement, zone: ZoneId): ParseResult {
 
     const eventUrl = titleAnchor?.getAttribute('href') || '';
     const idMatch = eventUrl.match(/-(\d+)(?:[/?#]|$)/);
-    const id = idMatch ? `barboza-${idMatch[1]}` : `barboza-${summary.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+    const id = idMatch ? `barboza-${idMatch[1]}` : `barboza-${summary.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 60)}`;
 
     const dateEl = item.querySelector('.date');
     const ariaLabel = dateEl?.getAttribute('aria-label') || '';

@@ -4,6 +4,19 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-06 — Source discovery: Markets (prompted by 5/16 Seattle Art Market flyer)
+- ❌ **Sugar Metal Customs** — Salt Lake City–based metal-art studio doing guest welding workshops in Seattle (notably "Weld a Metal Rose" at Seattle Makers). WordPress + Kadence theme; `/events/` and `/workshops/` both return 404. Their Seattle pop-ups will surface via the venues that host them. Not viable as a standalone source.
+- 💡 **Seattle Makers** — Seattle makerspace running **EventPrime** WP plugin (`pp_event` post type, `pe-ajax-events` class). Live probe 2026-05-06:
+  - `/events/?ical=1` returns `text/html` (ICS export disabled)
+  - `/events/feed/` returns valid RSS but only `pubDate` (post creation), no event start/end dates → unusable as primary feed
+  - `/wp-json/` is 401-walled site-wide (REST hardened)
+  - Single event pages have Yoast `WebPage` JSON-LD only, no `Event` schema
+  - List page renders via AJAX (`pe-ajax-events` container)
+  - Requires custom HTML/AJAX scraper. Tags: Workshops, Community.
+- 💡 **Big Whale Consignment Artist & Makers Market** — Recurring Sat/Sun market, EverOut-tracked at `bigwhaleconsignment.com/pages/events`. Likely Shopify — try `/products.json` first. Tags: MakersMarket, Arts.
+- 🔍 **Pioneer Square Market** (`pioneersquaremarket.net/markets`) — Returned 403 from sandbox; live status not yet confirmed. Investigate URL/proxy.
+- ❌ **Seattle Local Markets** (Magnolia Flea, Fremont Night Market) — `seattlelocalmarkets.com` has no ICS/RSS/API; site directs visitors to socials only. Not viable.
+
 ### 2026-05-03 — Source discovery: Food/Drink, Arts, Outdoors
 - ✅ **Henry Art Gallery** — Eventbrite organizer `775590393`, 5 upcoming events (May–June 2026). Contemporary art museum on UW campus. Tags: Arts, Museums, University District. Implementing in this PR.
 - ✅ **Cannonball Arts Center** — WordPress custom REST API (`/wp-json/wp/v2/cba-event`). New Belltown venue from Bumbershoot producers at 1930 3rd Ave. Custom ripper parses dates from content HTML. Tags: Arts, Belltown. `expectEmpty: true` since venue is still building programming.
@@ -219,6 +232,12 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### Custom HTML/JSON Scraping
 
+**Seattle Makers** — `https://seattlemakers.org/events/` — Makerspace running EventPrime WP plugin. Probed 2026-05-06: ICS endpoint returns HTML (disabled), RSS lacks event dates, `/wp-json/` is 401-walled site-wide, individual event pages have only `WebPage` JSON-LD (no `Event` schema), list page renders via AJAX (`pe-ajax-events`). Custom scraper needs to either replicate the admin-ajax POST or fetch each event slug page and extract rendered date HTML. Tags: Workshops, Community — **New 2026-05-06**
+
+**Big Whale Consignment** — `https://bigwhaleconsignment.com/pages/events` — Recurring Sat/Sun Artist & Makers Market in Seattle, EverOut-tracked. Try Shopify `/products.json` first; fall back to HTML if events aren't posted as products. Tags: MakersMarket, Arts — **New 2026-05-06**
+
+**Pioneer Square Market** — `https://pioneersquaremarket.net/markets` — 🔍 Investigating: returned 403 from sandbox 2026-05-06. Live status TBD. Tags: MakersMarket, Pioneer Square — **New 2026-05-06**
+
 **Swing It Seattle** — `https://www.swingitseattle.com/calendar` — Swing/Lindy hop dance org. Regular socials at South Park Hall and Russian Community Center. Platform unknown (sandbox blocked). — Tags: Dance — **New 2026-05-05**
 
 **Queer/Bar** — `https://www.thequeerbar.com/events-one` — LGBTQ+ venue at 1426 Broadway, Capitol Hill. Regular drag shows, DJ nights, comedy. Uses Fever for some ticketing. Platform (Squarespace vs Webflow) unknown — Tags: Nightlife, Capitol Hill — **New 2026-05-05**
@@ -360,6 +379,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Conor Byrne Pub** — Squarespace `?format=json` returns `itemCount: 0`. Already well-covered by seattle-showlists (54 events) + recurring.yaml (1 open mic). Low priority to re-attempt.
 
 **Future Primitive Brewing** — Squarespace `?format=json` returns `itemCount: 0`. Never produced events on 206.events. Revisit if they start publishing events.
+
+**Sugar Metal Customs** — Salt Lake City–based metal-art studio. Runs guest welding workshops at Seattle Makers; pop-up markets like the 5/16 "Seattle Art Market" at 2211 3rd Ave are one-off rentals, not a recurring series. WordPress site has no `/events/` page (404). Their Seattle appearances are best captured via the venues that host them (e.g., Seattle Makers). Not viable as a standalone source — **2026-05-06**
+
+**Seattle Local Markets** — `seattlelocalmarkets.com`. Runs Magnolia Flea Market, Fremont Night Market, and quarterly themed events. No ICS/RSS/API; site directs visitors to email/socials for updates. Not viable without a custom scraper — **2026-05-06**
 
 ---
 

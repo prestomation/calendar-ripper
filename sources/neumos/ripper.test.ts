@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { ZoneId } from '@js-joda/core';
-import { parseEvents } from './ripper.js';
+import { parseAXSSkinEvents } from '../../lib/config/axsskin.js';
 import { RipperCalendarEvent } from '../../lib/config/schema.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -13,16 +13,17 @@ function loadSample(): string {
 }
 
 const ZONE = ZoneId.of('America/Los_Angeles');
+const LOCATION = "Neumos, 925 E Pike St, Seattle, WA 98122";
 
 describe('Neumos parseEvents', () => {
     it('parses every event listed on the page', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         expect(events.length).toBe(12);
     });
 
     it('parses the Zinadelphia show with date, time, ticket link, and tagline', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         const zina = events.find(e => e.summary.startsWith('Zinadelphia'));
         expect(zina).toBeDefined();
@@ -41,7 +42,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('handles events without a tagline', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         const terror = events.find(e => e.summary.startsWith('Northwest Terror Fest'));
         expect(terror).toBeDefined();
@@ -51,7 +52,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('does not double up the "with" prefix when the tagline already includes it', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         const telehealth = events.find(e => e.summary.startsWith('Telehealth'));
         expect(telehealth).toBeDefined();
@@ -60,7 +61,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('decodes HTML entities in titles and taglines', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         for (const e of events) {
             expect(e.summary).not.toMatch(/&(amp|#\d+|rsquo|apos);/);
@@ -69,7 +70,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('uses a stable id derived from the AXS event id in the URL', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         const ids = events.map(e => e.id);
         for (const id of ids) {
@@ -79,7 +80,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('gives a 3 hour default duration', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const events = results.filter(r => 'date' in r) as RipperCalendarEvent[];
         for (const e of events) {
             expect(e.duration.toHours()).toBe(3);
@@ -87,7 +88,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('returns ParseResult only — never null', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         for (const r of results) {
             expect(r === null).toBe(false);
             expect('date' in r || 'type' in r).toBe(true);
@@ -95,7 +96,7 @@ describe('Neumos parseEvents', () => {
     });
 
     it('returns no errors for a healthy page', () => {
-        const results = parseEvents(loadSample(), ZONE);
+        const results = parseAXSSkinEvents(loadSample(), ZONE, 'neumos', LOCATION);
         const errors = results.filter(r => 'type' in r);
         expect(errors.length).toBe(0);
     });

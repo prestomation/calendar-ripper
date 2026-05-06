@@ -172,10 +172,14 @@ export abstract class AXSSkinRipper implements IRipper {
             const raw = await res.text();
             // AJAX responses are JSON-encoded HTML strings
             let html: string;
-            if (raw.startsWith('"')) {
-                html = JSON.parse(raw) as string;
-            } else {
-                html = raw;
+            try {
+                if (raw.startsWith('"')) {
+                    html = JSON.parse(raw) as string;
+                } else {
+                    html = raw;
+                }
+            } catch (e) {
+                throw new Error(`${this.venueId} AJAX page at offset ${offset} returned invalid JSON: ${(e as Error).message}`);
             }
             if (!html || !html.trim()) break;
             allHtml.push(html);

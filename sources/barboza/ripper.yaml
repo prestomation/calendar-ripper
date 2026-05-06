@@ -1,11 +1,7 @@
 name: barboza
-disabled: true # disabled: AXS/AMC bot protection blocks residential IP + Chrome OOM on 4GB server
-type: axs
-proxy: "outofband" # AXS returns 403 from GitHub runner IPs
-friendlyname: "Barboza"
 description: "Intimate Capitol Hill music venue located below Neumos"
-url: "https://www.axs.com/venues/124813/barboza-seattle-tickets"
-friendlyLink: https://www.neumos.com/barboza
+url: "https://www.thebarboza.com/events"
+friendlyLink: https://www.thebarboza.com/events
 tags: ["Music", "Capitol Hill"]
 geo:
   lat: 47.6138
@@ -17,8 +13,3 @@ calendars:
   - name: barboza
     friendlyname: "Barboza"
     timezone: America/Los_Angeles
-    config:
-      venueId: 124813
-      venueSlug: "barboza-seattle-tickets"
-      venueName: "Barboza"
-      venueAddress: "925 E Pike St, Seattle, WA 98122"

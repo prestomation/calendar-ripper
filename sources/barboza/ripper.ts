@@ -63,8 +63,6 @@ export function parseEvent(item: HTMLElement, zone: ZoneId): ParseResult {
     }
 
     const eventUrl = titleAnchor?.getAttribute('href') || '';
-    const idMatch = eventUrl.match(/-(\d+)(?:[/?#]|$)/);
-    const id = idMatch ? `barboza-${idMatch[1]}` : `barboza-${summary.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 60)}`;
 
     const dateEl = item.querySelector('.date');
     const ariaLabel = dateEl?.getAttribute('aria-label') || '';
@@ -72,6 +70,13 @@ export function parseEvent(item: HTMLElement, zone: ZoneId): ParseResult {
     if (!parsed) {
         return { type: 'ParseError', reason: `Could not parse date from aria-label "${ariaLabel}"`, context: summary };
     }
+
+    const idMatch = eventUrl.match(/-(\d+)(?:[/?#]|$)/);
+    // Use numeric ID from URL when available; otherwise generate a date-keyed fallback
+    // to prevent collisions between events with similar titles on different dates.
+    const id = idMatch
+      ? `barboza-${idMatch[1]}`
+      : `barboza-${summary.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40)}-${parsed.year}${String(parsed.month).padStart(2, '0')}${String(parsed.day).padStart(2, '0')}`;
 
     const timeText = cleanText(item.querySelector('.meta .time')?.textContent);
     const doors = parseDoorsTime(timeText);

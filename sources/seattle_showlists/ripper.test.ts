@@ -258,7 +258,8 @@ describe('SeattleShowlistsRipper', () => {
                 'Showbox Market', 'Showbox Sodo', 'Neumos', 'The Crocodile',
                 'Neptune Theater', 'The Moore Theater', 'The Paramount Theater',
                 'WAMU Theater', 'The Vera Project', 'The Sunset Tavern',
-                'Tractor Tavern', 'Substation', 'Chop Suey'
+                'Tractor Tavern', 'Substation', 'Chop Suey', 'Hidden Hall',
+                'Barboza', 'Clock-Out Lounge'
             ];
             for (const venue of skippedVenues) {
                 expect(VENUE_CONFIG[venue]?.skip, `${venue} should be skipped`).toBe(true);
@@ -267,9 +268,9 @@ describe('SeattleShowlistsRipper', () => {
 
         it('should not have skip for included venues', () => {
             const includedVenues = [
-                'Baba Yaga', 'Bad Bar', 'Barboza', 'Belltown Yacht Club',
+                'Baba Yaga', 'Bad Bar', 'Belltown Yacht Club',
                 'Black &amp; Tan Hall', 'Black Lodge', 'Blue Moon Tavern',
-                'Central Saloon', 'Clock-Out Lounge', 'Conor Byrne Pub',
+                'Central Saloon', 'Conor Byrne Pub',
                 "Darrell's Tavern", 'Hotel Crocodile', 'Nectar Lounge',
                 'Skylark', 'The Rabbit Box', 'The Royal Room',
                 "Tim's Tavern", 'Vermillion'

@@ -15,6 +15,8 @@ export interface CalendarInventoryEntry {
     ripperType?: string;
     proxy?: string | false;
     schedule?: string;
+    /** Parent source name (e.g., "seattle-showlists") for sub-calendars. */
+    parentSource?: string;
 }
 
 export interface CalendarInventory {
@@ -34,6 +36,7 @@ export async function loadCalendarInventory(sourcesDir: string): Promise<Calenda
             const content = await readFile(ripperYamlPath, "utf8");
             const raw = YAML.parse(content);
             const config = configSchema.parse(raw);
+            // Add one entry for the source itself
             rippers.push({
                 name: config.name,
                 friendlyname: config.friendlyname ?? config.name,
@@ -45,6 +48,23 @@ export async function loadCalendarInventory(sourcesDir: string): Promise<Calenda
                 ripperType: config.type,
                 proxy: config.proxy,
             });
+            // Add one entry per sub-calendar (for multi-calendar sources like seattle-showlists)
+            for (const cal of config.calendars) {
+                // Skip sub-calendars that are the same as the source (single-calendar rippers)
+                if (cal.name === config.name && !config.disabled) continue;
+                rippers.push({
+                    name: cal.name,
+                    friendlyname: cal.friendlyname,
+                    description: config.description,
+                    tags: cal.tags ?? config.tags ?? [],
+                    url: config.url.toString(),
+                    disabled: config.disabled,
+                    sourceType: "ripper",
+                    ripperType: config.type,
+                    proxy: config.proxy,
+                    parentSource: config.name,
+                });
+            }
         } catch (e: unknown) {
             const nodeErr = e as NodeJS.ErrnoException;
             if (nodeErr.code === "ENOENT") {

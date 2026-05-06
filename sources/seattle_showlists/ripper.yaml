@@ -28,18 +28,6 @@ calendars:
       venue: "Central Saloon"
 
   # --- Capitol Hill ---
-  - name: barboza
-    friendlyname: "Barboza"
-    geo:
-      lat: 47.6138
-      lng: -122.3196
-      label: "Barboza, 925 E Pike St, Seattle, WA 98122"
-      osmType: node
-      osmId: 11177907381
-    timezone: America/Los_Angeles
-    tags: ["Capitol Hill"]
-    config:
-      venue: "Barboza"
   - name: vermillion
     friendlyname: "Vermillion"
     geo:
@@ -88,18 +76,7 @@ calendars:
       venue: "Conor Byrne Pub"
 
   # --- Beacon Hill ---
-  - name: clock-out-lounge
-    friendlyname: "Clock-Out Lounge"
-    geo:
-      lat: 47.5591
-      lng: -122.3037
-      label: "Clock-Out Lounge, 4864 Beacon Ave S, Seattle, WA 98108"
-      osmType: node
-      osmId: 2371319981
-    timezone: America/Los_Angeles
-    tags: ["Beacon Hill"]
-    config:
-      venue: "Clock-Out Lounge"
+  # Clock-Out Lounge: now covered by external ICS feed (external.yaml)
 
   # --- Columbia City ---
   - name: black-and-tan-hall

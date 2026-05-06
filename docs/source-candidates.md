@@ -5,7 +5,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 ## Discovery Log
 
 ### 2026-05-06 — Source discovery: Theatre, LGBTQ/Nightlife, Breweries, Community
-- 💡 **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. Implementing as Squarespace ripper. Tags: Music, OpenMic, Capitol Hill.
+- 💡 **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. Implementing as Squarespace ripper with `proxy: true` (GH Actions IPs blocked with 403). Tags: Music, OpenMic, Capitol Hill.
 - 💡 **Julia's on Broadway / Le Faux** — Drag dinner theater at 300 Broadway E, Capitol Hill. Weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` (3 upcoming listed) but primarily uses SimpleTix (`lefauxproductions.simpletix.com`). Need to check SimpleTix API. Tags: Nightlife, Capitol Hill.
 - ❌ **Abbey Arts / Fremont Abbey** — Eventbrite organizer `11933347765`. Only 1 upcoming event currently. Insufficient volume. Tags: Music, Fremont.
 - ❌ **Pike Place Market (Eventbrite)** — Eventbrite organizer `18639581077`. Only 2 upcoming events. Too low volume for a dedicated source. Tags: Community, Pike Place.
@@ -227,7 +227,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### Squarespace (built-in type) — New 2026-05-06
 
-💡 **a/stir** — `https://astirseattle.com/calendar` — 818 E Pike St, Capitol Hill. Bar, restaurant and event space (opened Oct 2023). Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. Squarespace calendar at `/calendar`. Tags: Music, OpenMic, Capitol Hill — **Implementing 2026-05-06**
+💡 **a/stir** — `https://astirseattle.com/calendar` — 818 E Pike St, Capitol Hill. Bar, restaurant and event space (opened Oct 2023). Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. Squarespace calendar at `/calendar`. `proxy: true` required (GH Actions IPs blocked with 403). Tags: Music, OpenMic, Capitol Hill — **Implementing 2026-05-06**
 
 ### Custom HTML/JSON Scraping
 

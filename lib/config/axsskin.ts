@@ -151,17 +151,38 @@ export abstract class AXSSkinRipper implements IRipper {
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
-        const res = await fetchFn(ripper.config.url.toString(), {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml',
-                'Accept-Language': 'en-US,en;q=0.9',
-            },
-        });
-        if (!res.ok) {
-            throw new Error(`${this.venueId} events page returned ${res.status} ${res.statusText}`);
+        const headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml',
+            'Accept-Language': 'en-US,en;q=0.9',
+        };
+
+        // Fetch all pages via AJAX pagination endpoint
+        const baseUrl = ripper.config.url.toString().replace(/\/events\/?$/, '');
+        const ajaxBase = `${baseUrl}/events/events_ajax/`;
+        const perPage = 12;
+        const allHtml: string[] = [];
+
+        for (let offset = 0; ; offset += perPage) {
+            const ajaxUrl = `${ajaxBase}${offset}?category=0&venue=0&team=0&per_page=${perPage}&came_from_page=event-list-page`;
+            const res = await fetchFn(ajaxUrl, { headers });
+            if (!res.ok) {
+                throw new Error(`${this.venueId} AJAX page at offset ${offset} returned ${res.status} ${res.statusText}`);
+            }
+            const raw = await res.text();
+            // AJAX responses are JSON-encoded HTML strings
+            let html: string;
+            if (raw.startsWith('"')) {
+                html = JSON.parse(raw) as string;
+            } else {
+                html = raw;
+            }
+            if (!html || !html.trim()) break;
+            allHtml.push(html);
+            // If fewer than perPage event items, this is the last page
+            const root = parse(html);
+            if (root.querySelectorAll('.eventItem').length < perPage) break;
         }
-        const html = await res.text();
 
         return ripper.config.calendars.map(cal => {
             const zone = ZoneId.of(cal.timezone.toString());
@@ -170,15 +191,17 @@ export abstract class AXSSkinRipper implements IRipper {
             const calErrors: RipperError[] = [];
             const seen = new Set<string>();
 
-            for (const result of parseAXSSkinEvents(html, zone, this.venueId, this.location)) {
-                if ('type' in result) {
-                    calErrors.push(result);
-                    continue;
+            for (const html of allHtml) {
+                for (const result of parseAXSSkinEvents(html, zone, this.venueId, this.location)) {
+                    if ('type' in result) {
+                        calErrors.push(result);
+                        continue;
+                    }
+                    if (result.id && seen.has(result.id)) continue;
+                    if (result.id) seen.add(result.id);
+                    if (result.date.isBefore(now.minusHours(6))) continue;
+                    calEvents.push(result);
                 }
-                if (result.id && seen.has(result.id)) continue;
-                if (result.id) seen.add(result.id);
-                if (result.date.isBefore(now.minusHours(6))) continue;
-                calEvents.push(result);
             }
 
             return {

@@ -1,9 +1,6 @@
 name: neumos
-disabled: true # disabled: AXS/AMC bot protection blocks residential IP + Chrome OOM on 4GB server
-type: axs
-proxy: "outofband" # AXS returns 403 from GitHub runner IPs
 description: "Neumos"
-url: "https://www.axs.com/venues/102495/neumos-seattle-tickets"
+url: "https://www.neumos.com/events"
 friendlyLink: https://www.neumos.com/events
 tags: ["Music", "Capitol Hill"]
 geo:
@@ -16,8 +13,3 @@ calendars:
   - name: neumos
     friendlyname: "Neumos"
     timezone: America/Los_Angeles
-    config:
-      venueId: 102495
-      venueSlug: "neumos-seattle-tickets"
-      venueName: "Neumos"
-      venueAddress: "925 E Pike St, Seattle, WA 98122"

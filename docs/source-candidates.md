@@ -4,6 +4,14 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-06 — Source discovery: Theatre, LGBTQ/Nightlife, Breweries, Community
+- 💡 **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. Implementing as Squarespace ripper. Tags: Music, OpenMic, Capitol Hill.
+- 💡 **Julia's on Broadway / Le Faux** — Drag dinner theater at 300 Broadway E, Capitol Hill. Weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` (3 upcoming listed) but primarily uses SimpleTix (`lefauxproductions.simpletix.com`). Need to check SimpleTix API. Tags: Nightlife, Capitol Hill.
+- ❌ **Abbey Arts / Fremont Abbey** — Eventbrite organizer `11933347765`. Only 1 upcoming event currently. Insufficient volume. Tags: Music, Fremont.
+- ❌ **Pike Place Market (Eventbrite)** — Eventbrite organizer `18639581077`. Only 2 upcoming events. Too low volume for a dedicated source. Tags: Community, Pike Place.
+- ❌ **Seattle Art Fair** — One-time annual event (July 23–26, 2026), not an ongoing source. Not viable.
+- 🔍 **All sandbox web requests blocked** — curl/WebFetch returns `x-deny-reason: host_not_allowed` for all outbound URLs in this environment. This is a sandbox-level restriction; CI (GitHub Actions) is unaffected. Sites confirmed live via WebSearch.
+
 ### 2026-05-03 — Source discovery: Food/Drink, Arts, Outdoors
 - ✅ **Henry Art Gallery** — Eventbrite organizer `775590393`, 5 upcoming events (May–June 2026). Contemporary art museum on UW campus. Tags: Arts, Museums, University District. Implementing in this PR.
 - ✅ **Cannonball Arts Center** — WordPress custom REST API (`/wp-json/wp/v2/cba-event`). New Belltown venue from Bumbershoot producers at 1930 3rd Ave. Custom ripper parses dates from content HTML. Tags: Arts, Belltown. `expectEmpty: true` since venue is still building programming.
@@ -217,7 +225,13 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ~~**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers~~
 
+### Squarespace (built-in type) — New 2026-05-06
+
+💡 **a/stir** — `https://astirseattle.com/calendar` — 818 E Pike St, Capitol Hill. Bar, restaurant and event space (opened Oct 2023). Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. Squarespace calendar at `/calendar`. Tags: Music, OpenMic, Capitol Hill — **Implementing 2026-05-06**
+
 ### Custom HTML/JSON Scraping
+
+💡 **Julia's on Broadway / Le Faux** — `https://www.juliasonbroadway.com/` — 300 Broadway E, Capitol Hill. Drag dinner theater with weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` shows only 3 upcoming events (SimpleTix at `lefauxproductions.simpletix.com` may be primary ticketing). Need to evaluate SimpleTix API. Tags: Nightlife, Capitol Hill — **New 2026-05-06**
 
 **Swing It Seattle** — `https://www.swingitseattle.com/calendar` — Swing/Lindy hop dance org. Regular socials at South Park Hall and Russian Community Center. Platform unknown (sandbox blocked). — Tags: Dance — **New 2026-05-05**
 

@@ -1,0 +1,14 @@
+name: a-stir
+type: squarespace
+description: "a/stir"
+url: "https://astirseattle.com/calendar"
+friendlyLink: https://astirseattle.com/calendar
+tags: ["Music", "OpenMic", "Capitol Hill"]
+geo:
+  lat: 47.6136
+  lng: -122.3206
+  label: "a/stir, 818 E Pike St, Seattle, WA 98122"
+calendars:
+  - name: all-events
+    friendlyname: "a/stir"
+    timezone: America/Los_Angeles

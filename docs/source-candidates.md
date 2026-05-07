@@ -4,8 +4,14 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
-### 2026-05-07 — Source discovery: UW Trumba
+### 2026-05-07 — Source discovery: UW Trumba, Outdoors/Seasonal, Performing Arts
 - ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added to `sources/external.yaml`. Tags: Education, Tech, University District.
+- ✅ **UW College of Arts & Sciences** (Trumba `sea_artsci`) — Same Trumba platform as existing working UW sources. Added to `sources/external.yaml`. CI confirmed 100 events. Tags: Arts, Education, University District.
+- ✅ **Emerald City Comedy Club** — Already implemented in `sources/emerald_city_comedy/` (missed in candidates log). Updating status from 💡 to ✅ Added.
+- ❌ **Theatre Off Jackson** (correcting duplicate) — Previously confirmed ❌ on 2026-04-23: uses `venture-event-manager` plugin, no working ICS export. Removing duplicate 💡 entry from candidates list.
+- 💡 **Seafair** — Seattle's summer event series: Torchlight Parade, Hydroplane races, Fleet Week, Summer Music Series. Events at `seafair.org/events/`. Platform unknown (custom CMS). Tags: Community, Music. Add pending platform investigation.
+- 💡 **The Rendezvous** (status update) — `rendezvous.squarespace.com` confirmed indexed by Google, suggesting possible Squarespace migration from WordPress. Main domain `therendezvous.rocks` confirmed active (May 2026 on Yelp). Squarespace `?format=json` may work at `therendezvous.rocks/events?format=json` if migration is complete.
+- ❌ **Seattle Chamber Music Society** — Calendar at `seattlechambermusic.org/calendar/`. Salesforce ticketing; no ICS/API. Custom scraper possible but venue is at multiple locations (Nordstrom Recital Hall, Town Hall, Meydenbauer). Low priority.
 
 ### 2026-05-06 — Source discovery: Theatre, LGBTQ/Nightlife, Breweries, Community
 - ⚙️ **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. GH Actions IPs blocked (403); using `proxy: "outofband"`. PR #264 open — CI passes, event count pending outofband verification. Tags: Music, OpenMic, Capitol Hill.
@@ -37,7 +43,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ❌ **Cascade Bicycle Club** — Drupal site, no ICS feed. Events page is `/rides-events`, custom Drupal CMS. Not viable with built-in rippers.
 - ❌ **Massive Club** — Webflow + Tixr ticketing, no ICS or structured event API. Not viable.
 - ❌ **Central Saloon** — Uses Modern Events Calendar Lite (MEC) plugin, not Tribe Events. No public ICS export from MEC Lite. Would require custom scraper (HTML parsing). Tags: Music, Pioneer Square. Low priority.
-- 💡 **Emerald City Comedy Club** — SeatEngine platform. JSON-LD schema.org `Event` data embedded in page HTML (confirmed working, 40+ shows visible). 210 Broadway E, Capitol Hill. Custom HTML scraper would parse JSON-LD from `https://www-emeraldcitycomedy-com.seatengine.com/events`. Tags: Comedy, Capitol Hill.
+- ✅ **Emerald City Comedy Club** — SeatEngine platform. JSON-LD schema.org `Event` data embedded in page HTML (confirmed working, 40+ shows visible). 210 Broadway E, Capitol Hill. Implemented in `sources/emerald_city_comedy/`. Tags: Comedy, Capitol Hill.
 - ❌ **Cannonball Arts Center** — REST API now only returning 2 events (down from 6 on 2026-04-24). Too low volume; new venue still building programming. Monitor.
 
 ### 2026-04-30 — Source discovery: Bookstores, Music, Arts & Community
@@ -186,13 +192,13 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Seattle.Gov City-Wide** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — 500 events. City meetings, community events, parks volunteer events, commission meetings. Tags: Community, Government, Parks — **New 2026-04-22**
 
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
-- `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
 - ~~`sea_info`~~ — UW Information School — implemented 2026-05-07 as `uw-information-school`
+- ~~`sea_artsci`~~ — UW College of Arts & Sciences — implemented 2026-05-07 as `uw-college-of-arts-sciences`
+- ~~`sea_essuw`~~ — UW Sustainability — already implemented as `uw-sustainability` in `sources/external.yaml`
 - `sea_lib` — UW Libraries Seattle — `https://www.trumba.com/calendars/sea_lib.ics` — 🔍 Attempted 2026-05-05: removed from PR due to unverifiable event count from sandbox. Must confirm > 0 events before re-adding.
 - `sea_law` — UW School of Law — `https://www.trumba.com/calendars/sea_law.ics`
 - `sea_foster` — UW Foster School of Business — `https://www.trumba.com/calendars/sea_foster.ics`
 - `sea_nursing` — UW School of Nursing — `https://www.trumba.com/calendars/sea_nursing.ics`
-- `sea_essuw` — UW Sustainability — `https://www.trumba.com/calendars/sea_essuw.ics`
 - `sea_comp_lit` — UW Cinema & Media Studies — `https://www.trumba.com/calendars/sea_comp_lit.ics`
 - `sea_evans-hub` — UW Evans School Community Hub — `https://www.trumba.com/calendars/sea_evans-hub.ics`
 
@@ -222,7 +228,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Rat City Roller Derby** — `https://ratcityrollerderby.com/events/` — try `?post_type=tribe_events&ical=1` — Tags: Community, Sports
 
-**Theatre Off Jackson** — `https://theatreoffjackson.org/event-calendar/` — try `?post_type=tribe_events&ical=1` — 409 7th Ave S — Tags: Theatre, International District
+❌ **Theatre Off Jackson** — `https://theatreoffjackson.org/event-calendar/` — Uses `venture-event-manager` plugin, no working ICS export (confirmed 2026-04-23). Not viable via ICS.
 
 ~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
 
@@ -237,6 +243,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Queer/Bar** — `https://www.thequeerbar.com/events-one` — LGBTQ+ venue at 1426 Broadway, Capitol Hill. Regular drag shows, DJ nights, comedy. Uses Fever for some ticketing. Platform (Squarespace vs Webflow) unknown — Tags: Nightlife, Capitol Hill — **New 2026-05-05**
 
 **Elliott Bay Brewing** — `https://elliottbaybrewing.com/events/` — Seattle brewery with West Seattle (4720 California Ave SW) and SoDo locations. Events: karaoke, trivia, tastings, community nights. Platform unknown — Tags: Beer, West Seattle — **New 2026-05-05**
+
+💡 **Seafair** — `https://www.seafair.org/events/` — Seattle's premier summer event series: Torchlight Parade (late July), Hydroplane races & Blue Angels air show (Seafair Weekend, July 31-Aug 2), Fleet Week, Summer Music Series. Custom CMS; platform unknown (not Squarespace, not Tribe Events from visual inspection). Would require custom HTML scraper. Tags: Community, Music — **New 2026-05-07**
 
 **ACT Theatre / Union Arts Center** — `https://acttheatre.org/whats-on/` (redirects to unionartscenter.org) — WordPress with Avada — Tags: Theatre, Downtown
 
@@ -296,7 +304,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Seattle Indian Health Board** — `https://www.sihb.org/events/` — WordPress — Tags: Community
 
-**Emerald City Comedy Club** — `https://www.emeraldcitycomedy.com/events` — SeatEngine platform, 40+ events, custom ripper needed — Tags: Comedy, Capitol Hill
+~~**Emerald City Comedy Club**~~ — Implemented in `sources/emerald_city_comedy/` — see ✅ Added section
 
 **Here-After (at The Crocodile)** — `https://www.thecrocodile.com/here-after` — 2505 1st Ave — Tags: Comedy, Belltown — May overlap with existing `crocodile` ripper
 
@@ -341,6 +349,10 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Cannonball Arts Center** — `sources/cannonball_arts` — WordPress custom REST API (`/wp-json/wp/v2/cba-event`), dates parsed from content HTML — 1930 3rd Ave, Seattle, WA 98101 (Belltown) — Tags: Arts, Belltown — Added 2026-05-03
 
 **UW Information School** — `sources/external.yaml` — Trumba ICS (`sea_info`) — UW campus, Seattle — Tags: Education, Tech, University District — Added 2026-05-07
+
+**Emerald City Comedy Club** — `sources/emerald_city_comedy` — SeatEngine platform, JSON-LD extraction, `proxy: "outofband"` — 210 Broadway E, Seattle, WA 98102 (Capitol Hill) — Tags: Comedy, Capitol Hill — Added 2026-05-07
+
+**UW College of Arts & Sciences** — `sources/external.yaml` — Trumba ICS (`sea_artsci`) — UW campus, Seattle — Tags: Arts, Education, University District — Added 2026-05-07, CI confirmed 100 events ✅
 
 ---
 

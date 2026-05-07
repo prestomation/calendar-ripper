@@ -59,6 +59,7 @@ export class SpotHopperRipper implements IRipper {
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
         const seenIds = new Set<string>();
+        const now = ZonedDateTime.now(timezone);
 
         for (const card of cards) {
             const id = card.getAttribute('id') || '';
@@ -67,6 +68,10 @@ export class SpotHopperRipper implements IRipper {
 
             const result = this.parseCard(card, timezone);
             if ('date' in result) {
+                // Skip past one-time events; keep recurring events even if first occurrence was past
+                const recurrenceType = card.getAttribute('data-event-recurrence-type') || '';
+                const isRecurring = recurrenceType && recurrenceType !== 'Does not Repeat';
+                if (!isRecurring && result.date.isBefore(now.minusHours(6))) continue;
                 events.push(result);
             } else {
                 errors.push(result);

@@ -4,6 +4,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-07 — User-requested source: Seattle Art Book Fair
+- ✅ **Seattle Art Book Fair** — Cargo.site, custom HTML ripper. Annual free festival at Washington Hall (153 14th Ave, Central District) celebrating independent publishing, book design, and artist books. 85+ exhibitors plus talks, activities, art installations. Parses the homepage for the fair date range and the Prepress Launch Party. `expectEmpty: true` since the source is dormant outside the annual event window. Tags: Books, Arts, Central District.
+
 ### 2026-05-07 — Source discovery: UW Trumba
 - ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added to `sources/external.yaml`. Tags: Education, Tech, University District.
 
@@ -341,6 +344,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Cannonball Arts Center** — `sources/cannonball_arts` — WordPress custom REST API (`/wp-json/wp/v2/cba-event`), dates parsed from content HTML — 1930 3rd Ave, Seattle, WA 98101 (Belltown) — Tags: Arts, Belltown — Added 2026-05-03
 
 **UW Information School** — `sources/external.yaml` — Trumba ICS (`sea_info`) — UW campus, Seattle — Tags: Education, Tech, University District — Added 2026-05-07
+
+**Seattle Art Book Fair** — `sources/seattle_art_book_fair` — Custom HTML ripper for Cargo.site homepage; parses the annual fair date range plus the Prepress Launch Party. `expectEmpty: true` between annual events. Washington Hall, 153 14th Ave (Central District) — Tags: Books, Arts, Central District — Added 2026-05-07
 
 ---
 

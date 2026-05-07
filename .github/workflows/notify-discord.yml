@@ -62,7 +62,7 @@ jobs:
           EMBED_TITLE=""
           EMBED_URL=""
           EMBED_DESC=""
-          EMBED_COLOR=""
+          EMBED_COLOR="9807270"  # default grey
 
           # Color based on conclusion
           case "$WORKFLOW_CONCLUSION" in
@@ -160,12 +160,12 @@ jobs:
           PREVIEW=$(echo "$REVIEW_BODY" | head -c 600 | iconv -c -t UTF-8 | head -c 200 | tr '\n' ' ')
 
           # Review embed color
+          EMBED_COLOR="9807270"  # default grey
           case "$REVIEW_STATE" in
             approved)          EMBED_COLOR="3066993" ;;  # green
             changes_requested) EMBED_COLOR="15158332" ;;  # red
             commented)         EMBED_COLOR="15844367" ;;  # yellow
             dismissed)         EMBED_COLOR="9807270" ;;   # grey
-            *)                 EMBED_COLOR="9807270" ;;   # grey
           esac
 
           EMBED_DESC=""

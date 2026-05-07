@@ -8,7 +8,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 - ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added to `sources/external.yaml`. Tags: Education, Tech, University District.
 
 ### 2026-05-06 — Source discovery: Theatre, LGBTQ/Nightlife, Breweries, Community
-- ⚙️ **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. GH Actions IPs blocked (403); using `proxy: "outofband"`. PR #264 open — CI passes, event count pending outofband verification. Tags: Music, OpenMic, Capitol Hill.
+- ✅ **a/stir** — 818 E Pike St, Capitol Hill. Bar/restaurant/event space. Regular jazz nights, open mic, trivia. Uses SpotHopper for events (not Squarespace despite Squarespace hosting). Added as SpotHopper ripper. PR #264. Tags: Music, OpenMic, Capitol Hill.
 - 💡 **Julia's on Broadway / Le Faux** — Drag dinner theater at 300 Broadway E, Capitol Hill. Weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` (3 upcoming listed) but primarily uses SimpleTix (`lefauxproductions.simpletix.com`). Need to check SimpleTix API. Tags: Nightlife, Capitol Hill.
 - ❌ **Abbey Arts / Fremont Abbey** — Eventbrite organizer `11933347765`. Only 1 upcoming event currently. Insufficient volume. Tags: Music, Fremont.
 - ❌ **Pike Place Market (Eventbrite)** — Eventbrite organizer `18639581077`. Only 2 upcoming events. Too low volume for a dedicated source. Tags: Community, Pike Place.
@@ -342,13 +342,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **UW Information School** — `sources/external.yaml` — Trumba ICS (`sea_info`) — UW campus, Seattle — Tags: Education, Tech, University District — Added 2026-05-07
 
+**a/stir** — `sources/a_stir` — SpotHopper ripper — 818 E Pike St, Capitol Hill — Regular events: jazz nights, open mic, trivia — Tags: Music, OpenMic, Capitol Hill — PR #264
+
 ---
-
-## ⚙️ Requires Proxy
-
-Sources confirmed live but blocked from GitHub Actions IPs. Implemented with `proxy: "outofband"` — event counts verified from outofband build logs, not PR preview.
-
-**a/stir** — `sources/a_stir` — Squarespace, `proxy: "outofband"` — 818 E Pike St, Capitol Hill — Regular events: jazz nights, open mic, trivia — Tags: Music, OpenMic, Capitol Hill — PR #264 (CI passes, outofband event count pending)
 
 ---
 

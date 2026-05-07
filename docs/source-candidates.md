@@ -6,6 +6,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ### 2026-05-07 — User-requested source: Seattle Art Book Fair
 - ✅ **Seattle Art Book Fair** — Cargo.site, custom HTML ripper. Annual free festival at Washington Hall (153 14th Ave, Central District) celebrating independent publishing, book design, and artist books. 85+ exhibitors plus talks, activities, art installations. Parses the homepage for the fair date range and the Prepress Launch Party. `expectEmpty: true` since the source is dormant outside the annual event window. Tags: Books, Arts, Central District.
+- 🔍 **Aggregator search for SABF coverage** — Probed 8 candidates to find another machine-readable source carrying the event. Findings recorded in ⏸️ Blocked / 💡 Candidate / ❌ Not Viable sections below. Honest conclusion: SABF isn't broadly aggregated. Outside the official site, only EverOut and Pioneer Square actually carry it, and both are bot-blocked. The dedicated `sources/seattle_art_book_fair` ripper is the right answer; widening coverage would mean unblocking EverOut (separate, larger effort).
 
 ### 2026-05-07 — Source discovery: UW Trumba
 - ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added to `sources/external.yaml`. Tags: Education, Tech, University District.
@@ -188,6 +189,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **Seattle.Gov City-Wide** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — 500 events. City meetings, community events, parks volunteer events, commission meetings. Tags: Community, Government, Parks — **New 2026-04-22**
 
+**Visit Seattle (RSS)** — `https://visitseattle.org/events/feed/` — Working RSS 2.0 feed but only 10 curated/featured events (Christmas Market, NCAA tournaments, Bite of Seattle, Festál, etc.). The Tribe Events `?ical=1` parameter is silently ignored (returns the HTML page, not ICS). Low volume but high editorial quality — would surface major Seattle events that don't have their own dedicated source. Note: SABF is **not** in the curated list. Need to write a small RSS adapter (we don't have one yet) or treat as `external.yaml` if we add RSS support there. — Tags: Community, Events — **New 2026-05-07**
+
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
 - `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
 - ~~`sea_info`~~ — UW Information School — implemented 2026-05-07 as `uw-information-school`
@@ -363,7 +366,9 @@ Sources confirmed live but blocked from GitHub Actions IPs. Implemented with `pr
 
 **AMC Theatres** — Cloudflare bot protection on GraphQL API. — Tags: Movies
 
-**EverOut Seattle (The Stranger)** — `https://everout.com/seattle/events/` — Heavy bot protection (403 on fetch). — Tags: Community, Music, Arts
+**EverOut Seattle (The Stranger)** — `https://everout.com/seattle/events/` — Block source is **AWS ELB / WAF** (`server: awselb/2.0`, HTTP 403), not Cloudflare — i.e. the request is rejected at the load balancer before reaching the app. The `/seattle/events.ics` URL pattern is plausible (returns a 301 → trailing slash, then 403 from awselb on the slashed form), but unconfirmed: the 301 is generic Django/nginx slash-normalization and may happen even for non-existent endpoints (`/seattle/events.rss` 301s the same way and the slashed form is a 404). `/seattle/feed/` is a clean 404. No sanctioned feed found in their docs or via search; would need to email `hello@everout.com` to ask for a partner ICS or test the outofband AWS Lambda proxy (but our proxy also runs in AWS so it may share IP-reputation blocks). High value if unblocked (covers ~hundreds of Seattle events). — Tags: Community, Music, Arts — **Updated 2026-05-07**
+
+**Visit Pioneer Square** — `https://pioneersquare.org/our-events/` — SiteGround captcha (`sg-captcha: challenge`, HTTP 202) on every path, including with Googlebot UA. Hosts the SABF Prepress Launch Party listing among other Pioneer Square events. WordPress (likely Tribe Events). — Tags: Community, Pioneer Square — **New 2026-05-07**
 
 **Do206** — `https://do206.com/events` — Algolia-powered. Search API keys may be extractable from page JS. — Tags: Community, Music
 
@@ -388,6 +393,20 @@ Sources confirmed live but blocked from GitHub Actions IPs. Implemented with `pr
 **Conor Byrne Pub** — Squarespace `?format=json` returns `itemCount: 0`. Already well-covered by seattle-showlists (54 events) + recurring.yaml (1 open mic). Low priority to re-attempt.
 
 **Future Primitive Brewing** — Squarespace `?format=json` returns `itemCount: 0`. Never produced events on 206.events. Revisit if they start publishing events.
+
+**Outlet PDX** — `https://www.outletpdx.com/` — Squarespace, lists SABF as a co-promoted partner event but is otherwise a Portland organization. Adding would inject Portland events into a Seattle calendar. Tags: Books, Arts (Portland) — **New 2026-05-07**
+
+**Allevents.in (Seattle)** — `https://allevents.in/seattle` — `/seattle/feed` returns HTML (200, but `text/html`, not RSS). Search for "Seattle Art Book Fair" returned 0 hits — the platform doesn't aggregate this kind of indie event. — **New 2026-05-07**
+
+**Seattle Times Calendar** — `https://www.seattletimes.com/calendar/` returns 404. No public events feed. — **New 2026-05-07**
+
+**Crosscut Events** — `https://crosscut.com/events` returns 301 with no clean target; brand has shifted to Cascade PBS. No public feed. — **New 2026-05-07**
+
+**Seattle Channel Events** — `https://www.seattlechannel.org/programs/event-calendar` and related paths all 404. No public events calendar feed. — **New 2026-05-07**
+
+**Seattle Met (events)** — `https://www.seattlemet.com/events/` redirects (302) and `/events/feed/`, `/events.ics`, `/feed/` all 301 with no usable target. No clean feed found. — **New 2026-05-07**
+
+**ParentMap (calendar)** — `https://www.parentmap.com/calendar` returns 200 but the Tribe Events `?post_type=tribe_events&ical=1` URL silently returns HTML (200 text/html), not ICS. Family-focused; not a fit for our scope even if a feed existed. — **New 2026-05-07**
 
 ---
 

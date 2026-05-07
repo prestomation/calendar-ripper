@@ -58,17 +58,34 @@ jobs:
             *)         EMOJI="⚠️" ;;
           esac
 
-          # Build the link — always link to the PR when available
+          # Build embed fields for Discord (no markdown [text](url) — Discord doesn't render it)
+          EMBED_TITLE=""
+          EMBED_URL=""
+          EMBED_DESC=""
+          EMBED_COLOR="9807270"  # default grey
+
+          # Color based on conclusion
+          case "$WORKFLOW_CONCLUSION" in
+            success)   EMBED_COLOR="3066993" ;;   # green
+            failure)   EMBED_COLOR="15158332" ;;   # red
+            cancelled) EMBED_COLOR="9807270" ;;    # grey
+            skipped)   EMBED_COLOR="9807270" ;;    # grey
+            *)         EMBED_COLOR="15844367" ;;   # yellow
+          esac
+
+          # Build embed title and URL
           if [ -n "$PR_URL" ]; then
-            VIEW_LINK="[View PR #${PR_NUMBER}](${PR_URL})"
+            EMBED_TITLE="View PR #${PR_NUMBER}"
+            EMBED_URL="${PR_URL}"
           else
-            # For non-PR workflows (e.g. cron), link to the repo
-            VIEW_LINK="[View repo](https://github.com/${REPO})"
+            EMBED_TITLE="View repo"
+            EMBED_URL="https://github.com/${REPO}"
           fi
 
-          # For the main build workflow, include skill run instructions
+          # Build the content text (mentions + summary)
           if [ "$WORKFLOW_NAME" = "Generate Calendars and Publish to GitHub Pages" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"$'\n'"${VIEW_LINK}"$'\n\n'"📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"
+            EMBED_DESC="📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
             # For PR Preview success, include preview link and new source summary
             PREVIEW_LINE=""
@@ -76,14 +93,15 @@ jobs:
             if [ "$WORKFLOW_NAME" = "PR Preview" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
               # Try to extract the preview deployment URL from the artifact
               DEPLOY_URL_FILE=$(find artifact-download -name deployment-url.txt -type f 2>/dev/null | head -1)
+              DEPLOY_URL=""
               if [ -n "$DEPLOY_URL_FILE" ]; then
                 DEPLOY_URL=$(cat "$DEPLOY_URL_FILE" 2>/dev/null | tr -d '[:space:]')
-                if [ -n "$DEPLOY_URL" ]; then
-                  PREVIEW_LINE=$'\n'"🔗 **Preview:** [${DEPLOY_URL}](${DEPLOY_URL})"
-                fi
               elif [ -n "$PR_NUMBER" ]; then
                 # Fallback: construct the expected preview URL
-                PREVIEW_LINE=$'\n'"🔗 **Preview:** [https://pr-${PR_NUMBER}.206events.pages.dev](https://pr-${PR_NUMBER}.206events.pages.dev)"
+                DEPLOY_URL="https://pr-${PR_NUMBER}.206events.pages.dev"
+              fi
+              if [ -n "$DEPLOY_URL" ]; then
+                PREVIEW_LINE=$'\n'"🔗 **Preview:** ${DEPLOY_URL}"
               fi
               SUMMARY_FILE=$(find artifact-download -name new-source-summary.json -type f 2>/dev/null | head -1)
               if [ -n "$SUMMARY_FILE" ]; then
@@ -108,9 +126,16 @@ jobs:
                 fi
               fi
             fi
-            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**${PREVIEW_LINE}${NEW_SOURCE_LINE}"$'\n'"${VIEW_LINK}"
+            CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**${PREVIEW_LINE}${NEW_SOURCE_LINE}"
+            EMBED_DESC="${BRANCH}"
           fi
-          PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
+          PAYLOAD=$(jq -n \
+            --arg content "$CONTENT" \
+            --arg embed_title "$EMBED_TITLE" \
+            --arg embed_url "$EMBED_URL" \
+            --arg embed_desc "$EMBED_DESC" \
+            --argjson embed_color "$EMBED_COLOR" \
+            '{content:$content,embeds:[{title:$embed_title,url:$embed_url,description:$embed_desc,color:$embed_color}]}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"
 
       - name: Notify review
@@ -132,14 +157,29 @@ jobs:
             *)                 EMOJI="ℹ️" LABEL="reviewed" ;;
           esac
 
-          # Use the PR link instead of the specific review link
-          VIEW_LINK="[View PR #${PR_NUMBER}](${PR_URL})"
-
           PREVIEW=$(echo "$REVIEW_BODY" | head -c 600 | iconv -c -t UTF-8 | head -c 200 | tr '\n' ' ')
+
+          # Review embed color
+          EMBED_COLOR="9807270"  # default grey
+          case "$REVIEW_STATE" in
+            approved)          EMBED_COLOR="3066993" ;;  # green
+            changes_requested) EMBED_COLOR="15158332" ;;  # red
+            commented)         EMBED_COLOR="15844367" ;;  # yellow
+            dismissed)         EMBED_COLOR="9807270" ;;   # grey
+          esac
+
+          EMBED_DESC=""
           if [ -n "$PREVIEW" ]; then
-            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"> ${PREVIEW}"$'\n'"${VIEW_LINK}"
+            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"
+            EMBED_DESC="> ${PREVIEW}"
           else
-            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"$'\n'"${VIEW_LINK}"
+            CONTENT="<@&1482439580006354987> ${EMOJI} \`${REVIEWER}\` ${LABEL} PR #${PR_NUMBER}"
           fi
-          PAYLOAD=$(jq -n --arg content "$CONTENT" '{"content":$content}')
+          PAYLOAD=$(jq -n \
+            --arg content "$CONTENT" \
+            --arg embed_title "View PR #${PR_NUMBER}" \
+            --arg embed_url "$PR_URL" \
+            --arg embed_desc "$EMBED_DESC" \
+            --argjson embed_color "$EMBED_COLOR" \
+            '{content:$content,embeds:[{title:$embed_title,url:$embed_url,description:$embed_desc,color:$embed_color}]}')
           curl -s --fail -X POST "$DISCORD_WEBHOOK" -H "Content-Type: application/json" -d "$PAYLOAD"

@@ -112,8 +112,8 @@ export default class SeattleArtBookFairRipper extends HTMLRipper {
             const sh = parseInt(timeMatch[1], 10);
             const eh = parseInt(timeMatch[2], 10);
             const isPm = timeMatch[3].toLowerCase() === "pm";
-            startHour = isPm && sh !== 12 ? sh + 12 : sh;
-            const endHour = isPm && eh !== 12 ? eh + 12 : eh;
+            startHour = isPm ? (sh === 12 ? 12 : sh + 12) : (sh === 12 ? 0 : sh);
+            const endHour = isPm ? (eh === 12 ? 12 : eh + 12) : (eh === 12 ? 0 : eh);
             const dh = endHour - startHour;
             if (dh > 0 && dh <= 12) durationHours = dh;
         }

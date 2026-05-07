@@ -78,6 +78,38 @@ describe("Seattle Art Book Fair Ripper", () => {
         expect(events[0]).toMatchObject({ type: "ParseError" });
     });
 
+    test("treats 12am as midnight (hour 0), not noon", async () => {
+        const ripper = new SeattleArtBookFairRipper();
+        const html = parse(
+            "<html><body><div>The Seattle Art Book Fair is FREE. May 9-10, 2026. Prepress Launch Party May 8, 2026 12-3am</div></body></html>",
+        );
+        const events = await ripper.parseEvents(html, testDate, {});
+        const launch = (events.filter(
+            (e): e is RipperCalendarEvent => "summary" in e,
+        ) as RipperCalendarEvent[]).find((e) =>
+            e.summary.includes("Prepress Launch Party"),
+        );
+        expect(launch).toBeDefined();
+        expect(launch!.date.hour()).toBe(0);
+        expect(launch!.duration.toHours()).toBe(3);
+    });
+
+    test("treats 12pm as noon (hour 12)", async () => {
+        const ripper = new SeattleArtBookFairRipper();
+        const html = parse(
+            "<html><body><div>The Seattle Art Book Fair is FREE. May 9-10, 2026. Prepress Launch Party May 8, 2026 12-2pm</div></body></html>",
+        );
+        const events = await ripper.parseEvents(html, testDate, {});
+        const launch = (events.filter(
+            (e): e is RipperCalendarEvent => "summary" in e,
+        ) as RipperCalendarEvent[]).find((e) =>
+            e.summary.includes("Prepress Launch Party"),
+        );
+        expect(launch).toBeDefined();
+        expect(launch!.date.hour()).toBe(12);
+        expect(launch!.duration.toHours()).toBe(2);
+    });
+
     test("parses dates given different dash characters", async () => {
         const ripper = new SeattleArtBookFairRipper();
         const html = parse(

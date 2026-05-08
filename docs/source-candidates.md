@@ -207,6 +207,9 @@ markers of removed candidates and are kept here for searchability.
 - Migrated all source candidates from `ideas.md` into this file
 - Feature ideas remain in `ideas.md`
 
+### 2026-05-08 — Source discovery: Beacon Hill Markets (prompted by Beacon Arts flyer)
+- ✅ **Beacon Arts Street Fairs** — Free monthly street fair on Beacon Hill (Roberto Maestas Festival Street + Light Rail Plaza + Plaza Roberto Maestas). 2nd Saturday, May–Sep, 11am–5pm. Site is Wix with no ICS/API; added as `sources/recurring/beacon-arts-street-fairs.yaml` with `months: [5,6,7,8,9]`. Tags: MakersMarket, Community, Beacon Hill.
+
 ---
 
 ## 💡 Candidate

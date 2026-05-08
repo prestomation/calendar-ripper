@@ -3,6 +3,7 @@ import * as path from "path";
 import YAML from "yaml";
 import { configSchema, externalConfigSchema } from "./config/schema.js";
 import { RecurringEventProcessor } from "./config/recurring.js";
+import { loadYamlDir } from "./config/dir-loader.js";
 
 export interface CalendarInventoryEntry {
     name: string;
@@ -26,11 +27,14 @@ export interface CalendarInventory {
 }
 
 export async function loadCalendarInventory(sourcesDir: string): Promise<CalendarInventory> {
-    // Load rippers from sources/*/ripper.yaml
+    // Load rippers from sources/*/ripper.yaml. Reserved subdirectories
+    // (external/, recurring/) hold per-entry yaml for non-ripper sources;
+    // those are loaded separately below.
+    const RESERVED_DIRS = new Set(["external", "recurring"]);
     const rippers: CalendarInventoryEntry[] = [];
     const dirs = await readdir(sourcesDir, { withFileTypes: true });
 
-    for (const dir of dirs.filter(d => d.isDirectory())) {
+    for (const dir of dirs.filter(d => d.isDirectory() && !RESERVED_DIRS.has(d.name))) {
         const ripperYamlPath = path.join(dir.parentPath, dir.name, "ripper.yaml");
         try {
             const content = await readFile(ripperYamlPath, "utf8");
@@ -74,10 +78,9 @@ export async function loadCalendarInventory(sourcesDir: string): Promise<Calenda
         }
     }
 
-    // Load external calendars from sources/external.yaml
-    const externalYamlPath = path.join(sourcesDir, "external.yaml");
-    const externalContent = await readFile(externalYamlPath, "utf8");
-    const externalRaw = YAML.parse(externalContent);
+    // Load external calendars from sources/external/<name>.yaml
+    const externalDir = path.join(sourcesDir, "external");
+    const externalRaw = await loadYamlDir(externalDir);
     const externalConfig = externalConfigSchema.parse(externalRaw);
     const external: CalendarInventoryEntry[] = externalConfig.map(entry => ({
         name: entry.name,
@@ -89,9 +92,9 @@ export async function loadCalendarInventory(sourcesDir: string): Promise<Calenda
         sourceType: "external" as const,
     }));
 
-    // Load recurring events from sources/recurring.yaml
-    const recurringYamlPath = path.join(sourcesDir, "recurring.yaml");
-    const processor = new RecurringEventProcessor(recurringYamlPath);
+    // Load recurring events from sources/recurring/<name>.yaml
+    const recurringDir = path.join(sourcesDir, "recurring");
+    const processor = new RecurringEventProcessor(recurringDir);
     const events = processor.getEvents();
     const recurring: CalendarInventoryEntry[] = events.map(event => ({
         name: event.name,

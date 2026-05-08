@@ -32,7 +32,13 @@ export class RipperLoader {
         let errors: RipperError[] = []
         let rippers: Ripper[] = [];
 
+        // Reserved subdirectories under sources/ that hold per-entry yaml
+        // files for non-ripper sources (external ICS feeds, recurring events).
+        // Skip them silently; they don't have a ripper.yaml.
+        const RESERVED_DIRS = new Set(["external", "recurring"]);
+
         const validSourceDirectories: Dirent[] = sourceDirectories.filter(c => {
+            if (RESERVED_DIRS.has(c.name)) return false;
             const p = path.join(c.parentPath, c.name, "ripper.yaml");
             try {
                 accessSync(p);

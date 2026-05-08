@@ -2,63 +2,59 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import YAML from 'yaml';
-import { VALID_TAGS } from './tags.js';
+import { detectTagDuplicates } from './tags.js';
 import { configSchema, externalConfigSchema } from './schema.js';
 
 const SOURCES_DIR = join(process.cwd(), 'sources');
-const EXTERNAL_YAML = join(SOURCES_DIR, 'external.yaml');
+const EXTERNAL_DIR = join(SOURCES_DIR, 'external');
+const RECURRING_DIR = join(SOURCES_DIR, 'recurring');
+const RESERVED_DIRS = new Set(['external', 'recurring']);
 
-describe('Source tag validation', () => {
-    const validTagSet = new Set(VALID_TAGS as string[]);
+function loadYamlDirEntries(dir: string): unknown[] {
+    const files = readdirSync(dir).filter(f => f.endsWith('.yaml') || f.endsWith('.yml')).sort();
+    return files.map(f => YAML.parse(readFileSync(join(dir, f), 'utf8')));
+}
 
-    describe('external.yaml sources', () => {
-        const externalContent = readFileSync(EXTERNAL_YAML, 'utf8');
-        const externalSources = externalConfigSchema.parse(YAML.parse(externalContent));
+describe('Source tag consistency', () => {
+    // Collect every tag used by every source. With the central allow-list
+    // gone the only thing worth checking is that two sources don't spell
+    // the same concept differently.
+    const allTags = new Set<string>();
 
-        it('should have at least one external source', () => {
-            expect(externalSources.length).toBeGreaterThan(0);
-        });
+    // External calendars (one yaml per entry)
+    const externalSources = externalConfigSchema.parse(loadYamlDirEntries(EXTERNAL_DIR));
+    for (const s of externalSources) {
+        for (const t of s.tags ?? []) allTags.add(t);
+    }
 
-        it.each(externalSources.filter(s => s.tags))('$name has valid tags', (source) => {
-            const invalidTags = source.tags!.filter(tag => !validTagSet.has(tag));
-            expect(invalidTags, `Invalid tags: ${invalidTags.join(', ')}`).toHaveLength(0);
-        });
+    // Ripper configs (one directory per source)
+    const sourceDirs = readdirSync(SOURCES_DIR, { withFileTypes: true })
+        .filter(d => d.isDirectory() && !RESERVED_DIRS.has(d.name))
+        .map(d => ({ name: d.name, path: join(SOURCES_DIR, d.name) }));
+
+    for (const dir of sourceDirs) {
+        const ripperPath = join(dir.path, 'ripper.yaml');
+        try {
+            const parsed = configSchema.parse(YAML.parse(readFileSync(ripperPath, 'utf8')));
+            for (const t of parsed.tags ?? []) allTags.add(t);
+            for (const cal of parsed.calendars) {
+                for (const t of cal.tags ?? []) allTags.add(t);
+            }
+        } catch {
+            // Directories without a ripper.yaml are not rippers; skip.
+        }
+    }
+
+    it('has at least one external source', () => {
+        expect(externalSources.length).toBeGreaterThan(0);
     });
 
-    describe('ripper.yaml sources', () => {
-        const sourceDirs = readdirSync(SOURCES_DIR, { withFileTypes: true })
-            .filter(d => d.isDirectory())
-            .map(d => ({ name: d.name, path: join(SOURCES_DIR, d.name) }));
-
-        const configs: { name: string; config: any }[] = [];
-
-        for (const dir of sourceDirs) {
-            const ripperPath = join(dir.path, 'ripper.yaml');
-            try {
-                const content = readFileSync(ripperPath, 'utf8');
-                const parsed = configSchema.parse(YAML.parse(content));
-                configs.push({ name: dir.name, config: parsed });
-            } catch {
-                // Skip directories without ripper.yaml
-            }
-        }
-
-        it('should have at least one ripper config', () => {
-            expect(configs.length).toBeGreaterThan(0);
-        });
-
-        it.each(configs.filter(c => c.config.tags))('$name ripper has valid tags', ({ name, config }) => {
-            const invalidTags = config.tags!.filter((tag: string) => !validTagSet.has(tag));
-            expect(invalidTags, `Invalid tags: ${invalidTags.join(', ')}`).toHaveLength(0);
-        });
-
-        it.each(configs.flatMap(({ name, config }) =>
-            (config.calendars || [])
-                .filter((c: any) => c.tags)
-                .map((calendar: any) => ({ name: `${name}/${calendar.name}`, tags: calendar.tags }))
-        ))('$name calendar has valid tags', ({ name, tags }) => {
-            const invalidTags = tags.filter((tag: string) => !validTagSet.has(tag));
-            expect(invalidTags, `Invalid tags: ${invalidTags.join(', ')}`).toHaveLength(0);
-        });
+    it('has no duplicate tags differing only in case or whitespace', () => {
+        const dups = detectTagDuplicates(allTags);
+        const message = dups.length === 0
+            ? ''
+            : 'Found near-duplicate tag spellings — pick one and update the source(s):\n' +
+                dups.map(d => `  ${d.spellings.join(' / ')}`).join('\n');
+        expect(dups, message).toEqual([]);
     });
 });

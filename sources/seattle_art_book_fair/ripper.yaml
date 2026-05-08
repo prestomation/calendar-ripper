@@ -1,0 +1,16 @@
+name: seattle-art-book-fair
+description: "Seattle Art Book Fair"
+url: "https://www.seattleartbookfair.org/"
+friendlyLink: https://www.seattleartbookfair.org/
+tags: ["Books", "Arts", "Central District"]
+expectEmpty: true
+geo:
+  lat: 47.6028079
+  lng: -122.3145870
+  osmType: way
+  osmId: 228870138
+  label: "Washington Hall, 153 14th Ave, Seattle, WA 98122"
+calendars:
+  - name: seattle-art-book-fair
+    friendlyname: "Seattle Art Book Fair"
+    timezone: America/Los_Angeles

@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest';
 import { SpotHopperRipper } from './spothopper.js';
 import { ZoneId } from '@js-joda/core';
 import '@js-joda/timezone';
@@ -9,6 +9,19 @@ import { parse } from 'node-html-parser';
 const timezone = ZoneId.of('America/Los_Angeles');
 
 describe('SpotHopperRipper', () => {
+    // The sample HTML has hard-coded event dates from when it was captured.
+    // SpotHopperRipper.parseEvents drops one-time events older than 6 hours
+    // ago (live-build behavior), so without a fixed clock the test count
+    // and sample-event lookups drift as real-time advances. Pin the clock
+    // to just before the earliest sampled event so the test is stable.
+    beforeAll(() => {
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-05-01T00:00:00-07:00'));
+    });
+    afterAll(() => {
+        vi.useRealTimers();
+    });
+
     const ripper = new SpotHopperRipper();
 
     describe('parseEvents with sample data', () => {

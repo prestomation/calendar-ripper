@@ -166,10 +166,13 @@ function collectGeoCandidate(
 }
 
 async function loadRipperYaml(sourcesDir: string): Promise<Array<{ file: string; doc: YAML.Document.Parsed; name: string }>> {
+  // Reserved subdirectories that hold per-entry yaml for non-ripper sources.
+  const RESERVED_DIRS = new Set(["external", "recurring"]);
   const entries = await readdir(sourcesDir, { withFileTypes: true });
   const results: Array<{ file: string; doc: YAML.Document.Parsed; name: string }> = [];
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
+    if (RESERVED_DIRS.has(entry.name)) continue;
     const file = join(sourcesDir, entry.name, "ripper.yaml");
     try {
       const raw = await readFile(file, "utf8");
@@ -208,46 +211,54 @@ async function collectCandidates(sourceFilter: string | null): Promise<Candidate
     }
   }
 
-  // External calendars (single file, array of entries)
-  const externalFile = join(sourcesDir, "external.yaml");
-  try {
-    const raw = await readFile(externalFile, "utf8");
-    const doc = YAML.parseDocument(raw);
-    if (YAML.isSeq(doc.contents)) {
-      for (const item of doc.contents.items) {
-        if (!YAML.isMap(item)) continue;
-        const name = String(item.get("name") ?? "?");
-        if (sourceFilter && name !== sourceFilter) continue;
-        const geo = item.get("geo");
-        const cand = collectGeoCandidate(doc, geo, `external: ${name}`, externalFile);
-        if (cand) candidates.push({ ...cand, mutate: (o) => { cand.mutate(o); writeBack(externalFile, doc); } });
-      }
+  // External calendars (one yaml per entry under sources/external/)
+  const externalDir = join(sourcesDir, "external");
+  for (const file of await listYamlFiles(externalDir)) {
+    try {
+      const raw = await readFile(file, "utf8");
+      const doc = YAML.parseDocument(raw);
+      if (!YAML.isMap(doc.contents)) continue;
+      const name = String(doc.get("name") ?? "?");
+      if (sourceFilter && name !== sourceFilter) continue;
+      const geo = doc.get("geo");
+      const cand = collectGeoCandidate(doc, geo, `external: ${name}`, file);
+      if (cand) candidates.push({ ...cand, mutate: (o) => { cand.mutate(o); writeBack(file, doc); } });
+    } catch (e) {
+      console.warn(`Could not load ${file}:`, (e as Error).message);
     }
-  } catch (e) {
-    console.warn(`Could not load ${externalFile}:`, (e as Error).message);
   }
 
-  // Recurring events (events: [...] under a top-level map)
-  const recurringFile = join(sourcesDir, "recurring.yaml");
-  try {
-    const raw = await readFile(recurringFile, "utf8");
-    const doc = YAML.parseDocument(raw);
-    const events = doc.get("events");
-    if (YAML.isSeq(events)) {
-      for (const item of events.items) {
-        if (!YAML.isMap(item)) continue;
-        const name = String(item.get("name") ?? "?");
-        if (sourceFilter && name !== sourceFilter) continue;
-        const geo = item.get("geo");
-        const cand = collectGeoCandidate(doc, geo, `recurring: ${name}`, recurringFile);
-        if (cand) candidates.push({ ...cand, mutate: (o) => { cand.mutate(o); writeBack(recurringFile, doc); } });
-      }
+  // Recurring events (one yaml per entry under sources/recurring/)
+  const recurringDir = join(sourcesDir, "recurring");
+  for (const file of await listYamlFiles(recurringDir)) {
+    try {
+      const raw = await readFile(file, "utf8");
+      const doc = YAML.parseDocument(raw);
+      if (!YAML.isMap(doc.contents)) continue;
+      const name = String(doc.get("name") ?? "?");
+      if (sourceFilter && name !== sourceFilter) continue;
+      const geo = doc.get("geo");
+      const cand = collectGeoCandidate(doc, geo, `recurring: ${name}`, file);
+      if (cand) candidates.push({ ...cand, mutate: (o) => { cand.mutate(o); writeBack(file, doc); } });
+    } catch (e) {
+      console.warn(`Could not load ${file}:`, (e as Error).message);
     }
-  } catch (e) {
-    console.warn(`Could not load ${recurringFile}:`, (e as Error).message);
   }
 
   return candidates;
+}
+
+async function listYamlFiles(dir: string): Promise<string[]> {
+  try {
+    const entries = await readdir(dir);
+    return entries
+      .filter(f => f.endsWith(".yaml") || f.endsWith(".yml"))
+      .sort()
+      .map(f => join(dir, f));
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw e;
+  }
 }
 
 async function writeBack(file: string, doc: YAML.Document.Parsed): Promise<void> {

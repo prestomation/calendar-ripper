@@ -210,6 +210,11 @@ markers of removed candidates and are kept here for searchability.
 ### 2026-05-08 — Source discovery: Beacon Hill Markets (prompted by Beacon Arts flyer)
 - ✅ **Beacon Arts Street Fairs** — Free monthly street fair on Beacon Hill (Roberto Maestas Festival Street + Light Rail Plaza + Plaza Roberto Maestas). 2nd Saturday, May–Sep, 11am–5pm. Site is Wix with no ICS/API; added as `sources/recurring/beacon-arts-street-fairs.yaml` with `months: [5,6,7,8,9]`. Tags: MakersMarket, Community, Beacon Hill.
 
+### 2026-05-08 — Source discovery: Soccer (prompted by user request)
+- ✅ Added: **Seattle Sounders FC** — external ICS via FotMob (`pub.fotmob.com/.../team/130394.ics`) — 40 fixtures (home + away). Tags: Sports.
+- ✅ Added: **Seattle Reign FC** — external ICS via FotMob (`pub.fotmob.com/.../team/433031.ics`) — 30 fixtures (home + away). Tags: Sports.
+- 🔍 Investigating: **Ballard FC** (USL2 men's, Ballard) and Salmon Bay FC (USL W) at `goballardfc.com/schedule/`. Site looks Squarespace but no ICS exposed in rendered HTML; FotMob has no public feed for the team. Worth a follow-up cycle.
+
 ---
 
 ## 💡 Candidate

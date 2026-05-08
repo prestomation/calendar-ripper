@@ -1,6 +1,7 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
 
 const BASE_URL = "https://www.seattlefwc26.org";
@@ -20,7 +21,7 @@ const DOW_INDEX: Record<string, number> = {
 
 interface ListEntry {
     slug: string;
-    dayOfWeek: string; // 3-letter abbreviation (Mon, Tue, ...)
+    dayOfWeek: string;
     month: number;
     day: number;
 }
@@ -83,21 +84,20 @@ export default class SeattleFwc26Ripper implements IRipper {
                 entries.push(e);
                 added++;
             }
-            // If a page returned only entries we've already seen, we're past the end
             if (added === 0) break;
         }
         return entries;
     }
 
     parseListEntries(html: string): ListEntry[] {
+        const root = parse(html);
         const entries: ListEntry[] = [];
-        const parts = html.split('calendar_citem');
-        for (let i = 1; i < parts.length; i++) {
-            const p = parts[i];
-            const hrefMatch = p.match(/href="\/full-event-calendar\/([^"]+)"/);
-            if (!hrefMatch) continue;
-            const slug = hrefMatch[1];
-            const bigDates = [...p.matchAll(/date-big-text[^>]*>([^<]+)</g)].map(m => m[1].trim());
+        for (const item of root.querySelectorAll('.calendar_citem')) {
+            const link = item.querySelector('a[href^="/full-event-calendar/"]');
+            const href = link?.getAttribute('href');
+            if (!href) continue;
+            const slug = href.replace('/full-event-calendar/', '');
+            const bigDates = item.querySelectorAll('.date-big-text').map(el => el.text.trim());
             if (bigDates.length < 2) continue;
             const dow = bigDates[0].slice(0, 3);
             const md = bigDates[1].match(/^(\w{3})\s+(\d{1,2})$/);
@@ -124,20 +124,21 @@ export default class SeattleFwc26Ripper implements IRipper {
                 const result = this.parseEventHtml(html, url, entry);
                 events.push(result);
             } catch (e) {
-                events.push({ type: 'ParseError', reason: `Failed to fetch/parse ${entry.slug}: ${e}`, context: entry.slug });
+                const errorMsg = e instanceof Error ? e.message : String(e);
+                events.push({ type: 'ParseError', reason: `Failed to fetch/parse ${entry.slug}: ${errorMsg}`, context: entry.slug });
             }
         }
         return events;
     }
 
     parseEventHtml(html: string, url: string, listEntry: ListEntry): RipperCalendarEvent | RipperError {
-        const headerMatch = html.match(/<header[^>]*class="section_transp-header"[^>]*>([\s\S]*?)<\/header>/);
-        if (!headerMatch) {
+        const root = parse(html);
+        const headerEl = root.querySelector('header.section_transp-header');
+        if (!headerEl) {
             return { type: 'ParseError', reason: 'No event header section found', context: url };
         }
-        const header = headerMatch[1];
 
-        const parsed = this.parseEventDetails(header);
+        const parsed = this.parseEventDetails(headerEl);
         if (!parsed) {
             return { type: 'ParseError', reason: 'Could not parse event details from header', context: url };
         }
@@ -163,7 +164,9 @@ export default class SeattleFwc26Ripper implements IRipper {
 
         if (parsed.endHour !== undefined && parsed.endMinute !== undefined) {
             const startMins = startHour * 60 + startMinute;
-            const endMins = parsed.endHour * 60 + parsed.endMinute;
+            let endMins = parsed.endHour * 60 + parsed.endMinute;
+            // Times like "11:00 PM - 1:00 AM" wrap past midnight
+            if (endMins < startMins) endMins += 24 * 60;
             if (endMins > startMins) {
                 duration = Duration.ofMinutes(endMins - startMins);
             }
@@ -196,53 +199,28 @@ export default class SeattleFwc26Ripper implements IRipper {
         };
     }
 
-    parseEventDetails(header: string): ParsedEvent | null {
-        const titleMatch = header.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
-        if (!titleMatch) return null;
-        const title = decodeEntities(stripTags(titleMatch[1])).trim();
+    parseEventDetails(header: HTMLElement): ParsedEvent | null {
+        const titleEl = header.querySelector('h1');
+        if (!titleEl) return null;
+        const title = decodeEntities(titleEl.text).trim();
         if (!title) return null;
 
-        // Host
         let host: string | undefined;
-        const hostMatch = header.match(/HOSTED[\s ]+BY:[\s\S]*?<div class="text-weight-semibold">([\s\S]*?)<\/div>/);
-        if (hostMatch) {
-            host = decodeEntities(stripTags(hostMatch[1])).trim() || undefined;
-        }
+        const hostEl = header.querySelector('.calendar-host_wrap .text-weight-semibold');
+        if (hostEl) host = decodeEntities(hostEl.text).trim() || undefined;
 
-        // Iterate through each calendar-event-info_wrap to identify date, time, location
-        const wrapRe = /<div class="calendar-event-info_wrap">([\s\S]*?)<\/div>(?=\s*(?:<div class="calendar-event-info_wrap"|<\/div>\s*<\/div>\s*<div class="event-tag_clw))/g;
         let dateText = '';
         let timeText = '';
         let location: string | undefined;
-        let m: RegExpExecArray | null;
-        while ((m = wrapRe.exec(header)) !== null) {
-            const wrap = m[1];
-            const isClock = /lucide-clock/.test(wrap);
-            const isPin = /lucide-map-pin/.test(wrap);
-            const isCalendar = /lucide-calendar/.test(wrap) && !isClock;
-            const texts = extractTextSequence(wrap);
-            if (isCalendar) {
-                dateText = texts.join(' ');
-            } else if (isClock) {
-                timeText = texts.join(' ');
-            } else if (isPin) {
-                location = texts.join(', ').trim() || undefined;
-            }
-        }
-
-        // Fallback: simpler scan if structured wraps weren't matched
-        if (!dateText && !timeText) {
-            const wrapAll = [...header.matchAll(/<div class="calendar-event-info_wrap">([\s\S]*?)<\/div>\s*<\/div>/g)];
-            for (const w of wrapAll) {
-                const wrap = w[1];
-                const isClock = /lucide-clock/.test(wrap);
-                const isPin = /lucide-map-pin/.test(wrap);
-                const isCalendar = /lucide-calendar/.test(wrap) && !isClock;
-                const texts = extractTextSequence(wrap);
-                if (isCalendar && !dateText) dateText = texts.join(' ');
-                else if (isClock && !timeText) timeText = texts.join(' ');
-                else if (isPin && !location) location = texts.join(', ').trim() || undefined;
-            }
+        for (const wrap of header.querySelectorAll('.calendar-event-info_wrap')) {
+            const wrapHtml = wrap.innerHTML;
+            const isClock = wrapHtml.includes('lucide-clock');
+            const isPin = wrapHtml.includes('lucide-map-pin');
+            const isCalendar = wrapHtml.includes('lucide-calendar') && !isClock;
+            const texts = extractWrapTexts(wrap);
+            if (isCalendar && !dateText) dateText = texts.join(' ');
+            else if (isClock && !timeText) timeText = texts.join(' ');
+            else if (isPin && !location) location = texts.join(', ').trim() || undefined;
         }
 
         const dateRange = parseDateRange(dateText);
@@ -250,40 +228,41 @@ export default class SeattleFwc26Ripper implements IRipper {
 
         const timeRange = parseTimeRange(timeText);
 
-        // Categories from main header (first occurrence list)
         const categories: string[] = [];
-        const catMatches = [...header.matchAll(/fs-list-field="category"[^>]*>([^<]+)</g)];
-        for (const c of catMatches) {
-            const v = decodeEntities(c[1]).trim();
+        for (const el of header.querySelectorAll('[fs-list-field="category"]')) {
+            const v = decodeEntities(el.text).trim();
             if (v && !categories.includes(v)) categories.push(v);
         }
 
-        // Tags from main header
         const tags: string[] = [];
-        const tagMatches = [...header.matchAll(/fs-list-field="tags"[^>]*>([^<]+)</g)];
-        for (const t of tagMatches) {
-            const v = decodeEntities(t[1]).trim();
+        for (const el of header.querySelectorAll('[fs-list-field="tags"]')) {
+            const v = decodeEntities(el.text).trim();
             if (v && !tags.includes(v)) tags.push(v);
         }
 
-        // Image
         let image: string | undefined;
-        const imgMatch = header.match(/<img\s+src="(https:\/\/cdn\.prod\.website-files\.com\/[^"]+)"[^>]*class="image-rounded is-event"/);
-        if (imgMatch) image = imgMatch[1];
-
-        // External URL — first absolute link in the button-group section
-        let externalUrl: string | undefined;
-        const buttonGroupMatch = header.match(/<div class="button-group">([\s\S]*?)<\/div>/);
-        if (buttonGroupMatch) {
-            const ext = buttonGroupMatch[1].match(/href="(https?:\/\/[^"]+)"/);
-            if (ext) externalUrl = ext[1];
+        const imgEl = header.querySelector('img.image-rounded.is-event');
+        if (imgEl) {
+            const src = imgEl.getAttribute('src');
+            if (src && src.startsWith('https://cdn.prod.website-files.com/')) image = src;
         }
 
-        // Description from rich text (scoped to header)
+        let externalUrl: string | undefined;
+        const buttonGroup = header.querySelector('.button-group');
+        if (buttonGroup) {
+            for (const a of buttonGroup.querySelectorAll('a')) {
+                const href = a.getAttribute('href');
+                if (href && /^https?:\/\//.test(href)) {
+                    externalUrl = href;
+                    break;
+                }
+            }
+        }
+
         let description: string | undefined;
-        const descMatch = header.match(/<div class="w-richtext">([\s\S]*?)<\/div>\s*(?:<div class="button-group"|<\/div>\s*<\/div>\s*<\/div>\s*<\/div>)/);
-        if (descMatch) {
-            description = decodeEntities(stripTags(descMatch[1])).replace(/\s+/g, ' ').trim() || undefined;
+        const richtext = header.querySelector('.w-richtext');
+        if (richtext) {
+            description = decodeEntities(richtext.text).replace(/\s+/g, ' ').trim() || undefined;
         }
 
         return {
@@ -309,6 +288,8 @@ export default class SeattleFwc26Ripper implements IRipper {
     /**
      * Find the year that makes the (month, day) fall on the given dayOfWeek
      * abbreviation. Tries the current year first, then ±1 and ±2 years.
+     * Skip years where the date doesn't exist (e.g. Feb 29 on a non-leap
+     * year) — `new Date(Date.UTC(2025, 1, 29))` silently rolls over to Mar 1.
      */
     resolveYear(month: number, day: number, dayOfWeek: string): number | null {
         const target = DOW_INDEX[dayOfWeek.slice(0, 3).toLowerCase()];
@@ -316,15 +297,14 @@ export default class SeattleFwc26Ripper implements IRipper {
         const currentYear = new Date().getFullYear();
         for (const offset of [0, 1, -1, 2, -2]) {
             const y = currentYear + offset;
-            const dow = new Date(Date.UTC(y, month - 1, day)).getUTCDay();
-            if (dow === target) return y;
+            const d = new Date(Date.UTC(y, month - 1, day));
+            if (d.getUTCFullYear() !== y || d.getUTCMonth() !== month - 1 || d.getUTCDate() !== day) {
+                continue;
+            }
+            if (d.getUTCDay() === target) return y;
         }
         return null;
     }
-}
-
-function stripTags(html: string): string {
-    return html.replace(/<[^>]+>/g, ' ');
 }
 
 function decodeEntities(text: string): string {
@@ -337,18 +317,17 @@ function decodeEntities(text: string): string {
         .replace(/&#39;/g, "'")
         .replace(/&#x27;/g, "'")
         .replace(/&nbsp;/g, ' ')
-        .replace(/ /g, ' ');
+        .replace(/ /g, ' ');
 }
 
-function extractTextSequence(html: string): string[] {
+function extractWrapTexts(wrap: HTMLElement): string[] {
     const out: string[] = [];
-    const re = />([^<>]+)</g;
-    let m: RegExpExecArray | null;
-    while ((m = re.exec(html)) !== null) {
-        const t = decodeEntities(m[1]).trim();
+    for (const child of wrap.querySelectorAll('div')) {
+        const t = decodeEntities(child.text).trim();
         if (!t || t === '-' || t === ':') continue;
-        // Skip the "HOSTED BY:" label
         if (/^hosted\s+by:?$/i.test(t)) continue;
+        // Skip parent divs that contain other divs we'll visit separately
+        if (child.querySelector('div')) continue;
         out.push(t);
     }
     return out;
@@ -363,7 +342,6 @@ interface DateRange {
 
 export function parseDateRange(text: string): DateRange | null {
     if (!text) return null;
-    // Find all "Month Day" pairs
     const re = /(\w{3})\w*\s+(\d{1,2})/g;
     const matches: Array<{ month: number; day: number }> = [];
     let m: RegExpExecArray | null;

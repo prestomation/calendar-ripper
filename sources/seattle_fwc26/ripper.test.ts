@@ -74,6 +74,45 @@ describe('SeattleFwc26Ripper - resolveYear', () => {
     test('returns null for invalid dayOfWeek', () => {
         expect(ripper.resolveYear(5, 16, 'Xyz')).toBeNull();
     });
+
+    test('skips non-leap years for Feb 29 instead of letting Date roll over to Mar 1', () => {
+        // Feb 29 only exists in leap years (2024, 2028 in our search window).
+        // 2024 was Thursday; 2028 is Tuesday. A non-leap-year query for Sat
+        // must not silently match Mar 1 of some adjacent year.
+        expect(ripper.resolveYear(2, 29, 'Thu')).toBe(2024);
+        expect(ripper.resolveYear(2, 29, 'Tue')).toBe(2028);
+    });
+});
+
+describe('SeattleFwc26Ripper - parseEventHtml midnight crossing', () => {
+    const ripper = new SeattleFwc26Ripper();
+
+    test('handles times that cross midnight (11pm – 1am → 2h)', () => {
+        const html = `<html><body>
+            <header class="section_transp-header">
+                <h1>Late Night Event</h1>
+                <div class="calander_top-date-wrap">
+                    <div class="calendar-event-info_wrap">
+                        <div class="icon"><svg class="lucide-calendar"></svg></div>
+                        <div fs-list-field="date">May 16</div>
+                    </div>
+                    <div class="calendar-event-info_wrap">
+                        <div class="icon"><svg class="lucide-clock"></svg></div>
+                        <div>11:00 PM</div>
+                        <div>-</div>
+                        <div>1:00 AM</div>
+                    </div>
+                </div>
+            </header>
+        </body></html>`;
+        const result = ripper.parseEventHtml(html, 'https://example.com/late-night', {
+            slug: 'late-night', dayOfWeek: 'Sat', month: 5, day: 16,
+        });
+        expect('date' in result).toBe(true);
+        const ev = result as RipperCalendarEvent;
+        expect(ev.date.hour()).toBe(23);
+        expect(ev.duration.toMinutes()).toBe(120);
+    });
 });
 
 describe('SeattleFwc26Ripper - parseListEntries', () => {

@@ -4,6 +4,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## Discovery Log
 
+### 2026-05-07 — Source discovery: UW Trumba
+- ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added to `sources/external.yaml`. Tags: Education, Tech, University District.
+
 ### 2026-05-06 — Source discovery: Theatre, LGBTQ/Nightlife, Breweries, Community
 - ⚙️ **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. GH Actions IPs blocked (403); using `proxy: "outofband"`. PR #264 open — CI passes, event count pending outofband verification. Tags: Music, OpenMic, Capitol Hill.
 - 💡 **Julia's on Broadway / Le Faux** — Drag dinner theater at 300 Broadway E, Capitol Hill. Weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` (3 upcoming listed) but primarily uses SimpleTix (`lefauxproductions.simpletix.com`). Need to check SimpleTix API. Tags: Nightlife, Capitol Hill.
@@ -184,7 +187,7 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
 - `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
-- `sea_info` — UW Information School — `https://www.trumba.com/calendars/sea_info.ics`
+- ~~`sea_info`~~ — UW Information School — implemented 2026-05-07 as `uw-information-school`
 - `sea_lib` — UW Libraries Seattle — `https://www.trumba.com/calendars/sea_lib.ics` — 🔍 Attempted 2026-05-05: removed from PR due to unverifiable event count from sandbox. Must confirm > 0 events before re-adding.
 - `sea_law` — UW School of Law — `https://www.trumba.com/calendars/sea_law.ics`
 - `sea_foster` — UW Foster School of Business — `https://www.trumba.com/calendars/sea_foster.ics`
@@ -336,6 +339,8 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 **Couth Buzzard Books** — StyledCalendar ripper — 8310 Greenwood Ave N, Greenwood — Tags: Books, Music, Greenwood — Added PR #246
 
 **Cannonball Arts Center** — `sources/cannonball_arts` — WordPress custom REST API (`/wp-json/wp/v2/cba-event`), dates parsed from content HTML — 1930 3rd Ave, Seattle, WA 98101 (Belltown) — Tags: Arts, Belltown — Added 2026-05-03
+
+**UW Information School** — `sources/external.yaml` — Trumba ICS (`sea_info`) — UW campus, Seattle — Tags: Education, Tech, University District — Added 2026-05-07
 
 ---
 

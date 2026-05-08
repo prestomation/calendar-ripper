@@ -210,6 +210,15 @@ markers of removed candidates and are kept here for searchability.
 ### 2026-05-08 — Source discovery: Beacon Hill Markets (prompted by Beacon Arts flyer)
 - ✅ **Beacon Arts Street Fairs** — Free monthly street fair on Beacon Hill (Roberto Maestas Festival Street + Light Rail Plaza + Plaza Roberto Maestas). 2nd Saturday, May–Sep, 11am–5pm. Site is Wix with no ICS/API; added as `sources/recurring/beacon-arts-street-fairs.yaml` with `months: [5,6,7,8,9]`. Tags: MakersMarket, Community, Beacon Hill.
 
+### 2026-05-08 — Source discovery: Comedy, Nightlife, Farmers Markets, Arts & Theatre verticals
+- ✅ Added: Queer/Bar — Squarespace — 1518 11th Ave, Capitol Hill — 1249 events — `sources/queer_bar/ripper.yaml`
+- 💡 Candidate: The Rendezvous (Jewelbox Theater) — Squarespace (`rendezvous.squarespace.com`) — 2322 2nd Ave, Belltown — 620 events — high-confidence, implement next cycle
+- ❌ Not Viable: Big Whale Consignment — Shopify `/products.json` returns vintage furniture, not events
+- 🔍 Investigating: Columbia City Theater — `/events/` returns 404; homepage uses Eventbrite ticketing; need to find organizerId
+- 🔍 Investigating: Rat City Roller Derby — Only 1 upcoming event; Tribe Events ICS not detected; low volume
+- ❌ Not Viable: Neighborhood Farmers Markets (seattlefarmersmarkets.org) — No ICS feed on calendar page
+- 🔍 Investigating: Seattle City of Literature calendar — Uses Tockify platform; no ICS feed visible
+
 ---
 
 ## 💡 Candidate

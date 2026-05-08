@@ -306,3 +306,6 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 ### Confirmed 410 Gone (do not re-attempt)
 
 `seattlegov-parks`, `seattlegov-neighborhoods`, `seattlegov-outreach`, `seattlegov-arts`, `seattlegov-recreation`, `seattle-university`, `seattle-pacific-university`, `cornish`, `spl-events`, `seattle-public-library`
+
+### 2026-05-08 — Source discovery: UW Trumba (Foster School of Business)
+- ✅ Added: UW Foster School of Business — Trumba ICS (`sea_foster`) — `uw-foster-school-of-business`

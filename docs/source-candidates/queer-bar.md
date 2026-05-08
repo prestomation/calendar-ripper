@@ -3,7 +3,7 @@ name: "Queer/Bar"
 status: added
 firstSeen: 2026-05-08
 lastChecked: 2026-05-08
-pr: 0
+pr: 272
 ---
 **Queer/Bar** — `https://www.thequeerbar.com/events-one` — Squarespace — 1518 11th Ave, Seattle, WA 98122 (Capitol Hill) — Tags: Nightlife, Capitol Hill
 

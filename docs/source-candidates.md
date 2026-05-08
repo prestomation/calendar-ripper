@@ -15,11 +15,26 @@ markers of removed candidates and are kept here for searchability.
 
 ## Discovery Log
 
-### 2026-05-07 — Source discovery: UW Trumba
-- ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added to `sources/external.yaml`. Tags: Education, Tech, University District.
+### 2026-05-07 — Source discovery: UW Trumba, Outdoors/Seasonal, Performing Arts, Art Book Fair
+- ✅ **UW Information School** (Trumba `sea_info`) — Same Trumba platform as 4 existing working UW sources (`sea_campus`, `sea_music`, `sea_art`, `sea_essuw`). Added as `sources/external/uw-information-school.yaml`. Tags: Education, Tech, University District.
+- ✅ **UW College of Arts & Sciences** (Trumba `sea_artsci`) — Same Trumba platform as existing working UW sources. Added as `sources/external/uw-college-of-arts-sciences.yaml`. CI confirmed 100 events. Tags: Arts, Education, University District. (was PR #268)
+- ✅ **Emerald City Comedy Club** — Already implemented in `sources/emerald_city_comedy/`. Status flipped candidate → added in `docs/source-candidates/emerald-city-comedy-club.md`. (was PR #268)
+- ✅ **Seattle Art Book Fair** — Cargo.site, custom HTML ripper. Annual free festival at Washington Hall (Central District). `expectEmpty: true` between annual events. Added as `sources/seattle_art_book_fair/`. Tags: Books, Arts, Central District. (was PR #267)
+- ❌ **Theatre Off Jackson** (correcting duplicate) — Previously confirmed ❌ on 2026-04-23: uses `venture-event-manager` plugin, no working ICS export.
+- 💡 **Seafair** — Seattle's summer event series (Torchlight Parade, Hydroplane races, Fleet Week, Summer Music Series). `seafair.org/events/`. Custom CMS, custom HTML scraper required. Tags: Community, Music. (was PR #268)
+- 💡 **The Rendezvous** (status update) — `rendezvous.squarespace.com` confirmed indexed by Google, suggesting possible Squarespace migration from WordPress.
+- 💡 **Visit Seattle (RSS)** — `visitseattle.org/events/feed/`. Working RSS 2.0 but only 10 curated events. Would need an RSS adapter. Tags: Community, Events. (was PR #267)
+- ❌ **Seattle Chamber Music Society** — `seattlechambermusic.org/calendar/`. Salesforce ticketing; multi-location venue (some Eastside). Low priority. (was PR #268)
+
+### 2026-05-06 — Source discovery: Markets (prompted by 5/16 Seattle Art Market flyer)
+- ❌ **Sugar Metal Customs** — SLC-based metal-art studio doing guest welding workshops in Seattle. WordPress; `/events/` and `/workshops/` both 404. Their Seattle pop-ups surface via the venues that host them. Not viable as a standalone source. (was PR #263)
+- 💡 **Seattle Makers** — Seattle makerspace running EventPrime WP plugin. ICS export disabled; RSS lacks event dates; `/wp-json/` 401-walled; list page renders via AJAX. Custom scraper required. (was PR #263)
+- 💡 **Big Whale Consignment** — Recurring Sat/Sun Artist & Makers Market, EverOut-tracked. Likely Shopify — try `/products.json` first. Tags: MakersMarket, Arts. (was PR #263)
+- 🔍 **Pioneer Square Market** — `pioneersquaremarket.net/markets` returned 403 from sandbox; live status TBD. (was PR #263)
+- ❌ **Seattle Local Markets** (Magnolia Flea, Fremont Night Market) — no ICS/RSS/API; site directs visitors to socials only. Not viable. (was PR #263)
 
 ### 2026-05-06 — Source discovery: Theatre, LGBTQ/Nightlife, Breweries, Community
-- ⚙️ **a/stir** — Squarespace site at `astirseattle.com/calendar`. 818 E Pike St, Capitol Hill. Bar, restaurant and event space. Regular events: jazz nights (Fri/Sat), open mic (Wed), reading groups, trivia. GH Actions IPs blocked (403); using `proxy: "outofband"`. PR #264 open — CI passes, event count pending outofband verification. Tags: Music, OpenMic, Capitol Hill.
+- ✅ **a/stir** — 818 E Pike St, Capitol Hill. Bar/restaurant/event space. Regular jazz nights, open mic, trivia. Uses SpotHopper for events (not Squarespace despite Squarespace hosting). Added as SpotHopper ripper in `sources/a_stir/`; no proxy needed. PR #264, post-merge tweak in PR #266. Tags: Music, OpenMic, Capitol Hill.
 - 💡 **Julia's on Broadway / Le Faux** — Drag dinner theater at 300 Broadway E, Capitol Hill. Weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` (3 upcoming listed) but primarily uses SimpleTix (`lefauxproductions.simpletix.com`). Need to check SimpleTix API. Tags: Nightlife, Capitol Hill.
 - ❌ **Abbey Arts / Fremont Abbey** — Eventbrite organizer `11933347765`. Only 1 upcoming event currently. Insufficient volume. Tags: Music, Fremont.
 - ❌ **Pike Place Market (Eventbrite)** — Eventbrite organizer `18639581077`. Only 2 upcoming events. Too low volume for a dedicated source. Tags: Community, Pike Place.
@@ -65,6 +80,10 @@ markers of removed candidates and are kept here for searchability.
 - ❌ **Columbia City Theater** — WordPress but Tribe Events ICS returns HTML. Not viable without custom ripper.
 - ❌ **Seattle Farmers Markets (seattlefarmersmarkets.org)** — Squarespace `?format=json` returns 0 events even in-season. SquarespaceRipper not viable; existing recurring.yaml entries already cover these markets.
 - ❌ **Queen Anne Farmers Market** — Not standard Squarespace events JSON. Market schedule info only. Not viable.
+
+### 2026-05-05 — Re-enable seattle-artists-art-walks investigation + new candidates
+- ❌ **SeattleArtists.com Art Walks** (`seattle-artists-art-walks`) — Re-enable attempted (was PR #260) but CI confirmed ICS returns 0 events. Catch-22: browser UA → 200 + HTML (0 events); non-browser UA → 406. Chrome User-Agent fix landed in `lib/calendar_ripper.ts` for benefit of other sources. Source re-disabled with updated notes. Try `/calendar/?ical=1` as alternative URL next cycle.
+- 💡 **United Indians of All Tribes / Daybreak Star** — WordPress + The Events Calendar at unitedindians.org. Multiple 2026 events confirmed (Indian Days Powwow, Art Market, monthly 5K runs, Gala). 5011 Bernie Whitebear Way NW (Discovery Park). On reverify: already implemented in `sources/external/united-indians-daybreak-star.yaml`. Tags: Community, Parks.
 
 ### 2026-05-05 — Source discovery: LGBTQ, Dance, Outdoors, Breweries
 - 🔍 **UW Libraries Seattle** — Trumba ICS (`sea_lib.ics`) attempted but removed: could not verify events from sandbox (all Trumba fetches blocked). CI build fails on new zero-event sources. Moved back to 💡 Candidate pending out-of-band verification.
@@ -272,7 +291,7 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 | `transit-riders-union` | Returns HTML instead of ICS — endpoint broken |
 | `comedy-underground` | HTTP 200 with empty body — Tribe Events ICS returns no data |
 | `gba-georgetown` | HTTP 503 — site was down, may be temporary |
-| `seattle-artists-art-walks` | HTTP 406 without browser User-Agent — needs custom headers |
+| `seattle-artists-art-walks` | Catch-22: browser UA returns 200 + 0 events (likely HTML redirect); non-browser UA returns 406. Site is active but ICS export appears blocked/broken. Try `/calendar/?ical=1` as alternative URL next cycle. |
 | `washington-ensemble-theatre` | ai1ec plugin, needs investigation |
 | `iloveseattle-community` | Never confirmed working |
 

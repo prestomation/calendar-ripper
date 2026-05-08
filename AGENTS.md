@@ -10,16 +10,22 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 
 ## Adding New Calendar Sources
 
-**Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists in `sources/external.yaml` or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).
+**Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists under `sources/external/`, `sources/recurring/`, or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).
 
 ## Source Candidate Tracking
 
-All source discovery findings live in **`docs/source-candidates.md`**. This file tracks:
-- Candidate sources to investigate (with status: 💡 Candidate, 🔍 Investigating, ✅ Added, ❌ Not Viable, ⏸️ Blocked)
-- Discovery log (date-stamped entries from daily scans)
-- Dead source investigations
+Source discovery findings are stored **one file per candidate** under
+**`docs/source-candidates/<slug>.md`**. Each file has YAML frontmatter
+with the candidate's status (`candidate`, `investigating`, `added`,
+`proxy`, `blocked`, `notviable`, `dead`) and freeform notes in the body.
+See `docs/source-candidates/README.md` for the schema.
 
-When implementing a source from the candidates file, update its status entry. The daily cron reads this file to avoid re-proposing the same sources.
+The chronological discovery log (date-stamped entries from daily scans)
+lives in `docs/source-candidates.md` — that file is now log-only.
+
+When implementing a candidate, flip its `status:` frontmatter and add
+the PR number. The daily cron reads `docs/source-candidates/` to avoid
+re-proposing the same sources.
 
 **Feature ideas** (not source-specific) live in `ideas.md` in the repo root.
 
@@ -60,7 +66,7 @@ Look for existing ICS/iCal calendar feeds first. This is the preferred method be
 - Standard calendar format with well-defined schema
 - Minimal maintenance required
 - No parsing logic needed
-- Add to `sources/external.yaml` with the ICS URL
+- Add a new file `sources/external/<name>.yaml` with the ICS URL (one entry per file)
 
 **How to find ICS feeds:**
 - Check for "Subscribe" or "Export Calendar" links on the website
@@ -142,7 +148,7 @@ When you implement a source from `ideas.md`, remove its entry from the file so t
 
 ### Free First Thursday
 
-Many Seattle area museums offer free admission on the first Thursday of each month. There is a catch-all recurring entry (`free-first-thursday`) in `sources/recurring.yaml` that covers museums without their own ripper. Museum rippers that **do** exist should also surface this event:
+Many Seattle area museums offer free admission on the first Thursday of each month. There is a catch-all recurring entry (`free-first-thursday`) in `sources/recurring/free-first-thursday.yaml` that covers museums without their own ripper. Museum rippers that **do** exist should also surface this event:
 
 1. If the source website lists a "Free First Thursday" event with a concrete date, include it normally.
 2. If the website lists it with a vague recurring description (e.g., "First Thursday of each month") or doesn't list it at all, the ripper should **synthesize** concrete dated Free First Thursday events for the next few first Thursdays.
@@ -151,7 +157,7 @@ Examples:
 - **Burke Museum** (`sources/burke_museum/ripper.ts`): detects "first \w+ of each month" pattern and synthesizes dated events with the hours from the page.
 - **SAM** (`sources/sam/ripper.ts`): after parsing, checks if any Free First Thursday event was found per venue; if not, synthesizes events using known FFT hours.
 
-When adding a new museum source, check whether it participates in Free First Thursday (most do). If so, add synthesis logic following the patterns above. Also update the `free-first-thursday` recurring entry description in `sources/recurring.yaml` if the museum is not already listed there.
+When adding a new museum source, check whether it participates in Free First Thursday (most do). If so, add synthesis logic following the patterns above. Also update the `free-first-thursday` recurring entry description in `sources/recurring/free-first-thursday.yaml` if the museum is not already listed there.
 
 ## Expected-Empty Calendars (`expectEmpty`)
 
@@ -184,7 +190,7 @@ calendars:
     expectEmpty: true  # Small branch; may have no events in a given window
 ```
 
-External calendars in `sources/external.yaml` also support `expectEmpty: true`.
+External calendars in `sources/external/<name>.yaml` also support `expectEmpty: true`.
 
 ### Behavior
 
@@ -206,14 +212,13 @@ External calendars in `sources/external.yaml` also support `expectEmpty: true`.
 
 ## Tags
 
-Tags drive the aggregate calendar system — each unique tag produces a `tag-<name>.ics` file that combines events from every source sharing that tag. The build **fails** if any tag is not in the allowlist.
+Tags drive the aggregate calendar system — each unique tag produces a `tag-<name>.ics` file that combines events from every source sharing that tag. **Tags don't need to be pre-registered**: any string a source uses in its `tags:` field is valid. The build only fails on **near-duplicate spellings** (e.g. `"Capitol Hill"` vs `"CapitolHill"`), since those produce divergent ICS URLs and are almost always typos.
 
 ### Adding a new tag
 
-1. Check `lib/config/tags.ts` (`VALID_TAGS`) for an existing tag that fits. Use it if one exists.
-2. Before creating a new tag, search all config files for similar names to avoid duplicates (e.g., `"Capitol Hill"` vs `"CapitolHill"`, `"Queen Anne"` vs `"QueenAnne"`). The tag name becomes part of the ICS URL (`tag-<lowercased>.ics`), so different spellings create separate calendars.
-3. If no existing tag fits, add the new tag to `VALID_TAGS` in `lib/config/tags.ts` in the appropriate category section (Neighborhood, Activity, Market, or Community).
-4. Use the tag in the source's `tags` array in its YAML config.
+1. Check `lib/config/tags.ts` (`TAG_CATEGORIES`) for an existing tag that fits. Use it if one exists.
+2. Before introducing a new tag, search all config files for similar names to avoid near-duplicates. The tag name becomes part of the ICS URL (`tag-<lowercased>.ics`), so different spellings create separate calendars.
+3. Use the tag in the source's `tags` array in its YAML config — that's it. Optionally add it to `TAG_CATEGORIES` so the website sidebar groups it under a real category instead of "Other"; uncategorized tags still appear in the UI.
 
 ### Tag naming conventions
 
@@ -223,13 +228,13 @@ Tags drive the aggregate calendar system — each unique tag produces a `tag-<na
 
 ### Validation
 
-Tag validation runs at build time in `lib/calendar_ripper.ts`. It collects all unique tags from rippers, external calendars, and recurring calendars, then checks them against `VALID_TAGS`. Invalid tags cause the build to fail with the offending tag names listed in the error message.
+Tag validation runs at build time in `lib/calendar_ripper.ts`. It collects all tags from rippers, external calendars, and recurring calendars, then runs `detectTagDuplicates` from `lib/config/tags.ts`. The build fails when two tags collapse to the same case- and whitespace-stripped form, with the offending spellings listed in the error.
 
 ### Removing or renaming a calendar URL
 
 The CI runs `scripts/check-missing-urls.ts` which compares the new build's manifest against the deployed site. If any existing calendar URL would disappear (e.g., renaming a tag changes the `tag-*.ics` filename), the check fails.
 
-To intentionally remove a URL, add the filename to `allowed-removals.txt` in the repo root. Remove the entry from the file after the change has been deployed.
+To intentionally remove a URL, create an empty file `allowed-removals/<filename>` (one file per removal — splitting per-file avoids merge conflicts when multiple PRs add removals concurrently). Delete the file after the change has been deployed.
 
 ## Discovery API
 
@@ -379,13 +384,13 @@ The `description` field is used as the `<h2>` section heading on the website for
   - **Good:** `"Stoup Brewing"`, `"BBYC Ballard (Bale Breaker & Yonder Cider)"`, `"Seattle Theatre Group - Paramount, Moore, and Neptune Theatres"`
   - **Bad:** `"Major Seattle brewery in Fremont with food trucks, beer releases, and community events"`
 
-- **`external.yaml`** — A sentence or two describing what the source covers is appropriate and encouraged. Help a reader understand what kinds of events to expect.
+- **`sources/external/<name>.yaml`** — A sentence or two describing what the source covers is appropriate and encouraged. Help a reader understand what kinds of events to expect.
   - **Good:** `"GeekWire Events attract thousands of people to network, learn, recruit, and do business across the Pacific Northwest tech community"`
   - **Good:** `"Seattle's online hub for dance events, classes, and performances - covering contemporary, ballet, hip-hop, and more"`
 
 Don't mention APIs, scraping methods, or other implementation details in either case.
 
-**Never rename or reformat the `name` field of an existing source.** The `name` drives the output filename (e.g. `external-Geekwire.ics`). Changing it silently removes the old URL from the deployed site, requiring an `allowed-removals.txt` entry and breaking any subscribers. If you think a name is wrong, ask first.
+**Never rename or reformat the `name` field of an existing source.** The `name` drives the output filename (e.g. `external-Geekwire.ics`). Changing it silently removes the old URL from the deployed site, requiring an entry under `allowed-removals/` and breaking any subscribers. If you think a name is wrong, ask first.
 
 ## Geo-Cache (`geo-cache.json`)
 
@@ -536,7 +541,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 
 **Cause:** The ICS feed URL is blocked or has been removed. External calendars do not currently support the proxy.
 
-**Fix:** Verify the URL is still valid by testing from multiple sources. If the feed has been removed or permanently blocked, consider removing the entry from `sources/external.yaml` or finding an alternative URL.
+**Fix:** Verify the URL is still valid by testing from multiple sources. If the feed has been removed or permanently blocked, consider deleting the entry's file under `sources/external/` or finding an alternative URL.
 
 #### Unknown Venue Errors (seattle-showlists)
 

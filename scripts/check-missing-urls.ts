@@ -6,7 +6,6 @@
  * Example: node --loader ts-node/esm scripts/check-missing-urls.ts https://example.github.io/calendar-ripper
  */
 
-import { readFile } from "fs/promises";
 import { existsSync, readdirSync } from "fs";
 import { resolve, normalize } from "path";
 
@@ -112,22 +111,23 @@ function extractIcsUrls(manifest: Manifest): Set<string> {
 }
 
 /**
- * Loads the allowed-removals.txt file, returning a set of ICS filenames
+ * Loads the allowed-removals/ directory, returning a set of ICS filenames
  * that are intentionally being removed and should not trigger a failure.
- * Lines starting with # and blank lines are ignored.
+ * Each file in the directory is named after the ICS filename being removed
+ * (the file's contents are ignored). Splitting one entry per file avoids
+ * merge conflicts when multiple PRs add removals concurrently.
  */
 async function loadAllowedRemovals(): Promise<Set<string>> {
   const allowed = new Set<string>();
   try {
-    const content = await readFile("allowed-removals.txt", "utf-8");
-    for (const line of content.split("\n")) {
-      const trimmed = line.trim();
-      if (trimmed && !trimmed.startsWith("#")) {
-        allowed.add(trimmed);
-      }
+    for (const entry of readdirSync("allowed-removals")) {
+      // Skip dotfiles and the README, accept any other filename verbatim
+      // (the filename IS the ICS filename being approved for removal).
+      if (entry.startsWith(".") || entry === "README.md") continue;
+      allowed.add(entry);
     }
   } catch {
-    // File doesn't exist — no removals are pre-approved
+    // Directory doesn't exist — no removals are pre-approved
   }
   return allowed;
 }
@@ -239,7 +239,7 @@ async function main() {
   }
 
   if (approvedRemovals.length > 0) {
-    console.log("\n✓ Intentional removals (listed in allowed-removals.txt):");
+    console.log("\n✓ Intentional removals (listed under allowed-removals/):");
     for (const url of approvedRemovals.sort()) {
       console.log(`  ~ ${url}`);
     }

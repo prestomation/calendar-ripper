@@ -27,10 +27,11 @@
 
 ### Directory Structure
 ```
-sources/           # Ripper implementations
-lib/              # Core library code
-output/           # Generated .ics files
-sources/external.yaml  # External calendar URLs
+sources/           # Ripper implementations (one directory per source)
+sources/external/  # External calendar URLs (one yaml per ICS feed)
+sources/recurring/ # Recurring events (one yaml per event)
+lib/               # Core library code
+output/            # Generated .ics files
 ```
 
 ### Base Classes

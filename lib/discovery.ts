@@ -7,7 +7,7 @@ import {
   geoSchema,
 } from "./config/schema.js";
 import { RecurringEvent } from "./config/recurring.js";
-import { TAG_CATEGORIES, VALID_TAGS } from "./config/tags.js";
+import { categoryFor } from "./config/tags.js";
 
 /**
  * Discovery API — HATEOAS-style data files that let programmatic consumers
@@ -143,11 +143,6 @@ export function buildTagsJson(opts: {
 }): TagsDoc {
   const { manifest, eventCounts, generated, includeAll = false } = opts;
 
-  const categoryForTag = new Map<string, string>();
-  for (const [category, tags] of Object.entries(TAG_CATEGORIES)) {
-    for (const tag of tags) categoryForTag.set(tag, category);
-  }
-
   // Count how many calendars reference each tag across the manifest.
   const calendarCountPerTag = new Map<string, number>();
   const bump = (tag: string) => calendarCountPerTag.set(tag, (calendarCountPerTag.get(tag) ?? 0) + 1);
@@ -171,9 +166,12 @@ export function buildTagsJson(opts: {
     }
   }
 
-  const tagsToEmit = (VALID_TAGS as readonly string[]).filter(tag => {
+  // Emit one entry per tag that's actually used by a calendar. Tags don't
+  // need to be pre-registered — the build derives the tag universe from
+  // the configs themselves.
+  const tagsToEmit = [...calendarCountPerTag.keys()].filter(tag => {
     if (!includeAll && tag === "All") return false;
-    return calendarCountPerTag.has(tag);
+    return true;
   });
 
   const entries: TagEntry[] = tagsToEmit
@@ -183,7 +181,7 @@ export function buildTagsJson(opts: {
       return {
         name: tag,
         slug,
-        category: categoryForTag.get(tag) ?? "Unknown",
+        category: categoryFor(tag),
         eventCount: aggregateCount.get(aggregateName) ?? 0,
         calendarCount: calendarCountPerTag.get(tag) ?? 0,
         links: {

@@ -36,10 +36,25 @@ export type RecurringConfig = z.infer<typeof recurringConfigSchema>;
 export class RecurringEventProcessor {
     private config: RecurringConfig;
 
-    constructor(configPath: string) {
-        const yamlContent = fs.readFileSync(configPath, 'utf8');
-        const rawConfig = parse(yamlContent);
-        this.config = recurringConfigSchema.parse(rawConfig);
+    /**
+     * Construct from either a directory of per-event yaml files
+     * (`sources/recurring/<name>.yaml`) or, for tests, a parsed
+     * `{events: [...]}` object passed directly.
+     */
+    constructor(source: string | RecurringConfig) {
+        if (typeof source === "string") {
+            const files = fs.readdirSync(source)
+                .filter(f => f.endsWith(".yaml") || f.endsWith(".yml"))
+                .sort();
+            const events: unknown[] = [];
+            for (const f of files) {
+                const content = fs.readFileSync(path.join(source, f), 'utf8');
+                events.push(parse(content));
+            }
+            this.config = recurringConfigSchema.parse({ events });
+        } else {
+            this.config = recurringConfigSchema.parse(source);
+        }
     }
 
     /**

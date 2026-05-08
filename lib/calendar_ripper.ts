@@ -13,7 +13,6 @@ import {
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "./geocoder.js";
 import { toRSS } from "./config/rss.js";
 import { join, dirname } from "path";
-import { parse } from "yaml";
 import { fileURLToPath } from "url";
 import {
   prepareTaggedCalendars,
@@ -25,8 +24,9 @@ import {
   TaggedExternalCalendar,
 } from "./tag_aggregator.js";
 import { RecurringEventProcessor } from "./config/recurring.js";
+import { loadYamlDir } from "./config/dir-loader.js";
 import { LocalDate } from "@js-joda/core";
-import { validateTags, TAG_CATEGORIES } from "./config/tags.js";
+import { detectTagDuplicates } from "./config/tags.js";
 import {
   buildIndexJson,
   buildTagsJson,
@@ -288,33 +288,29 @@ export const main = async () => {
   const loader = new RipperLoader("sources/");
   const [configs, errors] = await loader.loadConfigs();
 
-  // Load external calendars directly
+  // Load external calendars from sources/external/<name>.yaml
   let externalCalendars: ExternalConfig = [];
   try {
-    const filePath = join("sources", "external.yaml");
-    const fileContents = await readFile(filePath, "utf8");
-    const parsed = parse(fileContents);
-
-    const result = externalConfigSchema.safeParse(parsed);
+    const externalDir = join("sources", "external");
+    const entries = await loadYamlDir(externalDir);
+    const result = externalConfigSchema.safeParse(entries);
     if (!result.success) {
-      throw new Error(`Failed to parse external.yaml: ${result.error.message}`);
+      throw new Error(`Failed to parse sources/external/: ${result.error.message}`);
     }
     externalCalendars = result.data;
   } catch (error) {
     if ((error as any).code !== "ENOENT") {
-      // If the file doesn't exist, that's fine - just use empty array
-      // Otherwise, fail the program
       console.error("Error loading external calendars:", error);
       throw error;
     }
   }
 
-  // Load recurring events
+  // Load recurring events from sources/recurring/<name>.yaml
   let recurringCalendars: RipperCalendar[] = [];
   let recurringProcessor: RecurringEventProcessor | null = null;
   try {
-    const recurringPath = join("sources", "recurring.yaml");
-    recurringProcessor = new RecurringEventProcessor(recurringPath);
+    const recurringDir = join("sources", "recurring");
+    recurringProcessor = new RecurringEventProcessor(recurringDir);
 
     // Generate events for the next 12 months
     const startDate = LocalDate.now();
@@ -724,15 +720,19 @@ END:VCALENDAR`;
     if (calendar.tags) calendar.tags.forEach(tag => allTags.add(tag));
   });
 
-  const { invalid: invalidTags } = validateTags(Array.from(allTags));
-  if (invalidTags.length > 0) {
-    throw new Error(`Build failed: invalid tag(s) not in VALID_TAGS: ${invalidTags.join(', ')}. Add them to lib/config/tags.ts or fix the typo.`);
-  }
-
-  const categorizedTags = new Set<string>(Object.values(TAG_CATEGORIES).flat());
-  const uncategorizedTags = Array.from(allTags).filter(tag => !categorizedTags.has(tag));
-  if (uncategorizedTags.length > 0) {
-    throw new Error(`Build failed: tag(s) are valid but not assigned to any display category: ${uncategorizedTags.join(', ')}. Add them to a category in TAG_CATEGORIES in lib/config/tags.ts.`);
+  // Tags don't need to be in a central allow-list anymore — any string a
+  // source uses is valid. The only gating check is for near-duplicates
+  // (e.g. "Capitol Hill" vs "CapitolHill"), which produce divergent ICS
+  // URLs and are almost always an unintentional typo.
+  const tagDuplicates = detectTagDuplicates(allTags);
+  if (tagDuplicates.length > 0) {
+    const desc = tagDuplicates
+      .map(d => `  ${d.spellings.join(' / ')}`)
+      .join('\n');
+    throw new Error(
+      `Build failed: tags differ only in casing or whitespace. ` +
+      `Pick one spelling and update the source(s) using the others:\n${desc}`
+    );
   }
 
   // Log calendars excluded from manifest due to no future events

@@ -101,12 +101,12 @@ describe("loadCalendarInventory integration", () => {
         expect(inventory.rippers.length).toBeGreaterThan(0);
     });
 
-    it("loads external calendars from sources/external.yaml", async () => {
+    it("loads external calendars from sources/external/", async () => {
         const inventory = await loadCalendarInventory(sourcesDir);
         expect(inventory.external.length).toBeGreaterThan(0);
     });
 
-    it("loads recurring events from sources/recurring.yaml", async () => {
+    it("loads recurring events from sources/recurring/", async () => {
         const inventory = await loadCalendarInventory(sourcesDir);
         expect(inventory.recurring.length).toBeGreaterThan(0);
     });

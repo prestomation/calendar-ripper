@@ -1,6 +1,17 @@
 # 206.events Source Candidates
 
-Potential Seattle-area event sources to add, organized by status. Updated by the daily source discovery skill (`skills/source-discovery/SKILL.md`).
+Per-candidate triage data lives one-file-per-candidate under
+[`source-candidates/`](./source-candidates/). See its
+[README](./source-candidates/README.md) for the file layout and frontmatter
+schema. **New candidates go in that directory**, not in this file.
+
+This file is now log-only — it preserves:
+- the chronological **Discovery Log** the daily skill appends to, and
+- a few static reference tables (Dead Source Investigation, etc.) that
+  don't have the per-entry conflict pattern that motivated the split.
+
+Strikethrough entries in the status sections below are historical
+markers of removed candidates and are kept here for searchability.
 
 ## Discovery Log
 
@@ -181,20 +192,9 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ## 💡 Candidate
 
+_Per-candidate files now live under [`source-candidates/`](./source-candidates/). Strikethrough entries below are historical records of removed candidates._
+
 ### ICS Feeds (add to `sources/external.yaml`)
-
-**Seattle.Gov City-Wide** — `https://www.trumba.com/calendars/seattlegov-city-wide.ics` — 500 events. City meetings, community events, parks volunteer events, commission meetings. Tags: Community, Government, Parks — **New 2026-04-22**
-
-**UW Trumba Calendars** — lower priority, primarily academic/internal audiences:
-- `sea_artsci` — UW College of Arts & Sciences — `https://www.trumba.com/calendars/sea_artsci.ics`
-- ~~`sea_info`~~ — UW Information School — implemented 2026-05-07 as `uw-information-school`
-- `sea_lib` — UW Libraries Seattle — `https://www.trumba.com/calendars/sea_lib.ics` — 🔍 Attempted 2026-05-05: removed from PR due to unverifiable event count from sandbox. Must confirm > 0 events before re-adding.
-- `sea_law` — UW School of Law — `https://www.trumba.com/calendars/sea_law.ics`
-- `sea_foster` — UW Foster School of Business — `https://www.trumba.com/calendars/sea_foster.ics`
-- `sea_nursing` — UW School of Nursing — `https://www.trumba.com/calendars/sea_nursing.ics`
-- `sea_essuw` — UW Sustainability — `https://www.trumba.com/calendars/sea_essuw.ics`
-- `sea_comp_lit` — UW Cinema & Media Studies — `https://www.trumba.com/calendars/sea_comp_lit.ics`
-- `sea_evans-hub` — UW Evans School Community Hub — `https://www.trumba.com/calendars/sea_evans-hub.ics`
 
 ~~**MOHAI**~~ — Already in `sources/external.yaml` as `mohai` (ICS: `?post_type=tribe_events&ical=1&eventDisplay=list`) — No action needed.
 
@@ -202,187 +202,39 @@ Potential Seattle-area event sources to add, organized by status. Updated by the
 
 ~~**Couth Buzzard Books**~~ — Added as StyledCalendar ripper in PR #246 (not plain Squarespace — uses StyledCalendar widget)
 
-💡 **Seattle Farmers Markets** — Squarespace `?format=json` returns 0 events; SquarespaceRipper not viable. Existing recurring.yaml entries already cover these markets.
-
-**Seattle Public Theater** — `https://www.seattlepublictheater.org/current-season` — Green Lake Bathhouse — Note: may not work with SquarespaceRipper (page vs events collection)
-
-**Skylark Cafe** — `https://www.skylarkcafe.com/calendar` — 3803 Delridge Way SW — Tags: Music, West Seattle — Note: site is on **Webflow** (not Squarespace); uses Eventbrite for ticketed events — need to find correct Eventbrite organizer ID or write custom scraper
-
 ### Ticketmaster (built-in type)
-
-**Seattle Thunderbirds** — `https://chl.ca/whl-thunderbirds/schedule/` — accesso ShoWare Center, Kent — Tags: Sports — Note: Kent is outside Seattle city limits
 
 ### WordPress / Tribe Events ICS
 
-💡 **The Rendezvous** — WordPress + Tribe Events. ICS returns 0 bytes and HTTP 403 from CI IPs; external feeds don't support proxy. Not currently addable.
-
-❌ **New Tech Northwest** — Content is 100% spam/marketing. Not viable.
-
-**SeattleDances** — `https://seattledances.com/events/` — ICS feed confirmed working at `?post_type=tribe_events&ical=1&eventDisplay=list` (30 events). Tags: Dance, Arts — **New 2026-04-22**
-
-**Rat City Roller Derby** — `https://ratcityrollerderby.com/events/` — try `?post_type=tribe_events&ical=1` — Tags: Community, Sports
-
-**Theatre Off Jackson** — `https://theatreoffjackson.org/event-calendar/` — try `?post_type=tribe_events&ical=1` — 409 7th Ave S — Tags: Theatre, International District
-
-~~**Book Larder** — `https://booklarder.com/collections/evey-events` — Shopify store (events as products) — 4252 Fremont Ave N — Tags: Books, Food, Fremont — Shopify products.json API confirmed working~~
-
-~~**Cannonball Arts Center** — `https://cannonballarts.com/cba-events/` — WordPress with custom `cba-event` REST API (`/wp-json/wp/v2/cba-event`) — **REST API confirmed working 2026-04-24** (previously 503). 6 events. Would need custom ripper for `cba-event` post type (dates in content HTML, not ACF fields). Tags: Arts, Belltown — New venue from Bumbershoot producers~~
-
 ### Custom HTML/JSON Scraping
 
-💡 **Julia's on Broadway / Le Faux** — `https://www.juliasonbroadway.com/` — 300 Broadway E, Capitol Hill. Drag dinner theater with weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` shows only 3 upcoming events (SimpleTix at `lefauxproductions.simpletix.com` may be primary ticketing). Need to evaluate SimpleTix API. Tags: Nightlife, Capitol Hill — **New 2026-05-06**
-
-**Swing It Seattle** — `https://www.swingitseattle.com/calendar` — Swing/Lindy hop dance org. Regular socials at South Park Hall and Russian Community Center. Platform unknown (sandbox blocked). — Tags: Dance — **New 2026-05-05**
-
-**Queer/Bar** — `https://www.thequeerbar.com/events-one` — LGBTQ+ venue at 1426 Broadway, Capitol Hill. Regular drag shows, DJ nights, comedy. Uses Fever for some ticketing. Platform (Squarespace vs Webflow) unknown — Tags: Nightlife, Capitol Hill — **New 2026-05-05**
-
-**Elliott Bay Brewing** — `https://elliottbaybrewing.com/events/` — Seattle brewery with West Seattle (4720 California Ave SW) and SoDo locations. Events: karaoke, trivia, tastings, community nights. Platform unknown — Tags: Beer, West Seattle — **New 2026-05-05**
-
-**ACT Theatre / Union Arts Center** — `https://acttheatre.org/whats-on/` (redirects to unionartscenter.org) — WordPress with Avada — Tags: Theatre, Downtown
-
-**Intiman Theatre** — `https://www.intiman.org/2025-26-season/` — WordPress — Tags: Theatre, Capitol Hill
-
-**ArtsWest** — `https://www.artswest.org/calendar/` — WordPress with JS calendar — Tags: Theatre, West Seattle
-
-**Seattle Children's Theatre** — `https://www.sct.org/tickets-shows/calendar/` — WordPress with Elementor — Tags: Theatre
-
-**Seattle Opera** — `https://www.seattleopera.org/performances-events` — Custom, ticketing via Tessitura — Tags: Arts, Music
-
-**Pacific Northwest Ballet** — `https://order.pnb.org/events` — WordPress, ticketing via Tessitura — Tags: Arts
-
-**Book-It Repertory Theatre** — `https://book-it.org/` — WordPress — Tags: Theatre — Low volume
-
-**Cornish College of the Arts** — `https://www.cornish.edu/cornish-college-event-calendar/` — Custom CMS — Tags: Arts, Music, Theatre
-
-**Nectar Lounge** — `https://nectarlounge.com/events/calendar/` — Tixr ticketing — Tags: Music
-
-**The Triple Door** — `https://thetripledoor.net/mainstage-calendar` — Bandzoogle — Tags: Music, Downtown
-
-**Jazz Alley** — `https://www.jazzalley.com/www-home/calendar.jsp` — Custom JSP — `proxy: true` required (503 from CI IPs) — Tags: Music, Belltown
-
-**Columbia City Theater** — `https://columbiacitytheater.org/` — WordPress — Tags: Music, Community
-
-**Central Saloon** — `https://centralsaloon.com/music-events/` — WordPress — Tags: Music, Pioneer Square
-
-**Tim's Tavern** — `https://timslivemusic.com/upcoming-shows` — Tags: Music, West Seattle
-
-**Egan's Ballard Jam House** — `https://www.ballardjamhouse.com/schedule.html` — Custom static site — Tags: Music, Ballard
-
-**Whim W'Him Seattle Contemporary Dance** — `https://whimwhim.org/calendar/` — Tags: Arts, Queen Anne
-
-**Mox Boarding House Seattle** — `https://www.moxboardinghouse.com/pages/seattle-events` — Shopify — Tags: Gaming, Ballard
-
-**The Mountaineers** — `https://www.mountaineers.org/locations-lodges/seattle-program-center/events` — Tags: Outdoors
-
-**University Book Store** — `https://ubookstore.com/` — Tags: Books, University District
-
 ~~**Henry Art Gallery**~~ — Added as Eventbrite ripper (organizer `775590393`) — see ✅ Added section
-
-**National Nordic Museum** — `https://nordicmuseum.org/calendar` — Tags: Museums, Arts, Ballard
-
-**Woodland Park Zoo** — `https://zoo.org/events/` — Tribe Events ICS ✅ (~30 events: ZooTunes concerts, animal encounters, dining) — Tags: Community, Family, Music
-
-**Seattle Aquarium** — `https://www.seattleaquarium.org/events/` — Custom CMS — Tags: Community, Museums
-
-**CIDBIA Events** — `https://www.seattlechinatownid.com/local-events` — Tags: Community, International District
-
-**El Centro de la Raza** — `https://www.elcentrodelaraza.org/` — Tags: Community, Beacon Hill
-
-**Renegade Craft Fair** — `https://www.renegadecraft.com/events/` — Tags: MakersMarket
-
-**Seattle Uncorked** — `https://seattleuncorked.com/events/` — WordPress, mostly Seattle-focused (some Eastside events) — Tags: Beer, Community
-
-**ParentMap** — `https://www.parentmap.com/calendar` — Drupal — Tags: Community
-
-**Seattle Indian Health Board** — `https://www.sihb.org/events/` — WordPress — Tags: Community
-
-**Emerald City Comedy Club** — `https://www.emeraldcitycomedy.com/events` — SeatEngine platform, 40+ events, custom ripper needed — Tags: Comedy, Capitol Hill
-
-**Here-After (at The Crocodile)** — `https://www.thecrocodile.com/here-after` — 2505 1st Ave — Tags: Comedy, Belltown — May overlap with existing `crocodile` ripper
-
-**Hidden Door** — `https://www.hiddendoorseattle.com/` — Tags: Music, Capitol Hill
-
-**Backfire Motobar** — `https://www.backfiremotobar.com/` — 7701 Aurora Ave N — Tags: Music, Nightlife
-
-**The Royal Room** — `https://theroyalroomseattle.com/` — 5000 Rainier Ave S — Tags: Music, Columbia City
-
-❌ **Ada's Technical Books & Cafe** — closing permanently — removed from candidates
 
 ---
 
 ## ✅ Added
 
-**University Book Store / Barnes & Noble University District** — `sources/university_book_store` — Eventbrite organizer `30331909434` — 4324 University Way NE, Seattle — Tags: Books, University District
-
-**Laughs Comedy Club** — `sources/laughs_comedy` — Eventbrite — 5220 Roosevelt Way NE — Tags: Comedy, University District
-
-**CSz Seattle (ComedySportz)** — `sources/csz_seattle` — Eventbrite — 3509 Fremont Ave N — Tags: Comedy, Fremont
-
-**Club Comedy Seattle** — `sources/club_comedy` — Eventbrite — 2100 Harvard Ave E — Tags: Comedy, Capitol Hill
-
-**Third Place Books** — `sources/third_place_books` — Eventbrite — multi-location — Tags: Books, Education
-
-**Jet City Improv** — `sources/jet_city_improv` — Eventbrite — 5031 University Way NE — Tags: Comedy, Theatre, University District
-
-**Volunteer Park Trust** — `sources/volunteer_park_trust` — Squarespace — Volunteer Park, 1247 15th Ave E — Tags: Community, Parks, Capitol Hill — PR #201
-
-**The Royal Room** — `sources/royal_room` — WP Event Manager RSS + JSON-LD per-page — 5000 Rainier Ave S, Columbia City — Tags: Music, Columbia City
-
-**Book Larder** — `sources/book_larder` — Shopify products.json API — 4252 Fremont Ave N, Fremont — Tags: Books, Food, Fremont
-
-**Populus Seattle** — `sources/external.yaml` — Tribe Events ICS — 100 S King St, Pioneer Square — Tags: Nightlife, Music, Downtown — PR #240
-
-**Henry Art Gallery** — `sources/henry_art_gallery` — Eventbrite organizer `775590393` — 4100 15th Ave NE, Seattle, WA 98105 (UW campus) — Tags: Arts, Museums, University District — Added 2026-05-03
-
-**Earshot Jazz** — `sources/external.yaml` — Tribe Events ICS (`earshot.org`) — Seattle jazz nonprofit, 100+ concerts/year at venues throughout Seattle — Tags: Music — Added 2026-05-01, CI confirmed events ✅
-
-**Couth Buzzard Books** — StyledCalendar ripper — 8310 Greenwood Ave N, Greenwood — Tags: Books, Music, Greenwood — Added PR #246
-
-**Cannonball Arts Center** — `sources/cannonball_arts` — WordPress custom REST API (`/wp-json/wp/v2/cba-event`), dates parsed from content HTML — 1930 3rd Ave, Seattle, WA 98101 (Belltown) — Tags: Arts, Belltown — Added 2026-05-03
-
-**UW Information School** — `sources/external.yaml` — Trumba ICS (`sea_info`) — UW campus, Seattle — Tags: Education, Tech, University District — Added 2026-05-07
+_Per-candidate files now live under [`source-candidates/`](./source-candidates/). Strikethrough entries below are historical records of removed candidates._
 
 ---
 
 ## ⚙️ Requires Proxy
 
-Sources confirmed live but blocked from GitHub Actions IPs. Implemented with `proxy: "outofband"` — event counts verified from outofband build logs, not PR preview.
+_Per-candidate files now live under [`source-candidates/`](./source-candidates/). Strikethrough entries below are historical records of removed candidates._
 
-**a/stir** — `sources/a_stir` — Squarespace, `proxy: "outofband"` — 818 E Pike St, Capitol Hill — Regular events: jazz nights, open mic, trivia — Tags: Music, OpenMic, Capitol Hill — PR #264 (CI passes, outofband event count pending)
+Sources confirmed live but blocked from GitHub Actions IPs. Implemented with `proxy: "outofband"` — event counts verified from outofband build logs, not PR preview.
 
 ---
 
 ## ⏸️ Blocked
 
-**AXS Venues (5th Avenue Theatre, Barboza, Clock-Out Lounge, Neumos)** — Cloudflare bot protection blocks both direct and proxy requests. Need residential proxy or headless browser. — Tags: Theatre, Music
-
-**AMC Theatres** — Cloudflare bot protection on GraphQL API. — Tags: Movies
-
-**EverOut Seattle (The Stranger)** — `https://everout.com/seattle/events/` — Heavy bot protection (403 on fetch). — Tags: Community, Music, Arts
-
-**Do206** — `https://do206.com/events` — Algolia-powered. Search API keys may be extractable from page JS. — Tags: Community, Music
-
-**Songkick** — API requires key. — Tags: Music
+_Per-candidate files now live under [`source-candidates/`](./source-candidates/). Strikethrough entries below are historical records of removed candidates._
 
 ---
 
 ## ❌ Not Viable
 
-**Village Theatre** — Issaquah and Everett venues — not Seattle city limits
-
-**Woodinville Wine Country** — Woodinville — not Seattle city limits
-
-**Filipino Community of Seattle** — Wix site, heavily JS-dependent — Eventbrite may be an alternative route (investigate)
-
-**Climate Pledge Arena (external ICS)** — HTTP 503 — already covered by `climate_pledge_arena` Ticketmaster ripper
-
-**Can Can Culinary Cabaret** — Abandoned Eventbrite (org page: "no upcoming events"). Squarespace site but `?format=json` returns `itemCount: 0` (sells tickets via Venmo only, no structured API). Revisit if they start using Eventbrite again or if `needsBrowser` support is added.
-
-**Kremwerk + Timbre Room + Cherry** — Not a DICE venue; is a Squarespace site. `?format=json` returns `itemCount: 0` (JS-rendered events, no structured API). Revisit if `needsBrowser` support is added.
-
-**Conor Byrne Pub** — Squarespace `?format=json` returns `itemCount: 0`. Already well-covered by seattle-showlists (54 events) + recurring.yaml (1 open mic). Low priority to re-attempt.
-
-**Future Primitive Brewing** — Squarespace `?format=json` returns `itemCount: 0`. Never produced events on 206.events. Revisit if they start publishing events.
+_Per-candidate files now live under [`source-candidates/`](./source-candidates/). Strikethrough entries below are historical records of removed candidates._
 
 ---
 

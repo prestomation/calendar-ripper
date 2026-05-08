@@ -1814,12 +1814,25 @@ function App() {
   }, [calendars])
 
   const groupedTags = useMemo(() => {
-    const tagSet = new Set(allTags)
+    const remaining = new Set(allTags)
     const groups = []
     for (const [category, categoryTags] of Object.entries(TAG_CATEGORIES)) {
-      const matching = categoryTags.filter(t => tagSet.has(t))
+      const matching = categoryTags.filter(t => remaining.has(t))
       if (matching.length > 0) {
         groups.push({ category, tags: matching })
+        for (const t of matching) remaining.delete(t)
+      }
+    }
+    // Tags that aren't in any category fall through to "Other" so they
+    // still appear in the sidebar without forcing every PR to update
+    // lib/config/tags.ts.
+    if (remaining.size > 0) {
+      const otherIdx = groups.findIndex(g => g.category === 'Other')
+      const sorted = [...remaining].sort()
+      if (otherIdx >= 0) {
+        groups[otherIdx] = { category: 'Other', tags: [...groups[otherIdx].tags, ...sorted] }
+      } else {
+        groups.push({ category: 'Other', tags: sorted })
       }
     }
     return groups

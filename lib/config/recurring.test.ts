@@ -1,15 +1,19 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { LocalDate } from '@js-joda/core';
+import { parse } from 'yaml';
 import { RecurringEventProcessor, recurringEventSchema } from './recurring.js';
-import * as fs from 'fs';
 
-vi.mock('fs');
+/**
+ * Build a processor from inline YAML text in `events:` form. Bypasses the
+ * filesystem so tests don't depend on any directory layout. The string
+ * format matches what the live source files contain (with the `events:`
+ * wrapper) so existing fixtures stay readable.
+ */
+function makeProcessor(yamlText: string): RecurringEventProcessor {
+  return new RecurringEventProcessor(parse(yamlText));
+}
 
 describe('RecurringEventProcessor', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
-
   describe('constructor', () => {
     it('should parse valid YAML configuration', () => {
       const mockYaml = `
@@ -26,11 +30,9 @@ events:
     url: "https://example.com"
     tags: ["test"]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
-
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
-      
-      expect(fs.readFileSync).toHaveBeenCalledWith('/fake/path.yaml', 'utf8');
+      const processor = makeProcessor(mockYaml);
+      expect(processor.getEvents()).toHaveLength(1);
+      expect(processor.getEvents()[0].name).toBe('test-event');
     });
   });
 
@@ -50,9 +52,9 @@ events:
     url: "https://example.com"
     tags: ["test"]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
 
       const startDate = LocalDate.of(2024, 1, 1);
       const endDate = LocalDate.of(2024, 3, 31);
@@ -79,9 +81,9 @@ events:
     url: "https://example.com"
     tags: ["FarmersMarket"]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
 
       // Start on a Wednesday (2024-01-03)
       const startDate = LocalDate.of(2024, 1, 3);
@@ -115,9 +117,9 @@ events:
     tags: ["FarmersMarket"]
     seasonal: "summer"
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
 
       const startDate = LocalDate.of(2024, 1, 1);
       const endDate = LocalDate.of(2024, 12, 31);
@@ -148,9 +150,9 @@ events:
     tags: ["FarmersMarket"]
     months: [5, 6, 7, 8, 9, 10]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
       // Start in February - outside the May-October range
       const calendars = processor.generateCalendars(
         LocalDate.of(2024, 2, 10),
@@ -181,9 +183,9 @@ events:
     tags: ["Artwalk"]
     months: [5, 6, 7, 8, 9]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
       // Start in January - outside the May-September range
       const calendars = processor.generateCalendars(
         LocalDate.of(2024, 1, 15),
@@ -213,9 +215,9 @@ events:
     tags: ["FarmersMarket"]
     months: [5, 6, 7, 8, 9, 10]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
       const calendars = processor.generateCalendars(
         LocalDate.of(2024, 1, 1),
         LocalDate.of(2024, 12, 31)
@@ -242,9 +244,9 @@ events:
     tags: ["Artwalk"]
     months: [5, 6, 7, 8, 9]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
       const calendars = processor.generateCalendars(
         LocalDate.of(2024, 1, 1),
         LocalDate.of(2024, 12, 31)
@@ -270,9 +272,9 @@ events:
     url: "https://example.com"
     tags: ["OpenMic"]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
 
       // Start on Jan 1, 2024 (Monday)
       const startDate = LocalDate.of(2024, 1, 1);
@@ -305,9 +307,9 @@ events:
     url: "https://example.com"
     tags: ["OpenMic"]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
 
       // Start on Jan 10, 2024 — after 1st Tuesday (Jan 2) but before 3rd Tuesday (Jan 16)
       const startDate = LocalDate.of(2024, 1, 10);
@@ -339,9 +341,9 @@ events:
     tags: ["OpenMic"]
     months: [6, 7, 8]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
 
       const startDate = LocalDate.of(2024, 1, 1);
       const endDate = LocalDate.of(2024, 12, 31);
@@ -371,9 +373,9 @@ events:
     seasonal: "summer"
     months: [4, 5, 6, 7, 8, 9, 10]
 `;
-      vi.mocked(fs.readFileSync).mockReturnValue(mockYaml);
+      
 
-      const processor = new RecurringEventProcessor('/fake/path.yaml');
+      const processor = makeProcessor(mockYaml);
       const calendars = processor.generateCalendars(
         LocalDate.of(2024, 1, 1),
         LocalDate.of(2024, 12, 31)

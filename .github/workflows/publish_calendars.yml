@@ -61,9 +61,10 @@ jobs:
 
   trigger-error-routine:
     # Trigger a Claude Code routine to investigate and fix build errors.
-    # Only runs on pushes to main (not PRs, not scheduled runs).
-    # Skips if CLAUDE_ROUTINE_TOKEN or CLAUDE_ROUTINE_ID is not configured.
-    if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Runs on any build with errors (push, schedule, or manual dispatch).
+    # Does NOT run on PRs (this workflow doesn't trigger on PRs).
+    # Skips if CLAUDE_ROUTINE_ID is not configured.
+    if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0'
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -89,7 +90,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           PAYLOAD=$(jq -n \
-            --arg text "Build errors detected on main branch. Error count: ${ERROR_COUNT}. Commit: ${COMMIT_SHA}. Run: ${RUN_URL}" \
+            --arg text "Build errors detected. Error count: ${ERROR_COUNT}. Commit: ${COMMIT_SHA}. Run: ${RUN_URL}" \
             '{text: $text}')
           echo "Triggering Claude Code routine ${CLAUDE_ROUTINE_ID}..."
           HTTP_CODE=$(curl -s --max-time 30 -o /tmp/routine-response.json -w "%{http_code}" -X POST \

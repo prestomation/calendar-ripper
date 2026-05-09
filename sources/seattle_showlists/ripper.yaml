@@ -103,6 +103,16 @@ calendars:
       venue: "The Royal Room"
 
   # --- Downtown ---
+  - name: the-triple-door
+    friendlyname: "The Triple Door"
+    geo:
+      lat: 47.6082
+      lng: -122.3387
+      label: "The Triple Door, 216 Union St, Seattle, WA 98101"
+    timezone: America/Los_Angeles
+    tags: ["Downtown"]
+    config:
+      venue: "The Triple Door"
   - name: the-rabbit-box
     friendlyname: "The Rabbit Box"
     geo:

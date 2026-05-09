@@ -90,7 +90,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           PAYLOAD=$(jq -n \
-            --arg text "Build errors detected on main branch. Error count: ${ERROR_COUNT}. Commit: ${COMMIT_SHA}. Run: ${RUN_URL}" \
+            --arg text "Build errors detected. Error count: ${ERROR_COUNT}. Commit: ${COMMIT_SHA}. Run: ${RUN_URL}" \
             '{text: $text}')
           echo "Triggering Claude Code routine ${CLAUDE_ROUTINE_ID}..."
           HTTP_CODE=$(curl -s --max-time 30 -o /tmp/routine-response.json -w "%{http_code}" -X POST \

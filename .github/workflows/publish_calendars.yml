@@ -61,9 +61,10 @@ jobs:
 
   trigger-error-routine:
     # Trigger a Claude Code routine to investigate and fix build errors.
-    # Only runs on pushes to main (not PRs, not scheduled runs).
-    # Skips if CLAUDE_ROUTINE_TOKEN or CLAUDE_ROUTINE_ID is not configured.
-    if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Runs on any build with errors (push, schedule, or manual dispatch).
+    # Does NOT run on PRs (this workflow doesn't trigger on PRs).
+    # Skips if CLAUDE_ROUTINE_ID is not configured.
+    if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0'
     runs-on: ubuntu-latest
     needs: build
     steps:

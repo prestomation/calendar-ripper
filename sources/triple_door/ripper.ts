@@ -207,17 +207,21 @@ export default class TripleDoorRipper implements IRipper {
         const events: RipperCalendarEvent[] = [];
         const seenIds = new Set<string>();
 
-        // Process main page events
-        for (const parsed of parseEventsFromHtml(mainHtml)) {
-            const result = toCalendarEvent(parsed, zone, today);
+        const addEvent = (result: RipperCalendarEvent | ParseError) => {
             if ('date' in result) {
-                if (result.date.isAfter(now) && !seenIds.has(result.id)) {
-                    seenIds.add(result.id);
+                const key = result.id ?? result.url ?? '';
+                if (result.date.isAfter(now) && key && !seenIds.has(key)) {
+                    seenIds.add(key);
                     events.push(result);
                 }
             } else {
                 errors.push(result);
             }
+        };
+
+        // Process main page events
+        for (const parsed of parseEventsFromHtml(mainHtml)) {
+            addEvent(toCalendarEvent(parsed, zone, today));
         }
 
         // Fetch subsequent pages
@@ -236,15 +240,7 @@ export default class TripleDoorRipper implements IRipper {
             if (pageEvents.length === 0) break;
 
             for (const parsed of pageEvents) {
-                const result = toCalendarEvent(parsed, zone, today);
-                if ('date' in result) {
-                    if (result.date.isAfter(now) && !seenIds.has(result.id)) {
-                        seenIds.add(result.id);
-                        events.push(result);
-                    }
-                } else {
-                    errors.push(result);
-                }
+                addEvent(toCalendarEvent(parsed, zone, today));
             }
         }
 

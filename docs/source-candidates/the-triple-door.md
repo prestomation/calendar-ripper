@@ -1,7 +1,7 @@
 ---
 name: "The Triple Door"
-status: candidate
+status: added
 firstSeen: 2026-05-08
-lastChecked: 2026-05-08
+lastChecked: 2026-05-09
 ---
-**The Triple Door** — `https://thetripledoor.net/mainstage-calendar` — Bandzoogle — Tags: Music, Downtown
+**The Triple Door** — `sources/triple_door` — Bandzoogle HTML scraper with Turbo Stream pagination — 216 Union St, Downtown — Tags: Music, Downtown. Also removed from `seattle_showlists` (dedicated ripper takes precedence).

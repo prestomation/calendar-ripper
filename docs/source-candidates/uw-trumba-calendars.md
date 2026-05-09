@@ -10,7 +10,7 @@ lastChecked: 2026-05-09
 - ~~`sea_essuw`~~ — UW Sustainability — implemented as `uw-sustainability`
 - ~~`sea_art`~~ — UW School of Art — implemented as `uw-school-of-art`
 - ~~`sea_music`~~ — UW School of Music — implemented as `uw-school-of-music`
-- ~~`sea_lib`~~ — UW Libraries Seattle — implemented as `uw-libraries-seattle` — **42 events confirmed 2026-05-09**
+- ~~`sea_lib`~~ — UW Libraries Seattle — implemented as `uw-libraries-seattle` (PR #282) — **42 events confirmed in CI 2026-05-09**
 - `sea_foster` — UW Foster School of Business — `https://www.trumba.com/calendars/sea_foster.ics` — **49 events confirmed 2026-05-09**
 - `sea_nursing` — UW School of Nursing — `https://www.trumba.com/calendars/sea_nursing.ics` — **16 events confirmed 2026-05-09**
 - `sea_law` — UW School of Law — `https://www.trumba.com/calendars/sea_law.ics` — **15 events confirmed 2026-05-09**

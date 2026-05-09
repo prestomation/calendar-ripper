@@ -8,6 +8,8 @@ geo:
   lat: 47.6693
   lng: -122.3845
   label: "Ballard Brewing District, Ballard, Seattle, WA"
+  # Nominatim returned suburb boundary node/150940157 'Ballard' at 812m — no specific venue for "Ballard Brewing District".
+  osmChecked: 2026-05-09
 calendars:
   - name: all-events
     friendlyname: "Ballard Brewed"

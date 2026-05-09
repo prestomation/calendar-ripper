@@ -8,6 +8,8 @@ geo:
   lat: 47.6757
   lng: -122.3116
   label: "Ravenna Brewing, 1519 NE 65th St, Seattle, WA 98115"
+  # Nominatim returned way/445400290 'Ravenna Brewing Company, 5408 26th Ave NE' at 1240m — wrong address vs. our label (1519 NE 65th St).
+  osmChecked: 2026-05-09
 calendars:
   - name: all-events
     friendlyname: "Ravenna Brewing"

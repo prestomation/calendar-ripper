@@ -11,6 +11,8 @@ geo:
   # market relation itself. Re-check after the cooldown — OSM may add a
   # better feature for the market over time.
   osmChecked: "2026-04-24"
+  osmType: way
+  osmId: 363400641
 calendars:
   - name: events
     friendlyname: "Pike Place Market Events"

@@ -1,0 +1,83 @@
+{
+  "events": [
+    {
+      "id": "CARNIVAL_ID",
+      "name": "2026 Carnival",
+      "duration": 90,
+      "firstInstanceDateTime": "2026-05-09T18:30:00",
+      "lastInstanceDateTime": "2026-06-07T18:30:00",
+      "instanceDates": "March 19-June 7",
+      "isOnSale": true
+    },
+    {
+      "id": "CARNIVAL_CELEBRATION_ID",
+      "name": "2026 Carnival Celebration",
+      "duration": 0,
+      "firstInstanceDateTime": "2026-05-09T18:30:00",
+      "lastInstanceDateTime": "2026-06-07T18:30:00",
+      "instanceDates": "March 19-June 7",
+      "isOnSale": true
+    },
+    {
+      "id": "LOLA_ID",
+      "name": "2026 Lola",
+      "duration": 90,
+      "firstInstanceDateTime": "2026-06-10T18:30:00",
+      "lastInstanceDateTime": "2026-09-13T18:30:00",
+      "instanceDates": "June 10-September 13",
+      "isOnSale": true
+    }
+  ],
+  "instances": [
+    {
+      "id": "INST_1",
+      "event": {
+        "id": "CARNIVAL_ID"
+      },
+      "start": "2026-05-10T18:30:00",
+      "startUtc": "2026-05-11T01:30:00Z",
+      "cancelled": false,
+      "isOnSale": true
+    },
+    {
+      "id": "INST_2",
+      "event": {
+        "id": "CARNIVAL_CELEBRATION_ID"
+      },
+      "start": "2026-05-10T18:30:00",
+      "startUtc": "2026-05-11T01:30:00Z",
+      "cancelled": false,
+      "isOnSale": true
+    },
+    {
+      "id": "INST_3",
+      "event": {
+        "id": "CARNIVAL_ID"
+      },
+      "start": "2026-03-19T18:30:00",
+      "startUtc": "2026-03-20T01:30:00Z",
+      "cancelled": false,
+      "isOnSale": false
+    },
+    {
+      "id": "INST_4",
+      "event": {
+        "id": "CARNIVAL_ID"
+      },
+      "start": "2026-05-15T18:30:00",
+      "startUtc": "2026-05-16T01:30:00Z",
+      "cancelled": true,
+      "isOnSale": false
+    },
+    {
+      "id": "INST_5",
+      "event": {
+        "id": "LOLA_ID"
+      },
+      "start": "2026-06-12T18:30:00",
+      "startUtc": "2026-06-13T01:30:00Z",
+      "cancelled": false,
+      "isOnSale": true
+    }
+  ]
+}

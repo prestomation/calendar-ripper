@@ -57,6 +57,8 @@ The steering file provides essential context for making informed decisions about
 
 This ensures proper code review and prevents breaking the production deployment.
 
+**After pushing follow-up commits to a PR, you MUST post a top-level PR comment with the exact string `/q review`.** Amazon Q does not automatically re-review follow-up pushes; the `/q review` comment is the trigger that gets it to re-evaluate the new commits. Without it, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
+
 ## Calendar Integration Strategy
 
 When adding a new calendar source to the project, follow this priority order:

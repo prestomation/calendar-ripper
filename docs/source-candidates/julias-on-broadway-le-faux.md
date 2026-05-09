@@ -1,7 +1,9 @@
 ---
 name: "Julia's on Broadway / Le Faux"
-status: candidate
+status: added
 firstSeen: 2026-05-08
-lastChecked: 2026-05-08
+lastChecked: 2026-05-09
 ---
-💡 **Julia's on Broadway / Le Faux** — `https://www.juliasonbroadway.com/` — 300 Broadway E, Capitol Hill. Drag dinner theater with weekly shows (Fri/Sat evenings, Sat/Sun brunch). Eventbrite organizer `80473185523` shows only 3 upcoming events (SimpleTix at `lefauxproductions.simpletix.com` may be primary ticketing). Need to evaluate SimpleTix API. Tags: Nightlife, Capitol Hill — **New 2026-05-06**
+**Julia's on Broadway / Le Faux** — `sources/julias_on_broadway/` — Eventbrite organizer `80473185523` — 300 Broadway E, Capitol Hill. Drag dinner theater with weekly shows (Fri/Sat evenings, Sat/Sun brunch). Tags: Nightlife, Capitol Hill.
+
+Note: SimpleTix (`lefauxproductions.simpletix.com`) appears to be the primary ticketing platform; Eventbrite shows only a subset of shows. Event count to be confirmed in CI.

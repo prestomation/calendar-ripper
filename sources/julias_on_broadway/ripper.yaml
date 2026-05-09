@@ -1,0 +1,18 @@
+name: julias-on-broadway
+type: eventbrite
+description: "Julia's on Broadway"
+url: "https://www.juliasonbroadway.com/"
+friendlyLink: https://www.juliasonbroadway.com/
+tags: ["Nightlife", "Capitol Hill"]
+geo:
+  lat: 47.6215
+  lng: -122.3199
+  label: "Julia's on Broadway, 300 Broadway E, Seattle, WA 98102"
+calendars:
+  - name: julias-on-broadway
+    friendlyname: "Julia's on Broadway / Le Faux"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "80473185523"
+      defaultLocation: "300 Broadway E, Seattle, WA 98102"
+      defaultDurationHours: 2

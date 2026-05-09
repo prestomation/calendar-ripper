@@ -63,7 +63,7 @@ jobs:
     # Trigger a Claude Code routine to investigate and fix build errors.
     # Runs on any build with errors (push, schedule, or manual dispatch).
     # Does NOT run on PRs (this workflow doesn't trigger on PRs).
-    # Skips if CLAUDE_ROUTINE_ID is not configured.
+    # Skips if CLAUDE_ROUTINE_ID is not configured (as a secret).
     if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0'
     runs-on: ubuntu-latest
     needs: build
@@ -78,13 +78,13 @@ jobs:
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
         env:
-          CLAUDE_ROUTINE_ID: ${{ vars.CLAUDE_ROUTINE_ID }}
+          CLAUDE_ROUTINE_ID: ${{ secrets.CLAUDE_ROUTINE_ID }}
 
       - name: Trigger Claude Code build-error routine
         if: steps.check-config.outputs.skip != 'true'
         env:
           CLAUDE_ROUTINE_TOKEN: ${{ secrets.CLAUDE_ROUTINE_TOKEN }}
-          CLAUDE_ROUTINE_ID: ${{ vars.CLAUDE_ROUTINE_ID }}
+          CLAUDE_ROUTINE_ID: ${{ secrets.CLAUDE_ROUTINE_ID }}
           ERROR_COUNT: ${{ needs.build.outputs.error-count }}
           COMMIT_SHA: ${{ github.sha }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

@@ -155,9 +155,18 @@ After the PR is open:
 
 1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events** (and the source was not flagged as proxy-required), keep searching for the correct URL or source format. Update the candidate entry to `🔍 Investigating`. Do not mark `❌ Not Viable` unless you are confident no working URL exists.
 
-2. **Poll for Amazon Q review** — Check the PR for Amazon Q code review comments.
+2. **Trigger Amazon Q review** — Post a top-level PR comment using this template (substituting the actual values):
 
-3. **If Q has blocking comments** → Steer the coding agent to fix them (`subagents(action="steer", message="...")`) → Push fixes → Re-poll.
+   ```
+   /q review
+
+   Please review this new calendar source addition:
+   - Verify the source (`<name>`) is not already covered elsewhere in the repo (check `sources/`, `sources/external/`, `sources/recurring/`)
+   - Confirm the tags (`<tags>`) accurately reflect the type of events this source produces
+   - Review the full implementation for correctness, completeness, and consistency with the existing external calendar schema
+   ```
+
+3. **If Q has blocking comments** → Steer the coding agent to fix them (`subagents(action="steer", message="...")`) → Push fixes → Re-trigger Q review with the same template.
 
 4. **Repeat** until Q is clean and no blocking comments remain.
 

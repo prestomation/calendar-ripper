@@ -306,3 +306,15 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 ### Confirmed 410 Gone (do not re-attempt)
 
 `seattlegov-parks`, `seattlegov-neighborhoods`, `seattlegov-outreach`, `seattlegov-arts`, `seattlegov-recreation`, `seattle-university`, `seattle-pacific-university`, `cornish`, `spl-events`, `seattle-public-library`
+### 2026-05-09 — Source discovery: UW Trumba, music/arts/community verticals
+- ✅ Added: UW Libraries Seattle — external ICS (Trumba `sea_lib`, 42 events)
+- ✅ Updated: Seattle.Gov City-Wide — already implemented in PR #270 (500 events)
+- 💡 Candidate: UW Foster School of Business — external ICS (`sea_foster`, 49 events confirmed)
+- 💡 Candidate: UW School of Nursing — external ICS (`sea_nursing`, 16 events confirmed)
+- 💡 Candidate: UW School of Law — external ICS (`sea_law`, 15 events confirmed)
+- 💡 Candidate: UW Evans School Community Hub — external ICS (`sea_evans-hub`, 6 events confirmed)
+- 💡 Candidate: UW Cinema & Media Studies — external ICS (`sea_comp_lit`, 3 events confirmed)
+- 🔄 Proxy needed: Woodland Park Zoo — Tribe Events ICS gets TLS error from sandbox; site clearly live
+- 🔍 Investigating: Theatre Off Jackson — Tribe Events ICS disabled, returns HTML
+- 🔍 Investigating: Rat City Roller Derby — Tribe Events ICS disabled, returns HTML
+- ❌ Not Viable: Neighborhood Farmers Markets (seattlefarmersmarkets.org) — Squarespace `?format=json` returns 0 items

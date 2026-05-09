@@ -72,6 +72,22 @@ describe('parseEventsFromHtml', () => {
     it('returns empty array for HTML with no events', () => {
         expect(parseEventsFromHtml('<html><body></body></html>')).toEqual([]);
     });
+
+    it('extracts location from span, not ticket link', () => {
+        const html = `<div class="event-detail">
+<p class="event-info event-title"><a href="/shows/test-show">Test Show</a></p>
+<span class="date-long">
+  <span class="date">Friday, May 29</span>
+  <span class="time">8:00PM</span>
+</span>
+<span class="date-short">May 29</span>
+<p class="event-info event-location"><span>Wild Waves Theme Park, Federal Way, WA</span></p>
+<div class="buying-options"><a class="tickets button" href="https://tickets.example.com">Get tickets</a></div>
+</div>`;
+        const events = parseEventsFromHtml(html);
+        expect(events).toHaveLength(1);
+        expect(events[0].location).toBe('Wild Waves Theme Park, Federal Way, WA');
+    });
 });
 
 describe('parseDateStr', () => {

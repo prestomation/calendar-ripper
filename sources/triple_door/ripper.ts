@@ -82,9 +82,16 @@ export function parseEventsFromHtml(html: string): ParsedEvent[] {
         const dateStr = decodeHtml(dateMatch[1]);
         const timeStr = decodeHtml(timeMatch[1]);
 
-        // Location
-        const locationMatch = div.match(/class="event-info event-location"[\s\S]*?<a[^>]*>(.*?)<\/a>/);
-        const location = locationMatch ? decodeHtml(locationMatch[1]) : DEFAULT_LOCATION;
+        // Location — extract from within the event-location <p> only (span or Google Maps link)
+        const locationPMatch = div.match(/<p class="event-info event-location">([\s\S]*?)<\/p>/);
+        let location = DEFAULT_LOCATION;
+        if (locationPMatch) {
+            const locContent = locationPMatch[1];
+            const spanMatch = locContent.match(/<span>(.*?)<\/span>/);
+            const aMatch = locContent.match(/<a[^>]*>(.*?)<\/a>/);
+            const text = spanMatch?.[1] ?? aMatch?.[1];
+            if (text) location = decodeHtml(text);
+        }
 
         // Ticket URL
         const ticketMatch = div.match(/class="tickets button"[^>]*href="([^"]+)"/);

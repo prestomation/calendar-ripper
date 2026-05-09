@@ -87,7 +87,7 @@ describe('processData', () => {
     it('reports a ParseError for malformed datetime strings', () => {
         const badInstances: SpektrixInstance[] = [{
             id: 'BAD_INST',
-            event: { id: 'CARNIVAL_ID' },
+            event: { id: sample.events[0].id },
             start: 'not-a-date',
             startUtc: '',
             cancelled: false,

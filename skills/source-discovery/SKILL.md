@@ -135,6 +135,8 @@ To implement:
    | **404 / 410 / DNS failure** | Our URL was wrong or the source has moved | Do not implement yet. Update the candidate entry to `🔍 Investigating` and search for the correct URL. Only mark `❌ Not Viable` once no working URL can be found. |
    | **403 / 429 / connection reset** | Blocked — but by what? | See below |
 
+   **Claude Code web note:** When running on Claude Code web (claude.ai/code), the agent shares IP infrastructure with GitHub Actions runners. Any 403 you see from `curl` or `WebFetch` in this environment is indistinguishable from what CI would see — treat it the same as a sandbox-only block (see below) unless there is clear evidence of a CAPTCHA or browser-only requirement. Do NOT mark a source `notviable` solely because it 403s from Claude Code web; flag it `status: proxy` for outofband investigation instead.
+
    **Diagnosing a 403:** This is ambiguous. To distinguish a sandbox-only block from a permanent one:
    - Does the domain resolve and do other pages load? (DNS works, site is live)
    - Does the response body look like a normal website, or a Cloudflare/CAPTCHA challenge page?

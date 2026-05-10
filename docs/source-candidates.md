@@ -318,3 +318,9 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - 🔍 Investigating: Theatre Off Jackson — Tribe Events ICS disabled, returns HTML
 - 🔍 Investigating: Rat City Roller Derby — Tribe Events ICS disabled, returns HTML
 - ❌ Not Viable: Neighborhood Farmers Markets (seattlefarmersmarkets.org) — Squarespace `?format=json` returns 0 items
+
+### 2026-05-10 — Source discovery: nightlife/arts/bookstore verticals
+- ✅ Updated: SeattleDances — marked `added` (already live in `sources/external/seattledances.yaml`)
+- 💡 Candidate: Queer/Bar — Squarespace confirmed, 12 upcoming events — `https://www.thequeerbar.com/events-one` — implementing this cycle
+- 💡 Candidate: Fremont Abbey Arts Center — WordPress, custom events listing, Eventbrite/Humanitix ticketing — `https://www.fremontabbey.org/events/` — 🔴 Low, custom scraper needed
+- 💡 Candidate: The Ink Drinker — Squarespace confirmed (1 upcoming at check), new Ballard bookstore/bar opened Oct 2025 — `https://www.theinkdrinker.com/events-1-nM6zH` — re-evaluate next cycle for higher volume

@@ -211,7 +211,6 @@ export default class VermillionRipper implements IRipper {
         return [{
             name: cal.name,
             friendlyname: cal.friendlyname,
-            timezone: cal.timezone,
             tags: [...(ripper.config.tags ?? []), ...(cal.tags ?? [])],
             events,
             errors,

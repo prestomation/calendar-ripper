@@ -43,6 +43,9 @@ export default class Events12Ripper extends HTMLRipper {
                 const title = titleElement.text.trim().replace(/\s*FREE\s*$/, '').trim();
                 if (!title) continue;
 
+                // Skip non-event advisory items (day-of-week only dates, no calendar date)
+                if (/^traffic alert$/i.test(title)) continue;
+
                 let eventDate: ZonedDateTime | null = null;
                 let duration = Duration.ofHours(2);
                 let location = '';

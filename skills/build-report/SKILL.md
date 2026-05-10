@@ -35,12 +35,18 @@ If a **previously-working ripper** now errors because the source site changed (n
 - The fix must go through a PR — never commit directly to main
 
 #### ⚠️ Report Skipped Items (ParseErrors)
-If a source reports `ParseError` entries alongside successful events (e.g., "8 events, 2 errors"), these indicate items the parser couldn't handle. **This is not a build failure** — the source is working — but the skipped items should be investigated:
-- If the item legitimately has no date or isn't really an event, no action needed
-- If the item has a date in a new format the regex doesn't handle, delegate a parser fix to a coding agent
-- Include a summary in the report: `⏭️ ParseErrors: source-name: 2 items skipped — "Event Title 1" (no date), "Event Title 2" (unparseable format)`
+If a source reports `ParseError` entries alongside successful events (e.g., "8 events, 2 errors"), these indicate items the parser couldn't handle. **This is not a build failure** — the source is working — but the skipped items must be investigated before deciding on action.
+
+**Required: look up the actual item before drawing conclusions.** Fetch the source URL and find the item matching the `context` field. Don't assume it's "not a real event" just from the title — check what date text the item actually has and whether the parser should be able to handle it.
+
+Triage:
+- **Item has a date in a format the parser doesn't handle** → delegate a parser fix (e.g., day-of-week-only date "Saturday & Sunday" means no specific calendar date; add a pre-parse filter to skip it silently rather than emitting noise every build)
+- **Item genuinely has no date and is not a calendar event** → add a pre-parse filter by title/type so it stops appearing as a ParseError
+- **Item has a valid date the parser should handle but doesn't** → fix the regex/parser
 
 Do not disable the ripper for ParseErrors — they're working as intended (graceful failure + visibility).
+
+Include a summary in the report: `⏭️ ParseErrors: source-name: 2 items skipped — "Event Title 1" (day-of-week only, filtered), "Event Title 2" (unparseable format)`
 
 #### ⏭️ Transient Errors
 If the error looks transient (network timeout, temporary 5xx):

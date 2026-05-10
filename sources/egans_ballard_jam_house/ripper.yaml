@@ -1,0 +1,15 @@
+name: egans-ballard-jam-house
+description: "Egan's Ballard Jam House"
+url: "https://www.ballardjamhouse.com/schedule.html"
+friendlyLink: https://www.ballardjamhouse.com/schedule.html
+tags: ["Music", "Ballard"]
+geo:
+  lat: 47.6685088
+  lng: -122.3793412
+  label: "Egan's Ballard Jam House, 1707 NW Market St, Seattle, WA 98107"
+  osmType: node
+  osmId: 4439879646
+calendars:
+  - name: all-events
+    friendlyname: "Egan's Ballard Jam House"
+    timezone: America/Los_Angeles

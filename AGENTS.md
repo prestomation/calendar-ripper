@@ -9,6 +9,17 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
 - **`skills/calendar-verification/SKILL.md`** — Verify recurring calendars and `expectEmpty` sources against their live URLs and auto-fix safe drift via PR
 
+### Updating Skills from Human Feedback
+
+When a human points out a mistake, asks why something wasn't done, or suggests a better approach related to how a skill was executed, **immediately update the relevant skill with the generalized lesson** — do not wait for the human to explicitly ask "should we update the skill?"
+
+The feedback itself is the signal. Generalize the specific mistake into a rule that prevents the same class of error in future runs, then commit it to the skill file as part of the same session.
+
+Examples of feedback that should trigger a skill update:
+- "Why did we think X?" → identify the flawed reasoning, add a rule that prevents it
+- "We should always do Y" → add Y as a required step
+- "Why didn't we address Z?" → add explicit investigation guidance for Z-type situations
+
 ## Adding New Calendar Sources
 
 **Always follow `skills/source-discovery/SKILL.md`** when adding a new calendar source — do not do it ad-hoc. The skill includes a mandatory quality-gate checklist (step 4) that checks whether the source already exists under `sources/external/`, `sources/recurring/`, or `sources/*/ripper.yaml`. Skipping the skill risks duplicating existing sources, missing the "check existing sources" step, and bypassing other guardrails (event volume verification, Amazon Q iteration, etc.).

@@ -40,6 +40,7 @@ export default class BookLarderRipper implements IRipper {
 
         const data: ShopifyResponse = await res.json();
 
+        const now = ZonedDateTime.now(TIMEZONE);
         const errors: RipperError[] = [];
         const events: RipperCalendarEvent[] = [];
 
@@ -47,10 +48,8 @@ export default class BookLarderRipper implements IRipper {
             if (product.product_type !== 'Event') continue;
             try {
                 const result = await this.parseProduct(product, fetchFn);
-                if (!result) {
-                    // Silently skipped (e.g. past event)
-                } else if ('date' in result) {
-                    events.push(result);
+                if ('date' in result) {
+                    if (!result.date.isBefore(now)) events.push(result);
                 } else {
                     errors.push(result);
                 }
@@ -73,7 +72,7 @@ export default class BookLarderRipper implements IRipper {
         }];
     }
 
-    async parseProduct(product: ShopifyProduct, fetchFn?: FetchFn): Promise<RipperCalendarEvent | RipperError | null> {
+    async parseProduct(product: ShopifyProduct, fetchFn?: FetchFn): Promise<RipperCalendarEvent | RipperError> {
         const plainText = this.stripHtml(product.body_html);
         let parsed = this.parseDateFromText(plainText);
 
@@ -102,15 +101,6 @@ export default class BookLarderRipper implements IRipper {
         }
 
         const year = parsedYear ?? new Date().getFullYear();
-        const now = new Date();
-        const eventMidnight = new Date(year, month - 1, day);
-        const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        // Book Larder events are one-time; skip past events rather than assuming next-year recurrence.
-        // Compare whole-day midnights so an event at 2pm today (when it's 10am) isn't skipped.
-        // Silently skip — past products are not errors, just expired.
-        if (eventMidnight < todayMidnight) {
-            return null;
-        }
 
         const eventDate = ZonedDateTime.of(
             LocalDateTime.of(year, month, day, hour, minute),

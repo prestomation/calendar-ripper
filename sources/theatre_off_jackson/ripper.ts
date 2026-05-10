@@ -57,7 +57,7 @@ export function parseShowPage(html: string, showUrl: string): {
     const errors: RipperError[] = [];
 
     for (const el of root.querySelectorAll('.vem-single-event-date-start')) {
-        const dt = parseEventDate(el.text);
+        const dt = parseEventDate(el.text ?? '');
         if (dt) {
             dates.push(dt);
         } else {

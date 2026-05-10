@@ -210,7 +210,7 @@ export default class VermillionRipper implements IRipper {
         const cal = ripper.config.calendars[0];
         return [{
             name: cal.name,
-            friendlyName: cal.friendlyname,
+            friendlyname: cal.friendlyname,
             timezone: cal.timezone,
             tags: [...(ripper.config.tags ?? []), ...(cal.tags ?? [])],
             events,

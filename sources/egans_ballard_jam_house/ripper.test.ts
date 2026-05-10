@@ -74,6 +74,11 @@ describe('EgansBallardJamHouseRipper', () => {
             expect(ripper.cleanSummary('Melissa Brewer Quintet ($20 cover)')).toBe('Melissa Brewer Quintet');
             expect(ripper.cleanSummary('West Woodland Elementary Open Mic (no cover)')).toBe('West Woodland Elementary Open Mic');
         });
+
+        it('removes Purchase tickets text', () => {
+            expect(ripper.cleanSummary('Kiela Mellott / Art Anderson. Purchase tickets [ HERE ]')).toBe('Kiela Mellott / Art Anderson');
+            expect(ripper.cleanSummary('Craig Pomranz / Cornish Cabaret with Rich Gray. Purchase tickets')).toBe('Craig Pomranz / Cornish Cabaret with Rich Gray');
+        });
     });
 
     describe('parseSchedule with sample data', () => {

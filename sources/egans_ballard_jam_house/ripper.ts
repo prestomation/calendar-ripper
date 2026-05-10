@@ -159,8 +159,10 @@ export default class EgansBallardJamHouseRipper implements IRipper {
             .replace(/\[[^\]]*\]/g, '')          // Remove any remaining [...] blocks
             .replace(/\(\$\d+[^)]*\)/g, '')      // Remove cover charge like "($15 cover)"
             .replace(/\(no cover\)/gi, '')        // Remove "(no cover)"
+            .replace(/[.\s]*Purchase tickets[.\s]*/gi, '')  // Remove ticket purchase prompts
             .replace(/\s+/g, ' ')
-            .trim();
+            .trim()
+            .replace(/\.$/, '');                 // Remove trailing period left after stripping
     }
 
     // Public for testing

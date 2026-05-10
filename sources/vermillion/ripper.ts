@@ -5,7 +5,10 @@ import '@js-joda/timezone';
 
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
 const LOCATION = "Vermillion, 1508 11th Ave, Seattle, WA 98122";
-const ARTCHIVES_URL = "https://vermillionseattle.com/artchives?format=json";
+const BASE_URL = "https://www.vermillionseattle.com";
+const ARTCHIVES_URL = `${BASE_URL}/artchives?format=json`;
+// h4 headings that are NOT exhibition names (navigation/utility sections)
+const NON_EXHIBITION_H4 = /^(having a party|location|contact|hours|about|gallery|event rental|open now|currently)/i;
 
 const MONTH_NAMES: Record<string, number> = {
     january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
@@ -168,23 +171,84 @@ interface ArtchivesResponse {
 export default class VermillionRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
+    private async fetchWithUA(url: string): Promise<Response> {
+        return this.fetchFn(url, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
+        });
+    }
+
+    // Scrape the homepage to get the current exhibition's events, which appear
+    // on the live site before being archived to /artchives.
+    private async fetchHomepageEvents(now: LocalDate): Promise<{ events: RipperCalendarEvent[]; errors: RipperError[] }> {
+        const events: RipperCalendarEvent[] = [];
+        const errors: RipperError[] = [];
+
+        try {
+            const res = await this.fetchWithUA(BASE_URL);
+            if (!res.ok) return { events, errors };
+
+            const html = await res.text();
+
+            // Find the exhibition name from the first h4 that isn't a utility heading
+            const h4Regex = /<h4[^>]*>([\s\S]*?)<\/h4>/gi;
+            let exhibitionName = '';
+            let m;
+            while ((m = h4Regex.exec(html)) !== null) {
+                const text = stripHtml(m[1]).trim();
+                if (text && !NON_EXHIBITION_H4.test(text)) {
+                    exhibitionName = text;
+                    break;
+                }
+            }
+            if (!exhibitionName) return { events, errors };
+
+            const parsed = parseBodyForEvents(html, exhibitionName, now.year());
+            for (const result of parsed) {
+                if ('date' in result) {
+                    if (!result.date.toLocalDate().isBefore(now)) events.push(result);
+                } else {
+                    errors.push(result);
+                }
+            }
+        } catch {
+            // Homepage scraping is best-effort; don't crash the ripper
+        }
+
+        return { events, errors };
+    }
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
 
-        const res = await this.fetchFn(ARTCHIVES_URL, {
-            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
-        });
-        if (!res.ok) throw new Error(`Vermillion artchives returned HTTP ${res.status}`);
-
-        const data = await res.json() as ArtchivesResponse;
-        const items = data.items ?? [];
-
         const now = LocalDate.now();
-        const windowStart = now.minusMonths(1);
+        const windowStart = now.minusMonths(2);
         const windowEnd = now.plusMonths(4);
 
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
+        // Track seen events by date+time to avoid duplicating events that appear
+        // in both the homepage (current show) and artchives (once archived).
+        const seenKeys = new Set<string>();
+
+        const addEvent = (e: RipperCalendarEvent) => {
+            const key = `${e.date.year()}-${e.date.monthValue()}-${e.date.dayOfMonth()}-${e.date.hour()}-${e.date.minute()}`;
+            if (!seenKeys.has(key)) {
+                seenKeys.add(key);
+                events.push(e);
+            }
+        };
+
+        // Homepage first: current show may not be in artchives yet
+        const homepage = await this.fetchHomepageEvents(now);
+        homepage.events.forEach(addEvent);
+        errors.push(...homepage.errors);
+
+        // Artchives: previous shows with upcoming events (e.g. closing receptions)
+        const res = await this.fetchWithUA(ARTCHIVES_URL);
+        if (!res.ok) throw new Error(`Vermillion artchives returned HTTP ${res.status}`);
+
+        const data = await res.json() as ArtchivesResponse;
+        const items = data.items ?? [];
 
         for (const item of items) {
             const publishDate = LocalDate.ofEpochDay(Math.floor(item.publishOn / 86400000));
@@ -196,11 +260,7 @@ export default class VermillionRipper implements IRipper {
 
             for (const result of parsed) {
                 if ('date' in result) {
-                    // Only include future events
-                    const eventDate = result.date.toLocalDate();
-                    if (!eventDate.isBefore(now)) {
-                        events.push(result);
-                    }
+                    if (!result.date.toLocalDate().isBefore(now)) addEvent(result);
                 } else {
                     errors.push(result);
                 }

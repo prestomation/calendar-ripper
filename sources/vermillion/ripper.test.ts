@@ -130,4 +130,24 @@ describe('parseBodyForEvents', () => {
         const errors = results.filter(e => !('date' in e));
         expect(errors.length).toBe(1);
     });
+
+    it('parses homepage-style HTML with h4 and paragraphs', () => {
+        const html = `
+            <h4>SKRIMSLI - Leah Fadness</h4>
+            <p>Opening Thursday, May 7, 2026 5-8pm</p>
+            <p>Figure it Out! Queer Figure Drawing, May 12, 6-10pm</p>
+            <p>Capitol Hill Artwalk Thursday, May 14, 2026, 5-9pm</p>
+            <h4>Having a party?</h4>
+            <p>Rent our space via Peerspace.</p>
+        `;
+        const events = parseBodyForEvents(html, 'SKRIMSLI - Leah Fadness', 2026)
+            .filter(e => 'date' in e) as RipperCalendarEvent[];
+        expect(events.length).toBe(3);
+        expect(events.some(e => e.summary.includes('Opening'))).toBe(true);
+        expect(events.some(e => e.summary.includes('Artwalk'))).toBe(true);
+        // May 12 "Figure it Out!" event
+        const queer = events.find(e => e.date.monthValue() === 5 && e.date.dayOfMonth() === 12);
+        expect(queer).toBeDefined();
+        expect(queer?.date.hour()).toBe(18);
+    });
 });

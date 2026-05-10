@@ -30,18 +30,7 @@ calendars:
       venue: "Central Saloon"
 
   # --- Capitol Hill ---
-  - name: vermillion
-    friendlyname: "Vermillion"
-    expectEmpty: true
-    geo:
-      lat: 47.6143
-      lng: -122.3193
-      label: "Vermillion, 1508 11th Ave, Seattle, WA 98122"
-      osmChecked: 2026-05-09
-    timezone: America/Los_Angeles
-    tags: ["Capitol Hill"]
-    config:
-      venue: "Vermillion"
+  # Vermillion: moved to sources/vermillion/ (direct scrape of vermillionseattle.com)
 
   # --- Belltown ---
   - name: belltown-yacht-club

@@ -61,7 +61,32 @@ Disable a ripper only if:
 
 **Default: keep rippers running.**
 
-### 4. Geo Error Check
+### 4. Zero-Event Calendars
+
+For each entry in `zeroEventCalendars`, decide whether it is broken or legitimately empty.
+
+**Key rule: only act on calendars listed directly in `zeroEventCalendars` by their own name.**
+
+`tag-*` aggregate calendars appear in the list when all upstream sources for that tag have 0 events. Do **not** trace a `tag-*` zero back to its upstream sources and add `expectEmpty` to them — the aggregate being zero may be transient (the source calendar had no events at build time but events are added between builds). Only add `expectEmpty` to an upstream source if that source's own calendar name appears in `zeroEventCalendars`.
+
+#### Decision tree per calendar
+
+| Pattern | Action |
+|---|---|
+| `tag-*` aggregate | Skip — transient; do not chase upstream sources |
+| Sub-category filter (e.g. `seatoday-nightlife`) | Add `expectEmpty` if the parent ripper is healthy |
+| SPL / multi-branch ripper, one branch zero | Add `expectEmpty` at the calendar level |
+| Small venue with intermittent programming | Add `expectEmpty` at ripper or calendar level |
+| Major venue that should always have events | Investigate — check the live URL before adding `expectEmpty` |
+| Source in `sources` errors list (fetch/parse failures) | Fix the ripper, don't just silence with `expectEmpty` |
+
+#### Adding `expectEmpty`
+
+Add `expectEmpty: true` at the **ripper level** (all calendars) or **calendar level** (one calendar). See `AGENTS.md` for schema.
+
+Commit these YAML-only changes on the feature branch as part of the build-report PR.
+
+### 5. Geo Error Check
 
 Check the geocode errors from the build health output.
 
@@ -83,6 +108,6 @@ After the geo resolver completes, include a geo fix summary in your reply includ
 
 Note: data-only geo fixes (known venues, lookup entries) are pushed direct to main — no PR needed. Logic changes still require a PR.
 
-### 5. Source Discovery (if no actionable errors)
+### 6. Source Discovery (if no actionable errors)
 
 If there are **no actionable errors** (0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable), read `skills/source-discovery/SKILL.md` and follow it completely.

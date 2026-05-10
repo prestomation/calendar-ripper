@@ -3,7 +3,7 @@ name: "Theatre Off Jackson"
 status: added
 firstSeen: 2026-05-08
 lastChecked: 2026-05-10
-pr: 287
+pr: 288
 ---
 **Theatre Off Jackson** — `https://theatreoffjackson.org/` — 409 7th Ave S — Tags: Theatre, International District
 

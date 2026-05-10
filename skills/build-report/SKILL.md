@@ -80,6 +80,18 @@ For each entry in `zeroEventCalendars`, decide whether it is broken or legitimat
 | Major venue that should always have events | Investigate — check the live URL before adding `expectEmpty` |
 | Source in `sources` errors list (fetch/parse failures) | Fix the ripper, don't just silence with `expectEmpty` |
 
+#### Required live-check before adding `expectEmpty`
+
+**Always verify the source is actually working before silencing it.** Adding `expectEmpty` to a broken source hides the breakage permanently — the calendar disappears from the site without any warning.
+
+For each zero-event calendar, before adding `expectEmpty`:
+
+1. **Fetch the source URL** (the `url` or `icsUrl` in the ripper/external YAML) and confirm it returns the expected format (JSON, ICS, HTML).
+2. **Check the source website** for upcoming events. If events exist on the site but the ripper returns 0, the ripper is broken — fix it instead of adding `expectEmpty`.
+3. Only add `expectEmpty` if the source URL is healthy **and** the source genuinely has no upcoming events right now.
+
+If the source URL is returning errors (403, 404, unexpected format) and there are no fetch errors in `sources[]`, it likely means the build didn't even attempt the fetch (e.g., a config error upstream). Investigate before silencing.
+
 #### Adding `expectEmpty`
 
 Add `expectEmpty: true` at the **ripper level** (all calendars) or **calendar level** (one calendar). See `AGENTS.md` for schema.

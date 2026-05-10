@@ -93,9 +93,12 @@ For each entry in `zeroEventCalendars`, decide whether it is broken or legitimat
 For each zero-event calendar, before adding `expectEmpty`:
 
 1. **Fetch the source URL** (the `url` or `icsUrl` in the ripper/external YAML) and confirm it returns the expected format (JSON, ICS, HTML).
-2. **Check the venue's own website** for upcoming events — not just the upstream aggregator. A showlists entry might drop a venue; an ICS feed might go stale; the ripper's upstream may no longer list the source. The venue's own site is ground truth.
-3. **If events exist on the venue website but the ripper returns 0**, the source has diverged from reality. Do **not** add `expectEmpty` — replace or supplement the source so those events are captured. `expectEmpty` on a working venue with events silently removes it from the calendar.
-4. Only add `expectEmpty` if both the source URL is healthy **and** the venue's own website confirms there are no upcoming events right now.
+2. **Check the source for UPCOMING events specifically** — not just that it's accessible and has historical data. An ICS feed that returns 75 events but all are in the past is legitimately empty. What matters is whether there are future-dated events in the feed right now.
+3. **Check the venue's own website** for upcoming events — not just the upstream aggregator. A showlists entry might drop a venue; an ICS feed might go stale; the ripper's upstream may no longer list the source. The venue's own site is ground truth.
+4. **If events exist on the venue website but the ripper/feed returns 0 upcoming events**, the source has diverged from reality. Do **not** add `expectEmpty` — replace or supplement the source so those events are captured. `expectEmpty` on a working venue with events silently removes it from the calendar.
+5. Only add `expectEmpty` if both the source URL is healthy **and** the venue's own website confirms there are no specific upcoming events right now.
+
+**Do not treat "CI showed N events" as proof the source is healthy.** CI runs at a point in time; if N events were all in the past by the time of the production build, the ripper correctly returned 0. Always verify what the live feed contains *right now*, not what a past build found.
 
 If the source URL is returning errors (403, 404, unexpected format) and there are no fetch errors in `sources[]`, it likely means the build didn't even attempt the fetch (e.g., a config error upstream). Investigate before silencing.
 

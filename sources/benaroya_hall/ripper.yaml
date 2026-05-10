@@ -23,6 +23,7 @@ calendars:
 
   - name: benaroya-nordstrom
     friendlyname: "Benaroya Hall - Nordstrom Recital Hall"
+    expectEmpty: true
     timezone: America/Los_Angeles
     config:
       venueId: "KovZpZAaIAkA"

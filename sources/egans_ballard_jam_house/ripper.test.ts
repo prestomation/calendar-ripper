@@ -54,11 +54,13 @@ describe('EgansBallardJamHouseRipper', () => {
 
         it('strips cover charge from summary', () => {
             const result = ripper.parseShow('7pm - Greta Matassa Quintet ($20 cover)');
+            expect(result).not.toBeNull();
             expect(result!.summary).toBe('Greta Matassa Quintet');
         });
 
         it('strips website link label from summary', () => {
             const result = ripper.parseShow('7pm - Jump Ensemble [Website] ($15 cover)');
+            expect(result).not.toBeNull();
             expect(result!.summary).toBe('Jump Ensemble');
         });
     });
@@ -103,6 +105,7 @@ describe('EgansBallardJamHouseRipper', () => {
         it('events have Music tags location', () => {
             const events = ripper.parseSchedule(html, now);
             const calEvents = events.filter(e => 'date' in e) as import('../../lib/config/schema.js').RipperCalendarEvent[];
+            expect(calEvents.length).toBeGreaterThan(0);
             expect(calEvents[0].location).toContain("Egan's");
         });
 

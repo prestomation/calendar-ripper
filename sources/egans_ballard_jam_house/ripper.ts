@@ -29,6 +29,9 @@ export default class EgansBallardJamHouseRipper implements IRipper {
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
+        if (!ripper.config.calendars || ripper.config.calendars.length === 0) {
+            throw new Error('No calendars configured');
+        }
         const calConfig = ripper.config.calendars[0];
 
         const res = await this.fetchFn(URL, {
@@ -89,7 +92,7 @@ export default class EgansBallardJamHouseRipper implements IRipper {
                     );
                 }
 
-                const id = `egans-${eventDate.year()}-${month}-${day}-${hour}-${minute}`;
+                const id = `egans-${eventDate.year()}-${month}-${day}-${hour}-${minute}-${summary.replace(/\s+/g, '-').toLowerCase().slice(0, 20)}`;
                 results.push({
                     id,
                     ripped: new Date(),

@@ -32,6 +32,7 @@ calendars:
   # --- Capitol Hill ---
   - name: vermillion
     friendlyname: "Vermillion"
+    expectEmpty: true
     geo:
       lat: 47.6143
       lng: -122.3193
@@ -187,6 +188,7 @@ calendars:
       venue: "KEXP Studio"
   - name: bad-bar
     friendlyname: "Bad Bar"
+    expectEmpty: true
     geo:
       lat: 47.6222
       lng: -122.3474
@@ -227,6 +229,7 @@ calendars:
   # --- West Seattle ---
   - name: skylark
     friendlyname: "Skylark"
+    expectEmpty: true
     geo:
       lat: 47.5507
       lng: -122.3525

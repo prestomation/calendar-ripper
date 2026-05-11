@@ -1,7 +1,7 @@
 import { HTMLRipper } from "../../lib/config/htmlscrapper.js";
 import { HTMLElement } from "node-html-parser";
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { Ripper, RipperCalendar, RipperEvent, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import "@js-joda/timezone";
 
 const LOCATION = "Washington Hall, 153 14th Ave, Seattle, WA 98122";
@@ -17,6 +17,25 @@ const DEFAULT_FAIR_START_HOUR = 11;
 const DEFAULT_FAIR_DURATION = Duration.ofHours(6);
 
 export default class SeattleArtBookFairRipper extends HTMLRipper {
+    public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        try {
+            return await super.rip(ripper);
+        } catch (err) {
+            // Site goes 404 between annual events — return empty calendars rather than crashing
+            if (err instanceof Error && /^404\b/.test(err.message)) {
+                return ripper.config.calendars.map(cal => ({
+                    name: cal.name,
+                    friendlyname: cal.friendlyname,
+                    events: [],
+                    errors: [],
+                    parent: ripper.config,
+                    tags: cal.tags || [],
+                }));
+            }
+            throw err;
+        }
+    }
+
     public async parseEvents(
         html: HTMLElement,
         date: ZonedDateTime,

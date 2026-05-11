@@ -130,6 +130,7 @@ calendars:
   - name: university
     friendlyname: "SPL - University Branch"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       branch: "University Branch"
     tags: ["University District"]

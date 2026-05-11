@@ -2,10 +2,12 @@
  * generate-outofband.ts
  *
  * Runs rippers for sources marked `proxy: "outofband"` — those that 403 from
- * GitHub Actions IPs but work fine from a residential/home IP.
+ * GitHub Actions IPs but work fine from a residential/home IP. Also fetches
+ * external ICS calendars marked `proxy: "outofband"` for the same reason.
  *
  * Output:
- *   output/<source>-<calendar>.ics  — calendar files
+ *   output/<source>-<calendar>.ics  — ripper calendar files
+ *   output/external-<name>.ics       — external ICS feeds fetched out-of-band
  *   outofband-report.json            — per-source counts/errors
  *
  * Then uploads everything to s3://calendar-ripper-outofband-220483515252/latest/
@@ -15,7 +17,8 @@
  */
 
 import { RipperLoader } from "../lib/config/loader.js";
-import { toICS } from "../lib/config/schema.js";
+import { toICS, externalConfigSchema, ExternalConfig } from "../lib/config/schema.js";
+import { loadYamlDir } from "../lib/config/dir-loader.js";
 import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.js";
 import { mkdir, writeFile, readFile } from "fs/promises";
@@ -39,14 +42,29 @@ async function main() {
 
     let outofbandConfigs = configs.filter(c => !c.config.disabled && c.config.proxy === "outofband");
 
+    // Load external calendars and filter to outofband-marked ones
+    let externalCalendars: ExternalConfig = [];
+    try {
+        const entries = await loadYamlDir(join("sources", "external"));
+        const result = externalConfigSchema.safeParse(entries);
+        if (!result.success) {
+            throw new Error(`Failed to parse sources/external/: ${result.error.message}`);
+        }
+        externalCalendars = result.data;
+    } catch (error: any) {
+        if (error?.code !== "ENOENT") throw error;
+    }
+    let outofbandExternals = externalCalendars.filter(c => !c.disabled && c.proxy === "outofband");
+
     if (sourceFilter) {
         outofbandConfigs = outofbandConfigs.filter(c => sourceFilter.has(c.config.name));
+        outofbandExternals = outofbandExternals.filter(c => sourceFilter.has(c.name));
         console.log(`Filtered to sources: ${[...sourceFilter].join(", ")}`);
     }
 
-    console.log(`Found ${outofbandConfigs.length} outofband sources`);
+    console.log(`Found ${outofbandConfigs.length} outofband ripper(s) and ${outofbandExternals.length} outofband external calendar(s)`);
 
-    if (outofbandConfigs.length === 0) {
+    if (outofbandConfigs.length === 0 && outofbandExternals.length === 0) {
         console.log("Nothing to do.");
         process.exit(0);
     }
@@ -95,13 +113,23 @@ async function main() {
         calendars: CalendarReport[];
     }
 
+    interface ExternalCalendarReport {
+        name: string;
+        icsFile: string;          // e.g. "external-foo.ics"
+        events: number;
+        hasFutureEvents: boolean;
+        fetchError?: string;
+    }
+
     const report: {
         buildTime: string;
         sources: SourceReport[];
+        externalCalendars: ExternalCalendarReport[];
         totalErrors: number;
     } = {
         buildTime: new Date().toISOString(),
         sources: [],
+        externalCalendars: [],
         totalErrors: 0,
     };
 
@@ -194,6 +222,44 @@ async function main() {
         }
 
         report.sources.push(sourceReport);
+    }
+
+    // Fetch outofband external ICS calendars from the residential IP
+    for (const cal of outofbandExternals) {
+        console.log(`Fetching external calendar: ${cal.friendlyname}`);
+        const filename = `external-${cal.name}.ics`;
+        const outPath = join("output", filename);
+        try {
+            const response = await fetch(cal.icsUrl, {
+                headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" }
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            const icsContent = await response.text();
+            await writeFile(outPath, icsContent);
+            writtenFiles.push(outPath);
+            const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
+            const hasFuture = hasFutureEventsInICS(icsContent);
+            report.externalCalendars.push({
+                name: cal.name,
+                icsFile: filename,
+                events: eventCount,
+                hasFutureEvents: hasFuture,
+            });
+            console.log(`  ${cal.name}: ${eventCount} events, hasFutureEvents=${hasFuture}`);
+        } catch (err: any) {
+            const message = err?.message ?? String(err);
+            console.error(`  - Failed to fetch ${cal.friendlyname}: ${message}`);
+            report.externalCalendars.push({
+                name: cal.name,
+                icsFile: filename,
+                events: 0,
+                hasFutureEvents: false,
+                fetchError: message,
+            });
+            report.totalErrors += 1;
+        }
     }
 
     // Persist updated geo-cache so new lookups survive to the next run

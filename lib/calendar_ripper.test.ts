@@ -89,6 +89,7 @@ describe('206.events Integration with Tags', () => {
       icsUrl: 'https://example.com/calendar1.ics',
       disabled: false,
       expectEmpty: false,
+      proxy: false,
       tags: ['Music', 'Entertainment'],
       geo: null
     };
@@ -99,6 +100,7 @@ describe('206.events Integration with Tags', () => {
       icsUrl: 'https://example.com/calendar2.ics',
       disabled: true,
       expectEmpty: false,
+      proxy: false,
       tags: ['Activism', 'Community'],
       geo: null
     };
@@ -133,6 +135,7 @@ describe('206.events Integration with Tags', () => {
       icsUrl: 'https://example.com/calendar1.ics',
       disabled: false,
       expectEmpty: false,
+      proxy: false,
       tags: ['Music'],
       geo: null
     };

@@ -62,6 +62,11 @@ export const externalCalendarSchema = z.object({
     disabled: z.boolean().default(false),
     expectEmpty: z.boolean().default(false),
     tags: z.array(z.string()).optional(),
+    // When set to "outofband", the ICS feed is fetched by the out-of-band
+    // runner (home server with a residential IP) instead of GitHub Actions,
+    // for feeds that block GHA IPs. The main build skips its live fetch and
+    // picks up the pre-fetched .ics via the outofband report.
+    proxy: z.enum(["outofband"]).or(z.literal(false)).default(false),
     // Required: every external calendar must explicitly state whether it is
     // a single-location venue (geo object) or not (null). Single-venue feeds
     // like a brewery's Google Calendar are venues; multi-location feeds

@@ -305,6 +305,46 @@ export const main = async () => {
     }
   }
 
+  // Load the out-of-band report (downloaded from S3 by download-outofband.ts).
+  // It carries pre-built ripper outputs and pre-fetched external ICS files
+  // for sources marked `proxy: "outofband"`. Loaded once here and reused
+  // throughout main() for externals registration, manifest building, and
+  // error count merging.
+  interface OutOfBandReport {
+    buildTime: string;
+    totalErrors: number;
+    sources: Array<{
+      source: string;
+      friendlyName: string;
+      description: string;
+      friendlyLink: string;
+      tags: string[];
+      calendars: Array<{
+        name: string;
+        friendlyName: string;
+        icsFile: string;
+        events: number;
+        hasFutureEvents: boolean;
+        errors: string[];
+        tags: string[];
+      }>;
+    }>;
+    externalCalendars?: Array<{
+      name: string;
+      icsFile: string;
+      events: number;
+      hasFutureEvents: boolean;
+      fetchError?: string;
+    }>;
+  }
+  let outofbandReport: OutOfBandReport | null = null;
+  try {
+    const reportRaw = await readFile("outofband-report.json", "utf-8");
+    outofbandReport = JSON.parse(reportRaw) as OutOfBandReport;
+  } catch (err: any) {
+    console.warn(`[outofband] Warning: could not read outofband-report.json: ${err?.message ?? err} — skipping out-of-band calendars`);
+  }
+
   // Load recurring events from sources/recurring/<name>.yaml
   let recurringCalendars: RipperCalendar[] = [];
   let recurringProcessor: RecurringEventProcessor | null = null;
@@ -432,10 +472,23 @@ export const main = async () => {
     }
   }
 
-  // Filter active external calendars early so we can fetch them in parallel with rippers
-  const activeExternalCalendars = externalCalendars.filter(
-    (cal) => !cal.disabled
+  // Split externals into live (fetched here) vs. out-of-band (fetched by the
+  // outofband runner; the ICS file is already on disk via download-outofband).
+  // An outofband external is included only when the report has a corresponding
+  // entry — mirrors how outofband rippers are skipped when the report is absent.
+  const outofbandExternalEntries = new Map(
+    (outofbandReport?.externalCalendars ?? []).map(e => [e.name, e])
   );
+  const liveExternalCalendars = externalCalendars.filter(
+    (cal) => !cal.disabled && cal.proxy !== "outofband"
+  );
+  const outofbandExternalCalendars = externalCalendars.filter(
+    (cal) => !cal.disabled && cal.proxy === "outofband" && outofbandExternalEntries.has(cal.name)
+  );
+  for (const cal of externalCalendars.filter(c => !c.disabled && c.proxy === "outofband" && !outofbandExternalEntries.has(c.name))) {
+    console.log(`[outofband] Skipping external calendar ${cal.name} — no entry in outofband-report.json`);
+  }
+  const activeExternalCalendars = [...liveExternalCalendars, ...outofbandExternalCalendars];
 
   // --- PARALLEL PHASE: Rip all calendars + fetch all external calendars concurrently ---
   interface ExternalFetchResult {
@@ -469,9 +522,10 @@ export const main = async () => {
       },
       CONCURRENCY
     ),
-    // Fetch all external calendars with bounded concurrency
+    // Fetch all live external calendars with bounded concurrency.
+    // Outofband externals are merged in below from pre-fetched files on disk.
     parallelMap(
-      activeExternalCalendars,
+      liveExternalCalendars,
       async (calendar): Promise<ExternalFetchResult> => {
         try {
           console.log(`Fetching external calendar: ${calendar.friendlyname}`);
@@ -490,6 +544,26 @@ export const main = async () => {
       CONCURRENCY
     )
   ]);
+
+  // Merge outofband externals into externalFetchResults by reading the
+  // pre-fetched ICS file from disk (downloaded by download-outofband.ts).
+  for (const calendar of outofbandExternalCalendars) {
+    const reportEntry = outofbandExternalEntries.get(calendar.name)!;
+    if (reportEntry.fetchError) {
+      console.error(`  - [outofband] ${calendar.friendlyname}: ${reportEntry.fetchError}`);
+      externalFetchResults.push({ calendar, icsContent: null, error: reportEntry.fetchError });
+      continue;
+    }
+    try {
+      const icsContent = await readFile(join("output", reportEntry.icsFile), "utf-8");
+      console.log(`[outofband] Loaded pre-fetched external calendar: ${calendar.friendlyname}`);
+      externalFetchResults.push({ calendar, icsContent, error: null });
+    } catch (err: any) {
+      const message = `Pre-fetched ICS missing: ${err?.message ?? err}`;
+      console.error(`  - [outofband] ${calendar.friendlyname}: ${message}`);
+      externalFetchResults.push({ calendar, icsContent: null, error: message });
+    }
+  }
 
   // Build ICS content cache from external fetch results
   const externalIcsCache = new Map<string, string>();
@@ -749,7 +823,7 @@ END:VCALENDAR`;
     allCalendarIcsUrls.push(`external-${cal.name}.ics`);
   }
 
-  // --- Out-of-band calendars: read the report produced by generate-outofband.ts ---
+  // --- Out-of-band calendars: register entries from the report loaded earlier ---
   // The report (downloaded from S3 by download-outofband.ts) is the single source of truth:
   // it already knows which calendars have future events, error counts, and all metadata.
   interface OutOfBandManifestEntry {
@@ -768,30 +842,8 @@ END:VCALENDAR`;
   }
   const outofbandManifestEntries: OutOfBandManifestEntry[] = [];
 
-  try {
-    const reportRaw = await readFile("outofband-report.json", "utf-8");
-    const outofbandReport = JSON.parse(reportRaw) as {
-      buildTime: string;
-      totalErrors: number;
-      sources: Array<{
-        source: string;
-        friendlyName: string;
-        description: string;
-        friendlyLink: string;
-        tags: string[];
-        calendars: Array<{
-          name: string;
-          friendlyName: string;
-          icsFile: string;
-          events: number;
-          hasFutureEvents: boolean;
-          errors: string[];
-          tags: string[];
-        }>;
-      }>;
-    };
-
-    console.log(`[outofband] Report from ${outofbandReport.buildTime}: ${outofbandReport.sources.length} source(s), ${outofbandReport.totalErrors} error(s)`);
+  if (outofbandReport) {
+    console.log(`[outofband] Report from ${outofbandReport.buildTime}: ${outofbandReport.sources.length} source(s), ${outofbandReport.externalCalendars?.length ?? 0} external(s), ${outofbandReport.totalErrors} error(s)`);
 
     for (const source of outofbandReport.sources) {
       const calendarEntries: OutOfBandManifestEntry["calendars"] = [];
@@ -822,9 +874,6 @@ END:VCALENDAR`;
         });
       }
     }
-  } catch (err: any) {
-    // Report not present (e.g. S3 not configured, first run) — skip gracefully
-    console.warn(`[outofband] Warning: could not read outofband-report.json: ${err?.message ?? err} — skipping out-of-band calendars`);
   }
 
   const excludedFromManifest = allCalendarIcsUrls.filter(url => !calendarsWithFutureEvents.has(url));
@@ -1041,21 +1090,13 @@ END:VCALENDAR`;
 
   await writeFile("output/events-index.json", eventsIndexJson);
 
-  // Merge outofband error count from the report (read earlier during manifest generation)
+  // Merge outofband error count from the report (loaded earlier).
   // Only count errors from calendars with hasFutureEvents: true — stale calendars
   // (no future events) are excluded from the manifest and their errors are not actionable.
+  // Outofband external-fetch failures already show up in externalCalendarFailures
+  // via the synthesized fetch result; don't double-count them here.
   let finalErrorCount = totalErrorCount;
-  try {
-    const reportRaw = await readFile("outofband-report.json", "utf-8");
-    const outofbandReport = JSON.parse(reportRaw) as {
-      totalErrors: number;
-      sources: Array<{
-        calendars: Array<{
-          hasFutureEvents: boolean;
-          errors: string[];
-        }>;
-      }>;
-    };
+  if (outofbandReport) {
     let activeOutofbandErrors = 0;
     for (const source of outofbandReport.sources) {
       for (const cal of source.calendars) {
@@ -1070,8 +1111,6 @@ END:VCALENDAR`;
     } else if (outofbandReport.totalErrors > 0) {
       console.log(`Skipped ${outofbandReport.totalErrors} out-of-band error(s) from calendars without future events`);
     }
-  } catch {
-    // report not present — no outofband errors to merge
   }
 
   // Check for new sources with expectEmpty=true that have never appeared in production.

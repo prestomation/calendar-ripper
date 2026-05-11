@@ -352,6 +352,29 @@ When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch ca
 - Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
 - Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
 
+### Enabling the proxy for an external ICS calendar
+
+External calendars (`sources/external/<name>.yaml`) can also be marked
+`proxy: outofband` when their ICS URL 403s from GitHub Actions:
+
+```yaml
+# sources/external/example.yaml
+- name: example
+  friendlyname: "Example Blocked Feed"
+  icsUrl: "https://example.com/calendar.ics"
+  proxy: outofband
+  geo: null
+```
+
+The out-of-band runner (`scripts/generate-outofband.ts`) fetches the ICS
+from its residential IP, writes it to `output/external-<name>.ics`, and
+records an entry under `report.externalCalendars` in `outofband-report.json`.
+The main GitHub Actions build skips the live fetch for these calendars and
+picks up the pre-fetched ICS file via `download-outofband.ts`. If the
+outofband report is missing or has no entry for the calendar (e.g. on a
+fork PR with no S3 credentials), the calendar is silently absent from the
+build — same as outofband rippers.
+
 ## Parse Methods Must Never Return Null
 
 Parse methods (like `parseProduct`, `parseProductHtml`, `parseEventPage`) **must return `RipperCalendarEvent | RipperError`** — never `null`.

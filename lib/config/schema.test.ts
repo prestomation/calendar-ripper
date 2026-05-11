@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { toICS, RipperCalendar, RipperCalendarEvent } from './schema.js';
+import { toICS, RipperCalendar, RipperCalendarEvent, externalCalendarSchema } from './schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
 
 function makeEvent(overrides: Partial<RipperCalendarEvent> = {}): RipperCalendarEvent {
@@ -106,5 +106,34 @@ describe('toICS', () => {
       const desc = extractDescription(ics);
       expect(desc).not.toContain('From');
     });
+  });
+});
+
+describe('externalCalendarSchema', () => {
+  const base = {
+    name: 'example',
+    friendlyname: 'Example Feed',
+    icsUrl: 'https://example.com/cal.ics',
+    geo: null,
+  };
+
+  it('defaults proxy to false when omitted', () => {
+    const parsed = externalCalendarSchema.parse(base);
+    expect(parsed.proxy).toBe(false);
+  });
+
+  it('accepts proxy: "outofband"', () => {
+    const parsed = externalCalendarSchema.parse({ ...base, proxy: 'outofband' });
+    expect(parsed.proxy).toBe('outofband');
+  });
+
+  it('rejects unknown proxy values', () => {
+    const result = externalCalendarSchema.safeParse({ ...base, proxy: 'lambda' });
+    expect(result.success).toBe(false);
+  });
+
+  it('rejects proxy: true', () => {
+    const result = externalCalendarSchema.safeParse({ ...base, proxy: true });
+    expect(result.success).toBe(false);
   });
 });

@@ -489,6 +489,11 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'wallingford community senior center': { lat: 47.6639, lng: -122.3312 },
   'worksource north seattle': { lat: 47.7097, lng: -122.3359 },
   'worksource north seattle computer lab': { lat: 47.7097, lng: -122.3359 },
+  // Seattle University campus buildings (Nominatim doesn't index individual buildings)
+  'redhawk center': { lat: 47.6095, lng: -122.3188 },
+  'student center, student center 160 fr. leroux conference center': { lat: 47.6095, lng: -122.3188 },
+  // Old Rainier Brewery event spaces
+  'the mountain room: bar at the r, 3100 airport way south': { lat: 47.5754764, lng: -122.3207484 },
   // --- Added known venues for Nominatim failure fallback ---
   'armistice coffee roosevelt, 6717 roosevelt ave ne, seattle, wa': { lat: 47.6717, lng: -122.3176 },
   'black panther park, seattle, wa': { lat: 47.5280, lng: -122.2690 },
@@ -790,6 +795,21 @@ export async function resolveEventCoords(
   }
 
   const key = normalizeLocationKey(normalized);
+
+  // Check KNOWN_VENUE_COORDS before the unresolvable cache short-circuit so that
+  // adding a hardcoded entry overrides a stale unresolvable marker in the geo-cache.
+  const knownVenueCoords = lookupKnownVenue(normalized);
+  if (knownVenueCoords !== null) {
+    const knownEntry: GeoCacheEntry = {
+      lat: knownVenueCoords.lat,
+      lng: knownVenueCoords.lng,
+      geocodedAt: new Date().toISOString().slice(0, 10),
+      source: 'nominatim',
+      firstSeen: new Date().toISOString().slice(0, 10),
+    };
+    return { coords: knownVenueCoords, geocodeSource: 'ripper', cache: { ...cache, entries: { ...cache.entries, [key]: knownEntry } } };
+  }
+
   // Already known unresolvable — no network call needed
   const entry = cache.entries[key];
   if (entry?.unresolvable) {
@@ -825,11 +845,6 @@ export async function resolveEventCoords(
   // Step 9: UW building lookup (building code in parens, or named UW location)
   if (coords === null) {
     coords = lookupUWBuilding(normalized);
-  }
-
-  // Step 10: Known venue lookup (well-known Seattle venues that Nominatim misses)
-  if (coords === null) {
-    coords = lookupKnownVenue(normalized);
   }
 
   // Step 6: Suite/floor stripping retry (if still no coords)

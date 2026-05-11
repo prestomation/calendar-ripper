@@ -520,6 +520,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'unexpected productions, 1428 post alley, seattle, wa': { lat: 47.6097, lng: -122.3420 },
   'mill creek city hall north, 15720 main street, mill creek, wa': { lat: 47.8565, lng: -122.2013 },
   'walls of books, 1025 northwest gilman boulevard, #suite e-3, issaquah, wa': { lat: 47.5446, lng: -122.0535 },
+  'northwest african american museum': { lat: 47.5892, lng: -122.3019 },
 };
 
 /**

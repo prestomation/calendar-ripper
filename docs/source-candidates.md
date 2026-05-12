@@ -324,3 +324,12 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - 💡 Candidate: The Ink Drinker — Squarespace `events-stacked` (`itemCount: 15`, 1 upcoming event at time of check) — Ballard book-and-bar opened Oct 2025. Re-evaluate when schedule fills out.
 - ❌ Not Viable: Communities of Opportunity (coopartnerships.org) — Squarespace events page returns 0 upcoming items
 - ❌ Not Viable: Seattle Swing Dance Club — Squarespace but calendar page is a regular page (`typeName: page`), not an events collection
+
+### 2026-05-12 — Source discovery: Community, gaming, music venues, arts
+- ✅ Added: Nectar Lounge — custom HTMLRipper, Tixr JSON-LD on events page — 54 upcoming events — `sources/nectar_lounge/` — Tags: Music, Fremont
+- 🔄 Status fix: SeattleDances — already implemented as `sources/external/seattledances.yaml` (proxy: outofband) — updated candidate status to `proxy`
+- 🔄 Status fix: UW Trumba Calendars — all 6 sub-calendars implemented in PR #282 — updated candidate status to `added`
+- 💡 Candidate: National Nordic Museum — FusionCMS v5.22.37, page returns 200, custom scraper needed — `nordicmuseum.org/calendar` — Tags: Museums, Arts, Ballard
+- ⛔ Blocked: Meeples Games — SiteGround captcha on all requests — `meeplesgames.com/events/`
+- ❌ Not Viable: PlaytestNW — Squarespace `typeName: page`, not events collection — `playtestnw.com/events`
+- ❌ Not Viable: Center for Sex Positive Culture (CSPC) — `itemCount: 1702` but 0 upcoming events in Squarespace format query

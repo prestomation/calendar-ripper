@@ -1,8 +1,9 @@
 ---
 name: "UW Trumba Calendars"
-status: candidate
+status: added
+pr: 282
 firstSeen: 2026-05-08
-lastChecked: 2026-05-09
+lastChecked: 2026-05-12
 ---
 **UW Trumba Calendars** — lower priority, primarily academic/internal audiences. Live probe 2026-05-09:
 - ~~`sea_artsci`~~ — UW College of Arts & Sciences — already implemented as `uw-college-of-arts-sciences`

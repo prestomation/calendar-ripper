@@ -1,6 +1,7 @@
 ---
 name: "Nectar Lounge"
 status: added
+pr: 300
 firstSeen: 2026-05-08
 lastChecked: 2026-05-12
 ---

@@ -11,7 +11,7 @@ lastChecked: 2026-05-13
 Seattle Aquarium events page uses the Speak/SiteWrench WordPress calendar plugin.
 API config found in page HTML:
 - `apiUrl`: `https://api.sitewrench.com`
-- `apiToken`: `d2ff77cfcd9e3989152364b4b1cc23436a4a55f7`
+- `apiToken`: `[REDACTED]`
 - `siteId`: 2920, `pagePartId`: 427114
 
 WP REST API confirms `swwpc_calendar` custom post type but returns 0 posts —

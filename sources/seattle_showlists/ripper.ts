@@ -42,6 +42,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     // --- INCLUDE: per-venue calendars ---
     "KEXP Studio":          { address: "472 1st Ave N, Seattle, WA 98109" },
     "Baba Yaga":            { address: "124 S Washington St, Seattle, WA 98104" },
+    "Europa":               { address: "401 2nd Ave S, Seattle, WA 98104" },
     "Bad Bar":              { address: "819 5th Ave N, Seattle, WA 98109" },
     "Barboza":              { address: "925 E Pike St, Seattle, WA 98122", skip: true },
     "Belltown Yacht Club":  { address: "2320 1st Ave, Seattle, WA 98121" },

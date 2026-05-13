@@ -520,6 +520,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'unexpected productions, 1428 post alley, seattle, wa': { lat: 47.6097, lng: -122.3420 },
   'mill creek city hall north, 15720 main street, mill creek, wa': { lat: 47.8565, lng: -122.2013 },
   'walls of books, 1025 northwest gilman boulevard, #suite e-3, issaquah, wa': { lat: 47.5446, lng: -122.0535 },
+  'calvary: the hill': { lat: 47.6174, lng: -122.3180 },
+  'town hall, 1119 eighth avenue (at seneca street), seattle, wa': { lat: 47.6090, lng: -122.3299 },
+  'foster school of business, founders hall': { lat: 47.6588, lng: -122.3071 },
 };
 
 /**

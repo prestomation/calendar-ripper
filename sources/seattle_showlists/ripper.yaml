@@ -252,14 +252,4 @@ calendars:
       venue: "Skylark"
 
   # --- White Center ---
-  - name: tims-tavern
-    friendlyname: "Tim's Tavern"
-    geo:
-      lat: 47.5288
-      lng: -122.3529
-      label: "Tim's Tavern, 9655 16th Ave SW, Seattle, WA 98106"
-      osmChecked: 2026-05-09
-    timezone: America/Los_Angeles
-    tags: ["White Center"]
-    config:
-      venue: "Tim's Tavern"
+  # Tim's Tavern has a dedicated DICE ripper at sources/tims_tavern/

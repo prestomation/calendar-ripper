@@ -1,6 +1,6 @@
 ---
 name: "Tim's Tavern"
-status: candidate
+status: added
 platform: DICE
 url: https://timslivemusic.com/upcoming-shows
 tags: [Music, "White Center"]

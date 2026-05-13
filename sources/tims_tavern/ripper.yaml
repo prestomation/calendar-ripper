@@ -1,0 +1,20 @@
+# Music events also appear in seattle-showlists; this ripper provides richer data
+name: tims-tavern
+type: dice
+description: "Tim's Tavern"
+url: "https://dice.fm/venue/tims-tavern-avvl2"
+friendlyLink: https://timslivemusic.com/upcoming-shows
+tags: ["Music", "White Center"]
+geo:
+  lat: 47.5288
+  lng: -122.3529
+  label: "Tim's Tavern, 9655 16th Ave SW, Seattle, WA 98106"
+  osmChecked: 2026-05-09
+calendars:
+  - name: tims-tavern
+    friendlyname: "Tim's Tavern"
+    timezone: America/Los_Angeles
+    config:
+      venueName: "Tim's Tavern"
+      defaultLocation: "9655 16th Ave SW, Seattle, WA 98106"
+      defaultDurationHours: 3

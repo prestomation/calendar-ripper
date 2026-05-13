@@ -1,6 +1,7 @@
 # Music events also appear in seattle-showlists; this ripper provides richer data
 name: tims-tavern
 type: dice
+expectEmpty: true
 description: "Tim's Tavern"
 url: "https://events-api.dice.fm/v1/events?filter[venues][]=Tim%27s+Tavern"
 friendlyLink: https://timslivemusic.com/upcoming-shows

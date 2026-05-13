@@ -1,6 +1,6 @@
 ---
 name: "Tim's Tavern"
-status: added
+status: investigating
 platform: DICE
 url: https://timslivemusic.com/upcoming-shows
 tags: [Music, "White Center"]
@@ -12,7 +12,14 @@ Live music venue at 9655 16th Ave SW, Seattle, WA 98106 (White Center). Confirme
 on DICE at `https://dice.fm/venue/tims-tavern-avvl2` with venueName "Tim's Tavern".
 Currently a sub-calendar in `seattle_showlists`.
 
-Implementation: `type: dice`, `venueName: "Tim's Tavern"`, address
+Implementation attempted 2026-05-13: `type: dice`, `venueName: "Tim's Tavern"`, address
 `9655 16th Ave SW, Seattle, WA 98106`. The DICE API key is configured in CI.
-When adding a dedicated source, mark `skip: true` in showlists `VENUE_CONFIG`
-and remove the sub-calendar entry from `sources/seattle_showlists/ripper.yaml`.
+DICE API (`events-api.dice.fm/v1/events?filter[venues][]=Tim's+Tavern`) returns
+`{"data":[]}` — venue has no upcoming events on DICE currently. Build policy
+requires new sources to produce ≥1 event before merging. Reverted until events appear.
+
+When Tim's Tavern posts events on DICE, implement with:
+- Mark `skip: true` in showlists `VENUE_CONFIG`
+- Remove the sub-calendar entry from `sources/seattle_showlists/ripper.yaml`
+- Add `allowed-removals/seattle-showlists-tims-tavern.ics`
+- Update `sources/seattle_showlists/ripper.test.ts` (move from includedVenues to skippedVenues)

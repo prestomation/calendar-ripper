@@ -61,7 +61,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "The Triple Door":      { address: "216 Union St, Seattle, WA 98101", skip: true },
     "The Rabbit Box":       { address: "94 Pike St, Seattle, WA 98101" },
     "The Royal Room":       { address: "5000 Rainier Ave S, Seattle, WA 98118" },
-    "Tim's Tavern":         { address: "9655 16th Ave SW, Seattle, WA 98106", skip: true },
+    "Tim's Tavern":         { address: "9655 16th Ave SW, Seattle, WA 98106" },
     "Vermillion":           { address: "1508 11th Ave, Seattle, WA 98122" },
     "Woodland Theater":     { address: "608 NW 65th St, Seattle, WA 98117" },
 };

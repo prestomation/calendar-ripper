@@ -6,6 +6,16 @@ tags: ["Music"]
 geo: null
 calendars:
   # --- Pioneer Square ---
+  - name: europa
+    friendlyname: "Europa"
+    geo:
+      lat: 47.5986
+      lng: -122.3320
+      label: "Europa, 401 2nd Ave S, Seattle, WA 98104"
+    timezone: America/Los_Angeles
+    tags: ["Pioneer Square"]
+    config:
+      venue: "Europa"
   - name: baba-yaga
     friendlyname: "Baba Yaga"
     geo:
@@ -46,6 +56,7 @@ calendars:
   # --- Belltown ---
   - name: belltown-yacht-club
     friendlyname: "Belltown Yacht Club"
+    expectEmpty: true
     geo:
       lat: 47.6154
       lng: -122.3498

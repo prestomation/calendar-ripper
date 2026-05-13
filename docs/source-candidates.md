@@ -333,3 +333,6 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ⛔ Blocked: Meeples Games — SiteGround captcha on all requests — `meeplesgames.com/events/`
 - ❌ Not Viable: PlaytestNW — Squarespace `typeName: page`, not events collection — `playtestnw.com/events`
 - ❌ Not Viable: Center for Sex Positive Culture (CSPC) — `itemCount: 1702` but 0 upcoming events in Squarespace format query
+
+### 2026-05-12 — Source discovery: Ballard bookstore/bar
+- ✅ Added: The Ink Drinker — Squarespace (`type: squarespace`), 2050 NW Market St Ballard, 1 upcoming event confirmed — `sources/ink_drinker/` — Tags: Books, Ballard

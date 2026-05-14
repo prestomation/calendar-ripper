@@ -23,7 +23,7 @@ export default class SeattleArtBookFairRipper extends HTMLRipper {
         } catch (err) {
             // Site goes offline between annual events — return empty calendars rather than crashing.
             // Handles 404 (removed) and fetch failed (timeout/connection refused when site is down).
-            if (err instanceof Error && (/^404\b/.test(err.message) || err.message === "fetch failed")) {
+            if (err instanceof Error && (/^404\b/.test(err.message) || /fetch\s+failed/i.test(err.message))) {
                 return ripper.config.calendars.map(cal => ({
                     name: cal.name,
                     friendlyname: cal.friendlyname,

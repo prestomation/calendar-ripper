@@ -523,6 +523,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'calvary: the hill': { lat: 47.6174, lng: -122.3180 },
   'town hall, 1119 eighth avenue (at seneca street), seattle, wa': { lat: 47.6090, lng: -122.3299 },
   'foster school of business, founders hall': { lat: 47.6588, lng: -122.3071 },
+  'northwest african american museum': { lat: 47.5892, lng: -122.3019 },
 };
 
 /**

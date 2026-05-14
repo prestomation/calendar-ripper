@@ -50,7 +50,7 @@ If the error looks transient (network timeout, temporary 5xx):
 #### 🚫 HTTP 403 / Persistent Fetch Failures
 If a source returns 403 or consistently fails to fetch:
 - Flag it in the report
-- If the source works when fetched from outside CI (e.g., locally or out-of-band), it likely needs `proxy: true` or conversion to an out-of-band ripper
+- If the source works when fetched from outside CI (e.g., locally or out-of-band), it likely needs `proxy: "outofband"` (the only valid non-false value per the schema)
 - After 10+ consecutive failures, consider adding it as an out-of-band source
 - Do NOT disable the ripper without human approval
 

@@ -355,29 +355,30 @@ sources/
 - Test deduplication across multiple parseEvents calls
 - Ensure graceful handling of missing or malformed data
 
-## Authenticated Proxy
+## Out-of-band Proxy
 
-Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. An authenticated Lambda proxy in AWS forwards these requests from non-blocked IPs.
+Some upstream sites (e.g., AXS, AMC) block requests from GitHub Actions runner IPs with 403 errors. The project handles these by running affected sources on a separate "out-of-band" runner (a home server with a residential IP), uploading the results to S3, and having the main GitHub Actions build download those pre-fetched outputs.
 
-See **`infra/authenticated-proxy/README.md`** for deployment and architecture details.
+See **`docs/outofband.md`** for the full architecture and **`infra/authenticated-proxy/README.md`** for the supporting AWS infrastructure (S3 bucket, IAM roles).
 
-### Enabling the proxy for a ripper
+### Enabling outofband for a ripper
 
-Add `proxy: true` to the ripper's `ripper.yaml`:
+Add `proxy: "outofband"` to the ripper's `ripper.yaml`:
 
 ```yaml
 name: amc
-proxy: true
+proxy: "outofband"
 url: "https://graph.amctheatres.com/graphql"
 ```
 
-When `proxy: true` and the `PROXY_URL` environment variable is set, all fetch calls for that ripper are routed through the Lambda proxy. If `PROXY_URL` is not set (local development), requests go directly to the upstream.
+The schema in `lib/config/schema.ts` only accepts `"outofband"` or `false` — there is no `proxy: true`.
+
+When set, the main GitHub Actions build **skips** the ripper entirely. The out-of-band cron runner (`scripts/generate-outofband.ts`) executes it from a residential IP and uploads its `.ics` plus a `outofband-report.json` entry to S3. The main build then downloads those artifacts via `scripts/download-outofband.ts`.
 
 ### How it works
 
-- `lib/config/proxy-fetch.ts` exports `proxyFetch` and `getFetchForConfig` utilities
-- Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) automatically use the proxy when the config flag is set
-- Custom rippers that implement `IRipper` directly should use `getFetchForConfig(ripper.config)` to get a proxy-aware fetch function
+- `lib/config/proxy-fetch.ts` exposes `getFetchForConfig(config)` — a passthrough today since outofband sources run on a clean network and use plain `fetch`. The earlier in-process Lambda-proxy mechanism has been retired.
+- Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers (`AXS`, `Squarespace`, `Ticketmaster`) call `getFetchForConfig` automatically. Custom rippers that implement `IRipper` directly should do the same so they remain compatible if the proxy mechanism returns.
 
 ### Enabling the proxy for an external ICS calendar
 
@@ -656,7 +657,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
 **Cause:** The upstream website is blocking requests from GitHub Actions runner IPs.
 
 **Fix:**
-1. Add `proxy: true` to the ripper's `ripper.yaml`
+1. Add `proxy: "outofband"` to the ripper's `ripper.yaml` (the schema only accepts `"outofband"` or `false` — `proxy: true` will fail Zod validation and the ripper will be dropped silently into `configErrors`)
 2. If the ripper uses direct `fetch()` calls (custom `IRipper` implementations), refactor to use the proxy-aware fetch:
    ```typescript
    import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
@@ -670,7 +671,7 @@ https://raw.githubusercontent.com/prestomation/calendar-ripper/gh-pages/preview/
        }
    }
    ```
-3. Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers already handle proxy automatically — just add `proxy: true` to the YAML.
+3. Base classes (`HTMLRipper`, `JSONRipper`) and built-in rippers already use `getFetchForConfig` automatically — just add `proxy: "outofband"` to the YAML.
 
 #### HTTP 403 from External Calendars
 

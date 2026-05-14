@@ -140,7 +140,7 @@ All four AXS venues share the same root cause: AXS.com uses aggressive Cloudflar
 
 - **Status:** `disabled: true` — "Returns 406 without browser-like User-Agent header"
 - **Investigation:** **ICS feed is now working.** The Tribe Events ICS endpoint returns valid calendar data with 12+ art events. Either the 406 issue was fixed or the WebFetch tool sends appropriate headers.
-- **Recommended fix:** Remove `disabled: true`. If 406 errors recur, the fix is to add a browser-like User-Agent header to the fetch request (may need `proxy: true` with header injection).
+- **Recommended fix:** Remove `disabled: true`. If 406 errors recur, the fix is to add a browser-like User-Agent header to the fetch request (may need `proxy: "outofband"` with header injection).
 - **Effort:** Trivial — one-line YAML change
 
 #### 4d. Climate Pledge Arena — RE-ENABLE

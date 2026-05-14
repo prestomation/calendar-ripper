@@ -23,6 +23,9 @@ export default class CIDBIARipper implements IRipper {
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         this.fetchFn = getFetchForConfig(ripper.config);
+        if (!ripper.config.calendars?.length) {
+            throw new Error('No calendars configured');
+        }
         const calConfig = ripper.config.calendars[0];
 
         const now = ZonedDateTime.now(TIMEZONE);
@@ -100,7 +103,6 @@ export default class CIDBIARipper implements IRipper {
 
     private splitCollaItems(html: string): string[] {
         const items: string[] = [];
-        const re = /<div class="collaItem">([\s\S]*?)<\/div>\s*\n\s*\t\n/g;
         // Match everything between collaItem divs using a simpler approach
         let start = 0;
         while (true) {
@@ -160,8 +162,12 @@ export default class CIDBIARipper implements IRipper {
                 if (parsed.end) {
                     const endTotalMin = parsed.end.hour * 60 + parsed.end.minute;
                     const startTotalMin = startHour * 60 + startMinute;
-                    if (endTotalMin > startTotalMin) {
-                        durationMinutes = endTotalMin - startTotalMin;
+                    let durationCalc = endTotalMin - startTotalMin;
+                    if (durationCalc < 0) {
+                        durationCalc += 24 * 60; // handle events spanning midnight
+                    }
+                    if (durationCalc > 0) {
+                        durationMinutes = durationCalc;
                     }
                 }
             }

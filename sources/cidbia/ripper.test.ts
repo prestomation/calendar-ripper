@@ -107,6 +107,7 @@ describe('CIDBIARipper - parseEvents from sample HTML', () => {
     test('event has required fields', () => {
         const results = ripper.parseEvents(html, 'https://www.seattlechinatownid.com/local-events');
         const events = results.filter(r => 'date' in r) as any[];
+        expect(events.length).toBeGreaterThan(0);
         const first = events[0];
         expect(first.summary).toBeTruthy();
         expect(first.date).toBeTruthy();

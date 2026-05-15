@@ -1,8 +1,9 @@
 ---
 name: "Seattle Pro Musica"
-status: investigating
+status: added
 firstSeen: 2026-05-14
-lastChecked: 2026-05-14
+lastChecked: 2026-05-15
+pr: claude/elegant-mayer-b5gfv
 ---
 **Seattle Pro Musica** — `https://www.seattlepromusica.org/calendar` — Squarespace — Tags: Music, Arts
 
@@ -15,7 +16,10 @@ Investigated 2026-05-14:
 - **4 upcoming events** (after 2026-05-14) confirmed in the `past` array:
   - "The Traveler's Song" — June 13 & 14, 2026 (Seattle First Baptist)
   - "Mozart Requiem and Golijov Oceana" — June 27, 2026 (Seattle First Baptist); July 4, 2026 (Federal Way)
-- To implement: either (a) modify `SquarespaceRipper` to also read `data.past` when `data.upcoming` is empty/missing, or (b) write a custom ripper that explicitly reads both arrays
 - Low event volume (seasonal programming, ~6-8 concerts/year)
 - `geo: null` appropriate (touring ensemble, no fixed venue)
 - Tags: Music, Arts
+
+Implementation (2026-05-15): Modified `SquarespaceRipper.fetchUpcomingEvents()` to fall back to
+`data.past` filtered to future dates when both `data.upcoming` and `data.items` are empty. Added
+`sources/seattle_pro_musica/ripper.yaml`.

@@ -349,3 +349,16 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ❌ Not Viable: Cornish College of the Arts — SU Localist widget ICS returns 446 mixed Cornish+SU events, group filter broken
 - ❌ Not Viable: Century Ballroom Roadshow — WordPress + MEC plugin; REST API empty, AJAX requires auth, no ICS export
 - ❌ Not Viable: Swing Dance SCT — Squarespace `sqs-block` confirmed but type-1 page, `?format=json` returns 0 items
+
+### 2026-05-14 — Source discovery: Music venues, arts presenters, new breweries, gaming
+- 💡 Candidate: Fremont Abbey (Abbey Arts Presents) — Humanitix ticketing, 12+ upcoming events at Fremont Abbey / Ballard Homestead / St. Mark's Cathedral — custom HTMLRipper feasible — `events.humanitix.com/host/abbey-arts-presents` — Tags: Music, Arts, Community, Fremont
+- 🔍 Investigating: Seattle Pro Musica — Squarespace confirmed (`/calendar?format=json` returns JSON) but future events in `data.past` array (built-in ripper reads only `data.upcoming`) — 4 upcoming events June–July 2026 — Tags: Music, Arts
+- 💡 Candidate: Gasworks Brewing — Squarespace site but no events collection URL, events listed as homepage text — 2441 N Northlake Way (Lake Union), opened 2026 — Tags: Beer
+- ❌ Not Viable: Mox Boarding House Seattle — Shopify `/products.json` contains only physical gaming products, no event-type products; no ICS or calendar API found
+- 🔍 Investigating: Backfire Motobar — site returned ECONNREFUSED (possible closure), needs non-sandbox verification
+- 🔄 Status fix: Book Larder — already implemented as `sources/book_larder`, updated candidate status to `added`
+- 🔄 Status fix: Cannonball Arts Center — already implemented as `sources/cannonball_arts`, updated candidate status to `added`
+- ❌ Not Viable: Pacific Northwest Ballet — Tessitura Angular SPA (`order.pnb.org`), `?ical=1` returns HTML, no public REST endpoints
+- ❌ Not Viable: Town Hall Seattle — already implemented as `sources/external/town-hall-seattle.yaml`
+- ❌ Not Viable: Skylark Cafe — Webflow site with mixed Eventbrite promoters (no venue-level organizer ID), no ICS feed
+- ❌ Not Viable: Seattle Pro Musica (Squarespace built-in) — `data.upcoming` is empty; all events including future ones are in `data.past`; built-in ripper would return 0 events without ripper code changes

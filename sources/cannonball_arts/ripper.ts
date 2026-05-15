@@ -221,9 +221,22 @@ export default class CannonballArtsRipper implements IRipper {
         url.searchParams.set('orderby', 'date');
         url.searchParams.set('order', 'asc');
 
-        const res = await fetchFn(url.toString(), {
-            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },
-        });
+        let res: Response;
+        try {
+            res = await fetchFn(url.toString(), {
+                headers: { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' },
+            });
+        } catch (err) {
+            // Network failure (site offline) — return empty rather than crashing
+            if (err instanceof Error && /fetch\s+failed/i.test(err.message)) {
+                return [{ name: calConfig.name, friendlyname: calConfig.friendlyname, events: [], errors: [], tags: calConfig.tags ?? ripper.config.tags ?? [], parent: ripper.config }];
+            }
+            throw err;
+        }
+        if (res.status === 404) {
+            // WordPress post type endpoint gone (site rebuild/offline) — return empty
+            return [{ name: calConfig.name, friendlyname: calConfig.friendlyname, events: [], errors: [], tags: calConfig.tags ?? ripper.config.tags ?? [], parent: ripper.config }];
+        }
         if (!res.ok) {
             throw new Error(`WordPress API returned ${res.status} ${res.statusText}`);
         }

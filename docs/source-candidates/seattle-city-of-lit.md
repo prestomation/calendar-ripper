@@ -6,7 +6,7 @@ url: https://www.seattlecityoflit.org/community-calendar
 tags: [Books, Arts, Community]
 firstSeen: 2026-05-15
 lastChecked: 2026-05-15
-pr: 314
+pr: 317
 ---
 
 Crowdsourced community literary events calendar run by Seattle City of Literature

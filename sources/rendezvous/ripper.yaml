@@ -1,0 +1,14 @@
+name: rendezvous
+type: squarespace
+description: "The Rendezvous"
+url: "https://rendezvous.squarespace.com/events"
+friendlyLink: https://www.therendezvous.rocks
+tags: ["Music", "Comedy", "Belltown", "Nightlife"]
+geo:
+  lat: 47.6146
+  lng: -122.3463
+  label: "The Rendezvous, 2322 2nd Ave, Seattle, WA 98121"
+calendars:
+  - name: all-events
+    friendlyname: "The Rendezvous"
+    timezone: America/Los_Angeles

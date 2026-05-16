@@ -371,3 +371,8 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ❌ Not Viable: Neighborhood Farmers Markets — Squarespace `?format=json` returns `itemCount: 0`; existing `sources/recurring/` already covers these markets
 - ❌ Not Viable: Brouwer's Cafe — WordPress events archive (24 pages of past events), no upcoming events and no ICS feed
 - ❌ Not Viable: Queer Bar — confirmed multi-promoter Eventbrite, no single venue organizer ID; Squarespace page returns 0 items
+
+### 2026-05-16 — Source discovery: Arts & culture, outdoors, community
+- ✅ Added: Seattle Japanese Garden — Squarespace — 30+ events — PR #324 — Tags: Arts, Museums
+- ❌ Not Viable: Skylark Cafe — Webflow site, Eventbrite events from multiple promoters (no single venue organizer ID), no ICS feed
+- ❌ Not Viable: Seattle Aquarium — SiteWrench API requires authentication; client-side rendered events

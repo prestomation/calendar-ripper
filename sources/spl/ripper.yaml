@@ -81,6 +81,7 @@ calendars:
     config:
       branch: "International District/Chinatown Branch"
     tags: ["International District"]
+    expectEmpty: true
   - name: lake-city
     friendlyname: "SPL - Lake City Branch"
     timezone: America/Los_Angeles

@@ -6,7 +6,7 @@ url: https://rendezvous.squarespace.com/events
 tags: [Music, Comedy, Belltown, Nightlife]
 firstSeen: 2026-05-08
 lastChecked: 2026-05-16
-pr:
+pr: 322
 ---
 The Rendezvous maintains a separate Squarespace-powered events calendar at
 `rendezvous.squarespace.com/events` (distinct from the main WordPress site at

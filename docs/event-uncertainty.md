@@ -40,6 +40,16 @@ Keeping the embedded event whole means that if `RipperCalendarEvent`
 grows new fields, the resolver agent automatically sees them — no
 schema migration here.
 
+**Best practice — one UncertaintyError per event.** When multiple
+fields are unknown for the same event, combine them into a single
+error with `unknownFields: ["startTime", "location"]` rather than
+emitting one error per field. The merge function tolerates the
+multi-error case (it'll consult the cache once and apply to all), but
+single-error-per-event keeps the work queue, the cache key, and the
+resolver agent's job simpler. The events12 ripper is the canonical
+example: a single missing time produces one error per (event-day, slot)
+occurrence — not one error per field per occurrence.
+
 ### Infrastructure merge
 
 `lib/calendar_ripper.ts` calls `applyUncertaintyResolutions` for every

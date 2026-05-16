@@ -104,6 +104,27 @@ jobs:
                 (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
               : '';
 
+            // Event-uncertainty stats. Outstanding entries are todos for
+            // the event-uncertainty-resolver skill — informational, not
+            // a build-block.
+            const uStats = buildErrors.uncertaintyStats;
+            const uEvents = buildErrors.uncertainEvents || [];
+            let uncertaintySection = '';
+            if (uStats && (uStats.outstanding + uStats.resolvedFromCache + uStats.acknowledgedUnresolvable > 0)) {
+              const summary = `**❓ Uncertain events:** ${uStats.outstanding} outstanding, ${uStats.resolvedFromCache} resolved from cache, ${uStats.acknowledgedUnresolvable} unresolvable`;
+              if (uEvents.length > 0) {
+                const sample = uEvents.slice(0, 20).map(e => {
+                  const link = e.event.url ? `[link](${e.event.url})` : '—';
+                  const fields = e.unknownFields.join(', ');
+                  return `- \`${e.source}\` ${e.event.summary} (${e.event.date}) — missing: ${fields} ${link}`;
+                }).join('\n');
+                const more = uEvents.length > 20 ? `\n\n_…and ${uEvents.length - 20} more. Run the event-uncertainty-resolver skill to investigate._` : '\n\n_Run the event-uncertainty-resolver skill to investigate._';
+                uncertaintySection = `\n\n${summary}\n<details>\n<summary>Show outstanding entries</summary>\n\n${sample}${more}\n\n</details>`;
+              } else {
+                uncertaintySection = `\n\n${summary}`;
+              }
+            }
+
             // New source summary — event counts and sample events for sources not in production
             let newSourceSection = '\n\n✅ No new sources in this PR';
             try {
@@ -177,6 +198,7 @@ jobs:
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
+              uncertaintySection,
               newSourceSection,
               errorSection,
               zeroEventSection,

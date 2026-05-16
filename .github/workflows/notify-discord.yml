@@ -85,7 +85,14 @@ jobs:
           # Build the content text (mentions + summary)
           if [ "$WORKFLOW_NAME" = "Generate Calendars and Publish to GitHub Pages" ] && [ "$WORKFLOW_CONCLUSION" = "success" ]; then
             CONTENT="<@&1482439580006354987> ${EMOJI} **${WORKFLOW_NAME}** on \`${REPO}\` / \`${BRANCH}\` — **${WORKFLOW_CONCLUSION}**"
-            EMBED_DESC="📊 Build complete. Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
+            UNCERTAIN_LINE=""
+            # Pull live uncertainty count from the published build-errors.json
+            UNCERTAIN_COUNT=$(curl -s --fail https://206.events/build-errors.json 2>/dev/null \
+              | jq -r '.uncertaintyStats.outstanding // 0' 2>/dev/null || echo "0")
+            if [ "$UNCERTAIN_COUNT" -gt 0 ] 2>/dev/null; then
+              UNCERTAIN_LINE=" ❓ ${UNCERTAIN_COUNT} uncertain event(s) — run event-uncertainty-resolver."
+            fi
+            EMBED_DESC="📊 Build complete.${UNCERTAIN_LINE} Please run the build-report skill to check for errors, then run source-discovery if the build is healthy."
           else
             # For PR Preview success, include preview link and new source summary
             PREVIEW_LINE=""

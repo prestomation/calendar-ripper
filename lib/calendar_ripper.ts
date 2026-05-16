@@ -4,13 +4,24 @@ import {
   RipperConfig,
   RipperError,
   GeocodeError,
+  UncertaintyError,
   toICS,
   externalConfigSchema,
   ExternalConfig,
   ExternalCalendar,
   RipperCalendar,
+  serializeRipperErrors,
+  serializeRipperError,
 } from "./config/schema.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "./geocoder.js";
+import {
+  loadUncertaintyCache,
+  saveUncertaintyCache,
+} from "./event-uncertainty-cache.js";
+import {
+  applyUncertaintyResolutions,
+  type UncertaintyMergeStats,
+} from "./uncertainty-merge.js";
 import { toRSS } from "./config/rss.js";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -369,6 +380,18 @@ export const main = async () => {
   let geoCache = await loadGeoCache('geo-cache.json');
   const geocodeErrors: GeocodeError[] = [];
 
+  // Load event-uncertainty-cache: a parallel cache to geo-cache that
+  // records resolved values for fields rippers couldn't determine
+  // (start times, durations, locations, images). The infra layer below
+  // merges ripper output against this cache between rip and ICS write
+  // — rippers themselves don't read it. See docs/event-uncertainty.md.
+  const uncertaintyCache = await loadUncertaintyCache('event-uncertainty-cache.json');
+  const uncertaintyTotals: UncertaintyMergeStats = {
+    resolved: 0,
+    acknowledgedUnresolvable: 0,
+    outstanding: 0,
+  };
+
   try {
     // Create the output directory
     // If it exists, just ignore the failure. that's fine.
@@ -450,7 +473,7 @@ export const main = async () => {
     recurringWritePromises.push(writeFile(`output/${rssPath}`, toRSS(calendar, { baseUrl: SITE_BASE_URL })));
     recurringWritePromises.push(writeFile(
       `output/${errorsPath}`,
-      JSON.stringify(calendar.errors, null, 2)
+      JSON.stringify(serializeRipperErrors(calendar.errors), null, 2)
     ));
   }
   await Promise.all(recurringWritePromises);
@@ -573,6 +596,28 @@ export const main = async () => {
     }
   }
 
+  // Apply uncertainty-cache resolutions to every ripper's output before
+  // we serialize anything. The merge is pure and per-source: it rewrites
+  // events whose UncertaintyError has a cache hit, and drops the now-
+  // satisfied error. Outstanding uncertainties remain in calendar.errors
+  // so they still surface in build-errors.json — and so totalErrors
+  // continues to count them, per the design.
+  for (const { config, calendars } of ripperResults) {
+    for (const calendar of calendars) {
+      const merged = applyUncertaintyResolutions(
+        calendar.events,
+        calendar.errors,
+        uncertaintyCache,
+        config.config.name,
+      );
+      calendar.events = merged.events;
+      calendar.errors = merged.errors;
+      uncertaintyTotals.resolved += merged.stats.resolved;
+      uncertaintyTotals.acknowledgedUnresolvable += merged.stats.acknowledgedUnresolvable;
+      uncertaintyTotals.outstanding += merged.stats.outstanding;
+    }
+  }
+
   // --- Process ripper results (preserving original order for ToC) ---
   for (const { config, calendars } of ripperResults) {
     allCalendars.push(...calendars);
@@ -615,7 +660,7 @@ export const main = async () => {
       writePromises.push(writeFile(`output/${rssPath}`, toRSS(calendar, { baseUrl: SITE_BASE_URL, friendlyLink: config.config.friendlyLink })));
       writePromises.push(writeFile(
         `output/${errorsPath}`,
-        JSON.stringify(calendar.errors, null, 2)
+        JSON.stringify(serializeRipperErrors(calendar.errors), null, 2)
       ));
       outputs.push({
         errorCount,
@@ -719,7 +764,7 @@ export const main = async () => {
       aggregateWritePromises.push(writeFile(`output/${rssPath}`, toRSS(calendar, { baseUrl: SITE_BASE_URL })));
       aggregateWritePromises.push(writeFile(
         `output/${errorsPath}`,
-        JSON.stringify(calendar.errors, null, 2)
+        JSON.stringify(serializeRipperErrors(calendar.errors), null, 2)
       ));
 
       aggregateOutputs.push({
@@ -1077,6 +1122,12 @@ END:VCALENDAR`;
   // Save updated geo-cache
   await saveGeoCache(geoCache, 'geo-cache.json');
 
+  // Persist the uncertainty cache (currently a no-op in the build itself
+  // since rippers don't write to it — resolutions arrive via the
+  // event-uncertainty-resolver skill — but we round-trip so a future
+  // build-time writer wouldn't silently drop entries).
+  await saveUncertaintyCache(uncertaintyCache, 'event-uncertainty-cache.json');
+
   const eventsIndexJson = JSON.stringify(eventsIndex);
   const eventsIndexSizeKB = (Buffer.byteLength(eventsIndexJson, "utf8") / 1024).toFixed(1);
   console.log(`Events index: ${eventsIndex.length} events, ${eventsIndexSizeKB} KB`);
@@ -1322,15 +1373,55 @@ END:VCALENDAR`;
     recurringEvents: recurringProcessor?.getEvents() ?? [],
   });
 
+  // Flatten still-outstanding UncertaintyError entries from every
+  // ripper's calendar into one list for the resolver skill to chew
+  // through. Resolved/unresolvable entries have already been removed
+  // by applyUncertaintyResolutions, so anything left here is a real
+  // work item for the event-uncertainty-resolver.
+  const uncertainEvents = buildErrors.flatMap(entry =>
+    entry.errors
+      .filter((e): e is UncertaintyError => e.type === "Uncertainty")
+      .map(e => ({
+        source: entry.source,
+        calendar: entry.calendar,
+        reason: e.reason,
+        unknownFields: e.unknownFields,
+        event: {
+          id: e.event.id,
+          summary: e.event.summary,
+          date: e.event.date.toString(),
+          url: e.event.url,
+        },
+        partialFingerprint: e.partialFingerprint,
+      }))
+  );
+
   // Write consolidated build errors JSON for programmatic access
   const buildErrorsReport = {
     buildTime: new Date().toISOString(),
     totalErrors: totalErrorCount,
-    configErrors: configErrors.map(e => ({ ...e })),
-    sources: buildErrors,
+    configErrors: configErrors.map(serializeRipperError),
+    // Per-source errors are serialized so embedded events in
+    // UncertaintyErrors don't blow up JSON.stringify on js-joda types.
+    sources: buildErrors.map(entry => ({
+      source: entry.source,
+      calendar: entry.calendar,
+      type: entry.type,
+      errorCount: entry.errorCount,
+      errors: serializeRipperErrors(entry.errors),
+    })),
     externalCalendarFailures,
     geocodeErrors: geocodeErrors,
     geoStats,
+    // Uncertainty system: the resolver skill (event-uncertainty-resolver)
+    // reads `uncertainEvents` as its work queue. `uncertaintyStats`
+    // summarizes the same numbers PR/main build comments display.
+    uncertainEvents,
+    uncertaintyStats: {
+      resolvedFromCache: uncertaintyTotals.resolved,
+      acknowledgedUnresolvable: uncertaintyTotals.acknowledgedUnresolvable,
+      outstanding: uncertaintyTotals.outstanding,
+    },
     zeroEventCalendars: zeroEventCalendars.map(c => c.name),
     expectedEmptyCalendars: expectedEmptyCalendars.map(c => c.name),
     newZeroEventSources,
@@ -1447,6 +1538,9 @@ END:VCALENDAR`;
   if (unexpectedNonEmptyCalendars.length > 0) {
     console.log(`  ℹ ${unexpectedNonEmptyCalendars.length} calendar(s) marked expectEmpty but have events: ${unexpectedNonEmptyCalendars.map(c => `${c.name} (${c.events})`).join(", ")}`);
   }
+  if (uncertaintyTotals.resolved + uncertaintyTotals.acknowledgedUnresolvable + uncertaintyTotals.outstanding > 0) {
+    console.log(`  ❓ Uncertainty: ${uncertaintyTotals.outstanding} outstanding, ${uncertaintyTotals.resolved} resolved from cache, ${uncertaintyTotals.acknowledgedUnresolvable} unresolvable`);
+  }
   console.log("===========================\n");
 
   // Write GitHub Actions step summary if running in CI
@@ -1470,6 +1564,10 @@ END:VCALENDAR`;
     if (unexpectedNonEmptyCalendars.length > 0) {
       summaryLines.push("");
       summaryLines.push(`> ℹ️ **${unexpectedNonEmptyCalendars.length} calendar(s) marked expectEmpty but have events:** ${unexpectedNonEmptyCalendars.map(c => `${c.name} (${c.events})`).join(", ")}`);
+    }
+    if (uncertaintyTotals.outstanding + uncertaintyTotals.resolved + uncertaintyTotals.acknowledgedUnresolvable > 0) {
+      summaryLines.push("");
+      summaryLines.push(`> ❓ **Uncertain events:** ${uncertaintyTotals.outstanding} outstanding — agent investigation pending. ${uncertaintyTotals.resolved} resolved from cache this build; ${uncertaintyTotals.acknowledgedUnresolvable} marked unresolvable.`);
     }
     await appendFile(process.env.GITHUB_STEP_SUMMARY, summaryLines.join("\n") + "\n");
   }

@@ -305,6 +305,12 @@ function HealthDashboard({ buildErrors, calendars }) {
           <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? buildErrors.geocodeErrors?.length ?? 0}</div>
           <div className="health-card-label">Geo Misses</div>
         </div>
+        {buildErrors.uncertaintyStats && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">❓ {buildErrors.uncertaintyStats.outstanding}</div>
+            <div className="health-card-label">Uncertain Events</div>
+          </div>
+        )}
       </div>
 
       <div className="health-section">
@@ -342,6 +348,37 @@ function HealthDashboard({ buildErrors, calendars }) {
                 <span className="health-error-reason">{f.error}</span>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {(buildErrors.uncertainEvents?.length || 0) > 0 && (
+        <div className="health-section">
+          <h2>❓ Uncertain Events ({buildErrors.uncertainEvents.length})</h2>
+          <p className="health-subtitle">
+            Events where the ripper couldn't determine one or more fields (typically start time).
+            The placeholder values you see in the calendar will be replaced once the
+            event-uncertainty-resolver skill investigates and writes a resolution into
+            the cache. Resolved this build: {buildErrors.uncertaintyStats?.resolvedFromCache ?? 0};
+            marked unresolvable: {buildErrors.uncertaintyStats?.acknowledgedUnresolvable ?? 0}.
+          </p>
+          <div className="health-error-list">
+            {buildErrors.uncertainEvents.slice(0, 50).map((u, i) => (
+              <div key={i} className="health-error-item">
+                <span className="health-error-type">{u.source}</span>
+                <span className="health-error-reason">
+                  {u.event.summary} — {u.event.date} (missing: {u.unknownFields.join(', ')})
+                </span>
+                {u.event.url && (
+                  <a className="health-error-path" href={u.event.url} target="_blank" rel="noopener noreferrer">
+                    source
+                  </a>
+                )}
+              </div>
+            ))}
+            {buildErrors.uncertainEvents.length > 50 && (
+              <p>…and {buildErrors.uncertainEvents.length - 50} more.</p>
+            )}
           </div>
         </div>
       )}

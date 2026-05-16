@@ -8,6 +8,7 @@ Agent skills live in `skills/` in this repo. These define the operational proced
 - **`skills/source-discovery/SKILL.md`** — Find, evaluate, and add new Seattle event sources
 - **`skills/geo-resolver/SKILL.md`** — Resolve geocode errors in the geo-cache and fill OpenStreetMap IDs on venues
 - **`skills/calendar-verification/SKILL.md`** — Verify recurring calendars and `expectEmpty` sources against their live URLs and auto-fix safe drift via PR
+- **`skills/event-uncertainty-resolver/SKILL.md`** — Resolve outstanding `UncertaintyError` entries (typically unknown start times) by investigating the source page and writing values into `event-uncertainty-cache.json`
 
 ## Adding New Calendar Sources
 
@@ -401,6 +402,90 @@ else errors.push(result); // It's a ParseError
 **Why:** If parse methods can return `null`, someone will forget to check it, and items get silently dropped. By making the return type `RipperCalendarEvent | RipperError`, TypeScript guarantees every code path either produces an event or reports why it couldn't. The build report then surfaces every gap: "8 events, 2 errors" instead of "8 events, 0 errors".
 
 **Existing rippers still returning `null`** (events12, dogwoodplaypark, spectrum_dance, etc.) should be migrated to this pattern incrementally.
+
+## Ripper Design: Stable Event IDs
+
+Every ripper must populate `RipperCalendarEvent.id` with a value
+**derived deterministically from the source content**. The id is the
+join key for the event-uncertainty-cache, for client-side dedup, and
+for cross-build identity — anything that derives it from non-source
+state (timestamps, array indices, randomness) silently invalidates
+cache entries on every build and breaks identity-tracking downstream.
+
+**Required:** id = some stable hash of source content. Title + date
+works for most sources. Upstream event ids are even better when
+available.
+
+```ts
+// ✅ Stable across builds
+const id = `${slugify(title)}-${date.toLocalDate().toString()}`;
+
+// ❌ Different every build — breaks the uncertainty cache
+const id = `event-${Date.now()}-${Math.random()}`;
+
+// ❌ Depends on iteration order, which can shift when source data changes
+const id = `${source}-${index}`;
+```
+
+When a single day has multiple showings (e.g. a "5 & 8 p.m." double
+feature), include a deterministic slot suffix (`-1700` / `-2000`) so
+the showings get distinct ids without disturbing ids on single-showing
+days.
+
+## Event Uncertainty System
+
+Rippers signal uncertainty about an event's fields (start time,
+duration, location, image) by emitting an `UncertaintyError` alongside
+the event — both share the same `event.id`. The infrastructure
+(`lib/uncertainty-merge.ts`) merges these against
+`event-uncertainty-cache.json` between rip and ICS write:
+
+- Cache hit "resolved" → apply the cached fields, drop the error.
+- Cache hit "unresolvable" → drop the error, append a "could not be
+  verified" note to the event description.
+- Cache miss → keep the error, append an "approximate — pending"
+  note to the event description.
+
+The cache itself is populated by the **event-uncertainty-resolver
+skill**, which fetches the upstream source page, extracts the missing
+field, and writes a resolution into S3. Same plumbing as the
+geo-cache: empty file committed, live data lives in S3, GitHub Actions
+artifact serves as backup.
+
+**Why it exists:** Quietly defaulting unknown values (e.g. "no time on
+the page → set to noon") publishes a guess that looks like a fact.
+This system makes the uncertainty explicit, surfaces it in every
+reporting channel, and lets an LLM resolve it across builds without
+re-doing the work each time.
+
+**Outstanding uncertain events count toward `totalErrors`** so they
+don't get forgotten, but they're **not fatal** — they don't block CI.
+The resolver drains the queue across builds.
+
+The full design lives in `docs/event-uncertainty.md`. When opting a
+ripper into this system, see `sources/events12/ripper.ts` for the
+canonical pattern (emit event + `UncertaintyError` with same id, with
+a `partialFingerprint` so the cache invalidates if source content
+changes).
+
+## Reporting Parity
+
+`output/build-errors.json` is the single source of truth for build
+health. Every other reporting surface reads from it: the PR comment
+(`.github/workflows/pr-preview.yml`), the main build step summary
+(`lib/calendar_ripper.ts` writing to `$GITHUB_STEP_SUMMARY`), the
+Discord notification (`.github/workflows/notify-discord.yml`), the
+website health dashboard (`web/src/App.jsx`), and the build-report
+skill (`skills/build-report/`).
+
+**Hard rule: when you add a new error category or counter, you MUST
+plumb it through every reporting surface in the same PR.** Surfaces
+that don't see a category effectively don't enforce it, so a missing
+reporter means the category accumulates silently.
+
+The existing categories — parse errors, geocode errors, zero-event
+calendars, expected-empty, uncertain events, OSM gaps — are all
+plumbed through every surface. Use them as templates.
 
 ## Writing Descriptions
 

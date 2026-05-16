@@ -2,7 +2,7 @@
 name: "Seattle Pro Musica"
 status: investigating
 firstSeen: 2026-05-14
-lastChecked: 2026-05-14
+lastChecked: 2026-05-16
 ---
 **Seattle Pro Musica** — `https://www.seattlepromusica.org/calendar` — Squarespace — Tags: Music, Arts
 
@@ -10,12 +10,13 @@ Seattle choral ensemble presenting classical and contemporary choral concerts at
 
 Investigated 2026-05-14:
 - Site is built on **Squarespace**; `/calendar?format=json` endpoint confirmed working (returns valid JSON)
-- **Issue**: The `upcoming` array in the Squarespace response is empty `[]`; all events (including future ones) are in the `data.past` array — likely a misconfiguration of their Squarespace calendar collection type
-- The built-in `SquarespaceRipper` only reads `data.upcoming` and `data.items`; it does not read `data.past`, so it would return 0 events
-- **4 upcoming events** (after 2026-05-14) confirmed in the `past` array:
-  - "The Traveler's Song" — June 13 & 14, 2026 (Seattle First Baptist)
-  - "Mozart Requiem and Golijov Oceana" — June 27, 2026 (Seattle First Baptist); July 4, 2026 (Federal Way)
-- To implement: either (a) modify `SquarespaceRipper` to also read `data.past` when `data.upcoming` is empty/missing, or (b) write a custom ripper that explicitly reads both arrays
-- Low event volume (seasonal programming, ~6-8 concerts/year)
-- `geo: null` appropriate (touring ensemble, no fixed venue)
-- Tags: Music, Arts
+- `data.upcoming` array is empty `[]`; all events are in `data.past`
+- **Initial investigation incorrectly identified future events** by reading event description text rather than verifying `startDate` epoch values
+
+Verified 2026-05-16:
+- All 20 events in `data.past` have `startDate` values before today (May 16, 2026)
+- "The Traveler's Song": `startDate: 1772319600224` → ~March 1, 2026 (past)
+- "Mozart Requiem and Golijov Oceana": `startDate: 1777775400005` → ~May 2, 2026 (past)
+- **No upcoming events are currently on their site** — ensemble is between seasons
+- The `data.past` fallback in `SquarespaceRipper` was implemented (PR #318) and will pick up events when they post their next season
+- Re-evaluate when Seattle Pro Musica posts 2026–27 season events (typically August–September)

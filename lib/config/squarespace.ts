@@ -132,10 +132,16 @@ export class SquarespaceRipper implements IRipper {
 
             const data: SquarespaceResponse = await res.json();
 
-            if (data.upcoming) {
+            if (data.upcoming && data.upcoming.length > 0) {
                 allEvents.push(...data.upcoming);
-            } else if (data.items) {
+            } else if (data.items && data.items.length > 0) {
                 allEvents.push(...data.items);
+            } else if (data.past && data.past.length > 0) {
+                // Some Squarespace sites misconfigure their collection type, causing
+                // future events to appear in `data.past`. Fall back to that array and
+                // filter to only events that haven't started yet.
+                const now = Date.now();
+                allEvents.push(...data.past.filter(e => e.startDate > now));
             }
 
             if (data.pagination?.nextPage && data.pagination.nextPageUrl) {

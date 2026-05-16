@@ -1262,10 +1262,15 @@ END:VCALENDAR`;
   const newZeroEventSources: string[] = [];
   const newSourceParseErrors: Array<{ source: string; calendar: string; errorCount: number }> = [];
 
-  // New source with 0 events → fail build (no proven data pipeline)
-  const newZeroEvent = newCalendarEntries.filter(c => c.events === 0 && !c.expectEmpty);
+  // New source with 0 events → fail build (no proven data pipeline).
+  // expectEmpty does NOT exempt new sources: a brand-new source with 0 events has
+  // never proven the pipeline works, regardless of the expectEmpty flag.
+  const newZeroEvent = newCalendarEntries.filter(c => c.events === 0);
   for (const cal of newZeroEvent) {
-    console.log(`::error::New source "${cal.source}" calendar "${cal.name}" has 0 events and has never appeared in production. Fix the ripper URL/type, or set expectEmpty: true only if this source is legitimately seasonal and you have confirmed the pipeline works.`);
+    const expectEmptyNote = cal.expectEmpty
+      ? " (expectEmpty is set, but new sources must produce ≥1 event before merge to prove the pipeline works — remove expectEmpty, fix the source URL/format, then re-add expectEmpty only after confirming events appear)"
+      : " Fix the ripper URL/type, or set expectEmpty: true only after confirming the pipeline works with at least one real event.";
+    console.log(`::error::New source "${cal.source}" calendar "${cal.name}" has 0 events and has never appeared in production.${expectEmptyNote}`);
     newZeroEventSources.push(cal.name);
   }
   if (newZeroEventSources.length > 0) {

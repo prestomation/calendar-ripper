@@ -1403,13 +1403,22 @@ END:VCALENDAR`;
     configErrors: configErrors.map(serializeRipperError),
     // Per-source errors are serialized so embedded events in
     // UncertaintyErrors don't blow up JSON.stringify on js-joda types.
-    sources: buildErrors.map(entry => ({
-      source: entry.source,
-      calendar: entry.calendar,
-      type: entry.type,
-      errorCount: entry.errorCount,
-      errors: serializeRipperErrors(entry.errors),
-    })),
+    // `errorCount` stays as the grand total (uncertainty counts toward
+    // it, per the design). `parseErrorCount` and `uncertaintyCount`
+    // split it out so reporters can show the categories separately
+    // without re-walking the errors array.
+    sources: buildErrors.map(entry => {
+      const uncertaintyCount = entry.errors.filter(e => e.type === "Uncertainty").length;
+      return {
+        source: entry.source,
+        calendar: entry.calendar,
+        type: entry.type,
+        errorCount: entry.errorCount,
+        parseErrorCount: entry.errorCount - uncertaintyCount,
+        uncertaintyCount,
+        errors: serializeRipperErrors(entry.errors),
+      };
+    }),
     externalCalendarFailures,
     geocodeErrors: geocodeErrors,
     geoStats,

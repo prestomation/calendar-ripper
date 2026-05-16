@@ -62,7 +62,6 @@ jobs:
             );
 
             const errorCount = '${{ needs.build.outputs.error-count }}';
-            const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
             const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.206events.pages.dev`;
 
             const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
@@ -78,6 +77,21 @@ jobs:
             } catch (e) {
               // File unavailable or parse failed — skip detailed breakdown
             }
+
+            // Build the status badge from the split counts so the headline
+            // doesn't conflate parse errors (real bugs) with uncertainty
+            // (agent todos, non-fatal). Uncertainty still counts toward
+            // `totalErrors` per the design — we just label it distinctly.
+            const parseErrorTotal = (buildErrors.sources || []).reduce(
+              (a, s) => a + (s.parseErrorCount ?? s.errorCount ?? 0), 0
+            ) + (buildErrors.configErrors || []).length
+              + (buildErrors.externalCalendarFailures || []).length
+              + (buildErrors.geocodeErrors || []).length;
+            const uncertaintyOutstanding = buildErrors.uncertaintyStats?.outstanding ?? 0;
+            const badgeParts = [];
+            if (parseErrorTotal > 0) badgeParts.push(`❌ ${parseErrorTotal} parse error(s)`);
+            if (uncertaintyOutstanding > 0) badgeParts.push(`❓ ${uncertaintyOutstanding} uncertain`);
+            const errorBadge = badgeParts.length > 0 ? badgeParts.join(' · ') : '✅ No errors';
 
             const unexpectedNonEmpty = buildErrors.unexpectedNonEmptyCalendars || [];
             const unexpectedNonEmptySection = unexpectedNonEmpty.length > 0
@@ -169,11 +183,19 @@ jobs:
                 lines.push('');
               }
 
-              if (sourceErrors.length > 0) {
-                const totalSourceErrors = sourceErrors.reduce((a, s) => a + (s.errorCount || 0), 0);
-                lines.push(`**Parse errors in ${sourceErrors.length} calendar(s) (${totalSourceErrors} total):**`);
-                sourceErrors.forEach(s => {
-                  lines.push(`- \`${s.source || 'unknown'}/${s.calendar || 'unknown'}\`: ${s.errorCount || 0} error(s)`);
+              // Show only calendars with real parse errors here (uncertainty
+              // errors already appear in their own "❓ Uncertain events"
+              // section above, so listing them again under "Parse errors"
+              // would be double-counting). `parseErrorCount` is the new
+              // breakout field; fall back to errorCount for older builds.
+              const sourceParseErrors = sourceErrors
+                .map(s => ({ ...s, _parse: s.parseErrorCount ?? s.errorCount ?? 0 }))
+                .filter(s => s._parse > 0);
+              if (sourceParseErrors.length > 0) {
+                const totalSourceErrors = sourceParseErrors.reduce((a, s) => a + s._parse, 0);
+                lines.push(`**Parse errors in ${sourceParseErrors.length} calendar(s) (${totalSourceErrors} total):**`);
+                sourceParseErrors.forEach(s => {
+                  lines.push(`- \`${s.source || 'unknown'}/${s.calendar || 'unknown'}\`: ${s._parse} parse error(s)`);
                 });
                 lines.push('');
               }

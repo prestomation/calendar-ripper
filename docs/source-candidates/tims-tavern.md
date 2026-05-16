@@ -1,18 +1,20 @@
 ---
 name: "Tim's Tavern"
-status: candidate
-platform: DICE
+status: notviable
+platform: DICE / Showlists
 url: https://timslivemusic.com/upcoming-shows
 tags: [Music, "White Center"]
 firstSeen: 2026-05-08
-lastChecked: 2026-05-13
+lastChecked: 2026-05-14
 ---
 
-Live music venue at 9655 16th Ave SW, Seattle, WA 98106 (White Center). Confirmed
-on DICE at `https://dice.fm/venue/tims-tavern-avvl2` with venueName "Tim's Tavern".
-Currently a sub-calendar in `seattle_showlists`.
+Live music venue at 9655 16th Ave SW, Seattle, WA 98106 (White Center). Currently
+a sub-calendar in `seattle_showlists` which provides working coverage.
 
-Implementation: `type: dice`, `venueName: "Tim's Tavern"`, address
-`9655 16th Ave SW, Seattle, WA 98106`. The DICE API key is configured in CI.
-When adding a dedicated source, mark `skip: true` in showlists `VENUE_CONFIG`
-and remove the sub-calendar entry from `sources/seattle_showlists/ripper.yaml`.
+The venue has a DICE page (`dice.fm/venue/tims-tavern-avvl2`) but the DICE API
+(`filter[venues][]=Tim%27s+Tavern`) returns 0 upcoming events — they use DICE
+only occasionally, not as their primary ticketing platform. Attempted a dedicated
+DICE ripper in PR #306 (closed without merging) which confirmed 0 events in CI.
+
+**Verdict**: Keep in `seattle_showlists`. Do not attempt a dedicated DICE ripper
+unless the venue starts consistently listing shows on DICE.

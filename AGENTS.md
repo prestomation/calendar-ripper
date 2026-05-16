@@ -23,7 +23,11 @@ with the candidate's status (`candidate`, `investigating`, `added`,
 See `docs/source-candidates/README.md` for the schema.
 
 The chronological discovery log (date-stamped entries from daily scans)
-lives in `docs/source-candidates.md` — that file is now log-only.
+lives in **`docs/discovery-log/`** — one file per day, named `YYYY-MM-DD.md`.
+Each PR's discovery run appends a new file; two PRs open on the same day
+use different filenames and never conflict. See `docs/discovery-log/README.md`
+for the format. Dead-source reference tables live in
+`docs/discovery-log/dead-sources.md`.
 
 When implementing a candidate, flip its `status:` frontmatter and add
 the PR number. The daily cron reads `docs/source-candidates/` to avoid

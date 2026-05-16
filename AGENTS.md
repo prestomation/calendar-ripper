@@ -58,7 +58,30 @@ The steering file provides essential context for making informed decisions about
 
 This ensures proper code review and prevents breaking the production deployment.
 
-**After pushing follow-up commits to a PR, you MUST post a top-level PR comment with the exact string `/q review`.** Amazon Q does not automatically re-review follow-up pushes; the `/q review` comment is the trigger that gets it to re-evaluate the new commits. Without it, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
+**After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
+
+- Repository standards (conventions documented in AGENTS.md, CLAUDE.md, and `.kiro/steering.md`)
+- Correctness (logic bugs, edge cases, off-by-one, missing null checks)
+- Security (input validation, auth, secrets handling, injection, supply-chain)
+- Performance (hot loops, N+1s, unnecessary allocations, bundle size)
+- Maintainability (clarity, naming, separation of concerns, test coverage)
+- Anything else the contributor thinks Q should weigh in on (call this out by name)
+
+Template:
+
+```
+/q review
+
+Please re-review the latest commit(s) on this PR with feedback on:
+- Repository standards (AGENTS.md / CLAUDE.md / steering)
+- Correctness
+- Security
+- Performance
+- Maintainability
+- <any PR-specific area worth highlighting>
+```
+
+Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
 
 ## Calendar Integration Strategy
 

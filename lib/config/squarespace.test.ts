@@ -18,6 +18,16 @@ class NetworkErrorSquarespaceRipper extends SquarespaceRipper {
     }
 }
 
+// Allows setting a mocked fetch response to test fetchUpcomingEvents logic
+class MockFetchSquarespaceRipper extends SquarespaceRipper {
+    public setMockResponse(response: object) {
+        this.fetchFn = async () => new Response(JSON.stringify(response), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    }
+}
+
 function makeMinimalRipperConfig(): { config: RipperConfig, ripperImpl: SquarespaceRipper } {
     const config = {
         name: 'test-squarespace',
@@ -230,6 +240,68 @@ describe('SquarespaceRipper', () => {
             expect(eventPST.date.toEpochSecond()).toBe(eventUTC.date.toEpochSecond());
             expect(eventPST.date.zone().id()).toBe('America/Los_Angeles');
             expect(eventUTC.date.zone().id()).toBe('UTC');
+        });
+    });
+
+    describe('fetchUpcomingEvents data.past fallback', () => {
+        const futureMs = Date.now() + 30 * 24 * 60 * 60 * 1000; // 30 days from now
+        const pastMs = Date.now() - 30 * 24 * 60 * 60 * 1000;   // 30 days ago
+
+        test('returns future events from data.past when data.upcoming is empty', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                upcoming: [],
+                past: [
+                    { id: 'future1', title: 'Future Concert', startDate: futureMs },
+                    { id: 'past1', title: 'Past Concert', startDate: pastMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(1);
+            expect(events[0].id).toBe('future1');
+        });
+
+        test('returns future events from data.past when data.upcoming is absent', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                past: [
+                    { id: 'future2', title: 'Another Future Concert', startDate: futureMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(1);
+            expect(events[0].id).toBe('future2');
+        });
+
+        test('data.past fallback is skipped when data.upcoming has events', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                upcoming: [
+                    { id: 'upcoming1', title: 'Upcoming Event', startDate: futureMs },
+                ],
+                past: [
+                    { id: 'future3', title: 'Also Future But In Past Array', startDate: futureMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(1);
+            expect(events[0].id).toBe('upcoming1');
+        });
+
+        test('data.past fallback returns no events when all past items are in the past', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                upcoming: [],
+                past: [
+                    { id: 'past2', title: 'Old Concert', startDate: pastMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(0);
         });
     });
 

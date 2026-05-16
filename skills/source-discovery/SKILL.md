@@ -58,7 +58,7 @@ For each search result that looks like a Seattle event source, evaluate:
 2. **Has a public events page or feed?** Must have a URL with event listings
 3. **Matches a known ripper type?** Must be one of:
    - ICS/iCal feed (add a file to `sources/external/<name>.yaml`)
-   - Squarespace (built-in `squarespace` type — verify `?format=json` returns `itemCount > 0`)
+   - Squarespace (built-in `squarespace` type — verify `?format=json` returns future events: fetch the URL and check that at least one event in `data.upcoming`, `data.past`, or `data.items` has `startDate > Date.now()` in milliseconds; do NOT rely on reading event description text for dates — verify the raw epoch timestamp values)
    - Eventbrite (built-in `eventbrite` type — needs `organizerId`)
    - Ticketmaster (built-in `ticketmaster` type)
    - DICE (built-in `dice` type)
@@ -155,7 +155,7 @@ To implement:
 
 After the PR is open:
 
-1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events** (and the source was not flagged as proxy-required), keep searching for the correct URL or source format. Update the candidate entry to `🔍 Investigating`. Do not mark `❌ Not Viable` unless you are confident no working URL exists.
+1. **Check event count in CI** — Read the PR's GitHub Actions build log. Find the new source's event count. **If 0 events** (and the source was not flagged as proxy-required), keep searching for the correct URL or source format. Update the candidate entry to `🔍 Investigating`. Do not mark `❌ Not Viable` unless you are confident no working URL exists. **Do not add `expectEmpty: true` to a new source with 0 events** — the build intentionally fails in this case to prevent merging unverified pipelines. `expectEmpty` is only appropriate after the pipeline has been confirmed to work at least once.
 
 2. **Trigger Amazon Q review** — Post a top-level PR comment using this template (substituting the actual values):
 

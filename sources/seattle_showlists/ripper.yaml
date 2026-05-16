@@ -10,8 +10,10 @@ calendars:
     friendlyname: "Europa"
     geo:
       lat: 47.5986
-      lng: -122.3320
+      lng: -122.332
       label: "Europa, 401 2nd Ave S, Seattle, WA 98104"
+      osmType: way
+      osmId: 913478137
     timezone: America/Los_Angeles
     tags: ["Pioneer Square"]
     config:

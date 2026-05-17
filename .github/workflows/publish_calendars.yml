@@ -6,7 +6,12 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allow manual triggering  
+  workflow_dispatch: # Allow manual triggering
+    inputs:
+      force_routine:
+        description: "Bypass the 24h rate limit on the Claude build-error routine"
+        type: boolean
+        default: false
 
 jobs:
   jitter:
@@ -64,9 +69,18 @@ jobs:
     # Runs on any build with errors (push, schedule, or manual dispatch).
     # Does NOT run on PRs (this workflow doesn't trigger on PRs).
     # Skips if CLAUDE_ROUTINE_ID is not configured (as a secret).
+    # Rate-limited to at most once per rolling 24h window via the Actions cache.
+    # A workflow_dispatch run with force_routine=true bypasses the rate limit.
     if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0'
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      actions: write   # needed for `gh cache delete` to rotate the rate-limit cache
+      contents: read
+    env:
+      RATE_LIMIT_CACHE_KEY: claude-routine-last-fired-v1
+      RATE_LIMIT_FILE: /tmp/claude-routine-last-fired
+      RATE_LIMIT_WINDOW_SECONDS: "86400"
     steps:
       - name: Check routine config
         id: check-config
@@ -80,8 +94,50 @@ jobs:
         env:
           CLAUDE_ROUTINE_ID: ${{ secrets.CLAUDE_ROUTINE_ID }}
 
-      - name: Trigger Claude Code build-error routine
+      - name: Restore last-fired timestamp
         if: steps.check-config.outputs.skip != 'true'
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.RATE_LIMIT_FILE }}
+          key: ${{ env.RATE_LIMIT_CACHE_KEY }}
+
+      - name: Check rate limit
+        id: rate-limit
+        if: steps.check-config.outputs.skip != 'true'
+        env:
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force_routine == true }}
+        run: |
+          if [ "$FORCE" = "true" ]; then
+            echo "Manual dispatch with force_routine=true; bypassing rate limit"
+            echo "should-fire=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ ! -s "$RATE_LIMIT_FILE" ]; then
+            echo "No prior fire recorded; will fire"
+            echo "should-fire=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          LAST=$(cat "$RATE_LIMIT_FILE")
+          if ! [[ "$LAST" =~ ^[0-9]+$ ]]; then
+            echo "Cached timestamp is not numeric ('$LAST'); treating as never fired"
+            echo "should-fire=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          NOW=$(date +%s)
+          ELAPSED=$(( NOW - LAST ))
+          if [ "$ELAPSED" -lt "$RATE_LIMIT_WINDOW_SECONDS" ]; then
+            HOURS=$(( ELAPSED / 3600 ))
+            echo "::notice::Rate-limited: Claude routine last fired ${HOURS}h ago (window: 24h). Skipping."
+            echo "should-fire=false" >> "$GITHUB_OUTPUT"
+          else
+            HOURS=$(( ELAPSED / 3600 ))
+            echo "Last fire was ${HOURS}h ago; will fire"
+            echo "should-fire=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger Claude Code build-error routine
+        id: fire
+        if: steps.check-config.outputs.skip != 'true' && steps.rate-limit.outputs.should-fire == 'true'
         env:
           CLAUDE_ROUTINE_TOKEN: ${{ secrets.CLAUDE_ROUTINE_TOKEN }}
           CLAUDE_ROUTINE_ID: ${{ secrets.CLAUDE_ROUTINE_ID }}
@@ -104,8 +160,32 @@ jobs:
           if [[ "$HTTP_CODE" =~ ^[0-9]+$ ]] && [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
             echo "Routine triggered successfully"
             jq -r '.claude_code_session_url // "(no session URL)"' /tmp/routine-response.json
+            echo "fired=true" >> "$GITHUB_OUTPUT"
           else
             echo "::warning::Failed to trigger Claude Code routine (HTTP $HTTP_CODE)"
             jq . /tmp/routine-response.json 2>/dev/null || cat /tmp/routine-response.json
-            # Don't fail the workflow — the routine trigger is best-effort
+            # Don't fail the workflow — the routine trigger is best-effort.
+            # Don't update the rate-limit cache either, so the next run retries.
+            echo "fired=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Record new last-fired timestamp
+        if: steps.fire.outputs.fired == 'true'
+        run: date +%s > "$RATE_LIMIT_FILE"
+
+      - name: Rotate rate-limit cache
+        if: steps.fire.outputs.fired == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # Cache entries are immutable by key, so delete the old one before saving.
+          # The delete is best-effort: on the very first fire there is no entry yet.
+          gh cache delete "$RATE_LIMIT_CACHE_KEY" || echo "No prior cache entry to delete"
+
+      - name: Save new last-fired timestamp
+        if: steps.fire.outputs.fired == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.RATE_LIMIT_FILE }}
+          key: ${{ env.RATE_LIMIT_CACHE_KEY }}

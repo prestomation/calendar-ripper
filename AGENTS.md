@@ -57,14 +57,12 @@ The steering file provides essential context for making informed decisions about
 4. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
 5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review. When **all** of the following are true:
    - All CI checks pass
-   - Amazon Q has no blocking comments
-   - All review threads are resolved
+   - All of Amazon Q's comments are confidently addressed (fixed or replied to with clear reasoning)
    …then in a single turn:
    a. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
-   b. Immediately enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash method)
-6. Auto-merge fires once all required checks pass and any approval requirements are met
+   b. Merge the PR directly: `mcp__github__merge_pull_request` (squash method)
 
-**Never call `enable_pr_auto_merge` on a draft PR** — GitHub rejects it silently. Always convert to ready-for-review first, then enable auto-merge in the same turn.
+**Do not use `enable_pr_auto_merge`** — unresolved conversation threads block auto-merge, and the GraphQL thread node IDs needed to resolve them programmatically are not available via the MCP tools. Merge directly once you are confident all feedback has been addressed.
 
 **After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
 
@@ -91,7 +89,7 @@ Please re-review the latest commit(s) on this PR with feedback on:
 
 Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
 
-**After addressing a review comment, resolve its thread** using `mcp__github__resolve_review_thread`. Do this either after pushing the fix that addresses it, or after posting a reply with strong reasoning why no action will be taken. Leaving threads open after they've been addressed creates noise and makes it unclear what still needs attention.
+**After addressing a review comment, reply to the thread with your reasoning** (fix pushed or explanation of why no action is needed). Thread resolution via `mcp__github__resolve_review_thread` requires GraphQL node IDs that are not exposed by the current MCP tools — skip the formal resolve step and proceed to merge once all comments are addressed.
 
 ## Calendar Integration Strategy
 

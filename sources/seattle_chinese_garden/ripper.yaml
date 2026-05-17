@@ -1,0 +1,16 @@
+name: seattle-chinese-garden
+type: squarespace
+description: "Seattle Chinese Garden"
+url: "https://www.seattlechinesegarden.org/events"
+friendlyLink: https://www.seattlechinesegarden.org/events
+tags: ["Arts", "Community", "West Seattle"]
+geo:
+  lat: 47.5526330
+  lng: -122.3527051
+  label: "Seattle Chinese Garden, 6000 Delridge Way SW, Seattle, WA 98106"
+  osmType: way
+  osmId: 31706566
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Chinese Garden"
+    timezone: America/Los_Angeles

@@ -93,7 +93,9 @@ export function parseExternalCalendarEvents(icsData: string): RipperCalendarEven
 
           let next: any;
           let instanceCount = 0;
-          while (instanceCount < 1000 && (next = expand.next())) {
+          // 10 000 is a safety guard against pathological RRULEs with no UNTIL/COUNT.
+          // The primary exit is `startDate > threeMonthsLater` below.
+          while (instanceCount < 10000 && (next = expand.next())) {
             const startDate = next.toJSDate();
             if (startDate > threeMonthsLater) break;
             if (startDate >= oneWeekAgo) {

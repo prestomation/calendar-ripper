@@ -16,9 +16,11 @@ file layout and frontmatter schema. To check what's been evaluated, list
 the directory and skim filenames; for status detail, read the file's
 frontmatter (`status:` field).
 
-The chronological discovery log lives in `docs/source-candidates.md`.
-That file is **log-only** now — when you add or update a candidate,
-write to `docs/source-candidates/<slug>.md`, not the master file.
+The chronological discovery log lives in **`docs/discovery-log/`** —
+one file per day, named `YYYY-MM-DD.md`. To see recent runs, list that
+directory sorted by name. When you add or update a candidate, write to
+`docs/source-candidates/<slug>.md`; when you record your day's findings,
+create/update `docs/discovery-log/YYYY-MM-DD.md`.
 
 ### 2. Check for dead sources
 
@@ -91,18 +93,24 @@ the source of truth — update it as the candidate's situation changes:
 Each candidate is one file, so two PRs touching different candidates
 never conflict on this directory.
 
-After updating the per-candidate files, append a date-stamped entry to
-the **bottom** of the Discovery Log section in `docs/source-candidates.md`:
+After updating the per-candidate files, create a new day-log file at
+**`docs/discovery-log/YYYY-MM-DD.md`** with your findings:
 
 ```markdown
-### YYYY-MM-DD — Source discovery: <verticals>
+## Source discovery: <verticals>
+
 - ✅ Added: [venue name] — [ripper type] — PR #XXX
 - 💡 Candidate: [venue name] — [ripper type] — [URL]
 - ❌ Not Viable: [venue name] — [reason]
+- 🔄 Status fix: [venue name] — [what changed]
+- 🔍 Investigating: [venue name] — [what's being looked at]
 ```
 
-(Append, don't prepend — appending is conflict-friendly when multiple
-discovery runs land on the same day.)
+One file per day — two PRs running discovery on different days never conflict
+here because they create different files. See `docs/discovery-log/README.md`
+for the full format. If you run discovery twice on the same calendar day,
+append a second `## Source discovery:` section to the existing file rather
+than creating a duplicate.
 
 **Then commit and open a PR.** Even though this is reference data (not code), the repo requires all changes via PR. Use a branch like `chore/source-discovery-YYYY-MM-DD`. After CI passes and Amazon Q has no blocking comments, merge the PR. This ensures candidates are always up-to-date before we start implementing.
 

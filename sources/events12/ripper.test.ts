@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { parse } from 'node-html-parser';
 import { ZonedDateTime } from '@js-joda/core';
 import { ZoneId } from '@js-joda/core';
+import '@js-joda/timezone';
 import Events12Ripper from './ripper.js';
 
 describe('Events12Ripper', () => {
@@ -19,8 +20,8 @@ describe('Events12Ripper', () => {
         const events = await ripper.parseEvents(html, testDate, {});
         const calEvents = events.filter(e => 'date' in e);
 
-        // Should find many events (the live page has 100+)
-        expect(calEvents.length).toBeGreaterThan(80);
+        // With date-range expansion, the rip yields several hundred events.
+        expect(calEvents.length).toBeGreaterThan(200);
     });
 
     it('should parse event with valid date and title', async () => {
@@ -38,57 +39,200 @@ describe('Events12Ripper', () => {
 
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e);
 
-        expect(events.length).toBe(1);
-        expect(events[0]).toHaveProperty('summary', 'Family Christmas event');
-        expect(events[0]).toHaveProperty('date');
-        expect(events[0]).toHaveProperty('location');
-        expect((events[0] as any).description).toContain('Downtown (0.1 miles N)');
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0]).toHaveProperty('summary', 'Family Christmas event');
+        expect(calEvents[0]).toHaveProperty('date');
+        expect(calEvents[0]).toHaveProperty('location');
+        expect((calEvents[0] as any).description).toContain('Downtown (0.1 miles N)');
 
-        // Should parse time range correctly: 4 to 7 p.m. = 16:00 start, 3h duration
-        const event = events[0] as any;
+        // 4 to 7 p.m. = 16:00 start, 3h duration
+        const event = calEvents[0] as any;
         expect(event.date.hour()).toBe(16);
         expect(event.duration.toMinutes()).toBe(180);
+
+        // Explicit time present → no UncertaintyError emitted.
+        const uncertainty = events.filter(e => (e as any).type === 'Uncertainty');
+        expect(uncertainty.length).toBe(0);
     });
 
-    it('should parse date ranges', async () => {
+    it('expands date ranges into one event per day', async () => {
         const ripper = new Events12Ripper();
         const sampleHtml = `
             <article id="range1">
                 <h3>Multi-day Festival</h3>
-                <p class="date">January 1 - 11, 2026</p>
+                <p class="date">February 2 - 7, 2026 <span class="nobreak">(10 a.m. to 8 p.m.)</span></p>
                 <p class="miles">Shoreline (11 miles N)</p>
                 <p class="event">A multi-day event <a href="https://example.com/festival">details</a></p>
-            </article>
-            <article id="range2">
-                <h3>Cross-month Event</h3>
-                <p class="date">January 1 - Dec. 31, 2026 (4:30 to 10 p.m.)</p>
-                <p class="miles">Tacoma</p>
-                <p class="event">Year-round event <a href="https://example.com/yearround">details</a></p>
             </article>
         `;
 
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
 
-        expect(events.length).toBe(2);
-
-        // Date range should use the start date
-        const event1 = events[0] as any;
-        expect(event1.summary).toBe('Multi-day Festival');
-        expect(event1.date.monthValue()).toBe(1);
-        expect(event1.date.dayOfMonth()).toBe(1);
-        expect(event1.date.year()).toBe(2026);
-
-        // Cross-month range with time
-        const event2 = events[1] as any;
-        expect(event2.summary).toBe('Cross-month Event');
-        expect(event2.date.hour()).toBe(16);
-        expect(event2.date.minute()).toBe(30);
-        expect(event2.duration.toMinutes()).toBe(330); // 4:30pm to 10pm = 5.5 hours
+        // 6 days (Feb 2-7 inclusive) × 1 time slot
+        expect(calEvents.length).toBe(6);
+        expect(calEvents[0].date.dayOfMonth()).toBe(2);
+        expect(calEvents[5].date.dayOfMonth()).toBe(7);
+        // Each occurrence carries the parsed time
+        for (const e of calEvents) {
+            expect(e.date.hour()).toBe(10);
+            expect(e.duration.toMinutes()).toBe(600);
+        }
     });
 
-    it('should parse various time formats', async () => {
+    it('handles cross-month ranges (same year)', async () => {
+        const ripper = new Events12Ripper();
+        // Real format from sample-data.html — "January 1 - Dec. 31, 2026 (4:30 to 10 p.m.)"
+        const sampleHtml = `
+            <article id="cm1">
+                <h3>Year-round Event</h3>
+                <p class="date">January 1 - Feb. 5, 2026 <span class="nobreak">(4:30 to 10 p.m.)</span></p>
+                <p class="event">Spans Jan into Feb <a href="https://example.com/yr">details</a></p>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        // Jan 1 - Feb 5 = 36 days
+        expect(calEvents.length).toBe(36);
+        expect(calEvents[0].date.monthValue()).toBe(1);
+        expect(calEvents[0].date.dayOfMonth()).toBe(1);
+        expect(calEvents[calEvents.length - 1].date.monthValue()).toBe(2);
+        expect(calEvents[calEvents.length - 1].date.dayOfMonth()).toBe(5);
+    });
+
+    it('emits an UncertaintyError when no time is provided', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="untimed1">
+                <h3>Time-less Event</h3>
+                <p class="date">February 14, 2026</p>
+                <p class="event">No time provided <a href="https://example.com/untimed">details</a></p>
+            </article>
+        `;
+
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        const uncertainty = events.filter((e: any) => e.type === 'Uncertainty') as any[];
+
+        // Still emitted with a placeholder so the calendar isn't empty
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].date.hour()).toBe(12);
+        expect(calEvents[0].date.minute()).toBe(0);
+
+        // Paired UncertaintyError carrying the event
+        expect(uncertainty.length).toBe(1);
+        expect(uncertainty[0].source).toBe('events12');
+        expect(uncertainty[0].unknownFields).toEqual(['startTime', 'duration']);
+        expect(uncertainty[0].event.id).toBe(calEvents[0].id);
+        expect(uncertainty[0].event.summary).toBe('Time-less Event');
+        expect(uncertainty[0].partialFingerprint).toBeTruthy();
+    });
+
+    it('untimed date ranges emit one UncertaintyError per day', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="untimed-range">
+                <h3>Untimed Run</h3>
+                <p class="date">February 6 - 7, 2026</p>
+                <p class="event">No time given <a href="https://example.com/r">details</a></p>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        const uncertainty = events.filter((e: any) => e.type === 'Uncertainty') as any[];
+
+        expect(calEvents.length).toBe(2);
+        expect(uncertainty.length).toBe(2);
+        // Per-day fingerprints share the same value because the source
+        // listing produced the same parsed data for both days.
+        expect(uncertainty[0].partialFingerprint).toBe(uncertainty[1].partialFingerprint);
+    });
+
+    it('parses (5 & 8 p.m.) as two showings per day', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="multi-time">
+                <h3>Two Showings</h3>
+                <p class="date">February 12 - 15, 2026 <span class="nobreak">(5 & 8 p.m.)</span></p>
+                <p class="event">Daily showings <a href="https://example.com/ms">details</a></p>
+            </article>
+        `;
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+        const uncertainty = events.filter((e: any) => e.type === 'Uncertainty');
+
+        // 4 days × 2 slots = 8 events. No uncertainty (times are known).
+        expect(calEvents.length).toBe(8);
+        expect(uncertainty.length).toBe(0);
+
+        // First day: 5pm and 8pm slots produce distinct IDs
+        const feb12 = calEvents.filter((e: any) => e.date.dayOfMonth() === 12);
+        expect(feb12.length).toBe(2);
+        const ids = feb12.map((e: any) => e.id).sort();
+        expect(ids[0]).not.toBe(ids[1]);
+        expect(feb12.find((e: any) => e.date.hour() === 17)).toBeTruthy();
+        expect(feb12.find((e: any) => e.date.hour() === 20)).toBeTruthy();
+    });
+
+    it('parses ampersand date format as two separate events', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="118800">
+                <h3>New musicians</h3>
+                <p class="date">February 21 & 28, 2026 <span class="nobreak">(8 to 10 p.m.)</span></p>
+                <p class="miles">University District (5 miles NE)</p>
+                <p class="event">Live music <a href="https://example.com/music">details</a></p>
+            </article>
+        `;
+
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(2);
+
+        expect(calEvents[0].summary).toBe('New musicians');
+        expect(calEvents[0].date.dayOfMonth()).toBe(21);
+        expect(calEvents[0].date.hour()).toBe(20);
+        expect(calEvents[0].duration.toMinutes()).toBe(120);
+
+        expect(calEvents[1].date.dayOfMonth()).toBe(28);
+        expect(calEvents[1].date.hour()).toBe(20);
+    });
+
+    it('handles noon time format', async () => {
+        const ripper = new Events12Ripper();
+        const sampleHtml = `
+            <article id="noon1">
+                <h3>Noon Event</h3>
+                <p class="date">February 15, 2026 (noon)</p>
+                <p class="miles">Downtown</p>
+                <p class="event">Event at noon <a href="https://example.com/noon">details</a></p>
+            </article>
+        `;
+
+        const html = parse(sampleHtml);
+        const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
+
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0].date.hour()).toBe(12);
+        expect(calEvents[0].date.minute()).toBe(0);
+
+        // (noon) is an explicit time — no uncertainty
+        const uncertainty = events.filter((e: any) => e.type === 'Uncertainty');
+        expect(uncertainty.length).toBe(0);
+    });
+
+    it('parses various single-day time formats', async () => {
         const ripper = new Events12Ripper();
         const cases = [
             { time: '(7 p.m.)', expectedHour: 19, expectedMin: 0, expectedDuration: 120 },
@@ -108,26 +252,27 @@ describe('Events12Ripper', () => {
             `;
             const html = parse(sampleHtml);
             const events = await ripper.parseEvents(html, testDate, {});
-            expect(events.length).toBe(1);
-            const event = events[0] as any;
-            expect(event.date.hour()).toBe(c.expectedHour);
-            expect(event.date.minute()).toBe(c.expectedMin);
-            expect(event.duration.toMinutes()).toBe(c.expectedDuration);
+            const calEvents = events.filter(e => 'date' in e) as any[];
+            expect(calEvents.length).toBe(1);
+            expect(calEvents[0].date.hour()).toBe(c.expectedHour);
+            expect(calEvents[0].date.minute()).toBe(c.expectedMin);
+            expect(calEvents[0].duration.toMinutes()).toBe(c.expectedDuration);
         }
     });
 
-    it('should handle parse errors gracefully', async () => {
+    it('reports a ParseError for unparseable dates', async () => {
         const ripper = new Events12Ripper();
-        const malformedHtml = `
-            <h3>Malformed Event</h3>
-            <p>Invalid date format</p>
+        const sampleHtml = `
+            <article id="bad1">
+                <h3>Bad Date Event</h3>
+                <p class="date">Unparseable date string</p>
+                <p class="event">Desc <a href="https://example.com/bad">link</a></p>
+            </article>
         `;
-
-        const html = parse(malformedHtml);
+        const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
-
-        // Should not crash and may return empty or error events
-        expect(Array.isArray(events)).toBe(true);
+        const parseErrors = events.filter((e: any) => e.type === 'ParseError');
+        expect(parseErrors.length).toBe(1);
     });
 
     it('should extract event URLs correctly', async () => {
@@ -143,64 +288,13 @@ describe('Events12Ripper', () => {
 
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
+        const calEvents = events.filter(e => 'date' in e) as any[];
 
-        expect(events.length).toBe(1);
-        expect(events[0]).toHaveProperty('url', 'https://example.com/event');
+        expect(calEvents.length).toBe(1);
+        expect(calEvents[0]).toHaveProperty('url', 'https://example.com/event');
     });
 
-    it('should parse ampersand date format as two separate events', async () => {
-        const ripper = new Events12Ripper();
-        const sampleHtml = `
-            <article id="118800">
-                <h3>New musicians</h3>
-                <p class="date">February 21 & 28, 2026 <span class="nobreak">(8 to 10 p.m.)</span></p>
-                <p class="miles">University District (5 miles NE)</p>
-                <p class="event">Live music <a href="https://example.com/music">details</a></p>
-            </article>
-        `;
-
-        const html = parse(sampleHtml);
-        const events = await ripper.parseEvents(html, testDate, {});
-
-        // "February 21 & 28" means two separate occurrences — both should produce events
-        expect(events.length).toBe(2);
-
-        const event1 = events[0] as any;
-        expect(event1.summary).toBe('New musicians');
-        expect(event1.date.monthValue()).toBe(2);
-        expect(event1.date.dayOfMonth()).toBe(21);
-        expect(event1.date.hour()).toBe(20);
-        expect(event1.duration.toMinutes()).toBe(120);
-
-        const event2 = events[1] as any;
-        expect(event2.summary).toBe('New musicians');
-        expect(event2.date.monthValue()).toBe(2);
-        expect(event2.date.dayOfMonth()).toBe(28);
-        expect(event2.date.hour()).toBe(20);
-        expect(event2.duration.toMinutes()).toBe(120);
-    });
-
-    it('should handle noon time format', async () => {
-        const ripper = new Events12Ripper();
-        const sampleHtml = `
-            <article id="noon1">
-                <h3>Noon Event</h3>
-                <p class="date">February 15, 2026 (noon)</p>
-                <p class="miles">Downtown</p>
-                <p class="event">Event at noon <a href="https://example.com/noon">details</a></p>
-            </article>
-        `;
-
-        const html = parse(sampleHtml);
-        const events = await ripper.parseEvents(html, testDate, {});
-
-        expect(events.length).toBe(1);
-        const event = events[0] as any;
-        expect(event.date.hour()).toBe(12);
-        expect(event.date.minute()).toBe(0);
-    });
-
-    it('should deduplicate events', async () => {
+    it('deduplicates identical (title, date, slot) tuples', async () => {
         const ripper = new Events12Ripper();
         const sampleHtml = `
             <article id="dup1">
@@ -218,7 +312,6 @@ describe('Events12Ripper', () => {
         const html = parse(sampleHtml);
         const events = await ripper.parseEvents(html, testDate, {});
         const calEvents = events.filter(e => 'date' in e);
-
         expect(calEvents.length).toBe(1);
     });
 });

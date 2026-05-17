@@ -208,13 +208,18 @@ function HealthDashboard({ buildErrors, calendars }) {
   const zeroSet = new Set(buildErrors.zeroEventCalendars || [])
   const expectedEmptySet = new Set(buildErrors.expectedEmptyCalendars || [])
 
-  // Build a unified source list from eventCounts (most complete) or fallback to calendars
+  // Build a unified source list from eventCounts (most complete) or fallback to calendars.
+  // Split parse errors from uncertainty so a source with only uncertain
+  // events isn't visually indistinguishable from one with a broken parser.
   const sources = buildErrors.eventCounts
     ? buildErrors.eventCounts.map(c => {
         const errorKey = Object.keys(errorMap).find(k => k.endsWith(`-${c.name}`) || k === c.name)
         const errorEntry = errorKey ? errorMap[errorKey] : null
+        const parseErrors = errorEntry?.parseErrorCount ?? errorEntry?.errorCount ?? 0
+        const uncertaintyErrors = errorEntry?.uncertaintyCount ?? 0
         let status = 'ok'
-        if (errorEntry && errorEntry.errorCount > 0) status = 'error'
+        if (parseErrors > 0) status = 'error'
+        else if (uncertaintyErrors > 0) status = 'uncertain'
         else if (c.events === 0 && !c.expectEmpty) status = 'warning'
         else if (c.events === 0 && c.expectEmpty) status = 'expected-empty'
         else if (c.events > 0 && c.expectEmpty) status = 'unexpected-non-empty'
@@ -222,7 +227,8 @@ function HealthDashboard({ buildErrors, calendars }) {
           name: c.name,
           type: c.type,
           events: c.events,
-          errors: errorEntry?.errorCount || 0,
+          errors: parseErrors,
+          uncertainty: uncertaintyErrors,
           errorDetails: errorEntry?.errors || [],
           status,
           expectEmpty: c.expectEmpty,
@@ -230,12 +236,13 @@ function HealthDashboard({ buildErrors, calendars }) {
       })
     : [] // No eventCounts available in older builds
 
-  // Sort: errors first, then warnings, then unexpected-non-empty, then expected-empty, then ok
-  const statusOrder = { error: 0, warning: 1, 'unexpected-non-empty': 2, 'expected-empty': 3, ok: 4 }
+  // Sort: errors first, then uncertain, then warnings, then unexpected-non-empty, then expected-empty, then ok
+  const statusOrder = { error: 0, uncertain: 1, warning: 2, 'unexpected-non-empty': 3, 'expected-empty': 4, ok: 5 }
   sources.sort((a, b) => statusOrder[a.status] - statusOrder[b.status])
 
   const healthyCount = sources.filter(s => s.status === 'ok').length
   const errorCount = sources.filter(s => s.status === 'error').length
+  const uncertainSourceCount = sources.filter(s => s.status === 'uncertain').length
   const warningCount = sources.filter(s => s.status === 'warning').length
   const expectedEmptyCount = sources.filter(s => s.status === 'expected-empty').length
   const unexpectedNonEmptyCount = sources.filter(s => s.status === 'unexpected-non-empty').length
@@ -248,7 +255,8 @@ function HealthDashboard({ buildErrors, calendars }) {
 
   const statusIcon = (status) => {
     if (status === 'ok') return <span className="health-status-dot health-status-ok" title="Healthy" />
-    if (status === 'error') return <span className="health-status-dot health-status-error" title="Has errors" />
+    if (status === 'error') return <span className="health-status-dot health-status-error" title="Has parse errors" />
+    if (status === 'uncertain') return <span className="health-status-dot health-status-warning" title="Has uncertain events (resolver pending)" />
     if (status === 'warning') return <span className="health-status-dot health-status-warning" title="Zero events (unexpected)" />
     if (status === 'expected-empty') return <span className="health-status-dot health-status-expected-empty" title="Zero events (expected)" />
     if (status === 'unexpected-non-empty') return <span className="health-status-dot health-status-unexpected-non-empty" title="Has events but marked expectEmpty" />
@@ -305,6 +313,12 @@ function HealthDashboard({ buildErrors, calendars }) {
           <div className="health-card-value">📍 {buildErrors.geoStats?.geocodeErrors ?? buildErrors.geocodeErrors?.length ?? 0}</div>
           <div className="health-card-label">Geo Misses</div>
         </div>
+        {buildErrors.uncertaintyStats && (
+          <div className="health-card health-card--warning">
+            <div className="health-card-value">❓ {buildErrors.uncertaintyStats.outstanding}</div>
+            <div className="health-card-label">Uncertain Events</div>
+          </div>
+        )}
       </div>
 
       <div className="health-section">
@@ -346,6 +360,37 @@ function HealthDashboard({ buildErrors, calendars }) {
         </div>
       )}
 
+      {(buildErrors.uncertainEvents?.length || 0) > 0 && (
+        <div className="health-section">
+          <h2>❓ Uncertain Events ({buildErrors.uncertainEvents.length})</h2>
+          <p className="health-subtitle">
+            Events where the ripper couldn't determine one or more fields (typically start time).
+            The placeholder values you see in the calendar will be replaced once the
+            event-uncertainty-resolver skill investigates and writes a resolution into
+            the cache. Resolved this build: {buildErrors.uncertaintyStats?.resolvedFromCache ?? 0};
+            marked unresolvable: {buildErrors.uncertaintyStats?.acknowledgedUnresolvable ?? 0}.
+          </p>
+          <div className="health-error-list">
+            {buildErrors.uncertainEvents.slice(0, 50).map((u, i) => (
+              <div key={i} className="health-error-item">
+                <span className="health-error-type">{u.source}</span>
+                <span className="health-error-reason">
+                  {u.event.summary} — {u.event.date} (missing: {u.unknownFields.join(', ')})
+                </span>
+                {u.event.url && (
+                  <a className="health-error-path" href={u.event.url} target="_blank" rel="noopener noreferrer">
+                    source
+                  </a>
+                )}
+              </div>
+            ))}
+            {buildErrors.uncertainEvents.length > 50 && (
+              <p>…and {buildErrors.uncertainEvents.length - 50} more.</p>
+            )}
+          </div>
+        </div>
+      )}
+
       {(buildErrors.geocodeErrors?.length || 0) > 0 && (
         <div className="health-section">
           <h2>📍 Geocode Errors ({buildErrors.geocodeErrors.length})</h2>
@@ -373,6 +418,7 @@ function HealthDashboard({ buildErrors, calendars }) {
                   <th>Type</th>
                   <th>Events</th>
                   <th>Errors</th>
+                  <th>Uncertain</th>
                 </tr>
               </thead>
               <tbody>
@@ -403,6 +449,7 @@ function HealthDashboard({ buildErrors, calendars }) {
                     <td>{source.type}</td>
                     <td>{source.events}{source.expectEmpty && source.events === 0 ? ' (expected)' : ''}{source.expectEmpty && source.events > 0 ? ' (remove expectEmpty)' : ''}</td>
                     <td>{source.errors > 0 ? source.errors : ''}</td>
+                    <td>{source.uncertainty > 0 ? source.uncertainty : ''}</td>
                   </tr>
                 ))}
               </tbody>
@@ -412,7 +459,12 @@ function HealthDashboard({ buildErrors, calendars }) {
       )}
 
       {buildErrors.totalErrors > 0 && (
-        <p className="health-total-errors">Total parse errors across all sources: {buildErrors.totalErrors}</p>
+        <p className="health-total-errors">
+          Total errors across all sources: {buildErrors.totalErrors}
+          {buildErrors.uncertaintyStats?.outstanding > 0
+            ? ` (includes ${buildErrors.uncertaintyStats.outstanding} uncertain event(s) pending agent resolution)`
+            : ''}
+        </p>
       )}
     </div>
   )

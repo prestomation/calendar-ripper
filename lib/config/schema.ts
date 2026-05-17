@@ -112,7 +112,7 @@ export const configSchema = z.object({
 
 export type RipperConfig = z.infer<typeof configSchema>;
 
-export type RipperError = FileParseError | InvalidDateError | ImportError | ParseError | GeocodeError;
+export type RipperError = FileParseError | InvalidDateError | ImportError | ParseError | GeocodeError | UncertaintyError;
 type ErrorBase = { type: string, reason: string; };
 
 export type FileParseError = ErrorBase & {
@@ -140,6 +140,32 @@ export type GeocodeError = ErrorBase & {
     location: string;
     source: string;
     reason: string;
+};
+
+// Fields a ripper may declare uncertain. Keep this in sync with the
+// resolver script's CLI choices (skills/event-uncertainty-resolver).
+// When adding a new field, also teach `applyUncertaintyResolutions` how
+// to apply it to a RipperCalendarEvent.
+export type UncertaintyField = "startTime" | "duration" | "location" | "image";
+
+// Signal from a ripper that it produced an event but isn't certain about
+// one or more of its fields. The infrastructure layer merges these against
+// `event-uncertainty-cache.json` between rip and ICS write — see
+// docs/event-uncertainty.md and lib/uncertainty-merge.ts.
+//
+// The full event is embedded (not a flattened subset) so that adding new
+// RipperCalendarEvent fields later automatically makes them available to
+// the resolver agent without a schema change here.
+export type UncertaintyError = ErrorBase & {
+    type: "Uncertainty";
+    source: string;              // ripper name, e.g. "events12"
+    calendar?: string;           // calendar slug within the ripper
+    unknownFields: UncertaintyField[];
+    event: RipperCalendarEvent;  // the event the ripper produced (with placeholder values for unknown fields)
+    // Optional hash of whatever the ripper *did* parse from the source.
+    // When the source data later changes (e.g., upstream adds a start
+    // time), the fingerprint changes and the cache entry is invalidated.
+    partialFingerprint?: string;
 };
 
 
@@ -291,3 +317,64 @@ export function isRipperEvent(item: unknown): item is RipperEvent {
 
 export type ExternalCalendar = z.infer<typeof externalCalendarSchema>;
 export type ExternalConfig = z.infer<typeof externalConfigSchema>;
+
+// JSON-safe view of a RipperCalendarEvent. ZonedDateTime/Duration aren't
+// natively serializable, so we project them into stable string/number forms
+// for build-errors.json and per-calendar errors.txt files.
+export interface SerializedRipperCalendarEvent {
+    id?: string;
+    rippedAt: string;            // ISO timestamp
+    date: string;                // ISO offset date-time, e.g. 2026-02-14T12:00:00-08:00[America/Los_Angeles]
+    durationSeconds: number;
+    summary: string;
+    description?: string;
+    location?: string;
+    url?: string;
+    image?: string;
+    rrule?: string;
+    lat?: number;
+    lng?: number;
+    sourceCalendar?: string;
+    sourceCalendarName?: string;
+}
+
+export function serializeRipperCalendarEvent(e: RipperCalendarEvent): SerializedRipperCalendarEvent {
+    return {
+        id: e.id,
+        rippedAt: e.ripped.toISOString(),
+        date: e.date.toString(),
+        durationSeconds: e.duration.seconds(),
+        summary: e.summary,
+        description: e.description,
+        location: e.location,
+        url: e.url,
+        image: e.image,
+        rrule: e.rrule,
+        lat: e.lat,
+        lng: e.lng,
+        sourceCalendar: e.sourceCalendar,
+        sourceCalendarName: e.sourceCalendarName,
+    };
+}
+
+// Produces a structuredClone-safe view of a RipperError for JSON output.
+// Most error types are already plain objects; UncertaintyError contains
+// a RipperCalendarEvent that needs its js-joda fields projected.
+export function serializeRipperError(e: RipperError): Record<string, unknown> {
+    if (e.type === "Uncertainty") {
+        return {
+            type: e.type,
+            reason: e.reason,
+            source: e.source,
+            calendar: e.calendar,
+            unknownFields: e.unknownFields,
+            event: serializeRipperCalendarEvent(e.event),
+            partialFingerprint: e.partialFingerprint,
+        };
+    }
+    return { ...e };
+}
+
+export function serializeRipperErrors(errors: RipperError[]): Record<string, unknown>[] {
+    return errors.map(serializeRipperError);
+}

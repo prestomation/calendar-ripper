@@ -55,16 +55,19 @@ The steering file provides essential context for making informed decisions about
 2. Make commits to the feature branch
 3. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
 4. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
-5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review. When **all** of the following are true:
-   - All CI checks pass
-   - Amazon Q has no blocking comments
-   - All review threads are resolved
-   …then in a single turn:
-   a. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
-   b. Immediately enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash method)
-6. Auto-merge fires once all required checks pass and any approval requirements are met
+5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review:
+   - If Q has **blocking comments**: address each one, push fixes, re-trigger Q (see re-review template below), and wait for Q's next pass
+   - Once Q gives **all ✅** and all comments are confidently addressed:
+     a. Resolve all open review threads using `mcp__github__pull_request_review_write` with `method: resolve_thread` (requires the thread's `PRRT_...` node ID — see note below)
+     b. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
+     c. **If CI is still running** → enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash). It will fire automatically when checks go green.
+     d. **If CI already passed** → merge directly: `mcp__github__merge_pull_request` (squash)
 
-**Never call `enable_pr_auto_merge` on a draft PR** — GitHub rejects it silently. Always convert to ready-for-review first, then enable auto-merge in the same turn.
+**If auto-merge gets blocked** (e.g. by unresolved conversation threads that couldn't be resolved programmatically), fall back to `mcp__github__merge_pull_request` directly.
+
+**Never call `enable_pr_auto_merge` on a draft PR** — GitHub rejects it silently. Always convert to ready-for-review first.
+
+**Note on resolving review threads:** `mcp__github__pull_request_review_write` with `resolve_thread` requires a `PRRT_...` GraphQL node ID. These IDs are not currently returned by `get_review_comments` — if you can't obtain the ID, skip this step and proceed; unresolved threads may block auto-merge, in which case fall back to direct merge.
 
 **After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
 
@@ -91,7 +94,7 @@ Please re-review the latest commit(s) on this PR with feedback on:
 
 Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
 
-**After addressing a review comment, resolve its thread** using `mcp__github__resolve_review_thread`. Do this either after pushing the fix that addresses it, or after posting a reply with strong reasoning why no action will be taken. Leaving threads open after they've been addressed creates noise and makes it unclear what still needs attention.
+**After addressing a review comment**, reply to the thread with your reasoning (fix pushed or explanation of why no action is needed), then resolve the thread using `mcp__github__pull_request_review_write` with `method: resolve_thread`. Leaving threads open after they've been addressed creates noise and may block auto-merge.
 
 ## Calendar Integration Strategy
 

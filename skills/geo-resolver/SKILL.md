@@ -104,7 +104,7 @@ Summarize:
 When implementing a **logic change** to `lib/geocoder.ts` (new strategy, normalization improvement, etc.) that goes through a PR, **do not merge on green CI alone**. The merge condition is:
 
 1. ✅ All CI checks pass
-2. ✅ Amazon Q has no blocking comments
+2. ✅ Amazon Q has no blocking comments, and all review threads are resolved (use `mcp__github__resolve_review_thread` after pushing a fix or after posting a clear reply explaining why no action will be taken)
 3. ✅ **Geo hit rate in the PR preview build is higher than before the change**
 
 Check geo coverage from the PR preview:

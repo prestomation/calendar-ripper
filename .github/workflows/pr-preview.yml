@@ -62,7 +62,6 @@ jobs:
             );
 
             const errorCount = '${{ needs.build.outputs.error-count }}';
-            const errorBadge = errorCount === '0' ? '✅ No errors' : `❌ ${errorCount} errors`;
             const previewUrl = `${{ steps.deploy.outputs.deployment-url }}` || `https://pr-${{ github.event.number }}.206events.pages.dev`;
 
             const zeroEventCalendarsRaw = `${{ needs.build.outputs.zero-event-calendars }}`;
@@ -78,6 +77,21 @@ jobs:
             } catch (e) {
               // File unavailable or parse failed — skip detailed breakdown
             }
+
+            // Build the status badge from the split counts so the headline
+            // doesn't conflate parse errors (real bugs) with uncertainty
+            // (agent todos, non-fatal). Uncertainty still counts toward
+            // `totalErrors` per the design — we just label it distinctly.
+            const parseErrorTotal = (buildErrors.sources || []).reduce(
+              (a, s) => a + (s.parseErrorCount ?? s.errorCount ?? 0), 0
+            ) + (buildErrors.configErrors || []).length
+              + (buildErrors.externalCalendarFailures || []).length
+              + (buildErrors.geocodeErrors || []).length;
+            const uncertaintyOutstanding = buildErrors.uncertaintyStats?.outstanding ?? 0;
+            const badgeParts = [];
+            if (parseErrorTotal > 0) badgeParts.push(`❌ ${parseErrorTotal} parse error(s)`);
+            if (uncertaintyOutstanding > 0) badgeParts.push(`❓ ${uncertaintyOutstanding} uncertain`);
+            const errorBadge = badgeParts.length > 0 ? badgeParts.join(' · ') : '✅ No errors';
 
             const unexpectedNonEmpty = buildErrors.unexpectedNonEmptyCalendars || [];
             const unexpectedNonEmptySection = unexpectedNonEmpty.length > 0
@@ -103,6 +117,27 @@ jobs:
               ? `\n\n**🗺️ Geo coverage:** ${geoStats.eventsWithGeo.toLocaleString()} / ${geoStats.totalEvents.toLocaleString()} events (${Math.round(geoStats.eventsWithGeo / geoStats.totalEvents * 100)}%)` +
                 (geoStats.geocodeErrors > 0 ? ` — ⚠️ ${geoStats.geocodeErrors} geocode error(s)` : ' — ✅ No geocode errors')
               : '';
+
+            // Event-uncertainty stats. Outstanding entries are todos for
+            // the event-uncertainty-resolver skill — informational, not
+            // a build-block.
+            const uStats = buildErrors.uncertaintyStats;
+            const uEvents = buildErrors.uncertainEvents || [];
+            let uncertaintySection = '';
+            if (uStats && (uStats.outstanding + uStats.resolvedFromCache + uStats.acknowledgedUnresolvable > 0)) {
+              const summary = `**❓ Uncertain events:** ${uStats.outstanding} outstanding, ${uStats.resolvedFromCache} resolved from cache, ${uStats.acknowledgedUnresolvable} unresolvable`;
+              if (uEvents.length > 0) {
+                const sample = uEvents.slice(0, 20).map(e => {
+                  const link = e.event.url ? `[link](${e.event.url})` : '—';
+                  const fields = e.unknownFields.join(', ');
+                  return `- \`${e.source}\` ${e.event.summary} (${e.event.date}) — missing: ${fields} ${link}`;
+                }).join('\n');
+                const more = uEvents.length > 20 ? `\n\n_…and ${uEvents.length - 20} more. Run the event-uncertainty-resolver skill to investigate._` : '\n\n_Run the event-uncertainty-resolver skill to investigate._';
+                uncertaintySection = `\n\n${summary}\n<details>\n<summary>Show outstanding entries</summary>\n\n${sample}${more}\n\n</details>`;
+              } else {
+                uncertaintySection = `\n\n${summary}`;
+              }
+            }
 
             // New source summary — event counts and sample events for sources not in production
             let newSourceSection = '\n\n✅ No new sources in this PR';
@@ -148,11 +183,19 @@ jobs:
                 lines.push('');
               }
 
-              if (sourceErrors.length > 0) {
-                const totalSourceErrors = sourceErrors.reduce((a, s) => a + (s.errorCount || 0), 0);
-                lines.push(`**Parse errors in ${sourceErrors.length} calendar(s) (${totalSourceErrors} total):**`);
-                sourceErrors.forEach(s => {
-                  lines.push(`- \`${s.source || 'unknown'}/${s.calendar || 'unknown'}\`: ${s.errorCount || 0} error(s)`);
+              // Show only calendars with real parse errors here (uncertainty
+              // errors already appear in their own "❓ Uncertain events"
+              // section above, so listing them again under "Parse errors"
+              // would be double-counting). `parseErrorCount` is the new
+              // breakout field; fall back to errorCount for older builds.
+              const sourceParseErrors = sourceErrors
+                .map(s => ({ ...s, _parse: s.parseErrorCount ?? s.errorCount ?? 0 }))
+                .filter(s => s._parse > 0);
+              if (sourceParseErrors.length > 0) {
+                const totalSourceErrors = sourceParseErrors.reduce((a, s) => a + s._parse, 0);
+                lines.push(`**Parse errors in ${sourceParseErrors.length} calendar(s) (${totalSourceErrors} total):**`);
+                sourceParseErrors.forEach(s => {
+                  lines.push(`- \`${s.source || 'unknown'}/${s.calendar || 'unknown'}\`: ${s._parse} parse error(s)`);
                 });
                 lines.push('');
               }
@@ -177,6 +220,7 @@ jobs:
               `**Preview:** [View Calendar Index](${previewUrl})`,
               `**Commit:** ${{ github.event.pull_request.head.sha }}`,
               geoSection,
+              uncertaintySection,
               newSourceSection,
               errorSection,
               zeroEventSection,

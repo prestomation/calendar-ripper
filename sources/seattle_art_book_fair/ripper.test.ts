@@ -70,12 +70,11 @@ describe("Seattle Art Book Fair Ripper", () => {
         expect(launch!.duration.toHours()).toBe(3);
     });
 
-    test("returns ParseError when no date range is present", async () => {
+    test("returns no events when no date range is present (fair not yet announced)", async () => {
         const ripper = new SeattleArtBookFairRipper();
         const html = parse("<html><body><p>Coming soon!</p></body></html>");
         const events = await ripper.parseEvents(html, testDate, {});
-        expect(events).toHaveLength(1);
-        expect(events[0]).toMatchObject({ type: "ParseError" });
+        expect(events).toHaveLength(0);
     });
 
     test("treats 12am as midnight (hour 0), not noon", async () => {

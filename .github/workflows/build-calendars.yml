@@ -74,6 +74,14 @@ jobs:
           && echo "geo-cache restored from S3 ($(jq '.entries | length' geo-cache.json) entries)" \
           || echo "S3 geo-cache not available, using committed baseline"
 
+    - name: Download event-uncertainty-cache from S3
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: |
+        aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" event-uncertainty-cache.json \
+          && echo "event-uncertainty-cache restored from S3 ($(jq '.entries | length' event-uncertainty-cache.json) entries)" \
+          || echo "S3 event-uncertainty-cache not available, using committed baseline"
+
     - name: Download out-of-band calendars
       env:
         OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
@@ -138,6 +146,15 @@ jobs:
           && echo "geo-cache uploaded to S3 ($(jq '.entries | length' geo-cache.json) entries)" \
           || echo "S3 upload failed (credentials not configured?)"
 
+    - name: Upload event-uncertainty-cache to S3
+      if: always()
+      env:
+        OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
+      run: |
+        aws s3 cp event-uncertainty-cache.json "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" \
+          && echo "event-uncertainty-cache uploaded to S3 ($(jq '.entries | length' event-uncertainty-cache.json) entries)" \
+          || echo "S3 upload failed (credentials not configured?)"
+
     - name: Validate discovery API
       run: npm run check-discovery-api
 
@@ -166,6 +183,14 @@ jobs:
       with:
         name: geo-cache
         path: geo-cache.json
+        retention-days: 90
+
+    - name: Upload event-uncertainty-cache artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: event-uncertainty-cache
+        path: event-uncertainty-cache.json
         retention-days: 90
 
     - name: Upload artifact

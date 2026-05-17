@@ -33,6 +33,7 @@ If a **previously-working ripper** now errors because the source site changed (n
 - Understand the new structure
 - Delegate a fix to a coding agent on a feature branch
 - The fix must go through a PR — never commit directly to main
+- After any review comment on the fix PR is addressed (fix pushed or clear reply posted explaining why no action will be taken), resolve the review thread using `mcp__github__resolve_review_thread`
 
 #### ⚠️ Report Skipped Items (ParseErrors)
 If a source reports `ParseError` entries alongside successful events (e.g., "8 events, 2 errors"), these indicate items the parser couldn't handle. **This is not a build failure** — the source is working — but the skipped items should be investigated:
@@ -83,6 +84,26 @@ After the geo resolver completes, include a geo fix summary in your reply includ
 
 Note: data-only geo fixes (known venues, lookup entries) are pushed direct to main — no PR needed. Logic changes still require a PR.
 
-### 5. Source Discovery (if no actionable errors)
+### 5. Event Uncertainty Check
 
-If there are **no actionable errors** (0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable), read `skills/source-discovery/SKILL.md` and follow it completely.
+Check `uncertaintyStats` and `uncertainEvents` in the build health output.
+
+**If no outstanding uncertain events:**
+```
+❓ Event uncertainty: 0 outstanding ✅
+```
+
+**If outstanding entries exist:**
+Read `skills/event-uncertainty-resolver/SKILL.md` and follow it completely to resolve the outstanding uncertainty entries.
+
+After the event-uncertainty-resolver completes, include a uncertainty fix summary in your reply:
+- How many resolved vs. how many marked unresolvable
+- Cumulative cache size after the run
+
+These are not build failures — they are todos for an LLM to investigate. The
+`totalErrors` count includes them; the resolver's job is to drain that queue
+across builds.
+
+### 6. Source Discovery (if no actionable errors)
+
+If there are **no actionable errors** (0 config errors, 0 external failures, all geocode errors are virtual/TBA/unresolvable, 0 outstanding uncertain events), read `skills/source-discovery/SKILL.md` and follow it completely.

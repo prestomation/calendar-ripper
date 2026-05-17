@@ -3,7 +3,7 @@ name: "Seattle Chinese Garden"
 status: added
 firstSeen: 2026-05-17
 lastChecked: 2026-05-17
-pr: TBD
+pr: 344
 ---
 **Seattle Chinese Garden** — `https://www.seattlechinesegarden.org/events` — 6000 Delridge Way SW, Seattle, WA 98106 (Delridge/West Seattle) — Squarespace site with confirmed `?format=json` endpoint returning 2 future events — Tags: Arts, Community, West Seattle. OSM: way/31706566.
 

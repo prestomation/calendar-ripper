@@ -52,10 +52,11 @@ The steering file provides essential context for making informed decisions about
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
-3. Open a Pull Request to merge into main
-4. Wait for review and approval before merging
+3. Open a Pull Request to merge into main — create it as **non-draft** so auto-merge is eligible
+4. Immediately enable auto-merge via `mcp__github__enable_pr_auto_merge` (squash method) — do this right after creating the PR, before CI finishes, or GitHub will reject it
+5. Auto-merge will fire once all required checks pass and conversation resolution requirements are met
 
-This ensures proper code review and prevents breaking the production deployment.
+This ensures proper code review and prevents breaking the production deployment. Do NOT create PRs as drafts — GitHub silently disables auto-merge on draft PRs.
 
 **After pushing follow-up commits to a PR, you MUST post a top-level PR comment with the exact string `/q review`.** Amazon Q does not automatically re-review follow-up pushes; the `/q review` comment is the trigger that gets it to re-evaluate the new commits. Without it, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
 

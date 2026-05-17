@@ -1,7 +1,7 @@
 ---
 name: "Ada's Technical Books & Cafe"
-status: candidate
+status: notviable
 firstSeen: 2026-05-08
-lastChecked: 2026-05-08
+lastChecked: 2026-05-17
 ---
-❌ **Ada's Technical Books & Cafe** — closing permanently — removed from candidates
+Closing permanently. No longer a viable source.

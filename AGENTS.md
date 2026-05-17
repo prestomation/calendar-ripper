@@ -58,7 +58,7 @@ The steering file provides essential context for making informed decisions about
 5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review. When **all** of the following are true:
    - All CI checks pass
    - Amazon Q has no blocking comments
-   - All review threads are resolved
+   - Every actionable review thread is either resolved or has a reply with reasoning. Threads you can't resolve programmatically (e.g. `mcp__github__resolve_review_thread` fails because the GraphQL node ID isn't surfaced, or the thread is auto-`is_outdated` because the lines it pointed at no longer exist) do **not** block promotion — note them in the chat reply and proceed.
    …then in a single turn:
    a. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
    b. Immediately enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash method)
@@ -92,6 +92,8 @@ Please re-review the latest commit(s) on this PR with feedback on:
 Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
 
 **After addressing a review comment, resolve its thread** using `mcp__github__resolve_review_thread`. Do this either after pushing the fix that addresses it, or after posting a reply with strong reasoning why no action will be taken. Leaving threads open after they've been addressed creates noise and makes it unclear what still needs attention.
+
+Resolve everything you can, but don't let what you can't resolve block the merge gate. Common cases where `mcp__github__resolve_review_thread` cannot succeed: the MCP `get_review_comments` response doesn't surface the GraphQL thread node ID it requires; the thread is already auto-`is_outdated` because the lines it pointed at were removed by a follow-up commit; or the thread was filed by a bot that doesn't expose a stable id. In those cases, post a reply on the PR explaining the disposition (so the audit trail is intact), call it out in your chat update to the user, and proceed.
 
 ## Calendar Integration Strategy
 

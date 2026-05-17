@@ -1,0 +1,16 @@
+name: seattle-japanese-garden
+type: squarespace
+description: "Seattle Japanese Garden"
+url: "https://www.seattlejapanesegarden.org/events-calendar"
+friendlyLink: https://www.seattlejapanesegarden.org/events-calendar
+tags: ["Arts", "Museums"]
+geo:
+  lat: 47.6298388
+  lng: -122.2971786
+  label: "Seattle Japanese Garden, 1075 Lake Washington Blvd E, Seattle, WA 98112"
+  osmType: way
+  osmId: 56176615
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Japanese Garden"
+    timezone: America/Los_Angeles

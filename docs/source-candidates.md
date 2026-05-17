@@ -376,3 +376,10 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ✅ Added: Seattle Japanese Garden — Squarespace — 30+ events — PR #324 — Tags: Arts, Museums
 - ❌ Not Viable: Skylark Cafe — Webflow site, Eventbrite events from multiple promoters (no single venue organizer ID), no ICS feed
 - ❌ Not Viable: Seattle Aquarium — SiteWrench API requires authentication; client-side rendered events
+
+### 2026-05-17 — Source discovery: Comedy, bookstores, dance, community, arts
+- ✅ Added: Seattle City of Literature — Tockify ICS feed (171 events) — `sources/external/seattle-city-of-lit.yaml` — Tags: Arts, Books, Community
+- 💡 Candidate: Seattle Dance Info — WordPress community dance calendar (swing, ballroom, Latin, tango) — `https://seattledanceinfo.com/calendar/` — no ICS feed found yet, ~9 events/5 days — Tags: Dance, Arts
+- ❌ Not Viable: Ada's Technical Books & Cafe — closing permanently
+- 🔒 Blocked: El Centro de la Raza — SiteGround captcha (`sg-captcha: challenge`) blocks non-browser requests; could not inspect calendar platform
+- 🔒 Blocked: Central Saloon — SiteGround captcha blocks non-browser requests; could not inspect WordPress calendar

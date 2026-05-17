@@ -74,11 +74,11 @@ jobs:
     if: always() && needs.build.outputs.error-count != '' && needs.build.outputs.error-count != '0'
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      actions: write   # needed for `gh cache delete` to rotate the rate-limit cache
-      contents: read
     env:
-      RATE_LIMIT_CACHE_KEY: claude-routine-last-fired-v1
+      # Cache keys are immutable, so each successful fire writes a new entry under
+      # a unique per-run key. The restore step uses a prefix match to recover the
+      # most-recently-created entry, which sidesteps the need to delete the old one.
+      RATE_LIMIT_CACHE_PREFIX: claude-routine-last-fired-v1-
       RATE_LIMIT_FILE: /tmp/claude-routine-last-fired
       RATE_LIMIT_WINDOW_SECONDS: "86400"
     steps:
@@ -99,7 +99,12 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ env.RATE_LIMIT_FILE }}
-          key: ${{ env.RATE_LIMIT_CACHE_KEY }}
+          # The exact key will never match (it includes the current run id),
+          # so the action falls through to the restore-keys prefix and returns
+          # the most-recently-created cache entry under that prefix.
+          key: ${{ env.RATE_LIMIT_CACHE_PREFIX }}${{ github.run_id }}
+          restore-keys: |
+            ${{ env.RATE_LIMIT_CACHE_PREFIX }}
 
       - name: Check rate limit
         id: rate-limit
@@ -173,19 +178,12 @@ jobs:
         if: steps.fire.outputs.fired == 'true'
         run: date +%s > "$RATE_LIMIT_FILE"
 
-      - name: Rotate rate-limit cache
-        if: steps.fire.outputs.fired == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          # Cache entries are immutable by key, so delete the old one before saving.
-          # The delete is best-effort: on the very first fire there is no entry yet.
-          gh cache delete "$RATE_LIMIT_CACHE_KEY" || echo "No prior cache entry to delete"
-
       - name: Save new last-fired timestamp
         if: steps.fire.outputs.fired == 'true'
         uses: actions/cache/save@v4
         with:
           path: ${{ env.RATE_LIMIT_FILE }}
-          key: ${{ env.RATE_LIMIT_CACHE_KEY }}
+          # Unique per-run key so we never collide with a prior entry. Older
+          # entries are unreachable once a newer one exists (restore-keys picks
+          # the newest) and expire naturally after 7 days of no access.
+          key: ${{ env.RATE_LIMIT_CACHE_PREFIX }}${{ github.run_id }}

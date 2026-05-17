@@ -78,9 +78,21 @@ jobs:
       env:
         OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
       run: |
-        aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" event-uncertainty-cache.json \
-          && echo "event-uncertainty-cache restored from S3 ($(jq '.entries | length' event-uncertainty-cache.json) entries)" \
-          || echo "S3 event-uncertainty-cache not available, using committed baseline"
+        if aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" /tmp/s3-uncertainty-cache.json 2>/dev/null; then
+          # Merge S3 entries with committed baseline (committed entries win on conflict so
+          # manually-researched resolutions aren't overwritten by an older S3 entry).
+          python3 - <<'PY'
+        import json, sys
+        s3 = json.load(open('/tmp/s3-uncertainty-cache.json'))
+        committed = json.load(open('event-uncertainty-cache.json'))
+        merged = {**s3['entries'], **committed['entries']}
+        s3['entries'] = merged
+        json.dump(s3, open('event-uncertainty-cache.json', 'w'), indent=2)
+        print(f"event-uncertainty-cache merged: {len(s3['entries'])} total entries (S3: {len(s3['entries']) - max(0, len(committed['entries']) - len(s3['entries']))}, committed: {len(committed['entries'])})")
+        PY
+        else
+          echo "S3 event-uncertainty-cache not available, using committed baseline"
+        fi
 
     - name: Download out-of-band calendars
       env:

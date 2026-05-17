@@ -78,9 +78,22 @@ jobs:
       env:
         OUTOFBAND_BUCKET: ${{ vars.OUTOFBAND_BUCKET }}
       run: |
-        aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" event-uncertainty-cache.json \
-          && echo "event-uncertainty-cache restored from S3 ($(jq '.entries | length' event-uncertainty-cache.json) entries)" \
-          || echo "S3 event-uncertainty-cache not available, using committed baseline"
+        # Save the committed baseline. When a web session can't reach S3 it
+        # commits resolved entries to the repo; those would be silently dropped
+        # if S3 (possibly older/empty) won outright. Merge instead: S3 takes
+        # precedence on key conflicts, committed entries fill any gaps.
+        cp event-uncertainty-cache.json /tmp/committed-uncertainty-cache.json
+        if aws s3 cp "s3://${OUTOFBAND_BUCKET:-calendar-ripper-outofband-220483515252}/latest/event-uncertainty-cache.json" /tmp/s3-uncertainty-cache.json; then
+          COMMITTED=$(jq '.entries | length' /tmp/committed-uncertainty-cache.json)
+          S3=$(jq '.entries | length' /tmp/s3-uncertainty-cache.json)
+          jq -s '{version: 1, entries: (.[0].entries + .[1].entries)}' \
+            /tmp/committed-uncertainty-cache.json /tmp/s3-uncertainty-cache.json \
+            > event-uncertainty-cache.json
+          MERGED=$(jq '.entries | length' event-uncertainty-cache.json)
+          echo "event-uncertainty-cache: merged ${COMMITTED} committed + ${S3} S3 = ${MERGED} total entries"
+        else
+          echo "S3 event-uncertainty-cache not available, using committed baseline"
+        fi
 
     - name: Download out-of-band calendars
       env:

@@ -24,8 +24,8 @@ interface ParsedDates {
     // True when the source page gave no explicit time — emit
     // UncertaintyError for the slots below.
     timeUnknown: boolean;
-    // Days covered by the source's date range (used for fingerprinting
-    // and reasoning about how many events get expanded).
+    // Days covered by the source's date range (used for reasoning about
+    // how many events get expanded).
     dayCount: number;
 }
 
@@ -126,8 +126,8 @@ export default class Events12Ripper extends HTMLRipper {
 
                 // Fingerprint the parsed data so cache entries are invalidated
                 // if the source page changes (e.g., upstream later adds a
-                // start time). Includes title + dayCount + timeUnknown so
-                // both "the run got longer" and "they finally posted a time"
+                // start time). Includes title + end-date + timeUnknown so
+                // both "the run got shorter" and "they finally posted a time"
                 // bust the cache.
                 const fingerprint = this.fingerprint(title, parsed);
 
@@ -363,9 +363,15 @@ export default class Events12Ripper extends HTMLRipper {
     // Cached resolutions are dropped when this changes — e.g., if
     // upstream later publishes a real time, timeUnknown flips and the
     // old "we guessed noon" resolution is invalidated.
+    //
+    // NOTE: Previously used dayCount, which changed daily for multi-day events
+    // because events12 updates its start date to "today". Using the end date
+    // instead, which is stable across builds for the same event.
     private fingerprint(title: string, parsed: ParsedDates): string {
         const titleHash = simpleHash(title);
-        return `${titleHash}-d${parsed.dayCount}-${parsed.timeUnknown ? 'tu' : 'tk'}`;
+        const last = parsed.occurrences[parsed.occurrences.length - 1];
+        const endDate = last?.date.toLocalDate().toString() ?? '';
+        return `${titleHash}-until${endDate}-${parsed.timeUnknown ? 'tu' : 'tk'}`;
     }
 }
 

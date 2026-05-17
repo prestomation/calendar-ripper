@@ -1,10 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { 
-  collectAllTags, 
-  createAggregateCalendars, 
-  prepareTaggedCalendars, 
+import {
+  collectAllTags,
+  createAggregateCalendars,
+  prepareTaggedCalendars,
   prepareTaggedExternalCalendars,
   fetchExternalCalendar,
+  parseExternalCalendarEvents,
   TaggedCalendar,
   TaggedExternalCalendar
 } from './tag_aggregator.js';
@@ -319,6 +320,54 @@ END:VCALENDAR`;
       expect(musicCalendar.events).toHaveLength(2);
       expect(musicCalendar.events[0].date).toEqual(earlierEvent.date);
       expect(musicCalendar.events[1].date).toEqual(laterEvent.date);
+    });
+  });
+
+  describe('parseExternalCalendarEvents', () => {
+    it('should expand RRULE recurring events into individual instances within the window', () => {
+      // A monthly recurring event that started in the past — without RRULE expansion
+      // none of these instances would be found because DTSTART is too old.
+      const pastStart = new Date();
+      pastStart.setMonth(pastStart.getMonth() - 6);
+      const dtStart = pastStart.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '').replace('Z', 'Z');
+      const dtEnd = new Date(pastStart.getTime() + 2 * 60 * 60 * 1000)
+        .toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '').replace('Z', 'Z');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:recurring-test-1
+SUMMARY:Monthly Club Meeting
+DTSTART:${dtStart}
+DTEND:${dtEnd}
+RRULE:FREQ=MONTHLY
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      // Should find instances in the 1-week-ago to 3-months-ahead window
+      expect(events.length).toBeGreaterThan(0);
+      // Each expanded instance gets a unique id with the occurrence date appended
+      expect(events[0].id).toMatch(/^recurring-test-1-/);
+      expect(events[0].summary).toBe('Monthly Club Meeting');
+    });
+
+    it('should not include single events with DTSTART outside the window', () => {
+      const twoYearsAgo = new Date();
+      twoYearsAgo.setFullYear(twoYearsAgo.getFullYear() - 2);
+      const dtStart = twoYearsAgo.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:old-event-1
+SUMMARY:Old Event
+DTSTART:${dtStart}
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(0);
     });
   });
 });

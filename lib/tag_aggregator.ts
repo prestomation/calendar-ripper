@@ -1,5 +1,7 @@
 import { RipperCalendar, RipperCalendarEvent, RipperError, ExternalCalendar, toICS } from './config/schema.js';
 import { ZonedDateTime, Duration } from '@js-joda/core';
+// @ts-ignore — ical.js has no type declarations
+import ICAL from 'ical.js';
 
 /**
  * Represents a calendar with its associated tags
@@ -40,123 +42,109 @@ export function collectAllTags(
 }
 
 /**
- * Parses external calendar ICS data into events.
+ * Parses external calendar ICS data into events, expanding RRULE recurrences.
  * Filters events to only include those within the specified time range.
  */
 export function parseExternalCalendarEvents(icsData: string): RipperCalendarEvent[] {
   const events: RipperCalendarEvent[] = [];
 
-  // Define time range: 1 week before now to 3 months in the future
   const now = new Date();
   const oneWeekAgo = new Date(now);
   oneWeekAgo.setDate(now.getDate() - 7);
-
   const threeMonthsLater = new Date(now);
   threeMonthsLater.setMonth(now.getMonth() + 3);
 
-  // Split the ICS file into events
-  const eventBlocks = icsData.split('BEGIN:VEVENT');
+  let jcalData: any;
+  try {
+    jcalData = ICAL.parse(icsData);
+  } catch (error) {
+    console.error('Error parsing ICS data:', error);
+    return [];
+  }
 
-  for (let i = 1; i < eventBlocks.length; i++) {
+  const comp = new ICAL.Component(jcalData);
+  const vevents = comp.getAllSubcomponents('vevent');
+
+  for (const vevent of vevents) {
     try {
-      const eventBlock = eventBlocks[i];
+      const event = new ICAL.Event(vevent);
+      const uid: string = event.uid || `external-${Date.now()}-${Math.random()}`;
+      const summary: string = event.summary || 'Untitled Event';
+      const description: string | undefined = event.description || undefined;
+      const location: string | undefined = event.location || undefined;
+      const url: string | undefined = vevent.getFirstPropertyValue('url')?.toString() || undefined;
 
-      // Extract UID
-      const uidMatch = eventBlock.match(/UID:(.*?)(?:\r\n|\n)/);
-      const uid = uidMatch ? uidMatch[1].trim() : `external-${Date.now()}-${i}`;
+      const rrule = vevent.getFirstProperty('rrule');
 
-      // Extract summary
-      const summaryMatch = eventBlock.match(/SUMMARY:(.*?)(?:\r\n|\n)/);
-      const summary = summaryMatch ? summaryMatch[1].trim() : 'Untitled Event';
-
-      // Extract description
-      const descriptionMatch = eventBlock.match(/DESCRIPTION:(.*?)(?:\r\n|\n)/);
-      const description = descriptionMatch ? descriptionMatch[1].trim() : undefined;
-
-      // Extract location
-      const locationMatch = eventBlock.match(/LOCATION:(.*?)(?:\r\n|\n)/);
-      const location = locationMatch ? locationMatch[1].trim() : undefined;
-
-      // Extract URL
-      const urlMatch = eventBlock.match(/URL:(.*?)(?:\r\n|\n)/);
-      const url = urlMatch ? urlMatch[1].trim() : undefined;
-
-      // Extract start date
-      const dtStartMatch = eventBlock.match(/DTSTART(?:;[^:]*)?:(.*?)(?:\r\n|\n)/);
-      if (!dtStartMatch) continue;
-
-      const dtStartStr = dtStartMatch[1].trim();
-
-      // Parse the date string
-      let startDate: Date;
-      if (dtStartStr.includes('T')) {
-        // Format: 20250101T100000Z
-        const year = parseInt(dtStartStr.substring(0, 4));
-        const month = parseInt(dtStartStr.substring(4, 6)) - 1; // JS months are 0-based
-        const day = parseInt(dtStartStr.substring(6, 8));
-        const hour = parseInt(dtStartStr.substring(9, 11));
-        const minute = parseInt(dtStartStr.substring(11, 13));
-        const second = parseInt(dtStartStr.substring(13, 15));
-        startDate = new Date(Date.UTC(year, month, day, hour, minute, second));
-      } else {
-        // Format: 20250101 (all day event)
-        const year = parseInt(dtStartStr.substring(0, 4));
-        const month = parseInt(dtStartStr.substring(4, 6)) - 1;
-        const day = parseInt(dtStartStr.substring(6, 8));
-        startDate = new Date(Date.UTC(year, month, day));
-      }
-
-      // Skip events outside our time range (1 week ago to 3 months in the future)
-      if (startDate < oneWeekAgo || startDate > threeMonthsLater) {
-        continue;
-      }
-
-      // Extract end date
-      const dtEndMatch = eventBlock.match(/DTEND(?:;[^:]*)?:(.*?)(?:\r\n|\n)/);
-      let endDate: Date | undefined;
-
-      if (dtEndMatch) {
-        const dtEndStr = dtEndMatch[1].trim();
-        if (dtEndStr.includes('T')) {
-          const year = parseInt(dtEndStr.substring(0, 4));
-          const month = parseInt(dtEndStr.substring(4, 6)) - 1;
-          const day = parseInt(dtEndStr.substring(6, 8));
-          const hour = parseInt(dtEndStr.substring(9, 11));
-          const minute = parseInt(dtEndStr.substring(11, 13));
-          const second = parseInt(dtEndStr.substring(13, 15));
-          endDate = new Date(Date.UTC(year, month, day, hour, minute, second));
-        } else {
-          const year = parseInt(dtEndStr.substring(0, 4));
-          const month = parseInt(dtEndStr.substring(4, 6)) - 1;
-          const day = parseInt(dtEndStr.substring(6, 8));
-          endDate = new Date(Date.UTC(year, month, day));
+      if (rrule) {
+        // Expand recurring event occurrences within our time range using ical.js.
+        // ICAL.RecurExpansion handles EXDATE and complex RRULE patterns correctly.
+        let durationHours = 1;
+        if (event.endDate && event.startDate) {
+          const ms = event.endDate.toJSDate().getTime() - event.startDate.toJSDate().getTime();
+          durationHours = Math.max(1, Math.ceil(ms / (1000 * 60 * 60)));
         }
+
+        try {
+          const expand = new ICAL.RecurExpansion({
+            component: vevent,
+            dtstart: vevent.getFirstPropertyValue('dtstart'),
+          });
+
+          let next: any;
+          let instanceCount = 0;
+          // 10 000 is a safety guard against pathological RRULEs with no UNTIL/COUNT.
+          // The primary exit is `startDate > threeMonthsLater` below.
+          while (instanceCount < 10000 && (next = expand.next())) {
+            const startDate = next.toJSDate();
+            if (startDate > threeMonthsLater) break;
+            if (startDate >= oneWeekAgo) {
+              const zonedDateTime = ZonedDateTime.parse(
+                startDate.toISOString().replace('Z', '+00:00[UTC]')
+              );
+              events.push({
+                id: `${uid}-${next.toICALString()}`,
+                ripped: new Date(),
+                date: zonedDateTime,
+                duration: Duration.ofHours(durationHours),
+                summary,
+                description,
+                location,
+                url,
+              });
+            }
+            instanceCount++;
+          }
+        } catch (rruleError) {
+          console.error('Error expanding RRULE for', uid, rruleError);
+        }
+      } else {
+        const startDate = event.startDate?.toJSDate();
+        if (!startDate) continue;
+        if (startDate < oneWeekAgo || startDate > threeMonthsLater) continue;
+
+        let durationHours = 1;
+        if (event.endDate && event.startDate) {
+          const ms = event.endDate.toJSDate().getTime() - startDate.getTime();
+          durationHours = Math.max(1, Math.ceil(ms / (1000 * 60 * 60)));
+        }
+
+        const zonedDateTime = ZonedDateTime.parse(
+          startDate.toISOString().replace('Z', '+00:00[UTC]')
+        );
+        events.push({
+          id: uid,
+          ripped: new Date(),
+          date: zonedDateTime,
+          duration: Duration.ofHours(durationHours),
+          summary,
+          description,
+          location,
+          url,
+        });
       }
-
-      // Calculate duration
-      let durationHours = 1; // Default 1 hour
-      if (endDate) {
-        const durationMs = endDate.getTime() - startDate.getTime();
-        durationHours = Math.ceil(durationMs / (1000 * 60 * 60)); // Round up to nearest hour
-      }
-
-      // Create ZonedDateTime
-      const zonedDateTimeStr = startDate.toISOString().replace('Z', '+00:00[UTC]');
-      const zonedDateTime = ZonedDateTime.parse(zonedDateTimeStr);
-
-      events.push({
-        id: uid,
-        ripped: new Date(),
-        date: zonedDateTime,
-        duration: Duration.ofHours(durationHours),
-        summary,
-        description,
-        location,
-        url
-      });
     } catch (error) {
       console.error('Error parsing event:', error);
-      // Skip this event if there's an error
     }
   }
 

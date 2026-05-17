@@ -168,9 +168,9 @@ After the PR is open:
    - Review the full implementation for correctness, completeness, and consistency with the existing external calendar schema
    ```
 
-3. **If Q has blocking comments** → Steer the coding agent to fix them (`subagents(action="steer", message="...")`) → Push fixes → Re-trigger Q review with the same template.
+3. **If Q has blocking comments** → Steer the coding agent to fix them (`subagents(action="steer", message="...")`) → Push fixes → Re-trigger Q review with the same template → **Resolve each addressed review thread** using `mcp__github__resolve_review_thread` after either pushing the fix or posting a reply with clear reasoning why no action will be taken.
 
-4. **Repeat** until Q is clean and no blocking comments remain.
+4. **Repeat** until Q is clean and no blocking comments remain and all review threads are resolved.
 
 5. **When Q is clean + events confirmed (>0)** → Flip the candidate's `status:` frontmatter to `added` in `docs/source-candidates/<slug>.md` (and add the `pr:` field) and commit the update to the PR branch.
 

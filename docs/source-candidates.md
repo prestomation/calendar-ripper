@@ -362,3 +362,12 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ❌ Not Viable: Town Hall Seattle — already implemented as `sources/external/town-hall-seattle.yaml`
 - ❌ Not Viable: Skylark Cafe — Webflow site with mixed Eventbrite promoters (no venue-level organizer ID), no ICS feed
 - ❌ Not Viable: Seattle Pro Musica (Squarespace built-in) — `data.upcoming` is empty; all events including future ones are in `data.past`; built-in ripper would return 0 events without ripper code changes
+
+### 2026-05-17 — Source discovery: Outdoors/sports, arts/galleries, music venues, community
+- ✅ Added: Seafair Community Events — Tribe Events ICS feed (24 upcoming events: Dragon Boat Festival, Ballard Seafoodfest, Alki Art Fair, West Seattle Summer Fest, neighborhood parades, cultural festivals) — Tags: Community, Music — `sources/external/seafair.yaml`
+- 💡 Candidate: Ballard FC — WordPress + Tribe Events (`x-tec-api-root` confirmed), but API + ICS both return 0 events; schedule hardcoded in HTML. 13 home matches May–July 2026 at Interbay Stadium. Re-investigate: custom HTML scraper
+- ❌ Not Viable: Gallery 110 — Squarespace, `data.upcoming` empty; 0 future events at time of check. Re-evaluate when they post new shows
+- ❌ Not Viable: Seattle Pro Musica — Squarespace, 0 upcoming events (between seasons); re-evaluate August–September 2026
+- ❌ Not Viable: Neighborhood Farmers Markets — Squarespace `?format=json` returns `itemCount: 0`; existing `sources/recurring/` already covers these markets
+- ❌ Not Viable: Brouwer's Cafe — WordPress events archive (24 pages of past events), no upcoming events and no ICS feed
+- ❌ Not Viable: Queer Bar — confirmed multi-promoter Eventbrite, no single venue organizer ID; Squarespace page returns 0 items

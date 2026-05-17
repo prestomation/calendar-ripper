@@ -53,11 +53,18 @@ The steering file provides essential context for making informed decisions about
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
-3. Open a Pull Request to merge into main — create it as **non-draft** so auto-merge is eligible
-4. Immediately enable auto-merge via `mcp__github__enable_pr_auto_merge` (squash method) — do this right after creating the PR, before CI finishes, or GitHub will reject it
-5. Auto-merge will fire once all required checks pass and conversation resolution requirements are met
+3. Open a Pull Request — the harness creates it as a **draft** by default; that's fine
+4. Immediately subscribe to PR activity: `mcp__github__subscribe_pr_activity`
+5. Monitor `<github-webhook-activity>` events for CI results and Amazon Q review. When **all** of the following are true:
+   - All CI checks pass
+   - Amazon Q has no blocking comments
+   - All review threads are resolved
+   …then in a single turn:
+   a. Convert draft → ready: `mcp__github__update_pull_request` with `draft: false`
+   b. Immediately enable auto-merge: `mcp__github__enable_pr_auto_merge` (squash method)
+6. Auto-merge fires once all required checks pass and any approval requirements are met
 
-This ensures proper code review and prevents breaking the production deployment. Do NOT create PRs as drafts — GitHub silently disables auto-merge on draft PRs.
+**Never call `enable_pr_auto_merge` on a draft PR** — GitHub rejects it silently. Always convert to ready-for-review first, then enable auto-merge in the same turn.
 
 **After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
 

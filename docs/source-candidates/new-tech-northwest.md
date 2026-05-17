@@ -1,6 +1,6 @@
 ---
 name: "New Tech Northwest"
-status: candidate
+status: notviable
 firstSeen: 2026-05-08
 lastChecked: 2026-05-08
 ---

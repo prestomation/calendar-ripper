@@ -91,6 +91,9 @@ jobs:
           # resolver runs); S3 fills in any keys not present in committed.
           # After the next successful build the merged result is uploaded back
           # to S3, so the two stores converge without manual intervention.
+          # TODO: Once S3 has been updated by 1-2 successful builds after PR #339
+          # merges (fingerprint migration), revert to S3-wins (swap argument order
+          # so s3 is second, committed is first) as the permanent policy.
           jq -s '{version: 1, entries: (.[0].entries + .[1].entries)}' \
             /tmp/s3-uncertainty-cache.json /tmp/committed-uncertainty-cache.json \
             > event-uncertainty-cache.json

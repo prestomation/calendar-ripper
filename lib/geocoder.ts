@@ -524,6 +524,11 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'town hall, 1119 eighth avenue (at seneca street), seattle, wa': { lat: 47.6090, lng: -122.3299 },
   'foster school of business, founders hall': { lat: 47.6588, lng: -122.3071 },
   'northwest african american museum': { lat: 47.5892, lng: -122.3019 },
+  // Seatoday venues not in Nominatim
+  'kent ymca': { lat: 47.3804174, lng: -122.1969249 },
+  'cascadia college': { lat: 47.7608677, lng: -122.1922103 },
+  'newcastle cemetery': { lat: 47.5318872, lng: -122.1673852 },
+  'woodinville sports club': { lat: 47.7393494, lng: -122.1426478 },
 };
 
 /**

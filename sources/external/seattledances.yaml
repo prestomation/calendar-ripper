@@ -4,6 +4,7 @@ friendlyname: SeattleDances
 description: Seattle's online hub for dance events, classes, and performances - covering contemporary, ballet, hip-hop, and more
 icsUrl: https://seattledances.com/?post_type=tribe_events&ical=1&eventDisplay=list
 proxy: outofband
+expectEmpty: true
 infoUrl: https://seattledances.com/events/
 tags:
   - Dance

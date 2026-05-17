@@ -376,3 +376,15 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ✅ Added: Seattle Japanese Garden — Squarespace — 30+ events — PR #324 — Tags: Arts, Museums
 - ❌ Not Viable: Skylark Cafe — Webflow site, Eventbrite events from multiple promoters (no single venue organizer ID), no ICS feed
 - ❌ Not Viable: Seattle Aquarium — SiteWrench API requires authentication; client-side rendered events
+
+### 2026-05-16 — Source discovery: Comedy, outdoors, arts & culture
+- ✅ Added: National Nordic Museum — custom two-phase HTML scraper (FusionCMS/Ticketure), 2655 NW Market St Ballard, 10+ future events — `sources/national_nordic_museum/` — Tags: Museums, Arts, Ballard
+- 💡 Candidate: Gallery 110 — Squarespace `events-stacked` collection, Pioneer Square — 0 upcoming events as of today (art season ended); revisit autumn 2026
+- 💡 Candidate: CoCA Seattle (Center on Contemporary Art) — Squarespace `events-stacked`, 1 expiring event — revisit for next season
+- 💡 Candidate: The Mountaineers — Plone ICS at `/events/ics_view` (49 events total) but only 1 future event in feed; too low volume now
+- ❌ Not Viable: University Book Store — Shopify, but only course materials in products.json; no events page
+- ❌ Not Viable: Big Whale Consignment — Shopify, but products are art/decor items, no event products
+- ❌ Not Viable: Seattle Public Theater — Squarespace type `page` (not events collection), `?format=json` returns 0 items
+- 🚫 Blocked: Central Saloon — SiteGround CAPTCHA (HTTP 202 + sg-captcha: challenge) on all paths
+- 🚫 Blocked: El Centro de la Raza — SiteGround CAPTCHA on all paths
+- ⚠️ Woodland Park Zoo — zoo.org returning HTTP 503 (site temporarily down, was `proxy` status); re-check needed

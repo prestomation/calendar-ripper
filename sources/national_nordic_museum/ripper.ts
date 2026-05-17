@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDate, LocalDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
 
@@ -24,6 +25,7 @@ export interface ParsedEventCard {
 
 export default class NationalNordicMuseumRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        const fetchFn = getFetchForConfig(ripper.config);
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
 
@@ -31,7 +33,7 @@ export default class NationalNordicMuseumRipper implements IRipper {
         while (true) {
             const baseUrl = ripper.config.url.toString();
             const url = page === 1 ? baseUrl : `${baseUrl}?page=${page}`;
-            const res = await fetch(url, {
+            const res = await fetchFn(url, {
                 headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" }
             });
             if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);

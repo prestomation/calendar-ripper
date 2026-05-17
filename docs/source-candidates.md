@@ -376,3 +376,8 @@ _Per-candidate files now live under [`source-candidates/`](./source-candidates/)
 - ✅ Added: Seattle Japanese Garden — Squarespace — 30+ events — PR #324 — Tags: Arts, Museums
 - ❌ Not Viable: Skylark Cafe — Webflow site, Eventbrite events from multiple promoters (no single venue organizer ID), no ICS feed
 - ❌ Not Viable: Seattle Aquarium — SiteWrench API requires authentication; client-side rendered events
+
+### 2026-05-17 — Source discovery: Arts/culture, outdoors, community, beer
+- ✅ Added: Seattle Chinese Garden — Squarespace — 2 confirmed upcoming events (Annual Auction & Banquet, Bamboo Circle Celebration) — Tags: Arts, Community, West Seattle
+- ❌ Not Viable: The Mountaineers — Plone ICS feed exists (795 events) but all are internal club activities (skills clinics, committee meetings) with no LOCATION data; not public-facing events
+- ❌ Not Viable: Seattle Uncorked — SiteGround captcha (HTTP 202) blocks all requests; flagged blocked

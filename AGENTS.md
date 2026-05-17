@@ -478,6 +478,28 @@ field, and writes a resolution into S3. Same plumbing as the
 geo-cache: empty file committed, live data lives in S3, GitHub Actions
 artifact serves as backup.
 
+### Cache persistence strategy (differs from geo-cache)
+
+Unlike `geo-cache.json` (which is always empty in the repo and fully
+owned by S3), `event-uncertainty-cache.json` supports a **committed
+override** pattern:
+
+- **S3** — primary live store, populated by CI builds and out-of-band
+  runs. Updated on every successful build.
+- **Committed file** — acts as a static override layer. The build
+  workflow *merges* S3 entries with the committed file at download time,
+  with **committed entries winning** on conflict. This lets agents
+  without S3 write access (e.g., web sessions) commit manually-researched
+  resolutions that survive S3 downloads.
+- **When to commit entries:** Only for manually-investigated resolutions
+  (start times found by reading a source page). Do not commit
+  auto-generated or speculative entries. Once a build with S3 access has
+  run, the entries are in S3 and the committed file can be reset to empty.
+- **Conflict resolution:** Committed wins over S3. This preserves
+  manually-researched entries even if an older S3 version contradicts
+  them. If S3 accumulates better data than what's committed, reset the
+  committed file to empty so S3 is the sole authority again.
+
 **Why it exists:** Quietly defaulting unknown values (e.g. "no time on
 the page → set to noon") publishes a guess that looks like a fact.
 This system makes the uncertainty explicit, surfaces it in every

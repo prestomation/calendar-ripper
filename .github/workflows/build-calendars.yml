@@ -85,10 +85,15 @@ jobs:
         import json, sys
         s3 = json.load(open('/tmp/s3-uncertainty-cache.json'))
         committed = json.load(open('event-uncertainty-cache.json'))
+        if 'entries' not in s3 or 'entries' not in committed:
+            print("event-uncertainty-cache: missing 'entries' key, skipping merge", file=sys.stderr)
+            sys.exit(1)
+        s3_count = len(s3['entries'])
+        committed_count = len(committed['entries'])
         merged = {**s3['entries'], **committed['entries']}
         s3['entries'] = merged
         json.dump(s3, open('event-uncertainty-cache.json', 'w'), indent=2)
-        print(f"event-uncertainty-cache merged: {len(s3['entries'])} total entries (S3: {len(s3['entries']) - max(0, len(committed['entries']) - len(s3['entries']))}, committed: {len(committed['entries'])})")
+        print(f"event-uncertainty-cache merged: {len(merged)} total entries (S3: {s3_count}, committed: {committed_count})")
         PY
         else
           echo "S3 event-uncertainty-cache not available, using committed baseline"

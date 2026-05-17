@@ -4,6 +4,7 @@ url: "https://public-api.wordpress.com/rest/v1.1/sites/belltown-cc.org/posts?num
 friendlyLink: https://belltown-cc.org/meetings/
 tags: ["Community", "Belltown"]
 geo: null
+expectEmpty: true
 calendars:
   - name: all-events
     friendlyname: "Belltown Community Council"

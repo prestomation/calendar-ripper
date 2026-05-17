@@ -53,10 +53,11 @@ The steering file provides essential context for making informed decisions about
 **NEVER push directly to main branch.** Always:
 1. Create a feature branch for changes
 2. Make commits to the feature branch
-3. Open a Pull Request to merge into main
-4. Wait for review and approval before merging
+3. Open a Pull Request to merge into main — create it as **non-draft** so auto-merge is eligible
+4. Immediately enable auto-merge via `mcp__github__enable_pr_auto_merge` (squash method) — do this right after creating the PR, before CI finishes, or GitHub will reject it
+5. Auto-merge will fire once all required checks pass and conversation resolution requirements are met
 
-This ensures proper code review and prevents breaking the production deployment.
+This ensures proper code review and prevents breaking the production deployment. Do NOT create PRs as drafts — GitHub silently disables auto-merge on draft PRs.
 
 **After pushing follow-up commits to a PR, you MUST post a top-level PR comment that re-triggers Amazon Q with explicit feedback asks.** The bare `/q review` trigger has proven unreliable — Q sometimes parses it as a non-command. Always include a concrete prompt asking Q to evaluate the new commits against the following dimensions:
 
@@ -82,6 +83,8 @@ Please re-review the latest commit(s) on this PR with feedback on:
 ```
 
 Without an explicit re-review trigger, Q's review stays anchored to the original commit and you'll never know whether your fixes addressed its feedback.
+
+**After addressing a review comment, resolve its thread** using `mcp__github__resolve_review_thread`. Do this either after pushing the fix that addresses it, or after posting a reply with strong reasoning why no action will be taken. Leaving threads open after they've been addressed creates noise and makes it unclear what still needs attention.
 
 ## Calendar Integration Strategy
 

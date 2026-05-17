@@ -1,0 +1,15 @@
+name: national-nordic-museum
+description: "National Nordic Museum"
+url: "https://nordicmuseum.org/calendar"
+friendlyLink: https://nordicmuseum.org/calendar
+tags: ["Museums", "Arts", "Ballard"]
+geo:
+  lat: 47.6681
+  lng: -122.3773
+  label: "National Nordic Museum, 2655 NW Market St, Seattle, WA 98107"
+  osmType: way
+  osmId: 438457488
+calendars:
+  - name: national-nordic-museum
+    friendlyname: "National Nordic Museum"
+    timezone: America/Los_Angeles

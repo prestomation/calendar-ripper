@@ -33,6 +33,7 @@ If a **previously-working ripper** now errors because the source site changed (n
 - Understand the new structure
 - Delegate a fix to a coding agent on a feature branch
 - The fix must go through a PR — never commit directly to main
+- After any review comment on the fix PR is addressed (fix pushed or clear reply posted explaining why no action will be taken), resolve the review thread using `mcp__github__resolve_review_thread`
 
 #### ⚠️ Report Skipped Items (ParseErrors)
 If a source reports `ParseError` entries alongside successful events (e.g., "8 events, 2 errors"), these indicate items the parser couldn't handle. **This is not a build failure** — the source is working — but the skipped items should be investigated:

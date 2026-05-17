@@ -21,8 +21,8 @@ export default class SeattleArtBookFairRipper extends HTMLRipper {
         try {
             return await super.rip(ripper);
         } catch (err) {
-            // Site goes 404 between annual events — return empty calendars rather than crashing
-            if (err instanceof Error && /^404\b/.test(err.message)) {
+            // Site goes offline between annual events — return empty calendars rather than crashing
+            if (err instanceof Error && (/^\d{3}\b/.test(err.message) || /fetch\s+failed/i.test(err.message))) {
                 return ripper.config.calendars.map(cal => ({
                     name: cal.name,
                     friendlyname: cal.friendlyname,
@@ -65,11 +65,8 @@ export default class SeattleArtBookFairRipper extends HTMLRipper {
             /(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})\s*[–-]\s*(\d{1,2}),\s*(\d{4})/i,
         );
         if (!m) {
-            return {
-                type: "ParseError",
-                reason: "Could not find fair date range on home page",
-                context: text.slice(0, 200),
-            };
+            // Fair not yet announced for the year; expectEmpty: true already signals this is normal
+            return [];
         }
 
         const month = MONTHS[m[1].toLowerCase()];

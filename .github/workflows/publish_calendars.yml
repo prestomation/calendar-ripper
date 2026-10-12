@@ -1,8 +1,6 @@
 name: Generate Calendars and Publish to GitHub Pages
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # Daily
   push:
     branches:
       - main
@@ -14,16 +12,7 @@ on:
         default: false
 
 jobs:
-  jitter:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
-    steps:
-      - name: Random jitter (up to 3 hours)
-        run: sleep $((RANDOM % 10800))
-
   build:
-    needs: [jitter]
-    if: always() && (needs.jitter.result == 'success' || needs.jitter.result == 'skipped')
     uses: ./.github/workflows/build-calendars.yml
     permissions:
       id-token: write    # OIDC token for AWS proxy authentication

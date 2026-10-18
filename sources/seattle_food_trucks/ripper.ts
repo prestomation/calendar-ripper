@@ -1,5 +1,6 @@
 import { ZonedDateTime, Duration, LocalDate, ChronoUnit } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
 const BASE_URL = 'https://www.seattlefoodtruck.com';
@@ -115,11 +116,14 @@ export interface SFTBooking {
 }
 
 export default class SeattleFoodTruckRipper implements IRipper {
+    private fetchFn: FetchFn = fetch;
+
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
+        this.fetchFn = getFetchForConfig(ripper.config);
         const timezone = ripper.config.calendars[0].timezone;
 
         // 1. Fetch all public food truck pods
-        const podsRes = await fetch(`${BASE_URL}/api/pods`);
+        const podsRes = await this.fetchFn(`${BASE_URL}/api/pods`);
         if (!podsRes.ok) {
             throw new Error(`Failed to fetch pods: ${podsRes.status} ${podsRes.statusText}`);
         }
@@ -141,7 +145,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
                 const locId = pod.location?.id;
                 if (!locId || locationDetails.has(locId)) return;
                 try {
-                    const locRes = await fetch(`${BASE_URL}/api/locations/${locId}`);
+                    const locRes = await this.fetchFn(`${BASE_URL}/api/locations/${locId}`);
                     if (locRes.ok) {
                         const locData = await locRes.json() as LocationDetails;
                         locationDetails.set(locId, locData);
@@ -181,7 +185,7 @@ export default class SeattleFoodTruckRipper implements IRipper {
         let page = 1;
         let stopFetching = false;
         while (!stopFetching) {
-            const res = await fetch(`${BASE_URL}/api/events?page=${page}`);
+            const res = await this.fetchFn(`${BASE_URL}/api/events?page=${page}`);
             if (!res.ok) {
                 throw new Error(`Failed to fetch events page ${page}: ${res.status} ${res.statusText}`);
             }

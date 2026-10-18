@@ -3,6 +3,14 @@ sourceRole: venue
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
+# 2026-09-12: seattlefoodtruck.com now fronts every /api/* request with a
+# Cloudflare JS challenge ("Just a moment..." interstitial), so even a plain
+# residential fetch 403s — this is the JS-challenge case that should escalate
+# straight to browserbase (see docs/proxy-verification.md). Staged at the
+# outofband entry point per the proxy ladder; leave the escalation decision to
+# skills/proxy-escalation/SKILL.md (out-of-band run) rather than hand-picking
+# browserbase here.
+proxy: "outofband"
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
 cost: free
 # Each event is a generic "Food Trucks @ <pod>" slot with no per-event image;

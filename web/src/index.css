@@ -4080,7 +4080,12 @@ html, body, #root { height: 100%; }
   overflow: hidden;
 }
 .app206 .a-rail { grid-area: rail; display: none; }
-.app206 .a-top { grid-area: top; }
+/* Standalone PWA (added to Home Screen) draws the black-translucent status bar
+   over the page content (see the apple-mobile-web-app-status-bar-style meta in
+   index.html), so on notched/Dynamic-Island phones the top bar renders behind
+   it and its buttons are unreachable until the page is scrolled — issue #1536.
+   env() resolves to 0 in a normal browser tab, so this is a no-op there. */
+.app206 .a-top { grid-area: top; padding-top: env(safe-area-inset-top); }
 .app206 .a-content { grid-area: content; overflow-y: auto; overflow-x: hidden; position: relative; }
 /* Keep-alive container for the mobile Map tab: shares the content grid cell
    and swaps visibility with .a-content instead of unmounting, so a return
